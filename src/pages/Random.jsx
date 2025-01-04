@@ -5,6 +5,7 @@ function Random() {
   const [showTranslation, setShowTranslation] = useState(false);
   const [isEnglish, setIsEnglish] = useState(true);
   const [words, setWords] = useState([]);
+  const [languageChoice, setLanguageChoice] = useState("both"); // "english", "uzbek", "both"
 
   // Sahifa yuklanganda localStorage'dan so'zlarni olish
   useEffect(() => {
@@ -20,13 +21,35 @@ function Random() {
       const randomIndex = Math.floor(Math.random() * words.length); // Tasodifiy indeks tanlash
       setIndex(randomIndex);
       setShowTranslation(false);
-      setIsEnglish(Math.random() > 0.5);
+
+      // Foydalanuvchi tilni tanlashi bo'yicha ishlash
+      if (languageChoice === "english") {
+        setIsEnglish(true);
+      } else if (languageChoice === "uzbek") {
+        setIsEnglish(false);
+      } else {
+        setIsEnglish(Math.random() > 0.5); // Tasodifiy inglizcha yoki o‘zbekcha
+      }
     }
   };
 
   return (
     <div className="max-w-xl w-full p-6 bg-white shadow-lg rounded-lg text-center">
       <h1 className="text-2xl font-bold mb-6">So‘zlarni Yodlash</h1>
+
+      {/* Til tanlash */}
+      <div className="mb-6">
+        <label className="mr-4">Tilni tanlang:</label>
+        <select
+          value={languageChoice}
+          onChange={(e) => setLanguageChoice(e.target.value)}
+          className="p-2 rounded border"
+        >
+          <option value="both">Aralash (Inglizcha va O‘zbekcha)</option>
+          <option value="english">Inglizcha</option>
+          <option value="uzbek">O‘zbekcha</option>
+        </select>
+      </div>
 
       {/* Lugat bo'sh bo'lsa, "Lugat bosh" ko'rsatiladi */}
       {words.length === 0 ? (
