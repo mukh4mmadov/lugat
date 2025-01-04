@@ -15,9 +15,10 @@ function Random() {
   }, []);
 
   const handleNext = () => {
-    // Keyingi so'zni ko'rsatish
+    // Tasodifiy so'zni ko'rsatish
     if (words.length > 0) {
-      setIndex((prev) => (prev + 1) % words.length);
+      const randomIndex = Math.floor(Math.random() * words.length); // Tasodifiy indeks tanlash
+      setIndex(randomIndex);
       setShowTranslation(false);
       setIsEnglish(Math.random() > 0.5);
     }
