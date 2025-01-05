@@ -5,9 +5,9 @@ function Random() {
   const [showTranslation, setShowTranslation] = useState(false);
   const [isEnglish, setIsEnglish] = useState(true);
   const [words, setWords] = useState([]);
-  const [languageChoice, setLanguageChoice] = useState("both"); // "english", "uzbek", "both"
+  const [languageChoice, setLanguageChoice] = useState("both");
 
-  // Sahifa yuklanganda localStorage'dan so'zlarni olish
+
   useEffect(() => {
     const storedWords = JSON.parse(localStorage.getItem("words"));
     if (storedWords) {
@@ -16,19 +16,19 @@ function Random() {
   }, []);
 
   const handleNext = () => {
-    // Tasodifiy so'zni ko'rsatish
+
     if (words.length > 0) {
-      const randomIndex = Math.floor(Math.random() * words.length); // Tasodifiy indeks tanlash
+      const randomIndex = Math.floor(Math.random() * words.length);
       setIndex(randomIndex);
       setShowTranslation(false);
 
-      // Foydalanuvchi tilni tanlashi bo'yicha ishlash
+     
       if (languageChoice === "english") {
         setIsEnglish(true);
       } else if (languageChoice === "uzbek") {
         setIsEnglish(false);
       } else {
-        setIsEnglish(Math.random() > 0.5); // Tasodifiy inglizcha yoki o‘zbekcha
+        setIsEnglish(Math.random() > 0.5); 
       }
     }
   };
@@ -37,7 +37,7 @@ function Random() {
     <div className="max-w-xl w-full p-6 bg-white shadow-lg rounded-lg text-center">
       <h1 className="text-2xl font-bold mb-6">So‘zlarni Yodlash</h1>
 
-      {/* Til tanlash */}
+      
       <div className="mb-6">
         <label className="mr-4">Tilni tanlang:</label>
         <select
@@ -51,7 +51,7 @@ function Random() {
         </select>
       </div>
 
-      {/* Lugat bo'sh bo'lsa, "Lugat bosh" ko'rsatiladi */}
+
       {words.length === 0 ? (
         <div className="text-xl text-red-500">Lugat bosh</div>
       ) : (

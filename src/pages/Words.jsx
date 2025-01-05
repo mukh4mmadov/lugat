@@ -5,7 +5,7 @@ function Words() {
   const [uzbek, setUzbek] = useState("");
   const [words, setWords] = useState([]);
 
-  // Sahifa yuklanganda oldingi so'zlarni olish
+
   useEffect(() => {
     const storedWords = JSON.parse(localStorage.getItem("words"));
     if (storedWords) {
@@ -13,7 +13,7 @@ function Words() {
     }
   }, []);
 
-  // So'z qo'shilganda localStorage'ga saqlash
+
   useEffect(() => {
     if (words.length > 0) {
       localStorage.setItem("words", JSON.stringify(words));
