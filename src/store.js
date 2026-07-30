@@ -92,8 +92,13 @@ const progressSlice = createSlice({
     addActivity(state, action) {
       state.stats.activity = [action.payload, ...state.stats.activity].slice(0, 12);
     },
-    resetProgress() {
-      return { ...defaultState, theme: savedState?.theme || "dark" };
+    resetProgress(state) {
+      return {
+        ...defaultState,
+        stats: { ...defaultState.stats },
+        settings: { ...defaultState.settings },
+        theme: state.theme,
+      };
     },
   },
 });

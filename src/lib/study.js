@@ -25,8 +25,11 @@ export function buildStudyDeck(words, progressByWord = {}) {
   return [...base, ...shuffle(weightedReview)];
 }
 
+export function pickRandomCardMode() {
+  return Math.random() > 0.5 ? "korean" : "uzbek";
+}
+
 export function getPrompt(word, mode) {
-  if (mode === "random") return Math.random() > 0.5 ? word.korean : word.uzbek;
   return mode === "uzbek" ? word.uzbek : word.korean;
 }
 

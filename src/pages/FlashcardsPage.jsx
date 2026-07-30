@@ -6,7 +6,7 @@ import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { allWords, getLessonWords, getWordKey } from "../data";
 import { addActivity, advanceDeck, markDifficult, markKnown, setLessonDeck, toggleFavorite } from "../store";
-import { buildStudyDeck, cardModes, getAnswer, getPrompt, makeHint } from "../lib/study";
+import { buildStudyDeck, cardModes, getAnswer, getPrompt, makeHint, pickRandomCardMode } from "../lib/study";
 import { speakKorean } from "../lib/speech";
 
 export default function FlashcardsPage({ review = false }) {
@@ -15,6 +15,7 @@ export default function FlashcardsPage({ review = false }) {
   const [mode, setMode] = useState("random");
   const [flipped, setFlipped] = useState(false);
   const [hint, setHint] = useState("");
+  const [randomPromptMode, setRandomPromptMode] = useState(() => pickRandomCardMode());
   const progress = useSelector((state) => state.progress);
   const lesson = Number(lessonId);
   const sourceWords = review
@@ -35,14 +36,18 @@ export default function FlashcardsPage({ review = false }) {
   const queue = savedDeck?.queue || [];
   const cursor = Math.min(savedDeck?.cursor || 0, Math.max(0, queue.length - 1));
   const word = wordsByKey[queue[cursor]] || sourceWords[0];
-  const prompt = word ? getPrompt(word, mode) : "";
-  const answer = word ? getAnswer(word, prompt, mode) : "";
+  const activeMode = mode === "random" ? randomPromptMode : mode;
+  const prompt = word ? getPrompt(word, activeMode) : "";
+  const answer = word ? getAnswer(word, prompt, activeMode) : "";
   const isFavorite = word ? progress.favorites[getWordKey(word)] : false;
   const percent = queue.length ? Math.round(((cursor + 1) / queue.length) * 100) : 0;
 
   useEffect(() => {
     setFlipped(false);
     setHint("");
+    if (mode === "random") {
+      setRandomPromptMode(pickRandomCardMode());
+    }
   }, [cursor, mode, deckKey]);
 
   if (!sourceWords.length) {
@@ -103,10 +108,17 @@ export default function FlashcardsPage({ review = false }) {
 
         <div className="mx-auto max-w-3xl [perspective:1400px]">
           <AnimatePresence mode="wait">
-            <motion.button
+            <motion.div
               key={`${getWordKey(word)}-${flipped}-${prompt}`}
-              type="button"
+              role="button"
+              tabIndex={0}
               onClick={() => setFlipped((value) => !value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setFlipped((value) => !value);
+                }
+              }}
               initial={{ opacity: 0, rotateY: -24 }}
               animate={{ opacity: 1, rotateY: flipped ? 180 : 0 }}
               exit={{ opacity: 0, rotateY: 24 }}
@@ -116,7 +128,7 @@ export default function FlashcardsPage({ review = false }) {
               <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(168,85,247,.18),transparent_35%)]" />
               <div className="relative flex min-h-[300px] flex-col justify-between [backface-visibility:hidden]">
                 <div className="flex items-center justify-between">
-                  <WordBadge>{mode === "uzbek" ? "Uzbek" : prompt === word.korean ? "Korean" : "Uzbek"}</WordBadge>
+                  <WordBadge>{activeMode === "uzbek" ? "Uzbek" : "Korean"}</WordBadge>
                   <span className="text-sm font-bold text-slate-500 dark:text-slate-300">{cursor + 1}/{queue.length}</span>
                 </div>
                 <div>
@@ -141,7 +153,7 @@ export default function FlashcardsPage({ review = false }) {
                   <span>{word.needsReview ? "Needs review" : "Verified from image"}</span>
                 </div>
               </div>
-            </motion.button>
+            </motion.div>
           </AnimatePresence>
         </div>
 
