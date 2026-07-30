@@ -1,0 +1,86 @@
+[
+  {
+    "lesson": 1,
+    "title": "1-dars",
+    "category": "intro, countries and identity",
+    "count": 35
+  },
+  {
+    "lesson": 2,
+    "title": "2-dars",
+    "category": "classroom objects and people",
+    "count": 25
+  },
+  {
+    "lesson": 3,
+    "title": "3-dars",
+    "category": "daily actions",
+    "count": 27
+  },
+  {
+    "lesson": 4,
+    "title": "4-dars",
+    "category": "descriptions, weather and drinks",
+    "count": 32
+  },
+  {
+    "lesson": 5,
+    "title": "5-dars",
+    "category": "places and activities",
+    "count": 30
+  },
+  {
+    "lesson": 6,
+    "title": "6-dars",
+    "category": "locations, dates and numbers",
+    "count": 47
+  },
+  {
+    "lesson": 7,
+    "title": "7-dars",
+    "category": "native numbers, counters and family",
+    "count": 34
+  },
+  {
+    "lesson": 8,
+    "title": "8-dars",
+    "category": "time, places and daily life",
+    "count": 40
+  },
+  {
+    "lesson": 9,
+    "title": "9-dars",
+    "category": "actions, health and family",
+    "count": 30
+  },
+  {
+    "lesson": 10,
+    "title": "10-dars",
+    "category": "seasons, weather and irregular verbs",
+    "count": 36
+  },
+  {
+    "lesson": 11,
+    "title": "11-dars",
+    "category": "descriptions, transport and family",
+    "count": 31
+  },
+  {
+    "lesson": 12,
+    "title": "12-dars",
+    "category": "entertainment and daily actions",
+    "count": 29
+  },
+  {
+    "lesson": 13,
+    "title": "13-dars",
+    "category": "culture, home and communication",
+    "count": 26
+  },
+  {
+    "lesson": 14,
+    "title": "14-dars",
+    "category": "hobbies, language and expressions",
+    "count": 30
+  }
+]
