@@ -1,31 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Words from "./pages/Words";
-import Random from "./pages/Random";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import FlashcardsPage from "./pages/FlashcardsPage";
+import { ListeningPage, QuizPage, WritingPage } from "./pages/PracticePages";
+import { DifficultPage, FavoritesPage, SearchPage, SettingsPage, StatsPage } from "./pages/LibraryPages";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center">
-      <header className="w-full bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
-        <h1 className="text-2xl font-bold">Lugat</h1>
-        <nav className="flex gap-4">
-          <Link to="/" className="hover:underline">
-            So‘zlar
-          </Link>
-          <Link to="/quiz" className="hover:underline">
-            Quiz
-          </Link>
-        </nav>
-      </header>
-
-      <div className="flex-1 w-full flex items-center justify-center p-4">
-        <Routes>
-          <Route path="/" element={<Words />} />
-          <Route path="/quiz" element={<Random />} />
-        </Routes>
-      </div>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="lesson/:lessonId" element={<Navigate to="flashcards" replace />} />
+        <Route path="lesson/:lessonId/flashcards" element={<FlashcardsPage />} />
+        <Route path="lesson/:lessonId/listening" element={<ListeningPage />} />
+        <Route path="lesson/:lessonId/quiz" element={<QuizPage />} />
+        <Route path="lesson/:lessonId/writing" element={<WritingPage />} />
+        <Route path="review" element={<FlashcardsPage review />} />
+        <Route path="search" element={<SearchPage />} />
+        <Route path="favorites" element={<FavoritesPage />} />
+        <Route path="difficult" element={<DifficultPage />} />
+        <Route path="stats" element={<StatsPage />} />
+        <Route path="settings" element={<SettingsPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;
