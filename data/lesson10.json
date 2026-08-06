@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 290,
     "korean": "사계절",
     "uzbek": "To'rt fasl",
     "romanization": "sagyejeol",
@@ -11,7 +11,7 @@
     "sourceNumber": 290
   },
   {
-    "id": 2,
+    "id": 291,
     "korean": "봄",
     "uzbek": "Bahor",
     "romanization": "bom",
@@ -22,7 +22,7 @@
     "sourceNumber": 291
   },
   {
-    "id": 3,
+    "id": 292,
     "korean": "여름",
     "uzbek": "Yoz",
     "romanization": "yeoreum",
@@ -33,7 +33,7 @@
     "sourceNumber": 292
   },
   {
-    "id": 4,
+    "id": 293,
     "korean": "가을",
     "uzbek": "Kuz",
     "romanization": "gaeul",
@@ -44,7 +44,7 @@
     "sourceNumber": 293
   },
   {
-    "id": 5,
+    "id": 294,
     "korean": "겨울",
     "uzbek": "Qish",
     "romanization": "gyeoul",
@@ -55,7 +55,7 @@
     "sourceNumber": 294
   },
   {
-    "id": 6,
+    "id": 295,
     "korean": "춥다",
     "uzbek": "Sovuq bo'lmoq",
     "romanization": "chupda",
@@ -66,9 +66,9 @@
     "sourceNumber": 295
   },
   {
-    "id": 7,
+    "id": 296,
     "korean": "맵다",
-    "uzbek": "Achchiq bo'lmoq (qalampirdek)",
+    "uzbek": "Achechiq bo'lmoq (qalampirdek)",
     "romanization": "maepda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -77,7 +77,7 @@
     "sourceNumber": 296
   },
   {
-    "id": 8,
+    "id": 297,
     "korean": "돕다",
     "uzbek": "Yordam bermoq",
     "romanization": "dopda",
@@ -88,7 +88,7 @@
     "sourceNumber": 297
   },
   {
-    "id": 9,
+    "id": 298,
     "korean": "무겁다",
     "uzbek": "Og'ir bo'lmoq",
     "romanization": "mugeopda",
@@ -99,7 +99,7 @@
     "sourceNumber": 298
   },
   {
-    "id": 10,
+    "id": 299,
     "korean": "가볍다",
     "uzbek": "Yengil bo'lmoq",
     "romanization": "gabyeopda",
@@ -110,7 +110,7 @@
     "sourceNumber": 299
   },
   {
-    "id": 11,
+    "id": 300,
     "korean": "덥다",
     "uzbek": "Issiq bo'lmoq (havo)",
     "romanization": "deopda",
@@ -121,9 +121,9 @@
     "sourceNumber": 300
   },
   {
-    "id": 12,
+    "id": 301,
     "korean": "더럽다",
-    "uzbek": "Kir / Iflos bo'lmoq",
+    "uzbek": "Kir / Iplos bo'lmoq",
     "romanization": "deoreopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -132,7 +132,7 @@
     "sourceNumber": 301
   },
   {
-    "id": 13,
+    "id": 302,
     "korean": "쉽다",
     "uzbek": "Oson bo'lmoq",
     "romanization": "swipda",
@@ -143,7 +143,7 @@
     "sourceNumber": 302
   },
   {
-    "id": 14,
+    "id": 303,
     "korean": "어렵다",
     "uzbek": "Qiyin bo'lmoq",
     "romanization": "eoryeopda",
@@ -154,7 +154,7 @@
     "sourceNumber": 303
   },
   {
-    "id": 15,
+    "id": 304,
     "korean": "아름답다",
     "uzbek": "Go'zal / Chiroyli bo'lmoq (tabiatga nisbatan)",
     "romanization": "areumdapda",
@@ -165,7 +165,7 @@
     "sourceNumber": 304
   },
   {
-    "id": 16,
+    "id": 305,
     "korean": "가깝다",
     "uzbek": "Yaqin bo'lmoq",
     "romanization": "gakkapda",
@@ -176,7 +176,7 @@
     "sourceNumber": 305
   },
   {
-    "id": 17,
+    "id": 306,
     "korean": "좁다",
     "uzbek": "Tor bo'lmoq",
     "romanization": "jopda",
@@ -187,7 +187,7 @@
     "sourceNumber": 306
   },
   {
-    "id": 18,
+    "id": 307,
     "korean": "입다",
     "uzbek": "Kiymoq",
     "romanization": "ipda",
@@ -198,10 +198,10 @@
     "sourceNumber": 307
   },
   {
-    "id": 19,
+    "id": 308,
     "korean": "잡다",
     "uzbek": "Ushlamoq / Tutmoq",
-    "romanization": "japda",
+    "romanization": "jabda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -209,7 +209,7 @@
     "sourceNumber": 308
   },
   {
-    "id": 20,
+    "id": 309,
     "korean": "씹다",
     "uzbek": "Chaynamoq",
     "romanization": "ssipda",
@@ -220,10 +220,10 @@
     "sourceNumber": 309
   },
   {
-    "id": 21,
+    "id": 310,
     "korean": "넓다",
     "uzbek": "Keng bo'lmoq",
-    "romanization": "neopda",
+    "romanization": "neolda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -231,20 +231,20 @@
     "sourceNumber": 310
   },
   {
-    "id": 22,
+    "id": 311,
     "korean": "업다",
-    "uzbek": "Yelkasiga ortmoq, opchimoq",
+    "uzbek": "yelkasiga ortmoq,opchimoq",
     "romanization": "eopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
-    "needsReview": true,
+    "needsReview": false,
     "sourceNumber": 311
   },
   {
-    "id": 23,
+    "id": 312,
     "korean": "접다",
-    "uzbek": "Buklamoq, taxlamoq",
+    "uzbek": "buklamoq,taxlamoq",
     "romanization": "jeopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -253,7 +253,7 @@
     "sourceNumber": 312
   },
   {
-    "id": 24,
+    "id": 313,
     "korean": "집다",
     "uzbek": "(Barmoq bilan) ushlamoq / ko'tarmoq / qismoq",
     "romanization": "jipda",
@@ -264,7 +264,7 @@
     "sourceNumber": 313
   },
   {
-    "id": 25,
+    "id": 314,
     "korean": "경치",
     "uzbek": "Manzara",
     "romanization": "gyeongchi",
@@ -275,7 +275,7 @@
     "sourceNumber": 314
   },
   {
-    "id": 26,
+    "id": 315,
     "korean": "나무",
     "uzbek": "Daraxt / Daraxt yog'ochi",
     "romanization": "namu",
@@ -286,7 +286,7 @@
     "sourceNumber": 315
   },
   {
-    "id": 27,
+    "id": 316,
     "korean": "김치",
     "uzbek": "Kimchi",
     "romanization": "gimchi",
@@ -297,7 +297,7 @@
     "sourceNumber": 316
   },
   {
-    "id": 28,
+    "id": 317,
     "korean": "사과",
     "uzbek": "Olma",
     "romanization": "sagwa",
@@ -308,7 +308,7 @@
     "sourceNumber": 317
   },
   {
-    "id": 29,
+    "id": 318,
     "korean": "휴게실",
     "uzbek": "Dam olish xonasi",
     "romanization": "hyugesil",
@@ -319,10 +319,10 @@
     "sourceNumber": 318
   },
   {
-    "id": 30,
+    "id": 319,
     "korean": "껌",
     "uzbek": "Saqich",
-    "romanization": "kkeom",
+    "romanization": "kkom",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -330,7 +330,7 @@
     "sourceNumber": 319
   },
   {
-    "id": 31,
+    "id": 320,
     "korean": "따뜻하다",
     "uzbek": "Iliq / Issiqroq bo'lmoq",
     "romanization": "ttatteuthada",
@@ -341,7 +341,7 @@
     "sourceNumber": 320
   },
   {
-    "id": 32,
+    "id": 321,
     "korean": "비가 오다",
     "uzbek": "Yomg'ir yog'moq",
     "romanization": "biga oda",
@@ -352,7 +352,7 @@
     "sourceNumber": 321
   },
   {
-    "id": 33,
+    "id": 322,
     "korean": "눈이 오다",
     "uzbek": "Qor yog'moq",
     "romanization": "nuni oda",
@@ -363,10 +363,10 @@
     "sourceNumber": 322
   },
   {
-    "id": 34,
+    "id": 323,
     "korean": "바람이 불다",
     "uzbek": "Shamol esmoq",
-    "romanization": "barami bulda",
+    "romanization": "barami bureuda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -374,10 +374,10 @@
     "sourceNumber": 323
   },
   {
-    "id": 35,
+    "id": 324,
     "korean": "맑다",
     "uzbek": "Musaffo / Ochiq bo'lmoq (havo)",
-    "romanization": "makda",
+    "romanization": "malda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -385,7 +385,7 @@
     "sourceNumber": 324
   },
   {
-    "id": 36,
+    "id": 325,
     "korean": "흐리다",
     "uzbek": "Bulutli",
     "romanization": "heurida",

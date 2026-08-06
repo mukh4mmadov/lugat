@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 109,
     "korean": "기타를 치다",
     "uzbek": "Gitara chalmoq",
     "romanization": "gitareul chida",
@@ -11,7 +11,7 @@
     "sourceNumber": 109
   },
   {
-    "id": 2,
+    "id": 110,
     "korean": "돈을 바꾸다",
     "uzbek": "Pul almashtirmoq",
     "romanization": "doneul bakkuda",
@@ -22,7 +22,7 @@
     "sourceNumber": 110
   },
   {
-    "id": 3,
+    "id": 111,
     "korean": "편지를 보내다",
     "uzbek": "Xat yubormoq / jo'natmoq",
     "romanization": "pyeonjireul bonaeda",
@@ -33,7 +33,7 @@
     "sourceNumber": 111
   },
   {
-    "id": 4,
+    "id": 112,
     "korean": "테니스를 치다",
     "uzbek": "Tennis o'ynamoq",
     "romanization": "teniseureul chida",
@@ -44,7 +44,7 @@
     "sourceNumber": 112
   },
   {
-    "id": 5,
+    "id": 113,
     "korean": "돈을 보내다",
     "uzbek": "Pul jo'natmoq (o'tkazmoq)",
     "romanization": "doneul bonaeda",
@@ -55,7 +55,7 @@
     "sourceNumber": 113
   },
   {
-    "id": 6,
+    "id": 114,
     "korean": "은행",
     "uzbek": "Bank",
     "romanization": "eunhaeng",
@@ -66,7 +66,7 @@
     "sourceNumber": 114
   },
   {
-    "id": 7,
+    "id": 115,
     "korean": "우체국",
     "uzbek": "Pochtaxona",
     "romanization": "ucheguk",
@@ -77,7 +77,7 @@
     "sourceNumber": 115
   },
   {
-    "id": 8,
+    "id": 116,
     "korean": "학교",
     "uzbek": "Maktab",
     "romanization": "hakgyo",
@@ -88,7 +88,7 @@
     "sourceNumber": 116
   },
   {
-    "id": 9,
+    "id": 117,
     "korean": "테니스장",
     "uzbek": "Tennis korti",
     "romanization": "teniseujang",
@@ -99,7 +99,7 @@
     "sourceNumber": 117
   },
   {
-    "id": 10,
+    "id": 118,
     "korean": "헬스장",
     "uzbek": "Trenajyor (fitnes) zali",
     "romanization": "helseujang",
@@ -110,7 +110,7 @@
     "sourceNumber": 118
   },
   {
-    "id": 11,
+    "id": 119,
     "korean": "수영장",
     "uzbek": "Suzish havzasi (Basseyn)",
     "romanization": "suyeongjang",
@@ -121,7 +121,7 @@
     "sourceNumber": 119
   },
   {
-    "id": 12,
+    "id": 120,
     "korean": "공원",
     "uzbek": "Istirohat bog'i (Park)",
     "romanization": "gongwon",
@@ -132,7 +132,7 @@
     "sourceNumber": 120
   },
   {
-    "id": 13,
+    "id": 121,
     "korean": "집",
     "uzbek": "Uy",
     "romanization": "jip",
@@ -143,7 +143,7 @@
     "sourceNumber": 121
   },
   {
-    "id": 14,
+    "id": 122,
     "korean": "자전거",
     "uzbek": "Velosiped",
     "romanization": "jajeongeo",
@@ -154,7 +154,7 @@
     "sourceNumber": 122
   },
   {
-    "id": 15,
+    "id": 123,
     "korean": "도서관",
     "uzbek": "Kutubxona",
     "romanization": "doseogwan",
@@ -165,7 +165,7 @@
     "sourceNumber": 123
   },
   {
-    "id": 16,
+    "id": 124,
     "korean": "식당",
     "uzbek": "Oshxona / Restoran",
     "romanization": "sikdang",
@@ -176,7 +176,7 @@
     "sourceNumber": 124
   },
   {
-    "id": 17,
+    "id": 125,
     "korean": "시장",
     "uzbek": "Bozor",
     "romanization": "sijang",
@@ -187,7 +187,7 @@
     "sourceNumber": 125
   },
   {
-    "id": 18,
+    "id": 126,
     "korean": "어디",
     "uzbek": "Qayer",
     "romanization": "eodi",
@@ -198,7 +198,7 @@
     "sourceNumber": 126
   },
   {
-    "id": 19,
+    "id": 127,
     "korean": "미안하다",
     "uzbek": "Kechirim so'ramoq (Kechir)",
     "romanization": "mianhada",
@@ -209,7 +209,7 @@
     "sourceNumber": 127
   },
   {
-    "id": 20,
+    "id": 128,
     "korean": "죄송하다",
     "uzbek": "Kechirim so'ramoq (Kechirasiz - hurmat shakli)",
     "romanization": "joesonghada",
@@ -220,7 +220,7 @@
     "sourceNumber": 128
   },
   {
-    "id": 21,
+    "id": 129,
     "korean": "컴퓨터 게임을 하다",
     "uzbek": "Kompyuter o'yini o'ynamoq",
     "romanization": "keompyuteo geimeul hada",
@@ -231,7 +231,7 @@
     "sourceNumber": 129
   },
   {
-    "id": 22,
+    "id": 130,
     "korean": "산책하다",
     "uzbek": "Sayr qilmoq / Aylanmoq",
     "romanization": "sanchaekhada",
@@ -242,7 +242,7 @@
     "sourceNumber": 130
   },
   {
-    "id": 23,
+    "id": 131,
     "korean": "대사관",
     "uzbek": "Elchixona",
     "romanization": "daesagwan",
@@ -253,7 +253,7 @@
     "sourceNumber": 131
   },
   {
-    "id": 24,
+    "id": 132,
     "korean": "교실",
     "uzbek": "Sinf xonasi",
     "romanization": "gyosil",
@@ -264,7 +264,7 @@
     "sourceNumber": 132
   },
   {
-    "id": 25,
+    "id": 133,
     "korean": "영화관",
     "uzbek": "Kinoteatr",
     "romanization": "yeonghwagwan",
@@ -275,7 +275,7 @@
     "sourceNumber": 133
   },
   {
-    "id": 26,
+    "id": 134,
     "korean": "문구점",
     "uzbek": "Kanselyariya do'koni",
     "romanization": "mungujeom",
@@ -286,10 +286,10 @@
     "sourceNumber": 134
   },
   {
-    "id": 27,
+    "id": 135,
     "korean": "서점",
     "uzbek": "Kitob do'koni",
-    "romanization": "seojeom",
+    "romanization": "sejeom",
     "lesson": 5,
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
@@ -297,7 +297,7 @@
     "sourceNumber": 135
   },
   {
-    "id": 28,
+    "id": 136,
     "korean": "백화점",
     "uzbek": "Universal do'kon (Savdo markazi)",
     "romanization": "baekhwajeom",
@@ -308,7 +308,7 @@
     "sourceNumber": 136
   },
   {
-    "id": 29,
+    "id": 137,
     "korean": "회사",
     "uzbek": "Firma / Kompaniya / Korxona",
     "romanization": "hoesa",
@@ -319,10 +319,10 @@
     "sourceNumber": 137
   },
   {
-    "id": 30,
+    "id": 138,
     "korean": "약국",
     "uzbek": "Dorixona",
-    "romanization": "yakguk",
+    "romanization": "yakkuk",
     "lesson": 5,
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",

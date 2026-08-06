@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 186,
     "korean": "하나",
     "uzbek": "Bir (sof koreyscha)",
     "romanization": "hana",
@@ -11,7 +11,7 @@
     "sourceNumber": 186
   },
   {
-    "id": 2,
+    "id": 187,
     "korean": "둘",
     "uzbek": "Ikki",
     "romanization": "dul",
@@ -22,7 +22,7 @@
     "sourceNumber": 187
   },
   {
-    "id": 3,
+    "id": 188,
     "korean": "셋",
     "uzbek": "Uch",
     "romanization": "set",
@@ -33,7 +33,7 @@
     "sourceNumber": 188
   },
   {
-    "id": 4,
+    "id": 189,
     "korean": "넷",
     "uzbek": "To'rt",
     "romanization": "net",
@@ -44,7 +44,7 @@
     "sourceNumber": 189
   },
   {
-    "id": 5,
+    "id": 190,
     "korean": "다섯",
     "uzbek": "Besh",
     "romanization": "daseot",
@@ -55,7 +55,7 @@
     "sourceNumber": 190
   },
   {
-    "id": 6,
+    "id": 191,
     "korean": "여섯",
     "uzbek": "Olti",
     "romanization": "yeoseot",
@@ -66,7 +66,7 @@
     "sourceNumber": 191
   },
   {
-    "id": 7,
+    "id": 192,
     "korean": "일곱",
     "uzbek": "Yetti",
     "romanization": "ilgop",
@@ -77,10 +77,10 @@
     "sourceNumber": 192
   },
   {
-    "id": 8,
+    "id": 193,
     "korean": "여덟",
     "uzbek": "Sakkiz",
-    "romanization": "yeodeop",
+    "romanization": "yeodeol",
     "lesson": 7,
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
@@ -88,7 +88,7 @@
     "sourceNumber": 193
   },
   {
-    "id": 9,
+    "id": 194,
     "korean": "아홉",
     "uzbek": "To'qqiz",
     "romanization": "ahop",
@@ -99,7 +99,7 @@
     "sourceNumber": 194
   },
   {
-    "id": 10,
+    "id": 195,
     "korean": "열",
     "uzbek": "O'n",
     "romanization": "yeol",
@@ -110,7 +110,7 @@
     "sourceNumber": 195
   },
   {
-    "id": 11,
+    "id": 196,
     "korean": "스물",
     "uzbek": "Yigirma",
     "romanization": "seumul",
@@ -121,7 +121,7 @@
     "sourceNumber": 196
   },
   {
-    "id": 12,
+    "id": 197,
     "korean": "서른",
     "uzbek": "O'ttiz",
     "romanization": "seoreun",
@@ -132,7 +132,7 @@
     "sourceNumber": 197
   },
   {
-    "id": 13,
+    "id": 198,
     "korean": "마흔",
     "uzbek": "Qirq",
     "romanization": "maheun",
@@ -143,8 +143,8 @@
     "sourceNumber": 198
   },
   {
-    "id": 14,
-    "korean": "쉰",
+    "id": 199,
+    "korean": "쉬",
     "uzbek": "Ellik",
     "romanization": "swin",
     "lesson": 7,
@@ -154,7 +154,7 @@
     "sourceNumber": 199
   },
   {
-    "id": 15,
+    "id": 200,
     "korean": "예순",
     "uzbek": "Oltmish",
     "romanization": "yesun",
@@ -165,7 +165,7 @@
     "sourceNumber": 200
   },
   {
-    "id": 16,
+    "id": 201,
     "korean": "일흔",
     "uzbek": "Yetmish",
     "romanization": "ilheun",
@@ -176,7 +176,7 @@
     "sourceNumber": 201
   },
   {
-    "id": 17,
+    "id": 202,
     "korean": "여든",
     "uzbek": "Sakson",
     "romanization": "yeodeun",
@@ -187,7 +187,7 @@
     "sourceNumber": 202
   },
   {
-    "id": 18,
+    "id": 203,
     "korean": "아흔",
     "uzbek": "To'qson",
     "romanization": "aheun",
@@ -198,7 +198,7 @@
     "sourceNumber": 203
   },
   {
-    "id": 19,
+    "id": 204,
     "korean": "가족",
     "uzbek": "Oila",
     "romanization": "gajok",
@@ -209,7 +209,7 @@
     "sourceNumber": 204
   },
   {
-    "id": 20,
+    "id": 205,
     "korean": "명",
     "uzbek": "Nafr (odamlar uchun sanoq birligi)",
     "romanization": "myeong",
@@ -220,7 +220,7 @@
     "sourceNumber": 205
   },
   {
-    "id": 21,
+    "id": 206,
     "korean": "개",
     "uzbek": "Dona (buyumlar uchun sanoq birligi)",
     "romanization": "gae",
@@ -231,7 +231,7 @@
     "sourceNumber": 206
   },
   {
-    "id": 22,
+    "id": 207,
     "korean": "병",
     "uzbek": "Shisha (sanoq birligi)",
     "romanization": "byeong",
@@ -242,7 +242,7 @@
     "sourceNumber": 207
   },
   {
-    "id": 23,
+    "id": 208,
     "korean": "그릇",
     "uzbek": "Kosa / Idish (sanoq birligi)",
     "romanization": "geureut",
@@ -253,7 +253,7 @@
     "sourceNumber": 208
   },
   {
-    "id": 24,
+    "id": 209,
     "korean": "잔",
     "uzbek": "Finjon / Piyola / Stakan (sanoq birligi)",
     "romanization": "jan",
@@ -264,7 +264,7 @@
     "sourceNumber": 209
   },
   {
-    "id": 25,
+    "id": 210,
     "korean": "분",
     "uzbek": "Kishi (odamlar uchun hurmat sanoq birligi)",
     "romanization": "bun",
@@ -275,7 +275,7 @@
     "sourceNumber": 210
   },
   {
-    "id": 26,
+    "id": 211,
     "korean": "살",
     "uzbek": "Yosh (yosh uchun sanoq birligi)",
     "romanization": "sal",
@@ -286,7 +286,7 @@
     "sourceNumber": 211
   },
   {
-    "id": 27,
+    "id": 212,
     "korean": "권",
     "uzbek": "Jild / Nusxa (kitoblar uchun sanoq birligi)",
     "romanization": "gwon",
@@ -297,7 +297,7 @@
     "sourceNumber": 212
   },
   {
-    "id": 28,
+    "id": 213,
     "korean": "마리",
     "uzbek": "Bosh / Dona (hayvonlar uchun sanoq birligi)",
     "romanization": "mari",
@@ -308,7 +308,7 @@
     "sourceNumber": 213
   },
   {
-    "id": 29,
+    "id": 214,
     "korean": "고양이",
     "uzbek": "Mushuk",
     "romanization": "goyangi",
@@ -319,7 +319,7 @@
     "sourceNumber": 214
   },
   {
-    "id": 30,
+    "id": 215,
     "korean": "강아지",
     "uzbek": "Kuchukcha",
     "romanization": "gangaji",
@@ -330,7 +330,7 @@
     "sourceNumber": 215
   },
   {
-    "id": 31,
+    "id": 216,
     "korean": "주세요",
     "uzbek": "Bering / Iltimos bering",
     "romanization": "juseyo",
@@ -341,7 +341,7 @@
     "sourceNumber": 216
   },
   {
-    "id": 32,
+    "id": 217,
     "korean": "이번주",
     "uzbek": "Shu hafta (Bu hafta)",
     "romanization": "ibeonju",
@@ -352,7 +352,7 @@
     "sourceNumber": 217
   },
   {
-    "id": 33,
+    "id": 218,
     "korean": "다음주",
     "uzbek": "Kelgusi hafta (Keyingi hafta)",
     "romanization": "daeumju",
@@ -363,7 +363,7 @@
     "sourceNumber": 218
   },
   {
-    "id": 34,
+    "id": 219,
     "korean": "달",
     "uzbek": "Oy",
     "romanization": "dal",
@@ -372,5 +372,137 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 219
+  },
+  {
+    "id": 220,
+    "korean": "올해",
+    "uzbek": "Bu yil",
+    "romanization": "olhae",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 220
+  },
+  {
+    "id": 221,
+    "korean": "내년",
+    "uzbek": "Kelgusi yil (Keyingi yil)",
+    "romanization": "naenyeon",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 221
+  },
+  {
+    "id": 222,
+    "korean": "이번달",
+    "uzbek": "Shu oy (Bu oy)",
+    "romanization": "ibeondal",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 222
+  },
+  {
+    "id": 223,
+    "korean": "다음달",
+    "uzbek": "Kelgusi oy (Keyingi oy)",
+    "romanization": "daeumdal",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 223
+  },
+  {
+    "id": 224,
+    "korean": "언제",
+    "uzbek": "Qachon",
+    "romanization": "eonje",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 224
+  },
+  {
+    "id": 225,
+    "korean": "빵집",
+    "uzbek": "Nonvoyxona / Shirinliklar do'koni",
+    "romanization": "ppangjip",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 225
+  },
+  {
+    "id": 226,
+    "korean": "서울타워",
+    "uzbek": "Seul minorasi (Seoul Tower)",
+    "romanization": "seoltaowo",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 226
+  },
+  {
+    "id": 227,
+    "korean": "축구장",
+    "uzbek": "Futbol maydoni",
+    "romanization": "chukgujang",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 227
+  },
+  {
+    "id": 228,
+    "korean": "야구장",
+    "uzbek": "Beysbol maydoni",
+    "romanization": "yagujang",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 228
+  },
+  {
+    "id": 229,
+    "korean": "편의점",
+    "uzbek": "Mini-market (24 soatlik do'kon)",
+    "romanization": "pyeonuijeom",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 229
+  },
+  {
+    "id": 230,
+    "korean": "축구를 하다",
+    "uzbek": "Futbol o'ynamoq",
+    "romanization": "chukgureul hada",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 230
+  },
+  {
+    "id": 231,
+    "korean": "야구를 하다",
+    "uzbek": "Beysbol o'ynamoq",
+    "romanization": "yagureul hada",
+    "lesson": 7,
+    "category": "native numbers, counters and family",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 231
   }
 ]

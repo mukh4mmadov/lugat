@@ -1,7 +1,7 @@
 export const cardModes = [
-  { value: "korean", label: "Korean → Uzbek" },
-  { value: "uzbek", label: "Uzbek → Korean" },
-  { value: "random", label: "Random" },
+  { value: "korean", label: "mode.korean" },
+  { value: "uzbek", label: "mode.uzbek" },
+  { value: "random", label: "mode.random" },
 ];
 
 export function shuffle(items) {

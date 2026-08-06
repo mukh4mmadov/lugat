@@ -1,138 +1,6 @@
 [
   {
-    "id": 1,
-    "korean": "올해",
-    "uzbek": "Bu yil",
-    "romanization": "olhae",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 220
-  },
-  {
-    "id": 2,
-    "korean": "내년",
-    "uzbek": "Kelgusi yil (Keyingi yil)",
-    "romanization": "naenyeon",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 221
-  },
-  {
-    "id": 3,
-    "korean": "이번달",
-    "uzbek": "Shu oy (Bu oy)",
-    "romanization": "ibeondal",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 222
-  },
-  {
-    "id": 4,
-    "korean": "다음달",
-    "uzbek": "Kelgusi oy (Keyingi oy)",
-    "romanization": "daeumdal",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 223
-  },
-  {
-    "id": 5,
-    "korean": "언제",
-    "uzbek": "Qachon",
-    "romanization": "eonje",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 224
-  },
-  {
-    "id": 6,
-    "korean": "빵집",
-    "uzbek": "Nonvoyxona / Shirinliklar do'koni",
-    "romanization": "ppangjip",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 225
-  },
-  {
-    "id": 7,
-    "korean": "서울타워",
-    "uzbek": "Seul minorasi (Seoul Tower)",
-    "romanization": "seoultawo",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 226
-  },
-  {
-    "id": 8,
-    "korean": "축구장",
-    "uzbek": "Futbol maydoni",
-    "romanization": "chukgujang",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 227
-  },
-  {
-    "id": 9,
-    "korean": "야구장",
-    "uzbek": "Beysbol maydoni",
-    "romanization": "yagujang",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 228
-  },
-  {
-    "id": 10,
-    "korean": "편의점",
-    "uzbek": "Mini-market (24 soatlik do'kon)",
-    "romanization": "pyeonuijeom",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 229
-  },
-  {
-    "id": 11,
-    "korean": "축구를 하다",
-    "uzbek": "Futbol o'ynamoq",
-    "romanization": "chukgureul hada",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 230
-  },
-  {
-    "id": 12,
-    "korean": "야구를 하다",
-    "uzbek": "Beysbol o'ynamoq",
-    "romanization": "yagureul hada",
-    "lesson": 8,
-    "category": "time, places and daily life",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": 231
-  },
-  {
-    "id": 13,
+    "id": 232,
     "korean": "어제",
     "uzbek": "Kecha",
     "romanization": "eoje",
@@ -143,7 +11,7 @@
     "sourceNumber": 232
   },
   {
-    "id": 14,
+    "id": 233,
     "korean": "지난 주",
     "uzbek": "O'tgan hafta",
     "romanization": "jinan ju",
@@ -154,7 +22,7 @@
     "sourceNumber": 233
   },
   {
-    "id": 15,
+    "id": 234,
     "korean": "지난 달",
     "uzbek": "O'tgan oy",
     "romanization": "jinan dal",
@@ -165,7 +33,7 @@
     "sourceNumber": 234
   },
   {
-    "id": 16,
+    "id": 235,
     "korean": "작년",
     "uzbek": "O'tgan yil",
     "romanization": "jaknyeon",
@@ -176,7 +44,7 @@
     "sourceNumber": 235
   },
   {
-    "id": 17,
+    "id": 236,
     "korean": "초대하다",
     "uzbek": "Taklif qilmoq",
     "romanization": "chodaehada",
@@ -187,7 +55,7 @@
     "sourceNumber": 236
   },
   {
-    "id": 18,
+    "id": 237,
     "korean": "준비하다",
     "uzbek": "Tayyorlanmoq",
     "romanization": "junbihada",
@@ -198,10 +66,10 @@
     "sourceNumber": 237
   },
   {
-    "id": 19,
-    "korean": "만들다",
+    "id": 238,
+    "korean": "만들기",
     "uzbek": "Tayyorlamoq",
-    "romanization": "mandeulda",
+    "romanization": "mandeulgi",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -209,7 +77,7 @@
     "sourceNumber": 238
   },
   {
-    "id": 20,
+    "id": 239,
     "korean": "파티",
     "uzbek": "Bazm",
     "romanization": "pati",
@@ -220,7 +88,7 @@
     "sourceNumber": 239
   },
   {
-    "id": 21,
+    "id": 240,
     "korean": "그래서",
     "uzbek": "Shuning uchun",
     "romanization": "geuraeseo",
@@ -231,7 +99,7 @@
     "sourceNumber": 240
   },
   {
-    "id": 22,
+    "id": 241,
     "korean": "피곤하다",
     "uzbek": "Charchamoq",
     "romanization": "pigonhada",
@@ -242,7 +110,7 @@
     "sourceNumber": 241
   },
   {
-    "id": 23,
+    "id": 242,
     "korean": "결혼하다",
     "uzbek": "Uylanmoq / Turmushga chiqmoq",
     "romanization": "gyeolhonhada",
@@ -253,10 +121,10 @@
     "sourceNumber": 242
   },
   {
-    "id": 24,
+    "id": 243,
     "korean": "빨래하다",
     "uzbek": "Kir yuvmoq",
-    "romanization": "ppalraehada",
+    "romanization": "ppallaehada",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -264,7 +132,7 @@
     "sourceNumber": 243
   },
   {
-    "id": 25,
+    "id": 244,
     "korean": "요리하다",
     "uzbek": "Ovqat pishirmoq",
     "romanization": "yorihada",
@@ -275,7 +143,7 @@
     "sourceNumber": 244
   },
   {
-    "id": 26,
+    "id": 245,
     "korean": "이사하다",
     "uzbek": "Ko'chmoq (uy ko'chirish)",
     "romanization": "isahada",
@@ -286,7 +154,7 @@
     "sourceNumber": 245
   },
   {
-    "id": 27,
+    "id": 246,
     "korean": "청소하다",
     "uzbek": "Tozalamoq / Yig'ishtirmoq",
     "romanization": "cheongsohada",
@@ -297,7 +165,7 @@
     "sourceNumber": 246
   },
   {
-    "id": 28,
+    "id": 247,
     "korean": "컴퓨터 게임을 하다",
     "uzbek": "Kompyuter o'yini o'ynamoq (Aslida 게임)",
     "romanization": "keompyuteo geimeul hada",
@@ -308,7 +176,7 @@
     "sourceNumber": 247
   },
   {
-    "id": 29,
+    "id": 248,
     "korean": "아파트",
     "uzbek": "Kvartira / Ko'p qavatli uy (Dom)",
     "romanization": "apateu",
@@ -319,7 +187,7 @@
     "sourceNumber": 248
   },
   {
-    "id": 30,
+    "id": 249,
     "korean": "음식",
     "uzbek": "Taom / Ovqat",
     "romanization": "eumsik",
@@ -330,7 +198,7 @@
     "sourceNumber": 249
   },
   {
-    "id": 31,
+    "id": 250,
     "korean": "학교를 졸업하다",
     "uzbek": "Maktabni/O'qishni bitirmoq",
     "romanization": "hakgyoreul joleophada",
@@ -341,7 +209,7 @@
     "sourceNumber": 250
   },
   {
-    "id": 32,
+    "id": 251,
     "korean": "전에",
     "uzbek": "Oldin / Avval",
     "romanization": "jeone",
@@ -352,10 +220,10 @@
     "sourceNumber": 251
   },
   {
-    "id": 33,
+    "id": 252,
     "korean": "일어나다",
     "uzbek": "Turmoq / Uyg'onmoq",
-    "romanization": "ileonada",
+    "romanization": "ireonada",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -363,7 +231,7 @@
     "sourceNumber": 252
   },
   {
-    "id": 34,
+    "id": 253,
     "korean": "아침을 먹다",
     "uzbek": "Nonushta qilmoq",
     "romanization": "achimeul meokda",
@@ -374,10 +242,10 @@
     "sourceNumber": 253
   },
   {
-    "id": 35,
+    "id": 254,
     "korean": "텔레비전",
     "uzbek": "Televizor",
-    "romanization": "telrebijeon",
+    "romanization": "tellebijeon",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -385,7 +253,7 @@
     "sourceNumber": 254
   },
   {
-    "id": 36,
+    "id": 255,
     "korean": "주말",
     "uzbek": "Dam olish kunlari (Hafta oxiri)",
     "romanization": "jumal",
@@ -396,7 +264,7 @@
     "sourceNumber": 255
   },
   {
-    "id": 37,
+    "id": 256,
     "korean": "커피숍",
     "uzbek": "Qahvaxona (Kofeshop)",
     "romanization": "keopisyop",
@@ -407,10 +275,10 @@
     "sourceNumber": 256
   },
   {
-    "id": 38,
+    "id": 257,
     "korean": "찻집",
     "uzbek": "Choyxona",
-    "romanization": "chatjip",
+    "romanization": "chajip",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -418,7 +286,7 @@
     "sourceNumber": 257
   },
   {
-    "id": 39,
+    "id": 258,
     "korean": "녹차",
     "uzbek": "Ko'k choy",
     "romanization": "nokcha",
@@ -429,7 +297,7 @@
     "sourceNumber": 258
   },
   {
-    "id": 40,
+    "id": 259,
     "korean": "너무",
     "uzbek": "Juda / Haddan tashqari",
     "romanization": "neomu",

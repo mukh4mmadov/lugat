@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 50,
     "korean": "여행을 하다",
     "uzbek": "Sayohat qilmoq",
     "romanization": "yeohaengeul hada",
@@ -11,10 +11,10 @@
     "sourceNumber": 50
   },
   {
-    "id": 2,
+    "id": 51,
     "korean": "쇼핑하다",
     "uzbek": "Bozorlik (xarid) qilmoq",
-    "romanization": "syopinghada",
+    "romanization": "shoppinghada",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -22,10 +22,10 @@
     "sourceNumber": 51
   },
   {
-    "id": 3,
+    "id": 52,
     "korean": "한국어를 배우다",
     "uzbek": "Koreys tilini o'rganmoq",
-    "romanization": "hangukeoreul baeuda",
+    "romanization": "hangugeoreul baeuda",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -33,7 +33,7 @@
     "sourceNumber": 52
   },
   {
-    "id": 4,
+    "id": 53,
     "korean": "이야기하다",
     "uzbek": "Suhbatlashmoq / Gaplashmoq",
     "romanization": "iyagihada",
@@ -44,7 +44,7 @@
     "sourceNumber": 53
   },
   {
-    "id": 5,
+    "id": 54,
     "korean": "운전하다",
     "uzbek": "Mashina haydamoq / Boshqarmoq",
     "romanization": "unjeonhada",
@@ -55,10 +55,10 @@
     "sourceNumber": 54
   },
   {
-    "id": 6,
+    "id": 55,
     "korean": "옷을 사다",
     "uzbek": "Kiyim sotib olmoq",
-    "romanization": "oteul sada",
+    "romanization": "oseul sada",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -66,7 +66,7 @@
     "sourceNumber": 55
   },
   {
-    "id": 7,
+    "id": 56,
     "korean": "운동하다",
     "uzbek": "Sport bilan shug'ullanmoq / Mashq qilmoq",
     "romanization": "undonghada",
@@ -77,7 +77,7 @@
     "sourceNumber": 56
   },
   {
-    "id": 8,
+    "id": 57,
     "korean": "영화를 보다",
     "uzbek": "Kino ko'rmoq",
     "romanization": "yeonghwareul boda",
@@ -88,7 +88,7 @@
     "sourceNumber": 57
   },
   {
-    "id": 9,
+    "id": 58,
     "korean": "자다",
     "uzbek": "Uxlamoq",
     "romanization": "jada",
@@ -99,7 +99,7 @@
     "sourceNumber": 58
   },
   {
-    "id": 10,
+    "id": 59,
     "korean": "춤을 추다",
     "uzbek": "Raqsga tushmoq",
     "romanization": "chumeul chuda",
@@ -110,7 +110,7 @@
     "sourceNumber": 59
   },
   {
-    "id": 11,
+    "id": 60,
     "korean": "마시다",
     "uzbek": "Ichmoq",
     "romanization": "masida",
@@ -121,10 +121,10 @@
     "sourceNumber": 60
   },
   {
-    "id": 12,
+    "id": 61,
     "korean": "밥을 먹다",
     "uzbek": "Ovqat yemoq",
-    "romanization": "bapeul meokda",
+    "romanization": "babeul meokda",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -132,10 +132,10 @@
     "sourceNumber": 61
   },
   {
-    "id": 13,
+    "id": 62,
     "korean": "책을 읽다",
     "uzbek": "Kitob o'qimoq",
-    "romanization": "chaekeul ikda",
+    "romanization": "chaegeul ikda",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -143,7 +143,7 @@
     "sourceNumber": 62
   },
   {
-    "id": 14,
+    "id": 63,
     "korean": "수영하다",
     "uzbek": "Suzmoq",
     "romanization": "suyeonghada",
@@ -154,7 +154,7 @@
     "sourceNumber": 63
   },
   {
-    "id": 15,
+    "id": 64,
     "korean": "테니스를 치다",
     "uzbek": "Tennis o'ynamoq",
     "romanization": "teniseureul chida",
@@ -165,7 +165,7 @@
     "sourceNumber": 64
   },
   {
-    "id": 16,
+    "id": 65,
     "korean": "숙제하다",
     "uzbek": "Uy vazifasini bajarmoq",
     "romanization": "sukjehada",
@@ -176,7 +176,7 @@
     "sourceNumber": 65
   },
   {
-    "id": 17,
+    "id": 66,
     "korean": "지금",
     "uzbek": "Hozir",
     "romanization": "jigeum",
@@ -187,7 +187,7 @@
     "sourceNumber": 66
   },
   {
-    "id": 18,
+    "id": 67,
     "korean": "오늘",
     "uzbek": "Bugun",
     "romanization": "oneul",
@@ -198,7 +198,7 @@
     "sourceNumber": 67
   },
   {
-    "id": 19,
+    "id": 68,
     "korean": "그리고",
     "uzbek": "Va / Shuningdek",
     "romanization": "geurigo",
@@ -209,10 +209,10 @@
     "sourceNumber": 68
   },
   {
-    "id": 20,
+    "id": 69,
     "korean": "좋아하다",
     "uzbek": "Yoqtirmoq / Yaxshi ko'rmoq",
-    "romanization": "jotahada",
+    "romanization": "joahada",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -220,7 +220,7 @@
     "sourceNumber": 69
   },
   {
-    "id": 21,
+    "id": 70,
     "korean": "친구를 만나다",
     "uzbek": "Do'sti bilan uchrashmoq",
     "romanization": "chingureul mannada",
@@ -231,10 +231,10 @@
     "sourceNumber": 70
   },
   {
-    "id": 22,
+    "id": 71,
     "korean": "일본어를 가르치다",
     "uzbek": "Yapon tilini o'rgatmoq (dars bermoq)",
-    "romanization": "ilboneoreul gareuchida",
+    "romanization": "ilbeoneoreul gareuchida",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -242,7 +242,7 @@
     "sourceNumber": 71
   },
   {
-    "id": 23,
+    "id": 72,
     "korean": "그래요",
     "uzbek": "Shunaqami? / Shundaymi?",
     "romanization": "geuraeyo",
@@ -253,7 +253,7 @@
     "sourceNumber": 72
   },
   {
-    "id": 24,
+    "id": 73,
     "korean": "하다",
     "uzbek": "Qilmoq",
     "romanization": "hada",
@@ -264,7 +264,7 @@
     "sourceNumber": 73
   },
   {
-    "id": 25,
+    "id": 74,
     "korean": "공부하다",
     "uzbek": "O'qimoq / Dars qilmoq",
     "romanization": "gongbuhada",
@@ -275,7 +275,7 @@
     "sourceNumber": 74
   },
   {
-    "id": 26,
+    "id": 75,
     "korean": "알다",
     "uzbek": "Bilmoq",
     "romanization": "alda",
@@ -286,7 +286,7 @@
     "sourceNumber": 75
   },
   {
-    "id": 27,
+    "id": 76,
     "korean": "세수하다",
     "uzbek": "Yuz-qo'lni yuvmoq",
     "romanization": "sesuhada",

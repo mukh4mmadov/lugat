@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { allWords, getWordKey, lessonInfo } from "../data";
@@ -8,6 +9,7 @@ import { normalizeAnswer } from "../lib/study";
 import { WordListActions } from "./PracticePages";
 
 export function SearchPage() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const normalized = normalizeAnswer(query);
   const results = useMemo(() => {
@@ -17,34 +19,37 @@ export function SearchPage() {
 
   return (
     <GlassCard>
-      <Header title="Search" badge="Korean · Uzbek · Romanization" />
-      <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search all 452 vocabulary entries" className="premium-input mb-6" />
-      <WordGrid words={results} empty="No matching words found." />
+      <Header title={t("library.search")} badge={t("library.searchBadge")} />
+      <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("library.searchPlaceholder")} className="premium-input mb-6" />
+      <WordGrid words={results} empty={t("search.noResults")} />
     </GlassCard>
   );
 }
 
 export function FavoritesPage() {
+  const { t } = useTranslation();
   const words = useSelector(selectFavoriteWords);
   return (
     <GlassCard>
-      <Header title="Favorites" badge="Saved words" />
-      <WordGrid words={words} empty="No favorites yet. Save words from flashcards or search." />
+      <Header title={t("library.favorites")} badge={t("flashcards.saved")} />
+      <WordGrid words={words} empty={t("library.favoritesEmpty")} />
     </GlassCard>
   );
 }
 
 export function DifficultPage() {
+  const { t } = useTranslation();
   const words = useSelector(selectDifficultWords);
   return (
     <GlassCard>
-      <Header title="Difficult Words" badge="Auto collected" />
-      <WordGrid words={words} empty="No difficult words yet. Press Don't Know during practice." />
+      <Header title={t("library.difficult")} badge={t("library.autoCollected")} />
+      <WordGrid words={words} empty={t("library.difficultEmpty")} />
     </GlassCard>
   );
 }
 
 export function StatsPage() {
+  const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const difficult = selectDifficultWords({ progress });
   const studiedUnique = Object.values(progress.words).filter((word) => word.knownCount > 0 || word.wrongCount > 0).length;
@@ -54,32 +59,32 @@ export function StatsPage() {
     .sort((left, right) => right.score - left.score)[0];
 
   const achievements = [
-    ["First Step", studiedUnique > 0],
-    ["100 Reviews", progress.stats.studiedWords >= 100],
-    ["7 Day Streak", progress.stats.streak >= 7],
-    ["Half Way", studiedUnique >= Math.round(allWords.length / 2)],
-    ["K-TALIM Master", studiedUnique === allWords.length],
+    [t("achievement.firstStep"), studiedUnique > 0],
+    [t("achievement.hundredReviews"), progress.stats.studiedWords >= 100],
+    [t("achievement.sevenDayStreak"), progress.stats.streak >= 7],
+    [t("achievement.halfWay"), studiedUnique >= Math.round(allWords.length / 2)],
+    [t("achievement.master"), studiedUnique === allWords.length],
   ];
 
   return (
     <div className="space-y-6">
       <GlassCard>
-        <Header title="Statistics" badge="Learning analytics" />
+        <Header title={t("library.stats")} badge={t("library.analytics")} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Metric label="Daily streak" value={progress.stats.streak} />
-          <Metric label="Accuracy" value={`${accuracy}%`} />
-          <Metric label="Words learned" value={studiedUnique} />
-          <Metric label="Study time" value={`${progress.stats.studyMinutes}m`} />
-          <Metric label="Completed lessons" value={lessonInfo.filter((lesson) => lesson.words.every((word) => progress.words[getWordKey(word)]?.knownCount > 0)).length} />
-          <Metric label="Hardest lesson" value={hardestLesson?.score ? hardestLesson.lesson : "—"} />
-          <Metric label="Hard words" value={difficult.length} />
-          <Metric label="Reviews" value={progress.stats.studiedWords} />
+          <Metric label={t("stats.dailyStreak")} value={progress.stats.streak} />
+          <Metric label={t("stats.accuracy")} value={`${accuracy}%`} />
+          <Metric label={t("stats.wordsLearned")} value={studiedUnique} />
+          <Metric label={t("stats.studyTime")} value={`${progress.stats.studyMinutes} ${t("time.minutes")}`} />
+          <Metric label={t("stats.completedLessons")} value={lessonInfo.filter((lesson) => lesson.words.every((word) => progress.words[getWordKey(word)]?.knownCount > 0)).length} />
+          <Metric label={t("stats.hardestLesson")} value={hardestLesson?.score ? hardestLesson.lesson : t("common.none")} />
+          <Metric label={t("stats.hardWords")} value={difficult.length} />
+          <Metric label={t("stats.reviews")} value={progress.stats.studiedWords} />
         </div>
       </GlassCard>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <GlassCard>
-          <Header title="Achievements" badge="Milestones" />
+          <Header title={t("stats.achievements")} badge={t("stats.milestones")} />
           <div className="grid gap-3">
             {achievements.map(([name, unlocked]) => (
               <div key={name} className={`rounded-3xl p-4 font-black ${unlocked ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-200" : "bg-slate-100 text-slate-500 dark:bg-white/10 dark:text-slate-300"}`}>{name}</div>
@@ -87,14 +92,14 @@ export function StatsPage() {
           </div>
         </GlassCard>
         <GlassCard>
-          <Header title="Recent Activity" badge="Latest practice" />
+          <Header title={t("stats.recentActivity")} badge={t("stats.latestPractice")} />
           <div className="space-y-3">
             {progress.stats.activity.length ? progress.stats.activity.map((item) => (
               <div key={`${item.word}-${item.at}`} className="rounded-3xl bg-slate-950/5 p-4 dark:bg-white/10">
                 <p className="font-black">{item.word}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-300">Lesson {item.lesson} · {item.type}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-300">{t("card.lesson", { lesson: item.lesson })} · {item.type}</p>
               </div>
-            )) : <p className="text-slate-500 dark:text-slate-300">No activity yet.</p>}
+            )) : <p className="text-slate-500 dark:text-slate-300">{t("stats.noActivity")}</p>}
           </div>
         </GlassCard>
       </div>
@@ -103,19 +108,20 @@ export function StatsPage() {
 }
 
 export function SettingsPage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   return (
     <GlassCard className="mx-auto max-w-3xl">
-      <Header title="Settings" badge="Personalization" />
+      <Header title={t("library.settings")} badge={t("library.personalization")} />
       <div className="space-y-4">
         <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
-          <h3 className="text-xl font-black">Pronunciation</h3>
-          <p className="mt-2 text-slate-600 dark:text-slate-300">Audio uses your browser's Korean speech synthesis voice (`ko-KR`) for every word.</p>
+          <h3 className="text-xl font-black">{t("settings.pronunciation")}</h3>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">{t("settings.pronunciationText")}</p>
         </div>
         <div className="rounded-3xl bg-rose-50 p-5 dark:bg-rose-500/10">
-          <h3 className="text-xl font-black text-rose-700 dark:text-rose-200">Reset Progress</h3>
-          <p className="mt-2 text-slate-600 dark:text-slate-300">This clears learned words, favorites, difficult words, stats, streak, and saved decks.</p>
-          <button type="button" onClick={() => window.confirm("Reset all local progress?") && dispatch(resetProgress())} className="mt-4 rounded-2xl bg-rose-500 px-5 py-3 font-black text-white">Reset Progress</button>
+          <h3 className="text-xl font-black text-rose-700 dark:text-rose-200">{t("settings.resetProgress")}</h3>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">{t("settings.resetProgressText")}</p>
+          <button type="button" onClick={() => window.confirm(t("settings.resetConfirm")) && dispatch(resetProgress())} className="mt-4 rounded-2xl bg-rose-500 px-5 py-3 font-black text-white">{t("settings.resetButton")}</button>
         </div>
       </div>
     </GlassCard>

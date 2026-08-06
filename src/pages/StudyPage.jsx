@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { getLessonWords, getWordKey, lessonInfo } from "../data";
@@ -14,21 +15,22 @@ import { speakKorean } from "../lib/speech";
 /* ------------------------------------------------------------------ */
 
 export function StudyHomePage() {
+  const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
 
   return (
     <div className="space-y-8">
       <GlassCard className="relative overflow-hidden p-8 md:p-10">
         <div className="absolute right-6 top-6 hidden h-36 w-36 rounded-full bg-emerald-300/25 blur-3xl md:block" />
-        <WordBadge tone="green">Learn before you test</WordBadge>
-        <h2 className="mt-5 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">Study Mode</h2>
+        <WordBadge tone="green">{t("study.learnFirst")}</WordBadge>
+        <h2 className="mt-5 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">{t("study.title")}</h2>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-          Memorize vocabulary at your own pace — no scoring, no quiz. Pick a lesson to review every word, then head to Practice to test yourself.
+          {t("study.subtitle")}
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-bold text-slate-500 dark:text-slate-300">
-          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">Study</span>
+          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">{t("nav.study")}</span>
           <span>→</span>
-          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">Practice</span>
+          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">{t("practice.flashcards")}</span>
         </div>
       </GlassCard>
 
@@ -47,17 +49,17 @@ export function StudyHomePage() {
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 text-xl font-black text-white shadow-lg">
                   {lesson.lesson}
                 </div>
-                <WordBadge tone={percent === 100 ? "green" : "violet"}>{lesson.count} words</WordBadge>
+                <WordBadge tone={percent === 100 ? "green" : "violet"}>{lesson.count} {t("home.words")}</WordBadge>
               </div>
-              <h3 className="mt-5 text-xl font-black">Lesson {lesson.lesson}</h3>
+              <h3 className="mt-5 text-xl font-black">{t("card.lesson", { lesson: lesson.lesson })}</h3>
               <p className="mt-2 min-h-12 text-sm capitalize text-slate-600 dark:text-slate-300">{lesson.category}</p>
               <div className="mt-5 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
                 <div className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-sky-400" style={{ width: `${percent}%` }} />
               </div>
               <div className="mt-4 flex items-center justify-between text-sm font-bold text-slate-500 dark:text-slate-300">
-                <span>{percent}% studied</span>
+                <span>{percent}% {t("nav.study")}</span>
                 <Link className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300" to={`/study/${lesson.lesson}`}>
-                  Continue
+                  {t("button.continue")}
                 </Link>
               </div>
             </motion.article>
@@ -73,12 +75,13 @@ export function StudyHomePage() {
 /* ------------------------------------------------------------------ */
 
 const memoryModes = [
-  { value: "full", label: "Show everything" },
-  { value: "hideUzbek", label: "Hide Uzbek" },
-  { value: "onlyKorean", label: "Only Korean" },
+  { value: "full", label: "study.full" },
+  { value: "hideUzbek", label: "study.hideUzbek" },
+  { value: "onlyKorean", label: "study.onlyKorean" },
 ];
 
 export function StudyModePage() {
+  const { t } = useTranslation();
   const { lessonId = "1" } = useParams();
   const lesson = Number(lessonId);
   const dispatch = useDispatch();
@@ -130,10 +133,10 @@ export function StudyModePage() {
   if (!sourceWords.length) {
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
-        <WordBadge tone="amber">Study</WordBadge>
-        <h2 className="mt-4 text-3xl font-black">Lesson not found</h2>
+        <WordBadge tone="amber">{t("nav.study")}</WordBadge>
+        <h2 className="mt-4 text-3xl font-black">{t("study.lessonNotFound")}</h2>
         <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/study">
-          Choose a lesson
+          {t("common.back")}
         </Link>
       </GlassCard>
     );
@@ -182,17 +185,17 @@ export function StudyModePage() {
       <div className="space-y-6">
         <StudyHeader lesson={lesson} />
         <GlassCard className="mx-auto max-w-2xl text-center">
-          <WordBadge tone="green">Lesson completed</WordBadge>
-          <h2 className="mt-4 text-4xl font-black">Lesson completed 🎉</h2>
+          <WordBadge tone="green">{t("study.lessonCompleted")}</WordBadge>
+          <h2 className="mt-4 text-4xl font-black">{t("study.lessonCompleted")}</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">
-            You've gone through all {order.length} words in Lesson {lesson}. Ready to test yourself?
+            {t("study.lessonCompletedText", { count: order.length, lesson })}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button type="button" onClick={() => studyAgain(false)} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">
-              Study Again
+              {t("home.studyAgain")}
             </button>
             <button type="button" onClick={() => navigate(`/lesson/${lesson}/flashcards`)} className="action-btn bg-emerald-500 text-white">
-              Go to Practice
+              {t("home.goToPractice")}
             </button>
           </div>
         </GlassCard>
@@ -211,9 +214,9 @@ export function StudyModePage() {
       <GlassCard>
         <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <WordBadge tone="sky">Lesson {lesson}</WordBadge>
-            <h2 className="mt-3 text-3xl font-black">Study Mode</h2>
-            <p className="mt-1 text-sm font-bold text-slate-500 dark:text-slate-300">Word {current + 1} / {order.length}</p>
+            <WordBadge tone="sky">{t("card.lesson", { lesson })}</WordBadge>
+            <h2 className="mt-3 text-3xl font-black">{t("study.title")}</h2>
+            <p className="mt-1 text-sm font-bold text-slate-500 dark:text-slate-300">{t("card.word", { number: current + 1, total: order.length })}</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {memoryModes.map((item) => (
@@ -223,7 +226,7 @@ export function StudyModePage() {
                 onClick={() => setMemoryMode(item.value)}
                 className={`rounded-2xl px-4 py-2 text-sm font-black transition ${memoryMode === item.value ? "bg-emerald-500 text-white" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}
               >
-                {item.label}
+                {t(item.label)}
               </button>
             ))}
           </div>
@@ -246,12 +249,12 @@ export function StudyModePage() {
               <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(56,189,248,.18),transparent_35%)]" />
               <div className="relative flex min-h-[320px] flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <WordBadge>Lesson {word.lesson}</WordBadge>
+                  <WordBadge>{t("card.lesson", { lesson: word.lesson })}</WordBadge>
                   <div className="flex gap-2">
                     <button
                       type="button"
                       onClick={() => dispatch(toggleFavorite(getWordKey(word)))}
-                      title="Favorite"
+                      title={t("flashcards.favorite")}
                       className={`grid h-10 w-10 place-items-center rounded-full text-lg transition ${isFavorite ? "bg-violet-500 text-white" : "bg-white/70 text-slate-600 dark:bg-white/10 dark:text-slate-200"}`}
                     >
                       {isFavorite ? "♥" : "♡"}
@@ -259,7 +262,7 @@ export function StudyModePage() {
                     <button
                       type="button"
                       onClick={() => dispatch(toggleManualDifficult(getWordKey(word)))}
-                      title="Mark difficult"
+                      title={t("practice.markDifficult")}
                       className={`grid h-10 w-10 place-items-center rounded-full text-lg transition ${isDifficult ? "bg-amber-500 text-white" : "bg-white/70 text-slate-600 dark:bg-white/10 dark:text-slate-200"}`}
                     >
                       {isDifficult ? "🔖" : "📑"}
@@ -283,7 +286,7 @@ export function StudyModePage() {
                   <button
                     type="button"
                     onClick={() => speakKorean(word.korean)}
-                    title="Play audio"
+                    title={t("practice.play")}
                     className="grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-3xl text-white shadow-2xl shadow-sky-500/30 transition hover:-translate-y-1"
                   >
                     🔊
@@ -291,12 +294,12 @@ export function StudyModePage() {
 
                   {memoryMode === "hideUzbek" && !revealed && (
                     <button type="button" onClick={() => setRevealed(true)} className="action-btn bg-emerald-500 text-white">
-                      Show Meaning
+                      {t("study.showMeaning")}
                     </button>
                   )}
                   {memoryMode === "onlyKorean" && !revealed && (
                     <button type="button" onClick={() => setRevealed(true)} className="action-btn bg-emerald-500 text-white">
-                      Reveal
+                      {t("study.reveal")}
                     </button>
                   )}
                 </div>
@@ -307,29 +310,29 @@ export function StudyModePage() {
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <button type="button" onClick={goPrev} disabled={current === 0} className="action-btn bg-slate-100 text-slate-700 disabled:opacity-40 dark:bg-white/10 dark:text-slate-200">
-            Previous
+            {t("button.previous")}
           </button>
           <button type="button" onClick={() => speakKorean(word.korean)} className="action-btn bg-sky-500 text-white">
-            Repeat Audio
+            {t("flashcards.replayAudio")}
           </button>
           <button type="button" onClick={doShuffle} className="action-btn bg-violet-500 text-white">
-            Shuffle
+            {t("practice.shuffle")}
           </button>
           <button
             type="button"
             onClick={() => setAutoPlay((value) => !value)}
             className={`action-btn text-white ${autoPlay ? "bg-rose-500" : "bg-emerald-500"}`}
           >
-            {autoPlay ? "Stop Auto Play" : "Auto Play"}
+            {autoPlay ? t("common.stop") : t("practice.autoPlay")}
           </button>
           <button type="button" onClick={goNext} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">
-            Next
+            {t("button.next")}
           </button>
         </div>
 
         <div className="mt-6 flex flex-col items-center gap-2 border-t border-slate-200/70 pt-6 dark:border-white/10">
           <label className="text-sm font-bold text-slate-500 dark:text-slate-300" htmlFor="quick-jump">
-            Quick jump to a word
+            {t("common.view")}
           </label>
           <select
             id="quick-jump"
@@ -350,19 +353,20 @@ export function StudyModePage() {
 }
 
 function StudyHeader({ lesson }) {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div>
         <Link to="/study" className="text-sm font-black text-sky-600 dark:text-sky-300">
-          Back to Study lessons
+          {t("common.back")}
         </Link>
-        <h1 className="mt-2 text-4xl font-black tracking-tight">Study — Lesson {lesson}</h1>
+        <h1 className="mt-2 text-4xl font-black tracking-tight">{t("study.headerTitle", { lesson })}</h1>
       </div>
       <Link
         to={`/lesson/${lesson}/flashcards`}
         className="rounded-2xl border border-slate-200 bg-white/75 px-5 py-3 text-center font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white"
       >
-        Go to Practice
+        {t("home.goToPractice")}
       </Link>
     </div>
   );

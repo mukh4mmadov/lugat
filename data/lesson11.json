@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 326,
     "korean": "빠르다",
     "uzbek": "Tez bo'lmoq",
     "romanization": "ppareuda",
@@ -11,7 +11,7 @@
     "sourceNumber": 326
   },
   {
-    "id": 2,
+    "id": 327,
     "korean": "느리다",
     "uzbek": "Sekin bo'lmoq",
     "romanization": "neurida",
@@ -22,10 +22,10 @@
     "sourceNumber": 327
   },
   {
-    "id": 3,
+    "id": 328,
     "korean": "짧다",
     "uzbek": "Kalta / Qisqa bo'lmoq",
-    "romanization": "jjapda",
+    "romanization": "jjalda",
     "lesson": 11,
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
@@ -33,7 +33,7 @@
     "sourceNumber": 328
   },
   {
-    "id": 4,
+    "id": 329,
     "korean": "머리",
     "uzbek": "Bosh / Soch",
     "romanization": "meori",
@@ -44,7 +44,7 @@
     "sourceNumber": 329
   },
   {
-    "id": 5,
+    "id": 330,
     "korean": "키가 크다",
     "uzbek": "Bo'yi baland bo'lmoq",
     "romanization": "kiga keuda",
@@ -55,7 +55,7 @@
     "sourceNumber": 330
   },
   {
-    "id": 6,
+    "id": 331,
     "korean": "키가 작다",
     "uzbek": "Bo'yi past bo'lmoq",
     "romanization": "kiga jakda",
@@ -66,7 +66,7 @@
     "sourceNumber": 331
   },
   {
-    "id": 7,
+    "id": 332,
     "korean": "예쁘다",
     "uzbek": "Chiroyli / Go'zal bo'lmoq",
     "romanization": "yeppeuda",
@@ -77,7 +77,7 @@
     "sourceNumber": 332
   },
   {
-    "id": 8,
+    "id": 333,
     "korean": "깊다",
     "uzbek": "Chuqur bo'lmoq",
     "romanization": "gipda",
@@ -88,7 +88,7 @@
     "sourceNumber": 333
   },
   {
-    "id": 9,
+    "id": 334,
     "korean": "강",
     "uzbek": "Daryo",
     "romanization": "gang",
@@ -99,7 +99,7 @@
     "sourceNumber": 334
   },
   {
-    "id": 10,
+    "id": 335,
     "korean": "방",
     "uzbek": "Xona",
     "romanization": "bang",
@@ -110,7 +110,7 @@
     "sourceNumber": 335
   },
   {
-    "id": 11,
+    "id": 336,
     "korean": "아름답다",
     "uzbek": "Go'zal / Chiroyli bo'lmoq",
     "romanization": "areumdapda",
@@ -121,7 +121,7 @@
     "sourceNumber": 336
   },
   {
-    "id": 12,
+    "id": 337,
     "korean": "조용하다",
     "uzbek": "Tinch / Jimjit bo'lmoq",
     "romanization": "joyonghada",
@@ -132,7 +132,7 @@
     "sourceNumber": 337
   },
   {
-    "id": 13,
+    "id": 338,
     "korean": "바다",
     "uzbek": "Dengiz",
     "romanization": "bada",
@@ -143,7 +143,7 @@
     "sourceNumber": 338
   },
   {
-    "id": 14,
+    "id": 339,
     "korean": "아시아",
     "uzbek": "Osiyo",
     "romanization": "asia",
@@ -154,7 +154,7 @@
     "sourceNumber": 339
   },
   {
-    "id": 15,
+    "id": 340,
     "korean": "유럽",
     "uzbek": "Yevropa",
     "romanization": "yureop",
@@ -165,7 +165,7 @@
     "sourceNumber": 340
   },
   {
-    "id": 16,
+    "id": 341,
     "korean": "프랑스",
     "uzbek": "Fransiya",
     "romanization": "peurangseu",
@@ -176,7 +176,7 @@
     "sourceNumber": 341
   },
   {
-    "id": 17,
+    "id": 342,
     "korean": "버스",
     "uzbek": "Avtobus",
     "romanization": "beoseu",
@@ -187,7 +187,7 @@
     "sourceNumber": 342
   },
   {
-    "id": 18,
+    "id": 343,
     "korean": "지하철",
     "uzbek": "Metro",
     "romanization": "jihacheol",
@@ -198,7 +198,7 @@
     "sourceNumber": 343
   },
   {
-    "id": 19,
+    "id": 344,
     "korean": "똑똑하다",
     "uzbek": "Aqlli bo'lmoq",
     "romanization": "ttokttokhada",
@@ -209,7 +209,7 @@
     "sourceNumber": 344
   },
   {
-    "id": 20,
+    "id": 345,
     "korean": "귀엽다",
     "uzbek": "Shirintoy / Yoqimtoy bo'lmoq",
     "romanization": "gwiyeopda",
@@ -220,7 +220,7 @@
     "sourceNumber": 345
   },
   {
-    "id": 21,
+    "id": 346,
     "korean": "딸",
     "uzbek": "Qiz (farzand)",
     "romanization": "ttal",
@@ -231,7 +231,7 @@
     "sourceNumber": 346
   },
   {
-    "id": 22,
+    "id": 347,
     "korean": "아들",
     "uzbek": "O'g'il (farzand)",
     "romanization": "adeul",
@@ -242,7 +242,7 @@
     "sourceNumber": 347
   },
   {
-    "id": 23,
+    "id": 348,
     "korean": "남동생",
     "uzbek": "Uka (Erkak jinsli)",
     "romanization": "namdongsaeng",
@@ -253,7 +253,7 @@
     "sourceNumber": 348
   },
   {
-    "id": 24,
+    "id": 349,
     "korean": "여동생",
     "uzbek": "Singil",
     "romanization": "yeodongsaeng",
@@ -264,7 +264,7 @@
     "sourceNumber": 349
   },
   {
-    "id": 25,
+    "id": 350,
     "korean": "설거지를 하다",
     "uzbek": "Idish-tovoqlarni yuvmoq",
     "romanization": "seolgeojireul hada",
@@ -275,10 +275,10 @@
     "sourceNumber": 350
   },
   {
-    "id": 26,
+    "id": 351,
     "korean": "싫어하다",
     "uzbek": "Yomon ko'rmoq / Yoqtirmaslik",
-    "romanization": "sileohada",
+    "romanization": "sireohada",
     "lesson": 11,
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
@@ -286,9 +286,9 @@
     "sourceNumber": 351
   },
   {
-    "id": 27,
+    "id": 352,
     "korean": "타다",
-    "uzbek": "Minmoq, uchmoq",
+    "uzbek": "Minmoq,uchmoq",
     "romanization": "tada",
     "lesson": 11,
     "category": "descriptions, transport and family",
@@ -297,7 +297,7 @@
     "sourceNumber": 352
   },
   {
-    "id": 28,
+    "id": 353,
     "korean": "택시",
     "uzbek": "Taksi",
     "romanization": "taeksi",
@@ -308,7 +308,7 @@
     "sourceNumber": 353
   },
   {
-    "id": 29,
+    "id": 354,
     "korean": "스케이트보드",
     "uzbek": "Skeytbord",
     "romanization": "seukeiteubodeu",
@@ -319,10 +319,10 @@
     "sourceNumber": 354
   },
   {
-    "id": 30,
+    "id": 355,
     "korean": "휴대폰",
     "uzbek": "Mobil telefon",
-    "romanization": "hyudaepon",
+    "romanization": "hyuedaepon",
     "lesson": 11,
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
@@ -330,10 +330,10 @@
     "sourceNumber": 355
   },
   {
-    "id": 31,
+    "id": 356,
     "korean": "알겠습니다",
     "uzbek": "Tushunarli / Xo'p bo'ladi",
-    "romanization": "algetseupnida",
+    "romanization": "algetseumnida",
     "lesson": 11,
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { getLessonWords, getWordKey } from "../data";
@@ -19,6 +20,7 @@ function useLessonPractice() {
 }
 
 export function ListeningPage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { lesson, word, next } = useLessonPractice();
   const [answer, setAnswer] = useState("");
@@ -27,15 +29,15 @@ export function ListeningPage() {
   function check() {
     const correct = isAnswerCorrect(answer, word.korean);
     dispatch(correct ? markKnown(getWordKey(word)) : markDifficult(getWordKey(word)));
-    setResult(correct ? "Correct" : `Answer: ${word.korean} · ${word.romanization} · ${word.uzbek}`);
+    setResult(correct ? t("practice.correct") : t("practice.incorrect", { answer: `${word.korean} · ${word.romanization} · ${word.uzbek}` }));
   }
 
   return (
     <div className="space-y-6">
       <ModeHeader lesson={lesson} active="listening" />
-      <PracticeCard title="Listening Mode" badge="Audio first">
-        <button type="button" onClick={() => speakKorean(word.korean)} className="mx-auto grid h-28 w-28 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-lg font-black text-white shadow-2xl shadow-sky-500/30">Play</button>
-        <input value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder="Type the Korean word you hear" className="premium-input mt-8" />
+      <PracticeCard title={t("practice.listening")} badge={t("practice.audioFirst")}>
+        <button type="button" onClick={() => speakKorean(word.korean)} className="mx-auto grid h-28 w-28 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-lg font-black text-white shadow-2xl shadow-sky-500/30">{t("practice.play")}</button>
+        <input value={answer} onChange={(event) => setAnswer(event.target.value)} placeholder={t("practice.typeKorean")} className="premium-input mt-8" />
         <ResultActions result={result} onCheck={check} onNext={() => { setAnswer(""); setResult(null); next(); }} />
       </PracticeCard>
     </div>
@@ -43,6 +45,7 @@ export function ListeningPage() {
 }
 
 export function QuizPage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { lesson, words, word, next } = useLessonPractice();
   const [result, setResult] = useState(null);
@@ -51,13 +54,13 @@ export function QuizPage() {
   function choose(option) {
     const correct = option.id === word.id;
     dispatch(correct ? markKnown(getWordKey(word)) : markDifficult(getWordKey(word)));
-    setResult(correct ? "Correct" : `Correct answer: ${word.uzbek}`);
+    setResult(correct ? t("practice.correct") : t("practice.incorrect", { answer: word.uzbek }));
   }
 
   return (
     <div className="space-y-6">
       <ModeHeader lesson={lesson} active="quiz" />
-      <PracticeCard title="Quiz Mode" badge="4 choices">
+      <PracticeCard title={t("practice.quiz")} badge={t("practice.fourChoices")}>
         <p className="text-center text-5xl font-black md:text-7xl">{word.korean}</p>
         <p className="mt-3 text-center text-xl font-bold text-slate-500 dark:text-slate-300">{word.romanization}</p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -67,13 +70,14 @@ export function QuizPage() {
             </button>
           ))}
         </div>
-        <ResultActions result={result} onCheck={() => speakKorean(word.korean)} checkLabel="Replay Audio" onNext={() => { setResult(null); next(); }} />
+        <ResultActions result={result} onCheck={() => speakKorean(word.korean)} checkLabel={t("practice.replayAudio")} onNext={() => { setResult(null); next(); }} />
       </PracticeCard>
     </div>
   );
 }
 
 export function WritingPage() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { lesson, word, next } = useLessonPractice();
   const [answer, setAnswer] = useState("");
@@ -82,16 +86,16 @@ export function WritingPage() {
   function check() {
     const correct = isAnswerCorrect(answer, word.uzbek);
     dispatch(correct ? markKnown(getWordKey(word)) : markDifficult(getWordKey(word)));
-    setResult(correct ? "Correct" : `Answer: ${word.uzbek}`);
+    setResult(correct ? t("practice.correct") : t("practice.incorrect", { answer: word.uzbek }));
   }
 
   return (
     <div className="space-y-6">
       <ModeHeader lesson={lesson} active="writing" />
-      <PracticeCard title="Writing Mode" badge="Type translation">
+      <PracticeCard title={t("practice.writing")} badge={t("practice.typeTranslation")}>
         <p className="text-center text-5xl font-black md:text-7xl">{word.korean}</p>
         <p className="mt-3 text-center text-xl font-bold text-sky-600 dark:text-sky-300">{word.romanization}</p>
-        <input value={answer} onChange={(event) => setAnswer(event.target.value)} onKeyDown={(event) => event.key === "Enter" && check()} placeholder="Type the Uzbek translation" className="premium-input mt-8" />
+        <input value={answer} onChange={(event) => setAnswer(event.target.value)} onKeyDown={(event) => event.key === "Enter" && check()} placeholder={t("practice.typeTranslation")} className="premium-input mt-8" />
         <ResultActions result={result} onCheck={check} onNext={() => { setAnswer(""); setResult(null); next(); }} />
       </PracticeCard>
     </div>
@@ -110,25 +114,27 @@ function PracticeCard({ title, badge, children }) {
   );
 }
 
-function ResultActions({ result, onCheck, onNext, checkLabel = "Check" }) {
+function ResultActions({ result, onCheck, onNext, checkLabel }) {
+  const { t } = useTranslation();
   return (
     <div className="mt-8 space-y-5 text-center">
       {result && <p className="rounded-3xl bg-slate-950/5 p-4 text-lg font-black text-slate-800 dark:bg-white/10 dark:text-white">{result}</p>}
       <div className="flex flex-wrap justify-center gap-3">
-        <button type="button" onClick={onCheck} className="action-btn bg-sky-500 text-white">{checkLabel}</button>
-        <button type="button" onClick={onNext} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">Next</button>
+        <button type="button" onClick={onCheck} className="action-btn bg-sky-500 text-white">{checkLabel || t("common.confirm")}</button>
+        <button type="button" onClick={onNext} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">{t("button.next")}</button>
       </div>
     </div>
   );
 }
 
 export function WordListActions({ word }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.progress.favorites);
   return (
     <div className="flex gap-2">
-      <button type="button" onClick={() => speakKorean(word.korean)} className="rounded-full bg-sky-100 px-3 py-1 text-xs font-black text-sky-700 dark:bg-sky-400/15 dark:text-sky-200">Audio</button>
-      <button type="button" onClick={() => dispatch(toggleFavorite(getWordKey(word)))} className="rounded-full bg-violet-100 px-3 py-1 text-xs font-black text-violet-700 dark:bg-violet-400/15 dark:text-violet-200">{favorites[getWordKey(word)] ? "Saved" : "Favorite"}</button>
+      <button type="button" onClick={() => speakKorean(word.korean)} className="rounded-full bg-sky-100 px-3 py-1 text-xs font-black text-sky-700 dark:bg-sky-400/15 dark:text-sky-200">{t("practice.play")}</button>
+      <button type="button" onClick={() => dispatch(toggleFavorite(getWordKey(word)))} className="rounded-full bg-violet-100 px-3 py-1 text-xs font-black text-violet-700 dark:bg-violet-400/15 dark:text-violet-200">{favorites[getWordKey(word)] ? t("flashcards.saved") : t("flashcards.favorite")}</button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 25,
     "korean": "볼펜",
     "uzbek": "Ruchka",
     "romanization": "bolpen",
@@ -11,7 +11,7 @@
     "sourceNumber": 25
   },
   {
-    "id": 2,
+    "id": 26,
     "korean": "사전",
     "uzbek": "Lug'at",
     "romanization": "sajeon",
@@ -22,7 +22,7 @@
     "sourceNumber": 26
   },
   {
-    "id": 3,
+    "id": 27,
     "korean": "지우개",
     "uzbek": "O'chirg'ich",
     "romanization": "jiugae",
@@ -33,7 +33,7 @@
     "sourceNumber": 27
   },
   {
-    "id": 4,
+    "id": 28,
     "korean": "필통",
     "uzbek": "Qalamdon (Penal)",
     "romanization": "piltong",
@@ -44,7 +44,7 @@
     "sourceNumber": 28
   },
   {
-    "id": 5,
+    "id": 29,
     "korean": "구두",
     "uzbek": "Tufli",
     "romanization": "gudu",
@@ -55,7 +55,7 @@
     "sourceNumber": 29
   },
   {
-    "id": 6,
+    "id": 30,
     "korean": "모자",
     "uzbek": "Bosh kiyim",
     "romanization": "moja",
@@ -66,7 +66,7 @@
     "sourceNumber": 30
   },
   {
-    "id": 7,
+    "id": 31,
     "korean": "안경",
     "uzbek": "Ko'zoynak",
     "romanization": "angyeong",
@@ -77,7 +77,7 @@
     "sourceNumber": 31
   },
   {
-    "id": 8,
+    "id": 32,
     "korean": "시계",
     "uzbek": "Soat",
     "romanization": "sigye",
@@ -88,7 +88,7 @@
     "sourceNumber": 32
   },
   {
-    "id": 9,
+    "id": 33,
     "korean": "복사기",
     "uzbek": "Kserokopiya apparati",
     "romanization": "boksagi",
@@ -99,7 +99,7 @@
     "sourceNumber": 33
   },
   {
-    "id": 10,
+    "id": 34,
     "korean": "노트북",
     "uzbek": "Noutbuk",
     "romanization": "noteubuk",
@@ -110,10 +110,10 @@
     "sourceNumber": 34
   },
   {
-    "id": 11,
+    "id": 35,
     "korean": "카메라",
     "uzbek": "Kamera / Fotoapparat",
-    "romanization": "kamera",
+    "romanization": "kamela",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -121,7 +121,7 @@
     "sourceNumber": 35
   },
   {
-    "id": 12,
+    "id": 36,
     "korean": "컴퓨터",
     "uzbek": "Kompyuter",
     "romanization": "keompyuteo",
@@ -132,7 +132,7 @@
     "sourceNumber": 36
   },
   {
-    "id": 13,
+    "id": 37,
     "korean": "핸드폰",
     "uzbek": "Mobil telefon",
     "romanization": "haendeupon",
@@ -143,7 +143,7 @@
     "sourceNumber": 37
   },
   {
-    "id": 14,
+    "id": 38,
     "korean": "이어폰",
     "uzbek": "Quloqchin (Naushnik)",
     "romanization": "ieopon",
@@ -154,10 +154,10 @@
     "sourceNumber": 38
   },
   {
-    "id": 15,
-    "korean": "이거",
+    "id": 39,
+    "korean": "이 거",
     "uzbek": "Bu narsa",
-    "romanization": "igeo",
+    "romanization": "i geo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -165,10 +165,10 @@
     "sourceNumber": 39
   },
   {
-    "id": 16,
-    "korean": "그거",
+    "id": 40,
+    "korean": "그 거",
     "uzbek": "U narsa",
-    "romanization": "geugeo",
+    "romanization": "geu geo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -176,10 +176,10 @@
     "sourceNumber": 40
   },
   {
-    "id": 17,
-    "korean": "저거",
+    "id": 41,
+    "korean": "저 거",
     "uzbek": "Anavi narsa",
-    "romanization": "jeogeo",
+    "romanization": "jeo geo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -187,7 +187,7 @@
     "sourceNumber": 41
   },
   {
-    "id": 18,
+    "id": 42,
     "korean": "돈",
     "uzbek": "Pul",
     "romanization": "don",
@@ -198,7 +198,7 @@
     "sourceNumber": 42
   },
   {
-    "id": 19,
+    "id": 43,
     "korean": "고마워요",
     "uzbek": "Rahmat / Tashakkur",
     "romanization": "gomawoyo",
@@ -209,7 +209,7 @@
     "sourceNumber": 43
   },
   {
-    "id": 20,
+    "id": 44,
     "korean": "아저씨",
     "uzbek": "Amaki (yoshi katta erkak)",
     "romanization": "ajeossi",
@@ -220,7 +220,7 @@
     "sourceNumber": 44
   },
   {
-    "id": 21,
+    "id": 45,
     "korean": "손님",
     "uzbek": "Mijoz / Mehmon",
     "romanization": "sonnim",
@@ -231,7 +231,7 @@
     "sourceNumber": 45
   },
   {
-    "id": 22,
+    "id": 46,
     "korean": "남자 친구",
     "uzbek": "Yigit (Sevgili) do'st",
     "romanization": "namja chingu",
@@ -242,7 +242,7 @@
     "sourceNumber": 46
   },
   {
-    "id": 23,
+    "id": 47,
     "korean": "여자 친구",
     "uzbek": "Qiz (Sevgili) do'st",
     "romanization": "yeoja chingu",
@@ -253,7 +253,7 @@
     "sourceNumber": 47
   },
   {
-    "id": 24,
+    "id": 48,
     "korean": "뭐",
     "uzbek": "Nima",
     "romanization": "mwo",
@@ -264,10 +264,10 @@
     "sourceNumber": 48
   },
   {
-    "id": 25,
+    "id": 49,
     "korean": "한국어로",
     "uzbek": "Koreys tilida",
-    "romanization": "hangukeoro",
+    "romanization": "hangugeoro",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",

@@ -1,127 +1,6 @@
 [
   {
     "id": 1,
-    "korean": "가방",
-    "uzbek": "Sumka",
-    "romanization": "gabang",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 2,
-    "korean": "아버지",
-    "uzbek": "Ota",
-    "romanization": "abeoji",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 3,
-    "korean": "어머니",
-    "uzbek": "Ona",
-    "romanization": "eomeoni",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 4,
-    "korean": "책상",
-    "uzbek": "Parta / Yozuv stoli",
-    "romanization": "chaeksang",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 5,
-    "korean": "친구",
-    "uzbek": "Do'st",
-    "romanization": "chingu",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 6,
-    "korean": "연필",
-    "uzbek": "Qalam",
-    "romanization": "yeonpil",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 7,
-    "korean": "칠판",
-    "uzbek": "Sinf doskasi",
-    "romanization": "chilpan",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 8,
-    "korean": "책",
-    "uzbek": "Kitob",
-    "romanization": "chaek",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 9,
-    "korean": "의자",
-    "uzbek": "Stul",
-    "romanization": "uija",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 10,
-    "korean": "학교",
-    "uzbek": "Maktab",
-    "romanization": "hakgyo",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 11,
-    "korean": "사람",
-    "uzbek": "Odam / Kishi",
-    "romanization": "saram",
-    "lesson": 1,
-    "category": "intro, countries and identity",
-    "audio": "speechSynthesis:ko-KR",
-    "needsReview": false,
-    "sourceNumber": null
-  },
-  {
-    "id": 12,
     "korean": "독일",
     "uzbek": "Germaniya",
     "romanization": "dokil",
@@ -132,7 +11,7 @@
     "sourceNumber": 1
   },
   {
-    "id": 13,
+    "id": 2,
     "korean": "미국",
     "uzbek": "AQSh (Amerika)",
     "romanization": "miguk",
@@ -143,7 +22,7 @@
     "sourceNumber": 2
   },
   {
-    "id": 14,
+    "id": 3,
     "korean": "영국",
     "uzbek": "Angliya (Buyuk Britaniya)",
     "romanization": "yeongguk",
@@ -154,7 +33,7 @@
     "sourceNumber": 3
   },
   {
-    "id": 15,
+    "id": 4,
     "korean": "일본",
     "uzbek": "Yaponiya",
     "romanization": "ilbon",
@@ -165,7 +44,7 @@
     "sourceNumber": 4
   },
   {
-    "id": 16,
+    "id": 5,
     "korean": "중국",
     "uzbek": "Xitoy",
     "romanization": "jungguk",
@@ -176,7 +55,7 @@
     "sourceNumber": 5
   },
   {
-    "id": 17,
+    "id": 6,
     "korean": "호주",
     "uzbek": "Avstraliya",
     "romanization": "hoju",
@@ -187,7 +66,7 @@
     "sourceNumber": 6
   },
   {
-    "id": 18,
+    "id": 7,
     "korean": "한국",
     "uzbek": "Koreya",
     "romanization": "hanguk",
@@ -198,7 +77,7 @@
     "sourceNumber": 7
   },
   {
-    "id": 19,
+    "id": 8,
     "korean": "우즈베키스탄",
     "uzbek": "O'zbekiston",
     "romanization": "ujeubekiseutan",
@@ -209,7 +88,7 @@
     "sourceNumber": 8
   },
   {
-    "id": 20,
+    "id": 9,
     "korean": "파키스탄",
     "uzbek": "Pokiston",
     "romanization": "pakiseutan",
@@ -220,7 +99,7 @@
     "sourceNumber": 9
   },
   {
-    "id": 21,
+    "id": 10,
     "korean": "경찰관",
     "uzbek": "Politsiyachi",
     "romanization": "gyeongchalgwan",
@@ -231,7 +110,7 @@
     "sourceNumber": 10
   },
   {
-    "id": 22,
+    "id": 11,
     "korean": "요리사",
     "uzbek": "Oshpaz",
     "romanization": "yorisa",
@@ -242,7 +121,7 @@
     "sourceNumber": 11
   },
   {
-    "id": 23,
+    "id": 12,
     "korean": "의사",
     "uzbek": "Shifokor (Do'xtir)",
     "romanization": "uisa",
@@ -253,7 +132,7 @@
     "sourceNumber": 12
   },
   {
-    "id": 24,
+    "id": 13,
     "korean": "학생",
     "uzbek": "O'quvchi / Talaba",
     "romanization": "haksaeng",
@@ -264,7 +143,7 @@
     "sourceNumber": 13
   },
   {
-    "id": 25,
+    "id": 14,
     "korean": "회사원",
     "uzbek": "Firma (Kompaniya) xodimi",
     "romanization": "hoesawon",
@@ -275,7 +154,7 @@
     "sourceNumber": 14
   },
   {
-    "id": 26,
+    "id": 15,
     "korean": "선생님",
     "uzbek": "O'qituvchi",
     "romanization": "seonsaengnim",
@@ -286,7 +165,7 @@
     "sourceNumber": 15
   },
   {
-    "id": 27,
+    "id": 16,
     "korean": "어느",
     "uzbek": "Qaysi",
     "romanization": "eoneu",
@@ -297,7 +176,7 @@
     "sourceNumber": 16
   },
   {
-    "id": 28,
+    "id": 17,
     "korean": "직업",
     "uzbek": "Kasb",
     "romanization": "jikeop",
@@ -308,7 +187,7 @@
     "sourceNumber": 17
   },
   {
-    "id": 29,
+    "id": 18,
     "korean": "저",
     "uzbek": "Men (hurmat shaklida)",
     "romanization": "jeo",
@@ -319,7 +198,7 @@
     "sourceNumber": 18
   },
   {
-    "id": 30,
+    "id": 19,
     "korean": "이름이 뭐예요?",
     "uzbek": "Ismingiz nima?",
     "romanization": "ireumi mwoyeyo?",
@@ -330,7 +209,7 @@
     "sourceNumber": 19
   },
   {
-    "id": 31,
+    "id": 20,
     "korean": "누구",
     "uzbek": "Kim",
     "romanization": "nugu",
@@ -341,7 +220,7 @@
     "sourceNumber": 20
   },
   {
-    "id": 32,
+    "id": 21,
     "korean": "이",
     "uzbek": "Bu",
     "romanization": "i",
@@ -352,7 +231,7 @@
     "sourceNumber": 21
   },
   {
-    "id": 33,
+    "id": 22,
     "korean": "것",
     "uzbek": "Narsa / Buyum",
     "romanization": "geot",
@@ -363,7 +242,7 @@
     "sourceNumber": 22
   },
   {
-    "id": 34,
+    "id": 23,
     "korean": "뭐",
     "uzbek": "Nima",
     "romanization": "mwo",
@@ -374,7 +253,7 @@
     "sourceNumber": 23
   },
   {
-    "id": 35,
+    "id": 24,
     "korean": "무엇",
     "uzbek": "Nima (rasmiy shakli)",
     "romanization": "mueot",

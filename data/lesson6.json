@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 139,
     "korean": "병원",
     "uzbek": "Shifoxona (Kasalxona)",
     "romanization": "byeongwon",
@@ -11,7 +11,7 @@
     "sourceNumber": 139
   },
   {
-    "id": 2,
+    "id": 140,
     "korean": "앞",
     "uzbek": "Oldi / Oldida",
     "romanization": "ap",
@@ -22,7 +22,7 @@
     "sourceNumber": 140
   },
   {
-    "id": 3,
+    "id": 141,
     "korean": "뒤",
     "uzbek": "Orqa / Orqasida",
     "romanization": "dwi",
@@ -33,7 +33,7 @@
     "sourceNumber": 141
   },
   {
-    "id": 4,
+    "id": 142,
     "korean": "옆",
     "uzbek": "Yon / Yonida",
     "romanization": "yeop",
@@ -44,7 +44,7 @@
     "sourceNumber": 142
   },
   {
-    "id": 5,
+    "id": 143,
     "korean": "아래/밑",
     "uzbek": "Tag / Ost / Past / Ostida",
     "romanization": "arae/mit",
@@ -55,7 +55,7 @@
     "sourceNumber": 143
   },
   {
-    "id": 6,
+    "id": 144,
     "korean": "안",
     "uzbek": "Ich / Ichida",
     "romanization": "an",
@@ -66,7 +66,7 @@
     "sourceNumber": 144
   },
   {
-    "id": 7,
+    "id": 145,
     "korean": "위",
     "uzbek": "Tepa / Ust / Ustida",
     "romanization": "wi",
@@ -77,7 +77,7 @@
     "sourceNumber": 145
   },
   {
-    "id": 8,
+    "id": 146,
     "korean": "사이",
     "uzbek": "Ora / Orasida",
     "romanization": "sai",
@@ -88,7 +88,7 @@
     "sourceNumber": 146
   },
   {
-    "id": 9,
+    "id": 147,
     "korean": "왼쪽",
     "uzbek": "Chap tomon",
     "romanization": "oenjjok",
@@ -99,7 +99,7 @@
     "sourceNumber": 147
   },
   {
-    "id": 10,
+    "id": 148,
     "korean": "오른쪽",
     "uzbek": "O'ng tomon",
     "romanization": "oreunjjok",
@@ -110,7 +110,7 @@
     "sourceNumber": 148
   },
   {
-    "id": 11,
+    "id": 149,
     "korean": "근처",
     "uzbek": "Yaqin-atrof / Atrofida",
     "romanization": "geuncheo",
@@ -121,7 +121,7 @@
     "sourceNumber": 149
   },
   {
-    "id": 12,
+    "id": 150,
     "korean": "여기",
     "uzbek": "Bu yer / Shu yer",
     "romanization": "yeogi",
@@ -132,7 +132,7 @@
     "sourceNumber": 150
   },
   {
-    "id": 13,
+    "id": 151,
     "korean": "거기",
     "uzbek": "U yer",
     "romanization": "geogi",
@@ -143,7 +143,7 @@
     "sourceNumber": 151
   },
   {
-    "id": 14,
+    "id": 152,
     "korean": "저기",
     "uzbek": "Anavi yer",
     "romanization": "jeogi",
@@ -154,7 +154,7 @@
     "sourceNumber": 152
   },
   {
-    "id": 15,
+    "id": 153,
     "korean": "영/공",
     "uzbek": "Nol (0)",
     "romanization": "yeong/gong",
@@ -165,7 +165,7 @@
     "sourceNumber": 153
   },
   {
-    "id": 16,
+    "id": 154,
     "korean": "일",
     "uzbek": "Bir (1)",
     "romanization": "il",
@@ -176,7 +176,7 @@
     "sourceNumber": 154
   },
   {
-    "id": 17,
+    "id": 155,
     "korean": "이",
     "uzbek": "Ikki (2)",
     "romanization": "i",
@@ -187,7 +187,7 @@
     "sourceNumber": 155
   },
   {
-    "id": 18,
+    "id": 156,
     "korean": "삼",
     "uzbek": "Uch (3)",
     "romanization": "sam",
@@ -198,7 +198,7 @@
     "sourceNumber": 156
   },
   {
-    "id": 19,
+    "id": 157,
     "korean": "사",
     "uzbek": "To'rt (4)",
     "romanization": "sa",
@@ -209,7 +209,7 @@
     "sourceNumber": 157
   },
   {
-    "id": 20,
+    "id": 158,
     "korean": "오",
     "uzbek": "Besh (5)",
     "romanization": "o",
@@ -220,7 +220,7 @@
     "sourceNumber": 158
   },
   {
-    "id": 21,
+    "id": 159,
     "korean": "육",
     "uzbek": "Olti (6)",
     "romanization": "yuk",
@@ -231,7 +231,7 @@
     "sourceNumber": 159
   },
   {
-    "id": 22,
+    "id": 160,
     "korean": "칠",
     "uzbek": "Yetti (7)",
     "romanization": "chil",
@@ -242,7 +242,7 @@
     "sourceNumber": 160
   },
   {
-    "id": 23,
+    "id": 161,
     "korean": "팔",
     "uzbek": "Sakkiz (8)",
     "romanization": "pal",
@@ -253,7 +253,7 @@
     "sourceNumber": 161
   },
   {
-    "id": 24,
+    "id": 162,
     "korean": "구",
     "uzbek": "To'qqiz (9)",
     "romanization": "gu",
@@ -264,7 +264,7 @@
     "sourceNumber": 162
   },
   {
-    "id": 25,
+    "id": 163,
     "korean": "십",
     "uzbek": "O'n (10)",
     "romanization": "sip",
@@ -275,7 +275,7 @@
     "sourceNumber": 163
   },
   {
-    "id": 26,
+    "id": 164,
     "korean": "백",
     "uzbek": "Yuz (100)",
     "romanization": "baek",
@@ -286,7 +286,7 @@
     "sourceNumber": 164
   },
   {
-    "id": 27,
+    "id": 165,
     "korean": "천",
     "uzbek": "Ming (1000)",
     "romanization": "cheon",
@@ -297,7 +297,7 @@
     "sourceNumber": 165
   },
   {
-    "id": 28,
+    "id": 166,
     "korean": "만",
     "uzbek": "O'n ming (10000)",
     "romanization": "man",
@@ -308,7 +308,7 @@
     "sourceNumber": 166
   },
   {
-    "id": 29,
+    "id": 167,
     "korean": "오늘",
     "uzbek": "Bugun",
     "romanization": "oneul",
@@ -319,7 +319,7 @@
     "sourceNumber": 167
   },
   {
-    "id": 30,
+    "id": 168,
     "korean": "내일",
     "uzbek": "Ertaga",
     "romanization": "naeil",
@@ -330,10 +330,10 @@
     "sourceNumber": 168
   },
   {
-    "id": 31,
+    "id": 169,
     "korean": "월요일",
     "uzbek": "Dushanba",
-    "romanization": "wolyoil",
+    "romanization": "woryoil",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
@@ -341,7 +341,7 @@
     "sourceNumber": 169
   },
   {
-    "id": 32,
+    "id": 170,
     "korean": "화요일",
     "uzbek": "Seshanba",
     "romanization": "hwayoil",
@@ -352,7 +352,7 @@
     "sourceNumber": 170
   },
   {
-    "id": 33,
+    "id": 171,
     "korean": "수요일",
     "uzbek": "Chorshanba",
     "romanization": "suyoil",
@@ -363,10 +363,10 @@
     "sourceNumber": 171
   },
   {
-    "id": 34,
+    "id": 172,
     "korean": "목요일",
     "uzbek": "Payshanba",
-    "romanization": "mokyoil",
+    "romanization": "mogyoil",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
@@ -374,7 +374,7 @@
     "sourceNumber": 172
   },
   {
-    "id": 35,
+    "id": 173,
     "korean": "금요일",
     "uzbek": "Juma",
     "romanization": "geumyoil",
@@ -385,7 +385,7 @@
     "sourceNumber": 173
   },
   {
-    "id": 36,
+    "id": 174,
     "korean": "토요일",
     "uzbek": "Shanba",
     "romanization": "toyoil",
@@ -396,10 +396,10 @@
     "sourceNumber": 174
   },
   {
-    "id": 37,
+    "id": 175,
     "korean": "일요일",
     "uzbek": "Yakshanba",
-    "romanization": "ilyoil",
+    "romanization": "iryoil",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
@@ -407,7 +407,7 @@
     "sourceNumber": 175
   },
   {
-    "id": 38,
+    "id": 176,
     "korean": "날짜",
     "uzbek": "Sana / Kun",
     "romanization": "naljja",
@@ -418,9 +418,9 @@
     "sourceNumber": 176
   },
   {
-    "id": 39,
+    "id": 177,
     "korean": "요일",
-    "uzbek": "Hafta kuni",
+    "uzbek": "Haftakuni",
     "romanization": "yoil",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -429,9 +429,9 @@
     "sourceNumber": 177
   },
   {
-    "id": 40,
+    "id": 178,
     "korean": "월",
-    "uzbek": "Oy (Kalendar oyi)",
+    "uzbek": "Oy (Kalandar oyi)",
     "romanization": "wol",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -440,7 +440,7 @@
     "sourceNumber": 178
   },
   {
-    "id": 41,
+    "id": 179,
     "korean": "일",
     "uzbek": "Kun",
     "romanization": "il",
@@ -451,7 +451,7 @@
     "sourceNumber": 179
   },
   {
-    "id": 42,
+    "id": 180,
     "korean": "년",
     "uzbek": "Yil",
     "romanization": "nyeon",
@@ -462,7 +462,7 @@
     "sourceNumber": 180
   },
   {
-    "id": 43,
+    "id": 181,
     "korean": "생일",
     "uzbek": "Tug'ilgan kun",
     "romanization": "saengil",
@@ -473,7 +473,7 @@
     "sourceNumber": 181
   },
   {
-    "id": 44,
+    "id": 182,
     "korean": "무슨",
     "uzbek": "Qanday / Qaysi",
     "romanization": "museun",
@@ -484,7 +484,7 @@
     "sourceNumber": 182
   },
   {
-    "id": 45,
+    "id": 183,
     "korean": "전화번호",
     "uzbek": "Telefon raqami",
     "romanization": "jeonhwabeonho",
@@ -495,7 +495,7 @@
     "sourceNumber": 183
   },
   {
-    "id": 46,
+    "id": 184,
     "korean": "몇",
     "uzbek": "Nechta / Nechchi",
     "romanization": "myeot",
@@ -506,7 +506,7 @@
     "sourceNumber": 184
   },
   {
-    "id": 47,
+    "id": 185,
     "korean": "번",
     "uzbek": "Raqam / Marta",
     "romanization": "beon",

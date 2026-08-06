@@ -1,9 +1,9 @@
 [
   {
-    "id": 1,
+    "id": 77,
     "korean": "복잡하다",
     "uzbek": "Gavjum / Tirband / Murakkab bo'lmoq",
-    "romanization": "bokjaphada",
+    "romanization": "bokjapada",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -11,7 +11,7 @@
     "sourceNumber": 77
   },
   {
-    "id": 2,
+    "id": 78,
     "korean": "시원하다",
     "uzbek": "Salqin bo'lmoq",
     "romanization": "siwonhada",
@@ -22,7 +22,7 @@
     "sourceNumber": 78
   },
   {
-    "id": 3,
+    "id": 79,
     "korean": "깨끗하다",
     "uzbek": "Toza bo'lmoq",
     "romanization": "kkaekkeuthada",
@@ -33,7 +33,7 @@
     "sourceNumber": 79
   },
   {
-    "id": 4,
+    "id": 80,
     "korean": "편하다",
     "uzbek": "Qulay bo'lmoq",
     "romanization": "pyeonhada",
@@ -44,7 +44,7 @@
     "sourceNumber": 80
   },
   {
-    "id": 5,
+    "id": 81,
     "korean": "불편하다",
     "uzbek": "Noqulay bo'lmoq",
     "romanization": "bulpyeonhada",
@@ -55,7 +55,7 @@
     "sourceNumber": 81
   },
   {
-    "id": 6,
+    "id": 82,
     "korean": "좀",
     "uzbek": "Biroz / Sal",
     "romanization": "jom",
@@ -66,7 +66,7 @@
     "sourceNumber": 82
   },
   {
-    "id": 7,
+    "id": 83,
     "korean": "적다",
     "uzbek": "Kam / Oz bo'lmoq",
     "romanization": "jeokda",
@@ -77,7 +77,7 @@
     "sourceNumber": 83
   },
   {
-    "id": 8,
+    "id": 84,
     "korean": "작다",
     "uzbek": "Kichik bo'lmoq",
     "romanization": "jakda",
@@ -88,7 +88,7 @@
     "sourceNumber": 84
   },
   {
-    "id": 9,
+    "id": 85,
     "korean": "싸다",
     "uzbek": "Arzon bo'lmoq",
     "romanization": "ssada",
@@ -99,10 +99,10 @@
     "sourceNumber": 85
   },
   {
-    "id": 10,
+    "id": 86,
     "korean": "많다",
     "uzbek": "Ko'p bo'lmoq",
-    "romanization": "manda",
+    "romanization": "manta",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -110,7 +110,7 @@
     "sourceNumber": 86
   },
   {
-    "id": 11,
+    "id": 87,
     "korean": "비싸다",
     "uzbek": "Qimmat bo'lmoq",
     "romanization": "bissada",
@@ -121,10 +121,10 @@
     "sourceNumber": 87
   },
   {
-    "id": 12,
+    "id": 88,
     "korean": "좋다",
     "uzbek": "Yaxshi bo'lmoq",
-    "romanization": "jotda",
+    "romanization": "jota",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -132,7 +132,7 @@
     "sourceNumber": 88
   },
   {
-    "id": 13,
+    "id": 89,
     "korean": "재미있다",
     "uzbek": "Qiziqarli bo'lmoq",
     "romanization": "jaemiitda",
@@ -143,10 +143,10 @@
     "sourceNumber": 89
   },
   {
-    "id": 14,
+    "id": 90,
     "korean": "맛있다",
     "uzbek": "Mazali bo'lmoq",
-    "romanization": "matitda",
+    "romanization": "masitda",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -154,7 +154,7 @@
     "sourceNumber": 90
   },
   {
-    "id": 15,
+    "id": 91,
     "korean": "재미없다",
     "uzbek": "Qiziqarsiz bo'lmoq",
     "romanization": "jaemieopda",
@@ -165,10 +165,10 @@
     "sourceNumber": 91
   },
   {
-    "id": 16,
+    "id": 92,
     "korean": "맛없다",
     "uzbek": "Mazasiz bo'lmoq",
-    "romanization": "mateopda",
+    "romanization": "maseopda",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -176,10 +176,10 @@
     "sourceNumber": 92
   },
   {
-    "id": 17,
+    "id": 93,
     "korean": "같이",
     "uzbek": "Birga",
-    "romanization": "gati",
+    "romanization": "gachi",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -187,7 +187,7 @@
     "sourceNumber": 93
   },
   {
-    "id": 18,
+    "id": 94,
     "korean": "날씨",
     "uzbek": "Ob-havo",
     "romanization": "nalssi",
@@ -198,7 +198,7 @@
     "sourceNumber": 94
   },
   {
-    "id": 19,
+    "id": 95,
     "korean": "어때요?",
     "uzbek": "Qanday?",
     "romanization": "eottaeyo?",
@@ -209,7 +209,7 @@
     "sourceNumber": 95
   },
   {
-    "id": 20,
+    "id": 96,
     "korean": "맛",
     "uzbek": "Mazasi / Ta'mi",
     "romanization": "mat",
@@ -220,7 +220,7 @@
     "sourceNumber": 96
   },
   {
-    "id": 21,
+    "id": 97,
     "korean": "레몬차",
     "uzbek": "Limonli choy",
     "romanization": "remoncha",
@@ -231,7 +231,7 @@
     "sourceNumber": 97
   },
   {
-    "id": 22,
+    "id": 98,
     "korean": "맥주",
     "uzbek": "Pivo",
     "romanization": "maekju",
@@ -242,7 +242,7 @@
     "sourceNumber": 98
   },
   {
-    "id": 23,
+    "id": 99,
     "korean": "물",
     "uzbek": "Suv",
     "romanization": "mul",
@@ -253,7 +253,7 @@
     "sourceNumber": 99
   },
   {
-    "id": 24,
+    "id": 100,
     "korean": "오렌지주스",
     "uzbek": "Apelsin sharbati",
     "romanization": "orenjijuseu",
@@ -264,7 +264,7 @@
     "sourceNumber": 100
   },
   {
-    "id": 25,
+    "id": 101,
     "korean": "커피",
     "uzbek": "Kofe",
     "romanization": "keopi",
@@ -275,10 +275,10 @@
     "sourceNumber": 101
   },
   {
-    "id": 26,
+    "id": 102,
     "korean": "콜라",
     "uzbek": "Kola",
-    "romanization": "kolra",
+    "romanization": "kolla",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -286,7 +286,7 @@
     "sourceNumber": 102
   },
   {
-    "id": 27,
+    "id": 103,
     "korean": "빵",
     "uzbek": "Non",
     "romanization": "ppang",
@@ -297,7 +297,7 @@
     "sourceNumber": 103
   },
   {
-    "id": 28,
+    "id": 104,
     "korean": "아주",
     "uzbek": "Juda / Judayam",
     "romanization": "aju",
@@ -308,7 +308,7 @@
     "sourceNumber": 104
   },
   {
-    "id": 29,
+    "id": 105,
     "korean": "값",
     "uzbek": "Narx / Baho",
     "romanization": "gap",
@@ -319,7 +319,7 @@
     "sourceNumber": 105
   },
   {
-    "id": 30,
+    "id": 106,
     "korean": "과자",
     "uzbek": "Pechenye / Shirinliklar",
     "romanization": "gwaja",
@@ -330,10 +330,10 @@
     "sourceNumber": 106
   },
   {
-    "id": 31,
-    "korean": "그럼",
+    "id": 107,
+    "korean": "그렇",
     "uzbek": "Unda / Unday bo'lsa",
-    "romanization": "geureom",
+    "romanization": "geureok",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
@@ -341,7 +341,7 @@
     "sourceNumber": 107
   },
   {
-    "id": 32,
+    "id": 108,
     "korean": "달다",
     "uzbek": "Shirin bo'lmoq",
     "romanization": "dalda",

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 386,
     "korean": "전통",
     "uzbek": "Milliy",
     "romanization": "jeontong",
@@ -11,7 +11,7 @@
     "sourceNumber": 386
   },
   {
-    "id": 2,
+    "id": 387,
     "korean": "문화",
     "uzbek": "Madaniyat",
     "romanization": "munhwa",
@@ -22,7 +22,7 @@
     "sourceNumber": 387
   },
   {
-    "id": 3,
+    "id": 388,
     "korean": "남편",
     "uzbek": "Er (turmush o'rtoq)",
     "romanization": "nampyeon",
@@ -33,7 +33,7 @@
     "sourceNumber": 388
   },
   {
-    "id": 4,
+    "id": 389,
     "korean": "아내",
     "uzbek": "Xotin / Rafiqa",
     "romanization": "anae",
@@ -44,7 +44,7 @@
     "sourceNumber": 389
   },
   {
-    "id": 5,
+    "id": 390,
     "korean": "음악회",
     "uzbek": "Konsert / Musiqa kechasi",
     "romanization": "eumakhoe",
@@ -55,7 +55,7 @@
     "sourceNumber": 390
   },
   {
-    "id": 6,
+    "id": 391,
     "korean": "새",
     "uzbek": "Qush / Yangi",
     "romanization": "sae",
@@ -66,7 +66,7 @@
     "sourceNumber": 391
   },
   {
-    "id": 7,
+    "id": 392,
     "korean": "거실",
     "uzbek": "Mehmonxona / Zal (uyning o'rtasidagi asosiy xona)",
     "romanization": "geosil",
@@ -77,7 +77,7 @@
     "sourceNumber": 392
   },
   {
-    "id": 8,
+    "id": 393,
     "korean": "중",
     "uzbek": "Ichida / Davomida / Ora / O'rtasida",
     "romanization": "jung",
@@ -88,10 +88,10 @@
     "sourceNumber": 393
   },
   {
-    "id": 9,
+    "id": 394,
     "korean": "분위기",
     "uzbek": "Muhit / Atmosfera",
-    "romanization": "bunwigi",
+    "romanization": "bunwigii",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
@@ -99,7 +99,7 @@
     "sourceNumber": 394
   },
   {
-    "id": 10,
+    "id": 395,
     "korean": "실내",
     "uzbek": "Xona ichi / Bino ichi",
     "romanization": "silnae",
@@ -110,7 +110,7 @@
     "sourceNumber": 395
   },
   {
-    "id": 11,
+    "id": 396,
     "korean": "부엌",
     "uzbek": "Oshxona (uy ichidagi)",
     "romanization": "bueok",
@@ -121,10 +121,10 @@
     "sourceNumber": 396
   },
   {
-    "id": 12,
+    "id": 397,
     "korean": "이웃",
     "uzbek": "Qo'shni",
-    "romanization": "iut",
+    "romanization": "iwut",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
@@ -132,7 +132,7 @@
     "sourceNumber": 397
   },
   {
-    "id": 13,
+    "id": 398,
     "korean": "인터넷",
     "uzbek": "Internet",
     "romanization": "inteonet",
@@ -143,7 +143,7 @@
     "sourceNumber": 398
   },
   {
-    "id": 14,
+    "id": 399,
     "korean": "속도",
     "uzbek": "Tezlik",
     "romanization": "sokdo",
@@ -154,7 +154,7 @@
     "sourceNumber": 399
   },
   {
-    "id": 15,
+    "id": 400,
     "korean": "일찍",
     "uzbek": "Erta / Barvaqt",
     "romanization": "iljjik",
@@ -165,7 +165,7 @@
     "sourceNumber": 400
   },
   {
-    "id": 16,
+    "id": 401,
     "korean": "설명하다",
     "uzbek": "Tushuntirmoq / Izohlamoq",
     "romanization": "seolmyeonghada",
@@ -176,7 +176,7 @@
     "sourceNumber": 401
   },
   {
-    "id": 17,
+    "id": 402,
     "korean": "노래를 부르다",
     "uzbek": "Qo'shiq kuylamoq",
     "romanization": "noraereul bureuda",
@@ -187,7 +187,7 @@
     "sourceNumber": 402
   },
   {
-    "id": 18,
+    "id": 403,
     "korean": "문제를 풀다",
     "uzbek": "Masala / Muammoni yechmoq",
     "romanization": "munjereul pulda",
@@ -198,7 +198,7 @@
     "sourceNumber": 403
   },
   {
-    "id": 19,
+    "id": 404,
     "korean": "누가",
     "uzbek": "Kim (ega vazifasida: 누구 + 가)",
     "romanization": "nuga",
@@ -209,9 +209,9 @@
     "sourceNumber": 404
   },
   {
-    "id": 20,
+    "id": 405,
     "korean": "전화를 받다",
-    "uzbek": "Telefonni ko'tarmoq / javob bermoq",
+    "uzbek": "Telefonni ko'tarmoq / Javob bermoq",
     "romanization": "jeonhwareul batda",
     "lesson": 13,
     "category": "culture, home and communication",
@@ -220,7 +220,7 @@
     "sourceNumber": 405
   },
   {
-    "id": 21,
+    "id": 406,
     "korean": "먼저",
     "uzbek": "Oldin / Birinchi bo'lib / Avval",
     "romanization": "meonjeo",
@@ -231,7 +231,7 @@
     "sourceNumber": 406
   },
   {
-    "id": 22,
+    "id": 407,
     "korean": "팩스로 보내다",
     "uzbek": "Faks orqali jo'natmoq",
     "romanization": "paekseuro bonaeda",
@@ -242,10 +242,10 @@
     "sourceNumber": 407
   },
   {
-    "id": 23,
+    "id": 408,
     "korean": "술을 끊다",
     "uzbek": "Ichishni tashlamoq (Alkogolni to'xtatmoq)",
-    "romanization": "suleul kkeunda",
+    "romanization": "sureul kkeunda",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
@@ -253,7 +253,7 @@
     "sourceNumber": 408
   },
   {
-    "id": 24,
+    "id": 409,
     "korean": "담배를 끊다",
     "uzbek": "Chekishni tashlamoq",
     "romanization": "dambaereul kkeunda",
@@ -264,7 +264,7 @@
     "sourceNumber": 409
   },
   {
-    "id": 25,
+    "id": 410,
     "korean": "이제",
     "uzbek": "Endi / Hozirdan boshlab",
     "romanization": "ije",
@@ -275,10 +275,10 @@
     "sourceNumber": 410
   },
   {
-    "id": 26,
+    "id": 411,
     "korean": "쓰레기를 버리다",
     "uzbek": "Chiqindini (axlatni) tashlamoq",
-    "romanization": "sseuregireul beorida",
+    "romanization": "ssureegeri beorida",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 260,
     "korean": "앉다",
     "uzbek": "O'tirmoq",
     "romanization": "anda",
@@ -11,7 +11,7 @@
     "sourceNumber": 260
   },
   {
-    "id": 2,
+    "id": 261,
     "korean": "어서 오세요",
     "uzbek": "Xush kelibsiz",
     "romanization": "eoseo oseyo",
@@ -22,7 +22,7 @@
     "sourceNumber": 261
   },
   {
-    "id": 3,
+    "id": 262,
     "korean": "입다",
     "uzbek": "Kiymoq (kiyim)",
     "romanization": "ipda",
@@ -33,10 +33,10 @@
     "sourceNumber": 262
   },
   {
-    "id": 4,
+    "id": 263,
     "korean": "빨리",
     "uzbek": "Tez / Tezda / Tezroq",
-    "romanization": "ppalri",
+    "romanization": "ppalli",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -44,7 +44,7 @@
     "sourceNumber": 263
   },
   {
-    "id": 5,
+    "id": 264,
     "korean": "시간이 없다",
     "uzbek": "Vaqt yo'q bo'lmoq",
     "romanization": "sigani eopda",
@@ -55,7 +55,7 @@
     "sourceNumber": 264
   },
   {
-    "id": 6,
+    "id": 265,
     "korean": "시간 잘 보내다",
     "uzbek": "Vaqtni yaxshi o'tkazmoq",
     "romanization": "sigan jal bonaeda",
@@ -66,10 +66,10 @@
     "sourceNumber": 265
   },
   {
-    "id": 7,
+    "id": 266,
     "korean": "박물관",
     "uzbek": "Muzey",
-    "romanization": "bakmulgwan",
+    "romanization": "bangmulgwan",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -77,10 +77,10 @@
     "sourceNumber": 266
   },
   {
-    "id": 8,
+    "id": 267,
     "korean": "행복하다",
     "uzbek": "Baxtli bo'lmoq",
-    "romanization": "haengbokhada",
+    "romanization": "haengbokada",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -88,10 +88,10 @@
     "sourceNumber": 267
   },
   {
-    "id": 9,
+    "id": 268,
     "korean": "들어오다",
     "uzbek": "Kirmoq / Ichkariga kirmoq",
-    "romanization": "deuleooda",
+    "romanization": "deureooda",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -99,10 +99,10 @@
     "sourceNumber": 268
   },
   {
-    "id": 10,
+    "id": 269,
     "korean": "축하하다",
     "uzbek": "Tabriklamoq",
-    "romanization": "chukhahada",
+    "romanization": "chukhada",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -110,7 +110,7 @@
     "sourceNumber": 269
   },
   {
-    "id": 11,
+    "id": 270,
     "korean": "건강하다",
     "uzbek": "Sog'lom bo'lmoq",
     "romanization": "geonganghada",
@@ -121,7 +121,7 @@
     "sourceNumber": 270
   },
   {
-    "id": 12,
+    "id": 271,
     "korean": "조심하다",
     "uzbek": "Ehtiyot bo'lmoq",
     "romanization": "josimhada",
@@ -132,7 +132,7 @@
     "sourceNumber": 271
   },
   {
-    "id": 13,
+    "id": 272,
     "korean": "열심히",
     "uzbek": "Qunt bilan / Astoydil",
     "romanization": "yeolsimhi",
@@ -143,7 +143,7 @@
     "sourceNumber": 272
   },
   {
-    "id": 14,
+    "id": 273,
     "korean": "이따",
     "uzbek": "Birozdan keyin / Sal turib",
     "romanization": "itta",
@@ -154,7 +154,7 @@
     "sourceNumber": 273
   },
   {
-    "id": 15,
+    "id": 274,
     "korean": "쓰다",
     "uzbek": "Yozmoq",
     "romanization": "sseuda",
@@ -165,7 +165,7 @@
     "sourceNumber": 274
   },
   {
-    "id": 16,
+    "id": 275,
     "korean": "닫다",
     "uzbek": "Yopmoq",
     "romanization": "datda",
@@ -176,7 +176,7 @@
     "sourceNumber": 275
   },
   {
-    "id": 17,
+    "id": 276,
     "korean": "문",
     "uzbek": "Eshik",
     "romanization": "mun",
@@ -187,7 +187,7 @@
     "sourceNumber": 276
   },
   {
-    "id": 18,
+    "id": 277,
     "korean": "창문",
     "uzbek": "Deraza",
     "romanization": "changmun",
@@ -198,7 +198,7 @@
     "sourceNumber": 277
   },
   {
-    "id": 19,
+    "id": 278,
     "korean": "전화하다",
     "uzbek": "Telefon qilmoq",
     "romanization": "jeonhwahada",
@@ -209,7 +209,7 @@
     "sourceNumber": 278
   },
   {
-    "id": 20,
+    "id": 279,
     "korean": "신다",
     "uzbek": "Kiymoq (oyoq kiyim, paypoq)",
     "romanization": "sinda",
@@ -220,7 +220,7 @@
     "sourceNumber": 279
   },
   {
-    "id": 21,
+    "id": 280,
     "korean": "등산하다",
     "uzbek": "Tog'ga chiqmoq",
     "romanization": "deungsanhada",
@@ -231,7 +231,7 @@
     "sourceNumber": 280
   },
   {
-    "id": 22,
+    "id": 281,
     "korean": "등산화",
     "uzbek": "Tog' poyabzali",
     "romanization": "deungsanhwa",
@@ -242,7 +242,7 @@
     "sourceNumber": 281
   },
   {
-    "id": 23,
+    "id": 282,
     "korean": "가져오다",
     "uzbek": "Olib kelmoq",
     "romanization": "gajyeooda",
@@ -253,7 +253,7 @@
     "sourceNumber": 282
   },
   {
-    "id": 24,
+    "id": 283,
     "korean": "쉬다",
     "uzbek": "Dam olmoq",
     "romanization": "swida",
@@ -264,7 +264,7 @@
     "sourceNumber": 283
   },
   {
-    "id": 25,
+    "id": 284,
     "korean": "오빠",
     "uzbek": "Aka (qiz bola uchun)",
     "romanization": "oppa",
@@ -275,7 +275,7 @@
     "sourceNumber": 284
   },
   {
-    "id": 26,
+    "id": 285,
     "korean": "형",
     "uzbek": "Aka (o'g'il bola uchun)",
     "romanization": "hyeong",
@@ -286,7 +286,7 @@
     "sourceNumber": 285
   },
   {
-    "id": 27,
+    "id": 286,
     "korean": "누나",
     "uzbek": "Opa (o'g'il bola uchun)",
     "romanization": "nuna",
@@ -297,7 +297,7 @@
     "sourceNumber": 286
   },
   {
-    "id": 28,
+    "id": 287,
     "korean": "언니",
     "uzbek": "Opa (qiz bola uchun)",
     "romanization": "eonni",
@@ -308,7 +308,7 @@
     "sourceNumber": 287
   },
   {
-    "id": 29,
+    "id": 288,
     "korean": "도와 주다",
     "uzbek": "Yordam bermoq",
     "romanization": "dowa juda",
@@ -319,7 +319,7 @@
     "sourceNumber": 288
   },
   {
-    "id": 30,
+    "id": 289,
     "korean": "꼭",
     "uzbek": "Albatta / Shart",
     "romanization": "kkok",
