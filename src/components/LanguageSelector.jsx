@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import IELTSRecommendationModal from './IELTSRecommendationModal';
 
 const languages = [
   { code: 'uz', name: "O'zbek", flag: '🇺🇿' },
@@ -20,14 +19,13 @@ const fadeConfig = {
   ease: [0.25, 0.1, 0.25, 1],
 };
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ onShowIELTSModal }) {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(
     localStorage.getItem('language') || 'uz'
   );
   const [isChanging, setIsChanging] = useState(false);
-  const [showIELTSModal, setShowIELTSModal] = useState(false);
 
   const currentLang = languages.find(lang => lang.code === selectedLang) || languages[0];
 
@@ -51,7 +49,8 @@ export default function LanguageSelector() {
       if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
         // Show modal immediately after language transition completes
         setTimeout(() => {
-          setShowIELTSModal(true);
+          console.log('Calling onShowIELTSModal'); // Debug
+          onShowIELTSModal();
         }, 600); // Matches the dropdown close animation duration
       }
     }, 200);
@@ -67,10 +66,6 @@ export default function LanguageSelector() {
     if (!isChanging) {
       setIsOpen(!isOpen);
     }
-  };
-
-  const handleIELTSClose = () => {
-    setShowIELTSModal(false);
   };
 
   return (
@@ -222,12 +217,6 @@ export default function LanguageSelector() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* IELTS Recommendation Modal */}
-      <IELTSRecommendationModal 
-        isOpen={showIELTSModal} 
-        onClose={handleIELTSClose} 
-      />
     </div>
   );
 }

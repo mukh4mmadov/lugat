@@ -61,25 +61,12 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
             className="fixed inset-0 z-[100] grid place-items-center p-4"
             style={{
               backgroundColor: 'rgba(0, 0, 0, 0.55)',
+              backdropFilter: 'blur(22px)',
+              WebkitBackdropFilter: 'blur(22px)',
             }}
           >
-            {/* Backdrop blur layer */}
-            <motion.div
-              initial={{ backdropFilter: 'blur(0px)', WebkitBackdropFilter: 'blur(0px)' }}
-              animate={{ backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)' }}
-              exit={{ backdropFilter: 'blur(0px)', WebkitBackdropFilter: 'blur(0px)' }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute inset-0"
-            />
-
-            {/* Page scale animation */}
-            <motion.div
-              initial={{ scale: 1 }}
-              animate={{ scale: 0.98 }}
-              exit={{ scale: 1 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute inset-0 pointer-events-none"
-            />
+            {/* Page scale animation - removed to prevent flicker */}
+            {/* No page scale - prevents flickering */}
 
             {/* Modal Card - Grid centered, no transforms */}
             <motion.div

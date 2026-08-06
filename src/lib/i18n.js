@@ -215,6 +215,9 @@ const resources = {
       "footer.contact": "Xatolik yoki xatolar uchun",
       "footer.contactTelegram": "Telegram @mukh4mmadov",
 
+      // Advertisement
+      "advertisement.placeholder": "Sizning reklamangiz bu yerda bo'lishi mumkin edi",
+
       // IELTS Recommendation Modal
       "ielts.title": "Ingliz tilini davom ettiring",
       "ielts.description": "Agar siz koreyscha o'rganayotgan bo'lsangiz, ingliz tilini o'qishni yaxshilash sizga tillarni tezroq o'rganishga yordam beradi. Bizning IELTS Reading platformamizni sinab ko'ring - AI tushuntirishlari, professional matnlar va haqiqiy imtihon mashqlari bilan.",
@@ -436,6 +439,9 @@ const resources = {
       "footer.contact": "For bugs or errors",
       "footer.contactTelegram": "Telegram @mukh4mmadov",
 
+      // Advertisement
+      "advertisement.placeholder": "Your advertisement could be here",
+
       // IELTS Recommendation Modal
       "ielts.title": "Continue improving your English",
       "ielts.description": "If you're learning Korean, improving your English reading will help you learn languages faster. Try our IELTS Reading platform with AI explanations, professional passages and real exam practice.",
@@ -654,6 +660,9 @@ const resources = {
       "footer.developer": "Разработчик",
       "footer.contact": "Для ошибок и проблем",
       "footer.contactTelegram": "Telegram @mukh4mmadov",
+
+      // Advertisement
+      "advertisement.placeholder": "Ваша реклама может быть здесь",
 
       // IELTS Recommendation Modal
       "ielts.title": "Продолжайте улучшать английский",

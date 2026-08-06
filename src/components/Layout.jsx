@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 
-export default function Layout() {
+export default function Layout({ onShowIELTSModal }) {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.progress.theme);
@@ -104,7 +104,7 @@ export default function Layout() {
                   {label}
                 </NavLink>
               ))}
-              <LanguageSelector />
+              <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
               <button
                 type="button"
                 onClick={() => dispatch(setTheme(nextTheme))}
@@ -115,6 +115,15 @@ export default function Layout() {
             </nav>
           </div>
         </header>
+
+        {/* Advertisement Banner */}
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-6 h-16 rounded-xl bg-red-500 flex items-center justify-center">
+            <p className="text-sm font-semibold text-white">
+              {t('advertisement.placeholder')}
+            </p>
+          </div>
+        </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 flex-1">
           <AnimatePresence mode="wait">
