@@ -1,0 +1,226 @@
+[
+  {
+    "id": 712,
+    "korean": "잘 안 보이다",
+    "uzbek": "Yaxshi ko'rinmaslik",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 712
+  },
+  {
+    "id": 713,
+    "korean": "검사를 하다",
+    "uzbek": "Tekshirmoq, tibbiy ko'rikdan o'tkazmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 713
+  },
+  {
+    "id": 714,
+    "korean": "소아과",
+    "uzbek": "Pediatriya",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 714,
+    "note": "bolalar bo'limi"
+  },
+  {
+    "id": 715,
+    "korean": "상담(센터)",
+    "uzbek": "Maslahat",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 715,
+    "note": "markazi"
+  },
+  {
+    "id": 716,
+    "korean": "체온을 확인하다",
+    "uzbek": "Tana haroratini tekshirmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 716
+  },
+  {
+    "id": 717,
+    "korean": "자꾸",
+    "uzbek": "Tez-tez, qayta-qayta",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 717
+  },
+  {
+    "id": 718,
+    "korean": "코가 막히다",
+    "uzbek": "Burun bitmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 718
+  },
+  {
+    "id": 719,
+    "korean": "재채기를 하다",
+    "uzbek": "Aksirmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 719
+  },
+  {
+    "id": 720,
+    "korean": "안경을 쓰다",
+    "uzbek": "Ko'zoynak taqmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 720
+  },
+  {
+    "id": 721,
+    "korean": "눈물이 나다",
+    "uzbek": "Ko'z yosh oqmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 721
+  },
+  {
+    "id": 722,
+    "korean": "안과",
+    "uzbek": "Oftalmologiya",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 722,
+    "note": "ko'z kasalliklari bo'limi"
+  },
+  {
+    "id": 723,
+    "korean": "치과",
+    "uzbek": "Stomatologiya",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 723,
+    "note": "tish kasalliklari bo'limi"
+  },
+  {
+    "id": 724,
+    "korean": "초콜릿",
+    "uzbek": "Shokolad",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 724
+  },
+  {
+    "id": 725,
+    "korean": "붓다",
+    "uzbek": "Ishmoq, shishmoq / Quymoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 725
+  },
+  {
+    "id": 726,
+    "korean": "피가 나다",
+    "uzbek": "Qonamoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 726
+  },
+  {
+    "id": 727,
+    "korean": "상처를 닦다",
+    "uzbek": "Jarohatni artmoq, tozalamoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 727
+  },
+  {
+    "id": 728,
+    "korean": "고민이 많다",
+    "uzbek": "Tashvishi ko'p",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 728
+  },
+  {
+    "id": 729,
+    "korean": "데리다",
+    "uzbek": "O'zi bilan birga yetaklab yurmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 729
+  },
+  {
+    "id": 730,
+    "korean": "마스크",
+    "uzbek": "Niqob, maska",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 730
+  },
+  {
+    "id": 731,
+    "korean": "시력",
+    "uzbek": "Ko'rish qobiliyati",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 731
+  },
+  {
+    "id": 732,
+    "korean": "두통약",
+    "uzbek": "Bosh og'rig'i dorisi",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 732
+  },
+  {
+    "id": 733,
+    "korean": "진료를 받다",
+    "uzbek": "Davolanmoq, tibbiy ko'rikdan o'tmoq",
+    "lesson": 25,
+    "category": "health, hospital and body",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 733
+  }
+]

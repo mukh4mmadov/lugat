@@ -1,0 +1,212 @@
+[
+  {
+    "id": 691,
+    "korean": "다르다",
+    "uzbek": "Farq qilmoq, boshqacha bo'lmoq",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 691
+  },
+  {
+    "id": 692,
+    "korean": "멋있다",
+    "uzbek": "Chiroyli, kelishgan, ajoyib",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 692
+  },
+  {
+    "id": 693,
+    "korean": "짧다",
+    "uzbek": "Qisqa",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 693
+  },
+  {
+    "id": 694,
+    "korean": "달다",
+    "uzbek": "Shirin bo'lmoq",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 694
+  },
+  {
+    "id": 695,
+    "korean": "편리하다",
+    "uzbek": "Qulay",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 695
+  },
+  {
+    "id": 696,
+    "korean": "어떻다",
+    "uzbek": "Qanday",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 696
+  },
+  {
+    "id": 697,
+    "korean": "유명하다",
+    "uzbek": "Mashhur",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 697
+  },
+  {
+    "id": 698,
+    "korean": "룸메이트",
+    "uzbek": "Xonadosh",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 698
+  },
+  {
+    "id": 699,
+    "korean": "마음에 들다",
+    "uzbek": "Yoqmoq, ko'ngliga o'tirmoq",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 699
+  },
+  {
+    "id": 700,
+    "korean": "마음에 안 들다",
+    "uzbek": "Yoqmaslik, ko'ngilga to'lmaslik",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 700
+  },
+  {
+    "id": 701,
+    "korean": "강",
+    "uzbek": "Daryo",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 701
+  },
+  {
+    "id": 702,
+    "korean": "폭포",
+    "uzbek": "Sharshara",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 702
+  },
+  {
+    "id": 703,
+    "korean": "섬",
+    "uzbek": "Orol",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 703
+  },
+  {
+    "id": 704,
+    "korean": "숲",
+    "uzbek": "O'rmon",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 704
+  },
+  {
+    "id": 705,
+    "korean": "대양",
+    "uzbek": "Okean",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 705
+  },
+  {
+    "id": 706,
+    "korean": "남이섬",
+    "uzbek": "Nami oroli",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 706
+  },
+  {
+    "id": 707,
+    "korean": "콘서트",
+    "uzbek": "Konsert",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 707
+  },
+  {
+    "id": 708,
+    "korean": "일찍",
+    "uzbek": "Vaqtli, erta",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 708
+  },
+  {
+    "id": 709,
+    "korean": "꽃이 피다",
+    "uzbek": "Gul ochilmoq",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 709
+  },
+  {
+    "id": 710,
+    "korean": "근처",
+    "uzbek": "Atrof, yaqin",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 710
+  },
+  {
+    "id": 711,
+    "korean": "모래놀이",
+    "uzbek": "Qum o'yini",
+    "lesson": 24,
+    "category": "adjectives, nature and places",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 711
+  }
+]

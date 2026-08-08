@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
+import MasteryBadge from "../components/MasteryBadge";
 import { allWords, getLessonWords, getWordKey } from "../data";
 import { addActivity, advanceDeck, markDifficult, markKnown, setLessonDeck, toggleFavorite } from "../store";
 import { buildStudyDeck, cardModes, getAnswer, getPrompt, makeHint, pickRandomCardMode } from "../lib/study";
@@ -43,6 +45,7 @@ export default function FlashcardsPage({ review = false }) {
   const answer = word ? getAnswer(word, prompt, activeMode) : "";
   const isFavorite = word ? progress.favorites[getWordKey(word)] : false;
   const percent = queue.length ? Math.round(((cursor + 1) / queue.length) * 100) : 0;
+  const wordMastery = word ? getWordMastery(getWordKey(word), progress.words) : null;
 
   useEffect(() => {
     setFlipped(false);
@@ -81,30 +84,30 @@ export default function FlashcardsPage({ review = false }) {
   function mark(result) {
     if (!word) return;
     const key = getWordKey(word);
-    dispatch(result === "known" ? markKnown(key) : markDifficult(key));
+    dispatch(result === "known" ? markKnown({ key, exerciseType: "flashcard" }) : markDifficult({ key, exerciseType: "flashcard" }));
     dispatch(addActivity({ type: result, word: word.korean, lesson: word.lesson, at: Date.now() }));
     setFlipped(true);
   }
 
   return (
     <div className="space-y-6">
-      <ModeHeader lesson={lesson} review={review} active="flashcards" />
+      <ModeHeader lesson={lesson} review={review} />
       <GlassCard>
-        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
             <WordBadge tone={review ? "amber" : "sky"}>{review ? t("practice.smartReview") : t("card.lesson", { lesson })}</WordBadge>
-            <h2 className="mt-3 text-3xl font-black">{t("practice.flashcards")}</h2>
+            <h2 className="mt-2 text-2xl font-black md:text-3xl">{t("practice.flashcards")}</h2>
           </div>
           <div className="flex flex-wrap gap-2">
             {cardModes.map((item) => (
-              <button key={item.value} type="button" onClick={() => { setMode(item.value); rebuildDeck(0); }} className={`rounded-2xl px-4 py-2 text-sm font-black transition ${mode === item.value ? "bg-sky-500 text-white" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
+              <button key={item.value} type="button" onClick={() => { setMode(item.value); rebuildDeck(0); }} className={`rounded-2xl px-3 py-2 text-xs font-black transition sm:text-sm ${mode === item.value ? "bg-sky-500 text-white" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
                 {t(item.label)}
               </button>
             ))}
           </div>
         </div>
 
-        <div className="mb-6 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+        <div className="mb-4 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
           <div className="h-full rounded-full bg-gradient-to-r from-sky-400 via-violet-400 to-emerald-400" style={{ width: `${percent}%` }} />
         </div>
 
@@ -125,31 +128,34 @@ export default function FlashcardsPage({ review = false }) {
               animate={{ opacity: 1, rotateY: flipped ? 180 : 0 }}
               exit={{ opacity: 0, rotateY: 24 }}
               transition={{ duration: 0.45 }}
-              className="relative min-h-[360px] w-full rounded-[2rem] border border-white/60 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-8 text-left shadow-2xl shadow-sky-900/10 [transform-style:preserve-3d] dark:border-white/10 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950"
+              className="relative min-h-[320px] w-full rounded-[2rem] border border-white/60 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-6 text-left shadow-2xl shadow-sky-900/10 [transform-style:preserve-3d] dark:border-white/10 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950"
             >
               <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(168,85,247,.18),transparent_35%)]" />
-              <div className="relative flex min-h-[300px] flex-col justify-between [backface-visibility:hidden]">
+              <div className="relative flex min-h-[280px] flex-col justify-between [backface-visibility:hidden]">
                 <div className="flex items-center justify-between">
-                  <WordBadge>{activeMode === "uzbek" ? t("flashcards.uzbek") : t("flashcards.korean")}</WordBadge>
-                  <span className="text-sm font-bold text-slate-500 dark:text-slate-300">{cursor + 1}/{queue.length}</span>
+                  <div className="flex items-center gap-2">
+                    <WordBadge>{activeMode === "uzbek" ? t("flashcards.uzbek") : t("flashcards.korean")}</WordBadge>
+                    {wordMastery && <MasteryBadge level={wordMastery.level} size="xs" />}
+                  </div>
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-300">{cursor + 1}/{queue.length}</span>
                 </div>
                 <div>
-                  <p className="text-center text-5xl font-black leading-tight tracking-tight md:text-7xl">{prompt}</p>
-                  {hint && <p className="mt-8 rounded-2xl bg-amber-100 p-4 text-center text-lg font-black text-amber-700 dark:bg-amber-400/15 dark:text-amber-200">{t("flashcards.hint")}: {hint}</p>}
+                  <p className="text-center text-4xl font-black leading-tight tracking-tight md:text-7xl">{prompt}</p>
+                  {hint && <p className="mt-6 rounded-2xl bg-amber-100 p-3 text-center text-base font-black text-amber-700 dark:bg-amber-400/15 dark:text-amber-200">{t("flashcards.hint")}: {hint}</p>}
                 </div>
-                <p className="text-center text-sm font-bold text-slate-500 dark:text-slate-300">{t("flashcards.tapToFlip")}</p>
+                <p className="text-center text-xs font-bold text-slate-500 dark:text-slate-300 md:text-sm">{t("flashcards.tapToFlip")}</p>
               </div>
-              <div className="absolute inset-0 flex rotate-y-180 flex-col justify-between rounded-[2rem] p-8 [backface-visibility:hidden]">
+              <div className="absolute inset-0 flex rotate-y-180 flex-col justify-between rounded-[2rem] p-6 [backface-visibility:hidden]">
                 <div className="flex items-center justify-between">
                   <WordBadge tone="green">{t("flashcards.answer")}</WordBadge>
-                  <button type="button" onClick={(event) => { event.stopPropagation(); speakKorean(word.korean); }} className="rounded-full bg-slate-950 px-4 py-2 text-sm font-black text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
+                  <button type="button" onClick={(event) => { event.stopPropagation(); speakKorean(word.korean); }} className="rounded-full bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
                 </div>
-                <div className="space-y-5 text-center">
-                  <p className="text-5xl font-black md:text-7xl">{answer}</p>
-                  <p className="text-3xl font-black text-sky-600 dark:text-sky-300">{word.korean}</p>
-                  <p className="text-xl font-semibold text-slate-600 dark:text-slate-300">{word.romanization}</p>
+                <div className="space-y-4 text-center">
+                  <p className="text-4xl font-black md:text-7xl">{answer}</p>
+                  <p className="text-2xl font-black text-sky-600 dark:text-sky-300 md:text-3xl">{word.korean}</p>
+                  {word.romanization && <p className="text-base font-semibold text-slate-600 dark:text-slate-300 md:text-xl">{word.romanization}</p>}
                 </div>
-                <div className="grid gap-2 text-sm font-bold text-slate-500 dark:text-slate-300 sm:grid-cols-3">
+                <div className="grid gap-2 text-xs font-bold text-slate-500 dark:text-slate-300 sm:grid-cols-3">
                   <span>{t("card.lesson", { lesson: word.lesson })}</span>
                   <span className="capitalize">{word.category}</span>
                   <span>{word.needsReview ? t("card.needsReview") : t("card.verified")}</span>
@@ -159,7 +165,7 @@ export default function FlashcardsPage({ review = false }) {
           </AnimatePresence>
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
           <button type="button" onClick={() => setHint(makeHint(answer))} className="action-btn bg-amber-500 text-white">{t("flashcards.hint")}</button>
           <button type="button" onClick={() => mark("known")} className="action-btn bg-emerald-500 text-white">{t("flashcards.iKnow")}</button>
           <button type="button" onClick={() => mark("difficult")} className="action-btn bg-rose-500 text-white">{t("flashcards.dontKnow")}</button>
@@ -172,7 +178,7 @@ export default function FlashcardsPage({ review = false }) {
   );
 }
 
-export function ModeHeader({ lesson, active, review = false }) {
+export function ModeHeader({ lesson, review = false }) {
   const { t } = useTranslation();
   const modes = review
     ? [["/review", t("home.reviewMode")]]
@@ -184,14 +190,14 @@ export function ModeHeader({ lesson, active, review = false }) {
       ];
 
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <Link to="/" className="text-sm font-black text-sky-600 dark:text-sky-300">{t("common.back")}</Link>
-        <h1 className="mt-2 text-4xl font-black tracking-tight">{review ? t("home.reviewMode") : t("card.lesson", { lesson })}</h1>
+        <h1 className="mt-2 text-2xl font-black tracking-tight md:text-4xl">{review ? t("home.reviewMode") : t("card.lesson", { lesson })}</h1>
       </div>
       <div className="flex flex-wrap gap-2">
         {modes.map(([to, label]) => (
-          <NavLink key={to} to={to} className={({ isActive }) => `rounded-2xl px-4 py-2 text-sm font-black transition ${isActive ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950" : "bg-white/70 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
+          <NavLink key={to} to={to} className={({ isActive }) => `rounded-2xl px-3 py-1.5 text-xs font-black transition sm:text-sm sm:px-4 sm:py-2 ${isActive ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950" : "bg-white/70 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
             {label}
           </NavLink>
         ))}

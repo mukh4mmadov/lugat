@@ -7,6 +7,7 @@ import { StudyHomePage, StudyModePage } from "./pages/StudyPage";
 import FlashcardsPage from "./pages/FlashcardsPage";
 import { ListeningPage, QuizPage, WritingPage } from "./pages/PracticePages";
 import { DifficultPage, FavoritesPage, SearchPage, SettingsPage, StatsPage } from "./pages/LibraryPages";
+import CoursesPage from "./pages/CoursesPage";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -22,6 +23,8 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="study" element={<StudyHomePage />} />
           <Route path="study/:lessonId" element={<StudyModePage />} />
+          <Route path="courses" element={<CoursesPage />} />
+          <Route path="courses/:courseId" element={<CoursesPage />} />
           <Route path="lesson/:lessonId" element={<Navigate to="flashcards" replace />} />
           <Route path="lesson/:lessonId/flashcards" element={<FlashcardsPage />} />
           <Route path="lesson/:lessonId/listening" element={<ListeningPage />} />

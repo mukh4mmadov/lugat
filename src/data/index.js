@@ -12,6 +12,20 @@ import lesson11 from "../../data/lesson11.json";
 import lesson12 from "../../data/lesson12.json";
 import lesson13 from "../../data/lesson13.json";
 import lesson14 from "../../data/lesson14.json";
+import lesson15 from "../../data/lesson15.json";
+import lesson16 from "../../data/lesson16.json";
+import lesson17 from "../../data/lesson17.json";
+import lesson18 from "../../data/lesson18.json";
+import lesson19 from "../../data/lesson19.json";
+import lesson20 from "../../data/lesson20.json";
+import lesson21 from "../../data/lesson21.json";
+import lesson22 from "../../data/lesson22.json";
+import lesson23 from "../../data/lesson23.json";
+import lesson24 from "../../data/lesson24.json";
+import lesson25 from "../../data/lesson25.json";
+import lesson26 from "../../data/lesson26.json";
+import lesson27 from "../../data/lesson27.json";
+import lesson28 from "../../data/lesson28.json";
 import lessonMetadata from "../../data/lessons.json";
 
 export const lessons = [
@@ -29,6 +43,20 @@ export const lessons = [
   lesson12,
   lesson13,
   lesson14,
+  lesson15,
+  lesson16,
+  lesson17,
+  lesson18,
+  lesson19,
+  lesson20,
+  lesson21,
+  lesson22,
+  lesson23,
+  lesson24,
+  lesson25,
+  lesson26,
+  lesson27,
+  lesson28,
 ];
 
 export const lessonInfo = lessonMetadata.map((lesson) => ({
@@ -39,6 +67,7 @@ export const lessonInfo = lessonMetadata.map((lesson) => ({
 export const allWords = lessons.flat().map((word) => ({
   ...word,
   globalId: `${word.lesson}-${word.id}`,
+  course: lessonInfo.find(l => l.lesson === word.lesson)?.course || "1A",
 }));
 
 export function getLessonWords(lessonId) {
@@ -48,3 +77,30 @@ export function getLessonWords(lessonId) {
 export function getWordKey(word) {
   return `${word.lesson}-${word.id}`;
 }
+
+export function getCourses() {
+  const map = new Map();
+  lessonInfo.forEach(lesson => {
+    const id = lesson.course || '1A';
+    if (!map.has(id)) {
+      map.set(id, {
+        id,
+        lessons: lessonInfo.filter(l => (l.course || '1A') === id)
+      });
+    }
+  });
+  return Array.from(map.values());
+}
+
+export function getCourseLessons(courseId) {
+  return lessonInfo.filter(lesson => (lesson.course || '1A') === courseId);
+}
+
+export function getCourseWords(courseId) {
+  return allWords.filter(word => (word.course || '1A') === courseId);
+}
+
+export function getWordCourse(word) {
+  return word.course || '1A';
+}
+

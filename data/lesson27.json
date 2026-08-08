@@ -1,0 +1,233 @@
+[
+  {
+    "id": 772,
+    "korean": "건강하다",
+    "uzbek": "Sog'lom bo'lmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 772
+  },
+  {
+    "id": 773,
+    "korean": "계속하다",
+    "uzbek": "Davom ettirmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 773
+  },
+  {
+    "id": 774,
+    "korean": "달리다",
+    "uzbek": "Yugurmoq / Osilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 774
+  },
+  {
+    "id": 775,
+    "korean": "걷다",
+    "uzbek": "Yurmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 775,
+    "note": "piyoda"
+  },
+  {
+    "id": 776,
+    "korean": "스트레칭하다",
+    "uzbek": "Chigilni yozmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 776
+  },
+  {
+    "id": 777,
+    "korean": "땀을 흘리다",
+    "uzbek": "Terlamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 777
+  },
+  {
+    "id": 778,
+    "korean": "멈추다",
+    "uzbek": "To'xtamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 778
+  },
+  {
+    "id": 779,
+    "korean": "전체",
+    "uzbek": "Barchasi, butunlay",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 779
+  },
+  {
+    "id": 780,
+    "korean": "올라가다",
+    "uzbek": "Tepa chiqmoq, ko'tarilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 780
+  },
+  {
+    "id": 781,
+    "korean": "내려가다",
+    "uzbek": "Pastga tushmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 781
+  },
+  {
+    "id": 782,
+    "korean": "강하다",
+    "uzbek": "Kuchli",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 782
+  },
+  {
+    "id": 783,
+    "korean": "약하다",
+    "uzbek": "Kuchsiz, zaif",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 783
+  },
+  {
+    "id": 784,
+    "korean": "아마",
+    "uzbek": "Balki, ehtimol",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 784
+  },
+  {
+    "id": 785,
+    "korean": "빠르다",
+    "uzbek": "Tez, chaqqon",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 785
+  },
+  {
+    "id": 786,
+    "korean": "모르다",
+    "uzbek": "Bilmaslik",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 786
+  },
+  {
+    "id": 787,
+    "korean": "다르다",
+    "uzbek": "Farq qilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 787
+  },
+  {
+    "id": 788,
+    "korean": "고르다",
+    "uzbek": "Tanlamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 788
+  },
+  {
+    "id": 789,
+    "korean": "마르다",
+    "uzbek": "Qurimoq / Ozg'in bo'lmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 789
+  },
+  {
+    "id": 790,
+    "korean": "기르다",
+    "uzbek": "O'stirmoq, boqmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 790
+  },
+  {
+    "id": 791,
+    "korean": "흐르다",
+    "uzbek": "Oqmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 791
+  },
+  {
+    "id": 792,
+    "korean": "부르다",
+    "uzbek": "Chaqirmoq / Kuylamoq / Qorni to'q",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 792
+  },
+  {
+    "id": 793,
+    "korean": "자르다",
+    "uzbek": "Kesmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 793
+  },
+  {
+    "id": 794,
+    "korean": "누르다",
+    "uzbek": "Bosmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 794
+  }
+]

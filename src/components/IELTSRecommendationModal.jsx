@@ -175,7 +175,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
               </motion.div>
 
               {/* Buttons */}
-              <div className="flex gap-3 p-5 pt-0">
+              <div className="flex flex-col gap-3 p-5 pt-0 sm:flex-row">
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

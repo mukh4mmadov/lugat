@@ -3,84 +3,196 @@
     "lesson": 1,
     "title": "1-dars",
     "category": "intro, countries and identity",
-    "count": 24
+    "count": 24,
+    "course": "1A"
   },
   {
     "lesson": 2,
     "title": "2-dars",
     "category": "classroom objects and people",
-    "count": 25
+    "count": 25,
+    "course": "1A"
   },
   {
     "lesson": 3,
     "title": "3-dars",
     "category": "daily actions",
-    "count": 27
+    "count": 27,
+    "course": "1A"
   },
   {
     "lesson": 4,
     "title": "4-dars",
     "category": "descriptions, weather and drinks",
-    "count": 32
+    "count": 32,
+    "course": "1A"
   },
   {
     "lesson": 5,
     "title": "5-dars",
     "category": "places and activities",
-    "count": 30
+    "count": 30,
+    "course": "1A"
   },
   {
     "lesson": 6,
     "title": "6-dars",
     "category": "locations, dates and numbers",
-    "count": 47
+    "count": 47,
+    "course": "1A"
   },
   {
     "lesson": 7,
     "title": "7-dars",
     "category": "native numbers, counters and family",
-    "count": 46
+    "count": 46,
+    "course": "1A"
   },
   {
     "lesson": 8,
     "title": "8-dars",
     "category": "time, places and daily life",
-    "count": 28
+    "count": 28,
+    "course": "1A"
   },
   {
     "lesson": 9,
     "title": "9-dars",
     "category": "actions, health and family",
-    "count": 30
+    "count": 30,
+    "course": "1A"
   },
   {
     "lesson": 10,
     "title": "10-dars",
     "category": "seasons, weather and irregular verbs",
-    "count": 36
+    "count": 36,
+    "course": "1A"
   },
   {
     "lesson": 11,
     "title": "11-dars",
     "category": "descriptions, transport and family",
-    "count": 31
+    "count": 31,
+    "course": "1A"
   },
   {
     "lesson": 12,
     "title": "12-dars",
     "category": "entertainment and daily actions",
-    "count": 29
+    "count": 29,
+    "course": "1A"
   },
   {
     "lesson": 13,
     "title": "13-dars",
     "category": "culture, home and communication",
-    "count": 26
+    "count": 26,
+    "course": "1A"
   },
   {
     "lesson": 14,
     "title": "14-dars",
     "category": "hobbies, language and expressions",
-    "count": 30
+    "count": 30,
+    "course": "1A"
+  },
+  {
+    "lesson": 15,
+    "title": "15-dars",
+    "category": "polite speech, honorifics and daily life",
+    "count": 36,
+    "course": "1B"
+  },
+  {
+    "lesson": 16,
+    "title": "16-dars",
+    "category": "daily routine, time and daily actions",
+    "count": 28,
+    "course": "1B"
+  },
+  {
+    "lesson": 17,
+    "title": "17-dars",
+    "category": "travel, movement and directions",
+    "count": 15,
+    "course": "1B"
+  },
+  {
+    "lesson": 18,
+    "title": "18-dars",
+    "category": "body parts, health and descriptions",
+    "count": 31,
+    "course": "1B"
+  },
+  {
+    "lesson": 19,
+    "title": "19-dars",
+    "category": "sports, activities and school life",
+    "count": 26,
+    "course": "1B"
+  },
+  {
+    "lesson": 20,
+    "title": "20-dars",
+    "category": "korean culture, traditions and food",
+    "count": 26,
+    "course": "1B"
+  },
+  {
+    "lesson": 21,
+    "title": "21-dars",
+    "category": "transportation, public spaces and directions",
+    "count": 26,
+    "course": "1B"
+  },
+  {
+    "lesson": 22,
+    "title": "22-dars",
+    "category": "travel, daily life and shopping",
+    "count": 33,
+    "course": "1B"
+  },
+  {
+    "lesson": 23,
+    "title": "23-dars",
+    "category": "office, communication and daily life",
+    "count": 28,
+    "course": "1B"
+  },
+  {
+    "lesson": 24,
+    "title": "24-dars",
+    "category": "adjectives, nature and places",
+    "count": 21,
+    "course": "1B"
+  },
+  {
+    "lesson": 25,
+    "title": "25-dars",
+    "category": "health, hospital and body",
+    "count": 22,
+    "course": "1B"
+  },
+  {
+    "lesson": 26,
+    "title": "26-dars",
+    "category": "seoul, travel and daily expressions",
+    "count": 38,
+    "course": "1B"
+  },
+  {
+    "lesson": 27,
+    "title": "27-dars",
+    "category": "health, exercise and daily life",
+    "count": 23,
+    "course": "1B"
+  },
+  {
+    "lesson": 28,
+    "title": "28-dars",
+    "category": "daily life, home and miscellaneous",
+    "count": 39,
+    "course": "1B"
   }
 ]

@@ -1,0 +1,314 @@
+[
+  {
+    "id": 521,
+    "korean": "눈",
+    "uzbek": "Ko'z / Qor",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 521
+  },
+  {
+    "id": 522,
+    "korean": "귀",
+    "uzbek": "Quloq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 522
+  },
+  {
+    "id": 523,
+    "korean": "팔",
+    "uzbek": "Qo'l",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 523,
+    "note": "bilakdan yelkagacha"
+  },
+  {
+    "id": 524,
+    "korean": "다리",
+    "uzbek": "Oyoq / Ko'prik",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 524
+  },
+  {
+    "id": 525,
+    "korean": "발",
+    "uzbek": "Oyoq panjasi, tovon",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 525
+  },
+  {
+    "id": 526,
+    "korean": "입",
+    "uzbek": "Og'iz",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 526
+  },
+  {
+    "id": 527,
+    "korean": "어깨",
+    "uzbek": "Yelka",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 527
+  },
+  {
+    "id": 528,
+    "korean": "손",
+    "uzbek": "Qo'l",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 528,
+    "note": "panja qismi"
+  },
+  {
+    "id": 529,
+    "korean": "배",
+    "uzbek": "Qorin / Kema / Nok",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 529
+  },
+  {
+    "id": 530,
+    "korean": "얼굴",
+    "uzbek": "Yuz, aft",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 530
+  },
+  {
+    "id": 531,
+    "korean": "손가락",
+    "uzbek": "Barmog'",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 531
+  },
+  {
+    "id": 532,
+    "korean": "열이 나다",
+    "uzbek": "Isitma chiqmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 532
+  },
+  {
+    "id": 533,
+    "korean": "목이 아프다",
+    "uzbek": "Tomoq og'rimoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 533
+  },
+  {
+    "id": 534,
+    "korean": "콧물이 나다",
+    "uzbek": "Burun oqmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 534
+  },
+  {
+    "id": 535,
+    "korean": "나쁘다",
+    "uzbek": "Yomon",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 535
+  },
+  {
+    "id": 536,
+    "korean": "바쁘다",
+    "uzbek": "Band bo'lmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 536
+  },
+  {
+    "id": 537,
+    "korean": "슬프다",
+    "uzbek": "Xafa bo'lmoq, qayg'uli",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 537
+  },
+  {
+    "id": 538,
+    "korean": "배고프다",
+    "uzbek": "Qorni ochmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 538
+  },
+  {
+    "id": 539,
+    "korean": "크다",
+    "uzbek": "Katta",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 539
+  },
+  {
+    "id": 540,
+    "korean": "큰 소리로 이야기하다",
+    "uzbek": "Baland ovozda gapirmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 540
+  },
+  {
+    "id": 541,
+    "korean": "계란",
+    "uzbek": "Tuxum",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 541
+  },
+  {
+    "id": 542,
+    "korean": "술을 마시다",
+    "uzbek": "Spirtli ichimlik ichmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 542
+  },
+  {
+    "id": 543,
+    "korean": "잠을 자다",
+    "uzbek": "Uxlamoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 543
+  },
+  {
+    "id": 544,
+    "korean": "크게 듣다",
+    "uzbek": "Baland qilib eshitmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 544
+  },
+  {
+    "id": 545,
+    "korean": "왜",
+    "uzbek": "Nima uchun, nega",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 545
+  },
+  {
+    "id": 546,
+    "korean": "여드름이 생기다",
+    "uzbek": "Husnbuzar (toshma) toshmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 546
+  },
+  {
+    "id": 547,
+    "korean": "사용하다",
+    "uzbek": "Foydalanmoq, ishlatmoq",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 547
+  },
+  {
+    "id": 548,
+    "korean": "엘리베이터",
+    "uzbek": "Lift",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 548
+  },
+  {
+    "id": 549,
+    "korean": "계단",
+    "uzbek": "Zina, zinalar",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 549
+  },
+  {
+    "id": 550,
+    "korean": "얇은 옷",
+    "uzbek": "Yupqa kiyim",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 550
+  },
+  {
+    "id": 551,
+    "korean": "따뜻한 옷",
+    "uzbek": "Issiq kiyim",
+    "lesson": 18,
+    "category": "body parts, health and descriptions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 551
+  }
+]

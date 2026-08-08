@@ -69,22 +69,30 @@ const progressSlice = createSlice({
       state.lessonDecks[key] = { ...(state.lessonDecks[key] || {}), cursor };
     },
     markKnown(state, action) {
-      const key = action.payload;
-      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0 };
+      const payload = typeof action.payload === "string" ? { key: action.payload } : action.payload;
+      const { key, exerciseType } = payload;
+      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, recentAnswers: [] };
       record.knownCount += 1;
       record.difficulty = Math.max(0, record.difficulty - 1);
       record.reviewed = Date.now();
+      if (exerciseType) {
+        record.recentAnswers = [...(record.recentAnswers || []).slice(-9), { correct: true, exerciseType, timestamp: Date.now() }];
+      }
       state.words[key] = record;
       state.stats.correct += 1;
       state.stats.studiedWords += 1;
       updateStreak(state.stats);
     },
     markDifficult(state, action) {
-      const key = action.payload;
-      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0 };
+      const payload = typeof action.payload === "string" ? { key: action.payload } : action.payload;
+      const { key, exerciseType } = payload;
+      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, recentAnswers: [] };
       record.wrongCount += 1;
       record.difficulty += 2;
       record.reviewed = Date.now();
+      if (exerciseType) {
+        record.recentAnswers = [...(record.recentAnswers || []).slice(-9), { correct: false, exerciseType, timestamp: Date.now() }];
+      }
       state.words[key] = record;
       state.stats.wrong += 1;
       state.stats.studiedWords += 1;

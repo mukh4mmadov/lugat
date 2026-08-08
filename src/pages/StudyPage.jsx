@@ -6,7 +6,9 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { getLessonWords, getWordKey, lessonInfo } from "../data";
-import { markWordStudied, selectStudyProgress } from "../store";
+import { markWordStudied, markKnown, markDifficult, selectStudyProgress } from "../store";
+import { getWordMastery, getLessonMastery } from "../lib/mastery";
+import MasteryBadge from "../components/MasteryBadge";
 import { speakKorean } from "../lib/speech";
 
 function StudyDevelopmentNotice() {
@@ -77,24 +79,43 @@ export function StudyHomePage() {
   const progress = useSelector((state) => state.progress);
 
   return (
-    <div className="space-y-8">
-      <GlassCard className="relative overflow-hidden p-8 md:p-10">
-        <div className="absolute right-6 top-6 hidden h-36 w-36 rounded-full bg-emerald-300/25 blur-3xl md:block" />
+    <div className="space-y-6">
+      <GlassCard className="relative overflow-hidden p-6 md:p-10">
+        <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-emerald-300/25 blur-3xl md:block" />
         <WordBadge tone="green">{t("study.learnFirst")}</WordBadge>
-        <h2 className="mt-5 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">{t("study.title")}</h2>
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+        <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-6xl">{t("study.title")}</h2>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
           {t("study.subtitle")}
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-bold text-slate-500 dark:text-slate-300">
-          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">{t("nav.study")}</span>
+        <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-300 md:text-sm">
+          <span className="rounded-full bg-slate-950/5 px-3 py-1.5 dark:bg-white/10">{t("nav.study")}</span>
           <span>→</span>
-          <span className="rounded-full bg-slate-950/5 px-4 py-2 dark:bg-white/10">{t("practice.flashcards")}</span>
+          <span className="rounded-full bg-slate-950/5 px-3 py-1.5 dark:bg-white/10">{t("practice.flashcards")}</span>
         </div>
       </GlassCard>
 
       <StudyDevelopmentNotice />
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <Link to="/courses" className="group block">
+        <GlassCard className="relative overflow-hidden p-5 md:p-8 transition hover:-translate-y-1 hover:shadow-2xl">
+          <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-violet-300/25 blur-3xl md:block" />
+          <div className="relative">
+            <WordBadge tone="violet">{t("courses.browseByCourse", { defaultValue: "Browse by Course" })}</WordBadge>
+            <h3 className="mt-2 text-xl font-black text-slate-900 dark:text-white md:text-2xl">
+              {t("courses.browseTitle", { defaultValue: "Explore Lessons by Book" })}
+            </h3>
+            <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300 md:text-base">
+              {t("courses.browseSubtitle", { defaultValue: "Choose K-TALIM 1A or 1B to view its lessons" })}
+            </p>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-2xl bg-violet-500 px-4 py-2 font-black text-white transition group-hover:scale-105">
+              {t("courses.openCourses", { defaultValue: "Open Course Library" })}
+              <span className="transition group-hover:translate-x-1">→</span>
+            </div>
+          </div>
+        </GlassCard>
+      </Link>
+
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {lessonInfo.map((lesson, index) => {
           const percent = selectStudyProgress({ progress }, lesson.lesson);
           return (
@@ -103,20 +124,20 @@ export function StudyHomePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.03 }}
-              className="group rounded-[1.75rem] border border-white/70 bg-white/75 p-5 shadow-xl shadow-slate-200/60 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/10 dark:shadow-black/20"
+              className="group rounded-[1.5rem] border border-white/70 bg-white/75 p-4 shadow-xl shadow-slate-200/60 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/10 dark:shadow-black/20"
             >
               <div className="flex items-center justify-between">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 text-xl font-black text-white shadow-lg">
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 text-lg font-black text-white shadow-lg">
                   {lesson.lesson}
                 </div>
                 <WordBadge tone={percent === 100 ? "green" : "violet"}>{lesson.count} {t("home.words")}</WordBadge>
               </div>
-              <h3 className="mt-5 text-xl font-black">{t("card.lesson", { lesson: lesson.lesson })}</h3>
-              <p className="mt-2 min-h-12 text-sm capitalize text-slate-600 dark:text-slate-300">{lesson.category}</p>
-              <div className="mt-5 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+              <h3 className="mt-4 text-lg font-black">{t("card.lesson", { lesson: lesson.lesson })}</h3>
+              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">{lesson.category}</p>
+              <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
                 <div className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-sky-400" style={{ width: `${percent}%` }} />
               </div>
-              <div className="mt-4 flex items-center justify-between text-sm font-bold text-slate-500 dark:text-slate-300">
+              <div className="mt-3 flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
                 <span>{percent}% {t("nav.study")}</span>
                 <Link className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300" to={`/study/${lesson.lesson}`}>
                   {t("button.continue")}
@@ -172,6 +193,7 @@ export function StudyModePage() {
   const lesson = Number(lessonId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const progress = useSelector((state) => state.progress);
 
   const sourceWords = useMemo(() => getLessonWords(lesson), [lesson]);
   
@@ -368,9 +390,16 @@ export function StudyModePage() {
     // Get available exercise types for this difficulty
     const availableDifficultyTypes = EXERCISE_BY_DIFFICULTY[difficultyLevel];
     
-    // Randomize exercise type (avoid consecutive same type)
-    const availableTypes = availableDifficultyTypes.filter(t => t !== lastExerciseType);
-    const exerciseType = availableTypes[Math.floor(Math.random() * availableTypes.length)];
+    // Filter out types requiring missing data and avoid consecutive same type
+    const availableTypes = availableDifficultyTypes.filter(t => {
+      if (t === lastExerciseType) return false;
+      if (t === 'missingSyllable' && !targetWord.romanization) return false;
+      return true;
+    });
+    
+    const exerciseType = availableTypes.length > 0
+      ? availableTypes[Math.floor(Math.random() * availableTypes.length)]
+      : availableDifficultyTypes[0];
     setLastExerciseType(exerciseType);
 
     // Track last tested word
@@ -395,6 +424,9 @@ export function StudyModePage() {
   // Handle exercise answer
   const handleExerciseAnswer = useCallback((isCorrect, exercise) => {
     const wordKey = getWordKey(exercise.word);
+    
+    // Record answer in global progress for mastery tracking
+    dispatch(isCorrect ? markKnown({ key: wordKey, exerciseType: exercise.type }) : markDifficult({ key: wordKey, exerciseType: exercise.type }));
     
     // Update mastery tracking
     setWordMastery(prev => {
@@ -461,7 +493,7 @@ export function StudyModePage() {
         setFeedback(null);
       }, 1500);
     }
-  }, [playSuccessSound, playErrorSound]);
+  }, [playSuccessSound, playErrorSound, dispatch, reinforcementWord]);
 
   // Process review queue
   useEffect(() => {
@@ -601,6 +633,8 @@ export function StudyModePage() {
       return mastery && mastery.mastered;
     });
 
+    const lessonMastery = getLessonMastery(lesson, progress.words);
+
     return (
       <div className="space-y-6">
         <StudyHeader 
@@ -630,34 +664,56 @@ export function StudyModePage() {
             <WordBadge tone={totalMastered ? "green" : "amber"}>
               {totalMastered ? t("study.lessonCompleted") : "Practice Needed"}
             </WordBadge>
-            <h2 className="mt-4 text-4xl font-black">
+            <h2 className="mt-4 text-3xl font-black md:text-4xl">
               {totalMastered ? t("study.lessonCompleted") : "Keep Practicing"}
             </h2>
             
-            <div className="mt-8 grid gap-4 text-left">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 dark:border-white/10">
-                <span className="text-slate-600 dark:text-slate-300">Words Introduced</span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">{introducedCount} / {totalWords}</span>
+            <div className="mt-6 grid gap-3 text-left sm:gap-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
+                <span className="text-sm text-slate-600 dark:text-slate-300">Words Introduced</span>
+                <span className="text-xl font-black text-slate-900 dark:text-white">{introducedCount} / {totalWords}</span>
               </div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 dark:border-white/10">
-                <span className="text-slate-600 dark:text-slate-300">Words Mastered</span>
-                <span className="text-2xl font-black text-emerald-500">{masteredCount} / {introducedCount}</span>
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
+                <span className="text-sm text-slate-600 dark:text-slate-300">Words Mastered</span>
+                <span className="text-xl font-black text-emerald-500">{masteredCount} / {introducedCount}</span>
               </div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 dark:border-white/10">
-                <span className="text-slate-600 dark:text-slate-300">Accuracy</span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">{accuracy}%</span>
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
+                <span className="text-sm text-slate-600 dark:text-slate-300">Accuracy</span>
+                <span className="text-xl font-black text-slate-900 dark:text-white">{accuracy}%</span>
               </div>
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 dark:border-white/10">
-                <span className="text-slate-600 dark:text-slate-300">Study Time</span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">{sessionStats.totalTime}s</span>
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
+                <span className="text-sm text-slate-600 dark:text-slate-300">Study Time</span>
+                <span className="text-xl font-black text-slate-900 dark:text-white">{sessionStats.totalTime}s</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-600 dark:text-slate-300">Needs Review</span>
-                <span className="text-2xl font-black text-orange-500">{needsReviewCount}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">Needs Review</span>
+                <span className="text-xl font-black text-orange-500">{needsReviewCount}</span>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-6 rounded-2xl bg-slate-950/5 p-4 text-left dark:bg-white/10">
+              <p className="text-sm font-black text-slate-900 dark:text-white mb-3">Vocabulary Mastery</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <div className="text-center">
+                  <p className="text-lg font-black text-emerald-600 dark:text-emerald-300">{lessonMastery.breakdown.mastered || 0}</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Mastered</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-lg font-black text-sky-600 dark:text-sky-300">{lessonMastery.breakdown.practiced || 0}</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Practiced</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-lg font-black text-amber-600 dark:text-amber-300">{lessonMastery.breakdown.learning || 0}</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Learning</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-lg font-black text-slate-600 dark:text-slate-300">{lessonMastery.breakdown.new || 0}</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">New</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-2.5 sm:mt-8 sm:gap-3">
               <button 
                 type="button" 
                 onClick={studyAgain}
@@ -674,7 +730,7 @@ export function StudyModePage() {
                   {t("practice.flashcards")}
                 </button>
               )}
-              {totalMastered && lesson < 14 && (
+              {totalMastered && lesson < lessonInfo.length && (
                 <button 
                   type="button" 
                   onClick={() => navigate(`/study/${lesson + 1}`)}
@@ -706,6 +762,7 @@ export function StudyModePage() {
             feedback={feedback}
             showSentenceMode={showSentenceMode}
             onToggleSentenceMode={() => setShowSentenceMode(!showSentenceMode)}
+            reduxMastery={getWordMastery(getWordKey(currentWord), progress.words)}
           />
         )}
         
@@ -727,6 +784,7 @@ export function StudyModePage() {
               const exercise = generateCumulativeExercise();
               setCurrentExercise(exercise);
             }}
+            reduxMastery={getWordMastery(getWordKey(reinforcementWord), progress.words)}
           />
         )}
         
@@ -737,6 +795,7 @@ export function StudyModePage() {
             onAnswer={handleExerciseAnswer}
             onComplete={handleExerciseComplete}
             feedback={feedback}
+            reduxMastery={getWordMastery(getWordKey(currentExercise.word), progress.words)}
           />
         )}
       </AnimatePresence>
@@ -800,7 +859,7 @@ function StudyHeader({ lesson, introduced, total, mastered }) {
 /* Learning Card - Shows word for learning with mastery status          */
 /* ------------------------------------------------------------------ */
 
-function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, onToggleSentenceMode }) {
+function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, onToggleSentenceMode, reduxMastery }) {
   const { i18n } = useTranslation();
   const [revealed, setRevealed] = useState(false);
 
@@ -872,28 +931,31 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
         className="text-center"
       >
         {/* Mastery indicator */}
-        <div className="mb-4 flex items-center justify-center gap-2">
+        <div className="mb-3 flex items-center justify-center gap-2">
           <div className={`h-1.5 w-1.5 rounded-full ${getMasteryColor(mastery)}`} />
           <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
             {mastery?.mastered ? 'Mastered' : mastery?.correctCount > 0 ? `Progress: ${mastery.correctCount}/${MASTERY_THRESHOLD}` : 'New word'}
           </p>
+          {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
         </div>
 
-        <div className="mb-6">
-          <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
+        <div className="mb-4">
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">
             {i18n.language === 'uz' ? 'So\'zni o\'rganing' : 'Learn this word'}
           </p>
           <WordBadge tone="violet">{getWordType(word.category)}</WordBadge>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
-            <p className="text-5xl font-black text-slate-900 dark:text-white mb-2">
+            <p className="text-4xl font-black text-slate-900 dark:text-white mb-2 md:text-5xl">
               {word.korean}
             </p>
-            <p className="text-lg text-slate-500 dark:text-slate-400">
+            {word.romanization && (
+            <p className="text-base text-slate-500 dark:text-slate-400">
               {word.romanization}
             </p>
+          )}
           </div>
 
           {revealed && (
@@ -901,23 +963,23 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="space-y-3"
+              className="space-y-2"
             >
-              <p className="text-2xl font-bold text-slate-900 dark:text-white">
+              <p className="text-xl font-bold text-slate-900 dark:text-white md:text-2xl">
                 {word.uzbek}
               </p>
               {word.english && (
-                <p className="text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   {word.english}
                 </p>
               )}
               
               {/* Sentence Learning Mode */}
-              <div className="mt-4">
+              <div className="mt-3">
                 <button
                   type="button"
                   onClick={onToggleSentenceMode}
-                  className="mb-3 text-sm font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
+                  className="mb-2 text-xs font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
                 >
                   {showSentenceMode 
                     ? (i18n.language === 'uz' ? 'Gapni yashirish' : 'Hide Sentence')
@@ -997,7 +1059,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
 /* Reinforcement Card - Shows detailed word info after wrong answer    */
 /* ------------------------------------------------------------------ */
 
-function ReinforcementCard({ word, onContinue }) {
+function ReinforcementCard({ word, onContinue, reduxMastery }) {
   const { i18n } = useTranslation();
 
   const handleContinueClick = () => {
@@ -1032,36 +1094,41 @@ function ReinforcementCard({ word, onContinue }) {
         transition={{ duration: 0.3 }}
         className="text-center"
       >
-        <div className="mb-6">
-          <WordBadge tone="amber">Review</WordBadge>
-          <h3 className="mt-4 text-2xl font-black text-slate-900 dark:text-white">
+        <div className="mb-4">
+          <div className="flex items-center justify-center gap-2">
+            <WordBadge tone="amber">Review</WordBadge>
+            {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
+          </div>
+          <h3 className="mt-3 text-xl font-black text-slate-900 dark:text-white md:text-2xl">
             {i18n.language === 'uz' ? 'Keling, qayta ko\'rib chiqamiz' : 'Let\'s review this one'}
           </h3>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
-            <p className="text-5xl font-black text-slate-900 dark:text-white mb-2">
+            <p className="text-4xl font-black text-slate-900 dark:text-white mb-2 md:text-5xl">
               {word.korean}
             </p>
-            <p className="text-lg text-slate-500 dark:text-slate-400">
+            {word.romanization && (
+            <p className="text-base text-slate-500 dark:text-slate-400">
               {word.romanization}
             </p>
+          )}
           </div>
 
-          <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-            <p className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+          <div className="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/50">
+            <p className="text-xl font-bold text-slate-900 dark:text-white mb-1 md:text-2xl">
               {word.uzbek}
             </p>
             {word.english && (
-              <p className="text-sm text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 {word.english}
               </p>
             )}
           </div>
 
-          <div className="rounded-xl bg-sky-50 p-4 dark:bg-sky-900/20">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
+          <div className="rounded-xl bg-sky-50 p-3 dark:bg-sky-900/20">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">
               {i18n.language === 'uz' ? 'Misol' : 'Example'}
             </p>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-1">
@@ -1083,7 +1150,7 @@ function ReinforcementCard({ word, onContinue }) {
         <button
           type="button"
           onClick={handleContinueClick}
-          className="mt-8 rounded-2xl bg-slate-950 px-8 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950"
+          className="mt-6 w-full rounded-2xl bg-slate-950 px-6 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950 sm:w-auto"
         >
           {i18n.language === 'uz' ? 'Davom etish' : 'Continue'}
         </button>
@@ -1156,7 +1223,7 @@ function CheckpointScreen({ wordCount, masteredCount, onStart }) {
 /* Exercise Card - Simplified cumulative testing                        */
 /* ------------------------------------------------------------------ */
 
-function ExerciseCard({ exercise, onAnswer, onComplete, feedback }) {
+function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }) {
   const { i18n } = useTranslation();
   const [answered, setAnswered] = useState(false);
 
@@ -1207,9 +1274,12 @@ function ExerciseCard({ exercise, onAnswer, onComplete, feedback }) {
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div className="mb-6 text-center">
-          <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
-            {i18n.language === 'uz' ? 'Amaliyot' : 'Practice'}
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
+              {i18n.language === 'uz' ? 'Amaliyot' : 'Practice'}
+            </p>
+            {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
+          </div>
           <WordBadge tone="violet">{exercise.type}</WordBadge>
         </div>
 
@@ -1261,12 +1331,12 @@ function MultipleChoiceChallenge({ word, options, onAnswer, answered = false }) 
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div className="text-center">
-        <p className="text-4xl font-black text-slate-900 dark:text-white mb-2">
+        <p className="text-3xl font-black text-slate-900 dark:text-white mb-2 md:text-4xl">
           {word.korean}
         </p>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           {i18n.language === 'uz' ? 'To\'g\'ri ma\'noni tanlang' : 'Choose the correct meaning'}
         </p>
       </div>
@@ -1325,7 +1395,9 @@ function ReverseChoiceChallenge({ word, options, onAnswer, answered = false }) {
             }`}
           >
             <p className="text-2xl text-slate-900 dark:text-white">{option.korean}</p>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+            {option.romanization && (
+                <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+              )}
           </button>
         ))}
       </div>
@@ -1357,12 +1429,12 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
         </p>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <button
           type="button"
           onClick={() => handleSelect(true)}
           disabled={answered}
-          className={`flex-1 rounded-2xl border-2 p-4 font-semibold transition-all ${
+          className={`flex-1 rounded-2xl border-2 p-3.5 text-center font-semibold transition-all sm:text-left ${
             answered
               ? 'opacity-50 cursor-not-allowed'
               : 'border-emerald-200 bg-emerald-50 hover:border-emerald-300 hover:bg-emerald-100 dark:border-emerald-900/30 dark:bg-emerald-900/20 dark:hover:border-emerald-900/50'
@@ -1374,7 +1446,7 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
           type="button"
           onClick={() => handleSelect(false)}
           disabled={answered}
-          className={`flex-1 rounded-2xl border-2 p-4 font-semibold transition-all ${
+          className={`flex-1 rounded-2xl border-2 p-3.5 text-center font-semibold transition-all sm:text-left ${
             answered
               ? 'opacity-50 cursor-not-allowed'
               : 'border-orange-200 bg-orange-50 hover:border-orange-300 hover:bg-orange-100 dark:border-orange-900/30 dark:bg-orange-900/20 dark:hover:border-orange-900/50'
@@ -1389,6 +1461,14 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
 
 function MissingLetterChallenge({ word, options, onAnswer, answered = false }) {
   const { i18n } = useTranslation();
+  
+  if (!word.romanization) {
+    return (
+      <div className="text-center text-slate-500 dark:text-slate-400">
+        {i18n.language === 'uz' ? 'Bu mashq turi mavjud emas' : 'This exercise type is not available'}
+      </div>
+    );
+  }
   
   // Create missing letter scenario
   const romanization = word.romanization;
@@ -1488,7 +1568,9 @@ function ListeningChallenge({ word, options, onAnswer, answered = false }) {
             }`}
           >
             <p className="text-2xl text-slate-900 dark:text-white">{option.korean}</p>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+            {option.romanization && (
+                <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+              )}
           </button>
         ))}
       </div>
@@ -1606,7 +1688,9 @@ function SentenceContextChallenge({ word, options, onAnswer, answered = false })
             }`}
           >
             <p className="text-2xl text-slate-900 dark:text-white">{option.korean}</p>
-            <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+            {option.romanization && (
+                <p className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</p>
+              )}
           </button>
         ))}
       </div>
@@ -1704,9 +1788,11 @@ function TypingChallenge({ word, options, onAnswer, answered = false }) {
           <p className="text-lg text-slate-900 dark:text-white">
             {word.korean}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            {word.romanization}
-          </p>
+          {word.romanization && (
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              {word.romanization}
+            </p>
+          )}
         </motion.div>
       )}
     </div>

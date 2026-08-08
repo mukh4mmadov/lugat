@@ -6,6 +6,7 @@ const resources = {
     translation: {
       // Navigation
       "nav.home": "Bosh sahifa",
+      "nav.courses": "Darslar",
       "nav.study": "O'rganish",
       "nav.search": "Qidirish",
       "nav.favorites": "Sevimlilar",
@@ -33,6 +34,19 @@ const resources = {
       "home.startChallenge": "Sinovni boshlash",
       "home.wordsLearned": "{{percent}}% o'rganildi",
       "home.continue": "Davom etish",
+      
+      // Courses
+      "courses.selectCourse": "Kursni tanlang",
+      "courses.title": "Kursni tanlang",
+      "courses.subtitle": "Qaysi K-TALIM kitobini o'rganishni xohlaysiz?",
+      "courses.browseByCourse": "Kurs bo'yicha ko'rish",
+      "courses.browseTitle": "Darslarni kitob bo'yicha ko'rish",
+      "courses.browseSubtitle": "K-TALIM 1A yoki 1B ni tanlang va darslarni ko'ring",
+      "courses.openCourses": "Kurslar kutubxonasini ochish",
+      "courses.backToCourses": "Kurslarga qaytish",
+      "courses.openCourse": "Kursni ochish",
+      "courses.description1A": "Birinchi kitobdan asosiy lug'at",
+      "courses.description1B": "Ikkinchi kitobdan kengaytirilgan lug'at",
       
       // Study Page
       "study.title": "O'rganish rejimi",
@@ -97,7 +111,7 @@ const resources = {
       // Library Pages
       "library.search": "Qidirish",
       "library.searchBadge": "Koreys · O'zbek · Romanizatsiya",
-      "library.searchPlaceholder": "Barcha 452 ta lug'at yozuvlarini qidirish",
+      "library.searchPlaceholder": "Barcha {{count}} ta lug'at yozuvlarini qidirish",
       "library.favorites": "Sevimlilar",
       "library.favoritesEmpty": "Hali sevimlilar yo'q. Flashcards yoki qidirishdan so'zlarni saqlang.",
       "library.difficult": "Qiyin so'zlar",
@@ -244,6 +258,7 @@ const resources = {
     translation: {
       // Navigation
       "nav.home": "Home",
+      "nav.courses": "Courses",
       "nav.study": "Study",
       "nav.search": "Search",
       "nav.favorites": "Favorites",
@@ -271,6 +286,19 @@ const resources = {
       "home.startChallenge": "Start Challenge",
       "home.wordsLearned": "{{percent}}% learned",
       "home.continue": "Continue",
+      
+      // Courses
+      "courses.selectCourse": "Select Course",
+      "courses.title": "Choose your course",
+      "courses.subtitle": "Select the K-TALIM book you want to study",
+      "courses.browseByCourse": "Browse by Course",
+      "courses.browseTitle": "Explore Lessons by Book",
+      "courses.browseSubtitle": "Choose K-TALIM 1A or 1B to view its lessons",
+      "courses.openCourses": "Open Course Library",
+      "courses.backToCourses": "Back to Courses",
+      "courses.openCourse": "Open Course",
+      "courses.description1A": "Foundation vocabulary from the first book",
+      "courses.description1B": "Advanced vocabulary from the second book",
       
       // Study Page
       "study.title": "Study Mode",
@@ -335,7 +363,7 @@ const resources = {
       // Library Pages
       "library.search": "Search",
       "library.searchBadge": "Korean · Uzbek · Romanization",
-      "library.searchPlaceholder": "Search all 452 vocabulary entries",
+      "library.searchPlaceholder": "Search all {{count}} vocabulary entries",
       "library.favorites": "Favorites",
       "library.favoritesEmpty": "No favorites yet. Save words from flashcards or search.",
       "library.difficult": "Difficult Words",
@@ -482,6 +510,7 @@ const resources = {
     translation: {
       // Navigation
       "nav.home": "Главная",
+      "nav.courses": "Курсы",
       "nav.study": "Учёба",
       "nav.search": "Поиск",
       "nav.favorites": "Избранное",
@@ -509,6 +538,19 @@ const resources = {
       "home.startChallenge": "Начать вызов",
       "home.wordsLearned": "{{percent}}% выучено",
       "home.continue": "Продолжить",
+      
+      // Courses
+      "courses.selectCourse": "Выберите курс",
+      "courses.title": "Выберите курс",
+      "courses.subtitle": "Выберите книгу K-TALIM, которую хотите изучать",
+      "courses.browseByCourse": "Просмотр по курсам",
+      "courses.browseTitle": "Изучите уроки по книгам",
+      "courses.browseSubtitle": "Выберите K-TALIM 1A или 1B, чтобы просмотреть уроки",
+      "courses.openCourses": "Открыть библиотеку курсов",
+      "courses.backToCourses": "Назад к курсам",
+      "courses.openCourse": "Открыть курс",
+      "courses.description1A": "Базовый словарь из первой книги",
+      "courses.description1B": "Расширенный словарь из второй книги",
       
       // Study Page
       "study.title": "Режим учёбы",
@@ -573,7 +615,7 @@ const resources = {
       // Library Pages
       "library.search": "Поиск",
       "library.searchBadge": "Корейский · Узбекский · Романизация",
-      "library.searchPlaceholder": "Поиск по всем 452 словарным записям",
+      "library.searchPlaceholder": "Поиск по всем {{count}} словарным записям",
       "library.favorites": "Избранное",
       "library.favoritesEmpty": "Пока нет избранного. Сохраняйте слова из карточек или поиска.",
       "library.difficult": "Сложные слова",
