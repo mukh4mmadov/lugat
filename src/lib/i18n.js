@@ -47,6 +47,20 @@ const resources = {
       "home.studyAgain": "Qayta o'rganish",
       "home.goToPractice": "Mashqqa o'tish",
       
+      // Study Development Notice
+      "studyDevelopment.title": "🚧 O'rganish sahifasi ishlab chiqilmoqda",
+      "studyDevelopment.subtitle": "Bu sahifa hozirda faol ravishda yaxshilanmoqda. Joriy yaxshilanishlar tugallangunga qadar, eng yaxshi tajriba uchun kuting.",
+      "studyDevelopment.improvingTitle": "Hozirda yaxshilanmoqda:",
+      "studyDevelopment.improving.flow": "O'rganish oqimi va mashq progressi",
+      "studyDevelopment.improving.selection": "So'z tanlash va takrorlash balansi",
+      "studyDevelopment.improving.repetition": "Oraliq takrorlash va zaif so'zlarni ko'rib chiqish",
+      "studyDevelopment.improving.variety": "Mashq turlari va moslashuvchan qiyinlik",
+      "studyDevelopment.improving.mastery": "Yaxshi bilishni aniqlash va yakunlash mantiqi",
+      "studyDevelopment.improving.reinforcement": "Mustahkamlash va noto'g'ri javobni qayta ishlash",
+      "studyDevelopment.improving.ui": "UI/UX barqarorligi va o'zaro ta'sir xatolari",
+      "studyDevelopment.importantTitle": "⚠️ Muhim",
+      "studyDevelopment.importantText": "O'rganish sahifasi hozirda rivojlanish davomida vaqtinchalik xatolar yoki kutilmagan xatti-harakatlarga ega bo'lishi mumkin. Siz sahifani hali ham o'rganib chiqishingiz va sinab ko'rishingiz mumkin, lekin hozircha jiddiy o'rganish uchun tavsiya etilmaydi.",
+      
       // Practice Modes
       "practice.flashcards": "Flashcards",
       "practice.listening": "Tinglash",
@@ -271,6 +285,20 @@ const resources = {
       "home.studyAgain": "Study Again",
       "home.goToPractice": "Go to Practice",
       
+      // Study Development Notice
+      "studyDevelopment.title": "🚧 Study Page is Under Development",
+      "studyDevelopment.subtitle": "This page is currently being actively improved. For the best experience, we recommend waiting until the current improvements are completed.",
+      "studyDevelopment.improvingTitle": "Currently being improved:",
+      "studyDevelopment.improving.flow": "Learning flow and exercise progression",
+      "studyDevelopment.improving.selection": "Word selection and review balance",
+      "studyDevelopment.improving.repetition": "Spaced repetition and weak-word review",
+      "studyDevelopment.improving.variety": "Exercise variety and adaptive difficulty",
+      "studyDevelopment.improving.mastery": "Mastery detection and completion logic",
+      "studyDevelopment.improving.reinforcement": "Reinforcement and wrong-answer handling",
+      "studyDevelopment.improving.ui": "UI/UX stability and interaction bugs",
+      "studyDevelopment.importantTitle": "⚠️ Important",
+      "studyDevelopment.importantText": "The Study Page may currently contain temporary bugs or unexpected behavior while development is ongoing. You can still explore and test the page, but it is not recommended for serious learning yet.",
+      
       // Practice Modes
       "practice.flashcards": "Flashcards",
       "practice.listening": "Listening",
@@ -494,6 +522,20 @@ const resources = {
       "study.headerTitle": "Учёба — Урок {{lesson}}",
       "home.studyAgain": "Учиться снова",
       "home.goToPractice": "Перейти к практике",
+      
+      // Study Development Notice
+      "studyDevelopment.title": "🚧 Страница обучения находится в разработке",
+      "studyDevelopment.subtitle": "Эта страница в настоящее время активно улучшается. Для наилучшего опыта мы рекомендуем подождать, пока текущие улучшения не будут завершены.",
+      "studyDevelopment.improvingTitle": "В настоящее время улучшается:",
+      "studyDevelopment.improving.flow": "Поток обучения и прогрессия упражнений",
+      "studyDevelopment.improving.selection": "Выбор слов и баланс повторений",
+      "studyDevelopment.improving.repetition": "Интервальные повторения и обзор слабых слов",
+      "studyDevelopment.improving.variety": "Разнообразие упражнений и адаптивная сложность",
+      "studyDevelopment.improving.mastery": "Определение мастерства и логика завершения",
+      "studyDevelopment.improving.reinforcement": "Усиление и обработка неправильных ответов",
+      "studyDevelopment.improving.ui": "Стабильность UI/UX и ошибки взаимодействия",
+      "studyDevelopment.importantTitle": "⚠️ Важно",
+      "studyDevelopment.importantText": "Страница обучения может в настоящее время содержать временные ошибки или неожиданное поведение во время разработки. Вы всё ещё можете изучить и протестировать страницу, но пока не рекомендуется для серьёзного обучения.",
       
       // Practice Modes
       "practice.flashcards": "Карточки",
