@@ -57,29 +57,29 @@ export default function HomePage() {
           <GlassCard className="relative overflow-hidden p-5 md:p-8">
             <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-emerald-300/20 blur-2xl" />
             <div className="relative">
-              <WordBadge tone="green">Vocabulary Mastery</WordBadge>
-              <h2 className="mt-3 text-xl font-black md:text-2xl">Your Word Mastery</h2>
+              <WordBadge tone="green">{t("home.masteryOverview")}</WordBadge>
+              <h2 className="mt-3 text-xl font-black md:text-2xl">{t("home.yourWordMastery")}</h2>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div className="rounded-2xl bg-emerald-50 p-3 text-center dark:bg-emerald-400/10">
                   <p className="text-2xl font-black text-emerald-700 dark:text-emerald-200">{overview.mastered}</p>
-                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-300">Mastered</p>
+                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-300">{t("home.mastered")}</p>
                 </div>
                 <div className="rounded-2xl bg-sky-50 p-3 text-center dark:bg-sky-400/10">
                   <p className="text-2xl font-black text-sky-700 dark:text-sky-200">{overview.practiced}</p>
-                  <p className="text-xs font-bold text-sky-600 dark:text-sky-300">Practiced</p>
+                  <p className="text-xs font-bold text-sky-600 dark:text-sky-300">{t("home.practiced")}</p>
                 </div>
                 <div className="rounded-2xl bg-amber-50 p-3 text-center dark:bg-amber-400/10">
                   <p className="text-2xl font-black text-amber-700 dark:text-amber-200">{overview.learning}</p>
-                  <p className="text-xs font-bold text-amber-600 dark:text-amber-300">Learning</p>
+                  <p className="text-xs font-bold text-amber-600 dark:text-amber-300">{t("home.learning")}</p>
                 </div>
                 <div className="rounded-2xl bg-slate-100 p-3 text-center dark:bg-white/10">
                   <p className="text-2xl font-black text-slate-700 dark:text-slate-200">{overview.new}</p>
-                  <p className="text-xs font-bold text-slate-600 dark:text-slate-300">New</p>
+                  <p className="text-xs font-bold text-slate-600 dark:text-slate-300">{t("home.new")}</p>
                 </div>
               </div>
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-                  <span>Overall Progress</span>
+                  <span>{t("home.overallProgress")}</span>
                   <span>{overview.overallPercent}%</span>
                 </div>
                 <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">

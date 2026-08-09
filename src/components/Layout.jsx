@@ -23,6 +23,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
     ["/stats", t("nav.stats")],
+    ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
   ];
 
@@ -89,7 +90,7 @@ export default function Layout({ onShowIELTSModal }) {
                   KOREAN
                 </p>
                 <h1 className="text-sm font-black tracking-tight">
-                  Korean Vocabulary Studio
+                  {t("header.brand", { defaultValue: "Korean Vocabulary Studio" })}
                 </h1>
               </div>
             </NavLink>
@@ -113,9 +114,24 @@ export default function Layout({ onShowIELTSModal }) {
               <button
                 type="button"
                 onClick={() => dispatch(setTheme(nextTheme))}
-                className="rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-3 lg:py-2 lg:text-sm"
+                className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
+                aria-label={theme === "dark" ? t("nav.light") : t("nav.dark")}
+                title={theme === "dark" ? t("nav.light") : t("nav.dark")}
               >
-                {theme === "dark" ? t("nav.light") : t("nav.dark")}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    rotate: theme === "dark" ? 0 : 180,
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{
+                    rotate: { duration: 0.3, ease: "easeInOut" },
+                    scale: { duration: 0.2 }
+                  }}
+                  className="text-lg"
+                >
+                  {theme === "dark" ? "🌙" : "☀️"}
+                </motion.div>
               </button>
               <button
                 type="button"
@@ -154,7 +170,7 @@ export default function Layout({ onShowIELTSModal }) {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-white/10">
-                  <span className="text-lg font-black text-slate-900 dark:text-white">Menu</span>
+                  <span className="text-lg font-black text-slate-900 dark:text-white">{t("header.menu", { defaultValue: "Menu" })}</span>
                   <button
                     type="button"
                     onClick={() => setMobileMenuOpen(false)}
@@ -226,15 +242,15 @@ export default function Layout({ onShowIELTSModal }) {
               <p className="font-black text-slate-900 dark:text-white">
                 {t("footer.vocabularySource")}
               </p>
-              <p>Dong Eun Academy</p>
+              <p>{t("footer.vocabularySourceName")}</p>
               <p>{t("footer.educationalOnly")}</p>
             </div>
             <div>
               <p className="font-black text-slate-900 dark:text-white">
                 {t("footer.developer")}
               </p>
-              <p>Mukh4mmadov</p>
-              <p>Telegram @mukh4mmadov</p>
+              <p>{t("footer.developerName")}</p>
+              <p>{t("footer.developerTelegram")}</p>
             </div>
             <div>
               <p className="font-black text-slate-900 dark:text-white">

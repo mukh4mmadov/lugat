@@ -23,9 +23,9 @@ export default function CoursesPage() {
     if (!course) {
       return (
         <div className="text-center">
-          <p className="text-slate-500 dark:text-slate-400">Course not found</p>
+          <p className="text-slate-500 dark:text-slate-400">{t("courses.notFound")}</p>
           <button onClick={() => navigate("/courses")} className="mt-4 rounded-2xl bg-sky-500 px-6 py-3 font-black text-white">
-            Back to Courses
+            {t("courses.backToCourses")}
           </button>
         </div>
       );
@@ -44,7 +44,7 @@ export default function CoursesPage() {
           </button>
           <div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white md:text-3xl">
-              {course.id === "1A" ? "K-TALIM 1A" : course.id === "1B" ? "K-TALIM 1B" : course.id}
+              {course.id === "1A" ? t("courses.course1A") : course.id === "1B" ? t("courses.course1B") : course.id}
             </h2>
             <p className="text-xs text-slate-600 dark:text-slate-300 md:text-sm">
               {course.lessons.length} {t("home.lessons")} · {course.lessons.reduce((sum, l) => sum + l.count, 0)} {t("home.words")}
@@ -81,7 +81,7 @@ export default function CoursesPage() {
                   <div className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${percent}%` }} />
                 </div>
                 <div className="mt-3 flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-                  <span>{lessonMastery.mastered}/{lessonMastery.total} mastered</span>
+                  <span>{lessonMastery.mastered}/{lessonMastery.total} {t("study.mastered")}</span>
                   <Link className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300" to={`/lesson/${lesson.lesson}/flashcards`}>
                     {t("button.continue")}
                   </Link>
@@ -109,7 +109,7 @@ export default function CoursesPage() {
 
       <section className="grid gap-4 sm:grid-cols-2">
         {courses.map((course, index) => {
-          const courseLabel = course.id === "1A" ? "K-TALIM 1A" : course.id === "1B" ? "K-TALIM 1B" : course.id;
+          const courseLabel = course.id === "1A" ? t("courses.course1A") : course.id === "1B" ? t("courses.course1B") : course.id;
           const lessonRange = `${course.lessons[0]?.lesson}–${course.lessons[course.lessons.length - 1]?.lesson}`;
           const wordCount = course.lessons.reduce((sum, l) => sum + l.count, 0);
           const description =
@@ -144,7 +144,7 @@ export default function CoursesPage() {
                     {description && <p className="text-xs text-slate-500 dark:text-slate-400">{description}</p>}
                     <div className="flex items-center justify-between rounded-2xl bg-slate-950/5 p-3 dark:bg-white/10">
                       <div>
-                        <p className="text-xs font-bold text-slate-500 dark:text-slate-300">Mastery</p>
+                        <p className="text-xs font-bold text-slate-500 dark:text-slate-300">{t("courses.mastery")}</p>
                         <p className="text-sm font-black text-slate-900 dark:text-white">{mastery.mastered} / {mastery.total}</p>
                       </div>
                       <MasteryBadge level={mastery.percent >= 80 ? MASTERY_LEVELS.MASTERED : mastery.percent >= 50 ? MASTERY_LEVELS.PRACTICED : mastery.percent >= 20 ? MASTERY_LEVELS.LEARNING : MASTERY_LEVELS.NEW} />

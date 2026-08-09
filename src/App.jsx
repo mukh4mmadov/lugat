@@ -8,6 +8,7 @@ import FlashcardsPage from "./pages/FlashcardsPage";
 import { ListeningPage, QuizPage, WritingPage } from "./pages/PracticePages";
 import { DifficultPage, FavoritesPage, SearchPage, SettingsPage, StatsPage } from "./pages/LibraryPages";
 import CoursesPage from "./pages/CoursesPage";
+import FutureUpdatesPage from "./pages/FutureUpdatesPage";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="difficult" element={<DifficultPage />} />
           <Route path="stats" element={<StatsPage />} />
+          <Route path="future-updates" element={<FutureUpdatesPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

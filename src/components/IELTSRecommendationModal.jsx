@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const backdropConfig = {
   duration: 0.45,
@@ -12,6 +13,7 @@ const modalConfig = {
 };
 
 export default function IELTSRecommendationModal({ isOpen, onClose }) {
+  const { t } = useTranslation();
   const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
@@ -87,7 +89,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                   transition={{ delay: 0.12, duration: 0.4 }}
                   className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white"
                 >
-                  Continue improving your English
+                  {t('ielts.title')}
                 </motion.h2>
 
                 <motion.p
@@ -96,7 +98,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                   transition={{ delay: 0.16, duration: 0.4 }}
                   className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
                 >
-                  If you're learning Korean, improving your English reading will help you learn languages faster. Try our IELTS Reading platform with AI explanations, professional passages and real exam practice.
+                  {t('ielts.description')}
                 </motion.p>
               </div>
 
@@ -147,26 +149,26 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                         className="absolute inset-0 flex flex-col items-center justify-center p-4"
                       >
                         <div className="mb-2 text-base font-semibold text-slate-800 dark:text-slate-200">
-                          IELTS Reading Platform
+                          {t('ielts.preview.title')}
                         </div>
                         
                         <div className="w-full max-w-[220px] space-y-1.5 text-center text-xs">
                           <div className="rounded-lg bg-white/60 px-3 py-1 shadow-sm dark:bg-white/10">
-                            <div className="font-medium text-slate-700 dark:text-slate-300">AI Explanations</div>
+                            <div className="font-medium text-slate-700 dark:text-slate-300">{t('ielts.preview.aiExplanations')}</div>
                           </div>
                           <div className="rounded-lg bg-white/60 px-3 py-1 shadow-sm dark:bg-white/10">
-                            <div className="font-medium text-slate-700 dark:text-slate-300">Vocabulary</div>
+                            <div className="font-medium text-slate-700 dark:text-slate-300">{t('ielts.preview.vocabulary')}</div>
                           </div>
                           <div className="rounded-lg bg-white/60 px-3 py-1 shadow-sm dark:bg-white/10">
-                            <div className="font-medium text-slate-700 dark:text-slate-300">Band Score</div>
+                            <div className="font-medium text-slate-700 dark:text-slate-300">{t('ielts.preview.bandScore')}</div>
                           </div>
                           <div className="rounded-lg bg-white/60 px-3 py-1 shadow-sm dark:bg-white/10">
-                            <div className="font-medium text-slate-700 dark:text-slate-300">Real Cambridge Passages</div>
+                            <div className="font-medium text-slate-700 dark:text-slate-300">{t('ielts.preview.realPassages')}</div>
                           </div>
                         </div>
 
                         <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                          mukh4mmadovoriginal.vercel.app
+                          {t('ielts.preview.url')}
                         </div>
                       </motion.div>
                     )}
@@ -184,7 +186,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                   className="flex-1 rounded-2xl bg-slate-900 px-5 py-2.5 font-semibold text-white shadow-lg shadow-slate-900/20 transition-all hover:scale-[1.03] hover:shadow-xl active:scale-[0.98] dark:bg-white dark:text-slate-900 dark:shadow-white/20"
                 >
                   <span className="flex items-center justify-center gap-2">
-                    Practice IELTS Reading
+                    {t('ielts.openButton')}
                     <motion.span
                       className="transition-transform"
                       whileHover={{ x: 4 }}
@@ -200,7 +202,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                   onClick={onClose}
                   className="flex-1 rounded-2xl border border-slate-200/60 bg-white/70 px-5 py-2.5 font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
                 >
-                  Continue Learning Korean
+                  {t('ielts.continueButton')}
                 </motion.button>
               </div>
 
@@ -212,7 +214,7 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                 className="pb-4 pt-1 text-center"
               >
                 <p className="text-xs text-slate-400 dark:text-slate-500">
-                  Created by the same developer.
+                  {t('ielts.footer')}
                 </p>
               </motion.div>
             </motion.div>

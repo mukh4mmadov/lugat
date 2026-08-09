@@ -167,26 +167,6 @@ const EXERCISE_BY_DIFFICULTY = {
   hard: ['typingChallenge', 'sentenceContext']
 };
 
-// All exercise types with different mechanics
-const EXERCISE_TYPES = [
-  'koreanToUzbek',      // Korean → Uzbek (multiple choice recognition)
-  'uzbekToKorean',      // Uzbek → Korean (reverse recognition)
-  'listeningToKorean',  // Audio → identify Korean (auditory recognition)
-  'trueFalse',          // Correct/incorrect translation (binary judgment)
-  'missingSyllable',    // Complete Korean romanization (partial recall)
-  'typingChallenge',    // Type the Korean word (active recall)
-  'listeningToMeaning', // Audio → meaning (auditory to meaning)
-  'sentenceContext'     // Korean sentence → identify target word (contextual recall)
-];
-
-const SUCCESS_MESSAGES = [
-  'Nice!', 'Great!', 'Excellent!', 'Perfect!', 'Awesome!', 'Keep going!'
-];
-
-const ALMOST_MESSAGES = [
-  'Almost!', 'Close!', 'Let\'s remember this one', 'Almost there!'
-];
-
 export function StudyModePage() {
   const { t } = useTranslation();
   const { lessonId = "1" } = useParams();
@@ -194,8 +174,17 @@ export function StudyModePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const progress = useSelector((state) => state.progress);
-
+  
   const sourceWords = useMemo(() => getLessonWords(lesson), [lesson]);
+  
+  // Feedback messages (memoized to avoid dependency warnings)
+  const SUCCESS_MESSAGES = useMemo(() => [
+    t("feedback.nice"), t("feedback.great"), t("feedback.excellent"), t("feedback.perfect"), t("feedback.awesome"), t("feedback.awesome")
+  ], [t]);
+  
+  const ALMOST_MESSAGES = useMemo(() => [
+    t("feedback.almost"), t("feedback.close"), t("feedback.remember"), t("feedback.almostThere")
+  ], [t]);
   
   // Cumulative learning state
   const [wordQueue, setWordQueue] = useState([]); // All words in order
@@ -226,7 +215,48 @@ export function StudyModePage() {
   // Sentence learning mode
   const [showSentenceMode, setShowSentenceMode] = useState(false);
 
-  // Initialize session
+  // Helper function to create exercise for a specific word
+  const createExerciseForWord = useCallback((targetWord) => {
+    // Determine difficulty based on mastery
+    const mastery = wordMastery[getWordKey(targetWord)] || { correctCount: 0, exerciseTypes: [], mastered: false };
+    let difficultyLevel;
+    
+    if (mastery.correctCount === 0) {
+      difficultyLevel = 'easy'; // First exposure - recognition
+    } else if (mastery.correctCount < MASTERY_THRESHOLD || !mastery.activeRecallSuccess) {
+      difficultyLevel = 'medium'; // Developing - mixed
+    } else {
+      difficultyLevel = 'hard'; // Strong - active recall
+    }
+    
+    // Get available exercise types for this difficulty
+    const availableDifficultyTypes = EXERCISE_BY_DIFFICULTY[difficultyLevel];
+    
+    // Randomize exercise type (avoid consecutive same type)
+    const availableTypes = availableDifficultyTypes.filter(t => t !== lastExerciseType);
+    const exerciseType = availableTypes[Math.floor(Math.random() * availableTypes.length)];
+    setLastExerciseType(exerciseType);
+
+    // Track last tested word
+    setLastTestedWordId(targetWord.id);
+
+    // Get distractors from all source words
+    const distractors = sourceWords
+      .filter(w => w.id !== targetWord.id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+
+    const allOptions = [targetWord, ...distractors].sort(() => Math.random() - 0.5);
+
+    return {
+      type: exerciseType,
+      word: targetWord,
+      options: allOptions,
+      correctIndex: allOptions.findIndex(w => w.id === targetWord.id)
+    };
+  }, [sourceWords, lastExerciseType, wordMastery]);
+
+  // Generate cumulative exercise with adaptive difficulty
   useEffect(() => {
     if (sourceWords.length > 0) {
       const shuffled = [...sourceWords].sort(() => Math.random() - 0.5);
@@ -253,10 +283,6 @@ export function StudyModePage() {
   
   const progressPercent = totalWords > 0 
     ? Math.round((introducedCount / totalWords) * 100) 
-    : 0;
-    
-  const masteryPercent = introducedCount > 0
-    ? Math.round((masteredCount / introducedCount) * 100)
     : 0;
 
   const currentWord = currentBatch[currentWordIndex];
@@ -371,55 +397,7 @@ export function StudyModePage() {
     // Fallback: if no eligible words found (shouldn't happen in normal flow)
     const fallback = learnedWithMastery[Math.floor(Math.random() * learnedWithMastery.length)];
     return createExerciseForWord(fallback.word);
-  }, [learnedWords, sourceWords, lastExerciseType, wordMastery, reviewQueue, lastTestedWordId]);
-
-  // Helper function to create exercise for a specific word
-  const createExerciseForWord = useCallback((targetWord) => {
-    // Determine difficulty based on mastery
-    const mastery = wordMastery[getWordKey(targetWord)] || { correctCount: 0, exerciseTypes: [], mastered: false };
-    let difficultyLevel;
-    
-    if (mastery.correctCount === 0) {
-      difficultyLevel = 'easy'; // First exposure - recognition
-    } else if (mastery.correctCount < MASTERY_THRESHOLD || !mastery.activeRecallSuccess) {
-      difficultyLevel = 'medium'; // Developing - mixed
-    } else {
-      difficultyLevel = 'hard'; // Strong - active recall
-    }
-    
-    // Get available exercise types for this difficulty
-    const availableDifficultyTypes = EXERCISE_BY_DIFFICULTY[difficultyLevel];
-    
-    // Filter out types requiring missing data and avoid consecutive same type
-    const availableTypes = availableDifficultyTypes.filter(t => {
-      if (t === lastExerciseType) return false;
-      if (t === 'missingSyllable' && !targetWord.romanization) return false;
-      return true;
-    });
-    
-    const exerciseType = availableTypes.length > 0
-      ? availableTypes[Math.floor(Math.random() * availableTypes.length)]
-      : availableDifficultyTypes[0];
-    setLastExerciseType(exerciseType);
-
-    // Track last tested word
-    setLastTestedWordId(targetWord.id);
-
-    // Get distractors from all source words
-    const distractors = sourceWords
-      .filter(w => w.id !== targetWord.id)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 3);
-
-    const allOptions = [targetWord, ...distractors].sort(() => Math.random() - 0.5);
-
-    return {
-      type: exerciseType,
-      word: targetWord,
-      options: allOptions,
-      correctIndex: allOptions.findIndex(w => w.id === targetWord.id)
-    };
-  }, [sourceWords, lastExerciseType, wordMastery]);
+  }, [learnedWords, sourceWords, lastExerciseType, wordMastery, reviewQueue, lastTestedWordId, createExerciseForWord]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Handle exercise answer
   const handleExerciseAnswer = useCallback((isCorrect, exercise) => {
@@ -493,7 +471,7 @@ export function StudyModePage() {
         setFeedback(null);
       }, 1500);
     }
-  }, [playSuccessSound, playErrorSound, dispatch, reinforcementWord]);
+  }, [playSuccessSound, playErrorSound, dispatch, reinforcementWord, SUCCESS_MESSAGES, ALMOST_MESSAGES]);
 
   // Process review queue
   useEffect(() => {
@@ -662,53 +640,53 @@ export function StudyModePage() {
             </div>
             
             <WordBadge tone={totalMastered ? "green" : "amber"}>
-              {totalMastered ? t("study.lessonCompleted") : "Practice Needed"}
+              {totalMastered ? t("study.lessonCompleted") : t("study.practiceNeeded")}
             </WordBadge>
             <h2 className="mt-4 text-3xl font-black md:text-4xl">
-              {totalMastered ? t("study.lessonCompleted") : "Keep Practicing"}
+              {totalMastered ? t("study.lessonCompleted") : t("study.keepPracticing")}
             </h2>
             
             <div className="mt-6 grid gap-3 text-left sm:gap-4">
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
-                <span className="text-sm text-slate-600 dark:text-slate-300">Words Introduced</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t("study.wordsIntroduced")}</span>
                 <span className="text-xl font-black text-slate-900 dark:text-white">{introducedCount} / {totalWords}</span>
               </div>
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
-                <span className="text-sm text-slate-600 dark:text-slate-300">Words Mastered</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t("study.wordsMastered")}</span>
                 <span className="text-xl font-black text-emerald-500">{masteredCount} / {introducedCount}</span>
               </div>
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
-                <span className="text-sm text-slate-600 dark:text-slate-300">Accuracy</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t("study.accuracy")}</span>
                 <span className="text-xl font-black text-slate-900 dark:text-white">{accuracy}%</span>
               </div>
               <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-white/10">
-                <span className="text-sm text-slate-600 dark:text-slate-300">Study Time</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t("study.studyTime")}</span>
                 <span className="text-xl font-black text-slate-900 dark:text-white">{sessionStats.totalTime}s</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-300">Needs Review</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t("study.needsReview")}</span>
                 <span className="text-xl font-black text-orange-500">{needsReviewCount}</span>
               </div>
             </div>
 
             <div className="mt-6 rounded-2xl bg-slate-950/5 p-4 text-left dark:bg-white/10">
-              <p className="text-sm font-black text-slate-900 dark:text-white mb-3">Vocabulary Mastery</p>
+              <p className="text-sm font-black text-slate-900 dark:text-white mb-3">{t("mastery.overview")}</p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                 <div className="text-center">
                   <p className="text-lg font-black text-emerald-600 dark:text-emerald-300">{lessonMastery.breakdown.mastered || 0}</p>
-                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Mastered</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">{t("mastery.masteredCount")}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-lg font-black text-sky-600 dark:text-sky-300">{lessonMastery.breakdown.practiced || 0}</p>
-                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Practiced</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">{t("mastery.practicedCount")}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-lg font-black text-amber-600 dark:text-amber-300">{lessonMastery.breakdown.learning || 0}</p>
-                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">Learning</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">{t("mastery.learningCount")}</p>
                 </div>
                 <div className="text-center">
                   <p className="text-lg font-black text-slate-600 dark:text-slate-300">{lessonMastery.breakdown.new || 0}</p>
-                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">New</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-300">{t("mastery.newCount")}</p>
                 </div>
               </div>
             </div>
@@ -719,7 +697,7 @@ export function StudyModePage() {
                 onClick={studyAgain}
                 className="rounded-2xl bg-slate-950 px-6 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950"
               >
-                {totalMastered ? t("home.studyAgain") : "Continue Practice"}
+                {totalMastered ? t("home.studyAgain") : t("study.continuePractice")}
               </button>
               {totalMastered && (
                 <button 
@@ -736,7 +714,7 @@ export function StudyModePage() {
                   onClick={() => navigate(`/study/${lesson + 1}`)}
                   className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white transition hover:scale-105"
                 >
-                  Next Lesson →
+                  {t("study.nextLesson")}
                 </button>
               )}
             </div>
@@ -818,17 +796,17 @@ function StudyHeader({ lesson, introduced, total, mastered }) {
             <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
               {t("card.lesson", { lesson })}
             </p>
-            <WordBadge tone="violet">Learning</WordBadge>
+            <WordBadge tone="violet">{t("study.learning")}</WordBadge>
           </div>
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-            Cumulative Progress
+            {t("study.cumulativeProgress")}
           </h2>
         </div>
         <div className="text-right">
           <p className="text-3xl font-black text-slate-900 dark:text-white">
             {introduced} / {total}
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">introduced</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{t("study.introduced")}</p>
         </div>
       </div>
       
@@ -844,11 +822,11 @@ function StudyHeader({ lesson, introduced, total, mastered }) {
       <div className="mt-3 flex items-center justify-between text-xs">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="text-slate-600 dark:text-slate-400">{mastered} mastered</span>
+          <span className="text-slate-600 dark:text-slate-400">{mastered} {t("study.mastered")}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-sky-400" />
-          <span className="text-slate-600 dark:text-slate-400">{introduced - mastered} learning</span>
+          <span className="text-slate-600 dark:text-slate-400">{introduced - mastered} {t("study.learning")}</span>
         </div>
       </div>
     </GlassCard>
@@ -859,8 +837,22 @@ function StudyHeader({ lesson, introduced, total, mastered }) {
 /* Learning Card - Shows word for learning with mastery status          */
 /* ------------------------------------------------------------------ */
 
+function getExerciseTypeLabel(type, t) {
+  const labels = {
+    koreanToUzbek: t("exercise.koreanToUzbek"),
+    uzbekToKorean: t("exercise.uzbekToKorean"),
+    listeningToKorean: t("exercise.listeningToKorean"),
+    trueFalse: t("exercise.trueFalse"),
+    missingSyllable: t("exercise.missingSyllable"),
+    typingChallenge: t("exercise.typingChallenge"),
+    listeningToMeaning: t("exercise.listeningToMeaning"),
+    sentenceContext: t("exercise.sentenceContext"),
+  };
+  return labels[type] || type;
+}
+
 function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, onToggleSentenceMode, reduxMastery }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
@@ -886,14 +878,14 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
 
   // Get word type based on category
   const getWordType = (category) => {
-    if (category?.includes('countries')) return '🌍 Country';
-    if (category?.includes('profession') || category?.includes('job')) return '👤 Profession';
-    if (category?.includes('food')) return '🍽️ Food';
-    if (category?.includes('family')) return '👨‍👩‍👧 Family';
-    if (category?.includes('number')) return '🔢 Number';
-    if (category?.includes('verb')) return '📝 Verb';
-    if (category?.includes('adjective')) return '🎨 Adjective';
-    return '📚 Noun';
+    if (category?.includes('countries')) return `🌍 ${t("study.wordType.country")}`;
+    if (category?.includes('profession') || category?.includes('job')) return `👤 ${t("study.wordType.profession")}`;
+    if (category?.includes('food')) return `🍽️ ${t("study.wordType.food")}`;
+    if (category?.includes('family')) return `👨‍👩‍👧 ${t("study.wordType.family")}`;
+    if (category?.includes('number')) return `🔢 ${t("study.wordType.number")}`;
+    if (category?.includes('verb')) return `📝 ${t("study.wordType.verb")}`;
+    if (category?.includes('adjective')) return `🎨 ${t("study.wordType.adjective")}`;
+    return `📚 ${t("study.wordType.noun")}`;
   };
 
   // Generate example sentence with highlighted word
@@ -934,14 +926,14 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
         <div className="mb-3 flex items-center justify-center gap-2">
           <div className={`h-1.5 w-1.5 rounded-full ${getMasteryColor(mastery)}`} />
           <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-            {mastery?.mastered ? 'Mastered' : mastery?.correctCount > 0 ? `Progress: ${mastery.correctCount}/${MASTERY_THRESHOLD}` : 'New word'}
+            {mastery?.mastered ? t("study.mastery.mastered") : mastery?.correctCount > 0 ? t("study.mastery.progress", { count: mastery.correctCount, threshold: MASTERY_THRESHOLD }) : t("study.mastery.new")}
           </p>
           {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
         </div>
 
         <div className="mb-4">
           <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">
-            {i18n.language === 'uz' ? 'So\'zni o\'rganing' : 'Learn this word'}
+            {t("study.learnThisWord")}
           </p>
           <WordBadge tone="violet">{getWordType(word.category)}</WordBadge>
         </div>
@@ -982,8 +974,8 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
                   className="mb-2 text-xs font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
                 >
                   {showSentenceMode 
-                    ? (i18n.language === 'uz' ? 'Gapni yashirish' : 'Hide Sentence')
-                    : (i18n.language === 'uz' ? 'Gapni ko\'rsatish' : 'Show Sentence')
+                    ? t("study.hideSentence")
+                    : t("study.showSentence")
                   }
                 </button>
                 
@@ -995,7 +987,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
                     className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50"
                   >
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
-                      {i18n.language === 'uz' ? 'Misol' : 'Example'}
+                      {t("study.example")}
                     </p>
                     <div className="space-y-2">
                       <p className="text-sm text-slate-700 dark:text-slate-300">
@@ -1010,7 +1002,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
                       onClick={() => speakKorean(exampleSentence.ko)}
                       className="mt-3 text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
                     >
-                      🔊 {i18n.language === 'uz' ? 'O\'qing' : 'Listen'}
+                      🔊 {t("study.listen")}
                     </button>
                   </motion.div>
                 )}
@@ -1026,7 +1018,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
               onClick={handleReveal}
               className="rounded-2xl bg-slate-950 px-8 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950"
             >
-              {i18n.language === 'uz' ? 'Ko\'rsatish' : 'Reveal'}
+              {t("study.reveal")}
             </button>
           ) : (
             <button
@@ -1034,7 +1026,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
               onClick={handleContinue}
               className="rounded-2xl bg-emerald-500 px-8 py-3 font-black text-white transition hover:scale-105"
             >
-              {i18n.language === 'uz' ? 'Davom etish' : 'Continue'}
+              {t("study.continue")}
             </button>
           )}
         </div>
@@ -1060,7 +1052,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
 /* ------------------------------------------------------------------ */
 
 function ReinforcementCard({ word, onContinue, reduxMastery }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleContinueClick = () => {
     onContinue();
@@ -1096,11 +1088,11 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
       >
         <div className="mb-4">
           <div className="flex items-center justify-center gap-2">
-            <WordBadge tone="amber">Review</WordBadge>
+            <WordBadge tone="amber">{t("study.review")}</WordBadge>
             {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
           </div>
           <h3 className="mt-3 text-xl font-black text-slate-900 dark:text-white md:text-2xl">
-            {i18n.language === 'uz' ? 'Keling, qayta ko\'rib chiqamiz' : 'Let\'s review this one'}
+            {t("study.letsReview")}
           </h3>
         </div>
 
@@ -1129,7 +1121,7 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
 
           <div className="rounded-xl bg-sky-50 p-3 dark:bg-sky-900/20">
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">
-              {i18n.language === 'uz' ? 'Misol' : 'Example'}
+              {t("study.example")}
             </p>
             <p className="text-sm text-slate-700 dark:text-slate-300 mb-1">
               {example.ko}
@@ -1142,7 +1134,7 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
               onClick={() => speakKorean(example.ko)}
               className="mt-3 text-xs font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
             >
-              🔊 {i18n.language === 'uz' ? 'O\'qing' : 'Listen'}
+              🔊 {t("study.listen")}
             </button>
           </div>
         </div>
@@ -1152,7 +1144,7 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
           onClick={handleContinueClick}
           className="mt-6 w-full rounded-2xl bg-slate-950 px-6 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950 sm:w-auto"
         >
-          {i18n.language === 'uz' ? 'Davom etish' : 'Continue'}
+          {t("study.continue")}
         </button>
       </motion.div>
     </GlassCard>
@@ -1164,7 +1156,7 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
 /* ------------------------------------------------------------------ */
 
 function CheckpointScreen({ wordCount, masteredCount, onStart }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <GlassCard className="mx-auto max-w-2xl">
@@ -1184,26 +1176,23 @@ function CheckpointScreen({ wordCount, masteredCount, onStart }) {
           </motion.div>
         </div>
 
-        <WordBadge tone="violet">Checkpoint</WordBadge>
+        <WordBadge tone="violet">{t("study.checkpoint")}</WordBadge>
         <h2 className="mt-4 text-3xl font-black text-slate-900 dark:text-white">
-          {i18n.language === 'uz' ? 'Tekshirish vaqti' : 'Time to Check'}
+          {t("study.checkpointTitle")}
         </h2>
         
         <p className="mt-4 text-lg text-slate-600 dark:text-slate-300">
-          {i18n.language === 'uz' 
-            ? `${wordCount} ta so\'z o\'rgandingiz. Endi ${masteredCount} tasini bilishingiz kerak.`
-            : `You've learned ${wordCount} words. Now let's check your knowledge.`
-          }
+          {t("study.checkpointSubtitle", { count: wordCount, mastered: masteredCount })}
         </p>
 
         <div className="mt-6 flex justify-center gap-4">
           <div className="text-center">
             <p className="text-3xl font-black text-emerald-500">{masteredCount}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">mastered</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t("study.mastered")}</p>
           </div>
           <div className="text-center">
             <p className="text-3xl font-black text-sky-500">{wordCount - masteredCount}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">to practice</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t("study.toPractice")}</p>
           </div>
         </div>
 
@@ -1212,7 +1201,7 @@ function CheckpointScreen({ wordCount, masteredCount, onStart }) {
           onClick={onStart}
           className="mt-8 rounded-2xl bg-slate-950 px-8 py-3 font-black text-white transition hover:scale-105 dark:bg-white dark:text-slate-950"
         >
-          {i18n.language === 'uz' ? 'Boshlash' : 'Start Practice'}
+          {t("button.start")}
         </button>
       </motion.div>
     </GlassCard>
@@ -1224,7 +1213,7 @@ function CheckpointScreen({ wordCount, masteredCount, onStart }) {
 /* ------------------------------------------------------------------ */
 
 function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [answered, setAnswered] = useState(false);
 
   // Reset answered state when exercise changes
@@ -1276,11 +1265,11 @@ function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }
         <div className="mb-6 text-center">
           <div className="flex items-center justify-center gap-2">
             <p className="text-sm font-bold text-slate-500 dark:text-slate-400">
-              {i18n.language === 'uz' ? 'Amaliyot' : 'Practice'}
+              {t("study.exercise")}
             </p>
             {reduxMastery && <MasteryBadge level={reduxMastery.level} size="xs" />}
           </div>
-          <WordBadge tone="violet">{exercise.type}</WordBadge>
+          <WordBadge tone="violet">{getExerciseTypeLabel(exercise.type, t)}</WordBadge>
         </div>
 
         {renderExercise()}
@@ -1306,24 +1295,12 @@ function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }
   );
 }
 
-// Exercise Registry - Maps exercise types to existing challenge components
-const EXERCISE_REGISTRY = {
-  koreanToUzbek: MultipleChoiceChallenge,
-  uzbekToKorean: ReverseChoiceChallenge,
-  listeningToKorean: ListeningChallenge,
-  trueFalse: TrueFalseChallenge,
-  missingSyllable: MissingLetterChallenge,
-  typingChallenge: TypingChallenge,
-  listeningToMeaning: ListeningToMeaningChallenge,
-  sentenceContext: SentenceContextChallenge,
-};
-
 /* ------------------------------------------------------------------ */
 /* Challenge Type Components                                           */
 /* ------------------------------------------------------------------ */
 
 function MultipleChoiceChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleSelect = (index) => {
     if (answered) return;
@@ -1337,7 +1314,7 @@ function MultipleChoiceChallenge({ word, options, onAnswer, answered = false }) 
           {word.korean}
         </p>
         <p className="text-xs text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'To\'g\'ri ma\'noni tanlang' : 'Choose the correct meaning'}
+          {t("study.chooseMeaning")}
         </p>
       </div>
 
@@ -1363,7 +1340,7 @@ function MultipleChoiceChallenge({ word, options, onAnswer, answered = false }) 
 }
 
 function ReverseChoiceChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleSelect = (index) => {
     if (answered) return;
@@ -1377,7 +1354,7 @@ function ReverseChoiceChallenge({ word, options, onAnswer, answered = false }) {
           {word.uzbek}
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'To\'g\'ri koreys so\'zini tanlang' : 'Choose the correct Korean word'}
+          {t("study.chooseKorean")}
         </p>
       </div>
 
@@ -1406,7 +1383,7 @@ function ReverseChoiceChallenge({ word, options, onAnswer, answered = false }) {
 }
 
 function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   
   // Create a true/false scenario
   const isTrue = Math.random() > 0.5;
@@ -1425,7 +1402,7 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
           {displayedOption.korean} = {displayedOption.uzbek}
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'Bu tarjima to\'g\'rimi?' : 'Is this translation correct?'}
+          {t("study.isTranslationCorrect")}
         </p>
       </div>
 
@@ -1440,7 +1417,7 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
               : 'border-emerald-200 bg-emerald-50 hover:border-emerald-300 hover:bg-emerald-100 dark:border-emerald-900/30 dark:bg-emerald-900/20 dark:hover:border-emerald-900/50'
           }`}
         >
-          {i18n.language === 'uz' ? 'Ha, to\'g\'ri' : 'Yes, correct'}
+          {t("study.yesCorrect")}
         </button>
         <button
           type="button"
@@ -1452,20 +1429,20 @@ function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
               : 'border-orange-200 bg-orange-50 hover:border-orange-300 hover:bg-orange-100 dark:border-orange-900/30 dark:bg-orange-900/20 dark:hover:border-orange-900/50'
           }`}
         >
-          {i18n.language === 'uz' ? 'Yo\'q, noto\'g\'ri' : 'No, incorrect'}
+          {t("study.noIncorrect")}
         </button>
       </div>
     </div>
   );
 }
 
-function MissingLetterChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+function MissingLetterChallenge({ word, onAnswer, answered = false }) {
+  const { t } = useTranslation();
   
   if (!word.romanization) {
     return (
       <div className="text-center text-slate-500 dark:text-slate-400">
-        {i18n.language === 'uz' ? 'Bu mashq turi mavjud emas' : 'This exercise type is not available'}
+        {t("study.exerciseNotAvailable")}
       </div>
     );
   }
@@ -1498,7 +1475,7 @@ function MissingLetterChallenge({ word, options, onAnswer, answered = false }) {
           {beforeMissing}<span className="text-slate-400">□</span>{afterMissing}
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'Yetishmayotgan harfni tanlang' : 'Choose the missing letter'}
+          {t("study.chooseMissingLetter")}
         </p>
       </div>
 
@@ -1524,7 +1501,7 @@ function MissingLetterChallenge({ word, options, onAnswer, answered = false }) {
 }
 
 function ListeningChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [played, setPlayed] = useState(false);
 
   const handlePlay = () => {
@@ -1550,7 +1527,7 @@ function ListeningChallenge({ word, options, onAnswer, answered = false }) {
           </svg>
         </button>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'Eshitib, to\'g\'ri so\'zni tanlang' : 'Listen and choose the correct word'}
+          {t("study.listenChooseWord")}
         </p>
       </div>
 
@@ -1579,7 +1556,7 @@ function ListeningChallenge({ word, options, onAnswer, answered = false }) {
 }
 
 function ListeningToMeaningChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [played, setPlayed] = useState(false);
 
   const handlePlay = () => {
@@ -1605,7 +1582,7 @@ function ListeningToMeaningChallenge({ word, options, onAnswer, answered = false
           </svg>
         </button>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'Eshitib, ma\'noni tanlang' : 'Listen and choose the meaning'}
+          {t("study.listenChooseMeaning")}
         </p>
       </div>
 
@@ -1631,7 +1608,7 @@ function ListeningToMeaningChallenge({ word, options, onAnswer, answered = false
 }
 
 function SentenceContextChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   
   // Generate sentence with target word highlighted
   const sentences = {
@@ -1664,7 +1641,7 @@ function SentenceContextChallenge({ word, options, onAnswer, answered = false })
     <div className="space-y-4">
       <div className="text-center">
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
-          {i18n.language === 'uz' ? 'Gapdagi so\'zni tanlang' : 'Choose the word for the blank'}
+          {t("study.chooseWordForBlank")}
         </p>
         <p className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
           {sentenceWithBlank}
@@ -1698,8 +1675,8 @@ function SentenceContextChallenge({ word, options, onAnswer, answered = false })
   );
 }
 
-function TypingChallenge({ word, options, onAnswer, answered = false }) {
-  const { i18n } = useTranslation();
+function TypingChallenge({ word, onAnswer, answered = false }) {
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
 
   const handleSubmit = () => {
@@ -1751,7 +1728,7 @@ function TypingChallenge({ word, options, onAnswer, answered = false }) {
           {word.uzbek}
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          {i18n.language === 'uz' ? 'Koreys tilida yozing' : 'Type in Korean'}
+          {t("study.typeInKorean")}
         </p>
       </div>
 
@@ -1775,7 +1752,7 @@ function TypingChallenge({ word, options, onAnswer, answered = false }) {
               : 'bg-slate-950 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200'
           }`}
         >
-          {i18n.language === 'uz' ? 'Tekshirish' : 'Check'}
+          {t("study.check")}
         </button>
       </div>
 

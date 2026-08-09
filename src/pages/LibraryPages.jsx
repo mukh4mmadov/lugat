@@ -41,11 +41,11 @@ export function SearchPage() {
       <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("library.searchPlaceholder", { count: allWords.length })} className="premium-input mb-4" />
       <div className="mb-4 flex flex-wrap gap-2">
         {[
-          { key: "all", label: `All (${masteryCounts.all})` },
-          { key: MASTERY_LEVELS.NEW, label: `New (${masteryCounts.new})` },
-          { key: MASTERY_LEVELS.LEARNING, label: `Learning (${masteryCounts.learning})` },
-          { key: MASTERY_LEVELS.PRACTICED, label: `Practiced (${masteryCounts.practiced})` },
-          { key: MASTERY_LEVELS.MASTERED, label: `Mastered (${masteryCounts.mastered})` },
+          { key: "all", label: t("mastery.filterAll", { count: masteryCounts.all }) },
+          { key: MASTERY_LEVELS.NEW, label: t("mastery.filterNew", { count: masteryCounts.new }) },
+          { key: MASTERY_LEVELS.LEARNING, label: t("mastery.filterLearning", { count: masteryCounts.learning }) },
+          { key: MASTERY_LEVELS.PRACTICED, label: t("mastery.filterPracticed", { count: masteryCounts.practiced }) },
+          { key: MASTERY_LEVELS.MASTERED, label: t("mastery.filterMastered", { count: masteryCounts.mastered }) },
         ].map((item) => (
           <button
             key={item.key}
@@ -126,16 +126,16 @@ export function StatsPage() {
       </GlassCard>
 
       <GlassCard>
-        <Header title="Vocabulary Mastery" badge="Word Levels" />
+        <Header title={t("mastery.wordLevels")} badge={t("mastery.overview")} />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Metric label="Mastered" value={masteryOverview.mastered} tone="green" />
-          <Metric label="Practiced" value={masteryOverview.practiced} tone="sky" />
-          <Metric label="Learning" value={masteryOverview.learning} tone="amber" />
-          <Metric label="New" value={masteryOverview.new} tone="slate" />
+          <Metric label={t("home.mastered")} value={masteryOverview.mastered} tone="green" />
+          <Metric label={t("home.practiced")} value={masteryOverview.practiced} tone="sky" />
+          <Metric label={t("home.learning")} value={masteryOverview.learning} tone="amber" />
+          <Metric label={t("home.new")} value={masteryOverview.new} tone="slate" />
         </div>
         <div className="mt-4">
           <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-            <span>Overall Mastery</span>
+            <span>{t("mastery.overallMastery")}</span>
             <span>{masteryOverview.overallPercent}%</span>
           </div>
           <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">

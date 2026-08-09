@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -26,8 +26,34 @@ export default function LanguageSelector({ onShowIELTSModal }) {
     localStorage.getItem('language') || 'uz'
   );
   const [isChanging, setIsChanging] = useState(false);
+  const dropdownRef = useRef(null);
 
   const currentLang = languages.find(lang => lang.code === selectedLang) || languages[0];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen]);
 
   const handleLanguageChange = (langCode) => {
     if (langCode === selectedLang) {
@@ -69,7 +95,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <motion.button
         type="button"
         onClick={toggleOpen}
