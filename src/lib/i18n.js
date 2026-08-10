@@ -19,6 +19,7 @@ const resources = {
       "nav.login": "Log in",
       "nav.logout": "Log out",
       "nav.hi": "Hi",
+      "nav.more": "More",
       
       // Home Page
       "home.title": "Premium Korean vocabulary learning",
@@ -606,6 +607,7 @@ const resources = {
       "nav.login": "Tizimga kirish",
       "nav.logout": "Chiqish",
       "nav.hi": "Salom",
+      "nav.more": "Yana",
       
       // Home Page
       "home.title": "Premium koreyscha lug'at o'rganish",
@@ -1193,6 +1195,7 @@ const resources = {
       "nav.login": "Войти",
       "nav.logout": "Выйти",
       "nav.hi": "Привет",
+      "nav.more": "Ещё",
       
       // Home Page
       "home.title": "Премиум изучение корейского словаря",

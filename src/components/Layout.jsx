@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -18,15 +18,22 @@ export default function Layout({ onShowIELTSModal }) {
   const [displayLang, setDisplayLang] = useState(i18n.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
+  const moreMenuRef = useRef(null);
   
   const { user, profile, signOut } = useAuth();
 
-  const navItems = [
+  // Essential nav items (always visible)
+  const primaryNavItems = [
     ["/", t("nav.home")],
     ["/courses", t("nav.courses")],
     ["/study", t("nav.study")],
     ["/search", t("nav.search")],
+  ];
+
+  // Secondary nav items (grouped in "More" dropdown)
+  const secondaryNavItems = [
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
     ["/weak-words", t("library.weakWords")],
@@ -85,90 +92,24 @@ export default function Layout({ onShowIELTSModal }) {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setUserMenuOpen(false);
       }
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
+        setMoreMenuOpen(false);
+      }
     };
 
-    if (userMenuOpen) {
+    if (userMenuOpen || moreMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [userMenuOpen]);
+  }, [userMenuOpen, moreMenuOpen]);
 
   const handleSignOut = async () => {
     await signOut();
     setUserMenuOpen(false);
     navigate('/');
-  };
-
-  const location = useLocation();
-
-  const getPageName = (pathname) => {
-    const map = {
-      "/": "Home",
-      "/courses": "Courses",
-      "/study": "Study",
-      "/search": "Search",
-      "/favorites": "Favorites",
-      "/difficult": "Difficult Words",
-      "/weak-words": "Weak Words",
-      "/stats": "Statistics",
-      "/future-updates": "Future Updates",
-      "/settings": "Settings",
-      "/review": "Review Mode",
-    };
-
-    if (map[pathname]) return map[pathname];
-
-    if (pathname.startsWith("/lesson/")) {
-      const parts = pathname.split("/");
-      const lessonId = parts[2];
-      const mode = parts[3] || "flashcards";
-      const modeNames = {
-        flashcards: "Flashcards",
-        listening: "Listening",
-        quiz: "Quiz",
-        writing: "Writing",
-      };
-      return `${modeNames[mode] || mode} - Lesson ${lessonId}`;
-    }
-
-    if (pathname.startsWith("/study/")) {
-      const lessonId = pathname.split("/")[2];
-      return `Study - Lesson ${lessonId}`;
-    }
-
-    return pathname;
-  };
-
-  const getShortBrowserInfo = () => {
-    if (typeof navigator === "undefined") return "";
-    const ua = navigator.userAgent;
-    let browser = "Unknown Browser";
-    let os = "Unknown OS";
-
-    if (ua.includes("Firefox")) browser = "Firefox";
-    else if (ua.includes("Edg")) browser = "Edge";
-    else if (ua.includes("Chrome")) browser = "Chrome";
-    else if (ua.includes("Safari")) browser = "Safari";
-
-    if (ua.includes("Windows")) os = "Windows";
-    else if (ua.includes("Mac")) os = "MacOS";
-    else if (ua.includes("Linux")) os = "Linux";
-    else if (ua.includes("Android")) os = "Android";
-    else if (ua.includes("iOS") || ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
-
-    return `${browser} · ${os}`;
-  };
-
-  const handleReportBug = () => {
-    const pageName = getPageName(location.pathname);
-    const browserInfo = getShortBrowserInfo();
-    const text = encodeURIComponent(
-      `Bug report from K-TALIM\nPage: ${pageName}\nBrowser: ${browserInfo}\n\n[Describe the issue here]`
-    );
-    window.open(`https://t.me/mukh4mmadov?text=${text}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -196,7 +137,7 @@ export default function Layout({ onShowIELTSModal }) {
             </NavLink>
 
             <nav className="hidden md:flex md:flex-1 md:items-center md:justify-center md:gap-1.5 text-xs font-semibold lg:text-sm">
-              {navItems.map(([to, label]) => (
+              {primaryNavItems.map(([to, label]) => (
                 <NavLink
                   key={to}
                   to={to}
@@ -207,6 +148,55 @@ export default function Layout({ onShowIELTSModal }) {
                   {label}
                 </NavLink>
               ))}
+              
+              {/* More dropdown for secondary nav items */}
+              <div className="relative" ref={moreMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setMoreMenuOpen(!moreMenuOpen)}
+                  className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/60 px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:bg-white transition lg:px-3 lg:py-2 dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
+                >
+                  <span>{t("nav.more")}</span>
+                  <motion.span
+                    animate={{ rotate: moreMenuOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-slate-400"
+                  >
+                    ▼
+                  </motion.span>
+                </button>
+                
+                <AnimatePresence>
+                  {moreMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 top-full mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
+                    >
+                      <div className="p-2 space-y-1">
+                        {secondaryNavItems.map(([to, label]) => (
+                          <NavLink
+                            key={to}
+                            to={to}
+                            onClick={() => setMoreMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `block rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                                isActive
+                                  ? 'bg-slate-950 text-white shadow-lg shadow-slate-950/25 dark:bg-white dark:text-slate-950'
+                                  : 'text-slate-700 hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10'
+                              }`
+                            }
+                          >
+                            {label}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </nav>
 
             <div className="flex items-center gap-1.5 md:ml-auto">
@@ -330,7 +320,7 @@ export default function Layout({ onShowIELTSModal }) {
                   </button>
                 </div>
                 <nav className="p-4 space-y-2">
-                  {navItems.map(([to, label]) => (
+                  {[...primaryNavItems, ...secondaryNavItems].map(([to, label]) => (
                     <NavLink
                       key={to}
                       to={to}
@@ -420,42 +410,28 @@ export default function Layout({ onShowIELTSModal }) {
                 {t("footer.vocabularySource")}
               </p>
               <p>{t("footer.vocabularySourceName")}</p>
-              <p>{t("footer.educationalOnly")}</p>
+            </div>
+            <div>
+              <p className="font-black text-slate-900 dark:text-white">
+                {t("footer.educationalOnly")}
+              </p>
             </div>
             <div>
               <p className="font-black text-slate-900 dark:text-white">
                 {t("footer.developer")}
               </p>
               <p>{t("footer.developerName")}</p>
-              <p>{t("footer.developerTelegram")}</p>
-            </div>
-            <div>
-              <p className="font-black text-slate-900 dark:text-white">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 {t("footer.contact")}
               </p>
-              <p>{t("footer.contactTelegram")}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                {t("footer.contactTelegram")}
+              </p>
             </div>
           </div>
         </footer>
-
-        <AIChatWidget />
-
-        <button
-          type="button"
-          onClick={handleReportBug}
-          aria-label={t("common.reportBug")}
-          title={t("common.reportBug")}
-          className="fixed bottom-4 left-4 z-[60] flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-slate-700 shadow-md transition hover:-translate-y-1 dark:bg-white/10 dark:text-slate-200 md:bottom-6 md:left-6"
-          style={{
-            paddingBottom: "env(safe-area-inset-bottom)",
-            paddingLeft: "env(safe-area-inset-left)",
-          }}
-        >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-          </svg>
-        </button>
       </main>
+      <AIChatWidget />
     </div>
   );
 }
