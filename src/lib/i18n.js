@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+﻿import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 const resources = {
@@ -24,7 +24,7 @@ const resources = {
       // PWA Update
       "pwa.updateAvailable": "New version available",
       "pwa.refreshing": "Refreshing...",
-      "nav.installApp": "Install App",
+      "nav.installApp": "Install Appp",
       "pwa.iosInstructions": "To install: tap the Share button, then 'Add to Home Screen'.",
       
       // Home Page

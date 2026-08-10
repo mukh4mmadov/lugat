@@ -61,7 +61,10 @@ export default function LoginPage() {
     setGeneralError("");
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithOAuth({ provider: "google" });
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: `${window.location.origin}/auth/callback` },
+      });
       if (error) {
         setGeneralError(error.message || t("login.genericError"));
         setLoading(false);

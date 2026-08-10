@@ -14,6 +14,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import AuthCallbackPage from "./pages/AuthCallbackPage";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
 
 export default function App() {
@@ -60,6 +61,7 @@ export default function App() {
           } />
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="reset-password" element={<ResetPasswordPage />} />
+          <Route path="auth/callback" element={<AuthCallbackPage />} />
         </Routes>
         
         {/* IELTS Modal at root level - outside Layout */}
