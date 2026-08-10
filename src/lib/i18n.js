@@ -20,6 +20,10 @@ const resources = {
       "nav.logout": "Log out",
       "nav.hi": "Hi",
       "nav.more": "More",
+      
+      // PWA Update
+      "pwa.updateAvailable": "New version available",
+      "pwa.refreshing": "Refreshing...",
       "nav.installApp": "Install App",
       "pwa.iosInstructions": "To install: tap the Share button, then 'Add to Home Screen'.",
       
@@ -610,6 +614,10 @@ const resources = {
       "nav.logout": "Chiqish",
       "nav.hi": "Salom",
       "nav.more": "Yana",
+      
+      // PWA Update
+      "pwa.updateAvailable": "Yangi versiya mavjud",
+      "pwa.refreshing": "Yangilanmoqda...",
       "nav.installApp": "Ilovani o'rnatish",
       "pwa.iosInstructions": "O'rnatish uchun: Ulashish tugmasini bosing, keyin 'Asosiy ekraniga qo'shish'.",
       
@@ -1200,6 +1208,10 @@ const resources = {
       "nav.logout": "Выйти",
       "nav.hi": "Привет",
       "nav.more": "Ещё",
+      
+      // PWA Update
+      "pwa.updateAvailable": "Доступна новая версия",
+      "pwa.refreshing": "Обновление...",
       "nav.installApp": "Установить приложение",
       "pwa.iosInstructions": "Для установки: нажмите кнопку «Поделиться», затем «На экран «Домой»».",
       

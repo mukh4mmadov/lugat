@@ -77,6 +77,9 @@ export default defineConfig({
             handler: 'NetworkOnly',
           },
         ],
+        // Immediately activate new service worker and take control of all clients
+        skipWaiting: true,
+        clientsClaim: true,
       },
       registerType: 'autoUpdate',
       injectRegister: 'script',
