@@ -153,6 +153,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Daily AI chat limit reached. Please try again tomorrow.",
       "aiChat.openAriaLabel": "Open AI Chat",
       "aiChat.closeAriaLabel": "Close AI Chat",
+      "aiChat.limitResetsIn": "Limit resets in: {{time}}",
       
       // Achievements
       "achievement.firstStep": "First Step",
@@ -658,6 +659,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Kunlik AI chat limiti tugadi. Iltimos, ertaga qayta urinib ko'ring.",
       "aiChat.openAriaLabel": "AI Chatni ochish",
       "aiChat.closeAriaLabel": "AI Chatni yopish",
+      "aiChat.limitResetsIn": "Limit qayta tiklanadi: {{time}}",
       
       // Achievements
       "achievement.firstStep": "Birinchi qadam",
@@ -1163,6 +1165,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Дневной лимит AI чата исчерпан. Попробуйте снова завтра.",
       "aiChat.openAriaLabel": "Открыть AI чат",
       "aiChat.closeAriaLabel": "Закрыть AI чат",
+      "aiChat.limitResetsIn": "Лимит сбросится через: {{time}}",
       
       // Achievements
       "achievement.firstStep": "Первый шаг",

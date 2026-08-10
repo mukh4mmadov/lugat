@@ -66,15 +66,15 @@ function checkMemoryRateLimit(ip) {
   const record = memoryRateLimiters.get(ip);
   if (!record || now > record.resetAt) {
     memoryRateLimiters.set(ip, { count: 1, resetAt: now + windowMs });
-    return true;
+    return { allowed: true };
   }
 
   if (record.count >= maxRequests) {
-    return false;
+    return { allowed: false, resetAt: record.resetAt };
   }
 
   record.count += 1;
-  return true;
+  return { allowed: true };
 }
 
 // Cleanup old entries periodically
@@ -118,23 +118,31 @@ async function checkRateLimit(ip, deviceId) {
   if (ipLimiter && deviceLimiter) {
     const [ipResult, deviceResult] = await Promise.all([
       ipLimiter.limit(ip),
-      deviceId ? deviceLimiter.limit(deviceId) : Promise.resolve({ success: true }),
+      deviceId ? deviceLimiter.limit(deviceId) : Promise.resolve({ success: true, reset: 0 }),
     ]);
 
-    if (!ipResult.success) {
-      return { allowed: false, reason: "Daily AI chat limit reached. Please try again tomorrow." };
-    }
-
-    if (!deviceResult.success) {
-      return { allowed: false, reason: "Daily AI chat limit reached. Please try again tomorrow." };
+    if (!ipResult.success || !deviceResult.success) {
+      const ipReset = ipResult.reset || 0;
+      const deviceReset = deviceResult.reset || 0;
+      const resetAt = Math.max(ipReset, deviceReset);
+      return {
+        allowed: false,
+        reason: "Daily AI chat limit reached. Please try again tomorrow.",
+        resetAt: resetAt || Date.now() + 24 * 60 * 60 * 1000,
+      };
     }
 
     return { allowed: true };
   }
 
   // Fallback to in-memory limiter
-  if (!checkMemoryRateLimit(ip)) {
-    return { allowed: false, reason: "Too many requests. Please wait a moment before trying again." };
+  const memoryResult = checkMemoryRateLimit(ip);
+  if (!memoryResult.allowed) {
+    return {
+      allowed: false,
+      reason: "Too many requests. Please wait a moment before trying again.",
+      resetAt: memoryResult.resetAt,
+    };
   }
 
   return { allowed: true };
@@ -168,7 +176,10 @@ export default async function handler(req, res) {
 
   const rateLimitResult = await checkRateLimit(ip, deviceId);
   if (!rateLimitResult.allowed) {
-    return res.status(429).json({ error: rateLimitResult.reason });
+    return res.status(429).json({
+      error: rateLimitResult.reason,
+      resetAt: rateLimitResult.resetAt,
+    });
   }
 
   if (!message || typeof message !== "string" || message.trim().length === 0) {

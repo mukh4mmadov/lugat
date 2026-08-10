@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { getDeviceId } from "../lib/deviceId";
 
+function formatCountdown(ms) {
+  if (!ms || ms <= 0) return "00:00:00";
+
+  const totalSeconds = Math.max(0, Math.ceil(ms / 1000));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return [hours, minutes, seconds]
+    .map((unit) => String(unit).padStart(2, "0"))
+    .join(":");
+}
+
 export default function AIChatWidget() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +23,11 @@ export default function AIChatWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [resetAt, setResetAt] = useState(null);
+  const [countdown, setCountdown] = useState("00:00:00");
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const intervalRef = useRef(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -31,11 +47,36 @@ export default function AIChatWidget() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (resetAt) {
+      intervalRef.current = setInterval(() => {
+        const remaining = resetAt - Date.now();
+        if (remaining <= 0) {
+          setCountdown("00:00:00");
+          setResetAt(null);
+          setError("");
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        } else {
+          setCountdown(formatCountdown(remaining));
+        }
+      }, 1000);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [resetAt]);
+
   const sendMessage = async () => {
     const text = input.trim();
     if (!text || loading) return;
 
     setError("");
+    setResetAt(null);
     setMessages((prev) => [...prev, { role: "user", content: text }]);
     setInput("");
     setLoading(true);
@@ -52,6 +93,8 @@ export default function AIChatWidget() {
       const data = await response.json();
 
       if (response.status === 429) {
+        const serverResetAt = typeof data.resetAt === "number" ? data.resetAt : Date.now() + 60 * 1000;
+        setResetAt(serverResetAt);
         throw new Error(t("aiChat.rateLimitExceeded"));
       }
 
@@ -75,12 +118,20 @@ export default function AIChatWidget() {
     }
   };
 
+  const isRateLimited = !!resetAt && countdown !== "00:00:00";
+
   return (
     <>
       {/* Floating Action Button */}
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          if (isOpen) {
+            setResetAt(null);
+            setError("");
+          }
+        }}
         aria-label={isOpen ? t("aiChat.closeAriaLabel") : t("aiChat.openAriaLabel")}
         title={isOpen ? t("aiChat.closeAriaLabel") : t("aiChat.openAriaLabel")}
         className="fixed bottom-4 right-4 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white shadow-xl shadow-slate-900/30 transition hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 dark:bg-white dark:text-slate-950 md:bottom-6 md:right-6"
@@ -108,7 +159,11 @@ export default function AIChatWidget() {
               exit="exit"
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm md:bg-black/25"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setResetAt(null);
+                setError("");
+              }}
             />
 
             {/* Panel */}
@@ -133,7 +188,11 @@ export default function AIChatWidget() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setResetAt(null);
+                    setError("");
+                  }}
                   aria-label={t("aiChat.closeAriaLabel")}
                   className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-200"
                 >
@@ -189,27 +248,36 @@ export default function AIChatWidget() {
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* Input */}
+              {/* Countdown / Input */}
               <div className="border-t border-slate-200 p-4 dark:border-white/10">
-                <div className="flex gap-2">
-                  <input
-                    ref={inputRef}
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    placeholder={t("aiChat.placeholder")}
-                    className="premium-input flex-1"
-                    maxLength={2000}
-                  />
-                  <button
-                    type="button"
-                    onClick={sendMessage}
-                    disabled={loading || !input.trim()}
-                    className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white transition hover:-translate-y-1 disabled:opacity-50 dark:bg-white dark:text-slate-950"
-                  >
-                    {t("aiChat.send")}
-                  </button>
-                </div>
+                {isRateLimited ? (
+                  <div className="rounded-2xl bg-slate-950/5 px-4 py-3 text-center dark:bg-white/10">
+                    <p className="text-sm font-black text-slate-900 dark:text-white">
+                      {t("aiChat.limitResetsIn", { time: countdown })}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <input
+                      ref={inputRef}
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      placeholder={t("aiChat.placeholder")}
+                      className="premium-input flex-1"
+                      maxLength={2000}
+                      disabled={isRateLimited}
+                    />
+                    <button
+                      type="button"
+                      onClick={sendMessage}
+                      disabled={loading || !input.trim() || isRateLimited}
+                      className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white transition hover:-translate-y-1 disabled:opacity-50 dark:bg-white dark:text-slate-950"
+                    >
+                      {t("aiChat.send")}
+                    </button>
+                  </div>
+                )}
               </div>
             </motion.div>
           </>
