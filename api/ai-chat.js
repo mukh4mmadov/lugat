@@ -79,11 +79,13 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
     const { Redis } = await import("@upstash/redis");
     const { Ratelimit } = await import("@upstash/ratelimit");
     redis = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN });
-    ipLimiter = new Ratelimit(redis, {
+    ipLimiter = new Ratelimit({
+      redis,
       limiter: Ratelimit.slidingWindow(30, "24 h"),
       prefix: "ratelimit:ip",
     });
-    deviceLimiter = new Ratelimit(redis, {
+    deviceLimiter = new Ratelimit({
+      redis,
       limiter: Ratelimit.slidingWindow(10, "24 h"),
       prefix: "ratelimit:device",
     });
