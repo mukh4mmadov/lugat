@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
       setLoading(false);
     });
 
-    // Listen for auth changes
+    // Listen for auth changes (only for updates AFTER initial load)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         setSession(session);
@@ -32,7 +32,8 @@ export function AuthProvider({ children }) {
           setProfile(null);
         }
         
-        setLoading(false);
+        // Don't set loading here - only getSession controls initial loading
+        // onAuthStateChange is for detecting auth state changes after load
       }
     );
 
