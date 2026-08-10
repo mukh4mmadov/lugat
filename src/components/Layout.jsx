@@ -1,20 +1,26 @@
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Layout({ onShowIELTSModal }) {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const theme = useSelector((state) => state.progress.theme);
   const nextTheme = theme === "dark" ? "light" : "dark";
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const [displayLang, setDisplayLang] = useState(i18n.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
+  
+  const { user, profile, signOut } = useAuth();
 
   const navItems = [
     ["/", t("nav.home")],
@@ -72,6 +78,29 @@ export default function Layout({ onShowIELTSModal }) {
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1],
       };
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
+    };
+
+    if (userMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [userMenuOpen]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    setUserMenuOpen(false);
+    navigate('/');
+  };
 
   const location = useLocation();
 
@@ -182,6 +211,54 @@ export default function Layout({ onShowIELTSModal }) {
 
             <div className="flex items-center gap-1.5 md:ml-auto">
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+              
+              {/* Auth section */}
+              {!user ? (
+                <NavLink
+                  to="/login"
+                  className="rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
+                >
+                  {t("nav.login")}
+                </NavLink>
+              ) : (
+                <div className="relative" ref={userMenuRef}>
+                  <button
+                    type="button"
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
+                  >
+                    <span>{t("nav.hi")}, {profile?.first_name || 'User'}</span>
+                    <motion.span
+                      animate={{ rotate: userMenuOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-slate-400"
+                    >
+                      ▼
+                    </motion.span>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute right-0 top-full mt-2 w-48 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
+                      >
+                        <button
+                          type="button"
+                          onClick={handleSignOut}
+                          className="w-full px-4 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10 transition"
+                        >
+                          {t("nav.logout")}
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+              
               <button
                 type="button"
                 onClick={() => dispatch(setTheme(nextTheme))}
@@ -269,6 +346,35 @@ export default function Layout({ onShowIELTSModal }) {
                       {label}
                     </NavLink>
                   ))}
+                  
+                  {/* Auth section in mobile menu */}
+                  <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4">
+                    {!user ? (
+                      <NavLink
+                        to="/login"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-2xl px-4 py-3 text-base font-bold bg-sky-500 text-white hover:bg-sky-600 transition"
+                      >
+                        {t("nav.login")}
+                      </NavLink>
+                    ) : (
+                      <>
+                        <div className="px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {t("nav.hi")}, {profile?.first_name || 'User'}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            handleSignOut();
+                            setMobileMenuOpen(false);
+                          }}
+                          className="w-full text-left rounded-2xl px-4 py-3 text-base font-bold text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-white/20 transition"
+                        >
+                          {t("nav.logout")}
+                        </button>
+                      </>
+                    )}
+                  </div>
                 </nav>
               </motion.div>
             </motion.div>

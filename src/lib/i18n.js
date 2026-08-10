@@ -16,6 +16,9 @@ const resources = {
       "nav.dark": "Dark Mode",
       "nav.light": "Light Mode",
       "nav.futureUpdates": "Future Updates",
+      "nav.login": "Log in",
+      "nav.logout": "Log out",
+      "nav.hi": "Hi",
       
       // Home Page
       "home.title": "Premium Korean vocabulary learning",
@@ -517,7 +520,73 @@ const resources = {
       // CTA
       "roadmap.cta.title": "More is coming.",
       "roadmap.cta.subtitle": "Your Korean learning journey is only getting started.",
-      "roadmap.cta.button": "Start Learning"
+      "roadmap.cta.button": "Start Learning",
+      
+      // Register
+      "register.title": "Create your account",
+      "register.subtitle": "Join K-TALIM to track your Korean learning progress.",
+      "register.firstName": "First name",
+      "register.lastName": "Last name",
+      "register.dateOfBirth": "Date of birth",
+      "register.day": "Day",
+      "register.month": "Month",
+      "register.year": "Year",
+      "register.email": "Email",
+      "register.password": "Password",
+      "register.confirmPassword": "Confirm password",
+      "register.signUp": "Sign up",
+      "register.googleSignUp": "Sign up with Google",
+      "register.or": "or",
+      "register.hasAccount": "Already have an account?",
+      "register.login": "Log in",
+      "register.confirmEmailMessage": "Please check your email to confirm your account before logging in.",
+      "register.passwordMinLength": "Password must be at least 8 characters.",
+      "register.passwordMismatch": "Passwords do not match.",
+      "register.emailRequired": "Email is required.",
+      "register.validEmail": "Please enter a valid email address.",
+      "register.birthDateRequired": "Please enter your full date of birth.",
+      "register.birthDateInvalid": "Please enter a valid date (day/month/year).",
+      "register.birthYearRange": "Year must be between 1940 and 2015.",
+      "register.firstNameRequired": "First name is required.",
+      "register.lastNameRequired": "Last name is required.",
+      "register.genericError": "Something went wrong. Please try again.",
+      
+      // Login
+      "login.title": "Welcome back",
+      "login.subtitle": "Log in to continue your Korean learning journey.",
+      "login.email": "Email",
+      "login.password": "Password",
+      "login.submit": "Log in",
+      "login.googleSignIn": "Sign in with Google",
+      "login.or": "or",
+      "login.noAccount": "Don't have an account?",
+      "login.signUp": "Sign up",
+      "login.forgotPassword": "Forgot password?",
+      "login.emailRequired": "Email is required.",
+      "login.validEmail": "Please enter a valid email address.",
+      "login.passwordRequired": "Password is required.",
+      "login.genericError": "Something went wrong. Please try again.",
+      
+      // Forgot Password
+      "forgotPassword.title": "Reset your password",
+      "forgotPassword.subtitle": "Enter your email and we'll send you a reset link.",
+      "forgotPassword.submit": "Send reset link",
+      "forgotPassword.backToLogin": "Back to login",
+      "forgotPassword.successMessage": "If an account exists with this email, a reset link has been sent.",
+      "forgotPassword.genericError": "Something went wrong. Please try again.",
+      
+      // Reset Password
+      "resetPassword.title": "Set a new password",
+      "resetPassword.subtitle": "Enter your new password below.",
+      "resetPassword.newPassword": "New password",
+      "resetPassword.confirmPassword": "Confirm new password",
+      "resetPassword.submit": "Update password",
+      "resetPassword.backToLogin": "Back to login",
+      "resetPassword.successMessage": "Your password has been updated. You can now log in.",
+      "resetPassword.invalidLink": "This reset link is invalid or has expired.",
+      "resetPassword.passwordMinLength": "Password must be at least 8 characters.",
+      "resetPassword.passwordMismatch": "Passwords do not match.",
+      "resetPassword.genericError": "Something went wrong. Please try again."
     }
   },
   uz: {
@@ -534,6 +603,9 @@ const resources = {
       "nav.dark": "Qorong'i rejim",
       "nav.light": "Yorug' rejim",
       "nav.futureUpdates": "Kelajakdagi yangilanishlar",
+      "nav.login": "Tizimga kirish",
+      "nav.logout": "Chiqish",
+      "nav.hi": "Salom",
       
       // Home Page
       "home.title": "Premium koreyscha lug'at o'rganish",
@@ -1035,7 +1107,73 @@ const resources = {
       // CTA
       "roadmap.cta.title": "Ko'proq narsalar kelmoqda.",
       "roadmap.cta.subtitle": "Koreyscha o'rganish safari faqat boshlanmoqda.",
-      "roadmap.cta.button": "O'rganishni boshlash"
+      "roadmap.cta.button": "O'rganishni boshlash",
+      
+      // Register
+      "register.title": "Hisobingizni yarating",
+      "register.subtitle": "Koreyscha o'rganishingizni kuzatish uchun K-TALIM ga qo'shiling.",
+      "register.firstName": "Ism",
+      "register.lastName": "Familiya",
+      "register.dateOfBirth": "Tug'ilgan sanasi",
+      "register.day": "Kun",
+      "register.month": "Oy",
+      "register.year": "Yil",
+      "register.email": "Elektron pochta",
+      "register.password": "Parol",
+      "register.confirmPassword": "Parolni tasdiqlang",
+      "register.signUp": "Ro'yxatdan o'tish",
+      "register.googleSignUp": "Google orqali ro'yxatdan o'tish",
+      "register.or": "yoki",
+      "register.hasAccount": "Hisobingiz bormi?",
+      "register.login": "Kirish",
+      "register.confirmEmailMessage": "Hisobingizni tasdiqlash uchun elektron pochtangizni tekshiring.",
+      "register.passwordMinLength": "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
+      "register.passwordMismatch": "Parollar mos kelmadi.",
+      "register.emailRequired": "Elektron pohta talab qilinadi.",
+      "register.validEmail": "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "register.birthDateRequired": "Tug'ilgan sanani to'liq kiriting.",
+      "register.birthDateInvalid": "Tug'ilgan sana noto'g'ri (kun/oy/yil).",
+      "register.birthYearRange": "Yil 1940 va 2015 oralig'ida bo'lishi kerak.",
+      "register.firstNameRequired": "Ism talab qilinadi.",
+      "register.lastNameRequired": "Familiya talab qilinadi.",
+      "register.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+      
+      // Login
+      "login.title": "Xush kelibsiz",
+      "login.subtitle": "Koreyscha o'rganish safaringizni davom ettirish uchun kirish.",
+      "login.email": "Elektron pochta",
+      "login.password": "Parol",
+      "login.submit": "Kirish",
+      "login.googleSignIn": "Google orqali kirish",
+      "login.or": "yoki",
+      "login.noAccount": "Hisobingiz bormi?",
+      "login.signUp": "Ro'yxatdan o'tish",
+      "login.forgotPassword": "Parolni unutdingizmi?",
+      "login.emailRequired": "Elektron pohta talab qilinadi.",
+      "login.validEmail": "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "login.passwordRequired": "Parol talab qilinadi.",
+      "login.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+      
+      // Forgot Password
+      "forgotPassword.title": "Parolni tiklash",
+      "forgotPassword.subtitle": "Elektron pochtangizni kiriting, biz sizga tiklash havolasini yuboramiz.",
+      "forgotPassword.submit": "Tiklash havolasini yuborish",
+      "forgotPassword.backToLogin": "Kirish sahifasiga qaytish",
+      "forgotPassword.successMessage": "Agar bu elektron pochta bilan hisob mavjud bo'lsa, tiklash havolasi yuborildi.",
+      "forgotPassword.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+      
+      // Reset Password
+      "resetPassword.title": "Yangi parol o'rnating",
+      "resetPassword.subtitle": "Quyida yangi parolingizni kiriting.",
+      "resetPassword.newPassword": "Yangi parol",
+      "resetPassword.confirmPassword": "Yangi parolni tasdiqlang",
+      "resetPassword.submit": "Parolni yangilash",
+      "resetPassword.backToLogin": "Kirish sahifasiga qaytish",
+      "resetPassword.successMessage": "Parolingiz yangilandi. Endi kirishingiz mumkin.",
+      "resetPassword.invalidLink": "Bu tiklash havolasi noto'g'ri yoki muddati o'tgan.",
+      "resetPassword.passwordMinLength": "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
+      "resetPassword.passwordMismatch": "Parollar mos kelmadi.",
+      "resetPassword.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring."
     }
   },
   ru: {
@@ -1052,6 +1190,9 @@ const resources = {
       "nav.dark": "Тёмная тема",
       "nav.light": "Светлая тема",
       "nav.futureUpdates": "Будущие обновления",
+      "nav.login": "Войти",
+      "nav.logout": "Выйти",
+      "nav.hi": "Привет",
       
       // Home Page
       "home.title": "Премиум изучение корейского словаря",
@@ -1542,7 +1683,73 @@ const resources = {
       // CTA
       "roadmap.cta.title": "Ещё больше впереди.",
       "roadmap.cta.subtitle": "Ваше путешествие по изучению корейского только начинается.",
-      "roadmap.cta.button": "Начать обучение"
+      "roadmap.cta.button": "Начать обучение",
+      
+      // Register
+      "register.title": "Создайте аккаунт",
+      "register.subtitle": "Присоединяйтесь к K-TALIM, чтобы отслеживать прогресс в изучении корейского.",
+      "register.firstName": "Имя",
+      "register.lastName": "Фамилия",
+      "register.dateOfBirth": "Дата рождения",
+      "register.day": "День",
+      "register.month": "Месяц",
+      "register.year": "Год",
+      "register.email": "Электронная почта",
+      "register.password": "Пароль",
+      "register.confirmPassword": "Подтвердите пароль",
+      "register.signUp": "Зарегистрироваться",
+      "register.googleSignUp": "Зарегистрироваться через Google",
+      "register.or": "или",
+      "register.hasAccount": "Уже есть аккаунт?",
+      "register.login": "Войти",
+      "register.confirmEmailMessage": "Проверьте электронную почту, чтобы подтвердить аккаунт перед входом.",
+      "register.passwordMinLength": "Пароль должен содержать не менее 8 символов.",
+      "register.passwordMismatch": "Пароли не совпадают.",
+      "register.emailRequired": "Электронная почта обязательна.",
+      "register.validEmail": "Введите действительный адрес электронной почты.",
+      "register.birthDateRequired": "Введите полную дату рождения.",
+      "register.birthDateInvalid": "Введите корректную дату (день/месяц/год).",
+      "register.birthYearRange": "Год должен быть от 1940 до 2015.",
+      "register.firstNameRequired": "Имя обязательно.",
+      "register.lastNameRequired": "Фамилия обязательна.",
+      "register.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
+      
+      // Login
+      "login.title": "С возвращением",
+      "login.subtitle": "Войдите, чтобы продолжить изучение корейского.",
+      "login.email": "Электронная почта",
+      "login.password": "Пароль",
+      "login.submit": "Войти",
+      "login.googleSignIn": "Войти через Google",
+      "login.or": "или",
+      "login.noAccount": "Нет аккаунта?",
+      "login.signUp": "Зарегистрироваться",
+      "login.forgotPassword": "Забыли пароль?",
+      "login.emailRequired": "Электронная почта обязательна.",
+      "login.validEmail": "Введите действительный адрес электронной почты.",
+      "login.passwordRequired": "Пароль обязателен.",
+      "login.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
+      
+      // Forgot Password
+      "forgotPassword.title": "Сброс пароля",
+      "forgotPassword.subtitle": "Введите свою электронную почту, и мы отправим вам ссылку для сброса.",
+      "forgotPassword.submit": "Отправить ссылку",
+      "forgotPassword.backToLogin": "Вернуться ко входу",
+      "forgotPassword.successMessage": "Если аккаунт с такой электронной почтой существует, ссылка для сброса отправлена.",
+      "forgotPassword.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
+      
+      // Reset Password
+      "resetPassword.title": "Установите новый пароль",
+      "resetPassword.subtitle": "Введите свой новый пароль ниже.",
+      "resetPassword.newPassword": "Новый пароль",
+      "resetPassword.confirmPassword": "Подтвердите новый пароль",
+      "resetPassword.submit": "Обновить пароль",
+      "resetPassword.backToLogin": "Вернуться ко входу",
+      "resetPassword.successMessage": "Ваш пароль обновлён. Теперь вы можете войти.",
+      "resetPassword.invalidLink": "Эта ссылка для сброса недействительна или истекла.",
+      "resetPassword.passwordMinLength": "Пароль должен содержать не менее 8 символов.",
+      "resetPassword.passwordMismatch": "Пароли не совпадают.",
+      "resetPassword.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова."
     }
   }
 };

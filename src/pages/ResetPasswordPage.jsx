@@ -1,0 +1,178 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import GlassCard from "../components/GlassCard";
+import LanguageSelector from "../components/LanguageSelector";
+import { supabase } from "../lib/supabase";
+
+export default function ResetPasswordPage() {
+  const { t } = useTranslation();
+  const [form, setForm] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [generalError, setGeneralError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [hasSession, setHasSession] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    const checkSession = async () => {
+      try {
+        const { data } = await supabase.auth.getSession();
+        if (mounted) setHasSession(!!data?.session);
+      } catch {
+        // ignore
+      }
+    };
+    checkSession();
+    return () => { mounted = false; };
+  }, []);
+
+  const update = (field) => (e) => {
+    const value = e.target.value;
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: undefined }));
+    setGeneralError("");
+    setSuccess("");
+  };
+
+  const validate = () => {
+    const next = {};
+    if (!form.password || form.password.length < 8) next.password = t("resetPassword.passwordMinLength");
+    if (form.password !== form.confirmPassword) next.confirmPassword = t("resetPassword.passwordMismatch");
+    return next;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setGeneralError("");
+    setSuccess("");
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: form.password,
+      });
+      if (error) {
+        setGeneralError(error.message || t("resetPassword.genericError"));
+      } else {
+        setSuccess(t("resetPassword.successMessage"));
+        setForm({ password: "", confirmPassword: "" });
+      }
+    } catch {
+      setGeneralError(t("resetPassword.genericError"));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const inputClassName =
+    "premium-input w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-base font-bold text-slate-900 shadow-sm outline-none transition focus:border-sky-400 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-500";
+
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-[#07111f]">
+      <div className="mx-auto max-w-7xl px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-sky-400 via-indigo-500 to-violet-500 text-base font-black text-white shadow-lg shadow-sky-500/25">
+              K
+            </div>
+            <span className="text-sm font-black tracking-tight text-slate-900 dark:text-white">K-TALIM</span>
+          </Link>
+          <LanguageSelector />
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-xl px-4 py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <GlassCard className="p-6 md:p-10">
+            <div className="mb-8 text-center">
+              <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white md:text-4xl">
+                {t("resetPassword.title")}
+              </h1>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t("resetPassword.subtitle")}</p>
+            </div>
+
+            {!hasSession && !success && (
+              <div className="rounded-2xl bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700 dark:bg-rose-500/10 dark:text-rose-200">
+                {t("resetPassword.invalidLink")}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="mb-1 block text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  {t("resetPassword.newPassword")}
+                </label>
+                <input
+                  type="password"
+                  value={form.password}
+                  onChange={update("password")}
+                  className={inputClassName}
+                  placeholder="••••••••"
+                  disabled={!hasSession || success}
+                />
+                {errors.password && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.password}</p>}
+              </div>
+
+              <div>
+                <label className="mb-1 block text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  {t("resetPassword.confirmPassword")}
+                </label>
+                <input
+                  type="password"
+                  value={form.confirmPassword}
+                  onChange={update("confirmPassword")}
+                  className={inputClassName}
+                  placeholder="••••••••"
+                  disabled={!hasSession || success}
+                />
+                {errors.confirmPassword && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.confirmPassword}</p>}
+              </div>
+
+              {generalError && (
+                <div className="rounded-2xl bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700 dark:bg-rose-500/10 dark:text-rose-200">
+                  {generalError}
+                </div>
+              )}
+
+              {success && (
+                <div className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-200">
+                  {success}
+                </div>
+              )}
+
+              {!success && (
+                <button
+                  type="submit"
+                  disabled={loading || !hasSession}
+                  className="action-btn w-full bg-slate-950 text-white dark:bg-white dark:text-slate-950 disabled:opacity-50"
+                >
+                  {loading ? t("common.loading") : t("resetPassword.submit")}
+                </button>
+              )}
+            </form>
+
+            <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-300">
+              <Link to="/login" className="font-black text-sky-600 underline dark:text-sky-300">
+                {t("resetPassword.backToLogin")}
+              </Link>
+            </p>
+          </GlassCard>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
