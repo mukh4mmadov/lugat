@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
+import AIChatWidget from "./AIChatWidget";
 
 export default function Layout({ onShowIELTSModal }) {
   const { t, i18n } = useTranslation();
@@ -23,7 +24,6 @@ export default function Layout({ onShowIELTSModal }) {
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
     ["/weak-words", t("library.weakWords")],
-    ["/ai-chat", t("aiChat.title")],
     ["/stats", t("nav.stats")],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
@@ -262,6 +262,8 @@ export default function Layout({ onShowIELTSModal }) {
             </div>
           </div>
         </footer>
+
+        <AIChatWidget />
       </main>
     </div>
   );

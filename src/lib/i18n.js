@@ -151,6 +151,8 @@ const resources = {
       "aiChat.emptyState": "Ask me anything about Korean vocabulary, grammar, or study tips to get started.",
       "aiChat.badge": "AI Tutor",
       "aiChat.rateLimitExceeded": "Daily AI chat limit reached. Please try again tomorrow.",
+      "aiChat.openAriaLabel": "Open AI Chat",
+      "aiChat.closeAriaLabel": "Close AI Chat",
       
       // Achievements
       "achievement.firstStep": "First Step",
@@ -654,6 +656,8 @@ const resources = {
       "aiChat.emptyState": "Boshlash uchun menga koreyscha lug'at, grammatika yoki o'rganish masalalari haqida so'rang.",
       "aiChat.badge": "AI O'qituvchi",
       "aiChat.rateLimitExceeded": "Kunlik AI chat limiti tugadi. Iltimos, ertaga qayta urinib ko'ring.",
+      "aiChat.openAriaLabel": "AI Chatni ochish",
+      "aiChat.closeAriaLabel": "AI Chatni yopish",
       
       // Achievements
       "achievement.firstStep": "Birinchi qadam",
@@ -1157,6 +1161,8 @@ const resources = {
       "aiChat.emptyState": "Начните с вопроса о корейской лексике, грамматике или советах по учёбе.",
       "aiChat.badge": "AI Репетитор",
       "aiChat.rateLimitExceeded": "Дневной лимит AI чата исчерпан. Попробуйте снова завтра.",
+      "aiChat.openAriaLabel": "Открыть AI чат",
+      "aiChat.closeAriaLabel": "Закрыть AI чат",
       
       // Achievements
       "achievement.firstStep": "Первый шаг",
