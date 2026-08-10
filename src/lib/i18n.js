@@ -20,6 +20,8 @@ const resources = {
       "nav.logout": "Log out",
       "nav.hi": "Hi",
       "nav.more": "More",
+      "nav.installApp": "Install App",
+      "pwa.iosInstructions": "To install: tap the Share button, then 'Add to Home Screen'.",
       
       // Home Page
       "home.title": "Premium Korean vocabulary learning",
@@ -608,6 +610,8 @@ const resources = {
       "nav.logout": "Chiqish",
       "nav.hi": "Salom",
       "nav.more": "Yana",
+      "nav.installApp": "Ilovani o'rnatish",
+      "pwa.iosInstructions": "O'rnatish uchun: Ulashish tugmasini bosing, keyin 'Asosiy ekraniga qo'shish'.",
       
       // Home Page
       "home.title": "Premium koreyscha lug'at o'rganish",
@@ -1196,6 +1200,8 @@ const resources = {
       "nav.logout": "Выйти",
       "nav.hi": "Привет",
       "nav.more": "Ещё",
+      "nav.installApp": "Установить приложение",
+      "pwa.iosInstructions": "Для установки: нажмите кнопку «Поделиться», затем «На экран «Домой»».",
       
       // Home Page
       "home.title": "Премиум изучение корейского словаря",

@@ -7,6 +7,7 @@ import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
 import { useAuth } from "../hooks/useAuth";
+import InstallAppButton from "./InstallAppButton";
 
 export default function Layout({ onShowIELTSModal }) {
   const { t, i18n } = useTranslation();
@@ -201,6 +202,7 @@ export default function Layout({ onShowIELTSModal }) {
 
             <div className="flex items-center gap-1.5 md:ml-auto">
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+              <InstallAppButton />
               
               {/* Auth section */}
               {!user ? (

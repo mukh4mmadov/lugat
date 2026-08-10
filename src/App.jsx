@@ -3,7 +3,6 @@ import { useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import Layout from "./components/Layout";
 import IELTSRecommendationModal from "./components/IELTSRecommendationModal";
-import RedirectIfAuthed from "./components/RedirectIfAuthed";
 import HomePage from "./pages/HomePage";
 import { StudyHomePage, StudyModePage } from "./pages/StudyPage";
 import FlashcardsPage from "./pages/FlashcardsPage";
@@ -15,6 +14,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import RedirectIfAuthed from "./components/RedirectIfAuthed";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
