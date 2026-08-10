@@ -28,10 +28,16 @@ Rules:
 // Basic in-memory rate limiter fallback: { ip: { count, resetAt } }
 const memoryRateLimiters = new Map();
 
+function getHeader(req, name) {
+  const value = req.headers[name.toLowerCase()];
+  if (Array.isArray(value)) return value[0];
+  return value;
+}
+
 function getClientIp(req) {
-  const forwarded = req.headers.get("x-forwarded-for");
+  const forwarded = getHeader(req, "x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();
-  return req.headers.get("x-real-ip") || "unknown";
+  return getHeader(req, "x-real-ip") || "unknown";
 }
 
 function checkMemoryRateLimit(ip) {
