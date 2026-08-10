@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -72,6 +72,75 @@ export default function Layout({ onShowIELTSModal }) {
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1],
       };
+
+  const location = useLocation();
+
+  const getPageName = (pathname) => {
+    const map = {
+      "/": "Home",
+      "/courses": "Courses",
+      "/study": "Study",
+      "/search": "Search",
+      "/favorites": "Favorites",
+      "/difficult": "Difficult Words",
+      "/weak-words": "Weak Words",
+      "/stats": "Statistics",
+      "/future-updates": "Future Updates",
+      "/settings": "Settings",
+      "/review": "Review Mode",
+    };
+
+    if (map[pathname]) return map[pathname];
+
+    if (pathname.startsWith("/lesson/")) {
+      const parts = pathname.split("/");
+      const lessonId = parts[2];
+      const mode = parts[3] || "flashcards";
+      const modeNames = {
+        flashcards: "Flashcards",
+        listening: "Listening",
+        quiz: "Quiz",
+        writing: "Writing",
+      };
+      return `${modeNames[mode] || mode} - Lesson ${lessonId}`;
+    }
+
+    if (pathname.startsWith("/study/")) {
+      const lessonId = pathname.split("/")[2];
+      return `Study - Lesson ${lessonId}`;
+    }
+
+    return pathname;
+  };
+
+  const getShortBrowserInfo = () => {
+    if (typeof navigator === "undefined") return "";
+    const ua = navigator.userAgent;
+    let browser = "Unknown Browser";
+    let os = "Unknown OS";
+
+    if (ua.includes("Firefox")) browser = "Firefox";
+    else if (ua.includes("Edg")) browser = "Edge";
+    else if (ua.includes("Chrome")) browser = "Chrome";
+    else if (ua.includes("Safari")) browser = "Safari";
+
+    if (ua.includes("Windows")) os = "Windows";
+    else if (ua.includes("Mac")) os = "MacOS";
+    else if (ua.includes("Linux")) os = "Linux";
+    else if (ua.includes("Android")) os = "Android";
+    else if (ua.includes("iOS") || ua.includes("iPhone") || ua.includes("iPad")) os = "iOS";
+
+    return `${browser} · ${os}`;
+  };
+
+  const handleReportBug = () => {
+    const pageName = getPageName(location.pathname);
+    const browserInfo = getShortBrowserInfo();
+    const text = encodeURIComponent(
+      `Bug report from K-TALIM\nPage: ${pageName}\nBrowser: ${browserInfo}\n\n[Describe the issue here]`
+    );
+    window.open(`https://t.me/mukh4mmadov?text=${text}`, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>
@@ -264,6 +333,22 @@ export default function Layout({ onShowIELTSModal }) {
         </footer>
 
         <AIChatWidget />
+
+        <button
+          type="button"
+          onClick={handleReportBug}
+          aria-label={t("common.reportBug")}
+          title={t("common.reportBug")}
+          className="fixed bottom-4 left-4 z-[60] flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-slate-700 shadow-md transition hover:-translate-y-1 dark:bg-white/10 dark:text-slate-200 md:bottom-6 md:left-6"
+          style={{
+            paddingBottom: "env(safe-area-inset-bottom)",
+            paddingLeft: "env(safe-area-inset-left)",
+          }}
+        >
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+        </button>
       </main>
     </div>
   );

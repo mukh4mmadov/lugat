@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { getDeviceId } from "../lib/deviceId";
+import EmptyStateIllustrations from "./EmptyStateIllustrations";
 
 function formatCountdown(ms) {
   if (!ms || ms <= 0) return "00:00:00";
@@ -206,9 +207,14 @@ export default function AIChatWidget() {
               <div className="flex-1 space-y-4 overflow-y-auto p-4">
                 {messages.length === 0 && (
                   <div className="flex h-full items-center justify-center">
-                    <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-                      {t("aiChat.emptyState")}
-                    </p>
+                    <div className="text-center">
+                      <div className="mx-auto mb-4 h-24 w-24">
+                        <EmptyStateIllustrations.Chat />
+                      </div>
+                      <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+                        {t("aiChat.emptyState")}
+                      </p>
+                    </div>
                   </div>
                 )}
 
@@ -250,34 +256,33 @@ export default function AIChatWidget() {
 
               {/* Countdown / Input */}
               <div className="border-t border-slate-200 p-4 dark:border-white/10">
-                {isRateLimited ? (
-                  <div className="rounded-2xl bg-slate-950/5 px-4 py-3 text-center dark:bg-white/10">
+                {isRateLimited && (
+                  <div className="mb-3 rounded-2xl bg-slate-950/5 px-4 py-3 text-center dark:bg-white/10">
                     <p className="text-sm font-black text-slate-900 dark:text-white">
                       {t("aiChat.limitResetsIn", { time: countdown })}
                     </p>
                   </div>
-                ) : (
-                  <div className="flex gap-2">
-                    <input
-                      ref={inputRef}
-                      value={input}
-                      onChange={(e) => setInput(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                      placeholder={t("aiChat.placeholder")}
-                      className="premium-input flex-1"
-                      maxLength={2000}
-                      disabled={isRateLimited}
-                    />
-                    <button
-                      type="button"
-                      onClick={sendMessage}
-                      disabled={loading || !input.trim() || isRateLimited}
-                      className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white transition hover:-translate-y-1 disabled:opacity-50 dark:bg-white dark:text-slate-950"
-                    >
-                      {t("aiChat.send")}
-                    </button>
-                  </div>
                 )}
+                <div className="flex gap-2">
+                  <input
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder={t("aiChat.placeholder")}
+                    className="premium-input flex-1"
+                    maxLength={2000}
+                    disabled={isRateLimited}
+                  />
+                  <button
+                    type="button"
+                    onClick={sendMessage}
+                    disabled={loading || !input.trim() || isRateLimited}
+                    className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white transition hover:-translate-y-1 disabled:opacity-50 dark:bg-white dark:text-slate-950"
+                  >
+                    {t("aiChat.send")}
+                  </button>
+                </div>
               </div>
             </motion.div>
           </>

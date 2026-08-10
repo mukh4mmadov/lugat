@@ -142,6 +142,16 @@ const resources = {
       "stats.recentActivity": "Recent activity",
       "stats.noActivity": "No activity yet.",
       
+      // Share
+      "share.title": "Share your progress",
+      "share.selectTemplate": "Choose a template",
+      "share.templateWordCount": "Word Count",
+      "share.templateStreak": "Streak",
+      "share.templateMastery": "Level / Mastery",
+      "share.close": "Close",
+      "share.download": "Download",
+      "share.share": "Share",
+      
       // AI Chat
       "aiChat.title": "AI Chat",
       "aiChat.subtitle": "Ask anything about Korean vocabulary, grammar, or study tips.",
@@ -314,6 +324,7 @@ const resources = {
       "common.error": "Error",
       "common.warning": "Warning",
       "common.info": "Info",
+      "common.reportBug": "Report a bug",
       
       // Practice
       "practice.shuffle": "Shuffle",
@@ -448,6 +459,7 @@ const resources = {
       "roadmap.title": "Future Updates",
       "roadmap.subtitle": "We're constantly improving K-TALIM to make Korean learning smarter, easier, and more effective.",
       "roadmap.planned": "PLANNED",
+      "roadmap.completed": "COMPLETED",
       "roadmap.future": "FUTURE",
       "roadmap.benefit": "How this helps you",
       
@@ -648,6 +660,16 @@ const resources = {
       "stats.recentActivity": "So'nggi faoliyat",
       "stats.noActivity": "Hali faoliyat yo'q.",
       
+      // Share
+      "share.title": "O'z progressingizni ulashing",
+      "share.selectTemplate": "Shablonni tanlang",
+      "share.templateWordCount": "So'zlar soni",
+      "share.templateStreak": "Ketma-ketlik",
+      "share.templateMastery": "Daraja / Ustozlik",
+      "share.close": "Yopish",
+      "share.download": "Yuklash",
+      "share.share": "Ulashish",
+      
       // AI Chat
       "aiChat.title": "AI Chat",
       "aiChat.subtitle": "Koreyscha lug'at, grammatika yoki o'rganish masalalari haqida so'rang.",
@@ -820,6 +842,7 @@ const resources = {
       "common.error": "Xato",
       "common.warning": "Ogohlantirish",
       "common.info": "Ma'lumot",
+      "common.reportBug": "Xato haqida xabar bering",
       
       // Practice
       "practice.shuffle": "Aralashtirish",
@@ -954,6 +977,7 @@ const resources = {
       "roadmap.title": "Kelajakdagi yangilanishlar",
       "roadmap.subtitle": "Biz K-TALIM doimiy ravishda yaxshilab chiqmoqdamiz — koreyscha o'rganishni aqlliroq, osonroq va samaraliroq qilish uchun.",
       "roadmap.planned": "REJALASHTIRILGAN",
+      "roadmap.completed": "TUGALLANGAN",
       "roadmap.future": "KELAJAK",
       "roadmap.benefit": "Sizga qanday yordam beradi",
       
@@ -1153,6 +1177,16 @@ const resources = {
       "stats.latestPractice": "Последняя практика",
       "stats.recentActivity": "Недавняя активность",
       "stats.noActivity": "Пока нет активности.",
+       
+      // Share
+      "share.title": "Поделиться прогрессом",
+      "share.selectTemplate": "Выберите шаблон",
+      "share.templateWordCount": "Количество слов",
+      "share.templateStreak": "Серия",
+      "share.templateMastery": "Уровень / Освоение",
+      "share.close": "Закрыть",
+      "share.download": "Скачать",
+      "share.share": "Поделиться",
       
       // AI Chat
       "aiChat.title": "AI Чат",
@@ -1315,7 +1349,8 @@ const resources = {
       "common.error": "Ошибка",
       "common.warning": "Предупреждение",
       "common.info": "Информация",
-      
+      "common.reportBug": "Сообщить об ошибке",
+       
       // Practice
       "practice.shuffle": "Перемешать",
       "practice.autoPlay": "Автовоспроизведение",
@@ -1449,6 +1484,7 @@ const resources = {
       "roadmap.title": "Будущие обновления",
       "roadmap.subtitle": "Мы постоянно улучшаем K-TALIM, чтобы сделать изучение корейского языка умнее, проще и эффективнее.",
       "roadmap.planned": "ПЛАНИРУЕТСЯ",
+      "roadmap.completed": "ЗАВЕРШЕНО",
       "roadmap.future": "В БУДУЩЕМ",
       "roadmap.benefit": "Как это поможет вам",
       

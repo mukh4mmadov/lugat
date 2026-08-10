@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
@@ -6,9 +6,11 @@ import { MASTERY_LEVELS, getWordMastery, getMasteryOverview } from "../lib/maste
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
 import { allWords, getWordKey, lessonInfo } from "../data";
-import { resetProgress, selectDifficultWords, selectFavoriteWords } from "../store";
+import { resetProgress, selectDifficultWords, selectFavoriteWords, markShareMilestoneShown } from "../store";
 import { normalizeAnswer } from "../lib/study";
 import { WordListActions } from "./PracticePages";
+import ShareModal from "../components/ShareModal";
+import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 
 export function SearchPage() {
   const { t } = useTranslation();
@@ -61,7 +63,7 @@ export function SearchPage() {
           </button>
         ))}
       </div>
-      <WordGrid words={results} empty={t("search.noResults")} showMastery />
+      <WordGrid words={results} empty={t("search.noResults")} showMastery Illustration={EmptyStateIllustrations.SearchNoResults} />
     </GlassCard>
   );
 }
@@ -73,7 +75,7 @@ export function FavoritesPage() {
   return (
     <GlassCard>
       <Header title={t("library.favorites")} badge={t("flashcards.saved")} />
-      <WordGrid words={words} empty={t("library.favoritesEmpty")} showMastery masteryWordsState={progress.words} />
+      <WordGrid words={words} empty={t("library.favoritesEmpty")} showMastery masteryWordsState={progress.words} Illustration={EmptyStateIllustrations.FavoritesEmpty} />
     </GlassCard>
   );
 }
@@ -85,13 +87,14 @@ export function DifficultPage() {
   return (
     <GlassCard>
       <Header title={t("library.difficult")} badge={t("library.autoCollected")} />
-      <WordGrid words={words} empty={t("library.difficultEmpty")} showMastery masteryWordsState={progress.words} />
+      <WordGrid words={words} empty={t("library.difficultEmpty")} showMastery masteryWordsState={progress.words} Illustration={EmptyStateIllustrations.DifficultEmpty} />
     </GlassCard>
   );
 }
 
 export function StatsPage() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const progress = useSelector((state) => state.progress);
   const difficult = selectDifficultWords({ progress });
   const studiedUnique = Object.values(progress.words).filter((word) => word.knownCount > 0 || word.wrongCount > 0).length;
@@ -100,6 +103,18 @@ export function StatsPage() {
     .map((lesson) => ({ lesson: lesson.lesson, score: lesson.words.reduce((sum, word) => sum + (progress.words[getWordKey(word)]?.difficulty || 0), 0) }))
     .sort((left, right) => right.score - left.score)[0];
   const masteryOverview = getMasteryOverview(progress.words);
+
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+
+  const currentMilestone = studiedUnique >= 50 ? Math.floor(studiedUnique / 50) * 50 : 0;
+
+  useEffect(() => {
+    if (currentMilestone > 0 && !progress.shareMilestones[currentMilestone]) {
+      dispatch(markShareMilestoneShown(currentMilestone));
+      setIsShareModalOpen(true);
+    }
+  }, [currentMilestone, progress.shareMilestones, dispatch]);
 
   const achievements = [
     [t("achievement.firstStep"), studiedUnique > 0],
@@ -112,7 +127,22 @@ export function StatsPage() {
   return (
     <div className="space-y-6">
       <GlassCard>
-        <Header title={t("library.stats")} badge={t("library.analytics")} />
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <WordBadge>{t("library.analytics")}</WordBadge>
+            <h2 className="mt-3 text-2xl font-black tracking-tight md:text-4xl">{t("library.stats")}</h2>
+          </div>
+          <button
+            type="button"
+            onClick={() => setIsShareModalOpen(true)}
+            className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+          >
+            <span className="mr-2">{t("common.share")}</span>
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8.684 13.342C8.886 12.938 9 12.5 9 12c0-.5-.114-.938-.316-1.342m0 2.684a3 3 0 11-6 0 3 3 0 016 0zM17 6.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+            </svg>
+          </button>
+        </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Metric label={t("stats.dailyStreak")} value={progress.stats.streak} />
           <Metric label={t("stats.accuracy")} value={`${accuracy}%`} />
@@ -161,10 +191,25 @@ export function StatsPage() {
                 <p className="font-black">{item.word}</p>
                 <p className="text-sm text-slate-500 dark:text-slate-300">{t("card.lesson", { lesson: item.lesson })} · {item.type}</p>
               </div>
-            )) : <p className="text-slate-500 dark:text-slate-300">{t("stats.noActivity")}</p>}
+            )) : (
+              <div className="text-center py-8">
+                <div className="mx-auto mb-4 h-24 w-24">
+                  <EmptyStateIllustrations.NoActivity />
+                </div>
+                <p className="text-slate-500 dark:text-slate-300">{t("stats.noActivity")}</p>
+              </div>
+            )}
           </div>
         </GlassCard>
       </div>
+
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        selectedTemplate={selectedTemplate}
+        onSelectTemplate={setSelectedTemplate}
+        progress={progress}
+      />
     </div>
   );
 }
@@ -199,8 +244,19 @@ function Header({ title, badge }) {
   );
 }
 
-function WordGrid({ words, empty, showMastery = false, masteryWordsState }) {
-  if (!words.length) return <p className="text-slate-500 dark:text-slate-300">{empty}</p>;
+function WordGrid({ words, empty, showMastery = false, masteryWordsState, Illustration }) {
+  if (!words.length) {
+    return (
+      <div className="text-center py-8">
+        {Illustration && (
+          <div className="mx-auto mb-4 h-24 w-24">
+            <Illustration />
+          </div>
+        )}
+        <p className="text-slate-500 dark:text-slate-300">{empty}</p>
+      </div>
+    );
+  }
   return (
     <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
       {words.map((word) => {

@@ -8,6 +8,7 @@ import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
 import { allWords, getLessonWords, getWordKey } from "../data";
+import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { addActivity, advanceDeck, setLessonDeck, toggleFavorite, rateFlashcard } from "../store";
 import { buildStudyDeck, cardModes, getAnswer, getPrompt, makeHint, pickRandomCardMode } from "../lib/study";
 import { SRS_RATINGS, getDueWords } from "../lib/srs";
@@ -65,7 +66,10 @@ export default function FlashcardsPage({ review = false, weak = false }) {
       return (
         <GlassCard className="mx-auto max-w-2xl text-center">
           <WordBadge tone="rose">{t("library.weakWords")}</WordBadge>
-          <h2 className="mt-4 text-3xl font-black">{t("library.noWeakWords")}</h2>
+          <div className="mx-auto mb-4 h-24 w-24">
+            <EmptyStateIllustrations.WeakWords />
+          </div>
+          <h2 className="text-3xl font-black">{t("library.noWeakWords")}</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">{t("library.noWeakWordsText")}</p>
           <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
             {t("common.back")}
@@ -77,7 +81,10 @@ export default function FlashcardsPage({ review = false, weak = false }) {
       return (
         <GlassCard className="mx-auto max-w-2xl text-center">
           <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
-          <h2 className="mt-4 text-3xl font-black">{t("srs.caughtUp")}</h2>
+          <div className="mx-auto mb-4 h-24 w-24">
+            <EmptyStateIllustrations.ReviewCaughtUp />
+          </div>
+          <h2 className="text-3xl font-black">{t("srs.caughtUp")}</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">{t("srs.caughtUpSubtitle")}</p>
           <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
             {t("common.back")}
@@ -87,8 +94,11 @@ export default function FlashcardsPage({ review = false, weak = false }) {
     }
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
-        <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
-        <h2 className="mt-4 text-3xl font-black">{t("flashcards.noDifficultWords")}</h2>
+        <WordBadge tone="sky">{t("card.lesson", { lesson })}</WordBadge>
+        <div className="mx-auto mb-4 h-24 w-24">
+          <EmptyStateIllustrations.NoDifficultWords />
+        </div>
+        <h2 className="text-3xl font-black">{t("flashcards.noDifficultWords")}</h2>
         <p className="mt-3 text-slate-600 dark:text-slate-300">{t("flashcards.noDifficultText")}</p>
         <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
           {t("common.back")}

@@ -34,6 +34,7 @@ const defaultState = {
     speechRate: 0.82,
     autoSpeak: true,
   },
+  shareMilestones: {},
 };
 
 function updateStreak(stats) {
@@ -173,6 +174,10 @@ const progressSlice = createSlice({
         theme: state.theme,
       };
     },
+    markShareMilestoneShown(state, action) {
+      const milestone = action.payload;
+      state.shareMilestones[milestone] = true;
+    },
   },
 });
 
@@ -190,6 +195,7 @@ export const {
   toggleManualDifficult,
   rateFlashcard,
   updateSRSFromExercise,
+  markShareMilestoneShown,
 } = progressSlice.actions;
 
 export const store = configureStore({

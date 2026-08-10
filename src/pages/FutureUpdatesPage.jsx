@@ -46,7 +46,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature5.title"),
       description: t("roadmap.feature5.description"),
       benefit: t("roadmap.feature5.benefit"),
-      status: t("roadmap.future")
+      status: t("roadmap.completed")
     },
     {
       id: 6,
@@ -54,7 +54,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature6.title"),
       description: t("roadmap.feature6.description"),
       benefit: t("roadmap.feature6.benefit"),
-      status: t("roadmap.comingSoon")
+      status: t("roadmap.completed")
     },
     {
       id: 7,
@@ -70,7 +70,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature8.title"),
       description: t("roadmap.feature8.description"),
       benefit: t("roadmap.feature8.benefit"),
-      status: t("roadmap.future")
+      status: t("roadmap.completed")
     },
     {
       id: 9,
@@ -78,7 +78,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature9.title"),
       description: t("roadmap.feature9.description"),
       benefit: t("roadmap.feature9.benefit"),
-      status: t("roadmap.future")
+      status: t("roadmap.completed")
     },
     {
       id: 10,
@@ -98,6 +98,9 @@ export default function FutureUpdatesPage() {
     }
   ];
 
+  const completedFeatures = features.filter(f => f.status === t("roadmap.completed"));
+  const upcomingFeatures = features.filter(f => f.status !== t("roadmap.completed"));
+
   const getStatusColor = (status) => {
     const normalizedStatus = status.toUpperCase();
     switch (normalizedStatus) {
@@ -108,6 +111,10 @@ export default function FutureUpdatesPage() {
       case "KELAJAKDA":
       case "СКОРО":
         return "bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300";
+      case "COMPLETED":
+      case "TUGALLANGAN":
+      case "ЗАВЕРШЕНО":
+        return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300";
       case "FUTURE":
       case "KELAJAK":
       case "В БУДУЩЕМ":
@@ -118,9 +125,52 @@ export default function FutureUpdatesPage() {
   };
 
   const getStatusLabel = (status) => {
-    // Status is already translated from t() function
     return status;
   };
+
+  const renderFeatureCards = (featureList) => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {featureList.map((feature, index) => (
+        <motion.div
+          key={feature.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 + index * 0.05, duration: 0.5 }}
+        >
+          <GlassCard className="h-full p-6 transition hover:scale-[1.02]">
+            <div className="mb-4 flex items-start justify-between">
+              <span className="text-4xl">{feature.icon}</span>
+              <span className={`rounded-full px-3 py-1 text-xs font-bold ${getStatusColor(feature.status)}`}>
+                {getStatusLabel(feature.status)}
+              </span>
+            </div>
+            
+            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+              {feature.title}
+            </h3>
+            
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
+              {feature.description}
+            </p>
+            
+            <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-800/50">
+              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">
+                {t("roadmap.benefit")}
+              </p>
+              <p className="text-sm text-slate-700 dark:text-slate-300">
+                {feature.benefit}
+              </p>
+            </div>
+          </GlassCard>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
 
   return (
     <div className="min-h-screen px-4 py-8 sm:px-6 sm:py-12">
@@ -151,47 +201,30 @@ export default function FutureUpdatesPage() {
           </p>
         </motion.div>
 
-        {/* Feature Cards */}
+        {/* Completed Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mb-16"
+        >
+          <h2 className="mb-6 text-2xl font-black text-center text-emerald-700 dark:text-emerald-300">
+            {t("roadmap.completed")}
+          </h2>
+          {renderFeatureCards(completedFeatures)}
+        </motion.div>
+
+        {/* Upcoming Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mb-16"
         >
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + index * 0.05, duration: 0.5 }}
-            >
-              <GlassCard className="h-full p-6 transition hover:scale-[1.02]">
-                <div className="mb-4 flex items-start justify-between">
-                  <span className="text-4xl">{feature.icon}</span>
-                  <span className={`rounded-full px-3 py-1 text-xs font-bold ${getStatusColor(feature.status)}`}>
-                    {getStatusLabel(feature.status)}
-                  </span>
-                </div>
-                
-                <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
-                  {feature.title}
-                </h3>
-                
-                <p className="mb-4 text-sm text-slate-600 dark:text-slate-300">
-                  {feature.description}
-                </p>
-                
-                <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-800/50">
-                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">
-                    {t("roadmap.benefit")}
-                  </p>
-                  <p className="text-sm text-slate-700 dark:text-slate-300">
-                    {feature.benefit}
-                  </p>
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
+          <h2 className="mb-6 text-2xl font-black text-center text-slate-900 dark:text-white">
+            {t("roadmap.title")}
+          </h2>
+          {renderFeatureCards(upcomingFeatures)}
         </motion.div>
 
         {/* Timeline */}
@@ -228,7 +261,6 @@ export default function FutureUpdatesPage() {
                   <li>• {t("roadmap.feature1.title")}</li>
                   <li>• {t("roadmap.feature2.title")}</li>
                   <li>• {t("roadmap.feature3.title")}</li>
-                  <li>• {t("roadmap.feature6.title")}</li>
                   <li>• {t("roadmap.feature10.title")}</li>
                 </ul>
               </div>
@@ -242,10 +274,7 @@ export default function FutureUpdatesPage() {
               <div className="flex-1 rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
                 <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
                   <li>• {t("roadmap.feature4.title")}</li>
-                  <li>• {t("roadmap.feature5.title")}</li>
                   <li>• {t("roadmap.feature7.title")}</li>
-                  <li>• {t("roadmap.feature8.title")}</li>
-                  <li>• {t("roadmap.feature9.title")}</li>
                   <li>• {t("roadmap.feature11.title")}</li>
                 </ul>
               </div>
