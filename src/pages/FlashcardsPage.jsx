@@ -8,11 +8,13 @@ import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
 import { allWords, getLessonWords, getWordKey } from "../data";
-import { addActivity, advanceDeck, markDifficult, markKnown, setLessonDeck, toggleFavorite } from "../store";
+import { addActivity, advanceDeck, setLessonDeck, toggleFavorite, rateFlashcard } from "../store";
 import { buildStudyDeck, cardModes, getAnswer, getPrompt, makeHint, pickRandomCardMode } from "../lib/study";
+import { SRS_RATINGS, getDueWords } from "../lib/srs";
 import { speakKorean } from "../lib/speech";
+import { selectWeakWords } from "../store";
 
-export default function FlashcardsPage({ review = false }) {
+export default function FlashcardsPage({ review = false, weak = false }) {
   const { t } = useTranslation();
   const { lessonId = "1" } = useParams();
   const dispatch = useDispatch();
@@ -21,12 +23,15 @@ export default function FlashcardsPage({ review = false }) {
   const [hint, setHint] = useState("");
   const [randomPromptMode, setRandomPromptMode] = useState(() => pickRandomCardMode());
   const progress = useSelector((state) => state.progress);
+  const weakWords = useSelector(selectWeakWords);
   const lesson = Number(lessonId);
-  const sourceWords = review
-    ? allWords.filter((word) => (progress.words[getWordKey(word)]?.difficulty || 0) > 0)
-    : getLessonWords(lesson);
+  const sourceWords = useMemo(() => {
+    if (weak) return weakWords;
+    if (review) return getDueWords(allWords, progress.words);
+    return getLessonWords(lesson);
+  }, [weak, review, lesson, weakWords, progress.words]);
 
-  const deckKey = `${review ? "review" : lesson}-${mode}`;
+  const deckKey = `${weak ? "weak" : review ? "review" : lesson}-${mode}`;
   const savedDeck = progress.lessonDecks[deckKey];
   const wordsByKey = useMemo(() => Object.fromEntries(sourceWords.map((word) => [getWordKey(word), word])), [sourceWords]);
 
@@ -34,8 +39,8 @@ export default function FlashcardsPage({ review = false }) {
     if (!sourceWords.length) return;
     if (savedDeck?.queue?.length) return;
     const deck = buildStudyDeck(sourceWords, progress.words).map(getWordKey);
-    dispatch(setLessonDeck({ lesson: review ? "review" : lesson, mode, queue: deck, cursor: 0 }));
-  }, [dispatch, lesson, mode, progress.words, review, savedDeck?.queue?.length, sourceWords]);
+    dispatch(setLessonDeck({ lesson: weak ? "weak" : review ? "review" : lesson, mode, queue: deck, cursor: 0 }));
+  }, [dispatch, lesson, mode, progress.words, review, weak, savedDeck?.queue?.length, sourceWords]);
 
   const queue = savedDeck?.queue || [];
   const cursor = Math.min(savedDeck?.cursor || 0, Math.max(0, queue.length - 1));
@@ -56,6 +61,30 @@ export default function FlashcardsPage({ review = false }) {
   }, [cursor, mode, deckKey]);
 
   if (!sourceWords.length) {
+    if (weak) {
+      return (
+        <GlassCard className="mx-auto max-w-2xl text-center">
+          <WordBadge tone="rose">{t("library.weakWords")}</WordBadge>
+          <h2 className="mt-4 text-3xl font-black">{t("library.noWeakWords")}</h2>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{t("library.noWeakWordsText")}</p>
+          <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
+            {t("common.back")}
+          </Link>
+        </GlassCard>
+      );
+    }
+    if (review) {
+      return (
+        <GlassCard className="mx-auto max-w-2xl text-center">
+          <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
+          <h2 className="mt-4 text-3xl font-black">{t("srs.caughtUp")}</h2>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{t("srs.caughtUpSubtitle")}</p>
+          <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
+            {t("common.back")}
+          </Link>
+        </GlassCard>
+      );
+    }
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
         <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
@@ -70,7 +99,7 @@ export default function FlashcardsPage({ review = false }) {
 
   function rebuildDeck(nextCursor = 0) {
     const deck = buildStudyDeck(sourceWords, progress.words).map(getWordKey);
-    dispatch(setLessonDeck({ lesson: review ? "review" : lesson, mode, queue: deck, cursor: nextCursor }));
+    dispatch(setLessonDeck({ lesson: weak ? "weak" : review ? "review" : lesson, mode, queue: deck, cursor: nextCursor }));
   }
 
   function nextCard() {
@@ -78,14 +107,14 @@ export default function FlashcardsPage({ review = false }) {
       rebuildDeck(0);
       return;
     }
-    dispatch(advanceDeck({ lesson: review ? "review" : lesson, mode, cursor: cursor + 1 }));
+    dispatch(advanceDeck({ lesson: weak ? "weak" : review ? "review" : lesson, mode, cursor: cursor + 1 }));
   }
 
-  function mark(result) {
+  function rate(rating) {
     if (!word) return;
     const key = getWordKey(word);
-    dispatch(result === "known" ? markKnown({ key, exerciseType: "flashcard" }) : markDifficult({ key, exerciseType: "flashcard" }));
-    dispatch(addActivity({ type: result, word: word.korean, lesson: word.lesson, at: Date.now() }));
+    dispatch(rateFlashcard({ key, rating }));
+    dispatch(addActivity({ type: rating, word: word.korean, lesson: word.lesson, at: Date.now() }));
     setFlipped(true);
   }
 
@@ -95,8 +124,8 @@ export default function FlashcardsPage({ review = false }) {
       <GlassCard>
         <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
-            <WordBadge tone={review ? "amber" : "sky"}>{review ? t("practice.smartReview") : t("card.lesson", { lesson })}</WordBadge>
-            <h2 className="mt-2 text-2xl font-black md:text-3xl">{t("practice.flashcards")}</h2>
+            <WordBadge tone={weak ? "rose" : review ? "amber" : "sky"}>{weak ? t("library.weakWords") : review ? t("practice.smartReview") : t("card.lesson", { lesson })}</WordBadge>
+            <h2 className="mt-2 text-2xl font-black md:text-3xl">{weak ? t("library.weakWords") : t("practice.flashcards")}</h2>
           </div>
           <div className="flex flex-wrap gap-2">
             {cardModes.map((item) => (
@@ -165,22 +194,32 @@ export default function FlashcardsPage({ review = false }) {
           </AnimatePresence>
         </div>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
-          <button type="button" onClick={() => setHint(makeHint(answer))} className="action-btn bg-amber-500 text-white">{t("flashcards.hint")}</button>
-          <button type="button" onClick={() => mark("known")} className="action-btn bg-emerald-500 text-white">{t("flashcards.iKnow")}</button>
-          <button type="button" onClick={() => mark("difficult")} className="action-btn bg-rose-500 text-white">{t("flashcards.dontKnow")}</button>
-          <button type="button" onClick={() => dispatch(toggleFavorite(getWordKey(word)))} className="action-btn bg-violet-500 text-white">{isFavorite ? t("flashcards.saved") : t("flashcards.favorite")}</button>
-          <button type="button" onClick={() => speakKorean(word.korean)} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
-          <button type="button" onClick={nextCard} className="action-btn bg-sky-500 text-white">{t("flashcards.next")}</button>
-        </div>
+        {flipped && (
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <button type="button" onClick={() => rate(SRS_RATINGS.AGAIN)} className="action-btn bg-rose-500 text-white">{t("srs.again")}</button>
+            <button type="button" onClick={() => rate(SRS_RATINGS.HARD)} className="action-btn bg-amber-500 text-white">{t("srs.hard")}</button>
+            <button type="button" onClick={() => rate(SRS_RATINGS.GOOD)} className="action-btn bg-sky-500 text-white">{t("srs.good")}</button>
+            <button type="button" onClick={() => rate(SRS_RATINGS.EASY)} className="action-btn bg-emerald-500 text-white">{t("srs.easy")}</button>
+          </div>
+        )}
+        {!flipped && (
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <button type="button" onClick={() => setHint(makeHint(answer))} className="action-btn bg-amber-500 text-white">{t("flashcards.hint")}</button>
+            <button type="button" onClick={() => dispatch(toggleFavorite(getWordKey(word)))} className="action-btn bg-violet-500 text-white">{isFavorite ? t("flashcards.saved") : t("flashcards.favorite")}</button>
+            <button type="button" onClick={() => speakKorean(word.korean)} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
+            <button type="button" onClick={nextCard} className="action-btn bg-sky-500 text-white">{t("flashcards.next")}</button>
+          </div>
+        )}
       </GlassCard>
     </div>
   );
 }
 
-export function ModeHeader({ lesson, review = false }) {
+export function ModeHeader({ lesson, review = false, weak = false }) {
   const { t } = useTranslation();
-  const modes = review
+  const modes = weak
+    ? [["/weak-words", t("library.weakWords")]]
+    : review
     ? [["/review", t("home.reviewMode")]]
     : [
         [`/lesson/${lesson}/flashcards`, t("practice.flashcards")],
@@ -193,7 +232,7 @@ export function ModeHeader({ lesson, review = false }) {
     <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <Link to="/" className="text-sm font-black text-sky-600 dark:text-sky-300">{t("common.back")}</Link>
-        <h1 className="mt-2 text-2xl font-black tracking-tight md:text-4xl">{review ? t("home.reviewMode") : t("card.lesson", { lesson })}</h1>
+        <h1 className="mt-2 text-2xl font-black tracking-tight md:text-4xl">{weak ? t("library.weakWords") : review ? t("home.reviewMode") : t("card.lesson", { lesson })}</h1>
       </div>
       <div className="flex flex-wrap gap-2">
         {modes.map(([to, label]) => (

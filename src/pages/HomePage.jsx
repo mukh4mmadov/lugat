@@ -6,11 +6,12 @@ import GlassCard from "../components/GlassCard";
 import { getMasteryOverview } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import { lessonInfo } from "../data";
-import { selectLessonProgress } from "../store";
+import { selectLessonProgress, selectReviewCount } from "../store";
 
 export default function HomePage() {
   const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
+  const reviewCount = useSelector(selectReviewCount);
   const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
   const completedLessons = lessonInfo.filter((lesson) => selectLessonProgress({ progress }, lesson.lesson) === 100).length;
   const dailyLesson = (new Date().getDate() % lessonInfo.length) + 1;
@@ -91,6 +92,26 @@ export default function HomePage() {
         );
       })()}
 
+      {reviewCount > 0 && (
+        <GlassCard className="relative overflow-hidden p-5 md:p-8 transition hover:-translate-y-1 hover:shadow-2xl">
+          <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-amber-300/25 blur-3xl md:block" />
+          <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
+              <h2 className="mt-2 text-2xl font-black md:text-3xl">
+                {t("srs.reviewsDue", { count: reviewCount })}
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300 md:text-base">
+                {t("srs.reviewsDueSubtitle")}
+              </p>
+            </div>
+            <Link to="/review" className="shrink-0 rounded-2xl bg-gradient-to-r from-amber-400 to-rose-500 px-5 py-2.5 text-center font-black text-white shadow-xl shadow-amber-500/25 transition hover:-translate-y-1">
+              {t("srs.reviewNow")}
+            </Link>
+          </div>
+        </GlassCard>
+      )}
+
       <GlassCard className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
         <div>
           <WordBadge tone="amber">{t("home.dailyChallenge")}</WordBadge>
@@ -133,7 +154,7 @@ export default function HomePage() {
                 <WordBadge tone={percent === 100 ? "green" : "violet"}>{lesson.count} {t("home.words")}</WordBadge>
               </div>
               <h3 className="mt-4 text-lg font-black">{t("card.lesson", { lesson: lesson.lesson })}</h3>
-              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">{lesson.category}</p>
+               <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">{t(lesson.category)}</p>
               <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
                 <div className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${percent}%` }} />
               </div>

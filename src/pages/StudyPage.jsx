@@ -133,7 +133,7 @@ export function StudyHomePage() {
                 <WordBadge tone={percent === 100 ? "green" : "violet"}>{lesson.count} {t("home.words")}</WordBadge>
               </div>
               <h3 className="mt-4 text-lg font-black">{t("card.lesson", { lesson: lesson.lesson })}</h3>
-              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">{lesson.category}</p>
+              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">{t(lesson.category)}</p>
               <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
                 <div className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-sky-400" style={{ width: `${percent}%` }} />
               </div>

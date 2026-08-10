@@ -1,6 +1,8 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { allWords, getWordKey, lessonInfo } from "./data";
 import { dailyKey } from "./lib/study";
+import { calculateNextReview, getDueWords, getReviewCount, getSRSRecord, SRS_RATINGS } from "./lib/srs";
+import { getWordMastery } from "./lib/mastery";
 
 const STORAGE_KEY = "ktalim-1a-progress-v1";
 
@@ -75,6 +77,15 @@ const progressSlice = createSlice({
       record.knownCount += 1;
       record.difficulty = Math.max(0, record.difficulty - 1);
       record.reviewed = Date.now();
+      if (!record.nextReviewAt) {
+        const srs = getSRSRecord(record);
+        const next = calculateNextReview(srs, SRS_RATINGS.GOOD);
+        record.interval = next.interval;
+        record.repetitions = next.repetitions;
+        record.easinessFactor = next.easinessFactor;
+        record.nextReviewAt = next.nextReviewAt;
+        record.lastReviewedAt = next.lastReviewedAt;
+      }
       if (exerciseType) {
         record.recentAnswers = [...(record.recentAnswers || []).slice(-9), { correct: true, exerciseType, timestamp: Date.now() }];
       }
@@ -90,6 +101,15 @@ const progressSlice = createSlice({
       record.wrongCount += 1;
       record.difficulty += 2;
       record.reviewed = Date.now();
+      if (!record.nextReviewAt) {
+        const srs = getSRSRecord(record);
+        const next = calculateNextReview(srs, SRS_RATINGS.AGAIN);
+        record.interval = next.interval;
+        record.repetitions = next.repetitions;
+        record.easinessFactor = next.easinessFactor;
+        record.nextReviewAt = next.nextReviewAt;
+        record.lastReviewedAt = next.lastReviewedAt;
+      }
       if (exerciseType) {
         record.recentAnswers = [...(record.recentAnswers || []).slice(-9), { correct: false, exerciseType, timestamp: Date.now() }];
       }
@@ -113,6 +133,33 @@ const progressSlice = createSlice({
       const key = action.payload;
       const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, manualDifficult: false };
       record.manualDifficult = !record.manualDifficult;
+      state.words[key] = record;
+    },
+    rateFlashcard(state, action) {
+      const { key, rating } = action.payload;
+      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, recentAnswers: [] };
+      const srs = getSRSRecord(record);
+      const next = calculateNextReview(srs, rating);
+      record.interval = next.interval;
+      record.repetitions = next.repetitions;
+      record.easinessFactor = next.easinessFactor;
+      record.nextReviewAt = next.nextReviewAt;
+      record.lastReviewedAt = next.lastReviewedAt;
+      state.words[key] = record;
+      state.stats.studiedWords += 1;
+      updateStreak(state.stats);
+    },
+    updateSRSFromExercise(state, action) {
+      const { key, correct } = action.payload;
+      const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, recentAnswers: [] };
+      const srs = getSRSRecord(record);
+      const rating = correct ? SRS_RATINGS.GOOD : SRS_RATINGS.AGAIN;
+      const next = calculateNextReview(srs, rating);
+      record.interval = next.interval;
+      record.repetitions = next.repetitions;
+      record.easinessFactor = next.easinessFactor;
+      record.nextReviewAt = next.nextReviewAt;
+      record.lastReviewedAt = next.lastReviewedAt;
       state.words[key] = record;
     },
     addActivity(state, action) {
@@ -141,6 +188,8 @@ export const {
   resetProgress,
   markWordStudied,
   toggleManualDifficult,
+  rateFlashcard,
+  updateSRSFromExercise,
 } = progressSlice.actions;
 
 export const store = configureStore({
@@ -175,4 +224,48 @@ export function selectStudyProgress(state, lesson) {
   const words = lessonInfo.find((item) => item.lesson === lesson)?.words || [];
   const studied = words.filter((word) => state.progress.studied[getWordKey(word)]).length;
   return words.length ? Math.round((studied / words.length) * 100) : 0;
+}
+
+export function selectReviewCount(state) {
+  return getReviewCount(state.progress.words);
+}
+
+export function selectDueWords(state) {
+  return getDueWords(allWords, state.progress.words);
+}
+
+export function selectWeakWords(state) {
+  const records = Object.entries(state.progress.words);
+  const practiced = records.filter(([, record]) => (record.knownCount || 0) > 0 || (record.wrongCount || 0) > 0);
+  if (!practiced.length) return [];
+
+  const scored = practiced.map(([key, record]) => {
+    const mastery = getWordMastery(key, state.progress.words);
+    const srs = getSRSRecord(record);
+
+    let weakness = 0;
+    weakness += (100 - mastery.score) * 2;
+    weakness += (record.wrongCount || 0) * 5;
+    weakness -= (record.knownCount || 0) * 1;
+
+    const recentAnswers = record.recentAnswers || [];
+    const recentWrong = recentAnswers.filter((a) => !a.correct).length;
+    weakness += recentWrong * 4;
+
+    weakness += Math.max(0, 5 - (record.repetitions || 0)) * 3;
+    weakness += Math.max(0, 2.5 - (srs.easinessFactor || 2.5)) * 5;
+
+    if (mastery.recentAccuracy < 50) weakness += 30;
+    else if (mastery.recentAccuracy < 70) weakness += 15;
+
+    weakness += mastery.recentWrongStreak * 5;
+
+    return { key, weakness };
+  });
+
+  scored.sort((a, b) => b.weakness - a.weakness);
+
+  const topKeys = scored.slice(0, 10).map((item) => item.key);
+
+  return allWords.filter((word) => topKeys.includes(getWordKey(word)));
 }

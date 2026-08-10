@@ -9,6 +9,7 @@ import { ListeningPage, QuizPage, WritingPage } from "./pages/PracticePages";
 import { DifficultPage, FavoritesPage, SearchPage, SettingsPage, StatsPage } from "./pages/LibraryPages";
 import CoursesPage from "./pages/CoursesPage";
 import FutureUpdatesPage from "./pages/FutureUpdatesPage";
+import AIChatPage from "./pages/AIChatPage";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -32,12 +33,14 @@ export default function App() {
           <Route path="lesson/:lessonId/quiz" element={<QuizPage />} />
           <Route path="lesson/:lessonId/writing" element={<WritingPage />} />
           <Route path="review" element={<FlashcardsPage review />} />
+          <Route path="weak-words" element={<FlashcardsPage weak />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="difficult" element={<DifficultPage />} />
           <Route path="stats" element={<StatsPage />} />
           <Route path="future-updates" element={<FutureUpdatesPage />} />
           <Route path="settings" element={<SettingsPage />} />
+          <Route path="ai-chat" element={<AIChatPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

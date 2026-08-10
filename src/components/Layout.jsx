@@ -22,6 +22,8 @@ export default function Layout({ onShowIELTSModal }) {
     ["/search", t("nav.search")],
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
+    ["/weak-words", t("library.weakWords")],
+    ["/ai-chat", t("aiChat.title")],
     ["/stats", t("nav.stats")],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
