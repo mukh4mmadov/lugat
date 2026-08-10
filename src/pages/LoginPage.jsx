@@ -58,13 +58,16 @@ export default function LoginPage() {
   };
 
   const handleGoogleSignIn = async () => {
+    console.log('[LoginPage] handleGoogleSignIn called', Date.now(), { loading });
     setGeneralError("");
     setLoading(true);
     try {
+      console.log('[LoginPage] About to call signInWithOAuth', Date.now());
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: `${window.location.origin}/auth/callback` },
       });
+      console.log('[LoginPage] signInWithOAuth result', Date.now(), { error });
       if (error) {
         setGeneralError(error.message || t("login.genericError"));
         setLoading(false);

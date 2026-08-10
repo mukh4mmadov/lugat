@@ -102,14 +102,17 @@ export default function RegisterPage() {
   };
 
   const handleGoogleSignIn = async () => {
+    console.log('[RegisterPage] handleGoogleSignIn called', Date.now(), { loading });
     setGeneralError("");
     setSuccessMessage("");
     setLoading(true);
     try {
+      console.log('[RegisterPage] About to call signInWithOAuth', Date.now());
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: `${window.location.origin}/auth/callback` },
       });
+      console.log('[RegisterPage] signInWithOAuth result', Date.now(), { error });
       if (error) {
         setGeneralError(error.message || t("register.genericError"));
         setLoading(false);
