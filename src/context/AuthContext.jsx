@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('first_name, last_name, birth_date')
+        .select('first_name, last_name, birth_year')
         .eq('id', userId)
         .single();
 
@@ -58,9 +58,9 @@ export function AuthProvider({ children }) {
       const isMissingProfile = error.code === 'PGRST116' || /0 rows/i.test(error.message || '');
       if (isMissingProfile && user) {
         const metadata = user.user_metadata || {};
-        const { first_name, last_name, birth_date } = metadata;
+        const { first_name, last_name, birth_date: birthDateStr } = metadata;
 
-        if (first_name && last_name && birth_date) {
+        if (first_name && last_name && birthDateStr) {
           try {
             const { error: insertError } = await supabase
               .from('profiles')
@@ -68,14 +68,14 @@ export function AuthProvider({ children }) {
                 id: userId,
                 first_name: first_name.trim(),
                 last_name: last_name.trim(),
-                birth_date: birth_date,
+                birth_year: Number(birthDateStr.split('-')[0]),
               });
 
             if (!insertError) {
               setProfile({
                 first_name: first_name.trim(),
                 last_name: last_name.trim(),
-                birth_date,
+                birth_year: Number(birthDateStr.split('-')[0]),
               });
               setProfileComplete(true);
             } else {

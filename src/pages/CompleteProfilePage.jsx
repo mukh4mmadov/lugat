@@ -69,11 +69,10 @@ export default function CompleteProfilePage() {
     }
     setLoading(true);
     try {
-      const birthDate = `${form.birthYear}-${form.birthMonth.padStart(2, "0")}-${form.birthDay.padStart(2, "0")}`;
       const { error } = await completeProfile({
         first_name: form.firstName.trim(),
         last_name: form.lastName.trim(),
-        birth_date: birthDate,
+        birth_year: Number(form.birthYear),
       });
       if (error) {
         setGeneralError(error.message || t("register.genericError"));
