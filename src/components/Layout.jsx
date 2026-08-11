@@ -110,7 +110,7 @@ export default function Layout({ onShowIELTSModal }) {
   const handleSignOut = async () => {
     await signOut();
     setUserMenuOpen(false);
-    navigate('/');
+    navigate('/login');
   };
 
   return (
