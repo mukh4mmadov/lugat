@@ -24,7 +24,7 @@ const resources = {
       // PWA Update
       "pwa.updateAvailable": "New version available",
       "pwa.refreshing": "Refreshing...",
-      "nav.installApp": "Install Appp",
+      "nav.installApp": "Install App",
       "pwa.iosInstructions": "To install: tap the Share button, then 'Add to Home Screen'.",
       
       // Home Page

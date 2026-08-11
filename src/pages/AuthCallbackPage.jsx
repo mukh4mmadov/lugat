@@ -8,43 +8,41 @@ export default function AuthCallbackPage() {
   const hasProcessed = useRef(false);
 
   useEffect(() => {
-    console.log('[callback] useEffect start', Date.now());
-    
-    // Guard against double-execution (React.StrictMode)
     if (hasProcessed.current) {
-      console.log('[callback] Already processed, skipping', Date.now());
       return;
     }
     hasProcessed.current = true;
-    console.log('[callback] Setting hasProcessed to true', Date.now());
 
     const handleCallback = async () => {
       try {
-        console.log('[callback] About to check localStorage for sb- keys', Date.now());
-        Object.keys(localStorage).filter(k => k.startsWith('sb-')).forEach(k => console.log('[callback] localStorage:', k, localStorage.getItem(k)));
-        
-        console.log('[callback] About to call exchangeCodeForSession', Date.now());
-        console.log('[callback] Current URL:', window.location.href);
-        
-        // In Supabase v2, exchangeCodeForSession takes the current URL
-        // and automatically parses/exchanges the PKCE authorization code
-        const { data, error } = await supabase.auth.exchangeCodeForSession(
-          window.location.href
-        );
+        const url = new URL(window.location.href);
+        const errorParam = url.searchParams.get('error');
+        const code = url.searchParams.get('code');
 
-        console.log('[callback] exchangeCodeForSession result', Date.now(), { data, error });
+        if (errorParam) {
+          const errorDescription = url.searchParams.get('error_description') || errorParam;
+          console.error('Auth callback error from provider:', errorDescription);
+          navigate(`/login?error=oauth_failed&description=${encodeURIComponent(errorDescription)}`, { replace: true });
+          return;
+        }
+
+        if (!code) {
+          console.error('No authorization code found in callback URL');
+          navigate('/login?error=oauth_failed', { replace: true });
+          return;
+        }
+
+        const { data, error } = await supabase.auth.exchangeCodeForSession(code);
 
         if (error) {
-          console.error('Auth callback error:', error);
+          console.error('Auth callback exchange error:', error);
           navigate('/login?error=oauth_failed', { replace: true });
           return;
         }
 
         if (data.session) {
-          // Successfully exchanged code for session
           navigate('/', { replace: true });
         } else {
-          // No session returned - something went wrong
           navigate('/login?error=oauth_failed', { replace: true });
         }
       } catch (err) {
