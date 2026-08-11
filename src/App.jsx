@@ -16,6 +16,8 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
+import CompleteProfilePage from "./pages/CompleteProfilePage";
+import RequireProfileComplete from "./components/RequireProfileComplete";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -28,7 +30,7 @@ export default function App() {
     <AuthProvider>
       <>
         <Routes>
-          <Route element={<Layout onShowIELTSModal={handleShowIELTSModal} />}>
+          <Route element={<RequireProfileComplete><Layout onShowIELTSModal={handleShowIELTSModal} /></RequireProfileComplete>}>
             <Route index element={<HomePage />} />
             <Route path="study" element={<StudyHomePage />} />
             <Route path="study/:lessonId" element={<StudyModePage />} />
@@ -49,6 +51,7 @@ export default function App() {
             <Route path="settings" element={<SettingsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
+          <Route path="complete-profile" element={<CompleteProfilePage />} />
           <Route path="register" element={
             <RedirectIfAuthed>
               <RegisterPage />

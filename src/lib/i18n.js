@@ -557,6 +557,11 @@ const resources = {
       "register.firstNameRequired": "First name is required.",
       "register.lastNameRequired": "Last name is required.",
       "register.genericError": "Something went wrong. Please try again.",
+
+      // Complete Profile
+      "completeProfile.title": "Complete your profile",
+      "completeProfile.subtitle": "Tell us a bit about yourself to get started.",
+      "completeProfile.submit": "Save and continue",
       
       // Login
       "login.title": "Welcome back",
@@ -1152,6 +1157,11 @@ const resources = {
       "register.lastNameRequired": "Familiya talab qilinadi.",
       "register.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
       
+      // Complete Profile
+      "completeProfile.title": "Profilni to'ldiring",
+      "completeProfile.subtitle": "Boshlash uchun o'zingiz haqingizda biroz ma'lumot bering.",
+      "completeProfile.submit": "Saqlash va davom etish",
+
       // Login
       "login.title": "Xush kelibsiz",
       "login.subtitle": "Koreyscha o'rganish safaringizni davom ettirish uchun kirish.",
@@ -1735,6 +1745,11 @@ const resources = {
       "register.lastNameRequired": "Фамилия обязательна.",
       "register.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
       
+      // Complete Profile
+      "completeProfile.title": "Заполните профиль",
+      "completeProfile.subtitle": "Расскажите немного о себе, чтобы начать.",
+      "completeProfile.submit": "Сохранить и продолжить",
+
       // Login
       "login.title": "С возвращением",
       "login.subtitle": "Войдите, чтобы продолжить изучение корейского.",
