@@ -91,7 +91,7 @@ export default function RegisterPage() {
       if (error) {
         setGeneralError(error.message || t("register.genericError"));
       } else if (data?.user) {
-        setSuccessMessage(t("register.confirmEmailMessage"));
+        window.location.href = "/";
         setForm({ firstName: "", lastName: "", birthDay: "", birthMonth: "", birthYear: "", email: "", password: "", confirmPassword: "" });
       }
     } catch {

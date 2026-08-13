@@ -558,6 +558,13 @@ const resources = {
       "register.lastNameRequired": "Last name is required.",
       "register.genericError": "Something went wrong. Please try again.",
 
+      // Progress Import
+      "progressImport.title": "Save your progress?",
+      "progressImport.description": "You have progress on this device. Would you like to save it to your account so you can continue from any device?",
+      "progressImport.keepLocal": "If you choose not to sync, your progress will remain on this device only and won't be available on other devices.",
+      "progressImport.save": "Yes, save it",
+      "progressImport.dontSync": "No, don't sync",
+
       // Complete Profile
       "completeProfile.title": "Complete your profile",
       "completeProfile.subtitle": "Tell us a bit about yourself to get started.",
@@ -1157,6 +1164,13 @@ const resources = {
       "register.lastNameRequired": "Familiya talab qilinadi.",
       "register.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
       
+      // Progress Import
+      "progressImport.title": "Progressni saqlaysizmi?",
+      "progressImport.description": "Ushbu qurilmada progressingiz mavjud. Uni hisobingizga saqlab, boshqa qurilmadan davom etishni xohlaysizmi?",
+      "progressImport.keepLocal": "Sinxronlashtirmaslikni tanlasangiz, progressingiz faqat ushbu qurilmada qoladi va boshqa qurilmalarda mavjud bo'lmaydi.",
+      "progressImport.save": "Ha, saqlash",
+      "progressImport.dontSync": "Yo'q, sinxronlashtirmaslik",
+
       // Complete Profile
       "completeProfile.title": "Profilni to'ldiring",
       "completeProfile.subtitle": "Boshlash uchun o'zingiz haqingizda biroz ma'lumot bering.",
@@ -1745,6 +1759,13 @@ const resources = {
       "register.lastNameRequired": "Фамилия обязательна.",
       "register.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
       
+      // Progress Import
+      "progressImport.title": "Сохранить прогресс?",
+      "progressImport.description": "У вас есть прогресс на этом устройстве. Хотите сохранить его в аккаунт, чтобы продолжить с любого устройства?",
+      "progressImport.keepLocal": "Если вы выберете не синхронизировать, прогресс останется только на этом устройстве и не будет доступен на других.",
+      "progressImport.save": "Да, сохранить",
+      "progressImport.dontSync": "Нет, не синхронизировать",
+
       // Complete Profile
       "completeProfile.title": "Заполните профиль",
       "completeProfile.subtitle": "Расскажите немного о себе, чтобы начать.",

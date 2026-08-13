@@ -1,5 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { allWords, getWordKey, lessonInfo } from "./data";
+import { getCurrentSyncUserId, saveServerProgress } from "./lib/progressSync";
 import { dailyKey } from "./lib/study";
 import { calculateNextReview, getDueWords, getReviewCount, getSRSRecord, SRS_RATINGS } from "./lib/srs";
 import { getWordMastery } from "./lib/mastery";
@@ -178,6 +179,9 @@ const progressSlice = createSlice({
       const milestone = action.payload;
       state.shareMilestones[milestone] = true;
     },
+    hydrateProgress(state, action) {
+      return action.payload;
+    },
   },
 });
 
@@ -196,6 +200,7 @@ export const {
   rateFlashcard,
   updateSRSFromExercise,
   markShareMilestoneShown,
+  hydrateProgress,
 } = progressSlice.actions;
 
 export const store = configureStore({
@@ -204,8 +209,23 @@ export const store = configureStore({
   },
 });
 
+let saveTimer = null;
+
 store.subscribe(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(store.getState().progress));
+
+  const userId = getCurrentSyncUserId();
+  if (!userId) return;
+
+  if (saveTimer) clearTimeout(saveTimer);
+  const capturedUserId = userId;
+  saveTimer = setTimeout(async () => {
+    const currentUserId = getCurrentSyncUserId();
+    if (currentUserId !== capturedUserId) return;
+    const progressData = store.getState().progress;
+    await saveServerProgress(capturedUserId, progressData);
+    saveTimer = null;
+  }, 3000);
 });
 
 export function selectFavoriteWords(state) {

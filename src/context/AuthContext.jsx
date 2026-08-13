@@ -1,5 +1,9 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect, useContext, useRef, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
+import { useDispatch } from 'react-redux';
+import { setCurrentSyncUserId } from '../lib/progressSync';
+import { store, hydrateProgress } from '../store';
+import { fetchServerProgress, saveServerProgress } from '../lib/progressSync';
 
 const AuthContext = createContext(null);
 
@@ -8,17 +12,50 @@ export function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState(null);
   const [profileComplete, setProfileComplete] = useState(false);
+  const [pendingProgressImport, setPendingProgressImport] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  const hasSyncedRef = useRef(false);
+
+  const syncProgressOnLogin = useCallback(async (userId) => {
+    try {
+      const serverData = await fetchServerProgress(userId);
+      if (serverData) {
+        dispatch(hydrateProgress(serverData));
+        setCurrentSyncUserId(userId);
+      } else {
+        const localProgress = store.getState().progress;
+        const hasLocalProgress = Object.keys(localProgress.words).length > 0
+          || localProgress.stats.studiedWords > 0
+          || Object.keys(localProgress.favorites).length > 0
+          || localProgress.stats.activity.length > 0;
+        if (hasLocalProgress) {
+          setPendingProgressImport(true);
+        } else {
+          setCurrentSyncUserId(userId);
+        }
+      }
+    } catch (err) {
+      console.error('Error syncing progress on login:', err);
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        await fetchProfile(session.user.id, session.user);
+        const complete = await fetchProfile(session.user.id, session.user);
+        if (complete) {
+          await syncProgressOnLogin(session.user.id);
+          hasSyncedRef.current = true;
+        }
       } else {
         setProfile(null);
         setProfileComplete(false);
+        setPendingProgressImport(false);
+        hasSyncedRef.current = false;
       }
       setLoading(false);
     });
@@ -29,18 +66,26 @@ export function AuthProvider({ children }) {
         setUser(session?.user ?? null);
         
         if (session?.user) {
-          await fetchProfile(session.user.id, session.user);
+          const complete = await fetchProfile(session.user.id, session.user);
+          if (complete && event === 'SIGNED_IN' && !hasSyncedRef.current) {
+            await syncProgressOnLogin(session.user.id);
+            hasSyncedRef.current = true;
+          }
         } else {
           setProfile(null);
           setProfileComplete(false);
+          setPendingProgressImport(false);
+          setCurrentSyncUserId(null);
+          hasSyncedRef.current = false;
         }
       }
     );
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [syncProgressOnLogin]);
 
   const fetchProfile = async (userId, user) => {
+    let isComplete = false;
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -51,6 +96,7 @@ export function AuthProvider({ children }) {
       if (error) throw error;
       setProfile(data);
       setProfileComplete(true);
+      isComplete = true;
     } catch (error) {
       console.error('Error fetching profile:', error);
       setProfile(null);
@@ -78,6 +124,7 @@ export function AuthProvider({ children }) {
                 birth_year: Number(birthDateStr.split('-')[0]),
               });
               setProfileComplete(true);
+              isComplete = true;
             } else {
               console.error('Error auto-creating profile:', insertError);
               setProfileComplete(false);
@@ -93,6 +140,7 @@ export function AuthProvider({ children }) {
         setProfileComplete(false);
       }
     }
+    return isComplete;
   };
 
   const completeProfile = async (profileData) => {
@@ -107,13 +155,29 @@ export function AuthProvider({ children }) {
     if (!error) {
       setProfile(profileData);
       setProfileComplete(true);
+      await syncProgressOnLogin(user.id);
+      hasSyncedRef.current = true;
     }
 
     return { error };
   };
 
+  const resolveProgressImport = async (shouldImport) => {
+    if (!user) return;
+    if (shouldImport) {
+      const localProgress = store.getState().progress;
+      const result = await saveServerProgress(user.id, localProgress);
+      if (result.error) {
+        console.error('Error resolving progress import:', result.error);
+      }
+    }
+    setPendingProgressImport(false);
+    setCurrentSyncUserId(user.id);
+  };
+
   const signOut = async () => {
     await supabase.auth.signOut();
+    setCurrentSyncUserId(null);
   };
 
   const value = {
@@ -121,9 +185,11 @@ export function AuthProvider({ children }) {
     session,
     profile,
     profileComplete,
+    pendingProgressImport,
     loading,
     signOut,
     completeProfile,
+    resolveProgressImport,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

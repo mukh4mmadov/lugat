@@ -18,6 +18,7 @@ import AuthCallbackPage from "./pages/AuthCallbackPage";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
 import CompleteProfilePage from "./pages/CompleteProfilePage";
 import RequireProfileComplete from "./components/RequireProfileComplete";
+import ProgressImportModal from "./components/ProgressImportModal";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -72,6 +73,7 @@ export default function App() {
           isOpen={showIELTSModal} 
           onClose={() => setShowIELTSModal(false)} 
         />
+        <ProgressImportModal />
       </>
     </AuthProvider>
   );
