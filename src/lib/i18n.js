@@ -175,6 +175,9 @@ const resources = {
       "aiChat.closeAriaLabel": "Close AI Chat",
       "aiChat.guestLimitReached": "You've reached the guest limit. Log in for more daily messages.",
       "aiChat.limitResetsIn": "Limit resets in: {{time}}",
+      "aiChat.history": "History",
+      "aiChat.newChat": "New chat",
+      "aiChat.noSessions": "No chat history yet",
       
       // Achievements
       "achievement.firstStep": "First Step",
@@ -834,6 +837,9 @@ const resources = {
       "aiChat.closeAriaLabel": "AI Chatni yopish",
       "aiChat.guestLimitReached": "Mehmon chegarasiga yetdingiz. Ko'proq kunlik xabar olish uchun tizimga kiring.",
       "aiChat.limitResetsIn": "Limit qayta tiklanadi: {{time}}",
+      "aiChat.history": "Tarix",
+      "aiChat.newChat": "Yangi chat",
+      "aiChat.noSessions": "Hali chat tarixi yo'q",
       
       // Achievements
       "achievement.firstStep": "Birinchi qadam",
@@ -1493,6 +1499,9 @@ const resources = {
       "aiChat.closeAriaLabel": "Закрыть AI чат",
       "aiChat.guestLimitReached": "Вы достигли лимита для гостей. Войдите в аккаунт, чтобы получать больше сообщений в день.",
       "aiChat.limitResetsIn": "Лимит сбросится через: {{time}}",
+      "aiChat.history": "История",
+      "aiChat.newChat": "Новый чат",
+      "aiChat.noSessions": "История чатов пуста",
       
       // Achievements
       "achievement.firstStep": "Первый шаг",

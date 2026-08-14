@@ -18,6 +18,21 @@ function formatCountdown(ms) {
     .join(":");
 }
 
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffMs = now - date;
+  const diffMins = Math.floor(diffMs / 60000);
+  if (diffMins < 1) return "Just now";
+  if (diffMins < 60) return `${diffMins}m ago`;
+  const diffHours = Math.floor(diffMins / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays < 7) return `${diffDays}d ago`;
+  return date.toLocaleDateString();
+}
+
 export default function AIChatWidget() {
   const { t } = useTranslation();
   const { session } = useAuth();
@@ -28,6 +43,9 @@ export default function AIChatWidget() {
   const [error, setError] = useState("");
   const [resetAt, setResetAt] = useState(null);
   const [countdown, setCountdown] = useState("00:00:00");
+  const [sessions, setSessions] = useState([]);
+  const [currentSessionId, setCurrentSessionId] = useState(null);
+  const [showHistory, setShowHistory] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const intervalRef = useRef(null);
@@ -74,6 +92,63 @@ export default function AIChatWidget() {
     };
   }, [resetAt]);
 
+  const fetchSessions = useCallback(async () => {
+    if (!session?.access_token) return;
+    try {
+      const res = await fetch("/api/ai-chat?action=sessions", {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setSessions(data.sessions || []);
+      }
+    } catch {
+      // ignore
+    }
+  }, [session?.access_token]);
+
+  const loadSession = useCallback(
+    async (sessionId) => {
+      if (!session?.access_token) return;
+      try {
+        const res = await fetch(`/api/ai-chat?action=messages&sessionId=${encodeURIComponent(sessionId)}`, {
+          headers: {
+            Authorization: `Bearer ${session.access_token}`,
+          },
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const loaded = (data.messages || []).map((m) => ({
+            role: m.role,
+            content: m.content,
+          }));
+          setMessages(loaded);
+          setCurrentSessionId(sessionId);
+          setShowHistory(false);
+        }
+      } catch {
+        // ignore
+      }
+    },
+    [session?.access_token]
+  );
+
+  const startNewChat = useCallback(() => {
+    setMessages([]);
+    setCurrentSessionId(null);
+    setShowHistory(false);
+    setError("");
+    setResetAt(null);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && session?.access_token) {
+      fetchSessions();
+    }
+  }, [isOpen, session?.access_token, fetchSessions]);
+
   const sendMessage = async () => {
     const text = input.trim();
     if (!text || loading) return;
@@ -92,10 +167,18 @@ export default function AIChatWidget() {
         headers.Authorization = `Bearer ${session.access_token}`;
       }
 
+      const body = {
+        message: text,
+        deviceId: getDeviceId(),
+      };
+      if (currentSessionId) {
+        body.sessionId = currentSessionId;
+      }
+
       const response = await fetch("/api/ai-chat", {
         method: "POST",
         headers,
-        body: JSON.stringify({ message: text, deviceId: getDeviceId() }),
+        body: JSON.stringify(body),
       });
 
       const data = await response.json();
@@ -111,6 +194,11 @@ export default function AIChatWidget() {
 
       if (!response.ok) {
         throw new Error(data.error || "Failed to get response");
+      }
+
+      if (data.sessionId) {
+        setCurrentSessionId(data.sessionId);
+        fetchSessions();
       }
 
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
@@ -197,71 +285,134 @@ export default function AIChatWidget() {
                   </span>
                   <h3 className="text-lg font-black text-slate-900 dark:text-white">{t("aiChat.title")}</h3>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsOpen(false);
-                    setResetAt(null);
-                    setError("");
-                  }}
-                  aria-label={t("aiChat.closeAriaLabel")}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-200"
-                >
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+                <div className="flex items-center gap-2">
+                  {session && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setShowHistory((prev) => !prev)}
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-200"
+                        aria-label={t("aiChat.history")}
+                        title={t("aiChat.history")}
+                      >
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={startNewChat}
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-200"
+                        aria-label={t("aiChat.newChat")}
+                        title={t("aiChat.newChat")}
+                      >
+                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+                      setResetAt(null);
+                      setError("");
+                    }}
+                    aria-label={t("aiChat.closeAriaLabel")}
+                    className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-slate-200"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              {/* Messages */}
+              {/* Messages / History */}
               <div className="flex-1 space-y-4 overflow-y-auto p-4">
-                {messages.length === 0 && (
-                  <div className="flex h-full items-center justify-center">
-                    <div className="text-center">
-                      <div className="mx-auto mb-4 h-24 w-24">
-                        <EmptyStateIllustrations.Chat />
+                {showHistory ? (
+                  <div className="flex h-full flex-col">
+                    <h4 className="mb-3 text-sm font-black text-slate-900 dark:text-white">
+                      {t("aiChat.history")}
+                    </h4>
+                    {sessions.length === 0 ? (
+                      <div className="flex flex-1 items-center justify-center">
+                        <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+                          {t("aiChat.noSessions")}
+                        </p>
                       </div>
-                      <p className="text-center text-sm text-slate-500 dark:text-slate-400">
-                        {t("aiChat.emptyState")}
-                      </p>
-                    </div>
+                    ) : (
+                      <div className="flex-1 space-y-2">
+                        {sessions.map((s) => (
+                          <button
+                            key={s.id}
+                            type="button"
+                            onClick={() => loadSession(s.id)}
+                            className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-left transition hover:border-violet-300 hover:bg-violet-50/50 dark:border-white/10 dark:hover:border-violet-500/30 dark:hover:bg-violet-500/10"
+                          >
+                            <p className="text-sm font-black text-slate-900 dark:text-white">
+                              {s.title || "New chat"}
+                            </p>
+                            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                              {formatDate(s.updated_at)}
+                            </p>
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
+                ) : (
+                  <>
+                    {messages.length === 0 && (
+                      <div className="flex h-full items-center justify-center">
+                        <div className="text-center">
+                          <div className="mx-auto mb-4 h-24 w-24">
+                            <EmptyStateIllustrations.Chat />
+                          </div>
+                          <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+                            {t("aiChat.emptyState")}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {messages.map((msg, index) => (
+                      <div
+                        key={index}
+                        className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                      >
+                        <div
+                          className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm font-medium ${
+                            msg.role === "user"
+                              ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                              : "bg-slate-100 text-slate-900 dark:bg-white/10 dark:text-white"
+                          }`}
+                        >
+                          {msg.content}
+                        </div>
+                      </div>
+                    ))}
+
+                    {loading && (
+                      <div className="flex justify-start">
+                        <div className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-medium text-slate-900 dark:bg-white/10 dark:text-white">
+                          {t("aiChat.thinking")}
+                        </div>
+                      </div>
+                    )}
+
+                    {error && (
+                      <div className="flex justify-start">
+                        <div className="rounded-2xl bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700 dark:bg-rose-500/10 dark:text-rose-200">
+                          {error}
+                        </div>
+                      </div>
+                    )}
+
+                    <div ref={messagesEndRef} />
+                  </>
                 )}
-
-                {messages.map((msg, index) => (
-                  <div
-                    key={index}
-                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm font-medium ${
-                        msg.role === "user"
-                          ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
-                          : "bg-slate-100 text-slate-900 dark:bg-white/10 dark:text-white"
-                      }`}
-                    >
-                      {msg.content}
-                    </div>
-                  </div>
-                ))}
-
-                {loading && (
-                  <div className="flex justify-start">
-                    <div className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-medium text-slate-900 dark:bg-white/10 dark:text-white">
-                      {t("aiChat.thinking")}
-                    </div>
-                  </div>
-                )}
-
-                {error && (
-                  <div className="flex justify-start">
-                    <div className="rounded-2xl bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700 dark:bg-rose-500/10 dark:text-rose-200">
-                      {error}
-                    </div>
-                  </div>
-                )}
-
-                <div ref={messagesEndRef} />
               </div>
 
               {/* Countdown / Input */}

@@ -47,10 +47,12 @@ Site knowledge (use only when the user asks about the app, navigation, features,
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 let supabaseAuth = null;
+let createClient = null;
 
 if (SUPABASE_URL && SUPABASE_ANON_KEY) {
   try {
-    const { createClient } = await import("@supabase/supabase-js");
+    const module = await import("@supabase/supabase-js");
+    createClient = module.createClient;
     supabaseAuth = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   } catch (error) {
     console.error("Failed to initialize Supabase auth client:", error);
@@ -143,9 +145,7 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
   console.warn("Upstash Redis env vars not set. Falling back to in-memory rate limiting.");
 }
 
-async function checkRateLimit(ip, deviceId, authToken) {
-  const user = await verifyAuthToken(authToken);
-
+async function checkRateLimit(ip, deviceId, user) {
   if (user && userLimiter) {
     const userResult = await userLimiter.limit(`user:${user.id}`);
     if (!userResult.success) {
@@ -180,7 +180,6 @@ async function checkRateLimit(ip, deviceId, authToken) {
     return { allowed: true };
   }
 
-  // Fallback to in-memory limiter
   const memoryResult = user
     ? checkMemoryRateLimit(`user:${user.id}`, 15, 24 * 60 * 60 * 1000)
     : checkMemoryRateLimit(`ip:${ip}`, 2, 24 * 60 * 60 * 1000);
@@ -196,9 +195,118 @@ async function checkRateLimit(ip, deviceId, authToken) {
   return { allowed: true };
 }
 
+function getUserScopedClient(token) {
+  if (!createClient || !SUPABASE_URL || !SUPABASE_ANON_KEY || !token) return null;
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    global: { headers: { Authorization: `Bearer ${token}` } },
+  });
+}
+
+async function getSessions(userId, token) {
+  const db = getUserScopedClient(token);
+  if (!db) return [];
+  const { data, error } = await db
+    .from("ai_chat_sessions")
+    .select("id, title, updated_at")
+    .eq("user_id", userId)
+    .order("updated_at", { ascending: false });
+  if (error) {
+    console.error("Failed to load sessions:", error);
+    return [];
+  }
+  return data || [];
+}
+
+async function getSessionMessages(sessionId, token) {
+  const db = getUserScopedClient(token);
+  if (!db) return [];
+  const { data, error } = await db
+    .from("ai_chat_messages")
+    .select("role, content, created_at")
+    .eq("session_id", sessionId)
+    .order("created_at", { ascending: true });
+  if (error) {
+    console.error("Failed to load messages:", error);
+    return [];
+  }
+  return data || [];
+}
+
+async function createSession(userId, title, token) {
+  const db = getUserScopedClient(token);
+  if (!db) return null;
+  const { data, error } = await db
+    .from("ai_chat_sessions")
+    .insert({ user_id: userId, title: title || "New chat" })
+    .select("id")
+    .single();
+  if (error) {
+    console.error("Failed to create session:", error);
+    return null;
+  }
+  return data.id;
+}
+
+async function saveMessage(sessionId, role, content, token) {
+  const db = getUserScopedClient(token);
+  if (!db) return;
+  const { error } = await db.from("ai_chat_messages").insert({
+    session_id: sessionId,
+    role,
+    content,
+  });
+  if (error) {
+    console.error("Failed to save message:", error);
+  }
+}
+
+async function touchSession(sessionId, token) {
+  const db = getUserScopedClient(token);
+  if (!db) return;
+  const { error } = await db
+    .from("ai_chat_sessions")
+    .update({ updated_at: new Date().toISOString() })
+    .eq("id", sessionId);
+  if (error) {
+    console.error("Failed to update session:", error);
+  }
+}
+
+async function handleGet(req, res) {
+  const authHeader = getHeader(req, "authorization");
+  const authToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const user = await verifyAuthToken(authToken);
+
+  if (!user) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
+  const action = req.query?.action;
+
+  if (action === "sessions") {
+    const sessions = await getSessions(user.id, authToken);
+    return res.status(200).json({ sessions });
+  }
+
+  if (action === "messages") {
+    const sessionId = req.query?.sessionId;
+    if (!sessionId || typeof sessionId !== "string") {
+      return res.status(400).json({ error: "sessionId is required" });
+    }
+    const messages = await getSessionMessages(sessionId, authToken);
+    return res.status(200).json({ messages });
+  }
+
+  return res.status(400).json({ error: "Invalid action" });
+}
+
 export default async function handler(req, res) {
+  if (req.method === "GET") {
+    return handleGet(req, res);
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "GET, POST");
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
@@ -233,6 +341,7 @@ export default async function handler(req, res) {
 
   const message = typeof body === "string" ? body : body?.message;
   const deviceId = typeof body === "string" ? null : body?.deviceId;
+  const incomingSessionId = typeof body === "string" ? null : body?.sessionId;
 
   if (!deviceId || typeof deviceId !== "string" || deviceId.trim().length === 0) {
     console.warn("Missing or invalid deviceId from request. Skipping device-based rate limit.");
@@ -240,8 +349,9 @@ export default async function handler(req, res) {
 
   const authHeader = getHeader(req, "authorization");
   const authToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const user = await verifyAuthToken(authToken);
 
-  const rateLimitResult = await checkRateLimit(ip, deviceId, authToken);
+  const rateLimitResult = await checkRateLimit(ip, deviceId, user);
   if (!rateLimitResult.allowed) {
     return res.status(429).json({
       error: rateLimitResult.reason,
@@ -259,6 +369,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Message is too long. Please keep it under 2000 characters." });
   }
 
+  let sessionId = incomingSessionId;
+  if (!sessionId && user) {
+    sessionId = await createSession(user.id, trimmed.slice(0, 50), authToken);
+  }
+
+  let reply = null;
   try {
     const response = await fetch(GEMINI_URL, {
       method: "POST",
@@ -289,15 +405,21 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    reply = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!reply) {
       return res.status(502).json({ error: "AI service returned an empty response. Please try again." });
     }
-
-    return res.status(200).json({ reply });
   } catch (error) {
     console.error("AI chat proxy error:", error);
     return res.status(502).json({ error: "AI service is temporarily unavailable. Please try again later." });
   }
+
+  if (sessionId) {
+    await saveMessage(sessionId, "user", trimmed, authToken);
+    await saveMessage(sessionId, "assistant", reply, authToken);
+    await touchSession(sessionId, authToken);
+  }
+
+  return res.status(200).json({ reply, sessionId });
 }
