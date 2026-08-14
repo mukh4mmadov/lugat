@@ -157,6 +157,13 @@ export default function LoginPage() {
               </button>
             </form>
 
+            <p className="text-center text-xs text-slate-500 dark:text-slate-400">
+              {t("login.agreement")}{" "}
+              <Link to="/terms" className="underline font-bold text-slate-700 dark:text-slate-300">{t("login.terms")}</Link>
+              {" "}{t("login.and")}{" "}
+              <Link to="/privacy" className="underline font-bold text-slate-700 dark:text-slate-300">{t("login.privacy")}</Link>
+            </p>
+
             <div className="mt-6 flex items-center gap-3">
               <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
               <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{t("login.or")}</span>

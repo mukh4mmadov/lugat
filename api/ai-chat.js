@@ -206,6 +206,22 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "AI service is not configured." });
   }
 
+  const origin = getHeader(req, "origin");
+  const allowedOrigins = [
+    "https://lugat-six.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000",
+  ];
+
+  const isProjectPreview = origin && /^https:\/\/lugat-[a-z0-9-]+\.vercel\.app$/.test(origin);
+  const isAllowed = allowedOrigins.includes(origin) || isProjectPreview;
+
+  if (!origin || !isAllowed) {
+    return res.status(403).json({
+      error: "Forbidden: origin not allowed.",
+    });
+  }
+
   const ip = getClientIp(req);
 
   let body;

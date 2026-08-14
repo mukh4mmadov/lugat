@@ -75,7 +75,6 @@ export default function LanguageSelector({ onShowIELTSModal }) {
       if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
         // Show modal immediately after language transition completes
         setTimeout(() => {
-          console.log('Calling onShowIELTSModal'); // Debug
           onShowIELTSModal();
         }, 600); // Matches the dropdown close animation duration
       }

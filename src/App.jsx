@@ -18,6 +18,8 @@ import AuthCallbackPage from "./pages/AuthCallbackPage";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
 import CompleteProfilePage from "./pages/CompleteProfilePage";
 import RequireProfileComplete from "./components/RequireProfileComplete";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 import ProgressImportModal from "./components/ProgressImportModal";
 
 export default function App() {
@@ -66,6 +68,8 @@ export default function App() {
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="reset-password" element={<ResetPasswordPage />} />
           <Route path="auth/callback" element={<AuthCallbackPage />} />
+          <Route path="privacy" element={<PrivacyPolicyPage />} />
+          <Route path="terms" element={<TermsOfServicePage />} />
         </Routes>
         
         {/* IELTS Modal at root level - outside Layout */}
