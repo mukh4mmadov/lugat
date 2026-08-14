@@ -43,7 +43,21 @@ Site knowledge (use only when the user asks about the app, navigation, features,
 - Settings: pronunciation settings and the ability to reset all local progress.
 - Developer contact: for bugs, errors, or feedback, reach out on Telegram at @mukh4mmadov.`;
 
-// Basic in-memory rate limiter fallback: { ip: { count, resetAt } }
+// Supabase auth for token verification
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+let supabaseAuth = null;
+
+if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+  try {
+    const { createClient } = await import("@supabase/supabase-js");
+    supabaseAuth = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  } catch (error) {
+    console.error("Failed to initialize Supabase auth client:", error);
+  }
+}
+
+// Basic in-memory rate limiter fallback: { key: { count, resetAt } }
 const memoryRateLimiters = new Map();
 
 function getHeader(req, name) {
@@ -58,14 +72,12 @@ function getClientIp(req) {
   return getHeader(req, "x-real-ip") || "unknown";
 }
 
-function checkMemoryRateLimit(ip) {
+function checkMemoryRateLimit(key, maxRequests, windowMs) {
   const now = Date.now();
-  const windowMs = 60 * 1000; // 1 minute window
-  const maxRequests = 10;
 
-  const record = memoryRateLimiters.get(ip);
+  const record = memoryRateLimiters.get(key);
   if (!record || now > record.resetAt) {
-    memoryRateLimiters.set(ip, { count: 1, resetAt: now + windowMs });
+    memoryRateLimiters.set(key, { count: 1, resetAt: now + windowMs });
     return { allowed: true };
   }
 
@@ -77,11 +89,22 @@ function checkMemoryRateLimit(ip) {
   return { allowed: true };
 }
 
+async function verifyAuthToken(token) {
+  if (!supabaseAuth || !token) return null;
+  try {
+    const { data, error } = await supabaseAuth.auth.getUser(token);
+    if (error || !data?.user) return null;
+    return data.user;
+  } catch {
+    return null;
+  }
+}
+
 // Cleanup old entries periodically
 if (Math.random() < 0.05) {
   const now = Date.now();
-  for (const [ip, record] of memoryRateLimiters) {
-    if (now > record.resetAt) memoryRateLimiters.delete(ip);
+  for (const [key, record] of memoryRateLimiters) {
+    if (now > record.resetAt) memoryRateLimiters.delete(key);
   }
 }
 
@@ -89,6 +112,7 @@ if (Math.random() < 0.05) {
 const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
 const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 let redis = null;
+let userLimiter = null;
 let ipLimiter = null;
 let deviceLimiter = null;
 
@@ -97,9 +121,14 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
     const { Redis } = await import("@upstash/redis");
     const { Ratelimit } = await import("@upstash/ratelimit");
     redis = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN });
+    userLimiter = new Ratelimit({
+      redis,
+      limiter: Ratelimit.slidingWindow(15, "24 h"),
+      prefix: "ratelimit:user",
+    });
     ipLimiter = new Ratelimit({
       redis,
-      limiter: Ratelimit.slidingWindow(30, "24 h"),
+      limiter: Ratelimit.slidingWindow(2, "24 h"),
       prefix: "ratelimit:ip",
     });
     deviceLimiter = new Ratelimit({
@@ -114,7 +143,22 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
   console.warn("Upstash Redis env vars not set. Falling back to in-memory rate limiting.");
 }
 
-async function checkRateLimit(ip, deviceId) {
+async function checkRateLimit(ip, deviceId, authToken) {
+  const user = await verifyAuthToken(authToken);
+
+  if (user && userLimiter) {
+    const userResult = await userLimiter.limit(`user:${user.id}`);
+    if (!userResult.success) {
+      return {
+        allowed: false,
+        reason: "Daily AI chat limit reached. Please try again tomorrow.",
+        resetAt: userResult.reset || Date.now() + 24 * 60 * 60 * 1000,
+        isGuest: false,
+      };
+    }
+    return { allowed: true };
+  }
+
   if (ipLimiter && deviceLimiter) {
     const [ipResult, deviceResult] = await Promise.all([
       ipLimiter.limit(ip),
@@ -129,6 +173,7 @@ async function checkRateLimit(ip, deviceId) {
         allowed: false,
         reason: "Daily AI chat limit reached. Please try again tomorrow.",
         resetAt: resetAt || Date.now() + 24 * 60 * 60 * 1000,
+        isGuest: true,
       };
     }
 
@@ -136,12 +181,15 @@ async function checkRateLimit(ip, deviceId) {
   }
 
   // Fallback to in-memory limiter
-  const memoryResult = checkMemoryRateLimit(ip);
+  const memoryResult = user
+    ? checkMemoryRateLimit(`user:${user.id}`, 15, 24 * 60 * 60 * 1000)
+    : checkMemoryRateLimit(`ip:${ip}`, 2, 24 * 60 * 60 * 1000);
   if (!memoryResult.allowed) {
     return {
       allowed: false,
       reason: "Too many requests. Please wait a moment before trying again.",
       resetAt: memoryResult.resetAt,
+      isGuest: !user,
     };
   }
 
@@ -174,11 +222,15 @@ export default async function handler(req, res) {
     console.warn("Missing or invalid deviceId from request. Skipping device-based rate limit.");
   }
 
-  const rateLimitResult = await checkRateLimit(ip, deviceId);
+  const authHeader = getHeader(req, "authorization");
+  const authToken = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : null;
+
+  const rateLimitResult = await checkRateLimit(ip, deviceId, authToken);
   if (!rateLimitResult.allowed) {
     return res.status(429).json({
       error: rateLimitResult.reason,
       resetAt: rateLimitResult.resetAt,
+      isGuest: rateLimitResult.isGuest,
     });
   }
 

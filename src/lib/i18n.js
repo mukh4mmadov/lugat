@@ -173,6 +173,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Daily AI chat limit reached. Please try again tomorrow.",
       "aiChat.openAriaLabel": "Open AI Chat",
       "aiChat.closeAriaLabel": "Close AI Chat",
+      "aiChat.guestLimitReached": "You've reached the guest limit. Log in for more daily messages.",
       "aiChat.limitResetsIn": "Limit resets in: {{time}}",
       
       // Achievements
@@ -779,6 +780,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Kunlik AI chat limiti tugadi. Iltimos, ertaga qayta urinib ko'ring.",
       "aiChat.openAriaLabel": "AI Chatni ochish",
       "aiChat.closeAriaLabel": "AI Chatni yopish",
+      "aiChat.guestLimitReached": "Mehmon chegarasiga yetdingiz. Ko'proq kunlik xabar olish uchun tizimga kiring.",
       "aiChat.limitResetsIn": "Limit qayta tiklanadi: {{time}}",
       
       // Achievements
@@ -1385,6 +1387,7 @@ const resources = {
       "aiChat.rateLimitExceeded": "Дневной лимит AI чата исчерпан. Попробуйте снова завтра.",
       "aiChat.openAriaLabel": "Открыть AI чат",
       "aiChat.closeAriaLabel": "Закрыть AI чат",
+      "aiChat.guestLimitReached": "Вы достигли лимита для гостей. Войдите в аккаунт, чтобы получать больше сообщений в день.",
       "aiChat.limitResetsIn": "Лимит сбросится через: {{time}}",
       
       // Achievements

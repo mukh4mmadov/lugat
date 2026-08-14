@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../context/AuthContext";
 import { getDeviceId } from "../lib/deviceId";
 import EmptyStateIllustrations from "./EmptyStateIllustrations";
 
@@ -19,6 +20,7 @@ function formatCountdown(ms) {
 
 export default function AIChatWidget() {
   const { t } = useTranslation();
+  const { session } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -83,11 +85,16 @@ export default function AIChatWidget() {
     setLoading(true);
 
     try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      if (session?.access_token) {
+        headers.Authorization = `Bearer ${session.access_token}`;
+      }
+
       const response = await fetch("/api/ai-chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({ message: text, deviceId: getDeviceId() }),
       });
 
@@ -96,6 +103,9 @@ export default function AIChatWidget() {
       if (response.status === 429) {
         const serverResetAt = typeof data.resetAt === "number" ? data.resetAt : Date.now() + 60 * 1000;
         setResetAt(serverResetAt);
+        if (data.isGuest) {
+          throw new Error(t("aiChat.guestLimitReached"));
+        }
         throw new Error(t("aiChat.rateLimitExceeded"));
       }
 
