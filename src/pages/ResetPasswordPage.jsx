@@ -24,9 +24,10 @@ export default function ResetPasswordPage() {
       try {
         const { data } = await supabase.auth.getSession();
         if (mounted) setHasSession(!!data?.session);
-      } catch {
-        // ignore
-      }
+      } /* eslint-disable no-empty */
+      catch {
+        
+      } /* eslint-enable no-empty */
     };
     checkSession();
     return () => { mounted = false; };

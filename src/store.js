@@ -48,8 +48,6 @@ function updateStreak(stats) {
 }
 
 const savedState = loadState();
-// Merge with defaultState so older saved progress (from before the Study page existed)
-// safely gains the new `studied` field instead of crashing on undefined access.
 const initialState = savedState ? { ...defaultState, ...savedState, studied: savedState.studied || {} } : defaultState;
 
 const progressSlice = createSlice({
@@ -123,14 +121,9 @@ const progressSlice = createSlice({
     addStudyMinutes(state, action) {
       state.stats.studyMinutes += action.payload;
     },
-    // Study page only: marks a word as seen during a memorization session.
-    // Does not touch knownCount/wrongCount/difficulty so it never affects
-    // Practice scoring or the Practice deck weighting.
     markWordStudied(state, action) {
       state.studied[action.payload] = true;
     },
-    // Study page only: a manual bookmark toggle (on/off), independent from
-    // the auto-tracked Practice "difficulty" counter used by Don't Know.
     toggleManualDifficult(state, action) {
       const key = action.payload;
       const record = state.words[key] || { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, manualDifficult: false };
@@ -245,7 +238,6 @@ export function selectLessonProgress(state, lesson) {
   return words.length ? Math.round((learned / words.length) * 100) : 0;
 }
 
-// Study page only: percentage of a lesson's words the user has viewed in Study Mode.
 export function selectStudyProgress(state, lesson) {
   const words = lessonInfo.find((item) => item.lesson === lesson)?.words || [];
   const studied = words.filter((word) => state.progress.studied[getWordKey(word)]).length;

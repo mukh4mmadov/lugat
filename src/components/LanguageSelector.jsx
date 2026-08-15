@@ -30,7 +30,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
 
   const currentLang = languages.find(lang => lang.code === selectedLang) || languages[0];
 
-  // Close dropdown when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -65,22 +65,22 @@ export default function LanguageSelector({ onShowIELTSModal }) {
     setIsChanging(true);
     setSelectedLang(langCode);
     
-    // Change language at the right moment (during scale animation)
+    
     setTimeout(() => {
       i18n.changeLanguage(langCode);
       localStorage.setItem('language', langCode);
       
-      // Check if we should show IELTS recommendation
-      // Show every time when switching FROM English TO Uzbek or Russian
+      
+      
       if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
-        // Show modal immediately after language transition completes
+        
         setTimeout(() => {
           onShowIELTSModal();
-        }, 600); // Matches the dropdown close animation duration
+        }, 600); 
       }
     }, 200);
     
-    // Close dropdown after animation
+    
     setTimeout(() => {
       setIsOpen(false);
       setIsChanging(false);
@@ -135,7 +135,6 @@ export default function LanguageSelector({ onShowIELTSModal }) {
           ▼
         </motion.span>
         
-        {/* Subtle glow effect when open */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -185,7 +184,6 @@ export default function LanguageSelector({ onShowIELTSModal }) {
                       : 'text-slate-700 hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10'
                   }`}
                 >
-                  {/* Hover glow */}
                   <motion.div
                     className="absolute inset-0 rounded-xl bg-sky-400/10"
                     initial={{ opacity: 0 }}
@@ -212,7 +210,6 @@ export default function LanguageSelector({ onShowIELTSModal }) {
                     {lang.name}
                   </motion.span>
                   
-                  {/* Active indicator */}
                   {selectedLang === lang.code && (
                     <motion.div
                       initial={{ scale: 0, rotate: -180 }}
@@ -224,7 +221,6 @@ export default function LanguageSelector({ onShowIELTSModal }) {
                     </motion.div>
                   )}
                   
-                  {/* Selection ripple effect */}
                   {selectedLang === lang.code && isChanging && (
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-white/30"

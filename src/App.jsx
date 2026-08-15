@@ -72,7 +72,6 @@ export default function App() {
           <Route path="terms" element={<TermsOfServicePage />} />
         </Routes>
         
-        {/* IELTS Modal at root level - outside Layout */}
         <IELTSRecommendationModal 
           isOpen={showIELTSModal} 
           onClose={() => setShowIELTSModal(false)} 

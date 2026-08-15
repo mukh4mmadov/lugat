@@ -25,7 +25,7 @@ export default function Layout({ onShowIELTSModal }) {
   
   const { user, profile, signOut } = useAuth();
 
-  // Essential nav items (always visible)
+  
   const primaryNavItems = [
     ["/", t("nav.home")],
     ["/courses", t("nav.courses")],
@@ -33,7 +33,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/search", t("nav.search")],
   ];
 
-  // Secondary nav items (grouped in "More" dropdown)
+  
   const secondaryNavItems = [
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
@@ -43,13 +43,13 @@ export default function Layout({ onShowIELTSModal }) {
     ["/settings", t("nav.settings")],
   ];
 
-  // Check for reduced motion preference
+  
   const prefersReducedMotion =
     typeof window !== "undefined"
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
 
-  // Update HTML lang attribute and document title based on language
+  
   useEffect(() => {
     const langMap = {
       uz: "uz",
@@ -66,12 +66,12 @@ export default function Layout({ onShowIELTSModal }) {
     document.title = titleMap[i18n.language] || "Korean Vocabulary Studio";
   }, [i18n.language]);
 
-  // Handle language change transition
+  
   useEffect(() => {
     if (i18n.language !== displayLang) {
       setIsChangingLanguage(true);
 
-      // After transition completes, update display language
+      
       const transitionDuration = prefersReducedMotion ? 200 : 500;
       setTimeout(() => {
         setDisplayLang(i18n.language);
@@ -87,7 +87,7 @@ export default function Layout({ onShowIELTSModal }) {
         ease: [0.25, 0.1, 0.25, 1],
       };
 
-  // Close user menu when clicking outside
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
@@ -150,7 +150,6 @@ export default function Layout({ onShowIELTSModal }) {
                 </NavLink>
               ))}
               
-              {/* More dropdown for secondary nav items */}
               <div className="relative" ref={moreMenuRef}>
                 <button
                   type="button"
@@ -204,7 +203,6 @@ export default function Layout({ onShowIELTSModal }) {
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
               <InstallAppButton />
               
-              {/* Auth section */}
               {!user ? (
                 <NavLink
                   to="/login"
@@ -290,7 +288,6 @@ export default function Layout({ onShowIELTSModal }) {
           </div>
         </header>
 
-        {/* Mobile navigation overlay */}
         <AnimatePresence mode="wait">
           {mobileMenuOpen && (
             <motion.div
@@ -339,7 +336,6 @@ export default function Layout({ onShowIELTSModal }) {
                     </NavLink>
                   ))}
                   
-                  {/* Auth section in mobile menu */}
                   <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4">
                     {!user ? (
                       <NavLink
@@ -373,7 +369,6 @@ export default function Layout({ onShowIELTSModal }) {
           )}
         </AnimatePresence>
 
-        {/* Advertisement Banner */}
         <div className="mx-auto max-w-7xl px-4">
           <div className="mb-6 h-16 rounded-xl bg-red-500 flex items-center justify-center">
             <p className="text-sm font-semibold text-white">

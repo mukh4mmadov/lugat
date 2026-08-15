@@ -92,45 +92,41 @@ export default function AIChatWidget() {
     };
   }, [resetAt]);
 
-  const fetchSessions = useCallback(async () => {
+  const fetchSessions = useCallback(() => {
     if (!session?.access_token) return;
-    try {
-      const res = await fetch("/api/ai-chat?action=sessions", {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`,
-        },
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setSessions(data.sessions || []);
-      }
-    } catch {
-      // ignore
-    }
+    fetch("/api/ai-chat?action=sessions", {
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+      },
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data) setSessions(data.sessions || []);
+      })
+      .catch(() => {});
   }, [session?.access_token]);
 
   const loadSession = useCallback(
-    async (sessionId) => {
+    (sessionId) => {
       if (!session?.access_token) return;
-      try {
-        const res = await fetch(`/api/ai-chat?action=messages&sessionId=${encodeURIComponent(sessionId)}`, {
-          headers: {
-            Authorization: `Bearer ${session.access_token}`,
-          },
-        });
-        if (res.ok) {
-          const data = await res.json();
-          const loaded = (data.messages || []).map((m) => ({
-            role: m.role,
-            content: m.content,
-          }));
-          setMessages(loaded);
-          setCurrentSessionId(sessionId);
-          setShowHistory(false);
-        }
-      } catch {
-        // ignore
-      }
+      fetch(`/api/ai-chat?action=messages&sessionId=${encodeURIComponent(sessionId)}`, {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      })
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data) {
+            const loaded = (data.messages || []).map((m) => ({
+              role: m.role,
+              content: m.content,
+            }));
+            setMessages(loaded);
+            setCurrentSessionId(sessionId);
+            setShowHistory(false);
+          }
+        })
+        .catch(() => {});
     },
     [session?.access_token]
   );
@@ -221,7 +217,6 @@ export default function AIChatWidget() {
 
   return (
     <>
-      {/* Floating Action Button */}
       <button
         type="button"
         onClick={() => {
@@ -251,7 +246,6 @@ export default function AIChatWidget() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -265,7 +259,6 @@ export default function AIChatWidget() {
               }}
             />
 
-            {/* Panel */}
             <motion.div
               key="ai-chat-panel"
               initial="hidden"
@@ -276,8 +269,7 @@ export default function AIChatWidget() {
               style={{
                 boxShadow: "0 24px 96px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 24px rgba(0, 0, 0, 0.08)",
               }}
-            >
-              {/* Header */}
+             >
               <div className="flex items-center justify-between border-b border-slate-200 p-4 dark:border-white/10">
                 <div className="flex items-center gap-2">
                   <span className="inline-flex items-center rounded-full bg-violet-100 px-3 py-1 text-xs font-black text-violet-700 dark:bg-violet-500/15 dark:text-violet-200">
@@ -329,7 +321,6 @@ export default function AIChatWidget() {
                 </div>
               </div>
 
-              {/* Messages / History */}
               <div className="flex-1 space-y-4 overflow-y-auto p-4">
                 {showHistory ? (
                   <div className="flex h-full flex-col">
@@ -415,7 +406,6 @@ export default function AIChatWidget() {
                 )}
               </div>
 
-              {/* Countdown / Input */}
               <div className="border-t border-slate-200 p-4 dark:border-white/10">
                 {isRateLimited && (
                   <div className="mb-3 rounded-2xl bg-slate-950/5 px-4 py-3 text-center dark:bg-white/10">

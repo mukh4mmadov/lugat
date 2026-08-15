@@ -34,6 +34,7 @@ export default function RegisterPage() {
   const [generalError, setGeneralError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const update = (field) => (e) => {
     const value = e.target.value;
@@ -279,19 +280,27 @@ export default function RegisterPage() {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !agreedToTerms}
                 className="action-btn w-full bg-slate-950 text-white dark:bg-white dark:text-slate-950 disabled:opacity-50"
               >
                 {loading ? t("common.loading") : t("register.signUp")}
               </button>
             </form>
 
-            <p className="text-center text-xs text-slate-500 dark:text-slate-400">
-              {t("register.agreement")}{" "}
-              <Link to="/terms" className="underline font-bold text-slate-700 dark:text-slate-300">{t("register.terms")}</Link>
-              {" "}{t("register.and")}{" "}
-              <Link to="/privacy" className="underline font-bold text-slate-700 dark:text-slate-300">{t("register.privacy")}</Link>
-            </p>
+            <label className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <input
+                type="checkbox"
+                checked={agreedToTerms}
+                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
+              />
+              <span>
+                {t("register.agreement")}{" "}
+                <Link to="/terms" className="underline font-bold text-slate-700 dark:text-slate-300">{t("register.terms")}</Link>
+                {" "}{t("register.and")}{" "}
+                <Link to="/privacy" className="underline font-bold text-slate-700 dark:text-slate-300">{t("register.privacy")}</Link>
+              </span>
+            </label>
 
             <div className="mt-6 flex items-center gap-3">
               <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
@@ -302,7 +311,7 @@ export default function RegisterPage() {
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              disabled={loading}
+              disabled={loading || !agreedToTerms}
               className="action-btn mt-4 w-full bg-white text-slate-900 border border-slate-200 dark:bg-white/5 dark:text-white dark:border-white/10 disabled:opacity-50"
             >
               {t("register.googleSignUp")}

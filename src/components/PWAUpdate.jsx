@@ -10,28 +10,23 @@ export default function PWAUpdate() {
   useEffect(() => {
     let updateInterval;
 
-    // Register service worker with auto-update callbacks
     const registerSW = async () => {
       if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
         const { registerSW } = await import('virtual:pwa-register');
         
         registerSW({
           onNeedRefresh() {
-            // Show update toast
             setShowUpdate(true);
             
-            // Automatically refresh after 2 seconds
             setTimeout(() => {
               setRefreshing(true);
               window.location.reload();
             }, 2000);
           },
           onOfflineReady() {
-            // App is ready to work offline
             console.log('PWA: Ready to work offline');
           },
           onRegistered(reg) {
-            // Periodically check for updates every 30 minutes
             updateInterval = setInterval(() => {
               reg.update();
             }, 30 * 60 * 1000);
@@ -45,7 +40,6 @@ export default function PWAUpdate() {
 
     registerSW();
 
-    // Cleanup interval on unmount
     return () => {
       if (updateInterval) {
         clearInterval(updateInterval);

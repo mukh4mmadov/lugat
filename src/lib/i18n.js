@@ -4,7 +4,6 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      // Navigation
       "nav.home": "Home",
       "nav.courses": "Courses",
       "nav.study": "Study",
@@ -21,13 +20,11 @@ const resources = {
       "nav.hi": "Hi",
       "nav.more": "More",
       
-      // PWA Update
       "pwa.updateAvailable": "New version available",
       "pwa.refreshing": "Refreshing...",
       "nav.installApp": "Install App",
       "pwa.iosInstructions": "To install: tap the Share button, then 'Add to Home Screen'.",
       
-      // Home Page
       "home.title": "Premium Korean vocabulary learning",
       "home.subtitle": "Learn the exact vocabulary from K-TALIM 1A book: flashcards, listening, quiz, writing, favorites, and smart review.",
       "home.officialSource": "Official source only",
@@ -46,7 +43,6 @@ const resources = {
       "home.wordsLearned": "{{percent}}% learned",
       "home.continue": "Continue",
       
-      // Courses
       "courses.selectCourse": "Select Course",
       "courses.title": "Choose your course",
       "courses.subtitle": "Select the K-TALIM book you want to study",
@@ -59,7 +55,6 @@ const resources = {
       "courses.description1A": "Foundation vocabulary from the first book",
       "courses.description1B": "Advanced vocabulary from the second book",
       
-      // Study Page
       "study.title": "Study Mode",
       "study.subtitle": "Memorize vocabulary at your own pace — no scoring, no quiz. Pick a lesson to review every word, then head to Practice to test yourself.",
       "study.learnFirst": "Study first, then practice",
@@ -72,7 +67,6 @@ const resources = {
       "home.studyAgain": "Study Again",
       "home.goToPractice": "Go to Practice",
       
-      // Study Development Notice
       "studyDevelopment.title": "🚧 Study Page is Under Development",
       "studyDevelopment.subtitle": "This page is currently being actively improved. For the best experience, we recommend waiting until the current improvements are completed.",
       "studyDevelopment.improvingTitle": "Currently being improved:",
@@ -86,14 +80,12 @@ const resources = {
       "studyDevelopment.importantTitle": "⚠️ Important",
       "studyDevelopment.importantText": "The Study Page may currently contain temporary bugs or unexpected behavior while development is ongoing. You can still explore and test the page, but it is not recommended for serious learning yet.",
       
-      // Practice Modes
       "practice.flashcards": "Flashcards",
       "practice.listening": "Listening",
       "practice.quiz": "Quiz",
       "practice.writing": "Writing",
       "practice.smartReview": "Smart Review",
       
-      // Flashcards
       "flashcards.hint": "Hint",
       "flashcards.iKnow": "I Know",
       "flashcards.dontKnow": "Don't Know",
@@ -108,7 +100,6 @@ const resources = {
       "flashcards.noDifficultWords": "No difficult words yet",
       "flashcards.noDifficultText": "Press Don't Know in flashcards to collect words here automatically.",
       
-      // Practice Cards
       "practice.audioFirst": "Audio first",
       "practice.play": "Play",
       "practice.typeKorean": "Type the Korean word you hear",
@@ -119,7 +110,6 @@ const resources = {
       "practice.replayAudio": "Replay Audio",
       "practice.next": "Next",
       
-      // Library Pages
       "library.search": "Search",
       "library.searchBadge": "Korean · Uzbek · Romanization",
       "library.searchPlaceholder": "Search all {{count}} vocabulary entries",
@@ -137,7 +127,6 @@ const resources = {
       "library.settings": "Settings",
       "library.personalization": "Personalization",
       
-      // Statistics
       "stats.dailyStreak": "Daily streak",
       "stats.accuracy": "Accuracy",
       "stats.wordsLearned": "Words learned",
@@ -152,7 +141,6 @@ const resources = {
       "stats.recentActivity": "Recent activity",
       "stats.noActivity": "No activity yet.",
       
-      // Share
       "share.title": "Share your progress",
       "share.selectTemplate": "Choose a template",
       "share.templateWordCount": "Word Count",
@@ -162,7 +150,6 @@ const resources = {
       "share.download": "Download",
       "share.share": "Share",
       
-      // AI Chat
       "aiChat.title": "AI Chat",
       "aiChat.subtitle": "Ask anything about Korean vocabulary, grammar, or study tips.",
       "aiChat.placeholder": "Type your question about Korean...",
@@ -179,14 +166,12 @@ const resources = {
       "aiChat.newChat": "New chat",
       "aiChat.noSessions": "No chat history yet",
       
-      // Achievements
       "achievement.firstStep": "First Step",
       "achievement.hundredReviews": "100 Reviews",
       "achievement.sevenDayStreak": "7 Day Streak",
       "achievement.halfWay": "Half Way",
       "achievement.master": "Vocabulary Master",
       
-      // Settings
       "settings.pronunciation": "Pronunciation",
       "settings.pronunciationText": "Audio uses your browser's Korean speech synthesis voice (ko-KR) for every word.",
       "settings.resetProgress": "Reset Progress",
@@ -194,11 +179,9 @@ const resources = {
       "settings.resetConfirm": "Reset all local progress?",
       "settings.resetButton": "Reset Progress",
       
-      // Header
       "header.brand": "Korean Vocabulary Studio",
       "header.menu": "Menu",
       
-      // Word Mastery
       "mastery.new": "New",
       "mastery.learning": "Learning",
       "mastery.practiced": "Practiced",
@@ -213,7 +196,6 @@ const resources = {
       "mastery.courseMastery": "Course Mastery",
       "mastery.score": "{{score}}% mastery",
       
-      // Study Page
       "study.practiceNeeded": "Practice Needed",
       "study.keepPracticing": "Keep Practicing",
       "study.wordsIntroduced": "Words Introduced",
@@ -244,14 +226,12 @@ const resources = {
       "study.hideSentence": "Hide sentence",
       "study.showSentence": "Show sentence",
       
-      // Courses Page
       "courses.notFound": "Course not found",
       "courses.mastery": "Mastery",
       "courses.lessonMastery": "{{mastered}}/{{total}} mastered",
       "courses.course1A": "K-TALIM 1A",
       "courses.course1B": "K-TALIM 1B",
       
-      // Lesson Categories
       "lesson.1.category": "intro, countries and identity",
       "lesson.2.category": "classroom objects and people",
       "lesson.3.category": "daily actions",
@@ -281,7 +261,6 @@ const resources = {
       "lesson.27.category": "health, exercise and daily life",
       "lesson.28.category": "daily life, home and miscellaneous",
       
-      // SRS
       "srs.again": "Again",
       "srs.hard": "Hard",
       "srs.good": "Good",
@@ -293,12 +272,9 @@ const resources = {
       "srs.caughtUpSubtitle": "No words are due for review right now. Keep learning and they'll appear here when it's time.",
       "srs.reviewsCompleted": "{{count}} reviews completed",
       
-      // Practice Pages
       "practice.masteryScore": "{{score}}% mastered",
       
-      // Achievement
       
-      // Feedback Messages
       "feedback.nice": "Nice!",
       "feedback.great": "Great!",
       "feedback.excellent": "Excellent!",
@@ -309,10 +285,8 @@ const resources = {
       "feedback.remember": "Let's remember this",
       "feedback.almostThere": "Almost there!",
       
-      // Search
       "search.noResults": "No matches found.",
       
-      // Common
       "common.back": "Back",
       "common.loading": "Loading...",
       "common.save": "Save",
@@ -340,30 +314,25 @@ const resources = {
       "common.info": "Info",
       "common.reportBug": "Report a bug",
       
-      // Practice
       "practice.shuffle": "Shuffle",
       "practice.autoPlay": "Auto-play",
       "practice.manualDifficult": "Mark as difficult",
       "practice.markDifficult": "Mark as difficult",
       
-      // Study Modes
       "study.full": "Show all",
       "study.hideUzbek": "Hide Uzbek",
       "study.onlyKorean": "Korean only",
       
-      // Modes
       "mode.korean": "Korean → Uzbek",
       "mode.uzbek": "Uzbek → Korean",
       "mode.random": "Random",
       
-      // Card States
       "card.word": "Word {{number}} / {{total}}",
       "card.lesson": "Lesson {{lesson}}",
       "card.category": "Category",
       "card.verified": "Verified from image",
       "card.needsReview": "Needs review",
       
-      // Buttons
       "button.start": "Start",
       "button.continue": "Continue",
       "button.next": "Next",
@@ -373,18 +342,15 @@ const resources = {
       "button.retry": "Retry",
       "button.back": "Back",
       
-      // Feedback
       "feedback.correct": "Correct!",
       "feedback.incorrect": "Incorrect",
       "feedback.tryAgain": "Try again",
       
-      // Empty States
       "empty.noData": "No data",
       "empty.noResults": "No results found",
       "empty.noFavorites": "No favorites yet",
       "empty.noActivity": "No activity yet",
       
-      // Time
       "time.minutes": "minutes",
       "time.hours": "hours",
       "time.days": "days",
@@ -392,7 +358,6 @@ const resources = {
       "time.months": "months",
       "time.years": "years",
       
-      // Footer
       "footer.vocabularySource": "Vocabulary source",
       "footer.educationalOnly": "Educational purposes only",
       "footer.developer": "Developer",
@@ -402,10 +367,8 @@ const resources = {
       "footer.developerName": "Mukh4mmadov",
       "footer.developerTelegram": "Telegram @mukh4mmadov",
       
-      // Advertisement
       "advertisement.placeholder": "Your advertisement could be here",
 
-      // IELTS Recommendation Modal
       "ielts.title": "Continue improving your English",
       "ielts.description": "If you're learning Korean, improving your English reading will help you learn languages faster. Try our IELTS Reading platform with AI explanations, professional passages and real exam practice.",
       "ielts.openButton": "Practice IELTS Reading",
@@ -418,7 +381,6 @@ const resources = {
       "ielts.preview.realPassages": "Real Cambridge Passages",
       "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
       
-      // Study Page - Additional
       "study.cumulativeProgress": "Cumulative Progress",
       "study.mastery.mastered": "Mastered",
       "study.mastery.progress": "Progress: {{count}}/{{threshold}}",
@@ -440,7 +402,6 @@ const resources = {
       "study.typeInKorean": "Type in Korean",
       "study.check": "Check",
       
-      // Exercise Types
       "exercise.koreanToUzbek": "Korean → Uzbek",
       "exercise.uzbekToKorean": "Uzbek → Korean",
       "exercise.listeningToKorean": "Listening",
@@ -450,7 +411,6 @@ const resources = {
       "exercise.listeningToMeaning": "Listen & Meaning",
       "exercise.sentenceContext": "Sentence Word",
       
-      // Mastery Stats
       "mastery.wordLevels": "Word Levels",
       "mastery.overallMastery": "Overall Mastery",
       "mastery.filterAll": "All ({{count}})",
@@ -459,7 +419,6 @@ const resources = {
       "mastery.filterPracticed": "Practiced ({{count}})",
       "mastery.filterMastered": "Mastered ({{count}})",
       
-      // Home Page
       "home.masteryOverview": "Vocabulary Mastery",
       "home.yourWordMastery": "Your Word Mastery",
       "home.mastered": "Mastered",
@@ -468,7 +427,6 @@ const resources = {
       "home.new": "New",
       "home.overallProgress": "Overall Progress",
       
-      // Future Updates / Roadmap
       "roadmap.comingSoon": "COMING SOON",
       "roadmap.title": "Future Updates",
       "roadmap.subtitle": "We're constantly improving K-TALIM to make Korean learning smarter, easier, and more effective.",
@@ -521,19 +479,16 @@ const resources = {
       "roadmap.feature11.description": "A simple form where users can report bugs, suggest new features, share problems, or send general feedback directly to the K-TALIM team.",
       "roadmap.feature11.benefit": "Users can easily communicate with the team without needing to contact the admin separately through Telegram.",
       
-      // Timeline
       "roadmap.timeline.now": "NOW",
       "roadmap.timeline.current": "Current K-TALIM platform",
       "roadmap.timeline.next": "NEXT",
       "roadmap.timeline.later": "LATER",
       "roadmap.timeline.future": "FUTURE",
       
-      // CTA
       "roadmap.cta.title": "More is coming.",
       "roadmap.cta.subtitle": "Your Korean learning journey is only getting started.",
       "roadmap.cta.button": "Start Learning",
       
-      // Register
       "register.title": "Create your account",
       "register.subtitle": "Join K-TALIM to track your Korean learning progress.",
       "register.firstName": "First name",
@@ -562,19 +517,16 @@ const resources = {
       "register.lastNameRequired": "Last name is required.",
       "register.genericError": "Something went wrong. Please try again.",
 
-      // Progress Import
       "progressImport.title": "Save your progress?",
       "progressImport.description": "You have progress on this device. Would you like to save it to your account so you can continue from any device?",
       "progressImport.keepLocal": "If you choose not to sync, your progress will remain on this device only and won't be available on other devices.",
       "progressImport.save": "Yes, save it",
       "progressImport.dontSync": "No, don't sync",
 
-      // Complete Profile
       "completeProfile.title": "Complete your profile",
       "completeProfile.subtitle": "Tell us a bit about yourself to get started.",
       "completeProfile.submit": "Save and continue",
       
-      // Privacy Policy
       "privacy.title": "Privacy Policy",
       "privacy.lastUpdated": "Last updated: August 14, 2026",
       "privacy.section1.title": "1. What information we collect",
@@ -594,7 +546,6 @@ const resources = {
       "privacy.section8.title": "8. Contact",
       "privacy.section8": "For any questions about this policy, reach out on Telegram at @mukh4mmadov.",
 
-      // Terms of Service
       "terms.title": "Terms of Service",
       "terms.lastUpdated": "Last updated: August 14, 2026",
       "terms.section1.title": "1. Acceptance",
@@ -616,7 +567,6 @@ const resources = {
       "terms.section9.title": "9. Contact",
       "terms.section9": "For questions, reach out on Telegram at @mukh4mmadov.",
 
-      // Auth page agreement links
       "login.agreement": "By logging in, you agree to our",
       "login.terms": "Terms of Service",
       "login.and": "and",
@@ -626,7 +576,6 @@ const resources = {
       "register.and": "and",
       "register.privacy": "Privacy Policy",
 
-      // Login
       "login.title": "Welcome back",
       "login.subtitle": "Log in to continue your Korean learning journey.",
       "login.email": "Email",
@@ -642,7 +591,6 @@ const resources = {
       "login.passwordRequired": "Password is required.",
       "login.genericError": "Something went wrong. Please try again.",
       
-      // Forgot Password
       "forgotPassword.title": "Reset your password",
       "forgotPassword.subtitle": "Enter your email and we'll send you a reset link.",
       "forgotPassword.submit": "Send reset link",
@@ -650,7 +598,6 @@ const resources = {
       "forgotPassword.successMessage": "If an account exists with this email, a reset link has been sent.",
       "forgotPassword.genericError": "Something went wrong. Please try again.",
       
-      // Reset Password
       "resetPassword.title": "Set a new password",
       "resetPassword.subtitle": "Enter your new password below.",
       "resetPassword.newPassword": "New password",
@@ -666,7 +613,6 @@ const resources = {
   },
   uz: {
     translation: {
-      // Navigation
       "nav.home": "Bosh sahifa",
       "nav.courses": "Darslar",
       "nav.study": "O'rganish",
@@ -683,13 +629,11 @@ const resources = {
       "nav.hi": "Salom",
       "nav.more": "Yana",
       
-      // PWA Update
       "pwa.updateAvailable": "Yangi versiya mavjud",
       "pwa.refreshing": "Yangilanmoqda...",
       "nav.installApp": "Ilovani o'rnatish",
       "pwa.iosInstructions": "O'rnatish uchun: Ulashish tugmasini bosing, keyin 'Asosiy ekraniga qo'shish'.",
       
-      // Home Page
       "home.title": "Premium koreyscha lug'at o'rganish",
       "home.subtitle": "K-TALIM 1A kitobidan olingan aniq lug'atni o'rganing: flashcards, tinglash, quiz, yozish, sevimlilar va aqlli takrorlash.",
       "home.officialSource": "Faqat rasmiy manba",
@@ -708,7 +652,6 @@ const resources = {
       "home.wordsLearned": "{{percent}}% o'rganildi",
       "home.continue": "Davom etish",
       
-      // Courses
       "courses.selectCourse": "Kursni tanlang",
       "courses.title": "Kursni tanlang",
       "courses.subtitle": "Qaysi K-TALIM kitobini o'rganmoqchisiz?",
@@ -721,7 +664,6 @@ const resources = {
       "courses.description1A": "Birinchi kitobdan asosiy lug'at",
       "courses.description1B": "Ikkinchi kitobdan kengaytirilgan lug'at",
       
-      // Study Page
       "study.title": "O'rganish rejimi",
       "study.subtitle": "Lug'atni o'z tempingizda eslab qoling — hisoblanmasin, quizsiz. Har bir so'zni ko'rish uchun darsni tanlang, keyin o'zingizni sinash uchun Amaliyotga o'ting.",
       "study.learnFirst": "Avval o'rganing, keyin mashq qiling",
@@ -734,7 +676,6 @@ const resources = {
       "home.studyAgain": "Yana o'rganing",
       "home.goToPractice": "Amaliyotga o'ting",
       
-      // Study Development Notice
       "studyDevelopment.title": "🚧 O'rganish sahifasi ishlab chiqilmoqda",
       "studyDevelopment.subtitle": "Bu sahifa hozirda faol ravishda yaxshilanmoqda. Eng yaxshi tajriba uchun, joriy yaxshilanishlar tugaguncha kutishni tavsiya qilamiz.",
       "studyDevelopment.improvingTitle": "Hozirda yaxshilanmoqda:",
@@ -748,14 +689,12 @@ const resources = {
       "studyDevelopment.importantTitle": "⚠️ Muhim",
       "studyDevelopment.importantText": "O'rganish sahifasi ishlab chiqish jarayonida vaqtinchalik xatolar yoki kutilmagan xatti-harakatlarni o'z ichiga olishi mumkin. Siz hali ham sahifani o'rganish va sinab ko'rishingiz mumkin, lekin u jiddiy o'rganish uchun tavsiya etilmaydi.",
       
-      // Practice Modes
       "practice.flashcards": "Flashcards",
       "practice.listening": "Tinglash",
       "practice.quiz": "Quiz",
       "practice.writing": "Yozish",
       "practice.smartReview": "Aqlli takrorlash",
       
-      // Flashcards
       "flashcards.hint": "Ishora",
       "flashcards.iKnow": "Bilaman",
       "flashcards.dontKnow": "Bilmayman",
@@ -770,7 +709,6 @@ const resources = {
       "flashcards.noDifficultWords": "Hali qiyin so'zlar yo'q",
       "flashcards.noDifficultText": "So'zlarni avtomatik ravishda bu yerga yig'ib olish uchun flashcardsda Bilmayamni bosing.",
       
-      // Practice Cards
       "practice.audioFirst": "Avval audio",
       "practice.play": "O'ynash",
       "practice.typeKorean": "Eshitgan koreys so'zini yozing",
@@ -781,7 +719,6 @@ const resources = {
       "practice.replayAudio": "Audioni qayta tinglash",
       "practice.next": "Keyingi",
       
-      // Library Pages
       "library.search": "Qidirish",
       "library.searchBadge": "Koreys · O'zbek · Romanizatsiya",
       "library.searchPlaceholder": "Barcha {{count}} ta lug'at yozuvlarini qidirish",
@@ -799,7 +736,6 @@ const resources = {
       "library.settings": "Sozlamalar",
       "library.personalization": "Shaxsiylashtirish",
       
-      // Statistics
       "stats.dailyStreak": "Kunlik ketma-ketma",
       "stats.accuracy": "Aniqlik",
       "stats.wordsLearned": "O'rganilgan so'zlar",
@@ -814,7 +750,6 @@ const resources = {
       "stats.recentActivity": "So'nggi faoliyat",
       "stats.noActivity": "Hali faoliyat yo'q.",
       
-      // Share
       "share.title": "O'z progressingizni ulashing",
       "share.selectTemplate": "Shablonni tanlang",
       "share.templateWordCount": "So'zlar soni",
@@ -824,7 +759,6 @@ const resources = {
       "share.download": "Yuklash",
       "share.share": "Ulashish",
       
-      // AI Chat
       "aiChat.title": "AI Chat",
       "aiChat.subtitle": "Koreyscha lug'at, grammatika yoki o'rganish masalalari haqida so'rang.",
       "aiChat.placeholder": "Koreys tiliga oid savolingizni yozing...",
@@ -841,14 +775,12 @@ const resources = {
       "aiChat.newChat": "Yangi chat",
       "aiChat.noSessions": "Hali chat tarixi yo'q",
       
-      // Achievements
       "achievement.firstStep": "Birinchi qadam",
       "achievement.hundredReviews": "100 ta takrorlash",
       "achievement.sevenDayStreak": "7 kunlik ketma-ketma",
       "achievement.halfWay": "Yarim yo'l",
       "achievement.master": "Lug'at ustasi",
       
-      // Settings
       "settings.pronunciation": "Talaffuz",
       "settings.pronunciationText": "Audio har bir so'z uchun brauzeringizning koreys nutq sintez ovozi (ko-KR) dan foydalanadi.",
       "settings.resetProgress": "Progressni qayta tiklash",
@@ -856,11 +788,9 @@ const resources = {
       "settings.resetConfirm": "Barcha mahalliy progressni qayta tiklaysizmi?",
       "settings.resetButton": "Progressni qayta tiklash",
       
-      // Header
       "header.brand": "Korean Vocabulary Studio",
       "header.menu": "Menyu",
       
-      // Word Mastery
       "mastery.new": "Yangi",
       "mastery.learning": "O'rganilmoqda",
       "mastery.practiced": "Mashq qilingan",
@@ -875,7 +805,6 @@ const resources = {
       "mastery.courseMastery": "Kurs ustozligi",
       "mastery.score": "{{percent}}% ustoz",
       
-      // Study Page
       "study.practiceNeeded": "Mashq kerak",
       "study.keepPracticing": "Mashqni davom ettiring",
       "study.wordsIntroduced": "Kiritilgan so'zlar",
@@ -906,14 +835,12 @@ const resources = {
       "study.hideSentence": "Gapni yashirish",
       "study.showSentence": "Gapni ko'rsatish",
       
-      // Courses Page
       "courses.notFound": "Kurs topilmadi",
       "courses.mastery": "Ustozlik",
       "courses.lessonMastery": "{{mastered}}/{{total}} ustoz",
       "courses.course1A": "K-TALIM 1A",
       "courses.course1B": "K-TALIM 1B",
       
-      // Lesson Categories
       "lesson.1.category": "kiritish, davlatlar va shaxsiyat",
       "lesson.2.category": "sinf buyumlari va odamlar",
       "lesson.3.category": "kunlik harakatlar",
@@ -943,7 +870,6 @@ const resources = {
       "lesson.27.category": "salomatlik, mashq va kunlik hayot",
       "lesson.28.category": "kunlik hayot, uy va turli",
       
-      // SRS
       "srs.again": "Qayta",
       "srs.hard": "Qiyin",
       "srs.good": "Yaxshi",
@@ -955,12 +881,9 @@ const resources = {
       "srs.caughtUpSubtitle": "Hozircha takrorlash uchun so'zlar yo'q. O'rganishni davom ettiring, vaqt kelganda ular bu yerda paydo bo'ladi.",
       "srs.reviewsCompleted": "{{count}} ta takrorlash bajarildi",
       
-      // Practice Pages
       "practice.masteryScore": "{{score}}% ustoz",
       
-      // Achievement
       
-      // Feedback Messages
       "feedback.nice": "Yaxshi!",
       "feedback.great": "Ajoyib!",
       "feedback.excellent": "Zo'r!",
@@ -971,10 +894,8 @@ const resources = {
       "feedback.remember": "Buni eslab qoling",
       "feedback.almostThere": "Deyarli tugadi!",
       
-      // Search
       "search.noResults": "Mos keladigan narsalar topilmadi.",
       
-      // Common
       "common.back": "Orqaga",
       "common.loading": "Yuklanmoqda...",
       "common.save": "Saqlash",
@@ -1002,30 +923,25 @@ const resources = {
       "common.info": "Ma'lumot",
       "common.reportBug": "Xato haqida xabar bering",
       
-      // Practice
       "practice.shuffle": "Aralashtirish",
       "practice.autoPlay": "Avtomatik o'ynash",
       "practice.manualDifficult": "Qiyin deb belgilash",
       "practice.markDifficult": "Qiyin deb belgilash",
       
-      // Study Modes
       "study.full": "Barchasini ko'rsatish",
       "study.hideUzbek": "O'zbekchini yashirish",
       "study.onlyKorean": "Faqat koreyscha",
       
-      // Modes
       "mode.korean": "Koreys → O'zbek",
       "mode.uzbek": "O'zbek → Koreys",
       "mode.random": "Tasodifiy",
       
-      // Card States
       "card.word": "So'z {{number}} / {{total}}",
       "card.lesson": "{{lesson}}-dars",
       "card.category": "Kategoriya",
       "card.verified": "Rasmdan tasdiqlangan",
       "card.needsReview": "Qayta ko'rib chiqish kerak",
       
-      // Buttons
       "button.start": "Boshlash",
       "button.continue": "Davom etish",
       "button.next": "Keyingi",
@@ -1035,18 +951,15 @@ const resources = {
       "button.retry": "Qayta urinib ko'ring",
       "button.back": "Orqaga",
       
-      // Feedback
       "feedback.correct": "To'g'ri!",
       "feedback.incorrect": "Noto'g'ri",
       "feedback.tryAgain": "Qayta urinib ko'ring",
       
-      // Empty States
       "empty.noData": "Ma'lumot yo'q",
       "empty.noResults": "Natijalar yo'q",
       "empty.noFavorites": "Sevimlilar yo'q",
       "empty.noActivity": "Faoliyat yo'q",
       
-      // Time
       "time.minutes": "daqiqa",
       "time.hours": "soat",
       "time.days": "kun",
@@ -1054,7 +967,6 @@ const resources = {
       "time.months": "oy",
       "time.years": "yil",
       
-      // Footer
       "footer.vocabularySource": "Lug'at manbasi",
       "footer.educationalOnly": "Faqat ta'lim maqsadida",
       "footer.developer": "Dasturchi",
@@ -1064,10 +976,8 @@ const resources = {
       "footer.developerName": "Mukh4mmadov",
       "footer.developerTelegram": "Telegram @mukh4mmadov",
       
-      // Advertisement
       "advertisement.placeholder": "Sizning reklamangiz bu yerda bo'lishi mumkin edi",
 
-      // IELTS Recommendation Modal
       "ielts.title": "Ingliz tilini davom ettiring",
       "ielts.description": "Agar siz koreyscha o'rganayotgan bo'lsangiz, ingliz tilini o'qishni yaxshilash sizga tillarni tezroq o'rganishga yordam beradi. Bizning IELTS Reading platformamizni sinab ko'ring - AI tushuntirishlari, professional matnlar va haqiqiy imtihon mashqlari bilan.",
       "ielts.openButton": "IELTS Reading bilan mashq qiling",
@@ -1080,7 +990,6 @@ const resources = {
       "ielts.preview.realPassages": "Haqiqiy Cambridge matnlari",
       "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
       
-      // Study Page - Additional
       "study.cumulativeProgress": "Kumulativ Progress",
       "study.mastery.mastered": "Ustoz",
       "study.mastery.progress": "Progress: {{count}}/{{threshold}}",
@@ -1102,7 +1011,6 @@ const resources = {
       "study.typeInKorean": "Koreys tilida yozing",
       "study.check": "Tekshirish",
       
-      // Exercise Types
       "exercise.koreanToUzbek": "Koreys → O'zbek",
       "exercise.uzbekToKorean": "O'zbek → Koreys",
       "exercise.listeningToKorean": "Eshitish",
@@ -1112,7 +1020,6 @@ const resources = {
       "exercise.listeningToMeaning": "Eshitib ma'no",
       "exercise.sentenceContext": "Gapdagi so'z",
       
-      // Mastery Stats
       "mastery.wordLevels": "So'z darajalari",
       "mastery.overallMastery": "Umumiy ustozlik",
       "mastery.filterAll": "Hammasi ({{count}})",
@@ -1121,7 +1028,6 @@ const resources = {
       "mastery.filterPracticed": "Mashq qilingan ({{count}})",
       "mastery.filterMastered": "Ustoz ({{count}})",
       
-      // Home Page
       "home.masteryOverview": "So'zlar ustozligi",
       "home.yourWordMastery": "So'zlar ustozligi",
       "home.mastered": "Ustoz",
@@ -1130,7 +1036,6 @@ const resources = {
       "home.new": "Yangi",
       "home.overallProgress": "Umumiy progress",
       
-      // Future Updates / Roadmap
       "roadmap.comingSoon": "KELAJAKDA",
       "roadmap.title": "Kelajakdagi yangilanishlar",
       "roadmap.subtitle": "Biz K-TALIM doimiy ravishda yaxshilab chiqmoqdamiz — koreyscha o'rganishni aqlliroq, osonroq va samaraliroq qilish uchun.",
@@ -1183,19 +1088,16 @@ const resources = {
       "roadmap.feature11.description": "Foydalanuvchilar xatolar haqida xabar berish, yangi takliflar yuborish, muammolarni bildirish yoki umumiy fikrlarini bevosita K-TALIM jamoasiga yuborishlari mumkin bo'ladi.",
       "roadmap.feature11.benefit": "Foydalanuvchilar Telegram orqali alohida yozishlari shart bo'lmaydi — barcha fikr va takliflarini qulay forma orqali yuborishlari mumkin.",
       
-      // Timeline
       "roadmap.timeline.now": "HOZIR",
       "roadmap.timeline.current": "Joriy K-TALIM platformi",
       "roadmap.timeline.next": "KEYINGI",
       "roadmap.timeline.later": "KEYINROQ",
       "roadmap.timeline.future": "KELAJAK",
       
-      // CTA
       "roadmap.cta.title": "Ko'proq narsalar kelmoqda.",
       "roadmap.cta.subtitle": "Koreyscha o'rganish safari faqat boshlanmoqda.",
       "roadmap.cta.button": "O'rganishni boshlash",
       
-      // Register
       "register.title": "Hisobingizni yarating",
       "register.subtitle": "Koreyscha o'rganishingizni kuzatish uchun K-TALIM ga qo'shiling.",
       "register.firstName": "Ism",
@@ -1224,19 +1126,16 @@ const resources = {
       "register.lastNameRequired": "Familiya talab qilinadi.",
       "register.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
       
-      // Progress Import
       "progressImport.title": "Progressni saqlaysizmi?",
       "progressImport.description": "Ushbu qurilmada progressingiz mavjud. Uni hisobingizga saqlab, boshqa qurilmadan davom etishni xohlaysizmi?",
       "progressImport.keepLocal": "Sinxronlashtirmaslikni tanlasangiz, progressingiz faqat ushbu qurilmada qoladi va boshqa qurilmalarda mavjud bo'lmaydi.",
       "progressImport.save": "Ha, saqlash",
       "progressImport.dontSync": "Yo'q, sinxronlashtirmaslik",
 
-      // Complete Profile
       "completeProfile.title": "Profilni to'ldiring",
       "completeProfile.subtitle": "Boshlash uchun o'zingiz haqingizda biroz ma'lumot bering.",
       "completeProfile.submit": "Saqlash va davom etish",
 
-      // Privacy Policy
       "privacy.title": "Maxfiylik siyosati",
       "privacy.lastUpdated": "Oxirgi yangilanish: 2026-yil 14-avgust",
       "privacy.section1.title": "1. Biz qanday ma'lumotlarni to'playmiz",
@@ -1256,7 +1155,6 @@ const resources = {
       "privacy.section8.title": "8. Bog'lanish",
       "privacy.section8": "Ushbu siyosat bo'yicha har qanday savollar uchun Telegram orqali @mukh4mmadov bilan bog'laning.",
 
-      // Terms of Service
       "terms.title": "Foydalanish shartlari",
       "terms.lastUpdated": "Oxirgi yangilanish: 2026-yil 14-avgust",
       "terms.section1.title": "1. Qabul qilish",
@@ -1278,7 +1176,6 @@ const resources = {
       "terms.section9.title": "9. Bog'lanish",
       "terms.section9": "Savollar uchun Telegram orqali @mukh4mmadov bilan bog'laning.",
 
-      // Auth page agreement links
       "login.agreement": "Kirish orqali siz bizning",
       "login.terms": "Foydalanish shartlarimiz",
       "login.and": "va",
@@ -1288,7 +1185,6 @@ const resources = {
       "register.and": "va",
       "register.privacy": "Maxfiylik siyosatimiz",
 
-      // Login
       "login.title": "Xush kelibsiz",
       "login.subtitle": "Koreyscha o'rganish safaringizni davom ettirish uchun kirish.",
       "login.email": "Elektron pochta",
@@ -1304,7 +1200,6 @@ const resources = {
       "login.passwordRequired": "Parol talab qilinadi.",
       "login.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
       
-      // Forgot Password
       "forgotPassword.title": "Parolni tiklash",
       "forgotPassword.subtitle": "Elektron pochtangizni kiriting, biz sizga tiklash havolasini yuboramiz.",
       "forgotPassword.submit": "Tiklash havolasini yuborish",
@@ -1312,7 +1207,6 @@ const resources = {
       "forgotPassword.successMessage": "Agar bu elektron pochta bilan hisob mavjud bo'lsa, tiklash havolasi yuborildi.",
       "forgotPassword.genericError": "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
       
-      // Reset Password
       "resetPassword.title": "Yangi parol o'rnating",
       "resetPassword.subtitle": "Quyida yangi parolingizni kiriting.",
       "resetPassword.newPassword": "Yangi parol",
@@ -1328,7 +1222,6 @@ const resources = {
   },
   ru: {
     translation: {
-      // Navigation
       "nav.home": "Главная",
       "nav.courses": "Курсы",
       "nav.study": "Учёба",
@@ -1345,13 +1238,11 @@ const resources = {
       "nav.hi": "Привет",
       "nav.more": "Ещё",
       
-      // PWA Update
       "pwa.updateAvailable": "Доступна новая версия",
       "pwa.refreshing": "Обновление...",
       "nav.installApp": "Установить приложение",
       "pwa.iosInstructions": "Для установки: нажмите кнопку «Поделиться», затем «На экран «Домой»».",
       
-      // Home Page
       "home.title": "Премиум изучение корейского словаря",
       "home.subtitle": "Изучайте точный словарь из официального источника: карточки, аудирование, викторины, письмо, избранное и умный повтор.",
       "home.officialSource": "Только официальный источник",
@@ -1370,7 +1261,6 @@ const resources = {
       "home.wordsLearned": "{{percent}}% выучено",
       "home.continue": "Продолжить",
       
-      // Courses
       "courses.selectCourse": "Выберите курс",
       "courses.title": "Выберите курс",
       "courses.subtitle": "Какую книгу K-TALIM вы хотите изучать?",
@@ -1383,7 +1273,6 @@ const resources = {
       "courses.description1A": "Базовый словарь из первой книги",
       "courses.description1B": "Расширенный словарь из второй книги",
       
-      // Study Page
       "study.title": "Режим учёбы",
       "study.subtitle": "Запоминайте словарный запас в своём темпе — без подсчёта очков, без викторины. Выберите урок, чтобы просмотреть каждое слово, затем перейдите к Практике, чтобы проверить себя.",
       "study.learnFirst": "Сначала учитесь, затем практикуйтесь",
@@ -1396,7 +1285,6 @@ const resources = {
       "home.studyAgain": "Учиться снова",
       "home.goToPractice": "Перейти к практике",
       
-      // Study Development Notice
       "studyDevelopment.title": "🚧 Страница учёбы в разработке",
       "studyDevelopment.subtitle": "Эта страница в настоящее время активно улучшается. Для лучшего опыта мы рекомендуем подождать, пока текущие улучшения будут завершены.",
       "studyDevelopment.improvingTitle": "В настоящее время улучшается:",
@@ -1410,14 +1298,12 @@ const resources = {
       "studyDevelopment.importantTitle": "⚠️ Важно",
       "studyDevelopment.importantText": "Страница учёбы может в настоящее время содержать временные ошибки или неожиданное поведение во время разработки. Вы всё ещё можете исследовать и тестировать страницу, но она не рекомендуется для серьёзного обучения.",
       
-      // Practice Modes
       "practice.flashcards": "Карточки",
       "practice.listening": "Аудирование",
       "practice.quiz": "Викторина",
       "practice.writing": "Письмо",
       "practice.smartReview": "Умный повтор",
       
-      // Flashcards
       "flashcards.hint": "Подсказка",
       "flashcards.iKnow": "Знаю",
       "flashcards.dontKnow": "Не знаю",
@@ -1432,7 +1318,6 @@ const resources = {
       "flashcards.noDifficultWords": "Пока нет сложных слов",
       "flashcards.noDifficultText": "Нажмите Не знаю в карточках, чтобы автоматически собирать слова здесь.",
       
-      // Practice Cards
       "practice.audioFirst": "Сначала аудио",
       "practice.play": "Воспроизвести",
       "practice.typeKorean": "Напишите корейское слово, которое услышали",
@@ -1443,7 +1328,6 @@ const resources = {
       "practice.replayAudio": "Повторить аудио",
       "practice.next": "Следующий",
       
-      // Library Pages
       "library.search": "Поиск",
       "library.searchBadge": "Корейский · Узбекский · Романизация",
       "library.searchPlaceholder": "Поиск во всех {{count}} записях словаря",
@@ -1461,7 +1345,6 @@ const resources = {
       "library.settings": "Настройки",
       "library.personalization": "Персонализация",
       
-      // Statistics
       "stats.dailyStreak": "Ежедневная серия",
       "stats.accuracy": "Точность",
       "stats.wordsLearned": "Выученные слова",
@@ -1476,7 +1359,6 @@ const resources = {
       "stats.recentActivity": "Недавняя активность",
       "stats.noActivity": "Пока нет активности.",
        
-      // Share
       "share.title": "Поделиться прогрессом",
       "share.selectTemplate": "Выберите шаблон",
       "share.templateWordCount": "Количество слов",
@@ -1486,7 +1368,6 @@ const resources = {
       "share.download": "Скачать",
       "share.share": "Поделиться",
       
-      // AI Chat
       "aiChat.title": "AI Чат",
       "aiChat.subtitle": "Спросите что-нибудь о корейской лексике, грамматике или советах по учёбе.",
       "aiChat.placeholder": "Введите ваш вопрос о корейском...",
@@ -1503,14 +1384,12 @@ const resources = {
       "aiChat.newChat": "Новый чат",
       "aiChat.noSessions": "История чатов пуста",
       
-      // Achievements
       "achievement.firstStep": "Первый шаг",
       "achievement.hundredReviews": "100 повторов",
       "achievement.sevenDayStreak": "7-дневная серия",
       "achievement.halfWay": "На полпути",
       "achievement.master": "Мастер словаря",
       
-      // Settings
       "settings.pronunciation": "Произношение",
       "settings.pronunciationText": "Аудио использует корейский голос синтеза речи вашего браузера (ko-KR) для каждого слова.",
       "settings.resetProgress": "Сбросить прогресс",
@@ -1518,11 +1397,9 @@ const resources = {
       "settings.resetConfirm": "Сбросить весь локальный прогресс?",
       "settings.resetButton": "Сбросить прогресс",
       
-      // Header
       "header.brand": "Студия корейского словаря",
       "header.menu": "Меню",
       
-      // Word Mastery
       "mastery.new": "Новый",
       "mastery.learning": "Изучается",
       "mastery.practiced": "Практикуется",
@@ -1537,7 +1414,6 @@ const resources = {
       "mastery.courseMastery": "Освоение курса",
       "mastery.score": "{{percent}}% освоено",
       
-      // Study Page
       "study.practiceNeeded": "Требуется практика",
       "study.keepPracticing": "Продолжайте практику",
       "study.wordsIntroduced": "Введённые слова",
@@ -1568,14 +1444,12 @@ const resources = {
       "study.hideSentence": "Скрыть предложение",
       "study.showSentence": "Показать предложение",
       
-      // Courses Page
       "courses.notFound": "Курс не найден",
       "courses.mastery": "Освоение",
       "courses.lessonMastery": "{{mastered}}/{{total}} освоено",
       "courses.course1A": "K-TALIM 1A",
       "courses.course1B": "K-TALIM 1B",
       
-      // Lesson Categories
       "lesson.1.category": "введение, страны и идентичность",
       "lesson.2.category": "классные предметы и люди",
       "lesson.3.category": "повседневные действия",
@@ -1605,7 +1479,6 @@ const resources = {
       "lesson.27.category": "здоровье, спорт и повседневная жизнь",
       "lesson.28.category": "повседневная жизнь, дом и разное",
       
-      // SRS
       "srs.again": "Снова",
       "srs.hard": "Сложно",
       "srs.good": "Хорошо",
@@ -1617,15 +1490,11 @@ const resources = {
       "srs.caughtUpSubtitle": "Сейчас нет слов для повторения. Продолжайте учить, и они появятся здесь, когда придет время.",
       "srs.reviewsCompleted": "{{count}} повторений выполнено",
       
-      // Practice Pages
       "practice.masteryScore": "{{score}}% освоено",
       
-      // Achievement
       
-      // Search
       "search.noResults": "Совпадений не найдено.",
       
-      // Common
       "common.back": "Назад",
       "common.loading": "Загрузка...",
       "common.save": "Сохранить",
@@ -1653,30 +1522,25 @@ const resources = {
       "common.info": "Информация",
       "common.reportBug": "Сообщить об ошибке",
        
-      // Practice
       "practice.shuffle": "Перемешать",
       "practice.autoPlay": "Автовоспроизведение",
       "practice.manualDifficult": "Отметить как сложное",
       "practice.markDifficult": "Отметить как сложное",
       
-      // Study Modes
       "study.full": "Показать всё",
       "study.hideUzbek": "Скрыть узбекский",
       "study.onlyKorean": "Только корейский",
       
-      // Modes
       "mode.korean": "Корейский → Узбекский",
       "mode.uzbek": "Узбекский → Корейский",
       "mode.random": "Случайный",
       
-      // Card States
       "card.word": "Слово {{number}} / {{total}}",
       "card.lesson": "Урок {{lesson}}",
       "card.category": "Категория",
       "card.verified": "Проверено из изображения",
       "card.needsReview": "Требуется проверка",
       
-      // Buttons
       "button.start": "Начать",
       "button.continue": "Продолжить",
       "button.next": "Далее",
@@ -1686,18 +1550,15 @@ const resources = {
       "button.retry": "Попробовать снова",
       "button.back": "Назад",
       
-      // Feedback
       "feedback.correct": "Правильно!",
       "feedback.incorrect": "Неправильно",
       "feedback.tryAgain": "Попробуйте снова",
       
-      // Empty States
       "empty.noData": "Нет данных",
       "empty.noResults": "Результаты не найдены",
       "empty.noFavorites": "Пока нет избранного",
       "empty.noActivity": "Пока нет активности",
       
-      // Time
       "time.minutes": "минут",
       "time.hours": "часов",
       "time.days": "дней",
@@ -1705,7 +1566,6 @@ const resources = {
       "time.months": "месяцев",
       "time.years": "лет",
       
-      // Footer
       "footer.vocabularySource": "Источник словаря",
       "footer.educationalOnly": "Только в образовательных целях",
       "footer.developer": "Разработчик",
@@ -1715,10 +1575,8 @@ const resources = {
       "footer.developerName": "Mukh4mmadov",
       "footer.developerTelegram": "Telegram @mukh4mmadov",
       
-      // Advertisement
       "advertisement.placeholder": "Ваша реклама может быть здесь",
 
-      // IELTS Recommendation Modal
       "ielts.title": "Продолжайте улучшать английский",
       "ielts.description": "Если вы изучаете корейский, улучшение чтения на английском поможет вам быстрее учить языки. Попробуйте нашу платформу IELTS Reading с AI-объяснениями, профессиональными текстами и практикой реальных экзаменов.",
       "ielts.openButton": "Практиковать IELTS Reading",
@@ -1731,7 +1589,6 @@ const resources = {
       "ielts.preview.realPassages": "Реальные тексты Cambridge",
       "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
       
-      // Study Page - Additional
       "study.cumulativeProgress": "Кумулятивный прогресс",
       "study.mastery.mastered": "Освоено",
       "study.mastery.progress": "Прогресс: {{count}}/{{threshold}}",
@@ -1753,7 +1610,6 @@ const resources = {
       "study.typeInKorean": "Напишите на корейском",
       "study.check": "Проверить",
       
-      // Exercise Types
       "exercise.koreanToUzbek": "Корейский → Узбекский",
       "exercise.uzbekToKorean": "Узбекский → Корейский",
       "exercise.listeningToKorean": "Аудирование",
@@ -1763,7 +1619,6 @@ const resources = {
       "exercise.listeningToMeaning": "Аудирование + значение",
       "exercise.sentenceContext": "Слово в предложении",
       
-      // Mastery Stats
       "mastery.wordLevels": "Уровни слов",
       "mastery.overallMastery": "Общее освоение",
       "mastery.filterAll": "Все ({{count}})",
@@ -1772,7 +1627,6 @@ const resources = {
       "mastery.filterPracticed": "Практикуются ({{count}})",
       "mastery.filterMastered": "Освоены ({{count}})",
       
-      // Home Page
       "home.masteryOverview": "Освоение слов",
       "home.yourWordMastery": "Ваше освоение слов",
       "home.mastered": "Освоено",
@@ -1781,7 +1635,6 @@ const resources = {
       "home.new": "Новое",
       "home.overallProgress": "Общий прогресс",
       
-      // Future Updates / Roadmap
       "roadmap.comingSoon": "СКОРО",
       "roadmap.title": "Будущие обновления",
       "roadmap.subtitle": "Мы постоянно улучшаем K-TALIM, чтобы сделать изучение корейского языка умнее, проще и эффективнее.",
@@ -1834,19 +1687,16 @@ const resources = {
       "roadmap.feature11.description": "Простая форма, где пользователи могут сообщать об ошибках, предлагать новые функции, делиться проблемами или отправлять общую обратную связь непосредственно команде K-TALIM.",
       "roadmap.feature11.benefit": "Пользователи могут легко общаться с командой, не нуждаясь в отдельном контакте с администратором через Telegram.",
       
-      // Timeline
       "roadmap.timeline.now": "СЕЙЧАС",
       "roadmap.timeline.current": "Текущая платформа K-TALIM",
       "roadmap.timeline.next": "СЛЕДУЮЩЕЕ",
       "roadmap.timeline.later": "ПОЗЖЕ",
       "roadmap.timeline.future": "В БУДУЩЕМ",
       
-      // CTA
       "roadmap.cta.title": "Ещё больше впереди.",
       "roadmap.cta.subtitle": "Ваше путешествие по изучению корейского только начинается.",
       "roadmap.cta.button": "Начать обучение",
       
-      // Register
       "register.title": "Создайте аккаунт",
       "register.subtitle": "Присоединяйтесь к K-TALIM, чтобы отслеживать прогресс в изучении корейского.",
       "register.firstName": "Имя",
@@ -1875,19 +1725,16 @@ const resources = {
       "register.lastNameRequired": "Фамилия обязательна.",
       "register.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
       
-      // Progress Import
       "progressImport.title": "Сохранить прогресс?",
       "progressImport.description": "У вас есть прогресс на этом устройстве. Хотите сохранить его в аккаунт, чтобы продолжить с любого устройства?",
       "progressImport.keepLocal": "Если вы выберете не синхронизировать, прогресс останется только на этом устройстве и не будет доступен на других.",
       "progressImport.save": "Да, сохранить",
       "progressImport.dontSync": "Нет, не синхронизировать",
 
-      // Complete Profile
       "completeProfile.title": "Заполните профиль",
       "completeProfile.subtitle": "Расскажите немного о себе, чтобы начать.",
       "completeProfile.submit": "Сохранить и продолжить",
 
-      // Privacy Policy
       "privacy.title": "Политика конфиденциальности",
       "privacy.lastUpdated": "Последнее обновление: 14 августа 2026 г.",
       "privacy.section1.title": "1. Какую информацию мы собираем",
@@ -1907,7 +1754,6 @@ const resources = {
       "privacy.section8.title": "8. Контакты",
       "privacy.section8": "По любым вопросам о этой политике пишите нам в Telegram @mukh4mmadov.",
 
-      // Terms of Service
       "terms.title": "Условия использования",
       "terms.lastUpdated": "Последнее обновление: 14 августа 2026 г.",
       "terms.section1.title": "1. Принятие условий",
@@ -1929,7 +1775,6 @@ const resources = {
       "terms.section9.title": "9. Контакты",
       "terms.section9": "По вопросам пишите в Telegram @mukh4mmadov.",
 
-      // Auth page agreement links
       "login.agreement": "Входя в систему, вы соглашаетесь с нашими",
       "login.terms": "Условиями использования",
       "login.and": "и",
@@ -1939,7 +1784,6 @@ const resources = {
       "register.and": "и",
       "register.privacy": "Политикой конфиденциальности",
 
-      // Login
       "login.title": "С возвращением",
       "login.subtitle": "Войдите, чтобы продолжить изучение корейского.",
       "login.email": "Электронная почта",
@@ -1955,7 +1799,6 @@ const resources = {
       "login.passwordRequired": "Пароль обязателен.",
       "login.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
       
-      // Forgot Password
       "forgotPassword.title": "Сброс пароля",
       "forgotPassword.subtitle": "Введите свою электронную почту, и мы отправим вам ссылку для сброса.",
       "forgotPassword.submit": "Отправить ссылку",
@@ -1963,7 +1806,6 @@ const resources = {
       "forgotPassword.successMessage": "Если аккаунт с такой электронной почтой существует, ссылка для сброса отправлена.",
       "forgotPassword.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
       
-      // Reset Password
       "resetPassword.title": "Установите новый пароль",
       "resetPassword.subtitle": "Введите свой новый пароль ниже.",
       "resetPassword.newPassword": "Новый пароль",

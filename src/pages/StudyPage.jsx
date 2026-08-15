@@ -70,9 +70,6 @@ function StudyDevelopmentNotice() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Study Home — lists all 14 lessons, same card look as the Home page  */
-/* ------------------------------------------------------------------ */
 
 export function StudyHomePage() {
   const { t } = useTranslation();
@@ -151,16 +148,13 @@ export function StudyHomePage() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Active Learning Study Mode — cumulative mastery with genuine exercise variety */
-/* ------------------------------------------------------------------ */
 
-const WORDS_PER_BATCH = 2; // Learn 2 words at a time
-const MASTERY_THRESHOLD = 3; // Need 3 correct answers
-const MASTERY_DIFFERENT_TYPES = 2; // Need success in 2 different exercise types
-const ACTIVE_RECALL_TYPES = ['typingChallenge', 'missingSyllable', 'sentenceContext']; // Active recall exercises
+const WORDS_PER_BATCH = 2; 
+const MASTERY_THRESHOLD = 3; 
+const MASTERY_DIFFERENT_TYPES = 2; 
+const ACTIVE_RECALL_TYPES = ['typingChallenge', 'missingSyllable', 'sentenceContext']; 
 
-// Exercise types grouped by difficulty
+
 const EXERCISE_BY_DIFFICULTY = {
   easy: ['koreanToUzbek', 'uzbekToKorean', 'listeningToKorean'],
   medium: ['trueFalse', 'listeningToMeaning', 'missingSyllable'],
@@ -177,7 +171,7 @@ export function StudyModePage() {
   
   const sourceWords = useMemo(() => getLessonWords(lesson), [lesson]);
   
-  // Feedback messages (memoized to avoid dependency warnings)
+  
   const SUCCESS_MESSAGES = useMemo(() => [
     t("feedback.nice"), t("feedback.great"), t("feedback.excellent"), t("feedback.perfect"), t("feedback.awesome"), t("feedback.awesome")
   ], [t]);
@@ -186,22 +180,22 @@ export function StudyModePage() {
     t("feedback.almost"), t("feedback.close"), t("feedback.remember"), t("feedback.almostThere")
   ], [t]);
   
-  // Cumulative learning state
-  const [wordQueue, setWordQueue] = useState([]); // All words in order
-  const [learnedWords, setLearnedWords] = useState([]); // Words introduced so far
-  const [currentBatch, setCurrentBatch] = useState([]); // Current 2 words being learned
-  const [currentWordIndex, setCurrentWordIndex] = useState(0); // Index in current batch
   
-  // Mastery tracking
-  const [wordMastery, setWordMastery] = useState({}); // { wordKey: { correctCount: 0, exerciseTypes: [], mastered: false, activeRecallSuccess: false } }
-  const [reviewQueue, setReviewQueue] = useState([]); // Words that need retesting
-  const [reinforcementWord, setReinforcementWord] = useState(null); // Word currently being reinforced after wrong answer
+  const [wordQueue, setWordQueue] = useState([]); 
+  const [learnedWords, setLearnedWords] = useState([]); 
+  const [currentBatch, setCurrentBatch] = useState([]); 
+  const [currentWordIndex, setCurrentWordIndex] = useState(0); 
   
-  // Session state
-  const [sessionState, setSessionState] = useState('learning'); // 'learning', 'checkpoint', 'testing', 'completed'
+  
+  const [wordMastery, setWordMastery] = useState({}); 
+  const [reviewQueue, setReviewQueue] = useState([]); 
+  const [reinforcementWord, setReinforcementWord] = useState(null); 
+  
+  
+  const [sessionState, setSessionState] = useState('learning'); 
   const [currentExercise, setCurrentExercise] = useState(null);
   const [lastExerciseType, setLastExerciseType] = useState(null);
-  const [lastTestedWordId, setLastTestedWordId] = useState(null); // Track last tested word to avoid repetition
+  const [lastTestedWordId, setLastTestedWordId] = useState(null); 
   const [feedback, setFeedback] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [sessionStats, setSessionStats] = useState({
@@ -212,35 +206,35 @@ export function StudyModePage() {
     needsReview: 0
   });
   
-  // Sentence learning mode
+  
   const [showSentenceMode, setShowSentenceMode] = useState(false);
 
-  // Helper function to create exercise for a specific word
+  
   const createExerciseForWord = useCallback((targetWord) => {
-    // Determine difficulty based on mastery
+    
     const mastery = wordMastery[getWordKey(targetWord)] || { correctCount: 0, exerciseTypes: [], mastered: false };
     let difficultyLevel;
     
     if (mastery.correctCount === 0) {
-      difficultyLevel = 'easy'; // First exposure - recognition
+      difficultyLevel = 'easy'; 
     } else if (mastery.correctCount < MASTERY_THRESHOLD || !mastery.activeRecallSuccess) {
-      difficultyLevel = 'medium'; // Developing - mixed
+      difficultyLevel = 'medium'; 
     } else {
-      difficultyLevel = 'hard'; // Strong - active recall
+      difficultyLevel = 'hard'; 
     }
     
-    // Get available exercise types for this difficulty
+    
     const availableDifficultyTypes = EXERCISE_BY_DIFFICULTY[difficultyLevel];
     
-    // Randomize exercise type (avoid consecutive same type)
+    
     const availableTypes = availableDifficultyTypes.filter(t => t !== lastExerciseType);
     const exerciseType = availableTypes[Math.floor(Math.random() * availableTypes.length)];
     setLastExerciseType(exerciseType);
 
-    // Track last tested word
+    
     setLastTestedWordId(targetWord.id);
 
-    // Get distractors from all source words
+    
     const distractors = sourceWords
       .filter(w => w.id !== targetWord.id)
       .sort(() => Math.random() - 0.5)
@@ -256,26 +250,26 @@ export function StudyModePage() {
     };
   }, [sourceWords, lastExerciseType, wordMastery]);
 
-  // Generate cumulative exercise with adaptive difficulty
+  
   useEffect(() => {
     if (sourceWords.length > 0) {
       const shuffled = [...sourceWords].sort(() => Math.random() - 0.5);
       setWordQueue(shuffled);
       setStartTime(Date.now());
-      // Start with first batch of 2 words
+      
       setCurrentBatch(shuffled.slice(0, WORDS_PER_BATCH));
       setLearnedWords(shuffled.slice(0, WORDS_PER_BATCH));
     }
   }, [sourceWords]);
 
-  // Mark word as studied for progress tracking
+  
   useEffect(() => {
     learnedWords.forEach(word => {
       dispatch(markWordStudied(getWordKey(word)));
     });
   }, [learnedWords, dispatch]);
 
-  // Progress calculation
+  
   const totalWords = sourceWords.length;
   const introducedCount = learnedWords.length;
   const masteredCount = Object.values(wordMastery).filter(m => m.mastered).length;
@@ -287,7 +281,7 @@ export function StudyModePage() {
 
   const currentWord = currentBatch[currentWordIndex];
 
-  // Audio feedback
+  
   const playSuccessSound = useCallback(() => {
     try {
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -304,9 +298,9 @@ export function StudyModePage() {
       
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.1);
-    } catch (e) {
-      // Audio not supported
-    }
+    } catch (e) /* eslint-disable no-empty */ {
+      
+    } /* eslint-enable no-empty */
   }, []);
 
   const playErrorSound = useCallback(() => {
@@ -325,25 +319,25 @@ export function StudyModePage() {
       
       oscillator.start(audioContext.currentTime);
       oscillator.stop(audioContext.currentTime + 0.15);
-    } catch (e) {
-      // Audio not supported
-    }
+    } catch (e) /* eslint-disable no-empty */ {
+      
+    } /* eslint-enable no-empty */
   }, []);
 
-  // Generate cumulative exercise with adaptive difficulty
+  
   const generateCumulativeExercise = useCallback(() => {
     if (learnedWords.length === 0) return null;
 
-    // Select a word based on adaptive sampling with anti-repetition
+    
     const learnedWithMastery = learnedWords.map(word => ({
       word,
       mastery: wordMastery[getWordKey(word)] || { correctCount: 0, exerciseTypes: [], mastered: false, activeRecallSuccess: false }
     }));
     
-    // Priority 1: Review queue words (words that were answered incorrectly)
+    
     if (reviewQueue.length > 0) {
       const reviewWord = reviewQueue[0].word;
-      // Exclude last tested word if other eligible words exist
+      
       const eligibleForReview = learnedWithMastery.filter(item => 
         item.word.id !== lastTestedWordId || learnedWithMastery.length === 1
       );
@@ -353,21 +347,21 @@ export function StudyModePage() {
       }
     }
     
-    // Priority 2: Unmastered words (excluding last tested if possible)
+    
     const unmastered = learnedWithMastery.filter(item => !item.mastery.mastered && item.word.id !== lastTestedWordId);
     if (unmastered.length > 0) {
       const targetWord = unmastered[Math.floor(Math.random() * unmastered.length)].word;
       return createExerciseForWord(targetWord);
     }
     
-    // Priority 3: If all unmastered were the last tested word, try again without exclusion
+    
     const allUnmastered = learnedWithMastery.filter(item => !item.mastery.mastered);
     if (allUnmastered.length > 0) {
       const targetWord = allUnmastered[Math.floor(Math.random() * allUnmastered.length)].word;
       return createExerciseForWord(targetWord);
     }
     
-    // Priority 4: Newly introduced words (low correctCount)
+    
     const newWords = learnedWithMastery.filter(item => item.mastery.correctCount === 0);
     const eligibleNew = newWords.filter(item => item.word.id !== lastTestedWordId);
     if (eligibleNew.length > 0) {
@@ -375,7 +369,7 @@ export function StudyModePage() {
       return createExerciseForWord(targetWord);
     }
     
-    // Priority 5: Developing words (not mastered, some progress)
+    
     const developing = learnedWithMastery.filter(item => 
       !item.mastery.mastered && 
       item.mastery.correctCount > 0 && 
@@ -387,26 +381,26 @@ export function StudyModePage() {
       return createExerciseForWord(targetWord);
     }
     
-    // Priority 6: Mastered words (only occasionally, and avoid consecutive)
+    
     const mastered = learnedWithMastery.filter(item => item.mastery.mastered && item.word.id !== lastTestedWordId);
-    if (mastered.length > 0 && Math.random() > 0.7) { // 30% chance for mastered words
+    if (mastered.length > 0 && Math.random() > 0.7) { 
       const targetWord = mastered[Math.floor(Math.random() * mastered.length)].word;
       return createExerciseForWord(targetWord);
     }
     
-    // Fallback: if no eligible words found (shouldn't happen in normal flow)
+    
     const fallback = learnedWithMastery[Math.floor(Math.random() * learnedWithMastery.length)];
     return createExerciseForWord(fallback.word);
   }, [learnedWords, sourceWords, lastExerciseType, wordMastery, reviewQueue, lastTestedWordId, createExerciseForWord]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Handle exercise answer
+  
   const handleExerciseAnswer = useCallback((isCorrect, exercise) => {
     const wordKey = getWordKey(exercise.word);
     
-    // Record answer in global progress for mastery tracking
+    
     dispatch(isCorrect ? markKnown({ key: wordKey, exerciseType: exercise.type }) : markDifficult({ key: wordKey, exerciseType: exercise.type }));
     
-    // Update mastery tracking
+    
     setWordMastery(prev => {
       const currentMastery = prev[wordKey] || { correctCount: 0, exerciseTypes: [], mastered: false, activeRecallSuccess: false };
       let newMastery = { ...currentMastery };
@@ -415,12 +409,12 @@ export function StudyModePage() {
         newMastery.correctCount = currentMastery.correctCount + 1;
         newMastery.exerciseTypes = [...new Set([...currentMastery.exerciseTypes, exercise.type])];
         
-        // Track active recall success
+        
         if (ACTIVE_RECALL_TYPES.includes(exercise.type)) {
           newMastery.activeRecallSuccess = true;
         }
         
-        // Check mastery conditions
+        
         const hasEnoughCorrect = newMastery.correctCount >= MASTERY_THRESHOLD;
         const hasDifferentTypes = new Set(newMastery.exerciseTypes).size >= MASTERY_DIFFERENT_TYPES;
         const hasActiveRecall = newMastery.activeRecallSuccess;
@@ -437,10 +431,10 @@ export function StudyModePage() {
           message: SUCCESS_MESSAGES[Math.floor(Math.random() * SUCCESS_MESSAGES.length)]
         });
       } else {
-        // Reset progress on wrong answer
+        
         newMastery.correctCount = Math.max(0, currentMastery.correctCount - 1);
         newMastery.mastered = false;
-        // Don't reset activeRecallSuccess immediately - they may still have it
+        
         
         setSessionStats(prev => ({ 
           ...prev, 
@@ -449,7 +443,7 @@ export function StudyModePage() {
         }));
         playErrorSound();
         
-        // Show reinforcement instead of simple feedback
+        
         setReinforcementWord(exercise.word);
         setFeedback({
           type: 'error',
@@ -457,15 +451,15 @@ export function StudyModePage() {
           correctAnswer: exercise.word
         });
         
-        // Add to review queue with short delay
+        
         setReviewQueue(prev => [...prev, { word: exercise.word, delay: 2 }]);
       }
       
       return { ...prev, [wordKey]: newMastery };
     });
 
-    // Note: Feedback and reinforcementWord are cleared by ReinforcementCard's onContinue callback
-    // or by a separate timeout if not in reinforcement mode
+    
+    
     if (!reinforcementWord) {
       setTimeout(() => {
         setFeedback(null);
@@ -473,15 +467,15 @@ export function StudyModePage() {
     }
   }, [playSuccessSound, playErrorSound, dispatch, reinforcementWord, SUCCESS_MESSAGES, ALMOST_MESSAGES]);
 
-  // Process review queue
+  
   useEffect(() => {
     if (reviewQueue.length > 0 && sessionState === 'testing') {
       const reviewItem = reviewQueue[0];
       if (reviewItem.delay === 0) {
-        // Time to review this word
+        
         setReviewQueue(prev => {
           const [item, ...rest] = prev;
-          // Generate exercise for review word
+          
           const exercise = generateCumulativeExercise();
           if (exercise) {
             setCurrentExercise({ ...exercise, word: item.word });
@@ -489,7 +483,7 @@ export function StudyModePage() {
           return rest;
         });
       } else {
-        // Decrease delay
+        
         setReviewQueue(prev => {
           const [item, ...rest] = prev;
           return [{ ...item, delay: item.delay - 1 }, ...rest];
@@ -498,42 +492,42 @@ export function StudyModePage() {
     }
   }, [sessionState, reviewQueue, generateCumulativeExercise]);
 
-  // Handle learning word interaction
+  
   const handleWordLearned = useCallback(() => {
     const newIndex = currentWordIndex + 1;
     
     if (newIndex >= currentBatch.length) {
-      // Batch complete, trigger checkpoint
+      
       setSessionState('checkpoint');
     } else {
       setCurrentWordIndex(newIndex);
     }
   }, [currentWordIndex, currentBatch.length]);
 
-  // Handle checkpoint (test all learned words)
+  
   const handleCheckpoint = useCallback(() => {
     setSessionState('testing');
     const exercise = generateCumulativeExercise();
     setCurrentExercise(exercise);
   }, [generateCumulativeExercise]);
 
-  // Handle exercise completion
+  
   const handleExerciseComplete = useCallback(() => {
-    // If reinforcement card is active, do NOT generate next exercise
-    // Wait for user to click Continue on ReinforcementCard
+    
+    
     if (reinforcementWord) {
       return;
     }
 
     setTimeout(() => {
-      // Check if all learned words are mastered
+      
       const allMastered = learnedWords.every(word => {
         const mastery = wordMastery[getWordKey(word)];
         return mastery && mastery.mastered;
       });
 
       if (allMastered) {
-        // All current words mastered, add next batch
+        
         const nextBatchStart = learnedWords.length;
         if (nextBatchStart < wordQueue.length) {
           const nextBatch = wordQueue.slice(nextBatchStart, nextBatchStart + WORDS_PER_BATCH);
@@ -542,34 +536,34 @@ export function StudyModePage() {
           setCurrentWordIndex(0);
           setSessionState('learning');
         } else {
-          // All words introduced, check total mastery
+          
           const totalMastered = wordQueue.every(word => {
             const mastery = wordMastery[getWordKey(word)];
             return mastery && mastery.mastered;
           });
 
           if (totalMastered) {
-            // Lesson complete
+            
             setSessionState('completed');
             setSessionStats(prev => ({
               ...prev,
               totalTime: Math.round((Date.now() - startTime) / 1000)
             }));
           } else {
-            // Still need to practice unmastered words
+            
             const exercise = generateCumulativeExercise();
             setCurrentExercise(exercise);
           }
         }
       } else {
-        // Continue testing unmastered words
+        
         const exercise = generateCumulativeExercise();
         setCurrentExercise(exercise);
       }
     }, 300);
   }, [learnedWords, wordMastery, wordQueue, generateCumulativeExercise, startTime, reinforcementWord]);
 
-  // Study again
+  
   const studyAgain = useCallback(() => {
     const shuffled = [...sourceWords].sort(() => Math.random() - 0.5);
     setWordQueue(shuffled);
@@ -781,9 +775,6 @@ export function StudyModePage() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Header Component with Cumulative Progress Indicators             */
-/* ------------------------------------------------------------------ */
 
 function StudyHeader({ lesson, introduced, total, mastered }) {
   const { t } = useTranslation();
@@ -833,9 +824,6 @@ function StudyHeader({ lesson, introduced, total, mastered }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Learning Card - Shows word for learning with mastery status          */
-/* ------------------------------------------------------------------ */
 
 function getExerciseTypeLabel(type, t) {
   const labels = {
@@ -868,7 +856,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
     onLearned();
   };
 
-  // Get mastery color
+  
   const getMasteryColor = (mastery) => {
     if (!mastery) return 'bg-slate-200 dark:bg-slate-700';
     if (mastery.mastered) return 'bg-emerald-200 dark:bg-emerald-900';
@@ -876,7 +864,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
     return 'bg-violet-200 dark:bg-violet-900';
   };
 
-  // Get word type based on category
+  
   const getWordType = (category) => {
     if (category?.includes('countries')) return `🌍 ${t("study.wordType.country")}`;
     if (category?.includes('profession') || category?.includes('job')) return `👤 ${t("study.wordType.profession")}`;
@@ -888,7 +876,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
     return `📚 ${t("study.wordType.noun")}`;
   };
 
-  // Generate example sentence with highlighted word
+  
   const generateExampleSentence = (word) => {
     const sentences = {
       '독일': { ko: '저는 독일에서 왔습니다.', uz: 'Men Germaniyadan keldim.' },
@@ -922,7 +910,6 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         className="text-center"
       >
-        {/* Mastery indicator */}
         <div className="mb-3 flex items-center justify-center gap-2">
           <div className={`h-1.5 w-1.5 rounded-full ${getMasteryColor(mastery)}`} />
           <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -966,7 +953,6 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
                 </p>
               )}
               
-              {/* Sentence Learning Mode */}
               <div className="mt-3">
                 <button
                   type="button"
@@ -1047,9 +1033,6 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Reinforcement Card - Shows detailed word info after wrong answer    */
-/* ------------------------------------------------------------------ */
 
 function ReinforcementCard({ word, onContinue, reduxMastery }) {
   const { t } = useTranslation();
@@ -1151,9 +1134,6 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Checkpoint Screen - Announces cumulative testing phase              */
-/* ------------------------------------------------------------------ */
 
 function CheckpointScreen({ wordCount, masteredCount, onStart }) {
   const { t } = useTranslation();
@@ -1208,15 +1188,12 @@ function CheckpointScreen({ wordCount, masteredCount, onStart }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Exercise Card - Simplified cumulative testing                        */
-/* ------------------------------------------------------------------ */
 
 function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }) {
   const { t } = useTranslation();
   const [answered, setAnswered] = useState(false);
 
-  // Reset answered state when exercise changes
+  
   useEffect(() => {
     setAnswered(false);
   }, [exercise.word.id, exercise.type]);
@@ -1229,7 +1206,7 @@ function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }
     setTimeout(() => onComplete(), 800);
   };
 
-  // Route to appropriate exercise component based on type
+  
   const renderExercise = () => {
     switch (exercise.type) {
       case 'koreanToUzbek':
@@ -1295,9 +1272,6 @@ function ExerciseCard({ exercise, onAnswer, onComplete, feedback, reduxMastery }
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Challenge Type Components                                           */
-/* ------------------------------------------------------------------ */
 
 function MultipleChoiceChallenge({ word, options, onAnswer, answered = false }) {
   const { t } = useTranslation();
@@ -1385,7 +1359,7 @@ function ReverseChoiceChallenge({ word, options, onAnswer, answered = false }) {
 function TrueFalseChallenge({ word, options, onAnswer, answered = false }) {
   const { t } = useTranslation();
   
-  // Create a true/false scenario
+  
   const isTrue = Math.random() > 0.5;
   const displayedOption = isTrue ? word : options[0];
   const correctAnswer = isTrue;
@@ -1447,7 +1421,7 @@ function MissingLetterChallenge({ word, onAnswer, answered = false }) {
     );
   }
   
-  // Create missing letter scenario
+  
   const romanization = word.romanization;
   const letters = romanization.split('');
   const missingIndex = Math.floor(Math.random() * letters.length);
@@ -1610,7 +1584,7 @@ function ListeningToMeaningChallenge({ word, options, onAnswer, answered = false
 function SentenceContextChallenge({ word, options, onAnswer, answered = false }) {
   const { t } = useTranslation();
   
-  // Generate sentence with target word highlighted
+  
   const sentences = {
     '독일': { ko: '저는 **독일**에서 왔습니다.', uz: 'Men Germaniyadan keldim.' },
     '미국': { ko: '그는 **미국**에 삽니다.', uz: 'U AQShda yashaydi.' },
@@ -1682,7 +1656,7 @@ function TypingChallenge({ word, onAnswer, answered = false }) {
   const handleSubmit = () => {
     if (answered) return;
     
-    // Allow partial matching
+    
     const similarity = calculateSimilarity(input.toLowerCase(), word.korean.toLowerCase());
     const isCorrect = similarity >= 0.7;
     

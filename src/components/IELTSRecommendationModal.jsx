@@ -53,7 +53,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
     <AnimatePresence mode="wait">
       {isOpen && (
         <>
-          {/* Backdrop - uses Grid for more reliable centering */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -67,10 +66,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
               WebkitBackdropFilter: 'blur(22px)',
             }}
           >
-            {/* Page scale animation - removed to prevent flicker */}
-            {/* No page scale - prevents flickering */}
-
-            {/* Modal Card - Grid centered, no transforms */}
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -81,7 +76,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                 boxShadow: '0 24px 96px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 24px rgba(0, 0, 0, 0.08)'
               }}
             >
-              {/* Header - English only, no flag */}
               <div className="relative p-5 pb-3">
                 <motion.h2
                   initial={{ opacity: 0 }}
@@ -102,14 +96,12 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                 </motion.p>
               </div>
 
-              {/* Preview Card - Premium browser window */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.4 }}
                 className="mx-5 mb-4 overflow-hidden rounded-2xl border border-slate-200/50 bg-gradient-to-br from-slate-50 to-slate-100/50 shadow-lg dark:border-white/8 dark:from-slate-800/50 dark:to-slate-900/50"
               >
-                {/* Browser window header */}
                 <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-200/50 dark:border-white/10">
                   <div className="flex gap-1.5">
                     <div className="h-2.5 w-2.5 rounded-full bg-slate-400 dark:bg-slate-600" />
@@ -121,7 +113,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                   </div>
                 </div>
 
-                {/* Preview content */}
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900" />
                   
@@ -176,7 +167,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                 </div>
               </motion.div>
 
-              {/* Buttons */}
               <div className="flex flex-col gap-3 p-5 pt-0 sm:flex-row">
                 <motion.button
                   initial={{ opacity: 0 }}
@@ -206,7 +196,6 @@ export default function IELTSRecommendationModal({ isOpen, onClose }) {
                 </motion.button>
               </div>
 
-              {/* Footer */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -1,12 +1,4 @@
 /* eslint-env node */
-// Vercel Serverless Function: AI Chat proxy for Korean learning tutor
-// Route: POST /api/ai-chat
-//
-// IMPORTANT:
-// - GEMINI_API_KEY must be set as a Vercel Environment Variable (Server-side only).
-// - Never expose this key to the client. This endpoint is the ONLY place it is used.
-// - UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN must be set for persistent rate limiting.
-// - If Upstash is not configured, falls back to the existing in-memory limiter.
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
@@ -43,7 +35,6 @@ Site knowledge (use only when the user asks about the app, navigation, features,
 - Settings: pronunciation settings and the ability to reset all local progress.
 - Developer contact: for bugs, errors, or feedback, reach out on Telegram at @mukh4mmadov.`;
 
-// Supabase auth for token verification
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 let supabaseAuth = null;
@@ -59,7 +50,6 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY) {
   }
 }
 
-// Basic in-memory rate limiter fallback: { key: { count, resetAt } }
 const memoryRateLimiters = new Map();
 
 function getHeader(req, name) {
@@ -102,7 +92,6 @@ async function verifyAuthToken(token) {
   }
 }
 
-// Cleanup old entries periodically
 if (Math.random() < 0.05) {
   const now = Date.now();
   for (const [key, record] of memoryRateLimiters) {
@@ -110,7 +99,6 @@ if (Math.random() < 0.05) {
   }
 }
 
-// Upstash Redis setup
 const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
 const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 let redis = null;

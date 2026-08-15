@@ -1,14 +1,3 @@
-/**
- * Spaced Repetition System (SRS) - SM-2 inspired algorithm
- *
- * Each word record stores:
- *   interval        - days until next review
- *   repetitions     - number of successful reviews
- *   easinessFactor  - SM-2 E-Factor (starts at 2.5)
- *   nextReviewAt    - timestamp when word is due
- *   lastReviewedAt  - timestamp of last review
- */
-
 export const SRS_RATINGS = {
   AGAIN: "again",
   HARD: "hard",

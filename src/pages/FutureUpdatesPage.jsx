@@ -175,7 +175,6 @@ export default function FutureUpdatesPage() {
   return (
     <div className="min-h-screen px-4 py-8 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
-        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -201,7 +200,6 @@ export default function FutureUpdatesPage() {
           </p>
         </motion.div>
 
-        {/* Completed Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -214,7 +212,6 @@ export default function FutureUpdatesPage() {
           {renderFeatureCards(completedFeatures)}
         </motion.div>
 
-        {/* Upcoming Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -227,7 +224,6 @@ export default function FutureUpdatesPage() {
           {renderFeatureCards(upcomingFeatures)}
         </motion.div>
 
-        {/* Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -239,7 +235,6 @@ export default function FutureUpdatesPage() {
           </h2>
           
           <div className="space-y-8">
-            {/* Current */}
             <div className="flex items-start gap-4">
               <div className="flex shrink-0 items-center justify-center w-24 rounded-xl bg-emerald-500 px-4 py-2 text-sm font-bold text-white">
                 {t("roadmap.timeline.now")}
@@ -251,7 +246,6 @@ export default function FutureUpdatesPage() {
               </div>
             </div>
 
-            {/* Next */}
             <div className="flex items-start gap-4">
               <div className="flex shrink-0 items-center justify-center w-24 rounded-xl bg-sky-500 px-4 py-2 text-sm font-bold text-white">
                 {t("roadmap.timeline.next")}
@@ -266,7 +260,6 @@ export default function FutureUpdatesPage() {
               </div>
             </div>
 
-            {/* Later */}
             <div className="flex items-start gap-4">
               <div className="flex shrink-0 items-center justify-center w-24 rounded-xl bg-violet-500 px-4 py-2 text-sm font-bold text-white">
                 {t("roadmap.timeline.later")}
@@ -280,7 +273,6 @@ export default function FutureUpdatesPage() {
               </div>
             </div>
 
-            {/* Future */}
             <div className="flex items-start gap-4">
               <div className="flex shrink-0 items-center justify-center w-24 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2 text-sm font-bold text-white">
                 {t("roadmap.timeline.future")}
@@ -294,7 +286,6 @@ export default function FutureUpdatesPage() {
           </div>
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
