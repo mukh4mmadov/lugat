@@ -279,7 +279,7 @@ export default function FutureUpdatesPage() {
               </div>
               <div className="flex-1 rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
                 <p className="text-sm text-slate-600 dark:text-slate-400 italic">
-                  {t("roadmap.timeline.future")} — More features in development
+                   {t("roadmap.timeline.future")} {t("roadmap.moreFeatures")}
                 </p>
               </div>
             </div>

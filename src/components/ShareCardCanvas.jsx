@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { getMasteryOverview } from "../lib/mastery";
 
 const CARD_WIDTH = 1080;
@@ -17,8 +18,6 @@ const PALETTE = {
   rose: "#fb7185",
 };
 
-const TAGLINE = "K-TALIM · Korean Vocabulary Studio";
-
 function drawRoundedRect(ctx, x, y, width, height, radius) {
   ctx.beginPath();
   ctx.moveTo(x + radius, y);
@@ -34,6 +33,7 @@ function drawRoundedRect(ctx, x, y, width, height, radius) {
 }
 
 export default function ShareCardCanvas({ template, progress }) {
+  const { t } = useTranslation();
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -60,11 +60,11 @@ export default function ShareCardCanvas({ template, progress }) {
     ctx.fillStyle = PALETTE.textPrimary;
     ctx.font = "bold 56px Inter, ui-sans-serif, system-ui, sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("K-TALIM", CARD_WIDTH / 2, 120);
+    ctx.fillText(t("share.appName"), CARD_WIDTH / 2, 120);
 
     ctx.fillStyle = PALETTE.textSecondary;
     ctx.font = "28px Inter, ui-sans-serif, system-ui, sans-serif";
-    ctx.fillText(TAGLINE, CARD_WIDTH / 2, 170);
+    ctx.fillText(t("share.tagline"), CARD_WIDTH / 2, 170);
 
     let statValue = "";
     let statLabel = "";
@@ -73,16 +73,16 @@ export default function ShareCardCanvas({ template, progress }) {
     if (template === "wordCount") {
       const studiedUnique = Object.values(progress.words).filter((word) => word.knownCount > 0 || word.wrongCount > 0).length;
       statValue = String(studiedUnique);
-      statLabel = "Words Learned";
+      statLabel = t("share.wordsLearned");
       accentColor = PALETTE.emerald;
     } else if (template === "streak") {
       statValue = String(progress.stats.streak);
-      statLabel = "Day Streak";
+      statLabel = t("share.dayStreak");
       accentColor = PALETTE.amber;
     } else if (template === "mastery") {
       const { overallPercent } = getMasteryOverview(progress.words);
       statValue = `${overallPercent}%`;
-      statLabel = "Overall Mastery";
+      statLabel = t("share.overallMastery");
       accentColor = PALETTE.violet;
     }
 
@@ -105,7 +105,7 @@ export default function ShareCardCanvas({ template, progress }) {
 
     ctx.fillStyle = PALETTE.textSecondary;
     ctx.font = "24px Inter, ui-sans-serif, system-ui, sans-serif";
-    ctx.fillText("Learn Korean · One Word at a Time", CARD_WIDTH / 2, CARD_HEIGHT - 80);
+    ctx.fillText(t("share.footer"), CARD_WIDTH / 2, CARD_HEIGHT - 80);
 
     const iconSize = 80;
     const iconX = CARD_WIDTH / 2 - iconSize / 2;
@@ -121,7 +121,7 @@ export default function ShareCardCanvas({ template, progress }) {
     ctx.font = "bold 40px Inter, ui-sans-serif, system-ui, sans-serif";
     ctx.fillText("K", iconX + iconSize / 2, iconY + iconSize / 2 + 14);
 
-  }, [template, progress]);
+  }, [template, progress, t]);
 
   return <canvas ref={canvasRef} className="w-full rounded-2xl shadow-2xl" style={{ maxWidth: CARD_WIDTH, aspectRatio: "1/1" }} />;
 }

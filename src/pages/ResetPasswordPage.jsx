@@ -122,7 +122,7 @@ export default function ResetPasswordPage() {
                   value={form.password}
                   onChange={update("password")}
                   className={inputClassName}
-                  placeholder="••••••••"
+                   placeholder={t("auth.passwordPlaceholder")}
                   disabled={!hasSession || success}
                 />
                 {errors.password && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.password}</p>}
@@ -137,7 +137,7 @@ export default function ResetPasswordPage() {
                   value={form.confirmPassword}
                   onChange={update("confirmPassword")}
                   className={inputClassName}
-                  placeholder="••••••••"
+                   placeholder={t("auth.passwordPlaceholder")}
                   disabled={!hasSession || success}
                 />
                 {errors.confirmPassword && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.confirmPassword}</p>}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
@@ -25,6 +25,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
   const [randomPromptMode, setRandomPromptMode] = useState(() => pickRandomCardMode());
   const progress = useSelector((state) => state.progress);
   const weakWords = useSelector(selectWeakWords);
+  const advanceRef = useRef(null);
   const lesson = Number(lessonId);
   const sourceWords = useMemo(() => {
     if (weak) return weakWords;
@@ -60,6 +61,20 @@ export default function FlashcardsPage({ review = false, weak = false }) {
       setRandomPromptMode(pickRandomCardMode());
     }
   }, [cursor, mode, deckKey]);
+
+  const wordKey = getWordKey(word);
+
+  useEffect(() => {
+    if (!flipped && progress.settings.autoSpeak) {
+      speakKorean(word.korean, progress.settings.speechRate);
+    }
+  }, [wordKey, flipped, progress.settings.autoSpeak, progress.settings.speechRate, word.korean]);
+
+  useEffect(() => {
+    return () => {
+      if (advanceRef.current) clearTimeout(advanceRef.current);
+    };
+  }, []);
 
   if (!sourceWords.length) {
     if (weak) {
@@ -121,11 +136,15 @@ export default function FlashcardsPage({ review = false, weak = false }) {
   }
 
   function rate(rating) {
-    if (!word) return;
+    if (!word || advanceRef.current) return;
     const key = getWordKey(word);
     dispatch(rateFlashcard({ key, rating }));
     dispatch(addActivity({ type: rating, word: word.korean, lesson: word.lesson, at: Date.now() }));
     setFlipped(true);
+    advanceRef.current = setTimeout(() => {
+      nextCard();
+      advanceRef.current = null;
+    }, 450);
   }
 
   return (
@@ -187,7 +206,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
               <div className="absolute inset-0 flex rotate-y-180 flex-col justify-between rounded-[2rem] p-6 [backface-visibility:hidden]">
                 <div className="flex items-center justify-between">
                   <WordBadge tone="green">{t("flashcards.answer")}</WordBadge>
-                  <button type="button" onClick={(event) => { event.stopPropagation(); speakKorean(word.korean); }} className="rounded-full bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
+                  <button type="button" onClick={(event) => { event.stopPropagation(); speakKorean(word.korean, progress.settings.speechRate); }} className="rounded-full bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
                 </div>
                 <div className="space-y-4 text-center">
                   <p className="text-4xl font-black md:text-7xl">{answer}</p>
@@ -216,7 +235,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             <button type="button" onClick={() => setHint(makeHint(answer))} className="action-btn bg-amber-500 text-white">{t("flashcards.hint")}</button>
             <button type="button" onClick={() => dispatch(toggleFavorite(getWordKey(word)))} className="action-btn bg-violet-500 text-white">{isFavorite ? t("flashcards.saved") : t("flashcards.favorite")}</button>
-            <button type="button" onClick={() => speakKorean(word.korean)} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
+            <button type="button" onClick={() => speakKorean(word.korean, progress.settings.speechRate)} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">{t("flashcards.replayAudio")}</button>
             <button type="button" onClick={nextCard} className="action-btn bg-sky-500 text-white">{t("flashcards.next")}</button>
           </div>
         )}

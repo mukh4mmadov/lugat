@@ -68,7 +68,7 @@ export default function PWAUpdate() {
                   {t('pwa.updateAvailable')}
                 </p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {refreshing ? t('pwa.refreshing') : 'Updating automatically...'}
+                  {refreshing ? t('pwa.refreshing') : t('pwa.updatingAutomatically')}
                 </p>
               </div>
               {refreshing && (

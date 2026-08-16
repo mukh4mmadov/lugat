@@ -18,18 +18,18 @@ function formatCountdown(ms) {
     .join(":");
 }
 
-function formatDate(dateStr) {
+function formatDate(dateStr, t) {
   if (!dateStr) return "";
   const date = new Date(dateStr);
   const now = new Date();
   const diffMs = now - date;
   const diffMins = Math.floor(diffMs / 60000);
-  if (diffMins < 1) return "Just now";
-  if (diffMins < 60) return `${diffMins}m ago`;
+  if (diffMins < 1) return t("aiChat.justNow");
+  if (diffMins < 60) return t("aiChat.minutesAgo", { count: diffMins });
   const diffHours = Math.floor(diffMins / 60);
-  if (diffHours < 24) return `${diffHours}h ago`;
+  if (diffHours < 24) return t("aiChat.hoursAgo", { count: diffHours });
   const diffDays = Math.floor(diffHours / 24);
-  if (diffDays < 7) return `${diffDays}d ago`;
+  if (diffDays < 7) return t("aiChat.daysAgo", { count: diffDays });
   return date.toLocaleDateString();
 }
 
@@ -66,6 +66,12 @@ export default function AIChatWidget() {
     };
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current?.focus();
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -189,7 +195,7 @@ export default function AIChatWidget() {
       }
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to get response");
+        throw new Error(data.error || t("aiChat.failedToGetResponse"));
       }
 
       if (data.sessionId) {
@@ -199,7 +205,7 @@ export default function AIChatWidget() {
 
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
     } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
+      setError(err.message || t("aiChat.somethingWentWrong"));
     } finally {
       setLoading(false);
       inputRef.current?.focus();
@@ -343,10 +349,10 @@ export default function AIChatWidget() {
                             className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-left transition hover:border-violet-300 hover:bg-violet-50/50 dark:border-white/10 dark:hover:border-violet-500/30 dark:hover:bg-violet-500/10"
                           >
                             <p className="text-sm font-black text-slate-900 dark:text-white">
-                              {s.title || "New chat"}
+                              {s.title || t("aiChat.newChat")}
                             </p>
                             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                              {formatDate(s.updated_at)}
+                              {formatDate(s.updated_at, t)}
                             </p>
                           </button>
                         ))}
@@ -415,8 +421,10 @@ export default function AIChatWidget() {
                   </div>
                 )}
                 <div className="flex gap-2">
+                  <label htmlFor="ai-chat-input" className="sr-only">{t("aiChat.placeholder")}</label>
                   <input
                     ref={inputRef}
+                    id="ai-chat-input"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}

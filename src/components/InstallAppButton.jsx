@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useInstallPrompt } from "../hooks/useInstallPrompt";
@@ -6,17 +6,32 @@ import { useInstallPrompt } from "../hooks/useInstallPrompt";
 export default function InstallAppButton() {
   const { t } = useTranslation();
   const { canInstall, isIOS, triggerInstall } = useInstallPrompt();
+  const [justInstalled, setJustInstalled] = useState(false);
   const [showIOSInstructions, setShowIOSInstructions] = useState(false);
 
-  if (canInstall || isIOS) {
+  useEffect(() => {
+    if (justInstalled) {
+      const timer = setTimeout(() => setJustInstalled(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [justInstalled]);
+
+  if (canInstall || isIOS || justInstalled) {
     return (
       <>
         <button
           type="button"
-          onClick={() => (isIOS ? setShowIOSInstructions(true) : triggerInstall())}
+          onClick={async () => {
+            if (isIOS) {
+              setShowIOSInstructions(true);
+              return;
+            }
+            const outcome = await triggerInstall();
+            if (outcome === "accepted") setJustInstalled(true);
+          }}
           className="rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
         >
-          {t("nav.installApp")}
+          {justInstalled ? t("nav.installed") : t("nav.installApp")}
         </button>
 
         <AnimatePresence>

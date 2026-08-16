@@ -121,6 +121,12 @@ const progressSlice = createSlice({
     addStudyMinutes(state, action) {
       state.stats.studyMinutes += action.payload;
     },
+    setSpeechRate(state, action) {
+      state.settings.speechRate = Math.min(1.5, Math.max(0.5, action.payload));
+    },
+    setAutoSpeak(state, action) {
+      state.settings.autoSpeak = action.payload;
+    },
     markWordStudied(state, action) {
       state.studied[action.payload] = true;
     },
@@ -194,6 +200,8 @@ export const {
   updateSRSFromExercise,
   markShareMilestoneShown,
   hydrateProgress,
+  setSpeechRate,
+  setAutoSpeak,
 } = progressSlice.actions;
 
 export const store = configureStore({

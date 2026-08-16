@@ -6,7 +6,7 @@ import { MASTERY_LEVELS, getWordMastery, getMasteryOverview } from "../lib/maste
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
 import { allWords, getWordKey, lessonInfo } from "../data";
-import { resetProgress, selectDifficultWords, selectFavoriteWords, markShareMilestoneShown } from "../store";
+import { resetProgress, selectDifficultWords, selectFavoriteWords, markShareMilestoneShown, setSpeechRate, setAutoSpeak } from "../store";
 import { normalizeAnswer } from "../lib/study";
 import { WordListActions } from "./PracticePages";
 import ShareModal from "../components/ShareModal";
@@ -17,7 +17,19 @@ export function SearchPage() {
   const progress = useSelector((state) => state.progress);
   const [query, setQuery] = useState("");
   const [masteryFilter, setMasteryFilter] = useState("all");
-  const normalized = normalizeAnswer(query);
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(60);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 300);
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  useEffect(() => {
+    setVisibleCount(60);
+  }, [debouncedQuery, masteryFilter]);
+
+  const normalized = normalizeAnswer(debouncedQuery);
   const results = useMemo(() => {
     let filtered = allWords;
     if (normalized) {
@@ -37,10 +49,14 @@ export function SearchPage() {
     return counts;
   }, [results, progress.words]);
 
+  const displayedResults = results.slice(0, visibleCount);
+  const hasMore = results.length > visibleCount;
+
   return (
     <GlassCard>
       <Header title={t("library.search")} badge={t("library.searchBadge")} />
-      <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("library.searchPlaceholder", { count: allWords.length })} className="premium-input mb-4" />
+      <label htmlFor="library-search-input" className="sr-only">{t("library.search")}</label>
+      <input id="library-search-input" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("library.searchPlaceholder", { count: allWords.length })} className="premium-input mb-4" />
       <div className="mb-4 flex flex-wrap gap-2">
         {[
           { key: "all", label: t("mastery.filterAll", { count: masteryCounts.all }) },
@@ -63,7 +79,16 @@ export function SearchPage() {
           </button>
         ))}
       </div>
-      <WordGrid words={results} empty={t("search.noResults")} showMastery Illustration={EmptyStateIllustrations.SearchNoResults} />
+      <WordGrid words={displayedResults} empty={t("search.noResults")} showMastery Illustration={EmptyStateIllustrations.SearchNoResults} />
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setVisibleCount((prev) => prev + 60)}
+          className="mt-4 rounded-2xl border border-slate-200 bg-white/75 px-5 py-2.5 font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white"
+        >
+          {t("library.showMore")}
+        </button>
+      )}
     </GlassCard>
   );
 }
@@ -217,6 +242,7 @@ export function StatsPage() {
 export function SettingsPage() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const progress = useSelector((state) => state.progress);
   return (
     <GlassCard className="mx-auto max-w-3xl">
       <Header title={t("library.settings")} badge={t("library.personalization")} />
@@ -224,6 +250,47 @@ export function SettingsPage() {
         <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
           <h3 className="text-xl font-black">{t("settings.pronunciation")}</h3>
           <p className="mt-2 text-slate-600 dark:text-slate-300">{t("settings.pronunciationText")}</p>
+        </div>
+        <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+          <h3 className="text-xl font-black">{t("settings.audioSection")}</h3>
+          <div className="mt-4 space-y-4">
+            <div>
+              <label className="mb-1 block text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                {t("settings.speechRate")}
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="range"
+                  min="0.5"
+                  max="1.5"
+                  step="0.05"
+                  value={progress.settings.speechRate}
+                  onChange={(e) => dispatch(setSpeechRate(Number(e.target.value)))}
+                  className="flex-1"
+                />
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                  {progress.settings.speechRate.toFixed(2)}x
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-black text-slate-900 dark:text-white">{t("settings.autoSpeak")}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{t("settings.autoSpeakDescription")}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => dispatch(setAutoSpeak(!progress.settings.autoSpeak))}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${
+                  progress.settings.autoSpeak ? "bg-sky-500" : "bg-slate-200 dark:bg-white/10"
+                }`}
+              >
+                <span className={`inline-block h-4 w-4 rounded-full bg-white transition ${
+                  progress.settings.autoSpeak ? "translate-x-6" : "translate-x-1"
+                }`} />
+              </button>
+            </div>
+          </div>
         </div>
         <div className="rounded-3xl bg-rose-50 p-5 dark:bg-rose-500/10">
           <h3 className="text-xl font-black text-rose-700 dark:text-rose-200">{t("settings.resetProgress")}</h3>
@@ -245,6 +312,7 @@ function Header({ title, badge }) {
 }
 
 function WordGrid({ words, empty, showMastery = false, masteryWordsState, Illustration }) {
+  const { t } = useTranslation();
   if (!words.length) {
     return (
       <div className="text-center py-8">
@@ -272,7 +340,7 @@ function WordGrid({ words, empty, showMastery = false, masteryWordsState, Illust
                 {word.romanization && <p className="font-semibold text-sky-600 dark:text-sky-300">{word.romanization}</p>}
                 <p className="mt-1 text-slate-600 dark:text-slate-300">{word.uzbek}</p>
               </div>
-              <WordBadge tone={word.needsReview ? "amber" : "green"}>L{word.lesson}</WordBadge>
+              <WordBadge tone={word.needsReview ? "amber" : "green"}>{t("library.lessonPrefix")}{word.lesson}</WordBadge>
             </div>
             <div className="mt-3"><WordListActions word={word} /></div>
           </article>

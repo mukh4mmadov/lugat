@@ -841,15 +841,22 @@ function getExerciseTypeLabel(type, t) {
 
 function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, onToggleSentenceMode, reduxMastery }) {
   const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
     setRevealed(false);
   }, [word]);
 
+  useEffect(() => {
+    if (progress.settings.autoSpeak) {
+      speakKorean(word.korean, progress.settings.speechRate);
+    }
+  }, [word.id, word.korean, progress.settings.autoSpeak, progress.settings.speechRate]);
+
   const handleReveal = () => {
     setRevealed(true);
-    speakKorean(word.korean);
+    speakKorean(word.korean, progress.settings.speechRate);
   };
 
   const handleContinue = () => {
@@ -985,7 +992,7 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
                     </div>
                     <button
                       type="button"
-                      onClick={() => speakKorean(exampleSentence.ko)}
+                      onClick={() => speakKorean(exampleSentence.ko, progress.settings.speechRate)}
                       className="mt-3 text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
                     >
                       🔊 {t("study.listen")}
@@ -1036,6 +1043,13 @@ function LearningCard({ word, mastery, onLearned, feedback, showSentenceMode, on
 
 function ReinforcementCard({ word, onContinue, reduxMastery }) {
   const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
+
+  useEffect(() => {
+    if (progress.settings.autoSpeak) {
+      speakKorean(word.korean, progress.settings.speechRate);
+    }
+  }, [word.id, word.korean, progress.settings.autoSpeak, progress.settings.speechRate]);
 
   const handleContinueClick = () => {
     onContinue();
@@ -1114,7 +1128,7 @@ function ReinforcementCard({ word, onContinue, reduxMastery }) {
             </p>
             <button
               type="button"
-              onClick={() => speakKorean(example.ko)}
+              onClick={() => speakKorean(example.ko, progress.settings.speechRate)}
               className="mt-3 text-xs font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
             >
               🔊 {t("study.listen")}
@@ -1476,10 +1490,11 @@ function MissingLetterChallenge({ word, onAnswer, answered = false }) {
 
 function ListeningChallenge({ word, options, onAnswer, answered = false }) {
   const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
   const [played, setPlayed] = useState(false);
 
   const handlePlay = () => {
-    speakKorean(word.korean);
+    speakKorean(word.korean, progress.settings.speechRate);
     setPlayed(true);
   };
 
@@ -1531,10 +1546,11 @@ function ListeningChallenge({ word, options, onAnswer, answered = false }) {
 
 function ListeningToMeaningChallenge({ word, options, onAnswer, answered = false }) {
   const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
   const [played, setPlayed] = useState(false);
 
   const handlePlay = () => {
-    speakKorean(word.korean);
+    speakKorean(word.korean, progress.settings.speechRate);
     setPlayed(true);
   };
 
@@ -1707,7 +1723,9 @@ function TypingChallenge({ word, onAnswer, answered = false }) {
       </div>
 
       <div className="space-y-3">
+        <label htmlFor="korean-typing-input" className="sr-only">{t("study.koreanInputLabel")}</label>
         <input
+          id="korean-typing-input"
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}

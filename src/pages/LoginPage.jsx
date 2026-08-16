@@ -99,7 +99,8 @@ export default function LoginPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <GlassCard className="p-6 md:p-10">
+          <GlassCard className="relative overflow-hidden p-6 md:p-10">
+            <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-sky-300/25 blur-3xl md:block" />
             <div className="mb-8 text-center">
               <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white md:text-4xl">
                 {t("login.title")}
@@ -117,7 +118,7 @@ export default function LoginPage() {
                   value={form.email}
                   onChange={update("email")}
                   className={inputClassName}
-                  placeholder="you@example.com"
+                   placeholder={t("auth.emailPlaceholder")}
                 />
                 {errors.email && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.email}</p>}
               </div>
@@ -131,7 +132,7 @@ export default function LoginPage() {
                   value={form.password}
                   onChange={update("password")}
                   className={inputClassName}
-                  placeholder="••••••••"
+                   placeholder={t("auth.passwordPlaceholder")}
                 />
                 {errors.password && <p className="mt-1 text-xs font-bold text-rose-600 dark:text-rose-400">{errors.password}</p>}
               </div>

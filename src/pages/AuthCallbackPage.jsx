@@ -2,8 +2,10 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase } from '../lib/supabase';
+import { useTranslation } from 'react-i18next';
 
 export default function AuthCallbackPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const hasProcessed = useRef(false);
 
@@ -65,10 +67,10 @@ export default function AuthCallbackPage() {
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-slate-200 border-t-sky-500 mx-auto" />
         </div>
         <p className="text-lg font-semibold text-slate-900 dark:text-white">
-          Signing you in...
+          {t("authCallback.signingIn")}
         </p>
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
-          Please wait while we complete the authentication
+          {t("authCallback.pleaseWait")}
         </p>
       </motion.div>
     </div>

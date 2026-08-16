@@ -217,7 +217,7 @@ export default function Layout({ onShowIELTSModal }) {
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
                   >
-                    <span>{t("nav.hi")}, {profile?.first_name || 'User'}</span>
+                    <span>{t("nav.hi")}, {profile?.first_name || t("common.userFallback")}</span>
                     <motion.span
                       animate={{ rotate: userMenuOpen ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
@@ -274,6 +274,8 @@ export default function Layout({ onShowIELTSModal }) {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+                aria-expanded={mobileMenuOpen}
                 className="rounded-full border border-slate-200 bg-white/70 p-1.5 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
