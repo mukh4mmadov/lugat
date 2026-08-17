@@ -672,7 +672,7 @@ const resources = {
       "pwa.iosInstructions": "O'rnatish uchun: Ulashish tugmasini bosing, keyin 'Asosiy ekraniga qo'shish'.",
       
       "home.title": "Premium koreyscha lug'at o'rganish",
-      "home.subtitle": "K-TALIM 1A kitobidan olingan aniq lug'atni o'rganing: flashcards, tinglash, quiz, yozish, sevimlilar va aqlli takrorlash.",
+      "home.subtitle": "K-TALIM 1 kitobidan olingan aniq lug'atni o'rganing: flashcards, tinglash, quiz, yozish, sevimlilar va aqlli takrorlash.",
       "home.officialSource": "Faqat rasmiy manba",
       "home.continueLesson": "1-darsni davom etish",
       "home.reviewMode": "Takrorlash rejimi",
@@ -1015,13 +1015,13 @@ const resources = {
       "footer.vocabularySource": "Lug'at manbasi",
       "footer.educationalOnly": "Faqat ta'lim maqsadida",
       "footer.developer": "Dasturchi",
-      "footer.contact": "Xatolik yoki xatolar uchun",
+      "footer.contact": "Xatolik yoki muammolar uchun",
       "footer.contactTelegram": "Telegram @mukh4mmadov",
       "footer.vocabularySourceName": "Dong Eun Academy",
       "footer.developerName": "Mukh4mmadov",
       "footer.developerTelegram": "Telegram @mukh4mmadov",
       
-      "advertisement.placeholder": "Sizning reklamangiz bu yerda bo'lishi mumkin edi",
+      "advertisement.placeholder": "Reklamangiz bu yerda bolishi mumkin edi",
 
       "ielts.title": "Ingliz tilini davom ettiring",
       "ielts.description": "Agar siz koreyscha o'rganayotgan bo'lsangiz, ingliz tilini o'qishni yaxshilash sizga tillarni tezroq o'rganishga yordam beradi. Bizning IELTS Reading platformamizni sinab ko'ring - AI tushuntirishlari, professional matnlar va haqiqiy imtihon mashqlari bilan.",
