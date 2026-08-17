@@ -372,8 +372,8 @@ export default function Layout({ onShowIELTSModal }) {
         </AnimatePresence>
 
         <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-6 h-16 rounded-xl bg-red-500 flex items-center justify-center">
-            <p className="text-sm font-semibold text-white">
+          <div className="mb-4 h-8 rounded-lg border border-slate-200 bg-slate-100/50 flex items-center justify-center dark:border-white/10 dark:bg-white/5">
+            <p className="text-xs font-medium text-slate-400 dark:text-slate-500">
               {t('advertisement.placeholder')}
             </p>
           </div>
