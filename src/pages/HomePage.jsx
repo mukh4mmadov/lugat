@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { getMasteryOverview } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
+import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { lessonInfo } from "../data";
 import { selectLessonProgress, selectReviewCount } from "../store";
 
@@ -14,28 +15,44 @@ export default function HomePage() {
   const reviewCount = useSelector(selectReviewCount);
   const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
   const completedLessons = lessonInfo.filter((lesson) => selectLessonProgress({ progress }, lesson.lesson) === 100).length;
+  const isNewUser = progress.stats.studiedWords === 0 && progress.stats.streak === 0 && completedLessons === 0;
   const dailyLesson = (new Date().getDate() % lessonInfo.length) + 1;
 
   return (
     <div className="space-y-8">
       <section className="grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
       <GlassCard className="relative overflow-hidden p-6 md:p-10">
-        <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-sky-300/25 blur-3xl md:block" />
-        <WordBadge>{t("home.officialSource")}</WordBadge>
-        <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-6xl">
-          {t("home.title")}
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
-          {t("home.subtitle")}
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/lesson/1/flashcards" className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-1 dark:bg-white dark:text-slate-950">
-            {t("home.continueLesson")}
-          </Link>
-          <Link to="/review" className="rounded-2xl border border-slate-200 bg-white/75 px-5 py-2.5 font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white">
-            {t("home.reviewMode")}
-          </Link>
-        </div>
+        {isNewUser ? (
+          <div className="relative z-10">
+            <div className="mx-auto mb-4 h-24 w-24">
+              <EmptyStateIllustrations.WelcomeNewUser />
+            </div>
+            <h2 className="text-center text-2xl font-black md:text-3xl">{t("home.welcomeTitle")}</h2>
+            <p className="mt-2 text-center text-sm text-slate-600 dark:text-slate-300 md:text-base">{t("home.welcomeMessage")}</p>
+            <div className="mt-4 text-center">
+              <Link to="/lesson/1/flashcards" className="inline-flex rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-1">{t("home.startLesson")}</Link>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-sky-300/25 blur-3xl md:block" />
+            <WordBadge>{t("home.officialSource")}</WordBadge>
+            <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-6xl">
+              {t("home.title")}
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
+              {t("home.subtitle")}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/lesson/1/flashcards" className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-1 dark:bg-white dark:text-slate-950">
+                {t("home.continueLesson")}
+              </Link>
+              <Link to="/review" className="rounded-2xl border border-slate-200 bg-white/75 px-5 py-2.5 font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white">
+                {t("home.reviewMode")}
+              </Link>
+            </div>
+          </>
+        )}
       </GlassCard>
 
         <GlassCard className="grid content-between gap-5">

@@ -64,6 +64,15 @@ const EmptyStateIllustrations = {
       <path d="M25 130H135" stroke="#94a3b8" strokeWidth="3" strokeLinecap="round" />
     </svg>
   ),
+
+  WelcomeNewUser: ({ className }) => (
+    <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <circle cx="80" cy="80" r="50" stroke="#38bdf8" strokeWidth="4" fill="#38bdf8" fillOpacity="0.08" />
+      <path d="M80 45V85M80 95V105" stroke="#38bdf8" strokeWidth="6" strokeLinecap="round" />
+      <circle cx="80" cy="115" r="6" fill="#38bdf8" />
+      <path d="M55 55L65 65M105 55L95 65" stroke="#38bdf8" strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  ),
 };
 
 export default EmptyStateIllustrations;
