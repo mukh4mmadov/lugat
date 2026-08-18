@@ -62,13 +62,13 @@ export default function FlashcardsPage({ review = false, weak = false }) {
     }
   }, [cursor, mode, deckKey]);
 
-  const wordKey = getWordKey(word);
+  const wordKey = word ? getWordKey(word) : "";
 
   useEffect(() => {
-    if (!flipped && progress.settings.autoSpeak) {
+    if (!flipped && progress.settings.autoSpeak && word) {
       speakKorean(word.korean, progress.settings.speechRate);
     }
-  }, [wordKey, flipped, progress.settings.autoSpeak, progress.settings.speechRate, word.korean]);
+  }, [word, wordKey, flipped, progress.settings.autoSpeak, progress.settings.speechRate, word?.korean]);
 
   useEffect(() => {
     return () => {
