@@ -16,7 +16,7 @@ export default function HomePage() {
   const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
   const completedLessons = lessonInfo.filter((lesson) => selectLessonProgress({ progress }, lesson.lesson) === 100).length;
   const isNewUser = progress.stats.studiedWords === 0 && progress.stats.streak === 0 && completedLessons === 0;
-  const dailyLesson = (new Date().getDate() % lessonInfo.length) + 1;
+  const dailyLesson = (new Date().getUTCDate() % lessonInfo.length) + 1;
 
   return (
     <div className="space-y-8">
