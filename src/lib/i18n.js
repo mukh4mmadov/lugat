@@ -635,7 +635,7 @@ const resources = {
       "pwa.updatingAutomatically": "Updating automatically...",
       "roadmap.moreFeatures": "— More features in development",
       "library.lessonPrefix": "L",
-      "practice.masteryLabel": "{{score}}% mastery",
+
       "share.tagline": "K-TALIM · Korean Vocabulary Studio",
       "share.appName": "K-TALIM",
       "share.wordsLearned": "Words Learned",
@@ -1279,7 +1279,7 @@ const resources = {
       "pwa.updatingAutomatically": "Avtomatik yangilanmoqda...",
       "roadmap.moreFeatures": "— Yana funksiyalar ishlab chiqilmoqda",
       "library.lessonPrefix": "L",
-      "practice.masteryLabel": "{{score}}% o'zlashtirilgan",
+
       "share.tagline": "K-TALIM · Korean Vocabulary Studio",
       "share.appName": "K-TALIM",
       "share.wordsLearned": "O'rganilgan so'zlar",
@@ -1913,7 +1913,7 @@ const resources = {
       "pwa.updatingAutomatically": "Автоматическое обновление...",
       "roadmap.moreFeatures": "— Больше функций в разработке",
       "library.lessonPrefix": "У",
-      "practice.masteryLabel": "{{score}}% освоено",
+
       "share.tagline": "K-TALIM · Korean Vocabulary Studio",
       "share.appName": "K-TALIM",
       "share.wordsLearned": "Изучено слов",

@@ -196,7 +196,7 @@ function ResultActions({ result, onCheck, onNext, checkLabel, mastery }) {
         <div className="flex items-center justify-center gap-2">
           <MasteryBadge level={mastery.level} />
           <span className="text-xs font-bold text-slate-500 dark:text-slate-300">
-            {mastery.score}% {t("practice.masteryLabel")}
+            {t("practice.masteryScore", { score: mastery.score })}
           </span>
         </div>
       )}
