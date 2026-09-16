@@ -79,29 +79,29 @@ export default function HomePage() {
               <h2 className="mt-3 text-xl font-black md:text-2xl">{t("home.yourWordMastery")}</h2>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div className="rounded-2xl bg-emerald-50 p-3 text-center dark:bg-emerald-400/10">
-                  <p className="text-2xl font-black text-emerald-700 dark:text-emerald-200">{overview.mastered}</p>
+                  <p className="text-2xl font-black text-emerald-700 dark:text-emerald-200">{overview.mastered || 0}</p>
                   <p className="text-xs font-bold text-emerald-600 dark:text-emerald-300">{t("home.mastered")}</p>
                 </div>
                 <div className="rounded-2xl bg-sky-50 p-3 text-center dark:bg-sky-400/10">
-                  <p className="text-2xl font-black text-sky-700 dark:text-sky-200">{overview.practiced}</p>
+                  <p className="text-2xl font-black text-sky-700 dark:text-sky-200">{overview.practiced || 0}</p>
                   <p className="text-xs font-bold text-sky-600 dark:text-sky-300">{t("home.practiced")}</p>
                 </div>
                 <div className="rounded-2xl bg-amber-50 p-3 text-center dark:bg-amber-400/10">
-                  <p className="text-2xl font-black text-amber-700 dark:text-amber-200">{overview.learning}</p>
+                  <p className="text-2xl font-black text-amber-700 dark:text-amber-200">{overview.learning || 0}</p>
                   <p className="text-xs font-bold text-amber-600 dark:text-amber-300">{t("home.learning")}</p>
                 </div>
                 <div className="rounded-2xl bg-slate-100 p-3 text-center dark:bg-white/10">
-                  <p className="text-2xl font-black text-slate-700 dark:text-slate-200">{overview.new}</p>
+                  <p className="text-2xl font-black text-slate-700 dark:text-slate-200">{overview.new || 0}</p>
                   <p className="text-xs font-bold text-slate-600 dark:text-slate-300">{t("home.new")}</p>
                 </div>
               </div>
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
                   <span>{t("home.overallProgress")}</span>
-                  <span>{overview.overallPercent}%</span>
+                  <span>{overview.overallPercent || 0}%</span>
                 </div>
                 <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-                  <div className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${overview.overallPercent}%` }} />
+                  <div className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${overview.overallPercent || 0}%` }} />
                 </div>
               </div>
             </div>
