@@ -40,7 +40,9 @@ export default function FlashcardsPage({ review = false, weak = false }) {
   useEffect(() => {
     if (!sourceWords.length) return;
     if (savedDeck?.queue?.length) return;
-    const deck = buildStudyDeck(sourceWords, progress.words).map(getWordKey);
+        const deck = review
+          ? sourceWords.map(getWordKey)
+          : buildStudyDeck(sourceWords, progress.words).map(getWordKey);
     dispatch(setLessonDeck({ lesson: weak ? "weak" : review ? "review" : lesson, mode, queue: deck, cursor: 0 }));
   }, [dispatch, lesson, mode, progress.words, review, weak, savedDeck?.queue?.length, sourceWords]);
 
@@ -101,6 +103,17 @@ export default function FlashcardsPage({ review = false, weak = false }) {
           </div>
           <h2 className="text-3xl font-black">{t("srs.caughtUp")}</h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300">{t("srs.caughtUpSubtitle")}</p>
+          <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
+            {t("common.back")}
+          </Link>
+        </GlassCard>
+      );
+    }
+    if (lesson < 1 || lesson > lessonInfo.length) {
+      return (
+        <GlassCard className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-black">{t("flashcards.lessonNotFound")}</h2>
+          <p className="mt-3 text-slate-600 dark:text-slate-300">{t("flashcards.lessonNotFoundText")}</p>
           <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/">
             {t("common.back")}
           </Link>

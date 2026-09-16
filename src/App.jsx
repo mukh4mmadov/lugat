@@ -20,7 +20,7 @@ import CompleteProfilePage from "./pages/CompleteProfilePage";
 import RequireProfileComplete from "./components/RequireProfileComplete";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
-import ProgressImportModal from "./components/ProgressImportModal";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   const [showIELTSModal, setShowIELTSModal] = useState(false);
@@ -52,7 +52,7 @@ export default function App() {
             <Route path="stats" element={<StatsPage />} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="settings" element={<SettingsPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
           <Route path="complete-profile" element={<CompleteProfilePage />} />
           <Route path="register" element={
@@ -70,6 +70,7 @@ export default function App() {
           <Route path="auth/callback" element={<AuthCallbackPage />} />
           <Route path="privacy" element={<PrivacyPolicyPage />} />
           <Route path="terms" element={<TermsOfServicePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         
         <IELTSRecommendationModal 

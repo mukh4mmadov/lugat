@@ -30,9 +30,12 @@ export function ListeningPage() {
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [blankError, setBlankError] = useState(false);
   const wordMastery = word ? getWordMastery(getWordKey(word), progress.words) : null;
 
   function check() {
+    if (!answer.trim()) { setBlankError(true); return; }
+    setBlankError(false);
     const correct = isAnswerCorrect(answer, word.korean);
     dispatch(correct ? markKnown({ key: getWordKey(word), exerciseType: "listening" }) : markDifficult({ key: getWordKey(word), exerciseType: "listening" }));
     const answerText = [word.korean, word.romanization, word.uzbek].filter(Boolean).join(' · ');
@@ -49,7 +52,7 @@ export function ListeningPage() {
         <input
           id="listening-answer-input"
           value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
+          onChange={(event) => { setAnswer(event.target.value); setBlankError(false); }}
           placeholder={t("practice.typeKorean")}
           disabled={isCorrect !== null}
           className={(() => {
@@ -58,6 +61,7 @@ export function ListeningPage() {
             return "premium-input mt-8";
           })()}
         />
+        {blankError && <p className="mt-2 text-center text-sm font-bold text-rose-600 dark:text-rose-400">{t("practice.enterAnswer")}</p>}
         <ResultActions result={result} onCheck={check} onNext={() => { setAnswer(""); setResult(null); setIsCorrect(null); next(); }} mastery={wordMastery} />
       </PracticeCard>
     </div>
@@ -138,9 +142,12 @@ export function WritingPage() {
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [blankError, setBlankError] = useState(false);
   const wordMastery = word ? getWordMastery(getWordKey(word), progress.words) : null;
 
   function check() {
+    if (!answer.trim()) { setBlankError(true); return; }
+    setBlankError(false);
     const correct = isAnswerCorrect(answer, word.uzbek);
     dispatch(correct ? markKnown({ key: getWordKey(word), exerciseType: "writing" }) : markDifficult({ key: getWordKey(word), exerciseType: "writing" }));
     setResult(correct ? t("practice.correct") : t("practice.incorrect", { answer: word.uzbek }));
@@ -159,8 +166,8 @@ export function WritingPage() {
         <input
           id="writing-answer-input"
           value={answer}
-          onChange={(event) => setAnswer(event.target.value)}
-          onKeyDown={(event) => event.key === "Enter" && check()}
+          onChange={(event) => { setAnswer(event.target.value); setBlankError(false); }}
+          onKeyDown={(event) => { if (event.key === "Enter") { if (!answer.trim()) { setBlankError(true); return; } setBlankError(false); check(); } }}
           placeholder={t("practice.typeTranslation")}
           disabled={isCorrect !== null}
           className={(() => {
@@ -169,6 +176,7 @@ export function WritingPage() {
             return "premium-input mt-6";
           })()}
         />
+        {blankError && <p className="mt-2 text-center text-sm font-bold text-rose-600 dark:text-rose-400">{t("practice.enterAnswer")}</p>}
         <ResultActions result={result} onCheck={check} onNext={() => { setAnswer(""); setResult(null); setIsCorrect(null); next(); }} mastery={wordMastery} />
       </PracticeCard>
     </div>

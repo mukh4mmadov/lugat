@@ -104,6 +104,8 @@ const resources = {
       "flashcards.tapToFlip": "Tap card to flip",
       "flashcards.noDifficultWords": "No difficult words yet",
       "flashcards.noDifficultText": "Press Don't Know in flashcards to collect words here automatically.",
+      "flashcards.lessonNotFound": "Lesson not found",
+      "flashcards.lessonNotFoundText": "This lesson doesn't exist. Check the lesson number and try again.",
       
       "practice.audioFirst": "Audio first",
       "practice.play": "Play",
@@ -282,9 +284,10 @@ const resources = {
       "srs.caughtUpSubtitle": "No words are due for review right now. Keep learning and they'll appear here when it's time.",
       "srs.reviewsCompleted": "{{count}} reviews completed",
       
-      "practice.masteryScore": "{{score}}% mastered",
-      
-      
+"practice.masteryScore": "{{score}}% mastered",
+      "practice.enterAnswer": "Enter an answer first",
+
+
       "feedback.nice": "Nice!",
       "feedback.great": "Great!",
       "feedback.excellent": "Excellent!",
@@ -302,6 +305,8 @@ const resources = {
       "common.save": "Save",
       "common.cancel": "Cancel",
       "common.delete": "Delete",
+      "notFound.title": "Page Not Found",
+      "notFound.text": "The page you're looking for doesn't exist. Check the URL or go back home.",
       "common.edit": "Edit",
       "common.close": "Close",
       "common.search": "Search",
@@ -748,6 +753,8 @@ const resources = {
       "flashcards.tapToFlip": "Kartani bosib o'giring",
       "flashcards.noDifficultWords": "Hali qiyin so'zlar yo'q",
       "flashcards.noDifficultText": "So'zlarni avtomatik ravishda bu yerga yig'ib olish uchun flashcardsda Bilmayamni bosing.",
+      "flashcards.lessonNotFound": "Dars topilmadi",
+      "flashcards.lessonNotFoundText": "Bu dars mavjud emas. Dars raqamini tekshiring va qayta urinib ko'ring.",
       
       "practice.audioFirst": "Avval audio",
       "practice.play": "O'ynash",
@@ -926,9 +933,10 @@ const resources = {
       "srs.caughtUpSubtitle": "Hozircha takrorlash uchun so'zlar yo'q. O'rganishni davom ettiring, vaqt kelganda ular bu yerda paydo bo'ladi.",
       "srs.reviewsCompleted": "{{count}} ta takrorlash bajarildi",
       
-      "practice.masteryScore": "{{score}}% o'zlashtirilgan",
-      
-      
+"practice.masteryScore": "{{score}}% o'zlashtirilgan",
+      "practice.enterAnswer": "Avval javob kiriting",
+
+
       "feedback.nice": "Yaxshi!",
       "feedback.great": "Ajoyib!",
       "feedback.excellent": "Zo'r!",
@@ -946,6 +954,8 @@ const resources = {
       "common.save": "Saqlash",
       "common.cancel": "Bekor qilish",
       "common.delete": "O'chirish",
+      "notFound.title": "Sahifa topilmadi",
+      "notFound.text": "Siz qidiryotgan sahifa mavjud emas. URL-ni tekshiring yoki bosh sahifaga qayting.",
       "common.edit": "Tahrirlash",
       "common.close": "Yopish",
       "common.search": "Qidirish",
@@ -1392,6 +1402,8 @@ const resources = {
       "flashcards.tapToFlip": "Нажмите на карточку, чтобы перевернуть",
       "flashcards.noDifficultWords": "Пока нет сложных слов",
       "flashcards.noDifficultText": "Нажмите Не знаю в карточках, чтобы автоматически собирать слова здесь.",
+      "flashcards.lessonNotFound": "Урок не найден",
+      "flashcards.lessonNotFoundText": "Этот урок не существует. Проверьте номер урока и попробуйте снова.",
       
       "practice.audioFirst": "Сначала аудио",
       "practice.play": "Воспроизвести",
@@ -1570,9 +1582,10 @@ const resources = {
       "srs.caughtUpSubtitle": "Сейчас нет слов для повторения. Продолжайте учить, и они появятся здесь, когда придет время.",
       "srs.reviewsCompleted": "{{count}} повторений выполнено",
       
-      "practice.masteryScore": "{{score}}% освоено",
-      
-      
+"practice.masteryScore": "{{score}}% освоено",
+      "practice.enterAnswer": "Сначала введите ответ",
+
+
       "search.noResults": "Совпадений не найдено.",
       
       "common.back": "Назад",
@@ -1580,6 +1593,8 @@ const resources = {
       "common.save": "Сохранить",
       "common.cancel": "Отмена",
       "common.delete": "Удалить",
+      "notFound.title": "Страница не найдена",
+      "notFound.text": "Страница, которую вы ищете, не существует. Проверьте URL или вернитесь на главную.",
       "common.edit": "Редактировать",
       "common.close": "Закрыть",
       "common.search": "Поиск",
