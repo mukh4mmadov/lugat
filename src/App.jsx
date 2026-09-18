@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import Layout from "./components/Layout";
 import IELTSRecommendationModal from "./components/IELTSRecommendationModal";
+import ProgressImportModal from "./components/ProgressImportModal";
 import HomePage from "./pages/HomePage";
 import { StudyHomePage, StudyModePage } from "./pages/StudyPage";
 import FlashcardsPage from "./pages/FlashcardsPage";
