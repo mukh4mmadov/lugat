@@ -1,0 +1,267 @@
+[
+  {
+    "id": 604,
+    "korean": "SNS",
+    "uzbek": "Ijtimoiy tarmoqlar",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 604
+  },
+  {
+    "id": 605,
+    "korean": "밖에 나가다",
+    "uzbek": "Tashqariga chiqmoq",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 605
+  },
+  {
+    "id": 606,
+    "korean": "빠르다",
+    "uzbek": "Tez, chaqqon",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 606
+  },
+  {
+    "id": 607,
+    "korean": "안내 방송",
+    "uzbek": "E'lon",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 607,
+    "note": "radio orqali ma'lumot berish"
+  },
+  {
+    "id": 608,
+    "korean": "일본어",
+    "uzbek": "Yapon tili",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 608
+  },
+  {
+    "id": 609,
+    "korean": "외국인",
+    "uzbek": "Ajnabiy, chet ellik",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 609
+  },
+  {
+    "id": 610,
+    "korean": "노약자석 (노약자속)",
+    "uzbek": "Qariyalar va nogironlar uchun joy",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 610
+  },
+  {
+    "id": 611,
+    "korean": "임산부석",
+    "uzbek": "Homilador ayollar uchun joy",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 611
+  },
+  {
+    "id": 612,
+    "korean": "노인",
+    "uzbek": "Qariya, keksa inson",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 612
+  },
+  {
+    "id": 613,
+    "korean": "몸",
+    "uzbek": "Tana, a'zo",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 613
+  },
+  {
+    "id": 614,
+    "korean": "임산부",
+    "uzbek": "Homilador ayol",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 614
+  },
+  {
+    "id": 615,
+    "korean": "어른",
+    "uzbek": "Kattalar",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 615,
+    "note": "yoshi ulug' insonlar"
+  },
+  {
+    "id": 616,
+    "korean": "에어컨",
+    "uzbek": "Konditsioner",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 616
+  },
+  {
+    "id": 617,
+    "korean": "지하철역",
+    "uzbek": "Metro bekati",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 617
+  },
+  {
+    "id": 618,
+    "korean": "교통카드",
+    "uzbek": "Transport kartasi",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 618
+  },
+  {
+    "id": 619,
+    "korean": "출구",
+    "uzbek": "Chiqish joyi",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 619
+  },
+  {
+    "id": 620,
+    "korean": "입구",
+    "uzbek": "Kirish joyi",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 620
+  },
+  {
+    "id": 621,
+    "korean": "갈아타다",
+    "uzbek": "Boshqa transportga o'tmoq",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 621,
+    "note": "peresadka"
+  },
+  {
+    "id": 622,
+    "korean": "호선",
+    "uzbek": "Liniya, yo'nalish",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 622,
+    "note": "metroda"
+  },
+  {
+    "id": 623,
+    "korean": "내리다",
+    "uzbek": "Tushmoq",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 623,
+    "note": "transportdan) / Yog'moq (yomg'ir/qor"
+  },
+  {
+    "id": 624,
+    "korean": "시끄럽다",
+    "uzbek": "Shovqinli",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 624
+  },
+  {
+    "id": 625,
+    "korean": "자리",
+    "uzbek": "Joy, o'rin",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 625
+  },
+  {
+    "id": 626,
+    "korean": "외국어로",
+    "uzbek": "Chet tilida",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 626
+  },
+  {
+    "id": 627,
+    "korean": "역",
+    "uzbek": "Bekat, stansiya",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 627
+  },
+  {
+    "id": 628,
+    "korean": "분홍색",
+    "uzbek": "Pushti rang",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 628
+  },
+  {
+    "id": 629,
+    "korean": "몸이 불편한 사람",
+    "uzbek": "Nogiron yoki harakatlanishi qiyin bo'lgan odam",
+    "lesson": 21,
+    "category": "transportation, public spaces and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 629
+  }
+]

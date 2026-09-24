@@ -1,0 +1,153 @@
+[
+  {
+    "id": 506,
+    "korean": "출발하다",
+    "uzbek": "Jo'namoq, yo'lga chiqmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 506
+  },
+  {
+    "id": 507,
+    "korean": "도착하다",
+    "uzbek": "Yetib kelmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 507,
+    "note": "bormoq"
+  },
+  {
+    "id": 508,
+    "korean": "돌아가다",
+    "uzbek": "Qaytib ketmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 508
+  },
+  {
+    "id": 509,
+    "korean": "돌아오다",
+    "uzbek": "Qaytib kelmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 509
+  },
+  {
+    "id": 510,
+    "korean": "고향에 가다",
+    "uzbek": "Qishloqqa (ona shahriga) bormoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 510
+  },
+  {
+    "id": 511,
+    "korean": "기념하다",
+    "uzbek": "Nishonlamoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 511
+  },
+  {
+    "id": 512,
+    "korean": "모이다",
+    "uzbek": "To'planmoq, yig'ilmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 512
+  },
+  {
+    "id": 513,
+    "korean": "시작되다",
+    "uzbek": "Boshlanmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 513
+  },
+  {
+    "id": 514,
+    "korean": "끝나다",
+    "uzbek": "Tugamoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 514
+  },
+  {
+    "id": 515,
+    "korean": "어린이날",
+    "uzbek": "Bolalar kuni",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 515
+  },
+  {
+    "id": 516,
+    "korean": "고향",
+    "uzbek": "Qishloq, tug'ilib o'sgan joy",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 516
+  },
+  {
+    "id": 517,
+    "korean": "걸어서 가다",
+    "uzbek": "Piyoda bormoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 517
+  },
+  {
+    "id": 518,
+    "korean": "버스를 타고 가다",
+    "uzbek": "Avtobusda bormoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 518
+  },
+  {
+    "id": 519,
+    "korean": "시간이 걸리다",
+    "uzbek": "Vaqt ketmoq",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 519
+  },
+  {
+    "id": 520,
+    "korean": "얼마나",
+    "uzbek": "Qancha, qanchalik",
+    "lesson": 17,
+    "category": "travel, movement and directions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 520
+  }
+]

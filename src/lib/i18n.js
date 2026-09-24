@@ -1,0 +1,2215 @@
+﻿import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+const resources = {
+  en: {
+    translation: {
+      "nav.home": "Home",
+      "nav.courses": "Courses",
+      "nav.study": "Study",
+      "nav.search": "Search",
+      "nav.favorites": "Favorites",
+      "nav.difficult": "Difficult Words",
+      "nav.stats": "Statistics",
+      "nav.settings": "Settings",
+      "nav.dark": "Dark Mode",
+      "nav.light": "Light Mode",
+      "nav.futureUpdates": "Future Updates",
+      "nav.login": "Log in",
+      "nav.logout": "Log out",
+      "nav.hi": "Hi",
+      "nav.more": "More",
+      "nav.openMenu": "Open menu",
+      "nav.closeMenu": "Close menu",
+
+      "pwa.updateAvailable": "New version available",
+      "pwa.refreshing": "Refreshing...",
+      "nav.installApp": "Install App",
+      "pwa.iosInstructions":
+        "To install: tap the Share button, then 'Add to Home Screen'.",
+
+      "home.title": "Premium Korean vocabulary learning",
+      "home.subtitle":
+        "Learn the exact vocabulary from K-TALIM 1A book: flashcards, listening, quiz, writing, favorites, and smart review.",
+      "home.officialSource": "Official source only",
+      "home.continueLesson": "Continue Lesson 1",
+      "home.reviewMode": "Review Mode",
+      "home.welcomeTitle": "Welcome to K-TALIM!",
+      "home.welcomeMessage":
+        "Start with Lesson 1 to begin your Korean vocabulary journey.",
+      "home.startLesson": "Start Lesson 1",
+      "home.progress": "Progress",
+      "home.dashboard": "Your study dashboard",
+      "home.words": "Words",
+      "home.lessons": "Lessons",
+      "home.completed": "Completed",
+      "home.streak": "Streak",
+      "home.dailyChallenge": "Daily Challenge",
+      "home.dailyChallengeText": "Today's focused session: Lesson {{lesson}}",
+      "home.dailyChallengeSubtitle":
+        "Warm up with flashcards, then finish with quiz and writing practice.",
+      "home.startChallenge": "Start Challenge",
+      "home.wordsLearned": "{{percent}}% learned",
+      "home.continue": "Continue",
+
+      "courses.selectCourse": "Select Course",
+      "courses.title": "Choose your course",
+      "courses.subtitle": "Select the K-TALIM book you want to study",
+      "courses.browseByCourse": "Browse by Course",
+      "courses.browseTitle": "Explore Lessons by Book",
+      "courses.browseSubtitle": "Choose K-TALIM 1A or 1B to view its lessons",
+      "courses.openCourses": "Open Course Library",
+      "courses.backToCourses": "Back to Courses",
+      "courses.openCourse": "Open Course",
+      "courses.description1A": "Foundation vocabulary from the first book",
+      "courses.description1B": "Advanced vocabulary from the second book",
+
+      "study.title": "Study Mode",
+      "study.subtitle":
+        "Memorize vocabulary at your own pace — no scoring, no quiz. Pick a lesson to review every word, then head to Practice to test yourself.",
+      "study.learnFirst": "Study first, then practice",
+      "study.lessonCompleted": "Lesson completed 🎉",
+      "study.lessonCompletedText":
+        "You've gone through all {{count}} words in Lesson {{lesson}}. Ready to test yourself?",
+      "study.lessonNotFound": "Lesson not found",
+      "study.showMeaning": "Show Meaning",
+      "study.reveal": "Reveal",
+      "study.headerTitle": "Study — Lesson {{lesson}}",
+      "home.studyAgain": "Study Again",
+      "home.goToPractice": "Go to Practice",
+
+      "studyDevelopment.title": "🚧 Study Page is Under Development",
+      "studyDevelopment.subtitle":
+        "This page is currently being actively improved. For the best experience, we recommend waiting until the current improvements are completed.",
+      "studyDevelopment.improvingTitle": "Currently being improved:",
+      "studyDevelopment.improving.flow":
+        "Learning flow and exercise progression",
+      "studyDevelopment.improving.selection":
+        "Word selection and review balance",
+      "studyDevelopment.improving.repetition":
+        "Spaced repetition and weak-word review",
+      "studyDevelopment.improving.variety":
+        "Exercise variety and adaptive difficulty",
+      "studyDevelopment.improving.mastery":
+        "Mastery detection and completion logic",
+      "studyDevelopment.improving.reinforcement":
+        "Reinforcement and wrong-answer handling",
+      "studyDevelopment.improving.ui": "UI/UX stability and interaction bugs",
+      "studyDevelopment.importantTitle": "⚠️ Important",
+      "studyDevelopment.importantText":
+        "The Study Page may currently contain temporary bugs or unexpected behavior while development is ongoing. You can still explore and test the page, but it is not recommended for serious learning yet.",
+
+      "practice.flashcards": "Flashcards",
+      "practice.listening": "Listening",
+      "practice.quiz": "Quiz",
+      "practice.writing": "Writing",
+      "practice.smartReview": "Smart Review",
+
+      "flashcards.hint": "Hint",
+      "flashcards.iKnow": "I Know",
+      "flashcards.dontKnow": "Don't Know",
+      "flashcards.favorite": "Favorite",
+      "flashcards.saved": "Saved",
+      "flashcards.replayAudio": "Replay Audio",
+      "flashcards.next": "Next",
+      "flashcards.korean": "Korean",
+      "flashcards.uzbek": "Uzbek",
+      "flashcards.answer": "Answer",
+      "flashcards.tapToFlip": "Tap card to flip",
+      "flashcards.noDifficultWords": "No difficult words yet",
+      "flashcards.noDifficultText":
+        "Press Don't Know in flashcards to collect words here automatically.",
+      "flashcards.lessonNotFound": "Lesson not found",
+      "flashcards.lessonNotFoundText":
+        "This lesson doesn't exist. Check the lesson number and try again.",
+
+      "practice.audioFirst": "Audio first",
+      "practice.play": "Play",
+      "practice.typeKorean": "Type the Korean word you hear",
+      "practice.fourChoices": "4 choices",
+      "practice.typeTranslation": "Type translation",
+      "practice.correct": "Correct",
+      "practice.incorrect": "Answer: {{answer}}",
+      "practice.replayAudio": "Replay Audio",
+      "practice.next": "Next",
+
+      "library.search": "Search",
+      "library.searchBadge": "Korean · Uzbek · Romanization",
+      "library.searchPlaceholder": "Search all {{count}} vocabulary entries",
+      "library.showMore": "Show more",
+      "settings.audioSection": "Audio",
+      "settings.speechRate": "Speech speed",
+      "settings.autoSpeak": "Auto-play pronunciation",
+      "settings.autoSpeakDescription":
+        "Automatically play audio when new words appear",
+      "library.favorites": "Favorites",
+      "library.favoritesEmpty":
+        "No favorites yet. Save words from flashcards or search.",
+      "library.difficult": "Difficult Words",
+      "library.autoCollected": "Auto collected",
+      "library.difficultEmpty":
+        "No difficult words yet. Press Don't Know during practice.",
+      "library.weakWords": "Weak Words",
+      "library.weakWordsBadge": "Adaptive practice",
+      "library.noWeakWords": "No weak words yet",
+      "library.noWeakWordsText":
+        "Keep practicing and words you struggle with will appear here.",
+      "library.stats": "Statistics",
+      "library.analytics": "Learning analytics",
+      "library.settings": "Settings",
+      "library.personalization": "Personalization",
+
+      "stats.dailyStreak": "Daily streak",
+      "stats.accuracy": "Accuracy",
+      "stats.wordsLearned": "Words learned",
+      "stats.studyTime": "Study time",
+      "stats.completedLessons": "Completed lessons",
+      "stats.hardestLesson": "Hardest lesson",
+      "stats.hardWords": "Hard words",
+      "stats.reviews": "Reviews",
+      "stats.milestones": "Milestones",
+      "stats.achievements": "Achievements",
+      "stats.latestPractice": "Latest practice",
+      "stats.recentActivity": "Recent activity",
+      "stats.noActivity": "No activity yet.",
+
+      "share.title": "Share your progress",
+      "share.selectTemplate": "Choose a template",
+      "share.templateWordCount": "Word Count",
+      "share.templateStreak": "Streak",
+      "share.templateMastery": "Level / Mastery",
+      "share.close": "Close",
+      "share.download": "Download",
+      "share.share": "Share",
+
+      "aiChat.title": "AI Chat",
+      "aiChat.subtitle":
+        "Ask anything about Korean vocabulary, grammar, or study tips.",
+      "aiChat.placeholder": "Type your question about Korean...",
+      "aiChat.send": "Send",
+      "aiChat.thinking": "Thinking...",
+      "aiChat.emptyState":
+        "Ask me anything about Korean vocabulary, grammar, or study tips to get started.",
+      "aiChat.badge": "AI Tutor",
+      "aiChat.rateLimitExceeded":
+        "Daily AI chat limit reached. Please try again tomorrow.",
+      "aiChat.openAriaLabel": "Open AI Chat",
+      "aiChat.closeAriaLabel": "Close AI Chat",
+      "aiChat.guestLimitReached":
+        "You've reached the guest limit. Log in for more daily messages.",
+      "aiChat.limitResetsIn": "Limit resets in: {{time}}",
+      "aiChat.history": "History",
+      "aiChat.newChat": "New chat",
+      "aiChat.noSessions": "No chat history yet",
+
+      "achievement.firstStep": "First Step",
+      "achievement.hundredReviews": "100 Reviews",
+      "achievement.sevenDayStreak": "7 Day Streak",
+      "achievement.halfWay": "Half Way",
+      "achievement.master": "Vocabulary Master",
+
+      "settings.pronunciation": "Pronunciation",
+      "settings.pronunciationText":
+        "Audio uses your browser's Korean speech synthesis voice (ko-KR) for every word.",
+      "settings.resetProgress": "Reset Progress",
+      "settings.resetProgressText":
+        "This clears learned words, favorites, difficult words, stats, streak, and saved decks.",
+      "settings.resetConfirm": "Reset all local progress?",
+      "settings.resetButton": "Reset Progress",
+
+      "header.brand": "Korean Vocabulary Studio",
+      "header.menu": "Menu",
+
+      "mastery.new": "New",
+      "mastery.learning": "Learning",
+      "mastery.practiced": "Practiced",
+      "mastery.mastered": "Mastered",
+      "mastery.overview": "Vocabulary Mastery",
+      "mastery.masteredCount": "Mastered",
+      "mastery.practicedCount": "Practiced",
+      "mastery.learningCount": "Learning",
+      "mastery.newCount": "New",
+      "mastery.overallProgress": "Overall Progress",
+      "mastery.lessonMastery": "Lesson Mastery",
+      "mastery.courseMastery": "Course Mastery",
+      "mastery.score": "{{score}}% mastery",
+
+      "study.practiceNeeded": "Practice Needed",
+      "study.keepPracticing": "Keep Practicing",
+      "study.wordsIntroduced": "Words Introduced",
+      "study.wordsMastered": "Words Mastered",
+      "study.accuracy": "Accuracy",
+      "study.studyTime": "Study Time",
+      "study.needsReview": "Needs Review",
+      "study.continuePractice": "Continue Practice",
+      "study.nextLesson": "Next Lesson →",
+      "study.introduced": "introduced",
+      "study.mastered": "mastered",
+      "study.learning": "learning",
+      "study.checkpoint": "Check your knowledge",
+      "study.checkpointTitle": "Check your knowledge",
+      "study.checkpointSubtitle":
+        "You've studied {{count}} words. Now let's test your knowledge.",
+      "study.review": "Review",
+      "study.letsReview": "Let's review",
+      "study.wordType.country": "🌍 Country",
+      "study.wordType.profession": "👤 Profession",
+      "study.wordType.food": "🍽️ Food",
+      "study.wordType.family": "👨‍👩‍👧 Family",
+      "study.wordType.number": "🔢 Number",
+      "study.wordType.verb": "📝 Verb",
+      "study.wordType.adjective": "🎨 Adjective",
+      "study.wordType.noun": "📚 Noun",
+      "study.example": "Example",
+      "study.listen": "🔊 Listen",
+      "study.hideSentence": "Hide sentence",
+      "study.showSentence": "Show sentence",
+
+      "courses.notFound": "Course not found",
+      "courses.mastery": "Mastery",
+      "courses.lessonMastery": "{{mastered}}/{{total}} mastered",
+      "courses.course1A": "K-TALIM 1A",
+      "courses.course1B": "K-TALIM 1B",
+
+      "lesson.1.category": "intro, countries and identity",
+      "lesson.2.category": "classroom objects and people",
+      "lesson.3.category": "daily actions",
+      "lesson.4.category": "descriptions, weather and drinks",
+      "lesson.5.category": "places and activities",
+      "lesson.6.category": "locations, dates and numbers",
+      "lesson.7.category": "native numbers, counters and family",
+      "lesson.8.category": "time, places and daily life",
+      "lesson.9.category": "actions, health and family",
+      "lesson.10.category": "seasons, weather and irregular verbs",
+      "lesson.11.category": "descriptions, transport and family",
+      "lesson.12.category": "entertainment and daily actions",
+      "lesson.13.category": "culture, home and communication",
+      "lesson.14.category": "hobbies, language and expressions",
+      "lesson.15.category": "polite speech, honorifics and daily life",
+      "lesson.16.category": "daily routine, time and daily actions",
+      "lesson.17.category": "travel, movement and directions",
+      "lesson.18.category": "body parts, health and descriptions",
+      "lesson.19.category": "sports, activities and school life",
+      "lesson.20.category": "korean culture, traditions and food",
+      "lesson.21.category": "transportation, public spaces and directions",
+      "lesson.22.category": "travel, daily life and shopping",
+      "lesson.23.category": "office, communication and daily life",
+      "lesson.24.category": "adjectives, nature and places",
+      "lesson.25.category": "health, hospital and body",
+      "lesson.26.category": "seoul, travel and daily expressions",
+      "lesson.27.category": "health, exercise and daily life",
+      "lesson.28.category": "daily life, home and miscellaneous",
+
+      "srs.again": "Again",
+      "srs.hard": "Hard",
+      "srs.good": "Good",
+      "srs.easy": "Easy",
+      "srs.reviewsDue": "{{count}} reviews due today",
+      "srs.reviewsDueSubtitle":
+        "Keep your memory strong with scheduled reviews",
+      "srs.reviewNow": "Review Now",
+      "srs.caughtUp": "You're all caught up!",
+      "srs.caughtUpSubtitle":
+        "No words are due for review right now. Keep learning and they'll appear here when it's time.",
+      "srs.reviewsCompleted": "{{count}} reviews completed",
+
+      "practice.masteryScore": "{{score}}% mastered",
+      "practice.enterAnswer": "Enter an answer first",
+
+      "feedback.nice": "Nice!",
+      "feedback.great": "Great!",
+      "feedback.excellent": "Excellent!",
+      "feedback.perfect": "Perfect!",
+      "feedback.awesome": "Awesome!",
+      "feedback.almost": "Almost!",
+      "feedback.close": "Close!",
+      "feedback.remember": "Let's remember this",
+      "feedback.almostThere": "Almost there!",
+
+      "search.noResults": "No matches found.",
+
+      "common.back": "Back",
+      "common.loading": "Loading...",
+      "common.save": "Save",
+      "common.cancel": "Cancel",
+      "common.delete": "Delete",
+      "notFound.title": "Page Not Found",
+      "notFound.text":
+        "The page you're looking for doesn't exist. Check the URL or go back home.",
+      "common.edit": "Edit",
+      "common.close": "Close",
+      "common.search": "Search",
+      "common.filter": "Filter",
+      "common.sort": "Sort",
+      "common.view": "View",
+      "common.share": "Share",
+      "common.copy": "Copy",
+      "common.download": "Download",
+      "common.upload": "Upload",
+      "common.confirm": "Confirm",
+      "common.yes": "Yes",
+      "common.no": "No",
+      "common.tryAgain": "Try again",
+      "common.stop": "Stop",
+      "common.none": "—",
+      "common.success": "Success",
+      "common.error": "Error",
+      "common.warning": "Warning",
+      "common.info": "Info",
+      "common.reportBug": "Report a bug",
+
+      "practice.shuffle": "Shuffle",
+      "practice.autoPlay": "Auto-play",
+      "practice.manualDifficult": "Mark as difficult",
+      "practice.markDifficult": "Mark as difficult",
+
+      "study.full": "Show all",
+      "study.hideUzbek": "Hide Uzbek",
+      "study.onlyKorean": "Korean only",
+
+      "mode.korean": "Korean → Uzbek",
+      "mode.uzbek": "Uzbek → Korean",
+      "mode.random": "Random",
+
+      "card.word": "Word {{number}} / {{total}}",
+      "card.lesson": "Lesson {{lesson}}",
+      "card.category": "Category",
+      "card.verified": "Verified from image",
+      "card.needsReview": "Needs review",
+
+      "button.start": "Start",
+      "button.continue": "Continue",
+      "button.next": "Next",
+      "button.previous": "Previous",
+      "button.finish": "Finish",
+      "button.skip": "Skip",
+      "button.retry": "Retry",
+      "button.back": "Back",
+
+      "feedback.correct": "Correct!",
+      "feedback.incorrect": "Incorrect",
+      "feedback.tryAgain": "Try again",
+
+      "empty.noData": "No data",
+      "empty.noResults": "No results found",
+      "empty.noFavorites": "No favorites yet",
+      "empty.noActivity": "No activity yet",
+
+      "time.minutes": "minutes",
+      "time.hours": "hours",
+      "time.days": "days",
+      "time.weeks": "weeks",
+      "time.months": "months",
+      "time.years": "years",
+
+      "footer.vocabularySource": "Vocabulary source",
+      "footer.educationalOnly": "Educational purposes only",
+      "footer.developer": "Developer",
+      "footer.contact": "For bugs or errors",
+      "footer.contactTelegram": "Telegram @mukh4mmadov",
+      "footer.vocabularySourceName": "Dong Eun Academy",
+      "footer.developerName": "Mukh4mmadov",
+      "footer.developerTelegram": "Telegram @mukh4mmadov",
+
+      "advertisement.placeholder": "Your advertisement could be here",
+
+      "ielts.title": "Continue improving your English",
+      "ielts.description":
+        "If you're learning Korean, improving your English reading will help you learn languages faster. Try our IELTS Reading platform with AI explanations, professional passages and real exam practice.",
+      "ielts.openButton": "Practice IELTS Reading",
+      "ielts.continueButton": "Continue Learning Korean",
+      "ielts.footer": "Created by the same developer.",
+      "ielts.preview.title": "IELTS Reading Platform",
+      "ielts.preview.aiExplanations": "AI Explanations",
+      "ielts.preview.vocabulary": "Vocabulary",
+      "ielts.preview.bandScore": "Band Score",
+      "ielts.preview.realPassages": "Real Cambridge Passages",
+      "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
+
+      "study.cumulativeProgress": "Cumulative Progress",
+      "study.mastery.mastered": "Mastered",
+      "study.mastery.progress": "Progress: {{count}}/{{threshold}}",
+      "study.mastery.new": "New word",
+      "study.learnThisWord": "Learn this word",
+      "study.continue": "Continue",
+      "study.toPractice": "to practice",
+      "study.exercise": "Practice",
+      "study.chooseMeaning": "Choose the correct meaning",
+      "study.chooseKorean": "Choose the correct Korean word",
+      "study.isTranslationCorrect": "Is this translation correct?",
+      "study.yesCorrect": "Yes, correct",
+      "study.noIncorrect": "No, incorrect",
+      "study.exerciseNotAvailable": "This exercise type is not available",
+      "study.chooseMissingLetter": "Choose the missing letter",
+      "study.listenChooseWord": "Listen and choose the correct word",
+      "study.listenChooseMeaning": "Listen and choose the meaning",
+      "study.chooseWordForBlank": "Choose the word for the blank",
+      "study.typeInKorean": "Type in Korean",
+      "study.koreanInputLabel": "Korean word input",
+      "study.check": "Check",
+
+      "exercise.koreanToUzbek": "Korean → Uzbek",
+      "exercise.uzbekToKorean": "Uzbek → Korean",
+      "exercise.listeningToKorean": "Listening",
+      "exercise.trueFalse": "True/False",
+      "exercise.missingSyllable": "Missing Letter",
+      "exercise.typingChallenge": "Typing",
+      "exercise.listeningToMeaning": "Listen & Meaning",
+      "exercise.sentenceContext": "Sentence Word",
+
+      "mastery.wordLevels": "Word Levels",
+      "mastery.overallMastery": "Overall Mastery",
+      "mastery.filterAll": "All ({{count}})",
+      "mastery.filterNew": "New ({{count}})",
+      "mastery.filterLearning": "Learning ({{count}})",
+      "mastery.filterPracticed": "Practiced ({{count}})",
+      "mastery.filterMastered": "Mastered ({{count}})",
+
+      "home.masteryOverview": "Vocabulary Mastery",
+      "home.yourWordMastery": "Your Word Mastery",
+      "home.mastered": "Mastered",
+      "home.practiced": "Practiced",
+      "home.learning": "Learning",
+      "home.new": "New",
+      "home.overallProgress": "Overall Progress",
+
+      "roadmap.comingSoon": "COMING SOON",
+      "roadmap.title": "Future Updates",
+      "roadmap.subtitle":
+        "We're constantly improving K-TALIM to make Korean learning smarter, easier, and more effective.",
+      "roadmap.planned": "PLANNED",
+      "roadmap.completed": "COMPLETED",
+      "roadmap.future": "FUTURE",
+      "roadmap.benefit": "How this helps you",
+
+      "roadmap.feature1.title": "Account / Login & Register",
+      "roadmap.feature1.description":
+        "Users will be able to create a personal K-TALIM account with secure login and registration.",
+      "roadmap.feature1.benefit":
+        "User progress and personal data can be securely associated with their account and restored when they change devices.",
+
+      "roadmap.feature2.title": "Cloud Sync & Multi-Device",
+      "roadmap.feature2.description":
+        "Learning data will be synchronized across devices automatically.",
+      "roadmap.feature2.benefit":
+        "Start learning on your phone and continue on your laptop or another device without losing progress.",
+
+      "roadmap.feature3.title": "TOPIK I Practice",
+      "roadmap.feature3.description":
+        "TOPIK I preparation materials will be added to K-TALIM. Includes reading practice, listening, exam-style questions, timed practice, full mock tests, and performance analysis.",
+      "roadmap.feature3.benefit":
+        "Learners can prepare for beginner TOPIK level with structured practice materials directly within K-TALIM instead of using separate resources.",
+
+      "roadmap.feature4.title": "TOPIK II Practice",
+      "roadmap.feature4.description":
+        "More advanced TOPIK II preparation system will be added. Includes reading, listening, writing, exam-style practice, full mock tests, and performance analysis.",
+      "roadmap.feature4.benefit":
+        "Learners can continue toward intermediate/advanced TOPIK preparation with more challenging materials within the same platform.",
+
+      "roadmap.feature5.title": "AI Korean Tutor",
+      "roadmap.feature5.description":
+        "AI-powered personalized tutor will provide learning assistance. Capabilities include vocabulary explanations, grammar explanations, example sentences, error explanations, hints, answers to Korean learning questions, and recommendations for what to practice next.",
+      "roadmap.feature5.benefit":
+        "Learners can receive personalized explanations and guidance without leaving K-TALIM.",
+
+      "roadmap.feature6.title": "Spaced Repetition / Smart Review",
+      "roadmap.feature6.description":
+        "K-TALIM will intelligently determine when each vocabulary item should be reviewed. The system will use previous answers, mastery, mistakes, review history, and recall performance to create personalized review sessions.",
+      "roadmap.feature6.benefit":
+        "Words are reviewed at the right time based on the learner's performance, improving long-term retention.",
+
+      "roadmap.feature7.title": "Korean Speaking Practice with Real People",
+      "roadmap.feature7.description":
+        "Users will be able to find Korean-learning partners and practice real conversations with them.",
+      "roadmap.feature7.benefit":
+        "Learners can improve speaking confidence, listening, pronunciation, and spontaneous communication through real conversation practice.",
+
+      "roadmap.feature8.title": "Progress & Mastery Improvements",
+      "roadmap.feature8.description":
+        "Enhanced mastery tracking and progress visualization will bring learning data into one place. Show vocabulary mastery, practice performance, strong areas, weak areas, study consistency, and learning history.",
+      "roadmap.feature8.benefit":
+        "Clearer mastery tracking helps learners understand what they already know and what still needs practice.",
+
+      "roadmap.feature9.title": "Personalized Learning / Adaptive Practice",
+      "roadmap.feature9.description":
+        "K-TALIM will eventually adapt learning recommendations to each learner's needs.",
+      "roadmap.feature9.benefit":
+        "The system can focus practice on words and skills the learner struggles with instead of giving everyone the same review.",
+
+      "roadmap.feature10.title": "Contextual Example Sentences",
+      "roadmap.feature10.description":
+        "Vocabulary will be taught through natural Korean sentences and real usage contexts.",
+      "roadmap.feature10.benefit":
+        "Learners understand how Korean words are actually used in real sentences rather than memorizing isolated translations.",
+
+      "roadmap.feature11.title": "Feedback & Suggestion Form",
+      "roadmap.feature11.description":
+        "A simple form where users can report bugs, suggest new features, share problems, or send general feedback directly to the K-TALIM team.",
+      "roadmap.feature11.benefit":
+        "Users can easily communicate with the team without needing to contact the admin separately through Telegram.",
+
+      "roadmap.timeline.now": "NOW",
+      "roadmap.timeline.current": "Current K-TALIM platform",
+      "roadmap.timeline.next": "NEXT",
+      "roadmap.timeline.later": "LATER",
+      "roadmap.timeline.future": "FUTURE",
+
+      "roadmap.cta.title": "More is coming.",
+      "roadmap.cta.subtitle":
+        "Your Korean learning journey is only getting started.",
+      "roadmap.cta.button": "Start Learning",
+
+      "register.title": "Create your account",
+      "register.subtitle":
+        "Join K-TALIM to track your Korean learning progress.",
+      "register.firstName": "First name",
+      "register.lastName": "Last name",
+      "register.dateOfBirth": "Date of birth",
+      "register.day": "Day",
+      "register.month": "Month",
+      "register.year": "Year",
+      "register.email": "Email",
+      "register.password": "Password",
+      "register.confirmPassword": "Confirm password",
+      "register.signUp": "Sign up",
+      "register.googleSignUp": "Sign up with Google",
+      "register.or": "or",
+      "register.hasAccount": "Already have an account?",
+      "register.login": "Log in",
+      "register.confirmEmailMessage":
+        "Please check your email to confirm your account before logging in.",
+      "register.passwordMinLength": "Password must be at least 8 characters.",
+      "register.passwordMismatch": "Passwords do not match.",
+      "register.emailRequired": "Email is required.",
+      "register.validEmail": "Please enter a valid email address.",
+      "register.birthDateRequired": "Please enter your full date of birth.",
+      "register.birthDateInvalid":
+        "Please enter a valid date (day/month/year).",
+      "register.birthYearRange": "Year must be between 1940 and 2015.",
+      "register.firstNameRequired": "First name is required.",
+      "register.lastNameRequired": "Last name is required.",
+      "register.genericError": "Something went wrong. Please try again.",
+
+      "progressImport.title": "Save your progress?",
+      "progressImport.description":
+        "You have progress on this device. Would you like to save it to your account so you can continue from any device?",
+      "progressImport.keepLocal":
+        "If you choose not to sync, your progress will remain on this device only and won't be available on other devices.",
+      "progressImport.save": "Yes, save it",
+      "progressImport.dontSync": "No, don't sync",
+
+      "completeProfile.title": "Complete your profile",
+      "completeProfile.subtitle":
+        "Tell us a bit about yourself to get started.",
+      "completeProfile.submit": "Save and continue",
+
+      "privacy.title": "Privacy Policy",
+      "privacy.lastUpdated": "Last updated: August 14, 2026",
+      "privacy.section1.title": "1. What information we collect",
+      "privacy.section1":
+        "Your name, last name, birth year, email address (when you sign up), and your Korean-vocabulary learning progress (words studied, quiz results, streaks, favorites).",
+      "privacy.section2.title": "2. Why we collect it",
+      "privacy.section2":
+        "To create and manage your account, save your learning progress across devices, and personalize your experience.",
+      "privacy.section3.title": "3. Where it's stored",
+      "privacy.section3":
+        "Your data is stored securely with Supabase (our backend provider) and is never sold or shared with third parties for advertising purposes.",
+      "privacy.section4.title": "4. Google Sign-In",
+      "privacy.section4":
+        "If you sign in with Google, we only receive your name and email address from Google. We do not access your Google contacts, files, or other Google data.",
+      "privacy.section5.title": "5. AI Chat",
+      "privacy.section5":
+        "Messages you send to the AI Chat assistant are processed by Google's Gemini API to generate a response. If you're logged in, your conversations are saved to your account so you can access your chat history later. We may review saved conversations for safety and moderation purposes, including preventing illegal or harmful use of the app. We do not use your chat messages to train any AI model.",
+      "privacy.section6.title": "6. Your rights",
+      "privacy.section6":
+        "You can request deletion of your account and all associated data at any time by contacting us on Telegram at @mukh4mmadov.",
+      "privacy.section7.title": "7. Changes to this policy",
+      "privacy.section7":
+        "We may update this policy from time to time. Continued use of the app after changes means you accept the updated policy.",
+      "privacy.section8.title": "8. Contact",
+      "privacy.section8":
+        "For any questions about this policy, reach out on Telegram at @mukh4mmadov.",
+
+      "terms.title": "Terms of Service",
+      "terms.lastUpdated": "Last updated: August 14, 2026",
+      "terms.section1.title": "1. Acceptance",
+      "terms.section1": "By using K-TALIM, you agree to these terms.",
+      "terms.section2.title": "2. What K-TALIM is",
+      "terms.section2":
+        "A free Korean vocabulary learning app covering the K-TALIM 1A textbook content, including flashcards, listening, quizzes, and writing exercises.",
+      "terms.section3.title": "3. Accounts",
+      "terms.section3":
+        "You are responsible for keeping your login credentials secure. You may not share your account or use it for unauthorized purposes.",
+      "terms.section4.title": "4. Acceptable use",
+      "terms.section4":
+        "Do not attempt to abuse, disrupt, or reverse-engineer the app, including bypassing rate limits or scraping content.",
+      "terms.section5.title": "5. AI Chat",
+      "terms.section5":
+        "The AI assistant is provided for study help. Its responses may occasionally be inaccurate — always verify important information independently.",
+      "terms.section6.title": "6. Content ownership",
+      "terms.section6":
+        "Vocabulary and course content is sourced from the official K-TALIM 1A textbook for educational purposes.",
+      "terms.section7.title": "7. No warranty",
+      "terms.section7":
+        'The app is provided "as is" without guarantees of uninterrupted availability.',
+      "terms.section8.title": "8. Changes",
+      "terms.section8":
+        "We may update these terms. Continued use after changes means you accept the updated terms.",
+      "terms.section9.title": "9. Contact",
+      "terms.section9": "For questions, reach out on Telegram at @mukh4mmadov.",
+
+      "login.agreement": "By logging in, you agree to our",
+      "login.terms": "Terms of Service",
+      "login.and": "and",
+      "login.privacy": "Privacy Policy",
+      "register.agreement": "By signing up, you agree to our",
+      "register.terms": "Terms of Service",
+      "register.and": "and",
+      "register.privacy": "Privacy Policy",
+
+      "login.title": "Welcome back",
+      "login.subtitle": "Log in to continue your Korean learning journey.",
+      "login.email": "Email",
+      "login.password": "Password",
+      "login.submit": "Log in",
+      "login.googleSignIn": "Sign in with Google",
+      "login.or": "or",
+      "login.noAccount": "Don't have an account?",
+      "login.signUp": "Sign up",
+      "login.forgotPassword": "Forgot password?",
+      "login.emailRequired": "Email is required.",
+      "login.validEmail": "Please enter a valid email address.",
+      "login.passwordRequired": "Password is required.",
+      "login.genericError": "Something went wrong. Please try again.",
+
+      "forgotPassword.title": "Reset your password",
+      "forgotPassword.subtitle":
+        "Enter your email and we'll send you a reset link.",
+      "forgotPassword.submit": "Send reset link",
+      "forgotPassword.backToLogin": "Back to login",
+      "forgotPassword.successMessage":
+        "If an account exists with this email, a reset link has been sent.",
+      "forgotPassword.genericError": "Something went wrong. Please try again.",
+
+      "resetPassword.title": "Set a new password",
+      "resetPassword.subtitle": "Enter your new password below.",
+      "resetPassword.newPassword": "New password",
+      "resetPassword.confirmPassword": "Confirm new password",
+      "resetPassword.submit": "Update password",
+      "resetPassword.backToLogin": "Back to login",
+      "resetPassword.successMessage":
+        "Your password has been updated. You can now log in.",
+      "resetPassword.invalidLink": "This reset link is invalid or has expired.",
+      "resetPassword.passwordMinLength":
+        "Password must be at least 8 characters.",
+      "resetPassword.passwordMismatch": "Passwords do not match.",
+      "resetPassword.genericError": "Something went wrong. Please try again.",
+
+      "auth.emailPlaceholder": "you@example.com",
+      "auth.passwordPlaceholder": "••••••••",
+      "authCallback.signingIn": "Signing you in...",
+      "authCallback.pleaseWait":
+        "Please wait while we complete the authentication",
+      "common.userFallback": "User",
+      "aiChat.failedToGetResponse": "Failed to get response",
+      "aiChat.somethingWentWrong": "Something went wrong. Please try again.",
+      "aiChat.justNow": "Just now",
+      "aiChat.minutesAgo": "{{count}}m ago",
+      "aiChat.hoursAgo": "{{count}}h ago",
+      "aiChat.daysAgo": "{{count}}d ago",
+      "pwa.updatingAutomatically": "Updating automatically...",
+      "roadmap.moreFeatures": "— More features in development",
+      "library.lessonPrefix": "L",
+
+      "share.tagline": "K-TALIM · Korean Vocabulary Studio",
+      "share.appName": "K-TALIM",
+      "share.wordsLearned": "Words Learned",
+      "share.dayStreak": "Day Streak",
+      "share.overallMastery": "Overall Mastery",
+      "share.footer": "Learn Korean · One Word at a Time",
+      "share.sharedSuccess": "Shared!",
+      "share.downloadedSuccess": "Downloaded!",
+    },
+  },
+  uz: {
+    translation: {
+      "nav.home": "Bosh sahifa",
+      "nav.courses": "Darslar",
+      "nav.study": "O'rganish",
+      "nav.search": "Qidirish",
+      "nav.favorites": "Sevimlilar",
+      "nav.difficult": "Qiyin so'zlar",
+      "nav.stats": "Statistika",
+      "nav.settings": "Sozlamalar",
+      "nav.dark": "Qorong'i rejim",
+      "nav.light": "Yorug' rejim",
+      "nav.futureUpdates": "Kelajakdagi yangilanishlar",
+      "nav.login": "Tizimga kirish",
+      "nav.logout": "Chiqish",
+      "nav.hi": "Salom",
+      "nav.more": "Yana",
+      "nav.openMenu": "Menyuni ochish",
+      "nav.closeMenu": "Menyuni yopish",
+
+      "pwa.updateAvailable": "Yangi versiya mavjud",
+      "pwa.refreshing": "Yangilanmoqda...",
+      "nav.installApp": "Ilovani o'rnatish",
+      "pwa.iosInstructions":
+        "O'rnatish uchun: Ulashish tugmasini bosing, keyin 'Asosiy ekraniga qo'shish'.",
+
+      "home.title": "Premium koreyscha lug'at o'rganish",
+      "home.subtitle":
+        "K-TALIM 1 kitobidan olingan aniq lug'atni o'rganing: flashcards, tinglash, quiz, yozish, sevimlilar va aqlli takrorlash.",
+      "home.officialSource": "Faqat rasmiy manba",
+      "home.continueLesson": "1-darsni davom etish",
+      "home.reviewMode": "Takrorlash rejimi",
+      "home.welcomeTitle": "K-TALIM ga xush kelibsiz!",
+      "home.welcomeMessage":
+        "1-darsni boshlang va koreyscha lug'at o'rganish sarguzashtingizni boshlang.",
+      "home.startLesson": "1-darsni boshlash",
+      "home.progress": "Progress",
+      "home.dashboard": "O'rganish panelingiz",
+      "home.words": "So'zlar",
+      "home.lessons": "Darslar",
+      "home.completed": "Yakunlandi",
+      "home.streak": "Ketma-ketma",
+      "home.dailyChallenge": "Kunlik sinov",
+      "home.dailyChallengeText": "Bugungi asosiyali sessiya: {{lesson}}-dars",
+      "home.dailyChallengeSubtitle":
+        "Avval flashcards bilan ishlash, keyin quiz va yozish mashqlari bilan yakunlang.",
+      "home.startChallenge": "Sinovni boshlash",
+      "home.wordsLearned": "{{percent}}% o'rganildi",
+      "home.continue": "Davom etish",
+
+      "courses.selectCourse": "Kursni tanlang",
+      "courses.title": "Kursni tanlang",
+      "courses.subtitle": "Qaysi K-TALIM kitobini o'rganmoqchisiz?",
+      "courses.browseByCourse": "Kurs bo'yicha ko'rish",
+      "courses.browseTitle": "Kitob bo'yicha darslarni ko'ring",
+      "courses.browseSubtitle":
+        "Darslarni ko'rish uchun K-TALIM 1A yoki 1B ni tanlang",
+      "courses.openCourses": "Kurs kutubxonasini oching",
+      "courses.backToCourses": "Kurslarga qaytish",
+      "courses.openCourse": "Kursni oching",
+      "courses.description1A": "Birinchi kitobdan asosiy lug'at",
+      "courses.description1B": "Ikkinchi kitobdan kengaytirilgan lug'at",
+
+      "study.title": "O'rganish rejimi",
+      "study.subtitle":
+        "Lug'atni o'z tempingizda eslab qoling — hisoblanmasin, quizsiz. Har bir so'zni ko'rish uchun darsni tanlang, keyin o'zingizni sinash uchun Amaliyotga o'ting.",
+      "study.learnFirst": "Avval o'rganing, keyin mashq qiling",
+      "study.lessonCompleted": "Dars yakunlandi 🎉",
+      "study.lessonCompletedText":
+        "Siz {{lesson}}-darsdagi barcha {{count}} so'zni ko'rib chiqdingiz. O'zingizni sinashga tayyormisiz?",
+      "study.lessonNotFound": "Dars topilmadi",
+      "study.showMeaning": "Ma'nosini ko'rsatish",
+      "study.reveal": "Ko'rsatish",
+      "study.headerTitle": "O'rganish — {{lesson}}-dars",
+      "home.studyAgain": "Yana o'rganing",
+      "home.goToPractice": "Amaliyotga o'ting",
+
+      "studyDevelopment.title": "🚧 O'rganish sahifasi ishlab chiqilmoqda",
+      "studyDevelopment.subtitle":
+        "Bu sahifa hozirda faol ravishda yaxshilanmoqda. Eng yaxshi tajriba uchun, joriy yaxshilanishlar tugaguncha kutishni tavsiya qilamiz.",
+      "studyDevelopment.improvingTitle": "Hozirda yaxshilanmoqda:",
+      "studyDevelopment.improving.flow": "O'rganish oqimi va mashq progressi",
+      "studyDevelopment.improving.selection":
+        "So'z tanlash va takrorlash balansi",
+      "studyDevelopment.improving.repetition":
+        "Oraliq takrorlash va zaif so'zlar ko'rib chiqish",
+      "studyDevelopment.improving.variety":
+        "Mashq xilma-xilligi va moslashuvchan qiyinchilik",
+      "studyDevelopment.improving.mastery":
+        "O'zlashtirishni aniqlash va tugallash mantiqi",
+      "studyDevelopment.improving.reinforcement":
+        "Mustahkamlash va noto'g'ri javoblarni qayta ishlash",
+      "studyDevelopment.improving.ui":
+        "UI/UX barqarorligi va o'zaro ta'sir xatolari",
+      "studyDevelopment.importantTitle": "⚠️ Muhim",
+      "studyDevelopment.importantText":
+        "O'rganish sahifasi ishlab chiqish jarayonida vaqtinchalik xatolar yoki kutilmagan xatti-harakatlarni o'z ichiga olishi mumkin. Siz hali ham sahifani o'rganish va sinab ko'rishingiz mumkin, lekin u jiddiy o'rganish uchun tavsiya etilmaydi.",
+
+      "practice.flashcards": "Flashcards",
+      "practice.listening": "Tinglash",
+      "practice.quiz": "Quiz",
+      "practice.writing": "Yozish",
+      "practice.smartReview": "Aqlli takrorlash",
+
+      "flashcards.hint": "Ishora",
+      "flashcards.iKnow": "Bilaman",
+      "flashcards.dontKnow": "Bilmayman",
+      "flashcards.favorite": "Sevimli",
+      "flashcards.saved": "Saqlandi",
+      "flashcards.replayAudio": "Audioni qayta tinglash",
+      "flashcards.next": "Keyingi",
+      "flashcards.korean": "Koreys",
+      "flashcards.uzbek": "O'zbek",
+      "flashcards.answer": "Javob",
+      "flashcards.tapToFlip": "Kartani bosib o'giring",
+      "flashcards.noDifficultWords": "Hali qiyin so'zlar yo'q",
+      "flashcards.noDifficultText":
+        "So'zlarni avtomatik ravishda bu yerga yig'ib olish uchun flashcardsda Bilmayamni bosing.",
+      "flashcards.lessonNotFound": "Dars topilmadi",
+      "flashcards.lessonNotFoundText":
+        "Bu dars mavjud emas. Dars raqamini tekshiring va qayta urinib ko'ring.",
+
+      "practice.audioFirst": "Avval audio",
+      "practice.play": "O'ynash",
+      "practice.typeKorean": "Eshitgan koreys so'zini yozing",
+      "practice.fourChoices": "4 variant",
+      "practice.typeTranslation": "Tarjimani yozing",
+      "practice.correct": "To'g'ri",
+      "practice.incorrect": "Javob: {{answer}}",
+      "practice.replayAudio": "Audioni qayta tinglash",
+      "practice.next": "Keyingi",
+
+      "library.search": "Qidirish",
+      "library.searchBadge": "Koreys · O'zbek · Romanizatsiya",
+      "library.searchPlaceholder":
+        "Barcha {{count}} ta lug'at yozuvlarini qidirish",
+      "library.showMore": "Yana ko'rsatish",
+      "settings.audioSection": "Audio",
+      "settings.speechRate": "Nutq tezligi",
+      "settings.autoSpeak": "Avto-o'qish",
+      "settings.autoSpeakDescription":
+        "Yangi so'zlar paydo bo'lganda audio avtomatik ijro etilsin",
+      "library.favorites": "Sevimlilar",
+      "library.favoritesEmpty":
+        "Hali sevimlilar yo'q. Flashcards yoki qidirishdan so'zlarni saqlang.",
+      "library.difficult": "Qiyin so'zlar",
+      "library.autoCollected": "Avtomatik yig'ilgan",
+      "library.difficultEmpty":
+        "Hali qiyin so'zlar yo'q. Mashq davomida Bilmayamni bosib shu yerga so'zlar yig'ib oling.",
+      "library.weakWords": "Zaif so'zlar",
+      "library.weakWordsBadge": "Moslashuvchan mashq",
+      "library.noWeakWords": "Hali zaif so'zlar yo'q",
+      "library.noWeakWordsText":
+        "Mashqni davom ettiring, qiyin bo'lgan so'zlar bu yerda paydo bo'ladi.",
+      "library.stats": "Statistika",
+      "library.analytics": "O'rganish tahlili",
+      "library.settings": "Sozlamalar",
+      "library.personalization": "Shaxsiylashtirish",
+
+      "stats.dailyStreak": "Kunlik ketma-ketma",
+      "stats.accuracy": "Aniqlik",
+      "stats.wordsLearned": "O'rganilgan so'zlar",
+      "stats.studyTime": "O'rganish vaqti",
+      "stats.completedLessons": "Yakunlangan darslar",
+      "stats.hardestLesson": "Eng qiyin dars",
+      "stats.hardWords": "Qiyin so'zlar",
+      "stats.reviews": "Takrorlashlar",
+      "stats.milestones": "Muhim nuqtalar",
+      "stats.achievements": "Yutuqlar",
+      "stats.latestPractice": "So'nggi mashq",
+      "stats.recentActivity": "So'nggi faoliyat",
+      "stats.noActivity": "Hali faoliyat yo'q.",
+
+      "share.title": "O'z progressingizni ulashing",
+      "share.selectTemplate": "Shablonni tanlang",
+      "share.templateWordCount": "So'zlar soni",
+      "share.templateStreak": "Ketma-ketlik",
+      "share.templateMastery": "Daraja / O'zlashtirish",
+      "share.close": "Yopish",
+      "share.download": "Yuklash",
+      "share.share": "Ulashish",
+
+      "aiChat.title": "AI Chat",
+      "aiChat.subtitle":
+        "Koreyscha lug'at, grammatika yoki o'rganish masalalari haqida so'rang.",
+      "aiChat.placeholder": "Koreys tiliga oid savolingizni yozing...",
+      "aiChat.send": "Yuborish",
+      "aiChat.thinking": "O'ylanmoqda...",
+      "aiChat.emptyState":
+        "Boshlash uchun menga koreyscha lug'at, grammatika yoki o'rganish masalalari haqida so'rang.",
+      "aiChat.badge": "AI O'qituvchi",
+      "aiChat.rateLimitExceeded":
+        "Kunlik AI chat limiti tugadi. Iltimos, ertaga qayta urinib ko'ring.",
+      "aiChat.openAriaLabel": "AI Chatni ochish",
+      "aiChat.closeAriaLabel": "AI Chatni yopish",
+      "aiChat.guestLimitReached":
+        "Mehmon chegarasiga yetdingiz. Ko'proq kunlik xabar olish uchun tizimga kiring.",
+      "aiChat.limitResetsIn": "Limit qayta tiklanadi: {{time}}",
+      "aiChat.history": "Tarix",
+      "aiChat.newChat": "Yangi chat",
+      "aiChat.noSessions": "Hali chat tarixi yo'q",
+
+      "achievement.firstStep": "Birinchi qadam",
+      "achievement.hundredReviews": "100 ta takrorlash",
+      "achievement.sevenDayStreak": "7 kunlik ketma-ketma",
+      "achievement.halfWay": "Yarim yo'l",
+      "achievement.master": "Lug'at ustasi",
+
+      "settings.pronunciation": "Talaffuz",
+      "settings.pronunciationText":
+        "Audio har bir so'z uchun brauzeringizning koreys nutq sintez ovozi (ko-KR) dan foydalanadi.",
+      "settings.resetProgress": "Progressni qayta tiklash",
+      "settings.resetProgressText":
+        "Bu o'rganilgan so'zlarni, sevimlilarni, qiyin so'zlarni, statistikani, ketma-ketmani va saqlangan kolodalarni tozalaydi.",
+      "settings.resetConfirm": "Barcha mahalliy progressni qayta tiklaysizmi?",
+      "settings.resetButton": "Progressni qayta tiklash",
+
+      "header.brand": "Korean Vocabulary Studio",
+      "header.menu": "Menyu",
+
+      "mastery.new": "Yangi",
+      "mastery.learning": "O'rganilmoqda",
+      "mastery.practiced": "Mashq qilingan",
+      "mastery.mastered": "O'zlashtirilgan",
+      "mastery.overview": "So'zlar o'zlashtirilishi",
+      "mastery.masteredCount": "O'zlashtirilgan",
+      "mastery.practicedCount": "Mashq qilingan",
+      "mastery.learningCount": "O'rganilmoqda",
+      "mastery.newCount": "Yangi",
+      "mastery.overallProgress": "Umumiy progress",
+      "mastery.lessonMastery": "Dars o'zlashtirilishi",
+      "mastery.courseMastery": "Kurs o'zlashtirilishi",
+      "mastery.score": "{{percent}}% o'zlashtirilgan",
+
+      "study.practiceNeeded": "Mashq kerak",
+      "study.keepPracticing": "Mashqni davom ettiring",
+      "study.wordsIntroduced": "Kiritilgan so'zlar",
+      "study.wordsMastered": "O'zlashtirilgan so'zlar",
+      "study.accuracy": "Aniqlik",
+      "study.studyTime": "O'rganish vaqti",
+      "study.needsReview": "Qayta ko'rib chiqish",
+      "study.continuePractice": "Mashqni davom ettiring",
+      "study.nextLesson": "Keyingi dars →",
+      "study.introduced": "kiritildi",
+      "study.mastered": "o'zlashtirilgan",
+      "study.learning": "o'rganilmoqda",
+      "study.checkpoint": "Bilimingizni tekshiring",
+      "study.checkpointTitle": "Bilimingizni tekshiring",
+      "study.checkpointSubtitle":
+        "Siz {{count}} so'z o'rgandingiz. Endi bilimingizni tekshiraylik.",
+      "study.review": "Takrorlash",
+      "study.letsReview": "Keling, takrorlaymiz",
+      "study.wordType.country": "🌍 Mamlakat",
+      "study.wordType.profession": "👤 Kasb",
+      "study.wordType.food": "🍽️ Taom",
+      "study.wordType.family": "👨‍👩‍👧 Oila",
+      "study.wordType.number": "🔢 Raqam",
+      "study.wordType.verb": "📝 Fe'l",
+      "study.wordType.adjective": "🎨 Sifat",
+      "study.wordType.noun": "📚 Ism",
+      "study.example": "Misol",
+      "study.listen": "🔊 Tinglash",
+      "study.hideSentence": "Gapni yashirish",
+      "study.showSentence": "Gapni ko'rsatish",
+
+      "courses.notFound": "Kurs topilmadi",
+      "courses.mastery": "O'zlashtirish",
+      "courses.lessonMastery": "{{mastered}}/{{total}} o'zlashtirilgan",
+      "courses.course1A": "K-TALIM 1A",
+      "courses.course1B": "K-TALIM 1B",
+
+      "lesson.1.category": "kiritish, davlatlar va shaxsiyat",
+      "lesson.2.category": "sinf buyumlari va odamlar",
+      "lesson.3.category": "kunlik harakatlar",
+      "lesson.4.category": "ta'riflar, ob-havo va ichimliklar",
+      "lesson.5.category": "joylar va faoliyatlar",
+      "lesson.6.category": "manzillar, sanalar va raqamlar",
+      "lesson.7.category": "mahalliy raqamlar, hisoblagichlar va oila",
+      "lesson.8.category": "vaqt, joylar va kunlik hayot",
+      "lesson.9.category": "harakatlar, salomatlik va oila",
+      "lesson.10.category": "mavsumlar, ob-havo va noto'g'ri fe'llar",
+      "lesson.11.category": "ta'riflar, transport va oila",
+      "lesson.12.category": "o'yin-kulgilar va kunlik harakatlar",
+      "lesson.13.category": "madaniyat, uy va aloqa",
+      "lesson.14.category": "hobbiy, til va iboralar",
+      "lesson.15.category": "muloyim nutq, hurmat ifodalari va kunlik hayot",
+      "lesson.16.category": "kunlik tartib, vaqt va kunlik harakatlar",
+      "lesson.17.category": "sayohat, harakat va yo'nalishlar",
+      "lesson.18.category": "tana qismlari, salomatlik va ta'riflar",
+      "lesson.19.category": "sport, faoliyat va maktab hayoti",
+      "lesson.20.category": "koreys madaniyati, an'analar va oziq-ovqat",
+      "lesson.21.category": "transport, jamoat joylari va yo'nalishlar",
+      "lesson.22.category": "sayohat, kunlik hayot va xaridlar",
+      "lesson.23.category": "ofis, aloqa va kunlik hayot",
+      "lesson.24.category": "sifatlar, tabiat va joylar",
+      "lesson.25.category": "salomatlik, shifoxona va tana",
+      "lesson.26.category": "seul, sayohat va kunlik iboralar",
+      "lesson.27.category": "salomatlik, mashq va kunlik hayot",
+      "lesson.28.category": "kunlik hayot, uy va turli",
+
+      "srs.again": "Qayta",
+      "srs.hard": "Qiyin",
+      "srs.good": "Yaxshi",
+      "srs.easy": "Oson",
+      "srs.reviewsDue": "Bugun {{count}} ta takrorlash",
+      "srs.reviewsDueSubtitle": "Xotirangizni kuchli holda saqlang",
+      "srs.reviewNow": "Takrorlash",
+      "srs.caughtUp": "Hammasi bajarildi!",
+      "srs.caughtUpSubtitle":
+        "Hozircha takrorlash uchun so'zlar yo'q. O'rganishni davom ettiring, vaqt kelganda ular bu yerda paydo bo'ladi.",
+      "srs.reviewsCompleted": "{{count}} ta takrorlash bajarildi",
+
+      "practice.masteryScore": "{{score}}% o'zlashtirilgan",
+      "practice.enterAnswer": "Avval javob kiriting",
+
+      "feedback.nice": "Yaxshi!",
+      "feedback.great": "Ajoyib!",
+      "feedback.excellent": "Zo'r!",
+      "feedback.perfect": "Mukammal!",
+      "feedback.awesome": "G'oyibakar!",
+      "feedback.almost": "Deyarli!",
+      "feedback.close": "Yaqin!",
+      "feedback.remember": "Buni eslab qoling",
+      "feedback.almostThere": "Deyarli tugadi!",
+
+      "search.noResults": "Mos keladigan narsalar topilmadi.",
+
+      "common.back": "Orqaga",
+      "common.loading": "Yuklanmoqda...",
+      "common.save": "Saqlash",
+      "common.cancel": "Bekor qilish",
+      "common.delete": "O'chirish",
+      "notFound.title": "Sahifa topilmadi",
+      "notFound.text":
+        "Siz qidiryotgan sahifa mavjud emas. URL-ni tekshiring yoki bosh sahifaga qayting.",
+      "common.edit": "Tahrirlash",
+      "common.close": "Yopish",
+      "common.search": "Qidirish",
+      "common.filter": "Filtrlash",
+      "common.sort": "Saralash",
+      "common.view": "Ko'rish",
+      "common.share": "Ulashish",
+      "common.copy": "Nusxa olish",
+      "common.download": "Yuklab olish",
+      "common.upload": "Yuklash",
+      "common.confirm": "Tasdiqlash",
+      "common.yes": "Ha",
+      "common.no": "Yo'q",
+      "common.tryAgain": "Qayta urinib ko'ring",
+      "common.stop": "To'xtatish",
+      "common.none": "—",
+      "common.success": "Muvaffaqiyat",
+      "common.error": "Xato",
+      "common.warning": "Ogohlantirish",
+      "common.info": "Ma'lumot",
+      "common.reportBug": "Xato haqida xabar bering",
+
+      "practice.shuffle": "Aralashtirish",
+      "practice.autoPlay": "Avtomatik o'ynash",
+      "practice.manualDifficult": "Qiyin deb belgilash",
+      "practice.markDifficult": "Qiyin deb belgilash",
+
+      "study.full": "Barchasini ko'rsatish",
+      "study.hideUzbek": "O'zbekchini yashirish",
+      "study.onlyKorean": "Faqat koreyscha",
+
+      "mode.korean": "Koreys → O'zbek",
+      "mode.uzbek": "O'zbek → Koreys",
+      "mode.random": "Tasodifiy",
+
+      "card.word": "So'z {{number}} / {{total}}",
+      "card.lesson": "{{lesson}}-dars",
+      "card.category": "Kategoriya",
+      "card.verified": "Rasmdan tasdiqlangan",
+      "card.needsReview": "Qayta ko'rib chiqish kerak",
+
+      "button.start": "Boshlash",
+      "button.continue": "Davom etish",
+      "button.next": "Keyingi",
+      "button.previous": "Oldingi",
+      "button.finish": "Yakunlash",
+      "button.skip": "O'tkazib yuborish",
+      "button.retry": "Qayta urinib ko'ring",
+      "button.back": "Orqaga",
+
+      "feedback.correct": "To'g'ri!",
+      "feedback.incorrect": "Noto'g'ri",
+      "feedback.tryAgain": "Qayta urinib ko'ring",
+
+      "empty.noData": "Ma'lumot yo'q",
+      "empty.noResults": "Natijalar yo'q",
+      "empty.noFavorites": "Sevimlilar yo'q",
+      "empty.noActivity": "Faoliyat yo'q",
+
+      "time.minutes": "daqiqa",
+      "time.hours": "soat",
+      "time.days": "kun",
+      "time.weeks": "hafta",
+      "time.months": "oy",
+      "time.years": "yil",
+
+      "footer.vocabularySource": "Lug'at manbasi",
+      "footer.educationalOnly": "Faqat ta'lim maqsadida",
+      "footer.developer": "Dasturchi",
+      "footer.contact": "Xatolik yoki muammolar uchun",
+      "footer.contactTelegram": "Telegram @mukh4mmadov",
+      "footer.vocabularySourceName": "Dong Eun Academy",
+      "footer.developerName": "Mukh4mmadov",
+      "footer.developerTelegram": "Telegram @mukh4mmadov",
+
+      "advertisement.placeholder": "Reklamangiz bu yerda bolishi mumkin edi",
+
+      "ielts.title": "Ingliz tilini davom ettiring",
+      "ielts.description":
+        "Agar siz koreyscha o'rganayotgan bo'lsangiz, ingliz tilini o'qishni yaxshilash sizga tillarni tezroq o'rganishga yordam beradi. Bizning IELTS Reading platformamizni sinab ko'ring - AI tushuntirishlari, professional matnlar va haqiqiy imtihon mashqlari bilan.",
+      "ielts.openButton": "IELTS Reading bilan mashq qiling",
+      "ielts.continueButton": "Koreyscha o'rganishni davom eting",
+      "ielts.footer": "Xuddi shu dasturchi tomonidan yaratilgan.",
+      "ielts.preview.title": "IELTS Reading Platform",
+      "ielts.preview.aiExplanations": "AI Tushuntirishlar",
+      "ielts.preview.vocabulary": "Lug'at",
+      "ielts.preview.bandScore": "Ball",
+      "ielts.preview.realPassages": "Haqiqiy Cambridge matnlari",
+      "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
+
+      "study.cumulativeProgress": "Kumulativ Progress",
+      "study.mastery.mastered": "O'zlashtirilgan",
+      "study.mastery.progress": "Progress: {{count}}/{{threshold}}",
+      "study.mastery.new": "Yangi so'z",
+      "study.learnThisWord": "So'zni o'rganing",
+      "study.continue": "Davom etish",
+      "study.toPractice": "mashq qilish uchun",
+      "study.exercise": "Mashq",
+      "study.chooseMeaning": "To'g'ri ma'ni tanlang",
+      "study.chooseKorean": "To'g'ri koreys so'zini tanlang",
+      "study.isTranslationCorrect": "Bu tarjima to'g'rimi?",
+      "study.yesCorrect": "Ha, to'g'ri",
+      "study.noIncorrect": "Yo'q, noto'g'ri",
+      "study.exerciseNotAvailable": "Bu mashq turi mavjud emas",
+      "study.chooseMissingLetter": "Yetishmayotgan harfni tanlang",
+      "study.listenChooseWord": "Eshitib, to'g'ri so'zni tanlang",
+      "study.listenChooseMeaning": "Eshitib, ma'noni tanlang",
+      "study.chooseWordForBlank": "Gapdagi so'zni tanlang",
+      "study.typeInKorean": "Koreys tilida yozing",
+      "study.koreanInputLabel": "Koreyscha so'z kiritish",
+      "study.check": "Tekshirish",
+
+      "exercise.koreanToUzbek": "Koreys → O'zbek",
+      "exercise.uzbekToKorean": "O'zbek → Koreys",
+      "exercise.listeningToKorean": "Eshitish",
+      "exercise.trueFalse": "To'g'ri/Noto'g'ri",
+      "exercise.missingSyllable": "Yetishayotgan harf",
+      "exercise.typingChallenge": "Yozish",
+      "exercise.listeningToMeaning": "Eshitib ma'no",
+      "exercise.sentenceContext": "Gapdagi so'z",
+
+      "mastery.wordLevels": "So'z darajalari",
+      "mastery.overallMastery": "Umumiy o'zlashtirish",
+      "mastery.filterAll": "Hammasi ({{count}})",
+      "mastery.filterNew": "Yangi ({{count}})",
+      "mastery.filterLearning": "O'rganilmoqda ({{count}})",
+      "mastery.filterPracticed": "Mashq qilingan ({{count}})",
+      "mastery.filterMastered": "O'zlashtirilgan ({{count}})",
+
+      "home.masteryOverview": "So'zlar o'zlashtirilishi",
+      "home.yourWordMastery": "So'zlar o'zlashtirilishi",
+      "home.mastered": "O'zlashtirilgan",
+      "home.practiced": "Mashq qilingan",
+      "home.learning": "O'rganilmoqda",
+      "home.new": "Yangi",
+      "home.overallProgress": "Umumiy progress",
+
+      "roadmap.comingSoon": "KELAJAKDA",
+      "roadmap.title": "Kelajakdagi yangilanishlar",
+      "roadmap.subtitle":
+        "Biz K-TALIM doimiy ravishda yaxshilab chiqmoqdamiz — koreyscha o'rganishni aqlliroq, osonroq va samaraliroq qilish uchun.",
+      "roadmap.planned": "REJALASHTIRILGAN",
+      "roadmap.completed": "TUGALLANGAN",
+      "roadmap.future": "KELAJAK",
+      "roadmap.benefit": "Sizga qanday yordam beradi",
+
+      "roadmap.feature1.title": "Hisob / Kirish va Ro'yxatdan o'tish",
+      "roadmap.feature1.description":
+        "Foydalanuvchilar xavfsiz kirish va ro'yxatdan o'tish bilan shaxsiy K-TALIM hisobini yaratishi mumkin bo'ladi.",
+      "roadmap.feature1.benefit":
+        "Foydalanuvchi progressi va shaxsiy ma'lumotlari xavfsiz ravishda hisobingizga bog'lanishi mumkin va qurilmani o'zgartirganda tiklanishi mumkin.",
+
+      "roadmap.feature2.title": "Bulut sinx va ko'p qurilma",
+      "roadmap.feature2.description":
+        "O'rganish ma'lumotlari qurilmalar o'rtasida avtomatik ravishda sinxlanadi.",
+      "roadmap.feature2.benefit":
+        "Telefondan o'rganishni boshlab, laptop yoki boshqa qurilmada davom etishingiz mumkin — progressni yo'qotmasdan.",
+
+      "roadmap.feature3.title": "TOPIK I mashqlari",
+      "roadmap.feature3.description":
+        "TOPIK I tayyorlash materiallari K-TALIM ga qo'shiladi. O'qish mashqlari, tinglash, imtihon uslubidagi savollar, vaqtinchalik mashqlar, to'liq sinovlar va performance tahlili.",
+      "roadmap.feature3.benefit":
+        "O'quvchilar boshlang'ich TOPIK darajasini tuzilgan mashq materiallari bilan K-TALIM ichida tayyorlashlari mumkin.",
+
+      "roadmap.feature4.title": "TOPIK II mashqlari",
+      "roadmap.feature4.description":
+        "Ko'proqilgan TOPIK II tayyorlash tizimi qo'shiladi. O'qish, tinglash, yozish, imtihon uslubidagi mashq, to'liq sinov va performance tahlili.",
+      "roadmap.feature4.benefit":
+        "O'quvchilar o'rtacha/yuqori TOPIK tayyorlashiga qiyinroq materiallar bilan bir xil platform ichida davom etishlari mumkin.",
+
+      "roadmap.feature5.title": "AI koreyscha o'qituvchi",
+      "roadmap.feature5.description":
+        "AI bilan ishlaydigan shaxsiylashtirilgan o'qituvchi yordam beradi. Lug'atni tushuntirish, grammatikani tushuntirish, misol jumla berish, xatolarni tushuntirish, ishoralar berish, koreyscha o'rganish savollariga javob berish va keyin nima mashq qilishni tavsiya qilish kabi imkoniyatlar.",
+      "roadmap.feature5.benefit":
+        "O'quvchilar K-TALIM dan chiqmasdan shaxsiylashtirilgan tushuntirish va yo'riqtirish olishlari mumkin.",
+
+      "roadmap.feature6.title": "Oraliq takrorlash / Aqlli ko'rib chiqish",
+      "roadmap.feature6.description":
+        "K-TALIM har bir lug'at elementini qachon ko'rib chiqish kerakligini aqlli tarzda aniqlaydi. Tizim oldingi javoblar, o'zlashtirish, xatolar, ko'rib chiqish tarixi va eslab qolish performansidan foydalanib shaxsiylashtirilgan ko'rib chiqish sessiyalarini yaratadi.",
+      "roadmap.feature6.benefit":
+        "So'zlar o'quvchining performanceiga asoslangan holda to'g'ri vaqtda ko'rib chiqiladi, bu uzoq muddatli eslab qolishni yaxshilaydi.",
+
+      "roadmap.feature7.title":
+        "Haqiqiy odamlar bilan koreyscha gapirish mashqlari",
+      "roadmap.feature7.description":
+        "Foydalanuvchilar koreyscha o'rganuvchi hamkorlarni topib, ular bilan haqiqiy suhbatlarni mashq qilishlari mumkin.",
+      "roadmap.feature7.benefit":
+        "O'quvchilar haqiqiy suhbat mashqlari orqali gapirish ishonchisini, tinglashni, talaffuzni va o'z-o'zidan aloqa qilishni yaxshilashlari mumkin.",
+
+      "roadmap.feature8.title": "Progress va o'zlashtirish yaxshilanishlari",
+      "roadmap.feature8.description":
+        "Yaxshilangan o'zlashtirish kuzatuv va progress vizualizatsiyasi o'rganish ma'lumotlarini bir joyga jamlaydi. Lug'at o'zlashtirilishi, mashq performance, kuchli tomonlar, zaif tomonlar, o'rganish davomiyoti va o'rganish tarixini ko'rsatadi.",
+      "roadmap.feature8.benefit":
+        "Aniqroq o'zlashtirish kuzatuvi o'quvchilarga allaqachon nimalarni bilishlarini va hali mashq qilish kerak narsalarni tushunishiga yordam beradi.",
+
+      "roadmap.feature9.title":
+        "Shaxsiylashtirilgan o'rganish / Moslashuvchan mashq",
+      "roadmap.feature9.description":
+        "K-TALIM oxir-oqibat har bir o'quvchining ehtiyojlariga moslashadigan o'rganish tavsiyalari beradi.",
+      "roadmap.feature9.benefit":
+        "Tizim har bir kishiga bir xil mashqni bermasdan, balki o'quvchiga qiyin bo'lgan so'zlar va ko'nikmalarga e'tibor qarashi mumkin.",
+
+      "roadmap.feature10.title": "Kontekstli misol jumlar",
+      "roadmap.feature10.description":
+        "Lug'at tabiiy koreyscha jumlar va haqiqiy foydalanish kontekstlari orqali o'rganiladi.",
+      "roadmap.feature10.benefit":
+        "O'quvchilar koreyscha so'zlarni ajratilgan tarjimalarni eslab qolish o'rniga haqiqiy jumlalarda qanday ishlatilishini tushunishlari mumkin.",
+
+      "roadmap.feature11.title": "Fikr va takliflar formasi",
+      "roadmap.feature11.description":
+        "Foydalanuvchilar xatolar haqida xabar berish, yangi takliflar yuborish, muammolarni bildirish yoki umumiy fikrlarini bevosita K-TALIM jamoasiga yuborishlari mumkin bo'ladi.",
+      "roadmap.feature11.benefit":
+        "Foydalanuvchilar Telegram orqali alohida yozishlari shart bo'lmaydi — barcha fikr va takliflarini qulay forma orqali yuborishlari mumkin.",
+
+      "roadmap.timeline.now": "HOZIR",
+      "roadmap.timeline.current": "Joriy K-TALIM platformi",
+      "roadmap.timeline.next": "KEYINGI",
+      "roadmap.timeline.later": "KEYINROQ",
+      "roadmap.timeline.future": "KELAJAK",
+
+      "roadmap.cta.title": "Ko'proq narsalar kelmoqda.",
+      "roadmap.cta.subtitle": "Koreyscha o'rganish safari faqat boshlanmoqda.",
+      "roadmap.cta.button": "O'rganishni boshlash",
+
+      "register.title": "Hisobingizni yarating",
+      "register.subtitle":
+        "Koreyscha o'rganishingizni kuzatish uchun K-TALIM ga qo'shiling.",
+      "register.firstName": "Ism",
+      "register.lastName": "Familiya",
+      "register.dateOfBirth": "Tug'ilgan sanasi",
+      "register.day": "Kun",
+      "register.month": "Oy",
+      "register.year": "Yil",
+      "register.email": "Elektron pochta",
+      "register.password": "Parol",
+      "register.confirmPassword": "Parolni tasdiqlang",
+      "register.signUp": "Ro'yxatdan o'tish",
+      "register.googleSignUp": "Google orqali ro'yxatdan o'tish",
+      "register.or": "yoki",
+      "register.hasAccount": "Hisobingiz bormi?",
+      "register.login": "Kirish",
+      "register.confirmEmailMessage":
+        "Hisobingizni tasdiqlash uchun elektron pochtangizni tekshiring.",
+      "register.passwordMinLength":
+        "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
+      "register.passwordMismatch": "Parollar mos kelmadi.",
+      "register.emailRequired": "Elektron pohta talab qilinadi.",
+      "register.validEmail":
+        "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "register.birthDateRequired": "Tug'ilgan sanani to'liq kiriting.",
+      "register.birthDateInvalid": "Tug'ilgan sana noto'g'ri (kun/oy/yil).",
+      "register.birthYearRange": "Yil 1940 va 2015 oralig'ida bo'lishi kerak.",
+      "register.firstNameRequired": "Ism talab qilinadi.",
+      "register.lastNameRequired": "Familiya talab qilinadi.",
+      "register.genericError":
+        "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+
+      "progressImport.title": "Progressni saqlaysizmi?",
+      "progressImport.description":
+        "Ushbu qurilmada progressingiz mavjud. Uni hisobingizga saqlab, boshqa qurilmadan davom etishni xohlaysizmi?",
+      "progressImport.keepLocal":
+        "Sinxronlashtirmaslikni tanlasangiz, progressingiz faqat ushbu qurilmada qoladi va boshqa qurilmalarda mavjud bo'lmaydi.",
+      "progressImport.save": "Ha, saqlash",
+      "progressImport.dontSync": "Yo'q, sinxronlashtirmaslik",
+
+      "completeProfile.title": "Profilni to'ldiring",
+      "completeProfile.subtitle":
+        "Boshlash uchun o'zingiz haqingizda biroz ma'lumot bering.",
+      "completeProfile.submit": "Saqlash va davom etish",
+
+      "privacy.title": "Maxfiylik siyosati",
+      "privacy.lastUpdated": "Oxirgi yangilanish: 2026-yil 14-avgust",
+      "privacy.section1.title": "1. Biz qanday ma'lumotlarni to'playmiz",
+      "privacy.section1":
+        "Ismingiz, familiyangiz, tug'ilgan yilingiz, elektron pochta manzilingiz (ro'yxatdan o'tganingizda) va koreyscha lug'at o'rganish jarayoningiz (o'rgangan so'zlaringiz, test natijalari, ketma-ketlik, sevimlilar).",
+      "privacy.section2.title": "2. Nima uchun biz ma'lumot to'playmiz",
+      "privacy.section2":
+        "Hisobingizni yaratish va boshqarish, o'rganish jarayoningizni qurilmalar o'rtasida saqlash va shaxsiylashtirish uchun.",
+      "privacy.section3.title": "3. Ma'lumot qayerda saqlanadi",
+      "privacy.section3":
+        "Sizning ma'lumotingiz Supabase (backend ta'minotchi) bilan xavfsiz saqlanadi va hech qachon reklama maqsadlarida uchinchi tomonlarga sotilmaydi yoki ulashilmaydi.",
+      "privacy.section4.title": "4. Google orqali kirish",
+      "privacy.section4":
+        "Google orqali kirganingizda, biz Google'dan faqat ismingiz va elektron pochta manzilingizni olamiz. Google kontaktlaringiz, fayllaringiz yoki boshqa Google ma'lumotlariga biz kira olmaymiz.",
+      "privacy.section5.title": "5. AI Chat",
+      "privacy.section5":
+        "AI Chat yordamchisiga yuborgan xabarlaringiz javob yaratish uchun Google Gemini API tomonidan qayta ishlanadi. Agar tizimga kirgan bo'lsangiz, suhbatlaringiz hisobingizga saqlanadi, shunda keyinroq chat tarixingizga kira olasiz. Xavfsizlik va nazorat maqsadida, jumladan ilovadan noqonuniy yoki zararli foydalanishning oldini olish uchun, saqlangan suhbatlarni ko'rib chiqishimiz mumkin. Biz sizning chat xabarlaringizni hech qanday AI modelini o'rgatish uchun ishlatmaymiz.",
+      "privacy.section6.title": "6. Sizning huquqlaringiz",
+      "privacy.section6":
+        "Har qanday vaqtda Telegram orqali @mukh4mmadov bilan bog'lanib, hisobingiz va barcha bog'liq ma'lumotlarni o'chirishni so'rashingiz mumkin.",
+      "privacy.section7.title": "7. Ushbu siyosatdagi o'zgarishlar",
+      "privacy.section7":
+        "Biz vaqti-vaqti bilan ushbu siyosatni yangilashimiz mumkin; o'zgarishlardan keyin ham dasturdan foydalanishni davom ettirish yangilangan siyosatni qabul qilishni anglatadi.",
+      "privacy.section8.title": "8. Bog'lanish",
+      "privacy.section8":
+        "Ushbu siyosat bo'yicha har qanday savollar uchun Telegram orqali @mukh4mmadov bilan bog'laning.",
+
+      "terms.title": "Foydalanish shartlari",
+      "terms.lastUpdated": "Oxirgi yangilanish: 2026-yil 14-avgust",
+      "terms.section1.title": "1. Qabul qilish",
+      "terms.section1":
+        "K-TALIM'dan foydalanish orqali siz ushbu shartlarni qabul qilasiz.",
+      "terms.section2.title": "2. K-TALIM nima",
+      "terms.section2":
+        "K-TALIM 1A darsligi mazmunini qamrab olgan bepul koreyscha lug'at o'rganish ilovasi: flash kartalar, tinglash, testlar va yozma mashqlarni o'z ichiga oladi.",
+      "terms.section3.title": "3. Hisoblar",
+      "terms.section3":
+        "Kirish ma'lumotlaringizni xavfsiz saqlash uchun siz javobgarsiz. Hisobingizni bo'lishish yoki ruxsat berilmagan maqsadlarda foydalanish mumkin emas.",
+      "terms.section4.title": "4. Qabul qilinadigan foydalanish",
+      "terms.section4":
+        "Ilovani suiiste'mol qilish, buzish yoki teskari o'rganish (chegaralarni aylanib o'tish yoki kontentni qirqib olish) urinishlariga yo'l qo'ymang.",
+      "terms.section5.title": "5. AI Chat",
+      "terms.section5":
+        "AI yordamchi o'rganish uchun yordam berish uchun taqdim etilgan; uning javoblari ba'zan noto'g'ri bo'lishi mumkin — muhim ma'lumotlarni har doim mustaqil ravishda tekshiring.",
+      "terms.section6.title": "6. Kontent egaligi",
+      "terms.section6":
+        "Lug'at va kurs kontenti ta'lim maqsadlarida rasmiy K-TALIM 1A darsligidan olingan.",
+      "terms.section7.title": "7. Kafolat yo'q",
+      "terms.section7":
+        'Ilova "xuddi shunday" taqdim etiladi va uzluksiz mavjudlik kafolatlari berilmaydi.',
+      "terms.section8.title": "8. O'zgarishlar",
+      "terms.section8":
+        "Biz ushbu shartlarni yangilashimiz mumkin; o'zgarishlardan keyin ham foydalanishni davom ettirish yangilangan shartlarni qabul qilishni anglatadi.",
+      "terms.section9.title": "9. Bog'lanish",
+      "terms.section9":
+        "Savollar uchun Telegram orqali @mukh4mmadov bilan bog'laning.",
+
+      "login.agreement": "Kirish orqali siz bizning",
+      "login.terms": "Foydalanish shartlarimiz",
+      "login.and": "va",
+      "login.privacy": "Maxfiylik siyosatimiz",
+      "register.agreement": "Ro'yxatdan o'tish orqali siz bizning",
+      "register.terms": "Foydalanish shartlarimiz",
+      "register.and": "va",
+      "register.privacy": "Maxfiylik siyosatimiz",
+
+      "login.title": "Xush kelibsiz",
+      "login.subtitle":
+        "Koreyscha o'rganish safaringizni davom ettirish uchun kirish.",
+      "login.email": "Elektron pochta",
+      "login.password": "Parol",
+      "login.submit": "Kirish",
+      "login.googleSignIn": "Google orqali kirish",
+      "login.or": "yoki",
+      "login.noAccount": "Hisobingiz bormi?",
+      "login.signUp": "Ro'yxatdan o'tish",
+      "login.forgotPassword": "Parolni unutdingizmi?",
+      "login.emailRequired": "Elektron pohta talab qilinadi.",
+      "login.validEmail":
+        "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "login.passwordRequired": "Parol talab qilinadi.",
+      "login.genericError":
+        "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+
+      "forgotPassword.title": "Parolni tiklash",
+      "forgotPassword.subtitle":
+        "Elektron pochtangizni kiriting, biz sizga tiklash havolasini yuboramiz.",
+      "forgotPassword.submit": "Tiklash havolasini yuborish",
+      "forgotPassword.backToLogin": "Kirish sahifasiga qaytish",
+      "forgotPassword.successMessage":
+        "Agar bu elektron pochta bilan hisob mavjud bo'lsa, tiklash havolasi yuborildi.",
+      "forgotPassword.genericError":
+        "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+
+      "resetPassword.title": "Yangi parol o'rnating",
+      "resetPassword.subtitle": "Quyida yangi parolingizni kiriting.",
+      "resetPassword.newPassword": "Yangi parol",
+      "resetPassword.confirmPassword": "Yangi parolni tasdiqlang",
+      "resetPassword.submit": "Parolni yangilash",
+      "resetPassword.backToLogin": "Kirish sahifasiga qaytish",
+      "resetPassword.successMessage":
+        "Parolingiz yangilandi. Endi kirishingiz mumkin.",
+      "resetPassword.invalidLink":
+        "Bu tiklash havolasi noto'g'ri yoki muddati o'tgan.",
+      "resetPassword.passwordMinLength":
+        "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
+      "resetPassword.passwordMismatch": "Parollar mos kelmadi.",
+      "resetPassword.genericError":
+        "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+
+      "auth.emailPlaceholder": "you@example.com",
+      "auth.passwordPlaceholder": "••••••••",
+      "authCallback.signingIn": "Tizimga kirish...",
+      "authCallback.pleaseWait": "Autentifikatsiyani tugatishni kuting",
+      "common.userFallback": "Foydalanuvchi",
+      "aiChat.failedToGetResponse": "Javob olishda xatolik",
+      "aiChat.somethingWentWrong":
+        "Nimadir xato ketdi. Iltimos, qayta urinib ko'ring.",
+      "aiChat.justNow": "Hozirgina",
+      "aiChat.minutesAgo": "{{count}} daqiqa oldin",
+      "aiChat.hoursAgo": "{{count}} soat oldin",
+      "aiChat.daysAgo": "{{count}} kun oldin",
+      "pwa.updatingAutomatically": "Avtomatik yangilanmoqda...",
+      "roadmap.moreFeatures": "— Yana funksiyalar ishlab chiqilmoqda",
+      "library.lessonPrefix": "L",
+
+      "share.tagline": "K-TALIM · Korean Vocabulary Studio",
+      "share.appName": "K-TALIM",
+      "share.wordsLearned": "O'rganilgan so'zlar",
+      "share.dayStreak": "Kunlik ketma-ketma",
+      "share.overallMastery": "Umumiy o'zlashtirish",
+      "share.footer": "Learn Korean · One Word at a Time",
+      "share.sharedSuccess": "Ulashildi!",
+      "share.downloadedSuccess": "Yuklab olindi!",
+    },
+  },
+  ru: {
+    translation: {
+      "nav.home": "Главная",
+      "nav.courses": "Курсы",
+      "nav.study": "Учёба",
+      "nav.search": "Поиск",
+      "nav.favorites": "Избранное",
+      "nav.difficult": "Сложные слова",
+      "nav.stats": "Статистика",
+      "nav.settings": "Настройки",
+      "nav.dark": "Тёмная тема",
+      "nav.light": "Светлая тема",
+      "nav.futureUpdates": "Будущие обновления",
+      "nav.login": "Войти",
+      "nav.logout": "Выйти",
+      "nav.hi": "Привет",
+      "nav.more": "Ещё",
+      "nav.openMenu": "Открыть меню",
+      "nav.closeMenu": "Закрыть меню",
+
+      "pwa.updateAvailable": "Доступна новая версия",
+      "pwa.refreshing": "Обновление...",
+      "nav.installApp": "Установить приложение",
+      "pwa.iosInstructions":
+        "Для установки: нажмите кнопку «Поделиться», затем «На экран «Домой»».",
+
+      "home.title": "Премиум изучение корейского словаря",
+      "home.subtitle":
+        "Изучайте точный словарь из официального источника: карточки, аудирование, викторины, письмо, избранное и умный повтор.",
+      "home.officialSource": "Только официальный источник",
+      "home.continueLesson": "Продолжить урок 1",
+      "home.reviewMode": "Режим повторения",
+      "home.welcomeTitle": "Добро пожаловать в K-TALIM!",
+      "home.welcomeMessage":
+        "Начните с Урока 1, чтобы отправиться в путешествие по изучению корейского словаря.",
+      "home.startLesson": "Начать урок 1",
+      "home.progress": "Прогресс",
+      "home.dashboard": "Ваша панель учёбы",
+      "home.words": "Слова",
+      "home.lessons": "Уроки",
+      "home.completed": "Завершено",
+      "home.streak": "Серия",
+      "home.dailyChallenge": "Ежедневный вызов",
+      "home.dailyChallengeText": "Сегодняшняя сессия: Урок {{lesson}}",
+      "home.dailyChallengeSubtitle":
+        "Сначала разомнитесь с карточками, затем завершите викториной и письмом.",
+      "home.startChallenge": "Начать вызов",
+      "home.wordsLearned": "{{percent}}% выучено",
+      "home.continue": "Продолжить",
+
+      "courses.selectCourse": "Выберите курс",
+      "courses.title": "Выберите курс",
+      "courses.subtitle": "Какую книгу K-TALIM вы хотите изучать?",
+      "courses.browseByCourse": "Просмотр по курсам",
+      "courses.browseTitle": "Просмотр уроков по книге",
+      "courses.browseSubtitle":
+        "Выберите K-TALIM 1A или 1B для просмотра уроков",
+      "courses.openCourses": "Открыть библиотеку курсов",
+      "courses.backToCourses": "Назад к курсам",
+      "courses.openCourse": "Открыть курс",
+      "courses.description1A": "Базовый словарь из первой книги",
+      "courses.description1B": "Расширенный словарь из второй книги",
+
+      "study.title": "Режим учёбы",
+      "study.subtitle":
+        "Запоминайте словарный запас в своём темпе — без подсчёта очков, без викторины. Выберите урок, чтобы просмотреть каждое слово, затем перейдите к Практике, чтобы проверить себя.",
+      "study.learnFirst": "Сначала учитесь, затем практикуйтесь",
+      "study.lessonCompleted": "Урок завершён 🎉",
+      "study.lessonCompletedText":
+        "Вы просмотрели все {{count}} слов в Уроке {{lesson}}. Готовы проверить себя?",
+      "study.lessonNotFound": "Урок не найден",
+      "study.showMeaning": "Показать значение",
+      "study.reveal": "Показать",
+      "study.headerTitle": "Учёба — Урок {{lesson}}",
+      "home.studyAgain": "Учиться снова",
+      "home.goToPractice": "Перейти к практике",
+
+      "studyDevelopment.title": "🚧 Страница учёбы в разработке",
+      "studyDevelopment.subtitle":
+        "Эта страница в настоящее время активно улучшается. Для лучшего опыта мы рекомендуем подождать, пока текущие улучшения будут завершены.",
+      "studyDevelopment.improvingTitle": "В настоящее время улучшается:",
+      "studyDevelopment.improving.flow": "Поток обучения и прогресс упражнений",
+      "studyDevelopment.improving.selection": "Выбор слов и баланс повторения",
+      "studyDevelopment.improving.repetition":
+        "Интервальное повторение и обзор слабых слов",
+      "studyDevelopment.improving.variety":
+        "Разнообразие упражнений и адаптивная сложность",
+      "studyDevelopment.improving.mastery":
+        "Обнаружение мастерства и логика завершения",
+      "studyDevelopment.improving.reinforcement":
+        "Укрепление и обработка неправильных ответов",
+      "studyDevelopment.improving.ui":
+        "Стабильность UI/UX и ошибки взаимодействия",
+      "studyDevelopment.importantTitle": "⚠️ Важно",
+      "studyDevelopment.importantText":
+        "Страница учёбы может в настоящее время содержать временные ошибки или неожиданное поведение во время разработки. Вы всё ещё можете исследовать и тестировать страницу, но она не рекомендуется для серьёзного обучения.",
+
+      "practice.flashcards": "Карточки",
+      "practice.listening": "Аудирование",
+      "practice.quiz": "Викторина",
+      "practice.writing": "Письмо",
+      "practice.smartReview": "Умный повтор",
+
+      "flashcards.hint": "Подсказка",
+      "flashcards.iKnow": "Знаю",
+      "flashcards.dontKnow": "Не знаю",
+      "flashcards.favorite": "Избранное",
+      "flashcards.saved": "Сохранено",
+      "flashcards.replayAudio": "Повторить аудио",
+      "flashcards.next": "Следующий",
+      "flashcards.korean": "Корейский",
+      "flashcards.uzbek": "Узбекский",
+      "flashcards.answer": "Ответ",
+      "flashcards.tapToFlip": "Нажмите на карточку, чтобы перевернуть",
+      "flashcards.noDifficultWords": "Пока нет сложных слов",
+      "flashcards.noDifficultText":
+        "Нажмите Не знаю в карточках, чтобы автоматически собирать слова здесь.",
+      "flashcards.lessonNotFound": "Урок не найден",
+      "flashcards.lessonNotFoundText":
+        "Этот урок не существует. Проверьте номер урока и попробуйте снова.",
+
+      "practice.audioFirst": "Сначала аудио",
+      "practice.play": "Воспроизвести",
+      "practice.typeKorean": "Напишите корейское слово, которое услышали",
+      "practice.fourChoices": "4 варианта",
+      "practice.typeTranslation": "Напишите перевод",
+      "practice.correct": "Правильно",
+      "practice.incorrect": "Ответ: {{answer}}",
+      "practice.replayAudio": "Повторить аудио",
+      "practice.next": "Следующий",
+
+      "library.search": "Поиск",
+      "library.searchBadge": "Корейский · Узбекский · Романизация",
+      "library.searchPlaceholder": "Поиск во всех {{count}} записях словаря",
+      "library.showMore": "Показать ещё",
+      "settings.audioSection": "Аудио",
+      "settings.speechRate": "Скорость речи",
+      "settings.autoSpeak": "Автовоспроизведение",
+      "settings.autoSpeakDescription":
+        "Автоматически воспроизводить аудио при появлении новых слов",
+      "library.favorites": "Избранное",
+      "library.favoritesEmpty":
+        "Пока нет избранного. Сохраняйте слова из карточек или поиска.",
+      "library.difficult": "Сложные слова",
+      "library.autoCollected": "Автоматически собрано",
+      "library.difficultEmpty":
+        "Пока нет сложных слов. Нажмите Не знать в карточках, чтобы автоматически собирать слова здесь.",
+      "library.weakWords": "Слабые слова",
+      "library.weakWordsBadge": "Адаптивная практика",
+      "library.noWeakWords": "Пока нет слабых слов",
+      "library.noWeakWordsText":
+        "Продолжайте практиковаться, и слова, с которыми вы испытываете трудности, появятся здесь.",
+      "library.stats": "Статистика",
+      "library.analytics": "Аналитика обучения",
+      "library.settings": "Настройки",
+      "library.personalization": "Персонализация",
+
+      "stats.dailyStreak": "Ежедневная серия",
+      "stats.accuracy": "Точность",
+      "stats.wordsLearned": "Выученные слова",
+      "stats.studyTime": "Время обучения",
+      "stats.completedLessons": "Завершённые уроки",
+      "stats.hardestLesson": "Самый сложный урок",
+      "stats.hardWords": "Сложные слова",
+      "stats.reviews": "Повторы",
+      "stats.milestones": "Вехи",
+      "stats.achievements": "Достижения",
+      "stats.latestPractice": "Последняя практика",
+      "stats.recentActivity": "Недавняя активность",
+      "stats.noActivity": "Пока нет активности.",
+
+      "share.title": "Поделиться прогрессом",
+      "share.selectTemplate": "Выберите шаблон",
+      "share.templateWordCount": "Количество слов",
+      "share.templateStreak": "Серия",
+      "share.templateMastery": "Уровень / Освоение",
+      "share.close": "Закрыть",
+      "share.download": "Скачать",
+      "share.share": "Поделиться",
+
+      "aiChat.title": "AI Чат",
+      "aiChat.subtitle":
+        "Спросите что-нибудь о корейской лексике, грамматике или советах по учёбе.",
+      "aiChat.placeholder": "Введите ваш вопрос о корейском...",
+      "aiChat.send": "Отправить",
+      "aiChat.thinking": "Думаю...",
+      "aiChat.emptyState":
+        "Начните с вопроса о корейской лексике, грамматике или советах по учёбе.",
+      "aiChat.badge": "AI Репетитор",
+      "aiChat.rateLimitExceeded":
+        "Дневной лимит AI чата исчерпан. Попробуйте снова завтра.",
+      "aiChat.openAriaLabel": "Открыть AI чат",
+      "aiChat.closeAriaLabel": "Закрыть AI чат",
+      "aiChat.guestLimitReached":
+        "Вы достигли лимита для гостей. Войдите в аккаунт, чтобы получать больше сообщений в день.",
+      "aiChat.limitResetsIn": "Лимит сбросится через: {{time}}",
+      "aiChat.history": "История",
+      "aiChat.newChat": "Новый чат",
+      "aiChat.noSessions": "История чатов пуста",
+
+      "achievement.firstStep": "Первый шаг",
+      "achievement.hundredReviews": "100 повторов",
+      "achievement.sevenDayStreak": "7-дневная серия",
+      "achievement.halfWay": "На полпути",
+      "achievement.master": "Мастер словаря",
+
+      "settings.pronunciation": "Произношение",
+      "settings.pronunciationText":
+        "Аудио использует корейский голос синтеза речи вашего браузера (ko-KR) для каждого слова.",
+      "settings.resetProgress": "Сбросить прогресс",
+      "settings.resetProgressText":
+        "Это очистит выученные слова, избранное, сложные слова, статистику, серию и сохранённые колоды.",
+      "settings.resetConfirm": "Сбросить весь локальный прогресс?",
+      "settings.resetButton": "Сбросить прогресс",
+
+      "header.brand": "Студия корейского словаря",
+      "header.menu": "Меню",
+
+      "mastery.new": "Новый",
+      "mastery.learning": "Изучается",
+      "mastery.practiced": "Практикуется",
+      "mastery.mastered": "Освоен",
+      "mastery.overview": "Освоение слов",
+      "mastery.masteredCount": "Освоено",
+      "mastery.practicedCount": "Практикуется",
+      "mastery.learningCount": "Изучается",
+      "mastery.newCount": "Новый",
+      "mastery.overallProgress": "Общий прогресс",
+      "mastery.lessonMastery": "Освоение урока",
+      "mastery.courseMastery": "Освоение курса",
+      "mastery.score": "{{percent}}% освоено",
+
+      "study.practiceNeeded": "Требуется практика",
+      "study.keepPracticing": "Продолжайте практику",
+      "study.wordsIntroduced": "Введённые слова",
+      "study.wordsMastered": "Освоенные слова",
+      "study.accuracy": "Точность",
+      "study.studyTime": "Время изучения",
+      "study.needsReview": "Требуется повтор",
+      "study.continuePractice": "Продолжить практику",
+      "study.nextLesson": "Следующий урок →",
+      "study.introduced": "введено",
+      "study.mastered": "освоено",
+      "study.learning": "изучается",
+      "study.checkpoint": "Проверьте свои знания",
+      "study.checkpointTitle": "Проверьте свои знания",
+      "study.checkpointSubtitle":
+        "Вы изучили {{count}} слов. Теперь давайте проверим ваши знания.",
+      "study.review": "Повтор",
+      "study.letsReview": "Давайте повторим",
+      "study.wordType.country": "🌍 Страна",
+      "study.wordType.profession": "👤 Профессия",
+      "study.wordType.food": "🍽️ Еда",
+      "study.wordType.family": "👨‍👩‍👧 Семья",
+      "study.wordType.number": "🔢 Число",
+      "study.wordType.verb": "📝 Глагол",
+      "study.wordType.adjective": "🎨 Прилагательное",
+      "study.wordType.noun": "📚 Существительное",
+      "study.example": "Пример",
+      "study.listen": "🔊 Слушать",
+      "study.hideSentence": "Скрыть предложение",
+      "study.showSentence": "Показать предложение",
+
+      "courses.notFound": "Курс не найден",
+      "courses.mastery": "Освоение",
+      "courses.lessonMastery": "{{mastered}}/{{total}} освоено",
+      "courses.course1A": "K-TALIM 1A",
+      "courses.course1B": "K-TALIM 1B",
+
+      "lesson.1.category": "введение, страны и идентичность",
+      "lesson.2.category": "классные предметы и люди",
+      "lesson.3.category": "повседневные действия",
+      "lesson.4.category": "описания, погода и напитки",
+      "lesson.5.category": "места и занятия",
+      "lesson.6.category": "местоположения, даты и числа",
+      "lesson.7.category": "корейские числа, счетные слова и семья",
+      "lesson.8.category": "время, места и повседневная жизнь",
+      "lesson.9.category": "действия, здоровье и семья",
+      "lesson.10.category": "времена года, погода и неправильные глаголы",
+      "lesson.11.category": "описания, транспорт и семья",
+      "lesson.12.category": "развлечения и повседневные действия",
+      "lesson.13.category": "культура, дом и общение",
+      "lesson.14.category": "хобби, язык и выражения",
+      "lesson.15.category": "вежливая речь, гоноративы и повседневная жизнь",
+      "lesson.16.category": "распорядок дня, время и повседневные действия",
+      "lesson.17.category": "путешествия, движение и направления",
+      "lesson.18.category": "части тела, здоровье и описания",
+      "lesson.19.category": "спорт, мероприятия и школьная жизнь",
+      "lesson.20.category": "корейская культура, традиции и еда",
+      "lesson.21.category": "транспорт, общественные места и направления",
+      "lesson.22.category": "путешествия, повседневная жизнь и покупки",
+      "lesson.23.category": "офис, общение и повседневная жизнь",
+      "lesson.24.category": "прилагательные, природа и места",
+      "lesson.25.category": "здоровье, больница и тело",
+      "lesson.26.category": "сеул, путешествия и повседневные выражения",
+      "lesson.27.category": "здоровье, спорт и повседневная жизнь",
+      "lesson.28.category": "повседневная жизнь, дом и разное",
+
+      "srs.again": "Снова",
+      "srs.hard": "Сложно",
+      "srs.good": "Хорошо",
+      "srs.easy": "Легко",
+      "srs.reviewsDue": "{{count}} повторений сегодня",
+      "srs.reviewsDueSubtitle":
+        "Поддерживайте память с помощью плановых повторений",
+      "srs.reviewNow": "Повторить",
+      "srs.caughtUp": "Вы всё повторили!",
+      "srs.caughtUpSubtitle":
+        "Сейчас нет слов для повторения. Продолжайте учить, и они появятся здесь, когда придет время.",
+      "srs.reviewsCompleted": "{{count}} повторений выполнено",
+
+      "practice.masteryScore": "{{score}}% освоено",
+      "practice.enterAnswer": "Сначала введите ответ",
+
+      "search.noResults": "Совпадений не найдено.",
+
+      "common.back": "Назад",
+      "common.loading": "Загрузка...",
+      "common.save": "Сохранить",
+      "common.cancel": "Отмена",
+      "common.delete": "Удалить",
+      "notFound.title": "Страница не найдена",
+      "notFound.text":
+        "Страница, которую вы ищете, не существует. Проверьте URL или вернитесь на главную.",
+      "common.edit": "Редактировать",
+      "common.close": "Закрыть",
+      "common.search": "Поиск",
+      "common.filter": "Фильтр",
+      "common.sort": "Сортировка",
+      "common.view": "Просмотр",
+      "common.share": "Поделиться",
+      "common.copy": "Копировать",
+      "common.download": "Скачать",
+      "common.upload": "Загрузить",
+      "common.confirm": "Подтвердить",
+      "common.yes": "Да",
+      "common.no": "Нет",
+      "common.tryAgain": "Попробуйте снова",
+      "common.stop": "Остановить",
+      "common.none": "—",
+      "common.success": "Успех",
+      "common.error": "Ошибка",
+      "common.warning": "Предупреждение",
+      "common.info": "Информация",
+      "common.reportBug": "Сообщить об ошибке",
+
+      "practice.shuffle": "Перемешать",
+      "practice.autoPlay": "Автовоспроизведение",
+      "practice.manualDifficult": "Отметить как сложное",
+      "practice.markDifficult": "Отметить как сложное",
+
+      "study.full": "Показать всё",
+      "study.hideUzbek": "Скрыть узбекский",
+      "study.onlyKorean": "Только корейский",
+
+      "mode.korean": "Корейский → Узбекский",
+      "mode.uzbek": "Узбекский → Корейский",
+      "mode.random": "Случайный",
+
+      "card.word": "Слово {{number}} / {{total}}",
+      "card.lesson": "Урок {{lesson}}",
+      "card.category": "Категория",
+      "card.verified": "Проверено из изображения",
+      "card.needsReview": "Требуется проверка",
+
+      "button.start": "Начать",
+      "button.continue": "Продолжить",
+      "button.next": "Далее",
+      "button.previous": "Предыдущий",
+      "button.finish": "Завершить",
+      "button.skip": "Пропустить",
+      "button.retry": "Попробовать снова",
+      "button.back": "Назад",
+
+      "feedback.correct": "Правильно!",
+      "feedback.incorrect": "Неправильно",
+      "feedback.tryAgain": "Попробуйте снова",
+
+      "empty.noData": "Нет данных",
+      "empty.noResults": "Результаты не найдены",
+      "empty.noFavorites": "Пока нет избранного",
+      "empty.noActivity": "Пока нет активности",
+
+      "time.minutes": "минут",
+      "time.hours": "часов",
+      "time.days": "дней",
+      "time.weeks": "недель",
+      "time.months": "месяцев",
+      "time.years": "лет",
+
+      "footer.vocabularySource": "Источник словаря",
+      "footer.educationalOnly": "Только в образовательных целях",
+      "footer.developer": "Разработчик",
+      "footer.contact": "Для ошибок и проблем",
+      "footer.contactTelegram": "Telegram @mukh4mmadov",
+      "footer.vocabularySourceName": "Dong Eun Academy",
+      "footer.developerName": "Mukh4mmadov",
+      "footer.developerTelegram": "Telegram @mukh4mmadov",
+
+      "advertisement.placeholder": "Ваша реклама может быть здесь",
+
+      "ielts.title": "Продолжайте улучшать английский",
+      "ielts.description":
+        "Если вы изучаете корейский, улучшение чтения на английском поможет вам быстрее учить языки. Попробуйте нашу платформу IELTS Reading с AI-объяснениями, профессиональными текстами и практикой реальных экзаменов.",
+      "ielts.openButton": "Практиковать IELTS Reading",
+      "ielts.continueButton": "Продолжить изучать корейский",
+      "ielts.footer": "Создано тем же разработчиком.",
+      "ielts.preview.title": "Платформа IELTS Reading",
+      "ielts.preview.aiExplanations": "AI-объяснения",
+      "ielts.preview.vocabulary": "Словарь",
+      "ielts.preview.bandScore": "Балл",
+      "ielts.preview.realPassages": "Реальные тексты Cambridge",
+      "ielts.preview.url": "mukh4mmadovoriginal.vercel.app",
+
+      "study.cumulativeProgress": "Кумулятивный прогресс",
+      "study.mastery.mastered": "Освоено",
+      "study.mastery.progress": "Прогресс: {{count}}/{{threshold}}",
+      "study.mastery.new": "Новое слово",
+      "study.learnThisWord": "Выучите это слово",
+      "study.continue": "Продолжить",
+      "study.toPractice": "для практики",
+      "study.exercise": "Практика",
+      "study.chooseMeaning": "Выберите правильное значение",
+      "study.chooseKorean": "Выберите правильное корейское слово",
+      "study.isTranslationCorrect": "Этот перевод верный?",
+      "study.yesCorrect": "Да, верно",
+      "study.noIncorrect": "Нет, неверно",
+      "study.exerciseNotAvailable": "Этот тип упражнения недоступен",
+      "study.chooseMissingLetter": "Выберите пропущенную букву",
+      "study.listenChooseWord": "Послушайте и выберите правильное слово",
+      "study.listenChooseMeaning": "Послушайте и выберите значение",
+      "study.chooseWordForBlank": "Выберите слово для пропуска",
+      "study.typeInKorean": "Напишите на корейском",
+      "study.koreanInputLabel": "Ввод корейского слова",
+      "study.check": "Проверить",
+
+      "exercise.koreanToUzbek": "Корейский → Узбекский",
+      "exercise.uzbekToKorean": "Узбекский → Корейский",
+      "exercise.listeningToKorean": "Аудирование",
+      "exercise.trueFalse": "Верно/Неверно",
+      "exercise.missingSyllable": "Пропущенная буква",
+      "exercise.typingChallenge": "Печать",
+      "exercise.listeningToMeaning": "Аудирование + значение",
+      "exercise.sentenceContext": "Слово в предложении",
+
+      "mastery.wordLevels": "Уровни слов",
+      "mastery.overallMastery": "Общее освоение",
+      "mastery.filterAll": "Все ({{count}})",
+      "mastery.filterNew": "Новые ({{count}})",
+      "mastery.filterLearning": "Изучаются ({{count}})",
+      "mastery.filterPracticed": "Практикуются ({{count}})",
+      "mastery.filterMastered": "Освоены ({{count}})",
+
+      "home.masteryOverview": "Освоение слов",
+      "home.yourWordMastery": "Ваше освоение слов",
+      "home.mastered": "Освоено",
+      "home.practiced": "Практикуется",
+      "home.learning": "Изучается",
+      "home.new": "Новое",
+      "home.overallProgress": "Общий прогресс",
+
+      "roadmap.comingSoon": "СКОРО",
+      "roadmap.title": "Будущие обновления",
+      "roadmap.subtitle":
+        "Мы постоянно улучшаем K-TALIM, чтобы сделать изучение корейского языка умнее, проще и эффективнее.",
+      "roadmap.planned": "ПЛАНИРУЕТСЯ",
+      "roadmap.completed": "ЗАВЕРШЕНО",
+      "roadmap.future": "В БУДУЩЕМ",
+      "roadmap.benefit": "Как это поможет вам",
+
+      "roadmap.feature1.title": "Аккаунт / Вход и регистрация",
+      "roadmap.feature1.description":
+        "Пользователи смогут создать личный аккаунт K-TALIM с безопасным входом и регистрацией.",
+      "roadmap.feature1.benefit":
+        "Прогресс пользователя и личные данные могут быть безопасно связаны с аккаунтом и восстановлены при смене устройств.",
+
+      "roadmap.feature2.title": "Облачная синхронизация и несколько устройств",
+      "roadmap.feature2.description":
+        "Данные обучения будут автоматически синхронизироваться между устройствами.",
+      "roadmap.feature2.benefit":
+        "Начните обучение на телефоне и продолжите на ноутбуке или другом устройстве без потери прогресса.",
+
+      "roadmap.feature3.title": "Практика TOPIK I",
+      "roadmap.feature3.description":
+        "Материалы для подготовки к TOPIK I будут добавлены в K-TALIM. Включает практику чтения, аудирование, вопросы в стиле экзамена, timed practice, полные mock-тесты и анализ производительности.",
+      "roadmap.feature3.benefit":
+        "Учащиеся могут готовиться к начальному уровню TOPIK со структурированными материалами практики непосредственно внутри K-TALIM вместо использования отдельных ресурсов.",
+
+      "roadmap.feature4.title": "Практика TOPIK II",
+      "roadmap.feature4.description":
+        "Более продвинутая система подготовки к TOPIK II будет добавлена. Включает чтение, аудирование, письмо, практику в стиле экзамена, полные mock-тесты и анализ производительности.",
+      "roadmap.feature4.benefit":
+        "Учащиеся могут продолжить подготовку к среднему/продвинутому уровню TOPIK с более сложными материалами в той же платформе.",
+
+      "roadmap.feature5.title": "AI корейский репетитор",
+      "roadmap.feature5.description":
+        "AI-питатель будет предоставлять персонализированную помощь в обучении. Возможности включают объяснение словарного запаса, объяснение грамматики, примеры предложений, объяснение ошибок, подсказки, ответы на вопросы по изучению корейского и рекомендации, что практиковать дальше.",
+      "roadmap.feature5.benefit":
+        "Учащиеся могут получать персонализированные объяснения и руководство, не выходя из K-TALIM.",
+
+      "roadmap.feature6.title": "Интервальное повторение / Умный обзор",
+      "roadmap.feature6.description":
+        "K-TALIM будет интеллектуально определять, когда следует просматривать каждый элемент словарного запаса. Система будет использовать предыдущие ответы, мастерство, ошибки, историю обзора и производительность запоминания для создания персонализированных сессий обзора.",
+      "roadmap.feature6.benefit":
+        "Слова просматриваются в нужное время на основе производительности учащегося, что улучшает долгосрочное запоминание.",
+
+      "roadmap.feature7.title": "Практика корейской речи с реальными людьми",
+      "roadmap.feature7.description":
+        "Пользователи смогут найти партнёров по изучению корейского и практиковать с ними реальные разговоры.",
+      "roadmap.feature7.benefit":
+        "Учащиеся могут улучшить уверенность в речи, слух, произношение и спонтанное общение через практику реальных разговоров.",
+
+      "roadmap.feature8.title": "Улучшения прогресса и мастерства",
+      "roadmap.feature8.description":
+        "Улучшенное отслеживание мастерства и визуализация прогресса объединят данные обучения в одном месте. Покажет мастерство словарного запаса, производительность практики, сильные области, слабые области, постоянство обучения и историю обучения.",
+      "roadmap.feature8.benefit":
+        "Более чёткое отслеживание мастерства помогает учащимся понять, что они уже знают и что ещё нужно практиковать.",
+
+      "roadmap.feature9.title":
+        "Персонализированное обучение / Адаптивная практика",
+      "roadmap.feature9.description":
+        "K-TALIM в конечном итоге будет адаптировать рекомендации по обучению к потребностям каждого учащегося.",
+      "roadmap.feature9.benefit":
+        "Система может сосредоточить практику на словах и навыках, с которыми учащийся испытывают трудности, вместо того чтобы давать всем одинаковый обзор.",
+
+      "roadmap.feature10.title": "Контекстные примерные предложения",
+      "roadmap.feature10.description":
+        "Словарный запас будет преподаваться через естественные корейские предложения и реальные контексты использования.",
+      "roadmap.feature10.benefit":
+        "Учащиеся понимают, как корейские слова действительно используются в реальных предложениях, вместо запоминания изолированных переводов.",
+
+      "roadmap.feature11.title": "Форма обратной связи и предложений",
+      "roadmap.feature11.description":
+        "Простая форма, где пользователи могут сообщать об ошибках, предлагать новые функции, делиться проблемами или отправлять общую обратную связь непосредственно команде K-TALIM.",
+      "roadmap.feature11.benefit":
+        "Пользователи могут легко общаться с командой, не нуждаясь в отдельном контакте с администратором через Telegram.",
+
+      "roadmap.timeline.now": "СЕЙЧАС",
+      "roadmap.timeline.current": "Текущая платформа K-TALIM",
+      "roadmap.timeline.next": "СЛЕДУЮЩЕЕ",
+      "roadmap.timeline.later": "ПОЗЖЕ",
+      "roadmap.timeline.future": "В БУДУЩЕМ",
+
+      "roadmap.cta.title": "Ещё больше впереди.",
+      "roadmap.cta.subtitle":
+        "Ваше путешествие по изучению корейского только начинается.",
+      "roadmap.cta.button": "Начать обучение",
+
+      "register.title": "Создайте аккаунт",
+      "register.subtitle":
+        "Присоединяйтесь к K-TALIM, чтобы отслеживать прогресс в изучении корейского.",
+      "register.firstName": "Имя",
+      "register.lastName": "Фамилия",
+      "register.dateOfBirth": "Дата рождения",
+      "register.day": "День",
+      "register.month": "Месяц",
+      "register.year": "Год",
+      "register.email": "Электронная почта",
+      "register.password": "Пароль",
+      "register.confirmPassword": "Подтвердите пароль",
+      "register.signUp": "Зарегистрироваться",
+      "register.googleSignUp": "Зарегистрироваться через Google",
+      "register.or": "или",
+      "register.hasAccount": "Уже есть аккаунт?",
+      "register.login": "Войти",
+      "register.confirmEmailMessage":
+        "Проверьте электронную почту, чтобы подтвердить аккаунт перед входом.",
+      "register.passwordMinLength":
+        "Пароль должен содержать не менее 8 символов.",
+      "register.passwordMismatch": "Пароли не совпадают.",
+      "register.emailRequired": "Электронная почта обязательна.",
+      "register.validEmail": "Введите действительный адрес электронной почты.",
+      "register.birthDateRequired": "Введите полную дату рождения.",
+      "register.birthDateInvalid": "Введите корректную дату (день/месяц/год).",
+      "register.birthYearRange": "Год должен быть от 1940 до 2015.",
+      "register.firstNameRequired": "Имя обязательно.",
+      "register.lastNameRequired": "Фамилия обязательна.",
+      "register.genericError":
+        "Произошла ошибка. Пожалуйста, попробуйте снова.",
+
+      "progressImport.title": "Сохранить прогресс?",
+      "progressImport.description":
+        "У вас есть прогресс на этом устройстве. Хотите сохранить его в аккаунт, чтобы продолжить с любого устройства?",
+      "progressImport.keepLocal":
+        "Если вы выберете не синхронизировать, прогресс останется только на этом устройстве и не будет доступен на других.",
+      "progressImport.save": "Да, сохранить",
+      "progressImport.dontSync": "Нет, не синхронизировать",
+
+      "completeProfile.title": "Заполните профиль",
+      "completeProfile.subtitle": "Расскажите немного о себе, чтобы начать.",
+      "completeProfile.submit": "Сохранить и продолжить",
+
+      "privacy.title": "Политика конфиденциальности",
+      "privacy.lastUpdated": "Последнее обновление: 14 августа 2026 г.",
+      "privacy.section1.title": "1. Какую информацию мы собираем",
+      "privacy.section1":
+        "Ваше имя, фамилия, год рождения, адрес электронной почты (при регистрации) и данные о прогрессе в изучении корейского словаря (изученные слова, результаты тестов, серии, избранное).",
+      "privacy.section2.title": "2. Зачем мы её собираем",
+      "privacy.section2":
+        "Для создания и управления вашим аккаунтом, сохранения прогресса между устройствами и персонализации опыта.",
+      "privacy.section3.title": "3. Где она хранится",
+      "privacy.section3":
+        "Ваши данные безопасно хранятся у Supabase (наш бэкенд-провайдер) и никогда не продаются и не передаются третьим лицам для рекламных целей.",
+      "privacy.section4.title": "4. Вход через Google",
+      "privacy.section4":
+        "Если вы входите через Google, мы получаем только ваше имя и адрес электронной почты. Мы не имеем доступа к вашим контактам Google, файлам или другим данным Google.",
+      "privacy.section5.title": "5. AI Чат",
+      "privacy.section5":
+        "Сообщения, которые вы отправляете в AI-ассистент, обрабатываются Google Gemini API для генерации ответа. Если вы вошли в систему, ваши переписки сохраняются в вашем аккаунте, чтобы вы могли позже просмотреть историю чата. Мы можем просматривать сохранённые переписки в целях безопасности и модерации, в том числе для предотвращения незаконного или вредоносного использования приложения. Мы не используем ваши сообщения чата для обучения каких-либо AI-моделей.",
+      "privacy.section6.title": "6. Ваши права",
+      "privacy.section6":
+        "Вы можете в любое время запросить удаление вашего аккаунта и всех связанных данных, связавшись с нами в Telegram @mukh4mmadov.",
+      "privacy.section7.title": "7. Изменения в этой политике",
+      "privacy.section7":
+        "Мы можем время от времени обновлять эту политику. Продолжение использования приложения после изменений означает ваше согласие с обновлённой политикой.",
+      "privacy.section8.title": "8. Контакты",
+      "privacy.section8":
+        "По любым вопросам о этой политике пишите нам в Telegram @mukh4mmadov.",
+
+      "terms.title": "Условия использования",
+      "terms.lastUpdated": "Последнее обновление: 14 августа 2026 г.",
+      "terms.section1.title": "1. Принятие условий",
+      "terms.section1": "Используя K-TALIM, вы соглашаетесь с этими условиями.",
+      "terms.section2.title": "2. Что такое K-TALIM",
+      "terms.section2":
+        "Бесплатное приложение для изучения корейской лексики по содержанию учебника K-TALIM 1A, включающее карточки, аудирование, тесты и письменные упражнения.",
+      "terms.section3.title": "3. Аккаунты",
+      "terms.section3":
+        "Вы несёте ответственность за сохранность учётных данных. Запрещается передавать аккаунт третьим лицам или использовать его в несанкционированных целях.",
+      "terms.section4.title": "4. Допустимое использование",
+      "terms.section4":
+        "Запрещены любые попытки злоупотребления, нарушения или реверс-инжиниринга приложения, включая обход лимитов и парсинг контента.",
+      "terms.section5.title": "5. AI Чат",
+      "terms.section5":
+        "AI-ассистент предназначен для помощи в учёбе. Его ответы могут иногда быть неточными — всегда проверяйте важную информацию самостоятельно.",
+      "terms.section6.title": "6. Права на контент",
+      "terms.section6":
+        "Лексика и содержание курсов взяты из официального учебника K-TALIM 1A в образовательных целях.",
+      "terms.section7.title": "7. Отказ от гарантий",
+      "terms.section7":
+        "Приложение предоставляется «как есть» без гарантий бесперебойной работы.",
+      "terms.section8.title": "8. Изменения",
+      "terms.section8":
+        "Мы можем обновлять эти условия. Продолжение использования после изменений означает согласие с обновлёнными условиями.",
+      "terms.section9.title": "9. Контакты",
+      "terms.section9": "По вопросам пишите в Telegram @mukh4mmadov.",
+
+      "login.agreement": "Входя в систему, вы соглашаетесь с нашими",
+      "login.terms": "Условиями использования",
+      "login.and": "и",
+      "login.privacy": "Политикой конфиденциальности",
+      "register.agreement": "Регистрируясь, вы соглашаетесь с нашими",
+      "register.terms": "Условиями использования",
+      "register.and": "и",
+      "register.privacy": "Политикой конфиденциальности",
+
+      "login.title": "С возвращением",
+      "login.subtitle": "Войдите, чтобы продолжить изучение корейского.",
+      "login.email": "Электронная почта",
+      "login.password": "Пароль",
+      "login.submit": "Войти",
+      "login.googleSignIn": "Войти через Google",
+      "login.or": "или",
+      "login.noAccount": "Нет аккаунта?",
+      "login.signUp": "Зарегистрироваться",
+      "login.forgotPassword": "Забыли пароль?",
+      "login.emailRequired": "Электронная почта обязательна.",
+      "login.validEmail": "Введите действительный адрес электронной почты.",
+      "login.passwordRequired": "Пароль обязателен.",
+      "login.genericError": "Произошла ошибка. Пожалуйста, попробуйте снова.",
+
+      "forgotPassword.title": "Сброс пароля",
+      "forgotPassword.subtitle":
+        "Введите свою электронную почту, и мы отправим вам ссылку для сброса.",
+      "forgotPassword.submit": "Отправить ссылку",
+      "forgotPassword.backToLogin": "Вернуться ко входу",
+      "forgotPassword.successMessage":
+        "Если аккаунт с такой электронной почтой существует, ссылка для сброса отправлена.",
+      "forgotPassword.genericError":
+        "Произошла ошибка. Пожалуйста, попробуйте снова.",
+
+      "resetPassword.title": "Установите новый пароль",
+      "resetPassword.subtitle": "Введите свой новый пароль ниже.",
+      "resetPassword.newPassword": "Новый пароль",
+      "resetPassword.confirmPassword": "Подтвердите новый пароль",
+      "resetPassword.submit": "Обновить пароль",
+      "resetPassword.backToLogin": "Вернуться ко входу",
+      "resetPassword.successMessage":
+        "Ваш пароль обновлён. Теперь вы можете войти.",
+      "resetPassword.invalidLink":
+        "Эта ссылка для сброса недействительна или истекла.",
+      "resetPassword.passwordMinLength":
+        "Пароль должен содержать не менее 8 символов.",
+      "resetPassword.passwordMismatch": "Пароли не совпадают.",
+      "resetPassword.genericError":
+        "Произошла ошибка. Пожалуйста, попробуйте снова.",
+
+      "auth.emailPlaceholder": "you@example.com",
+      "auth.passwordPlaceholder": "••••••••",
+      "authCallback.signingIn": "Вход в систему...",
+      "authCallback.pleaseWait":
+        "Пожалуйста, подождите, пока мы завершим аутентификацию",
+      "common.userFallback": "Пользователь",
+      "aiChat.failedToGetResponse": "Не удалось получить ответ",
+      "aiChat.somethingWentWrong":
+        "Что-то пошло не так. Пожалуйста, попробуйте снова.",
+      "aiChat.justNow": "Только что",
+      "aiChat.minutesAgo": "{{count}} мин. назад",
+      "aiChat.hoursAgo": "{{count}} ч. назад",
+      "aiChat.daysAgo": "{{count}} дн. назад",
+      "pwa.updatingAutomatically": "Автоматическое обновление...",
+      "roadmap.moreFeatures": "— Больше функций в разработке",
+      "library.lessonPrefix": "У",
+
+      "share.tagline": "K-TALIM · Korean Vocabulary Studio",
+      "share.appName": "K-TALIM",
+      "share.wordsLearned": "Изучено слов",
+      "share.dayStreak": "Дней подряд",
+      "share.overallMastery": "Общее освоение",
+      "share.footer": "Learn Korean · One Word at a Time",
+      "share.sharedSuccess": "Отправлено!",
+      "share.downloadedSuccess": "Загружено!",
+    },
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: localStorage.getItem("language") || "en",
+  fallbackLng: "uz",
+
+  interpolation: {
+    escapeValue: false,
+  },
+
+  react: {
+    useSuspense: false,
+  },
+});
+
+export default i18n;

@@ -1,0 +1,291 @@
+[
+  {
+    "id": 663,
+    "korean": "동화책",
+    "uzbek": "Ertak kitobi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 663
+  },
+  {
+    "id": 664,
+    "korean": "이메일",
+    "uzbek": "Elektron pochta",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 664
+  },
+  {
+    "id": 665,
+    "korean": "장난감",
+    "uzbek": "O'yinchoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 665
+  },
+  {
+    "id": 666,
+    "korean": "주소",
+    "uzbek": "Manzil",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 666
+  },
+  {
+    "id": 667,
+    "korean": "용돈",
+    "uzbek": "Cho'ntak puli, xarajat puli",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 667
+  },
+  {
+    "id": 668,
+    "korean": "글씨",
+    "uzbek": "Yozuv, xat",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 668,
+    "note": "husnixat"
+  },
+  {
+    "id": 669,
+    "korean": "실수",
+    "uzbek": "Xato, adashish",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 669
+  },
+  {
+    "id": 670,
+    "korean": "의미",
+    "uzbek": "Ma'no",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 670
+  },
+  {
+    "id": 671,
+    "korean": "음료수",
+    "uzbek": "Ichimlik",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 671
+  },
+  {
+    "id": 672,
+    "korean": "예문",
+    "uzbek": "Misol, namuna",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 672,
+    "note": "gap"
+  },
+  {
+    "id": 673,
+    "korean": "동료",
+    "uzbek": "Hamkasb",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 673
+  },
+  {
+    "id": 674,
+    "korean": "선배",
+    "uzbek": "Katta kurs/ishchi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 674,
+    "note": "tajribaliroq shaxs"
+  },
+  {
+    "id": 675,
+    "korean": "후배",
+    "uzbek": "Kichik kurs/ishchi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 675
+  },
+  {
+    "id": 676,
+    "korean": "무슨 일이에요?",
+    "uzbek": "Nima bo'ldi? / Nima gap?",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 676
+  },
+  {
+    "id": 677,
+    "korean": "전하다",
+    "uzbek": "Yetkazmoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 677
+  },
+  {
+    "id": 678,
+    "korean": "생신",
+    "uzbek": "Tug'ilgan kun",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 678,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 679,
+    "korean": "번역하다",
+    "uzbek": "Tarjima qilmoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 679,
+    "note": "yozma"
+  },
+  {
+    "id": 680,
+    "korean": "서류",
+    "uzbek": "Hujjat",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 680
+  },
+  {
+    "id": 681,
+    "korean": "통역하다",
+    "uzbek": "Tarjima qilmoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 681,
+    "note": "og'zaki"
+  },
+  {
+    "id": 682,
+    "korean": "통역가",
+    "uzbek": "Tarjimon",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 682
+  },
+  {
+    "id": 683,
+    "korean": "깎다 (깍다)",
+    "uzbek": "Artmoq, archmoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 683,
+    "note": "mevani) / Arzonlashtirmoq (narxni"
+  },
+  {
+    "id": 684,
+    "korean": "판매원",
+    "uzbek": "Sotuvchi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 684
+  },
+  {
+    "id": 685,
+    "korean": "조용히 하다 (조용히 해 주세요)",
+    "uzbek": "Jim bo'lmoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 685,
+    "note": "Iltimos, tinchlik saqlang"
+  },
+  {
+    "id": 686,
+    "korean": "안내하다",
+    "uzbek": "Yo'l ko'rsatmoq, ma'lumot bermoq",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 686
+  },
+  {
+    "id": 687,
+    "korean": "무료",
+    "uzbek": "Bepul",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 687,
+    "note": "tekin"
+  },
+  {
+    "id": 688,
+    "korean": "유료",
+    "uzbek": "Pullik",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 688
+  },
+  {
+    "id": 689,
+    "korean": "통장",
+    "uzbek": "Bank hisob daftarchasi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 689
+  },
+  {
+    "id": 690,
+    "korean": "직원",
+    "uzbek": "Xodim, ishchi",
+    "lesson": 23,
+    "category": "office, communication and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 690
+  }
+]

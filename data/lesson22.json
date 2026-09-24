@@ -1,0 +1,339 @@
+[
+  {
+    "id": 630,
+    "korean": "비행기",
+    "uzbek": "Samolyot",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 630
+  },
+  {
+    "id": 631,
+    "korean": "가위",
+    "uzbek": "Qaychi",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 631
+  },
+  {
+    "id": 632,
+    "korean": "학교버스",
+    "uzbek": "Maktab avtobusi",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 632
+  },
+  {
+    "id": 633,
+    "korean": "현금",
+    "uzbek": "Naqd pul",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 633
+  },
+  {
+    "id": 634,
+    "korean": "칫솔",
+    "uzbek": "Tish cho'tkasi",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 634
+  },
+  {
+    "id": 635,
+    "korean": "이를 닦다",
+    "uzbek": "Tish yuvmoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 635
+  },
+  {
+    "id": 636,
+    "korean": "청소기",
+    "uzbek": "Changyutgich",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 636
+  },
+  {
+    "id": 637,
+    "korean": "빗자루",
+    "uzbek": "Supurgi",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 637
+  },
+  {
+    "id": 638,
+    "korean": "자르다",
+    "uzbek": "Kesmoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 638
+  },
+  {
+    "id": 639,
+    "korean": "칼",
+    "uzbek": "Pichoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 639
+  },
+  {
+    "id": 640,
+    "korean": "숟가락",
+    "uzbek": "Qoshiq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 640
+  },
+  {
+    "id": 641,
+    "korean": "쌀",
+    "uzbek": "Guruch",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 641,
+    "note": "xom"
+  },
+  {
+    "id": 642,
+    "korean": "뭐로",
+    "uzbek": "Nima bilan",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 642
+  },
+  {
+    "id": 643,
+    "korean": "찌개",
+    "uzbek": "Chige",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 643,
+    "note": "koreyscha quyuq sho'rva"
+  },
+  {
+    "id": 644,
+    "korean": "바닷가",
+    "uzbek": "Dengiz sohili",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 644
+  },
+  {
+    "id": 645,
+    "korean": "밀가루",
+    "uzbek": "Un",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 645
+  },
+  {
+    "id": 646,
+    "korean": "기차",
+    "uzbek": "Poyezd",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 646
+  },
+  {
+    "id": 647,
+    "korean": "부산",
+    "uzbek": "Pusan",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 647,
+    "note": "shahar"
+  },
+  {
+    "id": 648,
+    "korean": "제주도",
+    "uzbek": "Jeju oroli",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 648
+  },
+  {
+    "id": 649,
+    "korean": "인천",
+    "uzbek": "Inchon",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 649,
+    "note": "shahar"
+  },
+  {
+    "id": 650,
+    "korean": "오토바이",
+    "uzbek": "Mototsikl",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 650
+  },
+  {
+    "id": 651,
+    "korean": "셔틀버스",
+    "uzbek": "Qatnovchi avtobus",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 651,
+    "note": "shattl"
+  },
+  {
+    "id": 652,
+    "korean": "얼마나",
+    "uzbek": "Qancha",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 652
+  },
+  {
+    "id": 653,
+    "korean": "걸리다",
+    "uzbek": "Vaqt ketmoq / Osilmoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 653
+  },
+  {
+    "id": 654,
+    "korean": "멀다",
+    "uzbek": "Uzoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 654
+  },
+  {
+    "id": 655,
+    "korean": "국",
+    "uzbek": "Sho'rva",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 655,
+    "note": "suyuq"
+  },
+  {
+    "id": 656,
+    "korean": "해운대",
+    "uzbek": "Heunde",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 656,
+    "note": "plyaj"
+  },
+  {
+    "id": 657,
+    "korean": "호텔",
+    "uzbek": "Mehmonxona",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 657
+  },
+  {
+    "id": 658,
+    "korean": "쓰다",
+    "uzbek": "Yozmoq / Achchiq / Kiymoq / Ishlatmoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 658
+  },
+  {
+    "id": 659,
+    "korean": "계산하다",
+    "uzbek": "Hisoblamoq, to'lamoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 659
+  },
+  {
+    "id": 660,
+    "korean": "렌터카",
+    "uzbek": "Ijaraga olingan avtomobil",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 660
+  },
+  {
+    "id": 661,
+    "korean": "사귀다",
+    "uzbek": "Do'slashmoq / Uchrashib yurmoq",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 661
+  },
+  {
+    "id": 662,
+    "korean": "먼저",
+    "uzbek": "Oldin, birinchi bo'lib",
+    "lesson": 22,
+    "category": "travel, daily life and shopping",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 662
+  }
+]

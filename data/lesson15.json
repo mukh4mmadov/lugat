@@ -1,0 +1,381 @@
+[
+  {
+    "id": 442,
+    "korean": "사람 / 분",
+    "uzbek": "Odam / Kishi",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 442,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 443,
+    "korean": "집 / 댁",
+    "uzbek": "Uy / Xonadon",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 443,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 444,
+    "korean": "이름 / 성함",
+    "uzbek": "Ism / Ism-sharif",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 444,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 445,
+    "korean": "나이 / 연세",
+    "uzbek": "Yosh / Yil",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 445,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 446,
+    "korean": "먹다 / 잡수시다 / 드시다",
+    "uzbek": "Yemoq / Tanovul qilmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 446,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 447,
+    "korean": "마시다 / 드시다",
+    "uzbek": "Ichmoq / Ichmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 447,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 448,
+    "korean": "자다 / 주무시다",
+    "uzbek": "Uxlamoq / Uxlamoq, orom olmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 448,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 449,
+    "korean": "있다 / 계시다",
+    "uzbek": "Bormoq, mavjud bo'lmoq / Bo'lmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 449,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 450,
+    "korean": "없다 / 안 계시다",
+    "uzbek": "Yo'q bo'lmoq / Yo'q bo'lmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 450,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 451,
+    "korean": "죽다 / 돌아가시다",
+    "uzbek": "O'lmoq / Vafot etmoq, olamdan o'tmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 451,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 452,
+    "korean": "말하다 / 말씀하시다",
+    "uzbek": "Gapirmoq / Gapirmoq, aytmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 452,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 453,
+    "korean": "데려가다 / 오다",
+    "uzbek": "Olib ketmoq / Olib kelmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 453,
+    "note": "odamni/hayvonni"
+  },
+  {
+    "id": 454,
+    "korean": "모시고 가다 / 오다",
+    "uzbek": "Kuzatib qo'ymoq / Kuzatib kelmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 454,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 455,
+    "korean": "우리 / 저희",
+    "uzbek": "Biz / Biz",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 455,
+    "note": "hurmat shakl"
+  },
+  {
+    "id": 456,
+    "korean": "생일 / 생신",
+    "uzbek": "Tug'ilgan kun / Tug'ilgan kun",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 456,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 457,
+    "korean": "밥 / 진지",
+    "uzbek": "Ovqat, guruch / Ovqat",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 457,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 458,
+    "korean": "아내 / 부인",
+    "uzbek": "Xotin, rafiqa / Rafiqa, xonim",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 458,
+    "note": "hurmatli shakli"
+  },
+  {
+    "id": 459,
+    "korean": "아프다",
+    "uzbek": "Og'rimoq, kasal bo'lmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 459
+  },
+  {
+    "id": 460,
+    "korean": "무릎",
+    "uzbek": "Tizza",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 460
+  },
+  {
+    "id": 461,
+    "korean": "자주",
+    "uzbek": "Tez-tez",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 461
+  },
+  {
+    "id": 462,
+    "korean": "마다",
+    "uzbek": "Har",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 462,
+    "note": "har kuni, har oy, va h.k"
+  },
+  {
+    "id": 463,
+    "korean": "집안 일",
+    "uzbek": "Uy ishlari",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 463
+  },
+  {
+    "id": 464,
+    "korean": "푹 쉬다",
+    "uzbek": "Yaxshilab dam olmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 464
+  },
+  {
+    "id": 465,
+    "korean": "부지런하다",
+    "uzbek": "Mehnatkash, g'ayratli bo'lmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 465
+  },
+  {
+    "id": 466,
+    "korean": "대회",
+    "uzbek": "Musobaqa",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 466
+  },
+  {
+    "id": 467,
+    "korean": "등",
+    "uzbek": "Va hokazo / Orqa / Daraja",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 467
+  },
+  {
+    "id": 468,
+    "korean": "모두",
+    "uzbek": "Barchasi, hamma",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 468
+  },
+  {
+    "id": 469,
+    "korean": "사랑하다",
+    "uzbek": "Sevmoq, yaxshi ko'rmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 469
+  },
+  {
+    "id": 470,
+    "korean": "기뻐하다",
+    "uzbek": "Xursand bo'lmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 470
+  },
+  {
+    "id": 471,
+    "korean": "어렸을 때",
+    "uzbek": "Yoshligida, bolaligida",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 471
+  },
+  {
+    "id": 472,
+    "korean": "성격",
+    "uzbek": "Xarakter, fe'l-atvor",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 472
+  },
+  {
+    "id": 473,
+    "korean": "예전",
+    "uzbek": "Oldin, avval",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 473
+  },
+  {
+    "id": 474,
+    "korean": "제일",
+    "uzbek": "Eng",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 474
+  },
+  {
+    "id": 475,
+    "korean": "나오다",
+    "uzbek": "Chiqmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 475
+  },
+  {
+    "id": 476,
+    "korean": "가지고 오다 / 가다",
+    "uzbek": "Olib kelmoq / Olib ketmoq",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 476,
+    "note": "buyumni"
+  },
+  {
+    "id": 477,
+    "korean": "간식",
+    "uzbek": "Yengil tamaddi, gazak",
+    "lesson": 15,
+    "category": "polite speech, honorifics and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 477
+  }
+]
