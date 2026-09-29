@@ -1,0 +1,394 @@
+[
+  {
+    "id": 795,
+    "korean": "잠깐",
+    "uzbek": "Biroz, bir lahza",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 795
+  },
+  {
+    "id": 796,
+    "korean": "냉장고",
+    "uzbek": "Muzlatkich",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 796
+  },
+  {
+    "id": 797,
+    "korean": "길을 건너다",
+    "uzbek": "Yo'ldan o'tmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 797
+  },
+  {
+    "id": 798,
+    "korean": "세탁소",
+    "uzbek": "Kir yuvish xizmati",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 798,
+    "note": "ximchistka"
+  },
+  {
+    "id": 799,
+    "korean": "공장",
+    "uzbek": "Zavod, fabrika",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 799
+  },
+  {
+    "id": 800,
+    "korean": "깜빡하다",
+    "uzbek": "Yoddan ko'tarmoq, esdan chiqib qolmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 800
+  },
+  {
+    "id": 801,
+    "korean": "졸리다",
+    "uzbek": "Mudramoq, uyqusi kelmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 801
+  },
+  {
+    "id": 802,
+    "korean": "필요하다",
+    "uzbek": "Kerak bo'lmoq, zarur",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 802
+  },
+  {
+    "id": 803,
+    "korean": "필요없다",
+    "uzbek": "Kerak emas",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 803
+  },
+  {
+    "id": 804,
+    "korean": "취미",
+    "uzbek": "Xobbi, qiziqish",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 804
+  },
+  {
+    "id": 805,
+    "korean": "선풍기",
+    "uzbek": "Ventilyator",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 805
+  },
+  {
+    "id": 806,
+    "korean": "요리책",
+    "uzbek": "Pazandachilik kitobi",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 806
+  },
+  {
+    "id": 807,
+    "korean": "혹시",
+    "uzbek": "Mobodo, ehtimol",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 807
+  },
+  {
+    "id": 808,
+    "korean": "인형",
+    "uzbek": "Qo'g'irchoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 808
+  },
+  {
+    "id": 809,
+    "korean": "연극",
+    "uzbek": "Spektakl, teatr tomoshasi",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 809
+  },
+  {
+    "id": 810,
+    "korean": "담배를 피우다",
+    "uzbek": "Sigaret chekmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 810
+  },
+  {
+    "id": 811,
+    "korean": "힘들다",
+    "uzbek": "Qiyin, mashaqqatli",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 811
+  },
+  {
+    "id": 812,
+    "korean": "외국 생활",
+    "uzbek": "Chet eldagi hayot",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 812
+  },
+  {
+    "id": 813,
+    "korean": "반",
+    "uzbek": "Yarim / Sinf, guruh",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 813
+  },
+  {
+    "id": 814,
+    "korean": "치마",
+    "uzbek": "Yubka",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 814
+  },
+  {
+    "id": 815,
+    "korean": "바지",
+    "uzbek": "Shim",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 815
+  },
+  {
+    "id": 816,
+    "korean": "혼자",
+    "uzbek": "Yolg'iz, o'zi",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 816
+  },
+  {
+    "id": 817,
+    "korean": "신문",
+    "uzbek": "Gazeta",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 817
+  },
+  {
+    "id": 818,
+    "korean": "아이스크림",
+    "uzbek": "Muzqaymoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 818
+  },
+  {
+    "id": 819,
+    "korean": "샌드위치",
+    "uzbek": "Sendvich",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 819
+  },
+  {
+    "id": 820,
+    "korean": "케이크",
+    "uzbek": "Tort, keks",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 820
+  },
+  {
+    "id": 821,
+    "korean": "여보",
+    "uzbek": "Azizam / Azizim",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 821,
+    "note": "er-xotin murojaati"
+  },
+  {
+    "id": 822,
+    "korean": "일기예보",
+    "uzbek": "Ob-havo ma'lumoti",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 822
+  },
+  {
+    "id": 823,
+    "korean": "만들다",
+    "uzbek": "Yasamoq, tayyorlamoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 823
+  },
+  {
+    "id": 824,
+    "korean": "놀다",
+    "uzbek": "O'ynamoq, dam olmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 824
+  },
+  {
+    "id": 825,
+    "korean": "살다",
+    "uzbek": "Yashamoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 825
+  },
+  {
+    "id": 826,
+    "korean": "울다",
+    "uzbek": "Yig'lamoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 826
+  },
+  {
+    "id": 827,
+    "korean": "팔다",
+    "uzbek": "Sotmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 827
+  },
+  {
+    "id": 828,
+    "korean": "열다",
+    "uzbek": "Ochmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 828
+  },
+  {
+    "id": 829,
+    "korean": "멀다",
+    "uzbek": "Uzoq bo'lmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 829
+  },
+  {
+    "id": 830,
+    "korean": "손을 들다",
+    "uzbek": "Qo'lni ko'tarmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 830
+  },
+  {
+    "id": 831,
+    "korean": "길다",
+    "uzbek": "Uzun",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 831
+  },
+  {
+    "id": 832,
+    "korean": "알다",
+    "uzbek": "Bilmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 832
+  },
+  {
+    "id": 833,
+    "korean": "불다",
+    "uzbek": "Esmoq / Chalinmoq",
+    "lesson": 28,
+    "category": "daily life, home and miscellaneous",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 833
+  }
+]

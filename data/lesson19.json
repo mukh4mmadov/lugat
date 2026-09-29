@@ -1,0 +1,263 @@
+[
+  {
+    "id": 552,
+    "korean": "연습하다",
+    "uzbek": "Mashq qilmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 552
+  },
+  {
+    "id": 553,
+    "korean": "약속을 지키다",
+    "uzbek": "Va'dani ustidan chiqmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 553
+  },
+  {
+    "id": 554,
+    "korean": "전에",
+    "uzbek": "Oldin, avval",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 554
+  },
+  {
+    "id": 555,
+    "korean": "참가하다",
+    "uzbek": "Qatnashmoq, ishtirok etmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 555
+  },
+  {
+    "id": 556,
+    "korean": "기억하다",
+    "uzbek": "Eslamoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 556
+  },
+  {
+    "id": 557,
+    "korean": "상대팀",
+    "uzbek": "Raqib jamoa",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 557
+  },
+  {
+    "id": 558,
+    "korean": "끝나다",
+    "uzbek": "Tugamoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 558
+  },
+  {
+    "id": 559,
+    "korean": "금메달",
+    "uzbek": "Oltin medal",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 559
+  },
+  {
+    "id": 560,
+    "korean": "농구",
+    "uzbek": "Basketbol",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 560
+  },
+  {
+    "id": 561,
+    "korean": "선수",
+    "uzbek": "Sportchi, o'yinchi",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 561
+  },
+  {
+    "id": 562,
+    "korean": "은메달",
+    "uzbek": "Kumush medal",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 562
+  },
+  {
+    "id": 563,
+    "korean": "표",
+    "uzbek": "Chipta (bilet) / Jadval",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 563
+  },
+  {
+    "id": 564,
+    "korean": "첫 번째로",
+    "uzbek": "Birinchi bo'lib",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 564
+  },
+  {
+    "id": 565,
+    "korean": "경기하다",
+    "uzbek": "Musobaqalashmoq, o'ynamoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 565
+  },
+  {
+    "id": 566,
+    "korean": "질문하다",
+    "uzbek": "Savol bermoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 566
+  },
+  {
+    "id": 567,
+    "korean": "모르다",
+    "uzbek": "Bilmaslik",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 567
+  },
+  {
+    "id": 568,
+    "korean": "교복",
+    "uzbek": "Maktab formasi",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 568
+  },
+  {
+    "id": 569,
+    "korean": "같이",
+    "uzbek": "Birga",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 569
+  },
+  {
+    "id": 570,
+    "korean": "자주",
+    "uzbek": "Tez-tez",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 570
+  },
+  {
+    "id": 571,
+    "korean": "달리기",
+    "uzbek": "Yugurish",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 571
+  },
+  {
+    "id": 572,
+    "korean": "체육관",
+    "uzbek": "Sport zali",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 572
+  },
+  {
+    "id": 573,
+    "korean": "공",
+    "uzbek": "To'p",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 573
+  },
+  {
+    "id": 574,
+    "korean": "대회",
+    "uzbek": "Musobaqa",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 574
+  },
+  {
+    "id": 575,
+    "korean": "이기다",
+    "uzbek": "G'alaba qozonmoq, yutmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 575
+  },
+  {
+    "id": 576,
+    "korean": "지다",
+    "uzbek": "Yutqazmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 576
+  },
+  {
+    "id": 577,
+    "korean": "공을 던지다",
+    "uzbek": "To'pni otmoq",
+    "lesson": 19,
+    "category": "sports, activities and school life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 577,
+    "note": "tashlamoq"
+  }
+]

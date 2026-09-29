@@ -1,0 +1,388 @@
+[
+  {
+    "id": 734,
+    "korean": "기념품",
+    "uzbek": "Esdalik sovg'a",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 734,
+    "note": "suvenir"
+  },
+  {
+    "id": 735,
+    "korean": "궁",
+    "uzbek": "Saroy",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 735
+  },
+  {
+    "id": 736,
+    "korean": "서울숲",
+    "uzbek": "Seul o'rmoni",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 736,
+    "note": "park"
+  },
+  {
+    "id": 737,
+    "korean": "한강",
+    "uzbek": "Xan daryosi",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 737
+  },
+  {
+    "id": 738,
+    "korean": "꽃목걸이 (꽃목거리)",
+    "uzbek": "Gul marjon",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 738
+  },
+  {
+    "id": 739,
+    "korean": "아리랑",
+    "uzbek": "Arirang",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 739,
+    "note": "koreys milliy qo'shig'i"
+  },
+  {
+    "id": 740,
+    "korean": "더",
+    "uzbek": "Yana, ko'proq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 740
+  },
+  {
+    "id": 741,
+    "korean": "하루",
+    "uzbek": "Bir kun",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 741
+  },
+  {
+    "id": 742,
+    "korean": "단풍",
+    "uzbek": "Kuzgi yaproqlar",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 742
+  },
+  {
+    "id": 743,
+    "korean": "끝내다",
+    "uzbek": "Tugatmoq, yakunlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 743
+  },
+  {
+    "id": 744,
+    "korean": "돈을 벌다",
+    "uzbek": "Pul topmoq, pul ishlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 744
+  },
+  {
+    "id": 745,
+    "korean": "감기에 걸리다",
+    "uzbek": "Shamollamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 745
+  },
+  {
+    "id": 746,
+    "korean": "복습하다",
+    "uzbek": "Takrorlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 746,
+    "note": "darsni"
+  },
+  {
+    "id": 747,
+    "korean": "꿈을 꾸다",
+    "uzbek": "Tush ko'rmoq / Orzu qilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 747
+  },
+  {
+    "id": 748,
+    "korean": "큰일 나다",
+    "uzbek": "Yomon ish bo'lmoq, falokat yuz bermoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 748
+  },
+  {
+    "id": 749,
+    "korean": "교통사고",
+    "uzbek": "Yo'l-transport hodisasi",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 749,
+    "note": "avariya"
+  },
+  {
+    "id": 750,
+    "korean": "어젯밤",
+    "uzbek": "Kecha tunda",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 750
+  },
+  {
+    "id": 751,
+    "korean": "동안",
+    "uzbek": "Davomida, mobaynida",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 751
+  },
+  {
+    "id": 752,
+    "korean": "이상하다",
+    "uzbek": "G'alati, noodatiy",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 752
+  },
+  {
+    "id": 753,
+    "korean": "노력하다",
+    "uzbek": "Harakat qilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 753
+  },
+  {
+    "id": 754,
+    "korean": "말을 타다",
+    "uzbek": "Ot minmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 754
+  },
+  {
+    "id": 755,
+    "korean": "사인을 받다",
+    "uzbek": "Dastxat (avtograf) olmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 755
+  },
+  {
+    "id": 756,
+    "korean": "장갑",
+    "uzbek": "Qo'lqop",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 756
+  },
+  {
+    "id": 757,
+    "korean": "지갑",
+    "uzbek": "Hamyon",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 757
+  },
+  {
+    "id": 758,
+    "korean": "이해하다",
+    "uzbek": "Tushunmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 758
+  },
+  {
+    "id": 759,
+    "korean": "눕다",
+    "uzbek": "Yotmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 759
+  },
+  {
+    "id": 760,
+    "korean": "그렇지만",
+    "uzbek": "Lekin, biroq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 760
+  },
+  {
+    "id": 761,
+    "korean": "고장 나다",
+    "uzbek": "Buzilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 761
+  },
+  {
+    "id": 762,
+    "korean": "잃어버리다",
+    "uzbek": "Yo'qotib qo'ymoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 762
+  },
+  {
+    "id": 763,
+    "korean": "글쎄요",
+    "uzbek": "Kim bilsin, bilmadim...",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 763
+  },
+  {
+    "id": 764,
+    "korean": "즐기다",
+    "uzbek": "Zavqlanmoq, rohatlanmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 764
+  },
+  {
+    "id": 765,
+    "korean": "선택하다",
+    "uzbek": "Tanlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 765
+  },
+  {
+    "id": 766,
+    "korean": "언제쯤",
+    "uzbek": "Qachonlar atrofida",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 766
+  },
+  {
+    "id": 767,
+    "korean": "동대문시장",
+    "uzbek": "Dongdemun bozori",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 767
+  },
+  {
+    "id": 768,
+    "korean": "팬",
+    "uzbek": "Muxlis",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 768,
+    "note": "fanat"
+  },
+  {
+    "id": 769,
+    "korean": "다니다",
+    "uzbek": "Qatnamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 769
+  },
+  {
+    "id": 770,
+    "korean": "데이트하다",
+    "uzbek": "Uchrashuvga chiqmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 770
+  },
+  {
+    "id": 771,
+    "korean": "사진을 찍다",
+    "uzbek": "Rasmga tushirmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 771
+  }
+]

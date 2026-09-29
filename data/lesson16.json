@@ -1,0 +1,286 @@
+[
+  {
+    "id": 478,
+    "korean": "새벽",
+    "uzbek": "Tong, sahar",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 478
+  },
+  {
+    "id": 479,
+    "korean": "아침",
+    "uzbek": "Ertalab, nonushta",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 479
+  },
+  {
+    "id": 480,
+    "korean": "점심",
+    "uzbek": "Tush, tushki ovqat",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 480
+  },
+  {
+    "id": 481,
+    "korean": "낮",
+    "uzbek": "Kunduz",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 481
+  },
+  {
+    "id": 482,
+    "korean": "저녁",
+    "uzbek": "Kechqurun, kechki ovqat",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 482
+  },
+  {
+    "id": 483,
+    "korean": "밤",
+    "uzbek": "Tun, kecha",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 483
+  },
+  {
+    "id": 484,
+    "korean": "오전 / 오후",
+    "uzbek": "Tushdan oldin / Tushdan keyin",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 484
+  },
+  {
+    "id": 485,
+    "korean": "보통",
+    "uzbek": "Odatda",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 485
+  },
+  {
+    "id": 486,
+    "korean": "조금 전 / 조금 후",
+    "uzbek": "Biroz oldin / Biroz keyin",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 486
+  },
+  {
+    "id": 487,
+    "korean": "일어나다",
+    "uzbek": "O'rnidan turmoq, uyg'onmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 487
+  },
+  {
+    "id": 488,
+    "korean": "세수하다",
+    "uzbek": "Yuz-qo'lni yuvmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 488
+  },
+  {
+    "id": 489,
+    "korean": "빨래하다",
+    "uzbek": "Kir yuvmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 489
+  },
+  {
+    "id": 490,
+    "korean": "지하철을 타다",
+    "uzbek": "Metroga chiqmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 490
+  },
+  {
+    "id": 491,
+    "korean": "회의를 하다",
+    "uzbek": "Majlis (yig'ilish) qilmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 491
+  },
+  {
+    "id": 492,
+    "korean": "시험을 보다",
+    "uzbek": "Imtihon topshirmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 492
+  },
+  {
+    "id": 493,
+    "korean": "출근하다",
+    "uzbek": "Ishga bormoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 493
+  },
+  {
+    "id": 494,
+    "korean": "퇴근하다",
+    "uzbek": "Ishdan qaytmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 494,
+    "note": "ishni tugatmoq"
+  },
+  {
+    "id": 495,
+    "korean": "출퇴근하다",
+    "uzbek": "Ishga qatnamoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 495
+  },
+  {
+    "id": 496,
+    "korean": "출퇴근 시간",
+    "uzbek": "Ishga borish-kelish (tig'iz) vaqti",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 496
+  },
+  {
+    "id": 497,
+    "korean": "돈을 찾다",
+    "uzbek": "Pul yechib olmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 497,
+    "note": "bankdan"
+  },
+  {
+    "id": 498,
+    "korean": "돈을 넣다",
+    "uzbek": "Pul solmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 498,
+    "note": "bankka"
+  },
+  {
+    "id": 499,
+    "korean": "시간이 걸리다",
+    "uzbek": "Vaqt ketmoq, vaqt olmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 499
+  },
+  {
+    "id": 500,
+    "korean": "쯤",
+    "uzbek": "Taxminan, -lar atrofida",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 500
+  },
+  {
+    "id": 501,
+    "korean": "분",
+    "uzbek": "Daqiqa",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 501
+  },
+  {
+    "id": 502,
+    "korean": "시",
+    "uzbek": "Soat",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 502
+  },
+  {
+    "id": 503,
+    "korean": "오랜만이다",
+    "uzbek": "Anchadan beri ko'rishmaslik",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 503,
+    "note": "ko'rishmaganimizga ancha bo'ldi"
+  },
+  {
+    "id": 504,
+    "korean": "잘 지내다",
+    "uzbek": "Yaxshi yashamoq, yaxshi yurmoq",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 504
+  },
+  {
+    "id": 505,
+    "korean": "그동안",
+    "uzbek": "Shu vaqt ichida, o'tgan vaqt davomida",
+    "lesson": 16,
+    "category": "daily routine, time and daily actions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 505
+  }
+]

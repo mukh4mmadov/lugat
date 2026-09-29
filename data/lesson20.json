@@ -1,0 +1,268 @@
+[
+  {
+    "id": 578,
+    "korean": "일이 생기다",
+    "uzbek": "Ish (yumush) chiqib qolmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 578
+  },
+  {
+    "id": 579,
+    "korean": "갑자기",
+    "uzbek": "To'satdan, kutilmaganda",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 579
+  },
+  {
+    "id": 580,
+    "korean": "방학",
+    "uzbek": "Ta'til",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 580,
+    "note": "maktab, universitetda"
+  },
+  {
+    "id": 581,
+    "korean": "계란빵",
+    "uzbek": "Tuxumli non",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 581,
+    "note": "pishiriq"
+  },
+  {
+    "id": 582,
+    "korean": "떡꼬치",
+    "uzbek": "Ttokkochi",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 582,
+    "note": "tayoqchadagi guruchli taom"
+  },
+  {
+    "id": 583,
+    "korean": "한식",
+    "uzbek": "Koreys taomlari",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 583
+  },
+  {
+    "id": 584,
+    "korean": "한국생활",
+    "uzbek": "Koreyadagi hayot",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 584
+  },
+  {
+    "id": 585,
+    "korean": "입어 보다",
+    "uzbek": "Kiyib ko'rmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 585
+  },
+  {
+    "id": 586,
+    "korean": "구경하다",
+    "uzbek": "Tomosha qilmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 586
+  },
+  {
+    "id": 587,
+    "korean": "시간 잘 보내다",
+    "uzbek": "Vaqtni yaxshi (maroqli) o'tkazmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 587
+  },
+  {
+    "id": 588,
+    "korean": "휴일",
+    "uzbek": "Dam olish kuni",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 588
+  },
+  {
+    "id": 589,
+    "korean": "아까",
+    "uzbek": "Baya, biroz oldin",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 589
+  },
+  {
+    "id": 590,
+    "korean": "김밥",
+    "uzbek": "Kimbap",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 590
+  },
+  {
+    "id": 591,
+    "korean": "붕어빵",
+    "uzbek": "Pungoppang",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 591,
+    "note": "baliq shaklidagi shirinlik"
+  },
+  {
+    "id": 592,
+    "korean": "남산",
+    "uzbek": "Namsan",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 592,
+    "note": "Seuldagi tog'"
+  },
+  {
+    "id": 593,
+    "korean": "밤경치",
+    "uzbek": "Tungi manzara",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 593
+  },
+  {
+    "id": 594,
+    "korean": "전통",
+    "uzbek": "An'ana",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 594
+  },
+  {
+    "id": 595,
+    "korean": "한복",
+    "uzbek": "Xanbok",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 595,
+    "note": "koreys milliy kiyimi"
+  },
+  {
+    "id": 596,
+    "korean": "드라마",
+    "uzbek": "Drama, serial",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 596
+  },
+  {
+    "id": 597,
+    "korean": "그때",
+    "uzbek": "O'sha paytda",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 597
+  },
+  {
+    "id": 598,
+    "korean": "여러 가지",
+    "uzbek": "Har xil, turli xil",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 598
+  },
+  {
+    "id": 599,
+    "korean": "계획",
+    "uzbek": "Reja",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 599
+  },
+  {
+    "id": 600,
+    "korean": "즐겁게",
+    "uzbek": "Qiziqarli, maroqli qilib",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 600
+  },
+  {
+    "id": 601,
+    "korean": "한식집",
+    "uzbek": "Koreys oshxonasi / restorani",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 601
+  },
+  {
+    "id": 602,
+    "korean": "좋은 추억을 만들다",
+    "uzbek": "Yaxshi xotiralar qoldirmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 602
+  },
+  {
+    "id": 603,
+    "korean": "경험하다",
+    "uzbek": "Tajriba qilib ko'rmoq, sinab ko'rmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 603
+  }
+]
