@@ -134,6 +134,8 @@ export function TopikHomePage() {
 
 export function TopikAttemptPage() {
   const { t } = useTranslation();
+  const translateRef = useRef(t);
+  translateRef.current = t;
   const { user } = useAuth();
   const { setContext } = useTopikExamContext();
   const { variantId } = useParams();
@@ -192,7 +194,7 @@ export function TopikAttemptPage() {
       setCursor(0);
       const { data: nextVariant, error: variantError } = await withTimeout(supabase.from("topik_variants").select("*").eq("id", variantId).eq("is_published", true).maybeSingle());
       if (variantError || !nextVariant) {
-        if (!cancelled) { setError(t("topik.loadError")); setLoading(false); }
+        if (!cancelled) { setError(translateRef.current("topik.loadError")); setLoading(false); }
         return;
       }
       const [{ data: nextExam, error: examError }, { data: nextQuestions, error: questionsError }] = await withTimeout(Promise.all([
@@ -200,7 +202,7 @@ export function TopikAttemptPage() {
         supabase.from("topik_questions").select("id, exam_id, section, question_number, points, content").eq("exam_id", nextVariant.exam_id).order("question_number"),
       ]));
       if (examError || questionsError || !nextExam) {
-        if (!cancelled) { setError(t("topik.loadError")); setLoading(false); }
+        if (!cancelled) { setError(translateRef.current("topik.loadError")); setLoading(false); }
         return;
       }
       if (cancelled) return;
@@ -213,7 +215,7 @@ export function TopikAttemptPage() {
           supabase.from("topik_attempt_answers").select("question_id, selected_option").eq("attempt_id", attemptId),
         ]));
         if (attemptError || savedError || !nextAttempt || nextAttempt.variant_id !== nextVariant.id) {
-          setError(t("topik.loadError"));
+          setError(translateRef.current("topik.loadError"));
         } else if (nextAttempt.status === "submitted") {
           navigate("/topik/result/" + attemptId, { replace: true });
         } else {
@@ -225,12 +227,12 @@ export function TopikAttemptPage() {
     }
     load().catch(() => {
       if (!cancelled) {
-        setError(t("topik.loadError"));
+        setError(translateRef.current("topik.loadError"));
         setLoading(false);
       }
     });
     return () => { cancelled = true; };
-  }, [attemptId, navigate, user, variantId, t]);
+  }, [attemptId, navigate, user, variantId]);
 
   useEffect(() => {
     if (!attempt) return undefined;
