@@ -32,6 +32,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import FeedbackPage from "./pages/FeedbackPage";
 import AdminFeedbackPage from "./pages/AdminFeedbackPage";
 import AdminPage from "./pages/AdminPage";
+import { TopikAttemptPage, TopikHomePage, TopikResultPage } from "./pages/TopikPages";
 
 function LessonRouteGuard({ children }) {
   const { lessonId } = useParams();
@@ -76,6 +77,9 @@ export default function App() {
             />
             <Route path="courses" element={<CoursesPage />} />
             <Route path="courses/:courseId" element={<CoursesPage />} />
+            <Route path="topik" element={<TopikHomePage />} />
+            <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
+            <Route path="topik/:variantId" element={<TopikAttemptPage />} />
             <Route
               path="lesson/:lessonId"
               element={<Navigate to="flashcards" replace />}

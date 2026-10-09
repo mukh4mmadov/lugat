@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../context/AuthContext";
 import { getDeviceId } from "../lib/deviceId";
 import EmptyStateIllustrations from "./EmptyStateIllustrations";
+import { useTopikExamContext } from "../hooks/useTopikExamContext";
 
 function formatCountdown(ms) {
   if (!ms || ms <= 0) return "00:00:00";
@@ -36,6 +37,7 @@ function formatDate(dateStr, t) {
 export default function AIChatWidget() {
   const { t } = useTranslation();
   const { session } = useAuth();
+  const { context: topikContext } = useTopikExamContext();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -189,7 +191,17 @@ export default function AIChatWidget() {
         message: text,
         deviceId: getDeviceId(),
         language: t("common.languageCode") || "en",
+        chatHistory: messages.slice(-12).map(({ role, content }) => ({
+          role,
+          content: content.slice(0, 2000),
+        })),
       };
+      if (topikContext?.attemptId && topikContext?.questionId) {
+        body.topikContext = {
+          attemptId: topikContext.attemptId,
+          questionId: topikContext.questionId,
+        };
+      }
       if (currentSessionId) {
         body.sessionId = currentSessionId;
       }
@@ -205,6 +217,9 @@ export default function AIChatWidget() {
       if (response.status === 429) {
         const serverResetAt = typeof data.resetAt === "number" ? data.resetAt : Date.now() + 60 * 1000;
         setResetAt(serverResetAt);
+        if (data.isTopik) {
+          throw new Error(t("aiChat.topikLimitReached"));
+        }
         if (data.isGuest) {
           throw new Error(t("aiChat.guestLimitReached"));
         }

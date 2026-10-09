@@ -12,8 +12,11 @@ import { useEffect, useState, useRef } from "react";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
+import { TopikExamProvider } from "../context/TopikExamContext";
 import { useAuth } from "../hooks/useAuth";
 import InstallAppButton from "./InstallAppButton";
+
+const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
 
 export default function Layout({ onShowIELTSModal }) {
   const { t, i18n } = useTranslation();
@@ -25,6 +28,7 @@ export default function Layout({ onShowIELTSModal }) {
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const [displayLang, setDisplayLang] = useState(i18n.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showTopikAnnouncement, setShowTopikAnnouncement] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const [isOnline, setIsOnline] = useState(() => navigator.onLine);
@@ -43,6 +47,25 @@ export default function Layout({ onShowIELTSModal }) {
     };
   }, []);
 
+  useEffect(() => {
+    try {
+      setShowTopikAnnouncement(
+        window.localStorage.getItem(TOPIK_ANNOUNCEMENT_KEY) !== "dismissed",
+      );
+    } catch {
+      setShowTopikAnnouncement(true);
+    }
+  }, []);
+
+  const dismissTopikAnnouncement = () => {
+    try {
+      window.localStorage.setItem(TOPIK_ANNOUNCEMENT_KEY, "dismissed");
+    } catch {
+      // Keep the announcement dismissible when storage is unavailable.
+    }
+    setShowTopikAnnouncement(false);
+  };
+
   const primaryNavItems = [
     ["/", t("nav.home")],
     ["/courses", t("nav.courses")],
@@ -50,6 +73,7 @@ export default function Layout({ onShowIELTSModal }) {
   ];
 
   const secondaryNavItems = [
+    ["/topik", t("nav.topik")],
     ["/study", t("nav.study")],
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
@@ -127,6 +151,7 @@ export default function Layout({ onShowIELTSModal }) {
   };
 
   return (
+    <TopikExamProvider>
     <div className={theme === "dark" ? "dark" : ""}>
       <main className="min-h-screen overflow-hidden bg-slate-50 text-slate-950 transition-colors dark:bg-[#07111f] dark:text-white">
         {!isOnline && (
@@ -340,6 +365,49 @@ export default function Layout({ onShowIELTSModal }) {
           </div>
         </header>
 
+        <AnimatePresence initial={false}>
+          {showTopikAnnouncement && (
+            <motion.aside
+              role="status"
+              aria-labelledby="topik-announcement-title"
+              initial={prefersReducedMotion ? false : { opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              transition={{ duration: prefersReducedMotion ? 0.15 : 0.35 }}
+              className="relative z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-7xl overflow-hidden rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-50 via-white to-violet-50 p-4 shadow-lg shadow-sky-900/10 dark:border-sky-300/20 dark:from-sky-950/80 dark:via-slate-900 dark:to-violet-950/60 md:p-5"
+            >
+              <div className="absolute -right-6 -top-10 h-28 w-28 rounded-full bg-violet-300/35 blur-2xl dark:bg-violet-400/20" />
+              <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-3">
+                  <span aria-hidden="true" className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-sky-500 to-violet-600 text-xl text-white shadow-md shadow-sky-500/25">✦</span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">{t("topik.announcementLabel")}</p>
+                    <h2 id="topik-announcement-title" className="mt-1 text-lg font-black text-slate-950 dark:text-white md:text-xl">{t("topik.announcementTitle")}</h2>
+                    <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.announcementText")}</p>
+                  </div>
+                </div>
+                <div className="flex shrink-0 items-center gap-2 pl-14 sm:pl-0">
+                  <Link
+                    to="/topik"
+                    onClick={dismissTopikAnnouncement}
+                    className="rounded-xl bg-slate-950 px-4 py-2.5 text-center text-sm font-black text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
+                  >
+                    {t("topik.announcementAction")}
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={dismissTopikAnnouncement}
+                    aria-label={t("topik.dismissAnnouncement")}
+                    className="grid h-10 w-10 place-items-center rounded-xl text-lg font-bold text-slate-500 transition hover:bg-slate-950/5 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            </motion.aside>
+          )}
+        </AnimatePresence>
+
         <AnimatePresence mode="wait">
           {mobileMenuOpen && (
             <motion.div
@@ -514,5 +582,6 @@ export default function Layout({ onShowIELTSModal }) {
       </main>
       <AIChatWidget />
     </div>
+    </TopikExamProvider>
   );
 }

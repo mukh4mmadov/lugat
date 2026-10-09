@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
@@ -8,6 +8,7 @@ import { supabase } from "../lib/supabase";
 
 export default function LoginPage() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -53,7 +54,7 @@ export default function LoginPage() {
       if (error) {
         setGeneralError(error.message || t("login.genericError"));
       } else if (data?.user) {
-        window.location.href = "/";
+        window.location.href = location.state?.from?.pathname || "/";
       }
     } catch {
       setGeneralError(t("login.genericError"));
