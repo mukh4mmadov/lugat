@@ -29,6 +29,16 @@ function assetUrl(path) {
   return supabase.storage.from("topik-assets").getPublicUrl(path).data.publicUrl;
 }
 
+function withTimeout(request, timeoutMs = 20000) {
+  return new Promise((resolve, reject) => {
+    const timer = window.setTimeout(() => reject(new Error("TOPIK request timed out")), timeoutMs);
+    Promise.resolve(request).then(
+      (value) => { window.clearTimeout(timer); resolve(value); },
+      (error) => { window.clearTimeout(timer); reject(error); }
+    );
+  });
+}
+
 function LoginPrompt() {
   const { t } = useTranslation();
   return (
@@ -180,15 +190,15 @@ export function TopikAttemptPage() {
       setAnswers({});
       setQuestions([]);
       setCursor(0);
-      const { data: nextVariant, error: variantError } = await supabase.from("topik_variants").select("*").eq("id", variantId).eq("is_published", true).maybeSingle();
+      const { data: nextVariant, error: variantError } = await withTimeout(supabase.from("topik_variants").select("*").eq("id", variantId).eq("is_published", true).maybeSingle());
       if (variantError || !nextVariant) {
         if (!cancelled) { setError(t("topik.loadError")); setLoading(false); }
         return;
       }
-      const [{ data: nextExam, error: examError }, { data: nextQuestions, error: questionsError }] = await Promise.all([
+      const [{ data: nextExam, error: examError }, { data: nextQuestions, error: questionsError }] = await withTimeout(Promise.all([
         supabase.from("topik_exams").select("*").eq("id", nextVariant.exam_id).maybeSingle(),
         supabase.from("topik_questions").select("id, exam_id, section, question_number, points, content").eq("exam_id", nextVariant.exam_id).order("question_number"),
-      ]);
+      ]));
       if (examError || questionsError || !nextExam) {
         if (!cancelled) { setError(t("topik.loadError")); setLoading(false); }
         return;
@@ -198,10 +208,10 @@ export function TopikAttemptPage() {
       setExam(nextExam);
       setQuestions(nextQuestions || []);
       if (attemptId) {
-        const [{ data: nextAttempt, error: attemptError }, { data: saved, error: savedError }] = await Promise.all([
+        const [{ data: nextAttempt, error: attemptError }, { data: saved, error: savedError }] = await withTimeout(Promise.all([
           supabase.from("topik_attempts").select("*").eq("id", attemptId).eq("user_id", user.id).maybeSingle(),
           supabase.from("topik_attempt_answers").select("question_id, selected_option").eq("attempt_id", attemptId),
-        ]);
+        ]));
         if (attemptError || savedError || !nextAttempt || nextAttempt.variant_id !== nextVariant.id) {
           setError(t("topik.loadError"));
         } else if (nextAttempt.status === "submitted") {
@@ -213,7 +223,12 @@ export function TopikAttemptPage() {
       }
       setLoading(false);
     }
-    load();
+    load().catch(() => {
+      if (!cancelled) {
+        setError(t("topik.loadError"));
+        setLoading(false);
+      }
+    });
     return () => { cancelled = true; };
   }, [attemptId, navigate, user, variantId, t]);
 
@@ -259,6 +274,7 @@ export function TopikAttemptPage() {
 
   if (!user) return <LoginPrompt />;
   if (loading) return <GlassCard>{t("common.loading")}</GlassCard>;
+  if (attemptId && error) return <GlassCard role="alert" className="mx-auto max-w-2xl text-center"><p>{error}</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => window.location.reload()} className="rounded-xl bg-slate-950 px-5 py-3 font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.retry")}</button><Link to="/topik" className="rounded-xl border border-slate-300 px-5 py-3 font-bold dark:border-white/20">{t("topik.back")}</Link></div></GlassCard>;
   if (error && !variant) return <GlassCard role="alert">{error}</GlassCard>;
   if (!variant || !exam) return null;
   const expected = variant.mode === "mock" ? 70 : variant.mode === "reading" ? 40 : 30;
