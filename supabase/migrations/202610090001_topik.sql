@@ -85,11 +85,11 @@ create policy "Authenticated users can read published TOPIK variants"
 drop policy if exists "Authenticated users can read TOPIK exams" on public.topik_exams;
 create policy "Authenticated users can read TOPIK exams"
   on public.topik_exams for select to authenticated
-  using (exists (select 1 from public.topik_variants v where v.exam_id = id and v.is_published));
+  using (exists (select 1 from public.topik_variants v where v.exam_id = topik_exams.id and v.is_published));
 drop policy if exists "Authenticated users can read TOPIK questions" on public.topik_questions;
 create policy "Authenticated users can read TOPIK questions"
   on public.topik_questions for select to authenticated
-  using (exists (select 1 from public.topik_exams e join public.topik_variants v on v.exam_id = e.id where e.id = topik_questions.exam_id and v.is_published));
+  using (exists (select 1 from public.topik_variants v where v.exam_id = topik_questions.exam_id and v.is_published));
 drop policy if exists "Users can read their own TOPIK attempts" on public.topik_attempts;
 create policy "Users can read their own TOPIK attempts"
   on public.topik_attempts for select to authenticated using (user_id = auth.uid());
