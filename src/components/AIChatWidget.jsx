@@ -52,6 +52,9 @@ export default function AIChatWidget() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const triggerRef = useRef(null);
+  const panelRef = useRef(null);
+  const wasOpenRef = useRef(false);
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -89,8 +92,50 @@ export default function AIChatWidget() {
   useEffect(() => {
     if (isOpen) {
       inputRef.current?.focus();
+    } else if (wasOpenRef.current) {
+      triggerRef.current?.focus();
     }
+    wasOpenRef.current = isOpen;
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !panelRef.current) return undefined;
+    const changed = [];
+    let branch = panelRef.current;
+    let parent = branch.parentElement;
+    while (parent && parent !== document.body) {
+      for (const sibling of parent.children) {
+        if (sibling !== branch) {
+          changed.push([sibling, sibling.inert]);
+          sibling.inert = true;
+        }
+      }
+      branch = parent;
+      parent = parent.parentElement;
+    }
+    return () => changed.forEach(([element, wasInert]) => { element.inert = wasInert; });
+  }, [isOpen]);
+
+  const handleDialogKeyDown = (event) => {
+    if (event.key !== "Tab") return;
+    const focusable = panelRef.current?.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable?.length) {
+      event.preventDefault();
+      panelRef.current?.focus();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && (document.activeElement === first || !panelRef.current.contains(document.activeElement))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (document.activeElement === last || !panelRef.current.contains(document.activeElement))) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
 
   useEffect(() => {
     if (resetAt) {
@@ -256,8 +301,9 @@ export default function AIChatWidget() {
   return (
     <>
       <AnimatePresence>
-        {isVisible && (
+        {(isVisible || isOpen) && (
           <motion.button
+            ref={triggerRef}
             type="button"
             onClick={() => {
               setIsOpen(!isOpen);
@@ -306,7 +352,13 @@ export default function AIChatWidget() {
             />
 
             <motion.div
+              ref={panelRef}
               key="ai-chat-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="ai-chat-title"
+              tabIndex={-1}
+              onKeyDown={handleDialogKeyDown}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -321,7 +373,7 @@ export default function AIChatWidget() {
                   <span className="inline-flex items-center rounded-full bg-violet-100 px-3 py-1 text-xs font-black text-violet-700 dark:bg-violet-500/15 dark:text-violet-200">
                     {t("aiChat.badge")}
                   </span>
-                  <h3 className="text-lg font-black text-slate-900 dark:text-white">{t("aiChat.title")}</h3>
+                  <h3 id="ai-chat-title" className="text-lg font-black text-slate-900 dark:text-white">{t("aiChat.title")}</h3>
                 </div>
                 <div className="flex items-center gap-2">
                   {session && (

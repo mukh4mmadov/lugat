@@ -99,7 +99,7 @@ export function TopikHomePage() {
               <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-300">{variant.mode === "mock" ? t("topik.mockDescription") : t("topik.sectionDescription")}</p>
               <p className="mt-4 text-sm font-bold text-slate-500 dark:text-slate-400">{variant.mode === "mock" ? t("topik.mockTime") : t("topik.noTimeLimit")}</p>
               {ready
-                ? <Link to={"/topik/" + variant.id} className="mt-4 rounded-2xl bg-slate-950 px-4 py-3 text-center font-black text-white dark:bg-white dark:text-slate-950">{t("topik.start")}</Link>
+                ? <Link to={"/topik/" + variant.id} aria-label={`${t("topik.start")} ${t(variantLabels[variant.id] || "topik.mock")}`} className="mt-4 rounded-2xl bg-slate-950 px-4 py-3 text-center font-black text-white dark:bg-white dark:text-slate-950">{t("topik.start")}</Link>
                 : <button type="button" disabled className="mt-4 cursor-not-allowed rounded-2xl bg-slate-200 px-4 py-3 font-black text-slate-500 dark:bg-white/10 dark:text-slate-400">{t("topik.contentPending")}</button>}
             </GlassCard>
           );

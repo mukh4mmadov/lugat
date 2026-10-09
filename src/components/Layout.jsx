@@ -399,7 +399,7 @@ export default function Layout({ onShowIELTSModal }) {
                     type="button"
                     onClick={dismissTopikAnnouncement}
                     aria-label={t("topik.dismissAnnouncement")}
-                    className="grid h-10 w-10 place-items-center rounded-xl text-lg font-bold text-slate-500 transition hover:bg-slate-950/5 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+                    className="grid h-11 w-11 place-items-center rounded-xl text-lg font-bold text-slate-500 transition hover:bg-slate-950/5 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
                   >
                     ×
                   </button>
