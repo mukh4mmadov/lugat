@@ -4,6 +4,8 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      "language.controlLabel": "Change language. Current language: {{language}}",
+      "language.menuLabel": "Choose a language",
       "nav.home": "Home",
       "nav.courses": "Courses",
       "nav.study": "Study",
@@ -374,6 +376,7 @@ const resources = {
       "topik.title": "TOPIK I practice",
       "topik.subtitle": "Choose a timed mock exam or practise a full section.",
       "topik.announcementLabel": "New on K-TALIM",
+      "topik.announcementSignInNote": "Sign in is required to start; your answers and results are saved to your account.",
       "topik.announcementTitle": "TOPIK I practice tests are here",
       "topik.announcementText": "Try the complete 35th exam or practise listening and reading separately.",
       "topik.announcementAction": "Explore TOPIK I",
@@ -876,6 +879,8 @@ const resources = {
   },
   uz: {
     translation: {
+      "language.controlLabel": "Tilni o‘zgartirish. Joriy til: {{language}}",
+      "language.menuLabel": "Tilni tanlang",
       "nav.home": "Bosh sahifa",
       "nav.courses": "Darslar",
       "nav.study": "O'rganish",
@@ -1245,6 +1250,7 @@ const resources = {
       "topik.title": "TOPIK I mashqlari",
       "topik.subtitle": "Vaqtli sinov yoki to‘liq bo‘lim mashqini tanlang.",
       "topik.announcementLabel": "K-TALIM’da yangi",
+      "topik.announcementSignInNote": "Testni boshlash uchun tizimga kiring; javob va natijalaringiz hisobingizda saqlanadi.",
       "topik.announcementTitle": "TOPIK I sinovlari qo‘shildi",
       "topik.announcementText": "35-imtihonning to‘liq mock variantini yoki listening va reading bo‘limlarini alohida ishlang.",
       "topik.announcementAction": "TOPIK I sinovlarini ko‘rish",
@@ -1762,6 +1768,8 @@ const resources = {
   },
   ru: {
     translation: {
+      "language.controlLabel": "Сменить язык. Текущий язык: {{language}}",
+      "language.menuLabel": "Выберите язык",
       "nav.home": "Главная",
       "nav.courses": "Курсы",
       "nav.study": "Учёба",
@@ -2125,6 +2133,7 @@ const resources = {
       "topik.title": "Практика TOPIK I",
       "topik.subtitle": "Выберите пробный экзамен с таймером или отдельный раздел.",
       "topik.announcementLabel": "Новое в K-TALIM",
+      "topik.announcementSignInNote": "Чтобы начать, войдите в аккаунт — ответы и результаты сохранятся в нём.",
       "topik.announcementTitle": "Добавлены пробные тесты TOPIK I",
       "topik.announcementText": "Пройдите полный вариант 35-го экзамена или отдельно потренируйте аудирование и чтение.",
       "topik.announcementAction": "Открыть TOPIK I",
@@ -2643,7 +2652,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: localStorage.getItem("language") || "en",
+  lng: localStorage.getItem("language") || "uz",
   fallbackLng: "uz",
 
   interpolation: {

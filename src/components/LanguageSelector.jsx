@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useId } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -20,17 +20,23 @@ const fadeConfig = {
 };
 
 export default function LanguageSelector({ onShowIELTSModal }) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState(
-    localStorage.getItem('language') || 'uz'
-  );
+  const [selectedLang, setSelectedLang] = useState(i18n.language || 'uz');
   const [isChanging, setIsChanging] = useState(false);
   const dropdownRef = useRef(null);
+  const triggerRef = useRef(null);
+  const menuId = useId();
 
   const currentLang = languages.find(lang => lang.code === selectedLang) || languages[0];
 
-  
+  useEffect(() => {
+    const syncLanguage = (language) => setSelectedLang(language);
+    syncLanguage(i18n.language);
+    i18n.on('languageChanged', syncLanguage);
+    return () => i18n.off('languageChanged', syncLanguage);
+  }, [i18n]);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -41,6 +47,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
     const handleEscape = (event) => {
       if (event.key === 'Escape' && isOpen) {
         setIsOpen(false);
+        triggerRef.current?.focus();
       }
     };
 
@@ -55,6 +62,28 @@ export default function LanguageSelector({ onShowIELTSModal }) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isOpen) {
+      dropdownRef.current
+        ?.querySelector('[role="menuitemradio"]')
+        ?.focus();
+    }
+  }, [isOpen]);
+
+  const handleMenuKeyDown = (event, index) => {
+    const options = dropdownRef.current?.querySelectorAll('[role="menuitemradio"]');
+    if (!options?.length) return;
+    let nextIndex = null;
+    if (event.key === 'ArrowDown') nextIndex = (index + 1) % options.length;
+    if (event.key === 'ArrowUp') nextIndex = (index - 1 + options.length) % options.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = options.length - 1;
+    if (nextIndex !== null) {
+      event.preventDefault();
+      options[nextIndex].focus();
+    }
+  };
+
   const handleLanguageChange = (langCode) => {
     if (langCode === selectedLang) {
       setIsOpen(false);
@@ -64,22 +93,14 @@ export default function LanguageSelector({ onShowIELTSModal }) {
     const previousLang = selectedLang;
     setIsChanging(true);
     setSelectedLang(langCode);
-    
-    
-    setTimeout(() => {
-      i18n.changeLanguage(langCode);
-      localStorage.setItem('language', langCode);
-      
-      
-      
-      if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
-        
-        setTimeout(() => {
-          onShowIELTSModal();
-        }, 600); 
-      }
-    }, 200);
-    
+    i18n.changeLanguage(langCode);
+    localStorage.setItem('language', langCode);
+
+    if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
+      setTimeout(() => {
+        onShowIELTSModal();
+      }, 600);
+    }
     
     setTimeout(() => {
       setIsOpen(false);
@@ -96,8 +117,13 @@ export default function LanguageSelector({ onShowIELTSModal }) {
   return (
     <div className="relative" ref={dropdownRef}>
       <motion.button
+        ref={triggerRef}
         type="button"
         onClick={toggleOpen}
+        aria-label={t('language.controlLabel', { language: currentLang.name })}
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
+        aria-controls={menuId}
         className="relative flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/70 px-4 py-2 font-bold text-slate-700 shadow-sm backdrop-blur-sm transition-colors hover:border-slate-300/60 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-white/20"
         animate={{
           scale: isOpen ? 1.02 : 1,
@@ -109,6 +135,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
       >
         <motion.span
           className="text-xl"
+          aria-hidden="true"
           animate={{
             opacity: isChanging ? 0.5 : 1,
             scale: isChanging ? 0.8 : 1
@@ -118,6 +145,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
           {currentLang.flag}
         </motion.span>
         <motion.span
+          aria-hidden="true"
           className="hidden sm:inline"
           animate={{
             opacity: isChanging ? 0.5 : 1,
@@ -129,6 +157,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
         </motion.span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
+          aria-hidden="true"
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-slate-400"
         >
@@ -151,6 +180,9 @@ export default function LanguageSelector({ onShowIELTSModal }) {
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
+            id={menuId}
+            role="menu"
+            aria-label={t('language.menuLabel')}
             initial={{ opacity: 0, y: -8, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
@@ -160,12 +192,15 @@ export default function LanguageSelector({ onShowIELTSModal }) {
               boxShadow: "0 8px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05)"
             }}
           >
-            <div className="p-2 space-y-1">
+            <div role="none" className="p-2 space-y-1">
               {languages.map((lang, index) => (
                 <motion.button
                   key={lang.code}
                   type="button"
+                  role="menuitemradio"
+                  aria-checked={selectedLang === lang.code}
                   onClick={() => handleLanguageChange(lang.code)}
+                  onKeyDown={(event) => handleMenuKeyDown(event, index)}
                   disabled={isChanging}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}

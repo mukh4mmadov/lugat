@@ -184,11 +184,11 @@ export default function Layout({ onShowIELTSModal }) {
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
                   KOREAN
                 </p>
-                <h1 className="text-sm font-black tracking-tight">
+                <span className="text-sm font-black tracking-tight">
                   {t("header.brand", {
                     defaultValue: "Korean Vocabulary Studio",
                   })}
-                </h1>
+                </span>
               </div>
             </NavLink>
 
@@ -384,6 +384,7 @@ export default function Layout({ onShowIELTSModal }) {
                     <p className="text-xs font-black uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">{t("topik.announcementLabel")}</p>
                     <h2 id="topik-announcement-title" className="mt-1 text-lg font-black text-slate-950 dark:text-white md:text-xl">{t("topik.announcementTitle")}</h2>
                     <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.announcementText")}</p>
+                    {!user && <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-400">{t("topik.announcementSignInNote")}</p>}
                   </div>
                 </div>
                 <div className="flex shrink-0 items-center gap-2 pl-14 sm:pl-0">
