@@ -172,7 +172,7 @@ export default function Layout({ onShowIELTSModal }) {
         <div className="fixed inset-0 -z-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,.28),transparent_30%),radial-gradient(circle_at_top_right,rgba(168,85,247,.24),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,197,94,.15),transparent_32%)]" />
 
         <header className="sticky top-0 z-40 border-b border-white/20 bg-white/70 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55">
-          <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-2.5">
+          <div className="mx-auto flex max-w-7xl items-center gap-2 px-3 py-2.5 sm:px-4">
             <NavLink to="/" className="group flex shrink-0 items-center gap-2">
               <motion.div
                 whileHover={{ rotate: -8, scale: 1.04 }}
@@ -254,7 +254,7 @@ export default function Layout({ onShowIELTSModal }) {
               </div>
             </nav>
 
-            <div className="flex items-center gap-1.5 md:ml-auto">
+            <div className="ml-auto flex min-w-0 items-center gap-1.5">
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} className="hidden sm:block" />
               <InstallAppButton className="hidden sm:block" />
 
@@ -270,9 +270,9 @@ export default function Layout({ onShowIELTSModal }) {
                   <button
                     type="button"
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
-                    className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
+                    className="flex min-w-0 max-w-[48vw] items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:max-w-none sm:px-3 lg:px-4 lg:py-2 lg:text-sm"
                   >
-                    <span>
+                    <span className="min-w-0 truncate">
                       {t("nav.hi")},{" "}
                       {profile?.first_name || t("common.userFallback")}
                     </span>
@@ -310,7 +310,7 @@ export default function Layout({ onShowIELTSModal }) {
               <button
                 type="button"
                 onClick={() => dispatch(setTheme(nextTheme))}
-                className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
+                className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
                 aria-label={theme === "dark" ? t("nav.light") : t("nav.dark")}
                 title={theme === "dark" ? t("nav.light") : t("nav.dark")}
               >
@@ -336,7 +336,7 @@ export default function Layout({ onShowIELTSModal }) {
                   mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")
                 }
                 aria-expanded={mobileMenuOpen}
-                className="rounded-full border border-slate-200 bg-white/70 p-1.5 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
               >
                 <svg
                   className="h-5 w-5"

@@ -318,7 +318,7 @@ export default function AIChatWidget() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-4 right-4 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white shadow-xl shadow-slate-900/30 transition hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 dark:bg-white dark:text-slate-950 md:bottom-6 md:right-6"
+            className="fixed bottom-4 right-4 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-slate-950 text-white shadow-xl shadow-slate-900/30 transition hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 dark:bg-white dark:text-slate-950 md:bottom-6 md:right-6 md:h-14 md:w-14"
         style={{
           paddingBottom: "env(safe-area-inset-bottom)",
           paddingRight: "env(safe-area-inset-right)",
