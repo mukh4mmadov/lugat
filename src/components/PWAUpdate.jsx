@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { registerSW } from 'virtual:pwa-register';
 
 export default function PWAUpdate() {
   const { t } = useTranslation();
@@ -10,10 +11,8 @@ export default function PWAUpdate() {
   useEffect(() => {
     let updateInterval;
 
-    const registerSW = async () => {
+    const registerServiceWorker = async () => {
       if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-        const { registerSW } = await import('virtual:pwa-register');
-        
         registerSW({
           onNeedRefresh() {
             setShowUpdate(true);
@@ -38,7 +37,7 @@ export default function PWAUpdate() {
       }
     };
 
-    registerSW();
+    registerServiceWorker();
 
     return () => {
       if (updateInterval) {
