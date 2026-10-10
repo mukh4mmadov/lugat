@@ -430,6 +430,9 @@ const resources = {
       "topik.correctAnswer": "Correct answer",
       "topik.unanswered": "No answer",
       "topik.answerUnavailable": "Answer key unavailable",
+      "topik.expiredDescription": "This attempt has exceeded the 100-minute time limit.",
+      "topik.submitAttempt": "Submit attempt",
+      "topik.cancel": "Cancel",
 
       "practice.shuffle": "Shuffle",
       "practice.autoPlay": "Auto-play",
@@ -1305,6 +1308,9 @@ const resources = {
       "topik.correctAnswer": "To‘g‘ri javob",
       "topik.unanswered": "Javob berilmagan",
       "topik.answerUnavailable": "Javob kaliti mavjud emas",
+      "topik.expiredDescription": "Bu urinish 100 daqiqalik vaqt chegarasidan o'tib ketgan.",
+      "topik.submitAttempt": "Urinishni topshirish",
+      "topik.cancel": "Bekor qilish",
 
       "practice.shuffle": "Aralashtirish",
       "practice.autoPlay": "Avtomatik o'ynash",
@@ -2189,6 +2195,9 @@ const resources = {
       "topik.correctAnswer": "Правильный ответ",
       "topik.unanswered": "Нет ответа",
       "topik.answerUnavailable": "Ключ ответа недоступен",
+      "topik.expiredDescription": "Эта попытка превысила 100-минутный лимит времени.",
+      "topik.submitAttempt": "Отправить попытку",
+      "topik.cancel": "Отмена",
       "common.languageCode": "ru",
 
       "practice.shuffle": "Перемешать",

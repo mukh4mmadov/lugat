@@ -44,7 +44,36 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
+        navigateFallbackDenylist: [/\.(?:pdf|mp3)(?:$|[?#])/i],
         runtimeCaching: [
+          {
+            urlPattern: /^\/topik\/.*\.pdf$/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "topik-pdf-cache",
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /^\/topik\/.*\.mp3$/i,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "topik-audio-cache",
+              expiration: {
+                maxEntries: 5,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: "CacheFirst",
@@ -82,7 +111,8 @@ export default defineConfig({
         clientsClaim: true,
       },
       registerType: "autoUpdate",
-      injectRegister: "script",
+      // PWAUpdate owns registration so the worker is registered only once.
+      injectRegister: null,
       devOptions: {
         enabled: true,
       },

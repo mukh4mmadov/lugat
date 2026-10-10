@@ -154,6 +154,7 @@ export function TopikAttemptPage() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const autoSubmitRef = useRef(false);
+  const [pdfError, setPdfError] = useState(false);
 
   const visibleQuestions = useMemo(() => {
     if (!variant) return [];
@@ -250,6 +251,10 @@ export function TopikAttemptPage() {
     return () => setContext(null);
   }, [attempt, currentQuestion, setContext]);
 
+  useEffect(() => {
+    setPdfError(false);
+  }, [currentQuestion]);
+
   async function startAttempt() {
     setError("");
     const { data, error: startError } = await supabase.rpc("start_topik_attempt", { p_variant_id: variantId });
@@ -294,6 +299,22 @@ export function TopikAttemptPage() {
       {error && <p role="alert" className="mt-3 text-sm text-rose-600">{error}</p>}
     </GlassCard>;
   }
+
+  // Check if mock attempt is expired
+  if (variant.mode === "mock" && remaining !== null && remaining <= 0) {
+    return <GlassCard className="mx-auto max-w-2xl p-7">
+      <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
+      <p className="mt-6 text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">35th · TOPIK I B</p>
+      <h1 className="mt-2 text-3xl font-black">{t(variantLabels[variant.id])}</h1>
+      <p className="mt-3 text-slate-600 dark:text-slate-300">{t("topik.expiredDescription")}</p>
+      <p className="mt-4 text-sm font-bold">{t("topik.elapsed")}: {formatClock(elapsed)}</p>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <button type="button" onClick={submitAttempt} disabled={submitting} className="flex-1 rounded-2xl bg-rose-600 px-5 py-3 font-black text-white disabled:opacity-50 dark:bg-rose-500">{submitting ? t("topik.submitting") : t("topik.submitAttempt")}</button>
+        <Link to="/topik" className="flex-1 rounded-2xl border border-slate-300 px-5 py-3 text-center font-bold dark:border-white/20">{t("topik.cancel")}</Link>
+      </div>
+      {error && <p role="alert" className="mt-3 text-sm text-rose-600">{error}</p>}
+    </GlassCard>;
+  }
   if (!currentQuestion) return <GlassCard role="alert">{t("topik.noQuestions")}</GlassCard>;
 
   const content = currentQuestion.content || {};
@@ -324,12 +345,21 @@ export function TopikAttemptPage() {
           <audio className="w-full" controls preload="metadata" src="/topik/35th/listening.mp3">{t("topik.audioUnsupported")}</audio>
         </div>}
         <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-white/10 dark:bg-slate-900">
-          <iframe
-            key={content.document_page}
-            title={`${t("topik.questionNumber", { number: currentQuestion.question_number })} · 35th TOPIK I B`}
-            src={`/topik/35th/paper.pdf#page=${content.document_page || 3}&toolbar=0&navpanes=0&scrollbar=0`}
-            className="h-[65vh] min-h-[28rem] w-full"
-          />
+          {pdfError ? (
+            <div className="flex h-[65vh] min-h-[28rem] flex-col items-center justify-center p-8 text-center">
+              <p className="text-lg font-bold text-rose-600 dark:text-rose-300">{t("topik.loadError")}</p>
+              <button type="button" onClick={() => setPdfError(false)} className="mt-4 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.retry")}</button>
+              <a href={`/topik/35th/paper.pdf#page=${content.document_page || 3}`} target="_blank" rel="noreferrer" className="mt-3 font-bold text-sky-600 underline dark:text-sky-300">{t("topik.openPaperPage", { number: content.document_page || 3 })}</a>
+            </div>
+          ) : (
+            <iframe
+              key={content.document_page}
+              title={`${t("topik.questionNumber", { number: currentQuestion.question_number })} · 35th TOPIK I B`}
+              src={`/topik/35th/paper.pdf#page=${content.document_page || 3}&toolbar=0&navpanes=0&scrollbar=0`}
+              className="h-[65vh] min-h-[28rem] w-full"
+              onError={() => setPdfError(true)}
+            />
+          )}
         </div>
         <a href={`/topik/35th/paper.pdf#page=${content.document_page || 3}`} target="_blank" rel="noreferrer" className="inline-block text-sm font-bold text-sky-600 underline dark:text-sky-300">
           {t("topik.openPaperPage", { number: content.document_page || 3 })}
