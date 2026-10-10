@@ -58,6 +58,11 @@ export default function App() {
     <AuthProvider>
       <>
         <Routes>
+          <Route element={<Layout onShowIELTSModal={handleShowIELTSModal} />}>
+            <Route path="topik" element={<TopikHomePage />} />
+            <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
+            <Route path="topik/:variantId" element={<TopikAttemptPage />} />
+          </Route>
           <Route
             element={
               <RequireProfileComplete>
@@ -77,9 +82,6 @@ export default function App() {
             />
             <Route path="courses" element={<CoursesPage />} />
             <Route path="courses/:courseId" element={<CoursesPage />} />
-            <Route path="topik" element={<TopikHomePage />} />
-            <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
-            <Route path="topik/:variantId" element={<TopikAttemptPage />} />
             <Route
               path="lesson/:lessonId"
               element={<Navigate to="flashcards" replace />}
