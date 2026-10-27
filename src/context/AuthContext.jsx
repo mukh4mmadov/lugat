@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
 
   const dispatch = useDispatch();
   const hasSyncedRef = useRef(false);
+  const profileRequestRef = useRef(null);
 
   const syncProgressOnLogin = useCallback(
     async (userId) => {
@@ -105,9 +106,22 @@ export function AuthProvider({ children }) {
     });
 
     return () => subscription.unsubscribe();
+    // fetchProfile only touches refs and state setters; subscribing once is intended.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [syncProgressOnLogin]);
 
-  const fetchProfile = async (userId, user) => {
+  // The initial session check and the auth listener both load the profile
+  // right after sign-in; share one request so they can't race each other.
+  const fetchProfile = (userId, user) => {
+    if (profileRequestRef.current?.userId === userId) return profileRequestRef.current.promise;
+    const promise = loadProfile(userId, user).finally(() => {
+      if (profileRequestRef.current?.promise === promise) profileRequestRef.current = null;
+    });
+    profileRequestRef.current = { userId, promise };
+    return promise;
+  };
+
+  const loadProfile = async (userId, user) => {
     let isComplete = false;
     try {
       const { data, error } = await supabase
@@ -134,7 +148,7 @@ export function AuthProvider({ children }) {
           try {
             const { error: insertError } = await supabase
               .from("profiles")
-              .insert({
+              .upsert({
                 id: userId,
                 first_name: first_name.trim(),
                 last_name: last_name.trim(),
@@ -169,7 +183,7 @@ export function AuthProvider({ children }) {
 
   const completeProfile = async (profileData) => {
     if (!user) return { error: new Error("No user") };
-    const { error } = await supabase.from("profiles").insert({
+    const { error } = await supabase.from("profiles").upsert({
       id: user.id,
       ...profileData,
     });
