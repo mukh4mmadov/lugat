@@ -54,15 +54,21 @@ export default function FlashcardsPage({ review = false, weak = false }) {
 
   const deckKey = `${weak ? "weak" : review ? "review" : lesson}-${mode}`;
   const savedDeck = progress.lessonDecks[deckKey];
+  // Look words up across the whole course: review and weak decks shrink as
+  // cards are rated, but the saved queue must still resolve to the same words.
   const wordsByKey = useMemo(
-    () =>
-      Object.fromEntries(sourceWords.map((word) => [getWordKey(word), word])),
-    [sourceWords],
+    () => Object.fromEntries(allWords.map((word) => [getWordKey(word), word])),
+    [],
   );
 
+  // Review and weak-word decks depend on today's due list, so each visit starts
+  // a fresh one; lesson decks resume where the learner left off.
+  const freshDeckRef = useRef(new Set());
   useEffect(() => {
     if (!sourceWords.length) return;
-    if (savedDeck?.queue?.length) return;
+    const needsFresh = (review || weak) && !freshDeckRef.current.has(deckKey);
+    if (savedDeck?.queue?.length && !needsFresh) return;
+    freshDeckRef.current.add(deckKey);
     const deck = review || weak
       ? sourceWords.map(getWordKey)
       : buildStudyDeck(sourceWords, progress.words).map(getWordKey);
@@ -83,6 +89,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
     weak,
     savedDeck?.queue?.length,
     sourceWords,
+    deckKey,
   ]);
 
   const queue = savedDeck?.queue || [];
@@ -130,6 +137,23 @@ export default function FlashcardsPage({ review = false, weak = false }) {
       if (advanceRef.current) clearTimeout(advanceRef.current);
     };
   }, []);
+
+  const rateRef = useRef(null);
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.target.closest?.("input, textarea, button, [role='button']")) return;
+      if (event.key === " ") {
+        event.preventDefault();
+        setFlipped((value) => !value);
+      } else if (flipped && ["1", "2", "3", "4"].includes(event.key)) {
+        rateRef.current?.(
+          [SRS_RATINGS.AGAIN, SRS_RATINGS.HARD, SRS_RATINGS.GOOD, SRS_RATINGS.EASY][Number(event.key) - 1],
+        );
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [flipped]);
 
   if (invalidLesson) {
     return (
@@ -259,6 +283,8 @@ export default function FlashcardsPage({ review = false, weak = false }) {
     );
   }
 
+  rateRef.current = rate;
+
   function rate(rating) {
     if (!word || advanceRef.current) return;
     const key = getWordKey(word);
@@ -300,10 +326,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
               <button
                 key={item.value}
                 type="button"
-                onClick={() => {
-                  setMode(item.value);
-                  rebuildDeck(0);
-                }}
+                onClick={() => setMode(item.value)}
                 className={`rounded-2xl px-3 py-2 text-xs font-black transition sm:text-sm ${mode === item.value ? "bg-sky-500 text-white" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}
               >
                 {t(item.label)}
@@ -385,9 +408,11 @@ export default function FlashcardsPage({ review = false, weak = false }) {
                 </div>
                 <div className="space-y-4 text-center">
                   <p className="text-4xl font-black md:text-7xl">{answer}</p>
-                  <p className="text-2xl font-black text-sky-600 dark:text-sky-300 md:text-3xl">
-                    {word.korean}
-                  </p>
+                  {answer !== word.korean && (
+                    <p className="text-2xl font-black text-sky-600 dark:text-sky-300 md:text-3xl">
+                      {word.korean}
+                    </p>
+                  )}
                   {word.romanization && (
                     <p className="text-base font-semibold text-slate-600 dark:text-slate-300 md:text-xl">
                       {word.romanization}

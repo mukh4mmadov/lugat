@@ -109,6 +109,51 @@ export const TOPIK_VARIANTS = TOPIK_EXAMS.flatMap((exam) => [
   { id: `${exam.id}reading`, examId: exam.id, mode: "reading", section: "reading", durationSeconds: null },
 ]);
 
+// The standard TOPIK I question blocks (the same layout on every paper since the
+// 35th exam), used to show learners which kinds of questions cost them points.
+export const TOPIK1_QUESTION_TYPES = [
+  { id: "response", section: "listening", from: 1, to: 4, ko: "알맞은 대답 고르기" },
+  { id: "nextLine", section: "listening", from: 5, to: 6, ko: "이어지는 말 고르기" },
+  { id: "place", section: "listening", from: 7, to: 10, ko: "장소 고르기" },
+  { id: "topic", section: "listening", from: 11, to: 14, ko: "화제 고르기" },
+  { id: "picture", section: "listening", from: 15, to: 16, ko: "알맞은 그림 고르기" },
+  { id: "detail", section: "listening", from: 17, to: 21, ko: "내용 일치" },
+  { id: "mainIdea", section: "listening", from: 22, to: 24, ko: "중심 생각" },
+  { id: "paired", section: "listening", from: 25, to: 30, ko: "두 문제 세트" },
+  { id: "topic", section: "reading", from: 31, to: 33, ko: "화제 고르기" },
+  { id: "blank", section: "reading", from: 34, to: 39, ko: "빈칸 채우기" },
+  { id: "notTrue", section: "reading", from: 40, to: 42, ko: "내용 불일치" },
+  { id: "detail", section: "reading", from: 43, to: 45, ko: "내용 일치" },
+  { id: "mainIdea", section: "reading", from: 46, to: 48, ko: "중심 생각" },
+  { id: "paired", section: "reading", from: 49, to: 56, ko: "두 문제 세트" },
+  { id: "order", section: "reading", from: 57, to: 58, ko: "순서 배열" },
+  { id: "paired", section: "reading", from: 59, to: 70, ko: "두 문제 세트" },
+];
+
+export function getQuestionType(number) {
+  return TOPIK1_QUESTION_TYPES.find((type) => number >= type.from && number <= type.to) || null;
+}
+
+// Correct answers and points lost per question type, merging the blocks that
+// share a type within a section (e.g. both reading "paired" blocks).
+export function questionTypeBreakdown(questions, answers) {
+  const groups = new Map();
+  questions.forEach((question) => {
+    const type = getQuestionType(question.number);
+    if (!type) return;
+    const key = `${type.section}:${type.id}`;
+    const group = groups.get(key) || { key, id: type.id, section: type.section, ko: type.ko, ranges: [], total: 0, correct: 0, lost: 0, max: 0 };
+    const range = `${type.from}–${type.to}`;
+    if (!group.ranges.includes(range)) group.ranges.push(range);
+    group.total += 1;
+    group.max += question.points;
+    if (answers[question.number] === question.answer) group.correct += 1;
+    else group.lost += question.points;
+    groups.set(key, group);
+  });
+  return [...groups.values()];
+}
+
 export function getTopikExam(examId) {
   return TOPIK_EXAMS.find((exam) => exam.id === examId) || null;
 }

@@ -3,14 +3,17 @@ import { createPortal } from "react-dom";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import { useAuth } from "../context/AuthContext";
 import PdfPageViewer from "../components/PdfPageViewer";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
 import {
   TOPIK_EXAMS,
   TOPIK_VARIANTS,
   getTopikExam,
+  getQuestionType,
   getTopikVariant,
   getVariantQuestions,
+  questionTypeBreakdown,
 } from "../data/topik/exams";
 import {
   createTopikAttempt,
@@ -201,12 +204,7 @@ function TopikAttemptRoute({ variantId }) {
 
   if (!variant) return <Navigate to="/topik" replace />;
   if (!attempt) {
-    return (
-      <TopikIntro
-        variant={variant}
-        onStart={() => setAttempt(createTopikAttempt(variant.id))}
-      />
-    );
+    return <TopikIntro variant={variant} onStart={() => setAttempt(createTopikAttempt(variant.id))} />;
   }
   return (
     <TopikExam
@@ -218,49 +216,249 @@ function TopikAttemptRoute({ variantId }) {
   );
 }
 
+function useCandidate() {
+  const { t } = useTranslation();
+  const { profile } = useAuth();
+  const name = [profile?.first_name, profile?.last_name].filter(Boolean).join(" ");
+  return name || t("topik.guestCandidate");
+}
+
+function candidateNumber(exam, attemptId = "") {
+  const digits = attemptId.replace(/[^0-9]/g, "").padEnd(6, "0").slice(0, 6);
+  return `${String(exam.number).padStart(3, "0")}-${digits}`;
+}
+
+// Mirrors the steps before a computer-based TOPIK: confirm the candidate,
+// check the sound, read the rules, then start.
 function TopikIntro({ variant, onStart }) {
   const { t } = useTranslation();
   const exam = getTopikExam(variant.examId);
+  const candidate = useCandidate();
+  const hasAudio = variant.section !== "reading";
+  const steps = hasAudio ? ["candidate", "sound", "rules"] : ["candidate", "rules"];
+  const [step, setStep] = useState(0);
+  const [soundOk, setSoundOk] = useState(false);
+  const soundRef = useRef(null);
+  const current = steps[step];
   const rules = variant.mode === "mock"
-    ? ["topik.rules.mockTimer", "topik.rules.autoSubmit", "topik.rules.audio", "topik.rules.saved", "topik.rules.noAi"]
-    : ["topik.rules.untimed", variant.mode === "listening" ? "topik.rules.audio" : "topik.rules.paper", "topik.rules.saved", "topik.rules.ai"];
+    ? ["topik.rules.mockTimer", "topik.rules.autoSubmit", "topik.rules.examAudio", "topik.rules.saved", "topik.rules.noAi"]
+    : ["topik.rules.untimed", hasAudio ? "topik.rules.audio" : "topik.rules.paper", "topik.rules.saved", "topik.rules.ai"];
+
+  useEffect(() => () => soundRef.current?.pause(), []);
+
+  const playSample = () => {
+    const audio = soundRef.current;
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+    window.setTimeout(() => audio.pause(), 8000);
+  };
 
   return (
-    <GlassCard className="mx-auto max-w-2xl p-6 md:p-8">
+    <div className="mx-auto max-w-3xl">
       <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
-      <p className="mt-6 text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
-      <h1 className="mt-2 text-3xl font-black">{variantTitle(t, variant)}</h1>
-      <p className="mt-3 text-slate-600 dark:text-slate-300">{t(`topik.variantDescription.${variant.mode}`)}</p>
-      <p className="mt-4 text-sm font-bold">{variantSummary(t, variant)}</p>
-      <ul className="mt-6 space-y-2 rounded-2xl bg-slate-100/80 p-5 text-sm leading-6 dark:bg-white/5">
-        {rules.map((rule) => (
-          <li key={rule} className="flex gap-2"><span className="text-sky-500">•</span><span>{t(rule)}</span></li>
-        ))}
-      </ul>
-      {variant.section !== "reading" && (
-        <p className="mt-4 rounded-2xl bg-amber-50 p-4 text-sm font-semibold text-amber-900 dark:bg-amber-500/10 dark:text-amber-200">🎧 {t("topik.headphones")}</p>
+      <div className="mt-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl dark:border-white/10 dark:bg-slate-900">
+        <div className="flex items-center justify-between bg-[#17305a] px-6 py-4 text-white">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-200">{exam.level} · 제{exam.number}회 한국어능력시험</p>
+            <p className="mt-0.5 text-lg font-black">{variantTitle(t, variant)}</p>
+          </div>
+          <p className="text-sm font-bold text-sky-100">{step + 1} / {steps.length}</p>
+        </div>
+        <ol className="flex border-b border-slate-200 text-xs font-bold dark:border-white/10">
+          {steps.map((name, index) => (
+            <li key={name} className={`flex-1 px-3 py-2.5 text-center ${index === step ? "bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-200" : index < step ? "text-emerald-600 dark:text-emerald-300" : "text-slate-400"}`}>
+              {index < step ? "✓ " : ""}{t(`topik.introStep.${name}`)}
+            </li>
+          ))}
+        </ol>
+        <div className="p-6 md:p-8">
+          {current === "candidate" && (
+            <div>
+              <h1 className="text-2xl font-black">수험자 정보 확인 <span className="text-base font-bold text-slate-500">· {t("topik.introStep.candidate")}</span></h1>
+              <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+                <InfoRow label={t("topik.candidateName")} value={candidate} />
+                <InfoRow label={t("topik.examLabel")} value={`${exam.level} · ${t("topik.form", { form: exam.form })}`} />
+                <InfoRow label={t("topik.questionsLabel")} value={variantSummary(t, variant)} />
+                <InfoRow label={t("topik.sectionsLabel")} value={variant.section ? t(`topik.${variant.section}`) : `${t("topik.listening")} + ${t("topik.reading")}`} />
+              </dl>
+              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{t(`topik.variantDescription.${variant.mode}`)}</p>
+            </div>
+          )}
+          {current === "sound" && (
+            <div className="text-center">
+              <h1 className="text-2xl font-black">소리 확인 <span className="text-base font-bold text-slate-500">· {t("topik.introStep.sound")}</span></h1>
+              <p className="mt-3 text-slate-600 dark:text-slate-300">{t("topik.soundCheckText")}</p>
+              <audio ref={soundRef} src={exam.audio} preload="none" />
+              <button type="button" onClick={playSample} className="mx-auto mt-6 grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 text-4xl text-white shadow-xl transition hover:scale-105">🔊</button>
+              <label className="mx-auto mt-6 flex max-w-sm items-center justify-center gap-3 rounded-2xl bg-slate-100 p-4 text-left text-sm font-bold dark:bg-white/5">
+                <input type="checkbox" checked={soundOk} onChange={(event) => setSoundOk(event.target.checked)} className="h-5 w-5 accent-sky-600" />
+                {t("topik.soundCheckConfirm")}
+              </label>
+            </div>
+          )}
+          {current === "rules" && (
+            <div>
+              <h1 className="text-2xl font-black">유의 사항 <span className="text-base font-bold text-slate-500">· {t("topik.introStep.rules")}</span></h1>
+              <ul className="mt-5 space-y-3">
+                {rules.map((rule, index) => (
+                  <li key={rule} className="flex gap-3 rounded-2xl bg-slate-100 p-4 text-sm leading-6 dark:bg-white/5">
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#17305a] text-xs font-black text-white">{index + 1}</span>
+                    <span>{t(rule)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div className="mt-8 flex items-center justify-between gap-3">
+            <button type="button" onClick={() => setStep((value) => value - 1)} disabled={step === 0} className="rounded-2xl border border-slate-300 px-5 py-3 font-bold disabled:opacity-0 dark:border-white/20">← {t("topik.previous")}</button>
+            {step < steps.length - 1 ? (
+              <button type="button" onClick={() => { soundRef.current?.pause(); setStep((value) => value + 1); }} disabled={current === "sound" && !soundOk} className="rounded-2xl bg-[#17305a] px-6 py-3 font-black text-white disabled:opacity-40">
+                {t("topik.next")} →
+              </button>
+            ) : (
+              <button type="button" onClick={onStart} className="rounded-2xl bg-rose-600 px-6 py-3 text-lg font-black text-white shadow-lg shadow-rose-600/25 transition hover:-translate-y-0.5">
+                시험 시작 · {t("topik.start")}
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InfoRow({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-slate-200 p-4 dark:border-white/10">
+      <dt className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{label}</dt>
+      <dd className="mt-1 font-black">{value}</dd>
+    </div>
+  );
+}
+
+// Full mocks play the recording the way the exam does: once, from the start,
+// without pausing or seeking. Its position follows the clock, so reopening the
+// page resumes where the recording would be in the room.
+function ExamAudio({ exam, examMode, startedAt, savedTime, onSaveTime }) {
+  const { t } = useTranslation();
+  const audioRef = useRef(null);
+  const [duration, setDuration] = useState(0);
+  const [position, setPosition] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const lastSaveRef = useRef(0);
+
+  const expected = () => (Date.now() - startedAt) / 1000;
+
+  const syncAndPlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.duration && expected() >= audio.duration) return;
+    audio.currentTime = Math.max(0, expected());
+    audio.play().then(() => setBlocked(false)).catch(() => setBlocked(true));
+    // startedAt never changes during an attempt.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    return () => audio?.pause();
+  }, []);
+
+  const finished = examMode && duration > 0 && position >= duration - 0.5;
+
+  return (
+    <div className="rounded-2xl border border-sky-200 bg-white p-3 dark:border-sky-400/20 dark:bg-slate-900">
+      <audio
+        ref={audioRef}
+        src={exam.audio}
+        preload="metadata"
+        controls={!examMode}
+        className={examMode ? "hidden" : "w-full"}
+        onLoadedMetadata={(event) => {
+          setDuration(event.currentTarget.duration);
+          if (examMode && expected() >= event.currentTarget.duration) setPosition(event.currentTarget.duration);
+          else if (examMode) syncAndPlay();
+          else if (savedTime) event.currentTarget.currentTime = savedTime;
+        }}
+        onTimeUpdate={(event) => {
+          setPosition(event.currentTarget.currentTime);
+          if (!examMode && Date.now() - lastSaveRef.current > 4000) {
+            lastSaveRef.current = Date.now();
+            onSaveTime(event.currentTarget.currentTime);
+          }
+        }}
+        onPlay={() => setPlaying(true)}
+        onPause={(event) => {
+          setPlaying(false);
+          if (examMode && !event.currentTarget.ended && expected() < (event.currentTarget.duration || Infinity)) {
+            // Exam audio cannot be paused; a pause here means the browser stopped it.
+            setBlocked(true);
+          }
+          if (!examMode) onSaveTime(event.currentTarget.currentTime);
+        }}
+      >
+        {t("topik.audioUnsupported")}
+      </audio>
+      {examMode && (
+        <div className="flex flex-wrap items-center gap-3">
+          <span className={`grid h-9 w-9 place-items-center rounded-full text-white ${playing ? "animate-pulse bg-rose-600" : "bg-slate-400"}`}>{finished ? "✓" : "🎧"}</span>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-black text-[#17305a] dark:text-sky-200">
+              {finished ? t("topik.audioFinished") : playing ? `듣기 · ${t("topik.audioPlaying")}` : t("topik.audioWaiting")}
+            </p>
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+              <div className="h-full rounded-full bg-sky-500 transition-all" style={{ width: `${duration ? Math.min(100, (position / duration) * 100) : 0}%` }} />
+            </div>
+            <p className="mt-0.5 text-[11px] font-bold tabular-nums text-slate-500">{formatClock(position)} / {formatClock(duration)}</p>
+          </div>
+          {blocked && !finished && (
+            <button type="button" onClick={syncAndPlay} className="rounded-xl bg-rose-600 px-3 py-2 text-xs font-black text-white">▶ {t("topik.audioResume")}</button>
+          )}
+          <label className="flex items-center gap-1.5 text-xs font-bold text-slate-500">
+            🔈
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+              value={volume}
+              aria-label={t("topik.volume")}
+              onChange={(event) => {
+                const value = Number(event.target.value);
+                setVolume(value);
+                if (audioRef.current) audioRef.current.volume = value;
+              }}
+              className="w-20 accent-sky-600"
+            />
+          </label>
+        </div>
       )}
-      <button type="button" onClick={onStart} className="mt-6 w-full rounded-2xl bg-slate-950 px-5 py-4 text-lg font-black text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950">
-        {t("topik.start")}
-      </button>
-    </GlassCard>
+    </div>
   );
 }
 
 function TopikExam({ variant, initialAttempt, onSubmitted }) {
   const { t } = useTranslation();
   const { setContext } = useTopikExamContext();
+  const candidate = useCandidate();
   const exam = getTopikExam(variant.examId);
   const questions = useMemo(() => getVariantQuestions(variant), [variant]);
+  const isMock = variant.mode === "mock";
   const [attempt, setAttempt] = useState(initialAttempt);
   const [cursor, setCursor] = useState(Math.min(initialAttempt.cursor || 0, questions.length - 1));
   const [now, setNow] = useState(Date.now());
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [saveError, setSaveError] = useState(false);
+  const [warning, setWarning] = useState(null);
+  const [timeUp, setTimeUp] = useState(false);
   const submittedRef = useRef(false);
-  const audioRef = useRef(null);
-  const lastAudioSaveRef = useRef(0);
-  const questionHeadingRef = useRef(null);
+  const timeSpentRef = useRef({ ...(initialAttempt.timeSpent || {}) });
+  const warnedRef = useRef(new Set());
+  const scrollRef = useRef(null);
 
   const question = questions[cursor];
   const answers = useMemo(() => attempt.answers || {}, [attempt.answers]);
@@ -285,59 +483,100 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   const finish = useCallback(() => {
     if (submittedRef.current) return;
     submittedRef.current = true;
-    const audio = audioRef.current;
-    if (audio) audio.pause();
+    updateTopikAttempt(attempt.id, { timeSpent: timeSpentRef.current });
     const submitted = submitTopikAttempt(attempt.id);
     if (submitted) onSubmitted(submitted);
     else submittedRef.current = false;
   }, [attempt.id, onSubmitted]);
 
+  const questionRef = useRef(question);
+  questionRef.current = question;
+
+  // One clock drives the timer, time-per-question and the exam warnings.
   useEffect(() => {
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(timer);
-  }, []);
+    const timer = window.setInterval(() => {
+      setNow(Date.now());
+      if (document.visibilityState === "visible" && questionRef.current) {
+        const number = questionRef.current.number;
+        timeSpentRef.current[number] = (timeSpentRef.current[number] || 0) + 1;
+      }
+    }, 1000);
+    const spent = timeSpentRef.current;
+    const save = window.setInterval(() => updateTopikAttempt(attempt.id, { timeSpent: spent }), 10000);
+    return () => {
+      window.clearInterval(timer);
+      window.clearInterval(save);
+      updateTopikAttempt(attempt.id, { timeSpent: spent });
+    };
+  }, [attempt.id]);
 
   useEffect(() => {
-    if (remaining !== null && remaining <= 0) finish();
-  }, [remaining, finish]);
+    if (remaining === null) return;
+    if (remaining <= 0) {
+      setTimeUp(true);
+      return;
+    }
+    for (const minutes of [10, 5, 1]) {
+      if (remaining <= minutes * 60 && remaining > minutes * 60 - 5 && !warnedRef.current.has(minutes)) {
+        warnedRef.current.add(minutes);
+        setWarning(minutes);
+      }
+    }
+  }, [remaining]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, []);
+    if (!warning) return undefined;
+    const timer = window.setTimeout(() => setWarning(null), 6000);
+    return () => window.clearTimeout(timer);
+  }, [warning]);
+
+  // Time is up: show the closing notice briefly, then hand in the answer sheet.
+  useEffect(() => {
+    if (!timeUp) return undefined;
+    const timer = window.setTimeout(finish, 2500);
+    return () => window.clearTimeout(timer);
+  }, [timeUp, finish]);
+
+  // Lock the page behind the exam screen and guard against closing it by accident.
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const guard = (event) => {
+      if (!isMock || submittedRef.current) return;
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", guard);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("beforeunload", guard);
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    };
+  }, [isMock]);
 
   useEffect(() => {
     updateTopikAttempt(attempt.id, { cursor });
-    const heading = questionHeadingRef.current;
-    // Bring the new question's heading out from under the sticky exam bar.
-    if (heading && heading.getBoundingClientRect().top < 200) {
-      heading.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [attempt.id, cursor]);
 
   // Practice sections can ask the AI tutor about the current question; full mocks stay exam-like.
   useEffect(() => {
-    if (variant.mode === "mock" || !question) {
+    if (isMock || !question) {
       setContext(null);
     } else {
-      setContext({
-        examId: exam.id,
-        variantId: variant.id,
-        questionNumber: question.number,
-        selectedOption: answers[question.number] || null,
-        answers,
-      });
+      setContext({ examId: exam.id, variantId: variant.id, questionNumber: question.number, selectedOption: answers[question.number] || null, answers });
     }
-  }, [answers, exam.id, question, setContext, variant.id, variant.mode]);
+  }, [answers, exam.id, isMock, question, setContext, variant.id]);
 
   useEffect(() => () => setContext(null), [setContext]);
 
   const selectAnswer = useCallback((option) => {
-    if (!question) return;
+    if (!question || timeUp) return;
     const nextAnswers = { ...answers };
     if (nextAnswers[question.number] === option) delete nextAnswers[question.number];
     else nextAnswers[question.number] = option;
     persist({ answers: nextAnswers });
-  }, [answers, persist, question]);
+  }, [answers, persist, question, timeUp]);
 
   const toggleFlag = useCallback(() => {
     if (!question) return;
@@ -349,11 +588,12 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
 
   const go = useCallback((index) => {
     setCursor(Math.max(0, Math.min(questions.length - 1, index)));
+    setSheetOpen(false);
   }, [questions.length]);
 
   useEffect(() => {
     const onKey = (event) => {
-      if (confirmOpen || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (confirmOpen || timeUp || event.metaKey || event.ctrlKey || event.altKey) return;
       if (event.target.closest?.("input, textarea, select, [contenteditable='true'], [role='dialog']")) return;
       if (OPTIONS.includes(event.key)) {
         event.preventDefault();
@@ -370,144 +610,160 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [confirmOpen, cursor, go, selectAnswer, toggleFlag]);
+  }, [confirmOpen, cursor, go, selectAnswer, timeUp, toggleFlag]);
 
-  const handleAudioTime = () => {
-    const audio = audioRef.current;
-    if (!audio || Date.now() - lastAudioSaveRef.current < 4000) return;
-    lastAudioSaveRef.current = Date.now();
-    updateTopikAttempt(attempt.id, { audioTime: audio.currentTime });
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    else document.documentElement.requestFullscreen?.().catch(() => {});
   };
 
   if (!question) return <GlassCard role="alert">{t("topik.noQuestions")}</GlassCard>;
 
   const timerTone = remaining === null
-    ? "bg-white/80 text-slate-800 dark:bg-white/10 dark:text-white"
+    ? "bg-white/10 text-white"
     : remaining < 300
       ? "animate-pulse bg-rose-600 text-white"
       : remaining < 600
-        ? "bg-amber-100 text-amber-900 dark:bg-amber-500/20 dark:text-amber-100"
-        : "bg-white/80 text-slate-800 dark:bg-white/10 dark:text-white";
-  const sectionChanged = cursor > 0 && questions[cursor - 1].section !== question.section;
+        ? "bg-amber-400 text-slate-950"
+        : "bg-white text-[#17305a]";
+  const sectionLabel = question.section === "listening" ? `듣기 · ${t("topik.listening")}` : `읽기 · ${t("topik.reading")}`;
+  const sectionStart = (section) => questions.findIndex((item) => item.section === section);
+
+  const controls = (compact) => (
+    <AnswerControls
+      compact={compact}
+      question={question}
+      selected={answers[question.number]}
+      flagged={!!flagged[question.number]}
+      onSelect={selectAnswer}
+      onFlag={toggleFlag}
+      onPrev={() => go(cursor - 1)}
+      onNext={() => go(cursor + 1)}
+      isFirst={cursor === 0}
+      isLast={cursor === questions.length - 1}
+      onFinish={() => setConfirmOpen(true)}
+      showAi={!isMock}
+    />
+  );
 
   return (
-    <div className="mx-auto max-w-7xl space-y-4 pb-44 lg:pb-0">
-      <div className="sticky top-[3.75rem] z-30 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-3 backdrop-blur-xl dark:border-white/10 dark:bg-[#07111f]/90 md:rounded-2xl md:border">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="min-w-0">
-            <Link to="/topik" className="text-xs font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
-            <h1 className="truncate text-lg font-black md:text-xl">{variantTitle(t, variant)}</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="hidden rounded-xl bg-white/80 px-3 py-2 text-sm font-bold tabular-nums text-slate-600 dark:bg-white/10 dark:text-slate-300 sm:inline">
-              {t("topik.answeredCount", { answered: answeredCount, total: questions.length })}
-            </span>
-            <div role="timer" aria-live="off" className={`rounded-xl px-3 py-2 text-base font-black tabular-nums md:text-lg ${timerTone}`}>
-              {remaining === null ? `⏱ ${formatClock(elapsed)}` : `⏳ ${formatClock(remaining)}`}
+    <Overlay>
+      <div className="fixed inset-0 z-[55] flex flex-col bg-slate-100 text-slate-900 dark:bg-[#0b1220] dark:text-white" role="application" aria-label={variantTitle(t, variant)}>
+        <header className="shrink-0 bg-[#17305a] text-white shadow-lg">
+          <div className="mx-auto flex max-w-[1500px] flex-wrap items-center gap-x-4 gap-y-2 px-3 py-2.5 md:px-5">
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-[11px] font-bold uppercase tracking-[0.18em] text-sky-200">{exam.level} · 제{exam.number}회 한국어능력시험</p>
+              <p className="truncate text-base font-black md:text-lg">{sectionLabel}</p>
             </div>
-            <button type="button" onClick={() => setConfirmOpen(true)} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white transition hover:bg-rose-700 md:px-4">
-              {t("topik.finish")}
+            <div className="hidden text-right text-xs leading-5 md:block">
+              <p><span className="text-sky-200">수험번호</span> <b className="tabular-nums">{candidateNumber(exam, attempt.id)}</b></p>
+              <p><span className="text-sky-200">{t("topik.candidateName")}</span> <b>{candidate}</b></p>
+            </div>
+            <div role="timer" aria-live="off" className={`rounded-xl px-3 py-1.5 text-center font-black tabular-nums ${timerTone}`}>
+              <p className="text-[10px] font-bold opacity-80">{remaining === null ? "경과 시간" : "남은 시간"}</p>
+              <p className="text-lg leading-tight md:text-xl">{formatClock(remaining === null ? elapsed : remaining)}</p>
+            </div>
+            <button type="button" onClick={toggleFullscreen} title={t("topik.fullscreen")} aria-label={t("topik.fullscreen")} className="hidden h-10 w-10 place-items-center rounded-xl bg-white/10 text-lg transition hover:bg-white/20 sm:grid">⛶</button>
+            <button type="button" onClick={() => setConfirmOpen(true)} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black transition hover:bg-rose-500 md:px-4">
+              답안 제출<span className="hidden sm:inline"> · {t("topik.finish")}</span>
             </button>
           </div>
-        </div>
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-          <div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-emerald-500 transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
-        </div>
-      </div>
-
-      {saveError && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
-
-      {hasListening && (
-        <div className={`rounded-2xl border border-sky-200 bg-sky-50/90 p-3 dark:border-sky-400/20 dark:bg-sky-500/10 ${question.section === "listening" ? "" : "opacity-70"}`}>
-          <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700 dark:text-sky-200">🎧 {t("topik.audioTitle", { number: exam.number })}</p>
-          <audio
-            ref={audioRef}
-            className="w-full"
-            controls
-            preload="metadata"
-            src={exam.audio}
-            onLoadedMetadata={(event) => {
-              if (attempt.audioTime) event.currentTarget.currentTime = attempt.audioTime;
-            }}
-            onTimeUpdate={handleAudioTime}
-            onPause={() => updateTopikAttempt(attempt.id, { audioTime: audioRef.current?.currentTime || 0 })}
-          >
-            {t("topik.audioUnsupported")}
-          </audio>
-        </div>
-      )}
-
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
-        <div className="space-y-3">
-          {sectionChanged && (
-            <p className="rounded-2xl bg-violet-100 p-3 text-sm font-bold text-violet-900 dark:bg-violet-500/15 dark:text-violet-100">📖 {t("topik.readingStarts")}</p>
-          )}
-          <div ref={questionHeadingRef} className="flex scroll-mt-52 flex-wrap items-center justify-between gap-2">
-            <h2 className="text-2xl font-black">{t("topik.questionNumber", { number: question.number })}</h2>
-            <span className="text-sm font-bold text-slate-500 dark:text-slate-400">
-              {question.section === "listening" ? t("topik.listening") : t("topik.reading")} · {t("topik.pointsCount", { count: question.points })} · {t("topik.paperPage", { number: question.page })}
-            </span>
+          <div className="bg-[#0f2343]">
+            <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-1.5 text-xs font-bold md:px-5">
+              {isMock && ["listening", "reading"].map((section) => (
+                <button key={section} type="button" onClick={() => go(sectionStart(section))} className={`rounded-lg px-2.5 py-1 transition ${question.section === section ? "bg-white text-[#17305a]" : "text-sky-100 hover:bg-white/10"}`}>
+                  {section === "listening" ? "듣기 1–30" : "읽기 31–70"}
+                </button>
+              ))}
+              <span className="ml-auto tabular-nums text-sky-100">{t("topik.answeredCount", { answered: answeredCount, total: questions.length })}</span>
+              <div className="hidden h-1.5 w-40 overflow-hidden rounded-full bg-white/15 sm:block">
+                <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
+              </div>
+            </div>
           </div>
-          <PdfPageViewer url={exam.pdf} page={question.page} />
+        </header>
+
+        {warning && (
+          <div role="alert" className="absolute left-1/2 top-24 z-10 -translate-x-1/2 rounded-2xl bg-amber-400 px-5 py-3 text-center font-black text-slate-950 shadow-2xl">
+            ⏰ 시험 종료 {warning}분 전입니다 · {t("topik.timeWarning", { minutes: warning })}
+          </div>
+        )}
+
+        <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto">
+          <div className="mx-auto grid max-w-[1500px] gap-4 p-3 pb-48 md:p-5 lg:grid-cols-[minmax(0,1fr)_23rem] lg:pb-5">
+            <main className="min-w-0 space-y-3">
+              {saveError && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
+              {hasListening && (
+                <div className={question.section === "listening" || !isMock ? "" : "opacity-70"}>
+                  <ExamAudio
+                    exam={exam}
+                    examMode={isMock}
+                    startedAt={attempt.startedAt}
+                    savedTime={attempt.audioTime}
+                    onSaveTime={(time) => updateTopikAttempt(attempt.id, { audioTime: time })}
+                  />
+                </div>
+              )}
+              <div className="flex flex-wrap items-end justify-between gap-2">
+                <h2 className="text-2xl font-black md:text-3xl">{question.number}번 <span className="text-base font-bold text-slate-500 dark:text-slate-400">· {t("topik.questionNumber", { number: question.number })}</span></h2>
+                <span className="text-sm font-bold text-slate-500 dark:text-slate-400">
+                  {getQuestionType(question.number)?.ko} · {t("topik.pointsCount", { count: question.points })}
+                </span>
+              </div>
+              <PdfPageViewer url={exam.pdf} page={question.page} maxHeightClass="max-h-none" />
+            </main>
+
+            <aside className="hidden lg:block">
+              <div className="sticky top-5 space-y-4">
+                <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-900">{controls(false)}</div>
+                <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-900">
+                  <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
 
-        <aside className="hidden lg:block">
-          <div className="sticky top-40 space-y-4">
-            <GlassCard className="p-5">
-              <AnswerControls
-                question={question}
-                selected={answers[question.number]}
-                flagged={!!flagged[question.number]}
-                onSelect={selectAnswer}
-                onFlag={toggleFlag}
-                onPrev={() => go(cursor - 1)}
-                onNext={() => go(cursor + 1)}
-                isFirst={cursor === 0}
-                isLast={cursor === questions.length - 1}
-                onFinish={() => setConfirmOpen(true)}
-                showAi={variant.mode !== "mock"}
-              />
-            </GlassCard>
-            <GlassCard className="p-5">
+        <div className="shrink-0 border-t border-slate-200 bg-white px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-slate-950 lg:hidden">
+          <div className="mb-2 flex items-center justify-between">
+            <span className="text-sm font-black">{question.number}번</span>
+            <button type="button" onClick={() => setSheetOpen(true)} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold dark:bg-white/10">
+              ☰ {t("topik.answerSheet")} · {answeredCount}/{questions.length}
+            </button>
+          </div>
+          {controls(true)}
+        </div>
+
+        {sheetOpen && (
+          <div className="fixed inset-0 z-[70] flex items-end bg-slate-950/50 lg:hidden" onClick={() => setSheetOpen(false)}>
+            <div role="dialog" aria-modal="true" className="max-h-[80vh] w-full overflow-y-auto rounded-t-3xl bg-white p-5 dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
               <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
-            </GlassCard>
+              <button type="button" onClick={() => setSheetOpen(false)} className="mt-4 w-full rounded-2xl border border-slate-300 py-3 font-bold dark:border-white/20">{t("topik.closeSheet")}</button>
+            </div>
           </div>
-        </aside>
+        )}
+
+        {confirmOpen && (
+          <ConfirmSubmit
+            unanswered={questions.length - answeredCount}
+            flagged={flaggedCount}
+            remaining={remaining}
+            onCancel={() => setConfirmOpen(false)}
+            onConfirm={finish}
+          />
+        )}
+
+        {timeUp && (
+          <div className="fixed inset-0 z-[80] grid place-items-center bg-slate-950/70 p-4">
+            <div role="alertdialog" className="max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl dark:bg-slate-900">
+              <p className="text-5xl">⏰</p>
+              <h2 className="mt-3 text-2xl font-black">시험이 종료되었습니다</h2>
+              <p className="mt-2 text-slate-600 dark:text-slate-300">{t("topik.timeUpText")}</p>
+            </div>
+          </div>
+        )}
       </div>
-
-      <GlassCard className="p-5 lg:hidden">
-        <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
-      </GlassCard>
-
-      <Overlay>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/95 lg:hidden">
-        <AnswerControls
-          compact
-          question={question}
-          selected={answers[question.number]}
-          flagged={!!flagged[question.number]}
-          onSelect={selectAnswer}
-          onFlag={toggleFlag}
-          onPrev={() => go(cursor - 1)}
-          onNext={() => go(cursor + 1)}
-          isFirst={cursor === 0}
-          isLast={cursor === questions.length - 1}
-          onFinish={() => setConfirmOpen(true)}
-          showAi={variant.mode !== "mock"}
-        />
-      </div>
-      </Overlay>
-
-      {confirmOpen && (
-        <ConfirmSubmit
-          unanswered={questions.length - answeredCount}
-          flagged={flaggedCount}
-          remaining={remaining}
-          onCancel={() => setConfirmOpen(false)}
-          onConfirm={finish}
-        />
-      )}
-    </div>
+    </Overlay>
   );
 }
 
@@ -516,8 +772,13 @@ function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev,
   const openAi = () => window.dispatchEvent(new CustomEvent("k-talim:open-ai-chat"));
   return (
     <div className={compact ? "space-y-2.5" : "space-y-4"}>
-      {!compact && <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("topik.chooseAnswer", { number: question.number })}</p>}
-      <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
+      {!compact && (
+        <div className="flex items-center justify-between">
+          <p className="text-3xl font-black">{question.number}번</p>
+          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500 dark:bg-white/10 dark:text-slate-300">{t("topik.pointsCount", { count: question.points })}</span>
+        </div>
+      )}
+      <div className={`grid gap-2 ${compact ? "grid-cols-4" : "grid-cols-2"}`} role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
         {OPTIONS.map((option) => {
           const active = selected === option;
           return (
@@ -527,7 +788,7 @@ function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev,
               role="radio"
               aria-checked={active}
               onClick={() => onSelect(option)}
-              className={`rounded-2xl border-2 font-black transition ${compact ? "py-2.5 text-2xl" : "py-4 text-3xl"} ${active ? "border-sky-600 bg-sky-600 text-white shadow-lg shadow-sky-600/30" : "border-slate-200 bg-white text-slate-700 hover:border-sky-400 dark:border-white/10 dark:bg-white/5 dark:text-slate-100"}`}
+              className={`flex items-center justify-center gap-2 rounded-2xl border-2 font-black transition ${compact ? "py-2.5 text-2xl" : "py-4 text-3xl"} ${active ? "border-[#17305a] bg-[#17305a] text-white shadow-lg shadow-[#17305a]/30 dark:border-sky-400 dark:bg-sky-500" : "border-slate-200 bg-white text-slate-700 hover:border-sky-400 dark:border-white/10 dark:bg-white/5 dark:text-slate-100"}`}
             >
               {OPTION_MARKS[option]}
             </button>
@@ -535,7 +796,9 @@ function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev,
         })}
       </div>
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold disabled:opacity-30 dark:border-white/10">← {compact ? "" : t("topik.previous")}</button>
+        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold disabled:opacity-30 dark:border-white/10">
+          ←{compact ? "" : ` ${t("topik.prevQuestion")}`}
+        </button>
         <button type="button" onClick={onFlag} aria-pressed={flagged} className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${flagged ? "bg-amber-400 text-slate-950" : "border border-slate-200 dark:border-white/10"}`}>
           ⚑ {flagged ? t("topik.flagged") : t("topik.flag")}
         </button>
@@ -547,9 +810,12 @@ function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev,
         {isLast ? (
           <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white">{t("topik.finish")}</button>
         ) : (
-          <button type="button" onClick={onNext} className="rounded-xl bg-slate-950 px-3 py-2 text-sm font-black text-white dark:bg-white dark:text-slate-950">{compact ? "" : t("topik.next")} →</button>
+          <button type="button" onClick={onNext} className="rounded-xl bg-[#17305a] px-3 py-2 text-sm font-black text-white dark:bg-sky-500">
+            {compact ? "" : `${t("topik.nextQuestion")} `}→
+          </button>
         )}
       </div>
+      {!compact && <p className="text-center text-[11px] text-slate-400">{t("topik.keysHint")}</p>}
     </div>
   );
 }
@@ -559,24 +825,25 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
   const sections = ["listening", "reading"].filter((section) => questions.some((question) => question.section === section));
   return (
     <div className="space-y-4">
-      <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("topik.answerSheet")}</p>
+      <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">답안지 · {t("topik.answerSheet")}</p>
       {sections.map((section) => (
         <div key={section}>
-          <p className="mb-2 text-xs font-bold text-slate-500 dark:text-slate-400">{section === "listening" ? `🎧 ${t("topik.listening")}` : `📖 ${t("topik.reading")}`}</p>
-          <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-10 lg:grid-cols-6">
+          <p className="mb-2 text-xs font-bold text-slate-500 dark:text-slate-400">{section === "listening" ? `🎧 듣기 · ${t("topik.listening")}` : `📖 읽기 · ${t("topik.reading")}`}</p>
+          <div className="grid grid-cols-6 gap-1.5 sm:grid-cols-10 lg:grid-cols-6">
             {questions.map((question, index) => {
               if (question.section !== section) return null;
+              const chosen = answers[question.number];
               let tone;
               if (results) {
-                tone = !answers[question.number]
+                tone = !chosen
                   ? "bg-slate-200 text-slate-500 dark:bg-white/10 dark:text-slate-400"
-                  : answers[question.number] === question.answer
+                  : chosen === question.answer
                     ? "bg-emerald-500 text-white"
                     : "bg-rose-500 text-white";
               } else if (index === cursor) {
                 tone = "bg-sky-600 text-white ring-2 ring-sky-300";
-              } else if (answers[question.number]) {
-                tone = "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200";
+              } else if (chosen) {
+                tone = "bg-[#17305a] text-white dark:bg-sky-500/70";
               } else {
                 tone = "bg-white text-slate-700 dark:bg-white/5 dark:text-slate-300";
               }
@@ -587,9 +854,10 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
                   onClick={() => onJump(index)}
                   aria-label={t("topik.questionNumber", { number: question.number })}
                   aria-current={!results && index === cursor ? "step" : undefined}
-                  className={`relative grid h-9 place-items-center rounded-lg border border-slate-200/70 text-xs font-black tabular-nums transition hover:scale-105 dark:border-white/10 ${tone}`}
+                  className={`relative flex h-10 flex-col items-center justify-center rounded-lg border border-slate-200/70 text-[11px] font-black leading-none tabular-nums transition hover:scale-105 dark:border-white/10 ${tone}`}
                 >
-                  {question.number}
+                  <span>{question.number}</span>
+                  {chosen && <span className="mt-0.5 text-[10px] opacity-90">{OPTION_MARKS[chosen]}</span>}
                   {flagged[question.number] && <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-amber-400 ring-2 ring-white dark:ring-slate-900" />}
                 </button>
               );
@@ -599,9 +867,9 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
       ))}
       {!results && (
         <div className="flex flex-wrap gap-3 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-emerald-300" />{t("topik.legendAnswered")}</span>
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-[#17305a] dark:bg-sky-500/70" />{t("topik.legendAnswered")}</span>
           <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-amber-400" />{t("topik.legendFlagged")}</span>
-          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-sky-600" />{t("topik.legendCurrent")}</span>
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-sky-600 ring-1 ring-sky-300" />{t("topik.legendCurrent")}</span>
         </div>
       )}
     </div>
@@ -618,25 +886,28 @@ function ConfirmSubmit({ unanswered, flagged, remaining, onCancel, onConfirm }) 
     return () => window.removeEventListener("keydown", onKey);
   }, [onCancel]);
   return (
-    <Overlay>
     <div className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center" onClick={onCancel}>
-      <div role="dialog" aria-modal="true" aria-labelledby="topik-submit-title" className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
-        <h2 id="topik-submit-title" className="text-2xl font-black">{t("topik.confirmTitle")}</h2>
-        <p className="mt-2 text-slate-600 dark:text-slate-300">{t("topik.confirmText")}</p>
-        <ul className="mt-4 space-y-2 text-sm font-semibold">
-          <li className={unanswered ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300"}>
-            {unanswered ? t("topik.confirmUnanswered", { count: unanswered }) : t("topik.confirmAllAnswered")}
-          </li>
-          {flagged > 0 && <li className="text-amber-600 dark:text-amber-300">⚑ {t("topik.confirmFlagged", { count: flagged })}</li>}
-          {remaining !== null && <li className="text-slate-500 dark:text-slate-400">⏳ {t("topik.confirmTimeLeft", { time: formatClock(remaining) })}</li>}
-        </ul>
-        <div className="mt-6 flex gap-3">
-          <button type="button" onClick={onCancel} className="flex-1 rounded-2xl border border-slate-300 px-4 py-3 font-bold dark:border-white/20">{t("topik.keepWorking")}</button>
-          <button ref={confirmRef} type="button" onClick={onConfirm} className="flex-1 rounded-2xl bg-rose-600 px-4 py-3 font-black text-white">{t("topik.finish")}</button>
+      <div role="dialog" aria-modal="true" aria-labelledby="topik-submit-title" className="w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
+        <div className="bg-[#17305a] px-6 py-4 text-white">
+          <h2 id="topik-submit-title" className="text-xl font-black">답안을 제출하시겠습니까?</h2>
+          <p className="text-sm text-sky-100">{t("topik.confirmTitle")}</p>
+        </div>
+        <div className="p-6">
+          <p className="text-slate-600 dark:text-slate-300">{t("topik.confirmText")}</p>
+          <ul className="mt-4 space-y-2 text-sm font-semibold">
+            <li className={unanswered ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300"}>
+              {unanswered ? `✗ ${t("topik.confirmUnanswered", { count: unanswered })}` : `✓ ${t("topik.confirmAllAnswered")}`}
+            </li>
+            {flagged > 0 && <li className="text-amber-600 dark:text-amber-300">⚑ {t("topik.confirmFlagged", { count: flagged })}</li>}
+            {remaining !== null && <li className="text-slate-500 dark:text-slate-400">⏳ {t("topik.confirmTimeLeft", { time: formatClock(remaining) })}</li>}
+          </ul>
+          <div className="mt-6 flex gap-3">
+            <button type="button" onClick={onCancel} className="flex-1 rounded-2xl border border-slate-300 px-4 py-3 font-bold dark:border-white/20">{t("topik.keepWorking")}</button>
+            <button ref={confirmRef} type="button" onClick={onConfirm} className="flex-1 rounded-2xl bg-rose-600 px-4 py-3 font-black text-white">제출 · {t("topik.finish")}</button>
+          </div>
         </div>
       </div>
     </div>
-    </Overlay>
   );
 }
 
@@ -660,7 +931,12 @@ export function TopikResultPage() {
   const variant = getTopikVariant(attempt.variantId);
   const exam = getTopikExam(variant.examId);
   const questions = getVariantQuestions(variant);
-  const { result, answers = {}, flagged = {} } = attempt;
+  const { result, answers = {}, flagged = {}, timeSpent = {} } = attempt;
+  const breakdown = questionTypeBreakdown(questions, answers);
+  const slowest = questions
+    .filter((question) => timeSpent[question.number])
+    .sort((a, b) => timeSpent[b.number] - timeSpent[a.number])
+    .slice(0, 5);
   const percent = result.maxTotal ? Math.round((result.total / result.maxTotal) * 100) : 0;
   const statusOf = (question) => (!answers[question.number] ? "unanswered" : answers[question.number] === question.answer ? "correct" : "incorrect");
   const visible = questions.filter((question) => {
@@ -719,6 +995,48 @@ export function TopikResultPage() {
         </div>
       </GlassCard>
 
+      <GlassCard className="p-6 md:p-8">
+        <h2 className="text-2xl font-black">{t("topik.typeAnalysis")}</h2>
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t("topik.typeAnalysisHint")}</p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {breakdown.map((group) => {
+            const percentCorrect = Math.round((group.correct / group.total) * 100);
+            const tone = percentCorrect >= 80 ? "bg-emerald-500" : percentCorrect >= 50 ? "bg-amber-400" : "bg-rose-500";
+            return (
+              <div key={group.key} className="rounded-2xl bg-slate-100/90 p-4 dark:bg-white/5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-black">{group.ko}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {group.section === "listening" ? "🎧" : "📖"} {t(`topik.type.${group.id}`)} · {group.ranges.join(", ")}
+                    </p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <p className="font-black tabular-nums">{group.correct}/{group.total}</p>
+                    {group.lost > 0 && <p className="text-xs font-bold text-rose-600 dark:text-rose-300">−{group.lost} {t("topik.pointsShort")}</p>}
+                  </div>
+                </div>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+                  <div className={`h-full rounded-full ${tone}`} style={{ width: `${percentCorrect}%` }} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {slowest.length > 0 && (
+          <div className="mt-6">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">⏱ {t("topik.slowestQuestions")}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {slowest.map((question) => (
+                <span key={question.number} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-bold dark:bg-white/10">
+                  {question.number}번 · {formatClock(timeSpent[question.number])}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </GlassCard>
+
       <div className="grid gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
         <GlassCard className="h-fit p-5 lg:sticky lg:top-24">
           <AnswerSheet
@@ -768,6 +1086,8 @@ export function TopikResultPage() {
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         {question.section === "listening" ? t("topik.listening") : t("topik.reading")} · {status === "correct" ? question.points : 0}/{question.points} {t("topik.pointsShort")}
+                        {getQuestionType(question.number) && ` · ${getQuestionType(question.number).ko}`}
+                        {timeSpent[question.number] ? ` · ⏱ ${formatClock(timeSpent[question.number])}` : ""}
                       </p>
                     </div>
                   </div>

@@ -59,6 +59,7 @@ export function createTopikAttempt(variantId) {
     flagged: {},
     cursor: 0,
     audioTime: 0,
+    timeSpent: {},
     result: null,
   };
   writeAll([...readAll(), attempt]);

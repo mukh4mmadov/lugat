@@ -54,10 +54,49 @@ export function normalizeAnswer(value) {
     .trim();
 }
 
+function editDistance(a, b) {
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let i = 1; i <= a.length; i += 1) {
+    let diagonal = previous[0];
+    previous[0] = i;
+    for (let j = 1; j <= b.length; j += 1) {
+      const above = previous[j];
+      previous[j] = Math.min(
+        previous[j] + 1,
+        previous[j - 1] + 1,
+        diagonal + (a[i - 1] === b[j - 1] ? 0 : 1),
+      );
+      diagonal = above;
+    }
+  }
+  return previous[b.length];
+}
+
+// Accepted forms of an answer such as "AQSh (Amerika)" or "Nima / Nimani":
+// the whole text, each "/" alternative, and the text with and without brackets.
+export function answerCandidates(expected) {
+  const forms = new Set();
+  expected.split(/[/;,]/).forEach((part) => {
+    const withoutBrackets = part.replace(/\([^)]*\)/g, " ");
+    forms.add(part);
+    forms.add(withoutBrackets);
+    for (const match of part.matchAll(/\(([^)]*)\)/g)) forms.add(match[1]);
+  });
+  forms.add(expected);
+  return [...forms].map(normalizeAnswer).filter(Boolean);
+}
+
+// Exact match on any accepted form, allowing one typo in longer Latin answers.
+// Korean answers must match exactly, since one jamo changes the word.
 export function isAnswerCorrect(input, expected) {
   const normalizedInput = normalizeAnswer(input);
-  const candidates = expected.split("/").map((part) => normalizeAnswer(part));
-  return candidates.some((candidate) => candidate && (normalizedInput === candidate || candidate.includes(normalizedInput) || normalizedInput.includes(candidate)));
+  if (!normalizedInput) return false;
+  const isKorean = /[ㄱ-힝]/.test(expected);
+  return answerCandidates(expected).some((candidate) => {
+    if (normalizedInput === candidate) return true;
+    if (isKorean || candidate.length < 5) return false;
+    return editDistance(normalizedInput, candidate) <= (candidate.length >= 10 ? 2 : 1);
+  });
 }
 
 export function dailyKey(date = new Date()) {

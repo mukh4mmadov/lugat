@@ -125,12 +125,20 @@ export default function CoursesPage() {
                     {lessonMastery.mastered}/{lessonMastery.total}{" "}
                     {t("study.mastered")}
                   </span>
-                  <Link
-                    className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300"
-                    to={`/lesson/${lesson.lesson}/flashcards`}
-                  >
-                    {t(percent > 0 ? "home.continue" : "home.start")}
-                  </Link>
+                  <span className="flex items-center gap-3">
+                    <Link
+                      className="text-slate-500 transition hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                      to={`/lesson/${lesson.lesson}/flashcards`}
+                    >
+                      {t("practice.flashcards")}
+                    </Link>
+                    <Link
+                      className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300"
+                      to={`/study/${lesson.lesson}`}
+                    >
+                      {t(percent > 0 ? "home.continue" : "home.start")} →
+                    </Link>
+                  </span>
                 </div>
               </motion.article>
             );

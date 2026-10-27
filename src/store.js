@@ -191,6 +191,23 @@ const progressSlice = createSlice({
       record.easinessFactor = next.easinessFactor;
       record.nextReviewAt = next.nextReviewAt;
       record.lastReviewedAt = next.lastReviewedAt;
+      // A flashcard rating is also an answer: "again" counts as a miss,
+      // anything else as recalled, so lesson progress and mastery move.
+      const recalled = rating !== SRS_RATINGS.AGAIN;
+      if (recalled) {
+        record.knownCount = (record.knownCount || 0) + 1;
+        record.difficulty = Math.max(0, (record.difficulty || 0) - 1);
+        state.stats.correct += 1;
+      } else {
+        record.wrongCount = (record.wrongCount || 0) + 1;
+        record.difficulty = (record.difficulty || 0) + 2;
+        state.stats.wrong += 1;
+      }
+      record.reviewed = Date.now();
+      record.recentAnswers = [
+        ...(record.recentAnswers || []).slice(-9),
+        { correct: recalled, exerciseType: "flashcard", timestamp: Date.now() },
+      ];
       state.words[key] = record;
       state.stats.studiedWords += 1;
       updateStreak(state.stats);
@@ -384,8 +401,9 @@ export function selectLessonProgress(state, lesson) {
   const words = lessonInfo.find((item) => item.lesson === lesson)?.words || [];
   if (!words.length) return 0;
   
+  const records = state.progress.words;
   const learned = words.filter(
-    (word) => (words[getWordKey(word)]?.knownCount || 0) > 0,
+    (word) => (records[getWordKey(word)]?.knownCount || 0) > 0,
   ).length;
   return Math.round((learned / words.length) * 100);
 }

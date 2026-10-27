@@ -16,6 +16,7 @@ import { TopikExamProvider } from "../context/TopikExamContext";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 import InstallAppButton from "./InstallAppButton";
+import { useStudyTimer } from "../hooks/useStudyTimer";
 
 const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
 
@@ -37,6 +38,7 @@ export default function Layout({ onShowIELTSModal }) {
   const moreMenuRef = useRef(null);
 
   const { user, profile, signOut } = useAuth();
+  useStudyTimer(location.pathname);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {

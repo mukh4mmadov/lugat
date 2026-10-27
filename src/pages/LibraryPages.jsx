@@ -150,6 +150,7 @@ export function SearchPage() {
         words={displayedResults}
         empty={t("search.noResults")}
         showMastery
+        masteryWordsState={progress.words}
         Illustration={EmptyStateIllustrations.SearchNoResults}
       />
       {hasMore && (
@@ -383,7 +384,8 @@ export function StatsPage() {
                 >
                   <p className="font-black">{item.word}</p>
                   <p className="text-sm text-slate-500 dark:text-slate-300">
-                    {t("card.lesson", { lesson: item.lesson })} · {item.type}
+                    {t("card.lesson", { lesson: item.lesson })} ·{" "}
+                    {t(`srs.${item.type}`, { defaultValue: item.type })}
                   </p>
                 </div>
               ))
@@ -469,12 +471,7 @@ export function SettingsPage() {
     event.preventDefault();
     setAccountMessage("");
     if (newPassword.length < 8 || newPassword !== confirmPassword) {
-      setAccountMessage(
-        t("settings.passwordFailed", {
-          defaultValue:
-            "Use at least 8 characters and make both passwords match.",
-        }),
-      );
+      setAccountMessage(t("settings.passwordMismatch"));
       return;
     }
     setAccountBusy(true);
@@ -733,10 +730,18 @@ export function SettingsPage() {
           </p>
           <button
             type="button"
-            onClick={() =>
-              window.confirm(t("settings.resetConfirm")) &&
-              dispatch(resetProgress())
-            }
+            onClick={() => {
+              if (!window.confirm(t("settings.resetConfirm"))) return;
+              // Study sessions remember per-lesson mastery, so they reset too.
+              try {
+                Object.keys(window.localStorage)
+                  .filter((key) => key.startsWith("k-talim:study-session:"))
+                  .forEach((key) => window.localStorage.removeItem(key));
+              } catch {
+                // Nothing stored to clear.
+              }
+              dispatch(resetProgress());
+            }}
             className="mt-4 rounded-2xl bg-rose-500 px-5 py-3 font-black text-white"
           >
             {t("settings.resetButton")}

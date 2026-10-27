@@ -6,13 +6,17 @@ import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { lessonInfo } from "../data";
-import { selectLessonProgress, selectProgressSummary } from "../store";
+import {
+  selectLessonProgress,
+  selectProgressSummary,
+  selectReviewCount,
+} from "../store";
 
 export default function HomePage() {
   const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const progressSummary = useSelector(selectProgressSummary);
-  const reviewCount = progressSummary.totalReviews > 0 ? progressSummary.totalReviews : 0;
+  const reviewCount = useSelector(selectReviewCount);
   const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
   const completedLessons = lessonInfo.filter(
     (lesson) => selectLessonProgress({ progress }, lesson.lesson) === 100,
@@ -44,7 +48,7 @@ export default function HomePage() {
               </p>
               <div className="mt-4 text-center">
                 <Link
-                  to="/lesson/1/flashcards"
+                  to="/study/1"
                   className="inline-flex rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-1"
                 >
                   {t("home.startLesson")}
@@ -63,7 +67,7 @@ export default function HomePage() {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  to="/lesson/1/flashcards"
+                  to={`/study/${dailyLesson}`}
                   className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-1 dark:bg-white dark:text-slate-950"
                 >
                   {t("home.continueLesson")}
