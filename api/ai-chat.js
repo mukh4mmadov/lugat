@@ -260,10 +260,18 @@ function loadTopikContext(input) {
   );
   return {
     exam: `${exam.level}, ${exam.number}th exam, form ${exam.form}`,
-    note: "The learner reads the question from the original paper; question text is not included here.",
+    note: activeQuestion.section === "listening"
+      ? "Listening: the dialogue is only in the audio, so only the printed choices are known."
+      : "Pictures, notices and passages are printed on the paper; only their text below is known.",
     activeQuestion: {
       number: activeQuestion.number,
       section: activeQuestion.section,
+      instruction: exam.content?.[activeQuestion.number]?.instruction || "",
+      prompt: exam.content?.[activeQuestion.number]?.prompt || "",
+      options: (exam.content?.[activeQuestion.number]?.options || []).map((option) => ({
+        id: option.id,
+        text: option.text || "(picture)",
+      })),
       paperPage: activeQuestion.page,
       points: activeQuestion.points,
       selectedOption: answers[activeQuestion.number] || null,

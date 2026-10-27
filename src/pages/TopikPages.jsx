@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { useAuth } from "../context/AuthContext";
 import PdfPageViewer from "../components/PdfPageViewer";
+import TopikQuestion, { preloadPaperPages } from "../components/TopikQuestion";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
 import {
   TOPIK_EXAMS,
@@ -452,6 +453,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   const [now, setNow] = useState(Date.now());
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [paperOpen, setPaperOpen] = useState(false);
   const [saveError, setSaveError] = useState(false);
   const [warning, setWarning] = useState(null);
   const [timeUp, setTimeUp] = useState(false);
@@ -555,6 +557,14 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   }, [isMock]);
 
   useEffect(() => {
+    const pages = questions.slice(cursor, cursor + 3).flatMap((item) => {
+      const content = exam.content?.[item.number];
+      return [content?.shared?.page, content?.stem?.page, content?.options?.[0]?.box?.page];
+    });
+    preloadPaperPages(exam.pdf, [...new Set(pages.filter(Boolean))]);
+  }, [cursor, exam, questions]);
+
+  useEffect(() => {
     updateTopikAttempt(attempt.id, { cursor });
     scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [attempt.id, cursor]);
@@ -593,7 +603,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
 
   useEffect(() => {
     const onKey = (event) => {
-      if (confirmOpen || timeUp || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (confirmOpen || paperOpen || timeUp || event.metaKey || event.ctrlKey || event.altKey) return;
       if (event.target.closest?.("input, textarea, select, [contenteditable='true'], [role='dialog']")) return;
       if (OPTIONS.includes(event.key)) {
         event.preventDefault();
@@ -610,7 +620,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [confirmOpen, cursor, go, selectAnswer, timeUp, toggleFlag]);
+  }, [confirmOpen, cursor, go, paperOpen, selectAnswer, timeUp, toggleFlag]);
 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
@@ -633,9 +643,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     <AnswerControls
       compact={compact}
       question={question}
-      selected={answers[question.number]}
       flagged={!!flagged[question.number]}
-      onSelect={selectAnswer}
       onFlag={toggleFlag}
       onPrev={() => go(cursor - 1)}
       onNext={() => go(cursor + 1)}
@@ -704,18 +712,21 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
                   />
                 </div>
               )}
-              <div className="flex flex-wrap items-end justify-between gap-2">
-                <h2 className="text-2xl font-black md:text-3xl">{question.number}번 <span className="text-base font-bold text-slate-500 dark:text-slate-400">· {t("topik.questionNumber", { number: question.number })}</span></h2>
-                <span className="text-sm font-bold text-slate-500 dark:text-slate-400">
-                  {getQuestionType(question.number)?.ko} · {t("topik.pointsCount", { count: question.points })}
-                </span>
-              </div>
-              <PdfPageViewer url={exam.pdf} page={question.page} maxHeightClass="max-h-none" />
+              <TopikQuestion
+                exam={exam}
+                question={question}
+                selected={answers[question.number]}
+                onSelect={selectAnswer}
+                showShared={showSharedFor(exam, question)}
+              />
+              <div className="hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-slate-900 lg:block">{controls(false)}</div>
+              <button type="button" onClick={() => setPaperOpen(true)} className="text-sm font-bold text-slate-500 underline decoration-dotted underline-offset-4 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white">
+                📄 {t("topik.viewOriginalPage", { number: question.page })}
+              </button>
             </main>
 
             <aside className="hidden lg:block">
               <div className="sticky top-5 space-y-4">
-                <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-900">{controls(false)}</div>
                 <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-900">
                   <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
                 </div>
@@ -726,13 +737,22 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
 
         <div className="shrink-0 border-t border-slate-200 bg-white px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-slate-950 lg:hidden">
           <div className="mb-2 flex items-center justify-between">
-            <span className="text-sm font-black">{question.number}번</span>
+            <span className="text-sm font-black">{question.number}번 {answers[question.number] ? `· ${OPTION_MARKS[answers[question.number]]}` : ""}</span>
             <button type="button" onClick={() => setSheetOpen(true)} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold dark:bg-white/10">
               ☰ {t("topik.answerSheet")} · {answeredCount}/{questions.length}
             </button>
           </div>
           {controls(true)}
         </div>
+
+        {paperOpen && (
+          <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/70 p-3" onClick={() => setPaperOpen(false)}>
+            <div role="dialog" aria-modal="true" className="flex max-h-full w-full max-w-4xl flex-col gap-2" onClick={(event) => event.stopPropagation()}>
+              <button type="button" onClick={() => setPaperOpen(false)} className="self-end rounded-xl bg-white px-4 py-2 text-sm font-black text-slate-900">✕ {t("topik.closeSheet")}</button>
+              <PdfPageViewer url={exam.pdf} page={question.page} maxHeightClass="max-h-[80vh]" />
+            </div>
+          </div>
+        )}
 
         {sheetOpen && (
           <div className="fixed inset-0 z-[70] flex items-end bg-slate-950/50 lg:hidden" onClick={() => setSheetOpen(false)}>
@@ -767,37 +787,22 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   );
 }
 
-function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev, onNext, isFirst, isLast, onFinish, showAi, compact = false }) {
+// Shared passages repeat on every question of a "read/listen and answer" set;
+// a <보기> example is shown once, on the first question of its block.
+function showSharedFor(exam, question) {
+  const content = exam.content?.[question.number];
+  if (!content) return false;
+  return content.instruction.includes("물음에 답하십시오") || content.group[0] === question.number;
+}
+
+function AnswerControls({ question, flagged, onFlag, onPrev, onNext, isFirst, isLast, onFinish, showAi, compact = false }) {
   const { t } = useTranslation();
   const openAi = () => window.dispatchEvent(new CustomEvent("k-talim:open-ai-chat"));
   return (
-    <div className={compact ? "space-y-2.5" : "space-y-4"}>
-      {!compact && (
-        <div className="flex items-center justify-between">
-          <p className="text-3xl font-black">{question.number}번</p>
-          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500 dark:bg-white/10 dark:text-slate-300">{t("topik.pointsCount", { count: question.points })}</span>
-        </div>
-      )}
-      <div className={`grid gap-2 ${compact ? "grid-cols-4" : "grid-cols-2"}`} role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
-        {OPTIONS.map((option) => {
-          const active = selected === option;
-          return (
-            <button
-              key={option}
-              type="button"
-              role="radio"
-              aria-checked={active}
-              onClick={() => onSelect(option)}
-              className={`flex items-center justify-center gap-2 rounded-2xl border-2 font-black transition ${compact ? "py-2.5 text-2xl" : "py-4 text-3xl"} ${active ? "border-[#17305a] bg-[#17305a] text-white shadow-lg shadow-[#17305a]/30 dark:border-sky-400 dark:bg-sky-500" : "border-slate-200 bg-white text-slate-700 hover:border-sky-400 dark:border-white/10 dark:bg-white/5 dark:text-slate-100"}`}
-            >
-              {OPTION_MARKS[option]}
-            </button>
-          );
-        })}
-      </div>
+    <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold disabled:opacity-30 dark:border-white/10">
-          ←{compact ? "" : ` ${t("topik.prevQuestion")}`}
+        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold disabled:opacity-30 dark:border-white/10">
+          ← {compact ? "" : `이전 · ${t("topik.prevQuestion")}`}
         </button>
         <button type="button" onClick={onFlag} aria-pressed={flagged} className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${flagged ? "bg-amber-400 text-slate-950" : "border border-slate-200 dark:border-white/10"}`}>
           ⚑ {flagged ? t("topik.flagged") : t("topik.flag")}
@@ -808,14 +813,14 @@ function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev,
           </button>
         )}
         {isLast ? (
-          <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white">{t("topik.finish")}</button>
+          <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-black text-white">답안 제출</button>
         ) : (
-          <button type="button" onClick={onNext} className="rounded-xl bg-[#17305a] px-3 py-2 text-sm font-black text-white dark:bg-sky-500">
-            {compact ? "" : `${t("topik.nextQuestion")} `}→
+          <button type="button" onClick={onNext} className="rounded-xl bg-[#17305a] px-4 py-2.5 text-sm font-black text-white dark:bg-sky-500">
+            {compact ? "" : `다음 · ${t("topik.nextQuestion")} `}→
           </button>
         )}
       </div>
-      {!compact && <p className="text-center text-[11px] text-slate-400">{t("topik.keysHint")}</p>}
+      {!compact && <p className="text-center text-[11px] text-slate-400">{t("topik.keysHint")} · {question.number}번</p>}
     </div>
   );
 }
@@ -1099,7 +1104,11 @@ export function TopikResultPage() {
                     </button>
                   </div>
                 </div>
-                {open && <PdfPageViewer url={exam.pdf} page={question.page} className="mt-4" maxHeightClass="max-h-[70vh]" />}
+                {open && (
+                  <div className="mt-4 rounded-2xl bg-slate-100/80 p-3 dark:bg-white/5 md:p-4">
+                    <TopikQuestion exam={exam} question={question} selected={answers[question.number]} review showShared />
+                  </div>
+                )}
               </GlassCard>
             );
           })}

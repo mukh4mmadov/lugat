@@ -12,13 +12,27 @@ the page and resume on the same device.
 `/api/ai-chat` imports the same data module to give hints in the untimed
 listening and reading practice. AI help is disabled in the full mock.
 
+The exam shows one question per screen, as on the computer-based test: the
+block instruction, the shared passage, the question's printed material, and the
+four choices to click. Choice text is read from the PDF; passages, notices and
+pictures are cropped from the PDF at runtime. That per-question content lives
+in a generated module such as `src/data/topik/paper35Content.js`.
+
 ## Adding a paper
 
 1. Put `paper.pdf` and `listening.mp3` in `public/topik/<id>/`, e.g. `36th`.
-2. Add an entry to `TOPIK_EXAMS` with the question rows from the official
-   answer key. Use the original question numbers and the PDF page each
-   question is printed on.
-3. The mock, listening and reading variants (`36thmock`, `36thlistening`,
+2. Generate the question content from the PDF:
+
+   ```sh
+   node scripts/topik-extract-paper.mjs public/topik/36th/paper.pdf src/data/topik/paper36Content.js PAPER_36_CONTENT
+   ```
+
+   The script stops and lists the questions it could not read if any of the
+   70 questions lacks exactly four choices.
+3. Add an entry to `TOPIK_EXAMS` with the question rows from the official
+   answer key (original question numbers and the PDF page of each question)
+   and `content: PAPER_36_CONTENT`.
+4. The mock, listening and reading variants (`36thmock`, `36thlistening`,
    `36threading`) are generated automatically.
 
 Each section is scored out of 100. When a key's printed weights don't add to

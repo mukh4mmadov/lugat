@@ -2,6 +2,8 @@
 // Merged over the base resources, so a key here wins over an older one there.
 
 const en = {
+  "topik.tapToZoom": "Tap to enlarge",
+  "topik.viewOriginalPage": "Original paper, page {{number}}",
   "privacy.section1": "Your name, last name, birth year, email address (when you sign up) and your Korean-vocabulary learning progress. TOPIK test attempts, answers and results stay in your browser on this device.",
   "privacy.section3": "Your account data and synced learning progress are stored with Supabase (our backend provider). TOPIK attempts are kept only in your browser's local storage. Your data is never sold or shared with third parties for advertising purposes.",
   "topik.guestCandidate": "Guest candidate",
@@ -205,6 +207,8 @@ const en = {
 };
 
 const uz = {
+  "topik.tapToZoom": "Kattalashtirish uchun bosing",
+  "topik.viewOriginalPage": "Asl qog'oz, {{number}}-sahifa",
   "privacy.section1": "Ism-familiyangiz, tug‘ilgan yilingiz, elektron pochta manzilingiz (ro‘yxatdan o‘tganda) va koreyscha lug‘at o‘rganish jarayoningiz. TOPIK test urinishlari, javoblari va natijalari shu qurilmadagi brauzeringizda qoladi.",
   "privacy.section3": "Hisob ma’lumotlaringiz va sinxronlangan o‘rganish progressingiz Supabase’da (backend ta’minotchimiz) saqlanadi. TOPIK urinishlari faqat brauzeringizning lokal xotirasida saqlanadi. Ma’lumotlaringiz reklama maqsadida sotilmaydi yoki uchinchi tomonlarga ulashilmaydi.",
   "topik.guestCandidate": "Mehmon nomzod",
@@ -410,6 +414,8 @@ const uz = {
 };
 
 const ru = {
+  "topik.tapToZoom": "Нажмите, чтобы увеличить",
+  "topik.viewOriginalPage": "Оригинал, стр. {{number}}",
   "privacy.section1": "Ваши имя и фамилия, год рождения, адрес электронной почты (при регистрации) и прогресс изучения корейской лексики. Попытки, ответы и результаты тестов TOPIK остаются в вашем браузере на этом устройстве.",
   "privacy.section3": "Данные аккаунта и синхронизированный прогресс обучения хранятся в Supabase (наш поставщик серверной инфраструктуры). Попытки TOPIK хранятся только в локальном хранилище браузера. Ваши данные не продаются и не передаются третьим лицам для рекламы.",
   "topik.guestCandidate": "Гость",

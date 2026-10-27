@@ -2,6 +2,8 @@
 // Rows: [question number, section, points, original paper page, correct option].
 // Keep this file free of browser/Vite-only imports so the API can import it too.
 
+import { PAPER_35_CONTENT } from "./paper35Content.js";
+
 const PAPER_35 = [
   [1, "listening", 4, 3, 3],
   [2, "listening", 4, 3, 2],
@@ -99,6 +101,7 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_35),
+    content: PAPER_35_CONTENT,
   },
 ];
 
