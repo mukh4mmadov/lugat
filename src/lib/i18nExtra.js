@@ -341,6 +341,14 @@ const en = {
   "admin.feedback.pick": "Choose a report on the left",
   "auth.showPassword": "Show password",
   "auth.hidePassword": "Hide password",
+  "auth.error.network": "No connection to the server. Check your internet and try again.",
+  "auth.error.invalidCredentials": "Wrong email or password.",
+  "auth.error.alreadyRegistered": "An account with this email already exists. Try signing in.",
+  "auth.error.weakPassword": "The password is too short or too simple.",
+  "auth.error.samePassword": "The new password must be different from the old one.",
+  "auth.error.emailNotConfirmed": "Please confirm your email first. Check your inbox.",
+  "auth.error.rateLimit": "Too many attempts. Wait a few minutes and try again.",
+  "auth.error.invalidEmail": "Please enter a valid email address.",
 };
 
 const uz = {
@@ -685,6 +693,14 @@ const uz = {
   "admin.feedback.pick": "Chapdan murojaatni tanlang",
   "auth.showPassword": "Parolni ko‘rsatish",
   "auth.hidePassword": "Parolni yashirish",
+  "auth.error.network": "Server bilan aloqa yo‘q. Internetni tekshirib, qayta urinib ko‘ring.",
+  "auth.error.invalidCredentials": "Email yoki parol noto‘g‘ri.",
+  "auth.error.alreadyRegistered": "Bu email bilan akkaunt allaqachon mavjud. Tizimga kirib ko‘ring.",
+  "auth.error.weakPassword": "Parol juda qisqa yoki oddiy.",
+  "auth.error.samePassword": "Yangi parol eskisidan farq qilishi kerak.",
+  "auth.error.emailNotConfirmed": "Avval emailingizni tasdiqlang. Pochtangizni tekshiring.",
+  "auth.error.rateLimit": "Juda ko‘p urinish. Bir necha daqiqadan keyin qayta urinib ko‘ring.",
+  "auth.error.invalidEmail": "To‘g‘ri email manzilini kiriting.",
 };
 
 const ru = {
@@ -1080,6 +1096,14 @@ const ru = {
   "admin.feedback.pick": "Выберите обращение слева",
   "auth.showPassword": "Показать пароль",
   "auth.hidePassword": "Скрыть пароль",
+  "auth.error.network": "Нет связи с сервером. Проверьте интернет и попробуйте снова.",
+  "auth.error.invalidCredentials": "Неверный email или пароль.",
+  "auth.error.alreadyRegistered": "Аккаунт с этим email уже существует. Попробуйте войти.",
+  "auth.error.weakPassword": "Пароль слишком короткий или простой.",
+  "auth.error.samePassword": "Новый пароль должен отличаться от старого.",
+  "auth.error.emailNotConfirmed": "Сначала подтвердите email. Проверьте почту.",
+  "auth.error.rateLimit": "Слишком много попыток. Подождите несколько минут.",
+  "auth.error.invalidEmail": "Введите корректный email.",
 };
 
 export default { en, uz, ru };

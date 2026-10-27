@@ -6,6 +6,7 @@ import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
+import { authErrorMessage } from "../lib/authErrors";
 
 function getDaysInMonth(month, year) {
   if (!month || !year) return 31;
@@ -108,7 +109,7 @@ export default function RegisterPage() {
         },
       });
       if (error) {
-        setGeneralError(error.message || t("register.genericError"));
+        setGeneralError(authErrorMessage(error, t, "register.genericError"));
       } else if (data?.user) {
         window.location.href = "/";
         setForm({
@@ -139,7 +140,7 @@ export default function RegisterPage() {
         options: { redirectTo: `${window.location.origin}/auth/callback` },
       });
       if (error) {
-        setGeneralError(error.message || t("register.genericError"));
+        setGeneralError(authErrorMessage(error, t, "register.genericError"));
         setLoading(false);
       }
     } catch {

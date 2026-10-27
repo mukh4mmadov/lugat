@@ -6,6 +6,7 @@ import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
+import { authErrorMessage } from "../lib/authErrors";
 
 export default function ResetPasswordPage() {
   const { t } = useTranslation();
@@ -75,7 +76,7 @@ export default function ResetPasswordPage() {
         password: form.password,
       });
       if (error) {
-        setGeneralError(error.message || t("resetPassword.genericError"));
+        setGeneralError(authErrorMessage(error, t, "resetPassword.genericError"));
       } else {
         setSuccess(t("resetPassword.successMessage"));
         setForm({ password: "", confirmPassword: "" });

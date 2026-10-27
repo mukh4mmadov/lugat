@@ -364,7 +364,7 @@ function ExamAudio({ exam, examMode, startedAt, savedTime, onSaveTime }) {
   const finished = examMode && duration > 0 && position >= duration - 0.5;
 
   return (
-    <div className="rounded-2xl border border-sky-200 bg-white p-3 dark:border-sky-400/20 dark:bg-slate-900">
+    <div className={`rounded-2xl border border-sky-200 bg-white dark:border-sky-400/20 dark:bg-slate-900 ${examMode ? "px-3 py-2" : "p-3"}`}>
       <audio
         ref={audioRef}
         src={exam.audio}
@@ -397,17 +397,15 @@ function ExamAudio({ exam, examMode, startedAt, savedTime, onSaveTime }) {
         {t("topik.audioUnsupported")}
       </audio>
       {examMode && (
-        <div className="flex flex-wrap items-center gap-3">
-          <span className={`grid h-9 w-9 place-items-center rounded-full text-white ${playing ? "animate-pulse bg-rose-600" : "bg-slate-400"}`}>{finished ? "✓" : "🎧"}</span>
-          <div className="min-w-0 flex-1">
-            <p className="text-xs font-black text-[#17305a] dark:text-sky-200">
-              {finished ? t("topik.audioFinished") : playing ? `듣기 · ${t("topik.audioPlaying")}` : t("topik.audioWaiting")}
-            </p>
-            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-              <div className="h-full rounded-full bg-sky-500 transition-all" style={{ width: `${duration ? Math.min(100, (position / duration) * 100) : 0}%` }} />
-            </div>
-            <p className="mt-0.5 text-[11px] font-bold tabular-nums text-slate-500">{formatClock(position)} / {formatClock(duration)}</p>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm text-white ${playing ? "animate-pulse bg-rose-600" : "bg-slate-400"}`}>{finished ? "✓" : "🎧"}</span>
+          <p className="shrink-0 text-xs font-black text-[#17305a] dark:text-sky-200">
+            {finished ? t("topik.audioFinished") : playing ? `듣기 · ${t("topik.audioPlaying")}` : t("topik.audioWaiting")}
+          </p>
+          <div className="h-1.5 min-w-[6rem] flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+            <div className="h-full rounded-full bg-sky-500 transition-all" style={{ width: `${duration ? Math.min(100, (position / duration) * 100) : 0}%` }} />
           </div>
+          <p className="shrink-0 text-[11px] font-bold tabular-nums text-slate-500">{formatClock(position)} / {formatClock(duration)}</p>
           {blocked && !finished && (
             <button type="button" onClick={syncAndPlay} className="rounded-xl bg-rose-600 px-3 py-2 text-xs font-black text-white">▶ {t("topik.audioResume")}</button>
           )}
@@ -691,7 +689,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
         )}
 
         <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto">
-          <div className="mx-auto grid max-w-[1500px] gap-4 p-3 pb-48 md:p-5 lg:grid-cols-[minmax(0,1fr)_23rem] lg:pb-5">
+          <div className="mx-auto grid max-w-[1500px] gap-4 p-3 pb-6 md:p-5 lg:grid-cols-[minmax(0,1fr)_23rem]">
             <main className="min-w-0 space-y-3">
               {saveError && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
               {hasListening && (
@@ -712,7 +710,6 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
                 onSelect={selectAnswer}
                 showShared={showSharedFor(exam, question)}
               />
-              <div className="hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-slate-900 lg:block">{controls(false)}</div>
               <button type="button" onClick={() => setPaperOpen(true)} className="text-sm font-bold text-slate-500 underline decoration-dotted underline-offset-4 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white">
                 📄 {t("topik.viewOriginalPage", { number: question.page })}
               </button>
@@ -728,14 +725,18 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
           </div>
         </div>
 
-        <div className="shrink-0 border-t border-slate-200 bg-white px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-slate-950 lg:hidden">
-          <div className="mb-2 flex items-center justify-between">
-            <span className="text-sm font-black">{question.number}번 {answers[question.number] ? `· ${OPTION_MARKS[answers[question.number]]}` : ""}</span>
-            <button type="button" onClick={() => setSheetOpen(true)} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold dark:bg-white/10">
-              ☰ {t("topik.answerSheet")} · {answeredCount}/{questions.length}
-            </button>
+        {/* Navigation stays on screen at every size, like the exam terminal's footer. */}
+        <div className="shrink-0 border-t border-slate-200 bg-white px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-slate-950 lg:pb-3">
+          <div className="mx-auto max-w-[1500px] lg:grid lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-4 lg:px-2">
+            <div className="mb-2 flex items-center justify-between lg:hidden">
+              <span className="text-sm font-black">{question.number}번 {answers[question.number] ? `· ${OPTION_MARKS[answers[question.number]]}` : ""}</span>
+              <button type="button" onClick={() => setSheetOpen(true)} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold dark:bg-white/10">
+                ☰ {t("topik.answerSheet")} · {answeredCount}/{questions.length}
+              </button>
+            </div>
+            <div className="lg:hidden">{controls(true)}</div>
+            <div className="hidden lg:block">{controls(false)}</div>
           </div>
-          {controls(true)}
         </div>
 
         {paperOpen && (
@@ -794,21 +795,21 @@ function AnswerControls({ question, flagged, onFlag, onPrev, onNext, isFirst, is
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold disabled:opacity-30 dark:border-white/10">
+        <button type="button" onClick={onPrev} disabled={isFirst} aria-label={t("topik.prevQuestion")} className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold disabled:opacity-30 dark:border-white/10">
           ← {compact ? "" : `이전 · ${t("topik.prevQuestion")}`}
         </button>
         <button type="button" onClick={onFlag} aria-pressed={flagged} className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${flagged ? "bg-amber-400 text-slate-950" : "border border-slate-200 dark:border-white/10"}`}>
           ⚑ {flagged ? t("topik.flagged") : t("topik.flag")}
         </button>
         {showAi && (
-          <button type="button" onClick={openAi} className="rounded-xl border border-violet-300 px-3 py-2 text-sm font-bold text-violet-700 dark:border-violet-400/30 dark:text-violet-200" title={t("topik.askAi")}>
+          <button type="button" onClick={openAi} aria-label={t("topik.askAi")} className="rounded-xl border border-violet-300 px-3 py-2 text-sm font-bold text-violet-700 dark:border-violet-400/30 dark:text-violet-200" title={t("topik.askAi")}>
             🤖{compact ? "" : ` ${t("topik.askAi")}`}
           </button>
         )}
         {isLast ? (
           <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-black text-white">답안 제출</button>
         ) : (
-          <button type="button" onClick={onNext} className="rounded-xl bg-[#17305a] px-4 py-2.5 text-sm font-black text-white dark:bg-sky-500">
+          <button type="button" onClick={onNext} aria-label={t("topik.nextQuestion")} className="rounded-xl bg-[#17305a] px-4 py-2.5 text-sm font-black text-white dark:bg-sky-500">
             {compact ? "" : `다음 · ${t("topik.nextQuestion")} `}→
           </button>
         )}

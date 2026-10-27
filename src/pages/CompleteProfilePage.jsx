@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { useAuth } from "../context/AuthContext";
+import { authErrorMessage } from "../lib/authErrors";
 
 function getDaysInMonth(month, year) {
   if (!month || !year) return 31;
@@ -75,7 +76,7 @@ export default function CompleteProfilePage() {
         birth_year: Number(form.birthYear),
       });
       if (error) {
-        setGeneralError(error.message || t("register.genericError"));
+        setGeneralError(authErrorMessage(error, t, "register.genericError"));
       } else {
         navigate("/", { replace: true });
       }

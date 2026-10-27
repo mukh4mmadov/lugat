@@ -6,6 +6,7 @@ import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
+import { authErrorMessage } from "../lib/authErrors";
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -52,7 +53,7 @@ export default function LoginPage() {
         password: form.password,
       });
       if (error) {
-        setGeneralError(error.message || t("login.genericError"));
+        setGeneralError(authErrorMessage(error, t, "login.genericError"));
       } else if (data?.user) {
         window.location.href = location.state?.from?.pathname || "/";
       }
@@ -72,7 +73,7 @@ export default function LoginPage() {
         options: { redirectTo: `${window.location.origin}/auth/callback` },
       });
       if (error) {
-        setGeneralError(error.message || t("login.genericError"));
+        setGeneralError(authErrorMessage(error, t, "login.genericError"));
         setLoading(false);
       }
     } catch {

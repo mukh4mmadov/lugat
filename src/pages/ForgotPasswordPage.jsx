@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
+import { authErrorMessage } from "../lib/authErrors";
 
 export default function ForgotPasswordPage() {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ export default function ForgotPasswordPage() {
         },
       );
       if (error) {
-        setError(error.message || t("forgotPassword.genericError"));
+        setError(authErrorMessage(error, t, "forgotPassword.genericError"));
       } else {
         setSuccess(t("forgotPassword.successMessage"));
         setEmail("");

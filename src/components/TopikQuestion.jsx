@@ -128,8 +128,13 @@ export function PaperCrop({ url, box, label, className = "", zoomable = false })
             {t("topik.paperError")} · {t("topik.retry")}
           </button>
         )}
-        {zoomable && status === "ready" && <span className="pointer-events-none absolute bottom-1.5 right-1.5 rounded-md bg-slate-900/70 px-1.5 py-0.5 text-[11px] font-bold text-white md:hidden">🔍</span>}
       </div>
+      {/* A hint below the crop: a badge on top of it would cover the paper's text. */}
+      {zoomable && status === "ready" && (
+        <button type="button" onClick={openZoom} className="mx-auto mt-1 block text-[11px] font-bold text-slate-400 md:hidden">
+          🔍 {t("topik.tapToZoom")}
+        </button>
+      )}
       {zoomSrc && (
         <div className="fixed inset-0 z-[90] flex flex-col bg-slate-950/90" onClick={() => setZoomSrc(null)}>
           <button type="button" onClick={() => setZoomSrc(null)} className="m-3 self-end rounded-xl bg-white px-4 py-2 text-sm font-black text-slate-900">✕</button>

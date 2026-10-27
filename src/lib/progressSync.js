@@ -16,12 +16,9 @@ export async function fetchServerProgress(userId) {
       .from('user_progress')
       .select('data')
       .eq('user_id', userId)
-      .single();
+      .maybeSingle();
 
     if (error) {
-      if (error.code === 'PGRST116' || /0 rows/i.test(error.message || '')) {
-        return null;
-      }
       console.error('Error fetching server progress:', error);
       return null;
     }
