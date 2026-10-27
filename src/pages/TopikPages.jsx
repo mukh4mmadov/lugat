@@ -240,6 +240,16 @@ function TopikIntro({ variant, onStart }) {
 
   useEffect(() => () => soundRef.current?.pause(), []);
 
+  // Start loading the paper for the first questions while the learner reads
+  // the intro, so the exam's first screen doesn't wait for the PDF.
+  useEffect(() => {
+    const pages = getVariantQuestions(variant).slice(0, 3).flatMap((item) => {
+      const content = exam.content?.[item.number];
+      return [content?.shared?.page, content?.stem?.page, content?.options?.[0]?.box?.page];
+    });
+    preloadPaperPages(exam.pdf, [...new Set(pages.filter(Boolean))]);
+  }, [exam, variant]);
+
   const playSample = () => {
     const audio = soundRef.current;
     if (!audio) return;

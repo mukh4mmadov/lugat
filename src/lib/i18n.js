@@ -1050,7 +1050,7 @@ const resources = {
       "library.settings": "Sozlamalar",
       "library.personalization": "Shaxsiylashtirish",
 
-      "stats.dailyStreak": "Kunlik ketma-ketma",
+      "stats.dailyStreak": "Kunlik ketma-ketlik",
       "stats.accuracy": "Aniqlik",
       "stats.wordsLearned": "O'rganilgan so'zlar",
       "stats.studyTime": "O'rganish vaqti",
@@ -1096,7 +1096,7 @@ const resources = {
 
       "achievement.firstStep": "Birinchi qadam",
       "achievement.hundredReviews": "100 ta takrorlash",
-      "achievement.sevenDayStreak": "7 kunlik ketma-ketma",
+      "achievement.sevenDayStreak": "7 kunlik ketma-ketlik",
       "achievement.halfWay": "Yarim yo'l",
       "achievement.master": "Lug'at ustasi",
 
@@ -1105,7 +1105,7 @@ const resources = {
         "Audio har bir so'z uchun brauzeringizning koreys nutq sintez ovozi (ko-KR) dan foydalanadi.",
       "settings.resetProgress": "Progressni qayta tiklash",
       "settings.resetProgressText":
-        "Bu o'rganilgan so'zlarni, sevimlilarni, qiyin so'zlarni, statistikani, ketma-ketmani va saqlangan kolodalarni tozalaydi.",
+        "Bu o'rganilgan so'zlarni, sevimlilarni, qiyin so'zlarni, statistikani, ketma-ketlikni va saqlangan kolodalarni tozalaydi.",
       "settings.resetConfirm": "Barcha mahalliy progressni qayta tiklaysizmi?",
       "settings.resetButton": "Progressni qayta tiklash",
 
@@ -1768,7 +1768,7 @@ const resources = {
       "share.tagline": "K-TALIM · Korean Vocabulary Studio",
       "share.appName": "K-TALIM",
       "share.wordsLearned": "O'rganilgan so'zlar",
-      "share.dayStreak": "Kunlik ketma-ketma",
+      "share.dayStreak": "Kunlik ketma-ketlik",
       "share.overallMastery": "Umumiy o'zlashtirish",
       "share.footer": "Learn Korean · One Word at a Time",
       "share.sharedSuccess": "Ulashildi!",
