@@ -1,482 +1,834 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { createPortal } from "react-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
-import { useAuth } from "../context/AuthContext";
+import PdfPageViewer from "../components/PdfPageViewer";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
-import { supabase } from "../lib/supabase";
+import {
+  TOPIK_EXAMS,
+  TOPIK_VARIANTS,
+  getTopikExam,
+  getTopikVariant,
+  getVariantQuestions,
+} from "../data/topik/exams";
+import {
+  createTopikAttempt,
+  deleteTopikAttempt,
+  findActiveAttempt,
+  getTopikAttempt,
+  listTopikAttempts,
+  submitTopikAttempt,
+  updateTopikAttempt,
+} from "../lib/topikAttempts";
 
-const variantLabels = {
-  "35thmock": "topik.mock",
-  "35thlistening": "topik.listeningFull",
-  "35threading": "topik.readingFull",
-};
+const OPTION_MARKS = { 1: "①", 2: "②", 3: "③", 4: "④" };
+const OPTIONS = ["1", "2", "3", "4"];
 
 function formatClock(seconds) {
   const safe = Math.max(0, Math.floor(seconds || 0));
   const hours = Math.floor(safe / 3600);
   const minutes = Math.floor((safe % 3600) / 60);
   const remainder = safe % 60;
-  return hours
-    ? String(hours).padStart(2, "0") + ":" + String(minutes).padStart(2, "0") + ":" + String(remainder).padStart(2, "0")
-    : String(minutes).padStart(2, "0") + ":" + String(remainder).padStart(2, "0");
+  const pad = (value) => String(value).padStart(2, "0");
+  return hours ? `${hours}:${pad(minutes)}:${pad(remainder)}` : `${pad(minutes)}:${pad(remainder)}`;
 }
 
-function assetUrl(path) {
-  if (!path) return "";
-  if (path.startsWith("/")) return path;
-  if (/^https?:\/\//i.test(path)) return path;
-  return supabase.storage.from("topik-assets").getPublicUrl(path).data.publicUrl;
+function formatDate(timestamp, language) {
+  try {
+    return new Date(timestamp).toLocaleString(language, { dateStyle: "medium", timeStyle: "short" });
+  } catch {
+    return new Date(timestamp).toLocaleString();
+  }
 }
 
-function withTimeout(request, timeoutMs = 20000) {
-  return new Promise((resolve, reject) => {
-    const timer = window.setTimeout(() => reject(new Error("TOPIK request timed out")), timeoutMs);
-    Promise.resolve(request).then(
-      (value) => { window.clearTimeout(timer); resolve(value); },
-      (error) => { window.clearTimeout(timer); reject(error); }
-    );
-  });
+function Overlay({ children }) {
+  const [target, setTarget] = useState(null);
+  useEffect(() => setTarget(document.getElementById("overlay-root") || document.body), []);
+  return target ? createPortal(children, target) : null;
 }
 
-function LoginPrompt() {
-  const { t } = useTranslation();
+function useTopikAttempts() {
+  const [attempts, setAttempts] = useState(() => listTopikAttempts());
+  useEffect(() => {
+    const refresh = () => setAttempts(listTopikAttempts());
+    window.addEventListener("topik-attempts-changed", refresh);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.removeEventListener("topik-attempts-changed", refresh);
+      window.removeEventListener("storage", refresh);
+    };
+  }, []);
+  return attempts;
+}
+
+function variantTitle(t, variant) {
+  const exam = getTopikExam(variant.examId);
+  return t(`topik.variant.${variant.mode}`, { number: exam.number });
+}
+
+function variantSummary(t, variant) {
+  const count = getVariantQuestions(variant).length;
+  if (variant.mode === "mock") return t("topik.mockMeta", { count, minutes: variant.durationSeconds / 60 });
+  return t("topik.sectionMeta", { count });
+}
+
+function levelLabel(t, result) {
+  if (!result) return "";
+  return result.level ? t("topik.levelBadge", { level: result.level }) : t("topik.noLevel");
+}
+
+export function TopikHomePage() {
+  const { t, i18n } = useTranslation();
+  const attempts = useTopikAttempts();
+  const submitted = attempts.filter((attempt) => attempt.status === "submitted");
+  const mockResults = submitted.filter((attempt) => getTopikVariant(attempt.variantId)?.mode === "mock");
+  const bestMock = mockResults.reduce((best, attempt) => Math.max(best, attempt.result?.total || 0), 0);
+  const latestMock = mockResults[0];
+
   return (
-    <GlassCard className="mx-auto max-w-xl text-center">
-      <h1 className="text-2xl font-black">{t("topik.loginTitle")}</h1>
-      <p className="mt-3 text-slate-600 dark:text-slate-300">{t("topik.loginText")}</p>
-      <Link to="/login" state={{ from: { pathname: "/topik" } }} className="mt-5 inline-flex rounded-2xl bg-sky-600 px-5 py-3 font-black text-white">
-        {t("nav.login")}
+    <div className="mx-auto max-w-6xl space-y-8">
+      <GlassCard className="relative overflow-hidden p-6 md:p-10">
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-300/30 blur-3xl dark:bg-violet-500/20" />
+        <div className="absolute -bottom-16 left-10 h-40 w-40 rounded-full bg-sky-300/30 blur-3xl dark:bg-sky-500/20" />
+        <div className="relative">
+          <p className="text-xs font-black uppercase tracking-[0.25em] text-sky-600 dark:text-sky-300">TOPIK I · 한국어능력시험</p>
+          <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-tight md:text-5xl">{t("topik.title")}</h1>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg">{t("topik.subtitle")}</p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            <StatTile label={t("topik.statAttempts")} value={submitted.length} />
+            <StatTile label={t("topik.statBestMock")} value={mockResults.length ? `${bestMock} / 200` : "—"} />
+            <StatTile label={t("topik.statLatestLevel")} value={latestMock ? levelLabel(t, latestMock.result) : "—"} />
+          </div>
+        </div>
+      </GlassCard>
+
+      {TOPIK_EXAMS.map((exam) => (
+        <section key={exam.id} className="space-y-4">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
+              <h2 className="text-2xl font-black">{t("topik.examTitle", { number: exam.number })}</h2>
+            </div>
+            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {TOPIK_VARIANTS.filter((variant) => variant.examId === exam.id).map((variant) => (
+              <VariantCard key={variant.id} variant={variant} attempts={attempts} />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <section className="grid gap-4 lg:grid-cols-5">
+        <GlassCard className="p-6 lg:col-span-3">
+          <h2 className="text-xl font-black">{t("topik.recentAttempts")}</h2>
+          {submitted.length ? (
+            <ul className="mt-4 divide-y divide-slate-200 dark:divide-white/10">
+              {submitted.slice(0, 12).map((attempt) => {
+                const variant = getTopikVariant(attempt.variantId);
+                return (
+                  <li key={attempt.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                    <div className="min-w-0">
+                      <p className="font-bold">{variantTitle(t, variant)}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language)} · {formatClock(attempt.elapsedSeconds)}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-black tabular-nums dark:bg-white/10">{attempt.result?.total ?? 0} / {attempt.result?.maxTotal ?? 0}</span>
+                      {variant.mode === "mock" && <LevelPill result={attempt.result} />}
+                      <Link to={`/topik/result/${attempt.id}`} className="rounded-xl bg-slate-950 px-3 py-1.5 text-sm font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.viewResult")}</Link>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">{t("topik.noAttempts")}</p>
+          )}
+        </GlassCard>
+        <GlassCard className="p-6 lg:col-span-2">
+          <h2 className="text-xl font-black">{t("topik.aboutTitle")}</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+            <li>📝 {t("topik.aboutFormat")}</li>
+            <li>⏱️ {t("topik.aboutTime")}</li>
+            <li>🏅 {t("topik.aboutLevels")}</li>
+            <li>💾 {t("topik.aboutStorage")}</li>
+            <li>⌨️ {t("topik.aboutKeys")}</li>
+          </ul>
+        </GlassCard>
+      </section>
+    </div>
+  );
+}
+
+function VariantCard({ variant, attempts }) {
+  const { t } = useTranslation();
+  const active = attempts.find((attempt) => attempt.variantId === variant.id && attempt.status === "in_progress");
+  const best = attempts
+    .filter((attempt) => attempt.variantId === variant.id && attempt.status === "submitted")
+    .reduce((max, attempt) => Math.max(max, attempt.result?.total || 0), -1);
+  const accent = variant.mode === "mock" ? "from-sky-500 to-violet-600" : variant.mode === "listening" ? "from-emerald-500 to-sky-500" : "from-amber-500 to-rose-500";
+  const icon = variant.mode === "mock" ? "🎯" : variant.mode === "listening" ? "🎧" : "📖";
+
+  return (
+    <GlassCard className="flex h-full flex-col p-6">
+      <div className="flex items-center justify-between">
+        <span className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${accent} text-xl text-white shadow-lg`}>{icon}</span>
+        {best >= 0 && <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200">{t("topik.best", { score: best })}</span>}
+      </div>
+      <h3 className="mt-4 text-xl font-black">{variantTitle(t, variant)}</h3>
+      <p className="mt-2 flex-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{t(`topik.variantDescription.${variant.mode}`)}</p>
+      <p className="mt-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{variantSummary(t, variant)}</p>
+      <Link
+        to={`/topik/${variant.id}`}
+        className={`mt-4 rounded-2xl px-4 py-3 text-center font-black transition hover:-translate-y-0.5 ${active ? "bg-amber-400 text-slate-950" : "bg-slate-950 text-white dark:bg-white dark:text-slate-950"}`}
+      >
+        {active ? t("topik.resume") : t("topik.start")}
       </Link>
     </GlassCard>
   );
 }
 
-export function TopikHomePage() {
+export function TopikAttemptPage() {
+  const { variantId } = useParams();
+  return <TopikAttemptRoute key={variantId} variantId={variantId} />;
+}
+
+function TopikAttemptRoute({ variantId }) {
+  const navigate = useNavigate();
+  const variant = getTopikVariant(variantId);
+  const [attempt, setAttempt] = useState(() => (variant ? findActiveAttempt(variant.id) : null));
+
+  if (!variant) return <Navigate to="/topik" replace />;
+  if (!attempt) {
+    return (
+      <TopikIntro
+        variant={variant}
+        onStart={() => setAttempt(createTopikAttempt(variant.id))}
+      />
+    );
+  }
+  return (
+    <TopikExam
+      key={attempt.id}
+      variant={variant}
+      initialAttempt={attempt}
+      onSubmitted={(submitted) => navigate(`/topik/result/${submitted.id}`, { replace: true })}
+    />
+  );
+}
+
+function TopikIntro({ variant, onStart }) {
   const { t } = useTranslation();
-  const { user } = useAuth();
-  const [variants, setVariants] = useState([]);
-  const [counts, setCounts] = useState({});
-  const [attempts, setAttempts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const exam = getTopikExam(variant.examId);
+  const rules = variant.mode === "mock"
+    ? ["topik.rules.mockTimer", "topik.rules.autoSubmit", "topik.rules.audio", "topik.rules.saved", "topik.rules.noAi"]
+    : ["topik.rules.untimed", variant.mode === "listening" ? "topik.rules.audio" : "topik.rules.paper", "topik.rules.saved", "topik.rules.ai"];
+
+  return (
+    <GlassCard className="mx-auto max-w-2xl p-6 md:p-8">
+      <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
+      <p className="mt-6 text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
+      <h1 className="mt-2 text-3xl font-black">{variantTitle(t, variant)}</h1>
+      <p className="mt-3 text-slate-600 dark:text-slate-300">{t(`topik.variantDescription.${variant.mode}`)}</p>
+      <p className="mt-4 text-sm font-bold">{variantSummary(t, variant)}</p>
+      <ul className="mt-6 space-y-2 rounded-2xl bg-slate-100/80 p-5 text-sm leading-6 dark:bg-white/5">
+        {rules.map((rule) => (
+          <li key={rule} className="flex gap-2"><span className="text-sky-500">•</span><span>{t(rule)}</span></li>
+        ))}
+      </ul>
+      {variant.section !== "reading" && (
+        <p className="mt-4 rounded-2xl bg-amber-50 p-4 text-sm font-semibold text-amber-900 dark:bg-amber-500/10 dark:text-amber-200">🎧 {t("topik.headphones")}</p>
+      )}
+      <button type="button" onClick={onStart} className="mt-6 w-full rounded-2xl bg-slate-950 px-5 py-4 text-lg font-black text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950">
+        {t("topik.start")}
+      </button>
+    </GlassCard>
+  );
+}
+
+function TopikExam({ variant, initialAttempt, onSubmitted }) {
+  const { t } = useTranslation();
+  const { setContext } = useTopikExamContext();
+  const exam = getTopikExam(variant.examId);
+  const questions = useMemo(() => getVariantQuestions(variant), [variant]);
+  const [attempt, setAttempt] = useState(initialAttempt);
+  const [cursor, setCursor] = useState(Math.min(initialAttempt.cursor || 0, questions.length - 1));
+  const [now, setNow] = useState(Date.now());
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [saveError, setSaveError] = useState(false);
+  const submittedRef = useRef(false);
+  const audioRef = useRef(null);
+  const lastAudioSaveRef = useRef(0);
+  const questionHeadingRef = useRef(null);
+
+  const question = questions[cursor];
+  const answers = useMemo(() => attempt.answers || {}, [attempt.answers]);
+  const flagged = useMemo(() => attempt.flagged || {}, [attempt.flagged]);
+  const answeredCount = questions.filter((item) => answers[item.number]).length;
+  const flaggedCount = questions.filter((item) => flagged[item.number]).length;
+  const elapsed = Math.floor((now - attempt.startedAt) / 1000);
+  const remaining = variant.durationSeconds ? variant.durationSeconds - elapsed : null;
+  const hasListening = questions.some((item) => item.section === "listening");
+
+  const persist = useCallback((patch) => {
+    const next = updateTopikAttempt(attempt.id, patch);
+    if (next) {
+      setAttempt(next);
+      setSaveError(false);
+    } else {
+      setAttempt((previous) => ({ ...previous, ...patch }));
+      setSaveError(true);
+    }
+  }, [attempt.id]);
+
+  const finish = useCallback(() => {
+    if (submittedRef.current) return;
+    submittedRef.current = true;
+    const audio = audioRef.current;
+    if (audio) audio.pause();
+    const submitted = submitTopikAttempt(attempt.id);
+    if (submitted) onSubmitted(submitted);
+    else submittedRef.current = false;
+  }, [attempt.id, onSubmitted]);
 
   useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      if (!user) { setLoading(false); return; }
-      setLoading(true);
-      const [variantResult, questionResult, attemptResult] = await Promise.all([
-        supabase.from("topik_variants").select("*").eq("is_published", true).order("id"),
-        supabase.from("topik_questions").select("id, exam_id, section"),
-        supabase.from("topik_attempts").select("id, variant_id, status, submitted_at, total_score, estimated_level, elapsed_seconds").order("created_at", { ascending: false }).limit(10),
-      ]);
-      if (cancelled) return;
-      if (variantResult.error || questionResult.error || attemptResult.error) {
-        setError(t("topik.loadError"));
-      } else {
-        const nextCounts = {};
-        (questionResult.data || []).forEach((question) => {
-          nextCounts[question.exam_id] = (nextCounts[question.exam_id] || 0) + 1;
-        });
-        setVariants(variantResult.data || []);
-        setCounts(nextCounts);
-        setAttempts(attemptResult.data || []);
-      }
-      setLoading(false);
-    }
-    load();
-    return () => { cancelled = true; };
-  }, [user, t]);
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
 
-  if (!user) return <LoginPrompt />;
+  useEffect(() => {
+    if (remaining !== null && remaining <= 0) finish();
+  }, [remaining, finish]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  useEffect(() => {
+    updateTopikAttempt(attempt.id, { cursor });
+    const heading = questionHeadingRef.current;
+    // Bring the new question's heading out from under the sticky exam bar.
+    if (heading && heading.getBoundingClientRect().top < 200) {
+      heading.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [attempt.id, cursor]);
+
+  // Practice sections can ask the AI tutor about the current question; full mocks stay exam-like.
+  useEffect(() => {
+    if (variant.mode === "mock" || !question) {
+      setContext(null);
+    } else {
+      setContext({
+        examId: exam.id,
+        variantId: variant.id,
+        questionNumber: question.number,
+        selectedOption: answers[question.number] || null,
+        answers,
+      });
+    }
+  }, [answers, exam.id, question, setContext, variant.id, variant.mode]);
+
+  useEffect(() => () => setContext(null), [setContext]);
+
+  const selectAnswer = useCallback((option) => {
+    if (!question) return;
+    const nextAnswers = { ...answers };
+    if (nextAnswers[question.number] === option) delete nextAnswers[question.number];
+    else nextAnswers[question.number] = option;
+    persist({ answers: nextAnswers });
+  }, [answers, persist, question]);
+
+  const toggleFlag = useCallback(() => {
+    if (!question) return;
+    const nextFlagged = { ...flagged };
+    if (nextFlagged[question.number]) delete nextFlagged[question.number];
+    else nextFlagged[question.number] = true;
+    persist({ flagged: nextFlagged });
+  }, [flagged, persist, question]);
+
+  const go = useCallback((index) => {
+    setCursor(Math.max(0, Math.min(questions.length - 1, index)));
+  }, [questions.length]);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (confirmOpen || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.target.closest?.("input, textarea, select, [contenteditable='true'], [role='dialog']")) return;
+      if (OPTIONS.includes(event.key)) {
+        event.preventDefault();
+        selectAnswer(event.key);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        go(cursor + 1);
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        go(cursor - 1);
+      } else if (event.key.toLowerCase() === "f") {
+        toggleFlag();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [confirmOpen, cursor, go, selectAnswer, toggleFlag]);
+
+  const handleAudioTime = () => {
+    const audio = audioRef.current;
+    if (!audio || Date.now() - lastAudioSaveRef.current < 4000) return;
+    lastAudioSaveRef.current = Date.now();
+    updateTopikAttempt(attempt.id, { audioTime: audio.currentTime });
+  };
+
+  if (!question) return <GlassCard role="alert">{t("topik.noQuestions")}</GlassCard>;
+
+  const timerTone = remaining === null
+    ? "bg-white/80 text-slate-800 dark:bg-white/10 dark:text-white"
+    : remaining < 300
+      ? "animate-pulse bg-rose-600 text-white"
+      : remaining < 600
+        ? "bg-amber-100 text-amber-900 dark:bg-amber-500/20 dark:text-amber-100"
+        : "bg-white/80 text-slate-800 dark:bg-white/10 dark:text-white";
+  const sectionChanged = cursor > 0 && questions[cursor - 1].section !== question.section;
+
   return (
-    <div className="mx-auto max-w-6xl space-y-7">
-      <header>
-        <p className="text-sm font-black uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">TOPIK I</p>
-        <h1 className="mt-2 text-3xl font-black md:text-4xl">{t("topik.title")}</h1>
-        <p className="mt-2 text-slate-600 dark:text-slate-300">{t("topik.subtitle")}</p>
-      </header>
-      {error && <p role="alert" className="rounded-2xl bg-rose-100 p-4 text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{error}</p>}
-      <section className="grid gap-4 md:grid-cols-3">
-        {variants.map((variant) => {
-          const expected = variant.mode === "mock" ? 70 : variant.mode === "reading" ? 40 : 30;
-          const ready = variant.content_ready && (counts[variant.exam_id] || 0) >= expected;
-          return (
-            <GlassCard key={variant.id} className="flex h-full flex-col p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">35th · TOPIK I B</span>
-              <h2 className="mt-3 text-xl font-black">{t(variantLabels[variant.id] || "topik.mock")}</h2>
-              <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-300">{variant.mode === "mock" ? t("topik.mockDescription") : t("topik.sectionDescription")}</p>
-              <p className="mt-4 text-sm font-bold text-slate-500 dark:text-slate-400">{variant.mode === "mock" ? t("topik.mockTime") : t("topik.noTimeLimit")}</p>
-              {ready
-                ? <Link to={"/topik/" + variant.id} aria-label={`${t("topik.start")} ${t(variantLabels[variant.id] || "topik.mock")}`} className="mt-4 rounded-2xl bg-slate-950 px-4 py-3 text-center font-black text-white dark:bg-white dark:text-slate-950">{t("topik.start")}</Link>
-                : <button type="button" disabled className="mt-4 cursor-not-allowed rounded-2xl bg-slate-200 px-4 py-3 font-black text-slate-500 dark:bg-white/10 dark:text-slate-400">{t("topik.contentPending")}</button>}
+    <div className="mx-auto max-w-7xl space-y-4 pb-44 lg:pb-0">
+      <div className="sticky top-[3.75rem] z-30 -mx-4 border-b border-slate-200/70 bg-slate-50/90 px-4 py-3 backdrop-blur-xl dark:border-white/10 dark:bg-[#07111f]/90 md:rounded-2xl md:border">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="min-w-0">
+            <Link to="/topik" className="text-xs font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
+            <h1 className="truncate text-lg font-black md:text-xl">{variantTitle(t, variant)}</h1>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="hidden rounded-xl bg-white/80 px-3 py-2 text-sm font-bold tabular-nums text-slate-600 dark:bg-white/10 dark:text-slate-300 sm:inline">
+              {t("topik.answeredCount", { answered: answeredCount, total: questions.length })}
+            </span>
+            <div role="timer" aria-live="off" className={`rounded-xl px-3 py-2 text-base font-black tabular-nums md:text-lg ${timerTone}`}>
+              {remaining === null ? `⏱ ${formatClock(elapsed)}` : `⏳ ${formatClock(remaining)}`}
+            </div>
+            <button type="button" onClick={() => setConfirmOpen(true)} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white transition hover:bg-rose-700 md:px-4">
+              {t("topik.finish")}
+            </button>
+          </div>
+        </div>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+          <div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-emerald-500 transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
+        </div>
+      </div>
+
+      {saveError && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
+
+      {hasListening && (
+        <div className={`rounded-2xl border border-sky-200 bg-sky-50/90 p-3 dark:border-sky-400/20 dark:bg-sky-500/10 ${question.section === "listening" ? "" : "opacity-70"}`}>
+          <p className="mb-2 text-xs font-black uppercase tracking-widest text-sky-700 dark:text-sky-200">🎧 {t("topik.audioTitle", { number: exam.number })}</p>
+          <audio
+            ref={audioRef}
+            className="w-full"
+            controls
+            preload="metadata"
+            src={exam.audio}
+            onLoadedMetadata={(event) => {
+              if (attempt.audioTime) event.currentTarget.currentTime = attempt.audioTime;
+            }}
+            onTimeUpdate={handleAudioTime}
+            onPause={() => updateTopikAttempt(attempt.id, { audioTime: audioRef.current?.currentTime || 0 })}
+          >
+            {t("topik.audioUnsupported")}
+          </audio>
+        </div>
+      )}
+
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
+        <div className="space-y-3">
+          {sectionChanged && (
+            <p className="rounded-2xl bg-violet-100 p-3 text-sm font-bold text-violet-900 dark:bg-violet-500/15 dark:text-violet-100">📖 {t("topik.readingStarts")}</p>
+          )}
+          <div ref={questionHeadingRef} className="flex scroll-mt-52 flex-wrap items-center justify-between gap-2">
+            <h2 className="text-2xl font-black">{t("topik.questionNumber", { number: question.number })}</h2>
+            <span className="text-sm font-bold text-slate-500 dark:text-slate-400">
+              {question.section === "listening" ? t("topik.listening") : t("topik.reading")} · {t("topik.pointsCount", { count: question.points })} · {t("topik.paperPage", { number: question.page })}
+            </span>
+          </div>
+          <PdfPageViewer url={exam.pdf} page={question.page} />
+        </div>
+
+        <aside className="hidden lg:block">
+          <div className="sticky top-40 space-y-4">
+            <GlassCard className="p-5">
+              <AnswerControls
+                question={question}
+                selected={answers[question.number]}
+                flagged={!!flagged[question.number]}
+                onSelect={selectAnswer}
+                onFlag={toggleFlag}
+                onPrev={() => go(cursor - 1)}
+                onNext={() => go(cursor + 1)}
+                isFirst={cursor === 0}
+                isLast={cursor === questions.length - 1}
+                onFinish={() => setConfirmOpen(true)}
+                showAi={variant.mode !== "mock"}
+              />
             </GlassCard>
-          );
-        })}
-        {!loading && variants.length === 0 && <GlassCard className="md:col-span-3">{t("topik.noExams")}</GlassCard>}
-        {loading && <GlassCard className="md:col-span-3">{t("common.loading")}</GlassCard>}
-      </section>
-      <section>
-        <h2 className="mb-3 text-xl font-black">{t("topik.recentAttempts")}</h2>
-        {attempts.length
-          ? <div className="space-y-2">{attempts.map((attempt) => (
-            <Link key={attempt.id} to={attempt.status === "submitted" ? "/topik/result/" + attempt.id : "/topik/" + attempt.variant_id + "?attemptId=" + attempt.id} className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-slate-200 bg-white/70 p-4 transition hover:border-sky-300 dark:border-white/10 dark:bg-white/5">
-              <span className="font-bold">{t(variantLabels[attempt.variant_id] || "topik.mock")}</span>
-              <span className="text-sm text-slate-500 dark:text-slate-400">{attempt.status === "submitted" ? attempt.total_score + " " + t("topik.points") : t("topik.inProgress")}</span>
-            </Link>
-          ))}</div>
-          : <p className="text-sm text-slate-500 dark:text-slate-400">{t("topik.noAttempts")}</p>}
-      </section>
+            <GlassCard className="p-5">
+              <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
+            </GlassCard>
+          </div>
+        </aside>
+      </div>
+
+      <GlassCard className="p-5 lg:hidden">
+        <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
+      </GlassCard>
+
+      <Overlay>
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/95 lg:hidden">
+        <AnswerControls
+          compact
+          question={question}
+          selected={answers[question.number]}
+          flagged={!!flagged[question.number]}
+          onSelect={selectAnswer}
+          onFlag={toggleFlag}
+          onPrev={() => go(cursor - 1)}
+          onNext={() => go(cursor + 1)}
+          isFirst={cursor === 0}
+          isLast={cursor === questions.length - 1}
+          onFinish={() => setConfirmOpen(true)}
+          showAi={variant.mode !== "mock"}
+        />
+      </div>
+      </Overlay>
+
+      {confirmOpen && (
+        <ConfirmSubmit
+          unanswered={questions.length - answeredCount}
+          flagged={flaggedCount}
+          remaining={remaining}
+          onCancel={() => setConfirmOpen(false)}
+          onConfirm={finish}
+        />
+      )}
     </div>
   );
 }
 
-export function TopikAttemptPage() {
+function AnswerControls({ question, selected, flagged, onSelect, onFlag, onPrev, onNext, isFirst, isLast, onFinish, showAi, compact = false }) {
   const { t } = useTranslation();
-  const translateRef = useRef(t);
-  translateRef.current = t;
-  const { user } = useAuth();
-  const { setContext } = useTopikExamContext();
-  const { variantId } = useParams();
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const attemptId = searchParams.get("attemptId");
-  const [variant, setVariant] = useState(null);
-  const [exam, setExam] = useState(null);
-  const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState({});
-  const [attempt, setAttempt] = useState(null);
-  const [cursor, setCursor] = useState(0);
-  const [now, setNow] = useState(Date.now());
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
-  const [submitting, setSubmitting] = useState(false);
-  const autoSubmitRef = useRef(false);
-  const [pdfError, setPdfError] = useState(false);
-
-  const visibleQuestions = useMemo(() => {
-    if (!variant) return [];
-    return questions.filter((question) => !variant.section || question.section === variant.section);
-  }, [questions, variant]);
-  const currentQuestion = visibleQuestions[cursor];
-  const remaining = variant && variant.mode === "mock" && attempt
-    ? Math.max(0, variant.duration_seconds - Math.floor((now - new Date(attempt.started_at).getTime()) / 1000))
-    : null;
-
-  const submitAttempt = useCallback(async () => {
-    if (!attemptId || submitting || autoSubmitRef.current) return;
-    autoSubmitRef.current = true;
-    setSubmitting(true);
-    setError("");
-    const { error: submitError } = await supabase.rpc("submit_topik_attempt", { p_attempt_id: attemptId });
-    if (submitError) {
-      autoSubmitRef.current = false;
-      setError(t("topik.submitError"));
-      setSubmitting(false);
-      return;
-    }
-    navigate("/topik/result/" + attemptId, { replace: true });
-  }, [attemptId, navigate, submitting, t]);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      if (!user) { setLoading(false); return; }
-      setLoading(true);
-      setError("");
-      autoSubmitRef.current = false;
-      setVariant(null);
-      setExam(null);
-      setAttempt(null);
-      setAnswers({});
-      setQuestions([]);
-      setCursor(0);
-      const { data: nextVariant, error: variantError } = await withTimeout(supabase.from("topik_variants").select("*").eq("id", variantId).eq("is_published", true).maybeSingle());
-      if (variantError || !nextVariant) {
-        if (!cancelled) { setError(translateRef.current("topik.loadError")); setLoading(false); }
-        return;
-      }
-      const [{ data: nextExam, error: examError }, { data: nextQuestions, error: questionsError }] = await withTimeout(Promise.all([
-        supabase.from("topik_exams").select("*").eq("id", nextVariant.exam_id).maybeSingle(),
-        supabase.from("topik_questions").select("id, exam_id, section, question_number, points, content").eq("exam_id", nextVariant.exam_id).order("question_number"),
-      ]));
-      if (examError || questionsError || !nextExam) {
-        if (!cancelled) { setError(translateRef.current("topik.loadError")); setLoading(false); }
-        return;
-      }
-      if (cancelled) return;
-      setVariant(nextVariant);
-      setExam(nextExam);
-      setQuestions(nextQuestions || []);
-      if (attemptId) {
-        const [{ data: nextAttempt, error: attemptError }, { data: saved, error: savedError }] = await withTimeout(Promise.all([
-          supabase.from("topik_attempts").select("*").eq("id", attemptId).eq("user_id", user.id).maybeSingle(),
-          supabase.from("topik_attempt_answers").select("question_id, selected_option").eq("attempt_id", attemptId),
-        ]));
-        if (attemptError || savedError || !nextAttempt || nextAttempt.variant_id !== nextVariant.id) {
-          setError(translateRef.current("topik.loadError"));
-        } else if (nextAttempt.status === "submitted") {
-          navigate("/topik/result/" + attemptId, { replace: true });
-        } else {
-          setAttempt(nextAttempt);
-          setAnswers(Object.fromEntries((saved || []).filter((row) => row.selected_option).map((row) => [row.question_id, row.selected_option])));
-        }
-      }
-      setLoading(false);
-    }
-    load().catch(() => {
-      if (!cancelled) {
-        setError(translateRef.current("topik.loadError"));
-        setLoading(false);
-      }
-    });
-    return () => { cancelled = true; };
-  }, [attemptId, navigate, user, variantId]);
-
-  useEffect(() => {
-    if (!attempt) return undefined;
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(timer);
-  }, [attempt]);
-
-  useEffect(() => {
-    if (remaining === 0 && variant && variant.mode === "mock" && attempt && !saving && !autoSubmitRef.current) submitAttempt();
-  }, [attempt, remaining, saving, submitAttempt, variant]);
-
-  useEffect(() => {
-    if (attempt && currentQuestion) setContext({ attemptId: attempt.id, questionId: currentQuestion.id });
-    else setContext(null);
-    return () => setContext(null);
-  }, [attempt, currentQuestion, setContext]);
-
-  useEffect(() => {
-    setPdfError(false);
-  }, [currentQuestion]);
-
-  async function startAttempt() {
-    setError("");
-    const { data, error: startError } = await supabase.rpc("start_topik_attempt", { p_variant_id: variantId });
-    if (startError || !data) {
-      setError(startError && startError.message.includes("not available") ? t("topik.contentPending") : t("topik.startError"));
-      return;
-    }
-    navigate("/topik/" + variantId + "?attemptId=" + data.id, { replace: true });
-  }
-
-  async function selectAnswer(optionId) {
-    if (!attempt || !currentQuestion || saving || submitting) return;
-    setSaving(true);
-    setError("");
-    const { error: saveError } = await supabase.rpc("save_topik_answer", {
-      p_attempt_id: attempt.id,
-      p_question_id: currentQuestion.id,
-      p_selected_option: optionId,
-    });
-    if (saveError) setError(t("topik.saveError"));
-    else setAnswers((previous) => ({ ...previous, [currentQuestion.id]: optionId }));
-    setSaving(false);
-  }
-
-  if (!user) return <LoginPrompt />;
-  if (loading) return <GlassCard>{t("common.loading")}</GlassCard>;
-  if (attemptId && error) return <GlassCard role="alert" className="mx-auto max-w-2xl text-center"><p>{error}</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => window.location.reload()} className="rounded-xl bg-slate-950 px-5 py-3 font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.retry")}</button><Link to="/topik" className="rounded-xl border border-slate-300 px-5 py-3 font-bold dark:border-white/20">{t("topik.back")}</Link></div></GlassCard>;
-  if (error && !variant) return <GlassCard role="alert">{error}</GlassCard>;
-  if (!variant || !exam) return null;
-  const expected = variant.mode === "mock" ? 70 : variant.mode === "reading" ? 40 : 30;
-  if (!attempt && (!variant.content_ready || visibleQuestions.length < expected)) {
-    return <GlassCard className="mx-auto max-w-2xl text-center"><h1 className="text-2xl font-black">{t(variantLabels[variant.id])}</h1><p className="mt-3 text-slate-600 dark:text-slate-300">{t("topik.contentPending")}</p><Link className="mt-5 inline-block font-bold text-sky-600 underline" to="/topik">{t("topik.back")}</Link></GlassCard>;
-  }
-  if (!attempt) {
-    return <GlassCard className="mx-auto max-w-2xl p-7">
-      <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
-      <p className="mt-6 text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">35th · TOPIK I B</p>
-      <h1 className="mt-2 text-3xl font-black">{t(variantLabels[variant.id])}</h1>
-      <p className="mt-3 text-slate-600 dark:text-slate-300">{variant.mode === "mock" ? t("topik.mockDescription") : t("topik.sectionDescription")}</p>
-      <p className="mt-4 text-sm font-bold">{variant.mode === "mock" ? t("topik.mockTime") : t("topik.noTimeLimit")}</p>
-      <button type="button" onClick={startAttempt} className="mt-6 w-full rounded-2xl bg-slate-950 px-5 py-3 font-black text-white dark:bg-white dark:text-slate-950">{t("topik.start")}</button>
-      {error && <p role="alert" className="mt-3 text-sm text-rose-600">{error}</p>}
-    </GlassCard>;
-  }
-
-  // Check if mock attempt is expired
-  if (variant.mode === "mock" && remaining !== null && remaining <= 0) {
-    return <GlassCard className="mx-auto max-w-2xl p-7">
-      <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
-      <p className="mt-6 text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">35th · TOPIK I B</p>
-      <h1 className="mt-2 text-3xl font-black">{t(variantLabels[variant.id])}</h1>
-      <p className="mt-3 text-slate-600 dark:text-slate-300">{t("topik.expiredDescription")}</p>
-      <p className="mt-4 text-sm font-bold">{t("topik.elapsed")}: {formatClock(elapsed)}</p>
-      <div className="mt-6 flex flex-wrap gap-3">
-        <button type="button" onClick={submitAttempt} disabled={submitting} className="flex-1 rounded-2xl bg-rose-600 px-5 py-3 font-black text-white disabled:opacity-50 dark:bg-rose-500">{submitting ? t("topik.submitting") : t("topik.submitAttempt")}</button>
-        <Link to="/topik" className="flex-1 rounded-2xl border border-slate-300 px-5 py-3 text-center font-bold dark:border-white/20">{t("topik.cancel")}</Link>
-      </div>
-      {error && <p role="alert" className="mt-3 text-sm text-rose-600">{error}</p>}
-    </GlassCard>;
-  }
-  if (!currentQuestion) return <GlassCard role="alert">{t("topik.noQuestions")}</GlassCard>;
-
-  const content = currentQuestion.content || {};
-  const options = Array.isArray(content.options) ? content.options : [];
-  const imageSrc = assetUrl(content.image_path);
-  const elapsed = Math.floor((now - new Date(attempt.started_at).getTime()) / 1000);
+  const openAi = () => window.dispatchEvent(new CustomEvent("k-talim:open-ai-chat"));
   return (
-    <div className="mx-auto max-w-5xl space-y-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div><Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link><h1 className="mt-2 text-2xl font-black">{t(variantLabels[variant.id])}</h1></div>
-        <div role="timer" aria-live="off" className={"rounded-2xl px-4 py-3 text-lg font-black tabular-nums " + (remaining !== null && remaining < 300 ? "bg-rose-100 text-rose-700 dark:bg-rose-500/15 dark:text-rose-200" : "bg-white/80 text-slate-800 dark:bg-white/10 dark:text-white")}>
-          {remaining === null ? t("topik.elapsed") + ": " + formatClock(elapsed) : t("topik.remaining") + ": " + formatClock(remaining)}
-        </div>
+    <div className={compact ? "space-y-2.5" : "space-y-4"}>
+      {!compact && <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("topik.chooseAnswer", { number: question.number })}</p>}
+      <div className="grid grid-cols-4 gap-2" role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
+        {OPTIONS.map((option) => {
+          const active = selected === option;
+          return (
+            <button
+              key={option}
+              type="button"
+              role="radio"
+              aria-checked={active}
+              onClick={() => onSelect(option)}
+              className={`rounded-2xl border-2 font-black transition ${compact ? "py-2.5 text-2xl" : "py-4 text-3xl"} ${active ? "border-sky-600 bg-sky-600 text-white shadow-lg shadow-sky-600/30" : "border-slate-200 bg-white text-slate-700 hover:border-sky-400 dark:border-white/10 dark:bg-white/5 dark:text-slate-100"}`}
+            >
+              {OPTION_MARKS[option]}
+            </button>
+          );
+        })}
       </div>
-      <div className="flex flex-wrap gap-2">
-        {visibleQuestions.map((question, index) => (
-          <button key={question.id} type="button" onClick={() => setCursor(index)} aria-label={t("topik.questionNumber", { number: question.question_number })} className={"grid h-10 min-w-10 place-items-center rounded-xl px-2 text-sm font-black " + (index === cursor ? "bg-sky-600 text-white" : answers[question.id] ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200" : "bg-white/80 text-slate-700 dark:bg-white/10 dark:text-slate-200")}>{question.question_number}</button>
-        ))}
+      <div className="flex items-center gap-2">
+        <button type="button" onClick={onPrev} disabled={isFirst} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold disabled:opacity-30 dark:border-white/10">← {compact ? "" : t("topik.previous")}</button>
+        <button type="button" onClick={onFlag} aria-pressed={flagged} className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${flagged ? "bg-amber-400 text-slate-950" : "border border-slate-200 dark:border-white/10"}`}>
+          ⚑ {flagged ? t("topik.flagged") : t("topik.flag")}
+        </button>
+        {showAi && (
+          <button type="button" onClick={openAi} className="rounded-xl border border-violet-300 px-3 py-2 text-sm font-bold text-violet-700 dark:border-violet-400/30 dark:text-violet-200" title={t("topik.askAi")}>
+            🤖{compact ? "" : ` ${t("topik.askAi")}`}
+          </button>
+        )}
+        {isLast ? (
+          <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white">{t("topik.finish")}</button>
+        ) : (
+          <button type="button" onClick={onNext} className="rounded-xl bg-slate-950 px-3 py-2 text-sm font-black text-white dark:bg-white dark:text-slate-950">{compact ? "" : t("topik.next")} →</button>
+        )}
       </div>
-      {error && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{error}</p>}
-      <GlassCard className="p-5 md:p-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-sm font-bold text-slate-500 dark:text-slate-400">
-          <span>{currentQuestion.section === "listening" ? t("topik.listening") : t("topik.reading")}</span>
-          <span>{currentQuestion.question_number} / {variant.mode === "mock" ? 70 : visibleQuestions.length} · {currentQuestion.points} {t("topik.points")}</span>
-        </div>
-        {currentQuestion.section === "listening" && <div className="mt-5 rounded-2xl bg-sky-50 p-4 dark:bg-sky-500/10">
-          <p className="mb-2 text-sm font-black">35th {t("topik.listening")}</p>
-          <audio className="w-full" controls preload="metadata" src="/topik/35th/listening.mp3">{t("topik.audioUnsupported")}</audio>
-        </div>}
-        <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-white/10 dark:bg-slate-900">
-          {pdfError ? (
-            <div className="flex h-[65vh] min-h-[28rem] flex-col items-center justify-center p-8 text-center">
-              <p className="text-lg font-bold text-rose-600 dark:text-rose-300">{t("topik.loadError")}</p>
-              <button type="button" onClick={() => setPdfError(false)} className="mt-4 rounded-xl bg-slate-950 px-5 py-3 font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.retry")}</button>
-              <a href={`/topik/35th/paper.pdf#page=${content.document_page || 3}`} target="_blank" rel="noreferrer" className="mt-3 font-bold text-sky-600 underline dark:text-sky-300">{t("topik.openPaperPage", { number: content.document_page || 3 })}</a>
-            </div>
-          ) : (
-            <iframe
-              key={content.document_page}
-              title={`${t("topik.questionNumber", { number: currentQuestion.question_number })} · 35th TOPIK I B`}
-              src={`/topik/35th/paper.pdf#page=${content.document_page || 3}&toolbar=0&navpanes=0&scrollbar=0`}
-              className="h-[65vh] min-h-[28rem] w-full"
-              onError={() => setPdfError(true)}
-            />
-          )}
-        </div>
-        <a href={`/topik/35th/paper.pdf#page=${content.document_page || 3}`} target="_blank" rel="noreferrer" className="inline-block text-sm font-bold text-sky-600 underline dark:text-sky-300">
-          {t("topik.openPaperPage", { number: content.document_page || 3 })}
-        </a>
-        {content.passage && <div className="mt-5 whitespace-pre-wrap rounded-2xl bg-slate-100/80 p-5 text-lg leading-relaxed dark:bg-white/5">{content.passage}</div>}
-        {content.text && <p className="mt-5 whitespace-pre-wrap text-lg leading-relaxed">{content.text}</p>}
-        {imageSrc && <img src={imageSrc} alt={content.image_alt || ""} className="mx-auto mt-5 max-h-[28rem] max-w-full rounded-2xl object-contain" />}
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {options.map((option) => {
-            const optionId = String(option.id);
-            const selected = answers[currentQuestion.id] === optionId;
-            const optionImage = assetUrl(option.image_path);
-            return <button key={optionId} type="button" disabled={saving || submitting} onClick={() => selectAnswer(optionId)} aria-pressed={selected} className={"rounded-2xl border p-4 text-left transition " + (selected ? "border-sky-500 bg-sky-50 ring-2 ring-sky-300 dark:bg-sky-500/15" : "border-slate-200 bg-white/70 hover:border-sky-300 dark:border-white/10 dark:bg-white/5")}>
-              <span className="mr-2 font-black">{optionId}.</span>{option.text}
-              {optionImage && <img src={optionImage} alt={option.image_alt || ""} className="mt-3 max-h-48 rounded-xl object-contain" />}
-            </button>;
-          })}
-        </div>
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-3">
-          <button type="button" disabled={cursor === 0} onClick={() => setCursor((value) => value - 1)} className="rounded-xl border border-slate-200 px-4 py-2 font-bold disabled:opacity-40 dark:border-white/10">{t("topik.previous")}</button>
-          {cursor < visibleQuestions.length - 1 && <button type="button" onClick={() => setCursor((value) => value + 1)} className="rounded-xl bg-slate-950 px-4 py-2 font-bold text-white dark:bg-white dark:text-slate-950">{t("topik.next")}</button>}
-          <button type="button" disabled={submitting || saving} onClick={submitAttempt} className="rounded-xl bg-rose-600 px-4 py-2 font-bold text-white disabled:opacity-50">{submitting ? t("topik.submitting") : t("topik.finish")}</button>
-        </div>
-      </GlassCard>
     </div>
+  );
+}
+
+function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
+  const { t } = useTranslation();
+  const sections = ["listening", "reading"].filter((section) => questions.some((question) => question.section === section));
+  return (
+    <div className="space-y-4">
+      <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("topik.answerSheet")}</p>
+      {sections.map((section) => (
+        <div key={section}>
+          <p className="mb-2 text-xs font-bold text-slate-500 dark:text-slate-400">{section === "listening" ? `🎧 ${t("topik.listening")}` : `📖 ${t("topik.reading")}`}</p>
+          <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-10 lg:grid-cols-6">
+            {questions.map((question, index) => {
+              if (question.section !== section) return null;
+              let tone;
+              if (results) {
+                tone = !answers[question.number]
+                  ? "bg-slate-200 text-slate-500 dark:bg-white/10 dark:text-slate-400"
+                  : answers[question.number] === question.answer
+                    ? "bg-emerald-500 text-white"
+                    : "bg-rose-500 text-white";
+              } else if (index === cursor) {
+                tone = "bg-sky-600 text-white ring-2 ring-sky-300";
+              } else if (answers[question.number]) {
+                tone = "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200";
+              } else {
+                tone = "bg-white text-slate-700 dark:bg-white/5 dark:text-slate-300";
+              }
+              return (
+                <button
+                  key={question.number}
+                  type="button"
+                  onClick={() => onJump(index)}
+                  aria-label={t("topik.questionNumber", { number: question.number })}
+                  aria-current={!results && index === cursor ? "step" : undefined}
+                  className={`relative grid h-9 place-items-center rounded-lg border border-slate-200/70 text-xs font-black tabular-nums transition hover:scale-105 dark:border-white/10 ${tone}`}
+                >
+                  {question.number}
+                  {flagged[question.number] && <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-amber-400 ring-2 ring-white dark:ring-slate-900" />}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+      {!results && (
+        <div className="flex flex-wrap gap-3 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-emerald-300" />{t("topik.legendAnswered")}</span>
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-amber-400" />{t("topik.legendFlagged")}</span>
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-sky-600" />{t("topik.legendCurrent")}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ConfirmSubmit({ unanswered, flagged, remaining, onCancel, onConfirm }) {
+  const { t } = useTranslation();
+  const confirmRef = useRef(null);
+  useEffect(() => {
+    confirmRef.current?.focus();
+    const onKey = (event) => { if (event.key === "Escape") onCancel(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onCancel]);
+  return (
+    <Overlay>
+    <div className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center" onClick={onCancel}>
+      <div role="dialog" aria-modal="true" aria-labelledby="topik-submit-title" className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
+        <h2 id="topik-submit-title" className="text-2xl font-black">{t("topik.confirmTitle")}</h2>
+        <p className="mt-2 text-slate-600 dark:text-slate-300">{t("topik.confirmText")}</p>
+        <ul className="mt-4 space-y-2 text-sm font-semibold">
+          <li className={unanswered ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300"}>
+            {unanswered ? t("topik.confirmUnanswered", { count: unanswered }) : t("topik.confirmAllAnswered")}
+          </li>
+          {flagged > 0 && <li className="text-amber-600 dark:text-amber-300">⚑ {t("topik.confirmFlagged", { count: flagged })}</li>}
+          {remaining !== null && <li className="text-slate-500 dark:text-slate-400">⏳ {t("topik.confirmTimeLeft", { time: formatClock(remaining) })}</li>}
+        </ul>
+        <div className="mt-6 flex gap-3">
+          <button type="button" onClick={onCancel} className="flex-1 rounded-2xl border border-slate-300 px-4 py-3 font-bold dark:border-white/20">{t("topik.keepWorking")}</button>
+          <button ref={confirmRef} type="button" onClick={onConfirm} className="flex-1 rounded-2xl bg-rose-600 px-4 py-3 font-black text-white">{t("topik.finish")}</button>
+        </div>
+      </div>
+    </div>
+    </Overlay>
   );
 }
 
 export function TopikResultPage() {
-  const { t } = useTranslation();
-  const { user } = useAuth();
+  const { t, i18n } = useTranslation();
   const { attemptId } = useParams();
-  const [result, setResult] = useState(null);
-  const [questions, setQuestions] = useState([]);
-  const [variant, setVariant] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const attempt = useMemo(() => getTopikAttempt(attemptId), [attemptId]);
+  const [filter, setFilter] = useState("all");
+  const [openQuestion, setOpenQuestion] = useState(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      if (!user) { setLoading(false); return; }
-      const { data: attempt, error: attemptError } = await supabase.from("topik_attempts").select("*").eq("id", attemptId).eq("user_id", user.id).maybeSingle();
-      if (attemptError || !attempt || attempt.status !== "submitted") {
-        if (!cancelled) { setError(t("topik.resultUnavailable")); setLoading(false); }
-        return;
-      }
-      const [{ data: nextVariant, error: variantError }, { data: savedAnswers, error: answersError }] = await Promise.all([
-        supabase.from("topik_variants").select("*").eq("id", attempt.variant_id).maybeSingle(),
-        supabase.from("topik_attempt_answers").select("question_id, selected_option, correct_option, is_correct, awarded_points").eq("attempt_id", attempt.id),
-      ]);
-      if (variantError || answersError || !nextVariant) {
-        if (!cancelled) { setError(t("topik.resultUnavailable")); setLoading(false); }
-        return;
-      }
-      const { data: questionsResult, error: questionsError } = await supabase.from("topik_questions").select("id, section, question_number, points, content").eq("exam_id", nextVariant.exam_id).order("question_number");
-      if (questionsError) {
-        if (!cancelled) { setError(t("topik.resultUnavailable")); setLoading(false); }
-        return;
-      }
-      if (!cancelled) {
-        setResult({ ...attempt, answers: savedAnswers || [] });
-        setVariant(nextVariant);
-        setQuestions((questionsResult || []).filter((question) => !nextVariant.section || question.section === nextVariant.section));
-        setLoading(false);
-      }
-    }
-    load();
-    return () => { cancelled = true; };
-  }, [attemptId, t, user]);
-
-  if (!user) return <LoginPrompt />;
-  if (loading) return <GlassCard>{t("common.loading")}</GlassCard>;
-  if (error || !result || !variant) return <GlassCard role="alert">{error || t("topik.resultUnavailable")}</GlassCard>;
-  const answers = new Map(result.answers.map((answer) => [answer.question_id, answer]));
-  return (
-    <div className="mx-auto max-w-5xl space-y-5">
-      <GlassCard className="p-6 md:p-8">
-        <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">35th · TOPIK I B</p>
-        <h1 className="mt-2 text-3xl font-black">{t("topik.resultTitle")}</h1>
-        <p className="mt-1 text-slate-600 dark:text-slate-300">{t(variantLabels[variant.id])}</p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {variant.mode === "mock" && <ScoreTile label={t("topik.listeningScore")} score={result.listening_score} />}
-          {variant.mode === "mock" && <ScoreTile label={t("topik.readingScore")} score={result.reading_score} />}
-          <ScoreTile label={t("topik.totalScore")} score={result.total_score} />
-          <ScoreTile label={t("topik.elapsed")} score={formatClock(result.elapsed_seconds)} />
-        </div>
-        {variant.mode === "mock" && <p className="mt-4 rounded-2xl bg-sky-50 p-4 font-black text-sky-800 dark:bg-sky-500/10 dark:text-sky-200">{result.estimated_level ? t("topik.estimatedLevel", { level: result.estimated_level }) : t("topik.belowLevel")}</p>}
-        <Link to="/topik" className="mt-5 inline-block font-bold text-sky-600 underline dark:text-sky-300">{t("topik.backToTests")}</Link>
+  if (!attempt || attempt.status !== "submitted") {
+    return (
+      <GlassCard role="alert" className="mx-auto max-w-xl text-center">
+        <p className="font-bold">{t("topik.resultUnavailable")}</p>
+        <Link to="/topik" className="mt-4 inline-block font-bold text-sky-600 underline dark:text-sky-300">{t("topik.backToTests")}</Link>
       </GlassCard>
-      <section className="space-y-3">
-        <h2 className="text-2xl font-black">{t("topik.reviewAnswers")}</h2>
-        {questions.map((question) => {
-          const answer = answers.get(question.id);
-          const options = Array.isArray(question.content && question.content.options) ? question.content.options : [];
-          const chosenText = options.find((option) => String(option.id) === (answer && answer.selected_option))?.text;
-          const correctText = options.find((option) => String(option.id) === (answer && answer.correct_option))?.text;
-          return <GlassCard key={question.id} className="p-5">
-            <div className="flex flex-wrap justify-between gap-2">
-              <h3 className="font-black">{t("topik.questionNumber", { number: question.question_number })}</h3>
-              <span className={answer && answer.is_correct ? "font-bold text-emerald-600 dark:text-emerald-300" : answer?.selected_option ? "font-bold text-rose-600 dark:text-rose-300" : "font-bold text-slate-500 dark:text-slate-400"}>{answer?.selected_option ? answer.is_correct ? t("topik.correct") : t("topik.incorrect") : t("topik.unanswered")}</span>
+    );
+  }
+
+  const variant = getTopikVariant(attempt.variantId);
+  const exam = getTopikExam(variant.examId);
+  const questions = getVariantQuestions(variant);
+  const { result, answers = {}, flagged = {} } = attempt;
+  const percent = result.maxTotal ? Math.round((result.total / result.maxTotal) * 100) : 0;
+  const statusOf = (question) => (!answers[question.number] ? "unanswered" : answers[question.number] === question.answer ? "correct" : "incorrect");
+  const visible = questions.filter((question) => {
+    if (filter === "all") return true;
+    if (filter === "flagged") return flagged[question.number];
+    return statusOf(question) === filter;
+  });
+  const counts = {
+    all: questions.length,
+    correct: questions.filter((question) => statusOf(question) === "correct").length,
+    incorrect: questions.filter((question) => statusOf(question) === "incorrect").length,
+    unanswered: questions.filter((question) => statusOf(question) === "unanswered").length,
+    flagged: questions.filter((question) => flagged[question.number]).length,
+  };
+
+  const retake = () => {
+    createTopikAttempt(variant.id);
+    navigate(`/topik/${variant.id}`);
+  };
+  const remove = () => {
+    if (!window.confirm(t("topik.deleteConfirm"))) return;
+    deleteTopikAttempt(attempt.id);
+    navigate("/topik", { replace: true });
+  };
+
+  return (
+    <div className="mx-auto max-w-6xl space-y-6">
+      <GlassCard className="relative overflow-hidden p-6 md:p-8">
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-sky-300/30 blur-3xl" />
+        <div className="relative grid gap-6 md:grid-cols-[auto_1fr] md:items-center">
+          <ScoreRing percent={percent} label={`${result.total}`} sub={`/ ${result.maxTotal}`} />
+          <div>
+            <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
+            <h1 className="mt-1 text-3xl font-black">{variantTitle(t, variant)}</h1>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language)} · {t("topik.elapsed")}: {formatClock(attempt.elapsedSeconds)}</p>
+            {variant.mode === "mock" && (
+              <p className={`mt-4 inline-block rounded-2xl px-4 py-2 font-black ${result.level ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
+                {result.level ? `🏅 ${t("topik.estimatedLevel", { level: result.level })}` : t("topik.belowLevel")}
+              </p>
+            )}
+            {variant.mode === "mock" && (
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t("topik.levelHint", { level1: exam.level1Min, level2: exam.level2Min })}</p>
+            )}
+          </div>
+        </div>
+        <div className="relative mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {result.listening && <ScoreTile label={`🎧 ${t("topik.listeningScore")}`} value={`${result.listening.score} / 100`} sub={t("topik.correctOf", { correct: result.listening.correct, total: result.listening.total })} />}
+          {result.reading && <ScoreTile label={`📖 ${t("topik.readingScore")}`} value={`${result.reading.score} / 100`} sub={t("topik.correctOf", { correct: result.reading.correct, total: result.reading.total })} />}
+          <ScoreTile label={t("topik.accuracy")} value={`${counts.all ? Math.round((counts.correct / counts.all) * 100) : 0}%`} sub={t("topik.correctOf", { correct: counts.correct, total: counts.all })} />
+          <ScoreTile label={t("topik.unanswered")} value={counts.unanswered} sub={t("topik.questionsWord")} />
+        </div>
+        <div className="relative mt-6 flex flex-wrap gap-3">
+          <button type="button" onClick={retake} className="rounded-2xl bg-slate-950 px-5 py-3 font-black text-white dark:bg-white dark:text-slate-950">{t("topik.retake")}</button>
+          <Link to="/topik" className="rounded-2xl border border-slate-300 px-5 py-3 font-bold dark:border-white/20">{t("topik.backToTests")}</Link>
+          <button type="button" onClick={remove} className="rounded-2xl px-5 py-3 font-bold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">{t("topik.deleteAttempt")}</button>
+        </div>
+      </GlassCard>
+
+      <div className="grid gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
+        <GlassCard className="h-fit p-5 lg:sticky lg:top-24">
+          <AnswerSheet
+            questions={questions}
+            answers={answers}
+            flagged={flagged}
+            cursor={-1}
+            results
+            onJump={(index) => {
+              setFilter("all");
+              setOpenQuestion(questions[index].number);
+              window.setTimeout(() => document.getElementById(`review-${questions[index].number}`)?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+            }}
+          />
+        </GlassCard>
+
+        <section className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-2xl font-black">{t("topik.reviewAnswers")}</h2>
+            <div className="flex flex-wrap gap-1.5">
+              {["all", "incorrect", "unanswered", "correct", "flagged"].map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setFilter(key)}
+                  aria-pressed={filter === key}
+                  className={`rounded-full px-3 py-1.5 text-xs font-bold transition ${filter === key ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950" : "bg-white/70 text-slate-600 dark:bg-white/10 dark:text-slate-300"}`}
+                >
+                  {t(`topik.filter.${key}`)} ({counts[key]})
+                </button>
+              ))}
             </div>
-            {question.content?.text && <p className="mt-3 whitespace-pre-wrap">{question.content.text}</p>}
-            {question.content?.passage && <p className="mt-3 whitespace-pre-wrap text-sm text-slate-600 dark:text-slate-300">{question.content.passage}</p>}
-            <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
-              <p><b>{t("topik.yourAnswer")}:</b> {answer?.selected_option ? answer.selected_option + ". " + (chosenText || "") : t("topik.unanswered")}</p>
-              <p><b>{t("topik.correctAnswer")}:</b> {answer?.correct_option ? answer.correct_option + ". " + (correctText || "") : t("topik.answerUnavailable")}</p>
-            </div>
-            {question.content?.document_page && <a href={`/topik/35th/paper.pdf#page=${question.content.document_page}`} target="_blank" rel="noreferrer" className="mt-2 inline-block text-sm font-bold text-sky-600 underline dark:text-sky-300">{t("topik.openPaperPage", { number: question.content.document_page })}</a>}
-            <p className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">{(answer?.awarded_points || 0) + " / " + question.points + " " + t("topik.points")}</p>
-          </GlassCard>;
-        })}
-      </section>
+          </div>
+          {visible.length === 0 && <GlassCard className="text-sm text-slate-500 dark:text-slate-400">{t("topik.filterEmpty")}</GlassCard>}
+          {visible.map((question) => {
+            const status = statusOf(question);
+            const open = openQuestion === question.number;
+            return (
+              <GlassCard key={question.number} id={`review-${question.number}`} className="scroll-mt-24 p-4 md:p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className={`grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white ${status === "correct" ? "bg-emerald-500" : status === "incorrect" ? "bg-rose-500" : "bg-slate-400"}`}>{question.number}</span>
+                    <div>
+                      <p className="font-black">
+                        {status === "correct" ? `✓ ${t("topik.correct")}` : status === "incorrect" ? `✗ ${t("topik.incorrect")}` : t("topik.unanswered")}
+                        {flagged[question.number] && <span className="ml-2 text-amber-500">⚑</span>}
+                      </p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        {question.section === "listening" ? t("topik.listening") : t("topik.reading")} · {status === "correct" ? question.points : 0}/{question.points} {t("topik.pointsShort")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm">
+                    <span>{t("topik.yourAnswer")}: <b className={status === "incorrect" ? "text-rose-600 dark:text-rose-300" : ""}>{answers[question.number] ? OPTION_MARKS[answers[question.number]] : "—"}</b></span>
+                    <span>{t("topik.correctAnswer")}: <b className="text-emerald-600 dark:text-emerald-300">{OPTION_MARKS[question.answer]}</b></span>
+                    <button type="button" onClick={() => setOpenQuestion(open ? null : question.number)} aria-expanded={open} className="rounded-xl border border-slate-200 px-3 py-1.5 font-bold dark:border-white/10">
+                      {open ? t("topik.hidePaper") : t("topik.showPaper")}
+                    </button>
+                  </div>
+                </div>
+                {open && <PdfPageViewer url={exam.pdf} page={question.page} className="mt-4" maxHeightClass="max-h-[70vh]" />}
+              </GlassCard>
+            );
+          })}
+        </section>
+      </div>
     </div>
   );
 }
 
-function ScoreTile({ label, score }) {
-  return <div className="rounded-2xl bg-slate-100 p-4 dark:bg-white/5"><p className="text-xs font-bold text-slate-500 dark:text-slate-400">{label}</p><p className="mt-1 text-2xl font-black">{score}</p></div>;
+function ScoreRing({ percent, label, sub }) {
+  const radius = 52;
+  const circumference = 2 * Math.PI * radius;
+  return (
+    <div className="relative mx-auto h-36 w-36">
+      <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
+        <circle cx="60" cy="60" r={radius} fill="none" strokeWidth="10" className="stroke-slate-200 dark:stroke-white/10" />
+        <circle cx="60" cy="60" r={radius} fill="none" strokeWidth="10" strokeLinecap="round" className="stroke-sky-500 transition-all duration-700" strokeDasharray={circumference} strokeDashoffset={circumference * (1 - percent / 100)} />
+      </svg>
+      <div className="absolute inset-0 grid place-items-center text-center">
+        <div><p className="text-4xl font-black tabular-nums">{label}</p><p className="text-sm font-bold text-slate-500 dark:text-slate-400">{sub}</p></div>
+      </div>
+    </div>
+  );
+}
+
+function ScoreTile({ label, value, sub }) {
+  return (
+    <div className="rounded-2xl bg-slate-100/90 p-4 dark:bg-white/5">
+      <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{label}</p>
+      <p className="mt-1 text-2xl font-black tabular-nums">{value}</p>
+      {sub && <p className="text-xs text-slate-500 dark:text-slate-400">{sub}</p>}
+    </div>
+  );
+}
+
+function StatTile({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-white/60 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+      <p className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{label}</p>
+      <p className="mt-1 text-2xl font-black tabular-nums">{value}</p>
+    </div>
+  );
+}
+
+function LevelPill({ result }) {
+  const { t } = useTranslation();
+  return (
+    <span className={`rounded-full px-3 py-1 text-xs font-black ${result?.level ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-500 dark:bg-white/10 dark:text-slate-400"}`}>
+      {levelLabel(t, result)}
+    </span>
+  );
 }

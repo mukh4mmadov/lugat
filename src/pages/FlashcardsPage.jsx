@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, NavLink, useParams, Navigate } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -45,9 +45,6 @@ export default function FlashcardsPage({ review = false, weak = false }) {
   const invalidLesson =
     !Number.isInteger(lesson) || lesson < 1 || lesson > lessonInfo.length;
 
-  if (invalidLesson && !review && !weak) {
-    return <Navigate to="/404" replace />;
-  }
   const sourceWords = useMemo(() => {
     if (weak) return weakWords;
     if (review) return getDueWords(allWords, progress.words);

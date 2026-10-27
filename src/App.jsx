@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useParams, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { lessonInfo } from "./data";
@@ -36,14 +36,10 @@ import { TopikAttemptPage, TopikHomePage, TopikResultPage } from "./pages/TopikP
 
 function LessonRouteGuard({ children }) {
   const { lessonId } = useParams();
-  const navigate = useNavigate();
   const parsed = Number(lessonId);
   const valid =
     Number.isInteger(parsed) && parsed >= 1 && parsed <= lessonInfo.length;
-  if (!valid) {
-    navigate("/404", { replace: true });
-    return null;
-  }
+  if (!valid) return <Navigate to="/404" replace />;
   return children;
 }
 

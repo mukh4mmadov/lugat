@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../context/AuthContext";
+import { useLocation } from "react-router-dom";
 import { getDeviceId } from "../lib/deviceId";
 import EmptyStateIllustrations from "./EmptyStateIllustrations";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
@@ -37,6 +38,7 @@ function formatDate(dateStr, t) {
 export default function AIChatWidget() {
   const { t } = useTranslation();
   const { session } = useAuth();
+  const location = useLocation();
   const { context: topikContext } = useTopikExamContext();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -209,6 +211,12 @@ export default function AIChatWidget() {
   }, []);
 
   useEffect(() => {
+    const open = () => setIsOpen(true);
+    window.addEventListener("k-talim:open-ai-chat", open);
+    return () => window.removeEventListener("k-talim:open-ai-chat", open);
+  }, []);
+
+  useEffect(() => {
     if (isOpen && session?.access_token) {
       fetchSessions();
     }
@@ -241,10 +249,11 @@ export default function AIChatWidget() {
           content: content.slice(0, 2000),
         })),
       };
-      if (topikContext?.attemptId && topikContext?.questionId) {
+      if (topikContext?.variantId && topikContext?.questionNumber) {
         body.topikContext = {
-          attemptId: topikContext.attemptId,
-          questionId: topikContext.questionId,
+          variantId: topikContext.variantId,
+          questionNumber: topikContext.questionNumber,
+          answers: topikContext.answers || {},
         };
       }
       if (currentSessionId) {
@@ -297,11 +306,13 @@ export default function AIChatWidget() {
   };
 
   const isRateLimited = !!resetAt && countdown !== "00:00:00";
+  // TOPIK pages open the chat from their own "Ask AI" button, so the floating trigger stays out of the exam layout.
+  const isTopikPage = location.pathname.startsWith("/topik");
 
   return (
     <>
       <AnimatePresence>
-        {(isVisible || isOpen) && (
+        {(!isTopikPage || isOpen) && (isVisible || isOpen) && (
           <motion.button
             ref={triggerRef}
             type="button"

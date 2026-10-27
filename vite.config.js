@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
+  server: {
+    // Build output holds the large TOPIK audio; watching it crashes dev on Windows (EBUSY).
+    watch: { ignored: ["**/dist/**", "**/dev-dist/**"] },
+  },
   plugins: [
     react(),
     VitePWA({
@@ -43,11 +47,15 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
+        globPatterns: ["**/*.{js,mjs,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
         navigateFallbackDenylist: [/\.(?:pdf|mp3)(?:$|[?#])/i],
         runtimeCaching: [
+          // Workbox matches RegExp routes against the full URL, so same-origin
+          // paths are matched by function. Audio is left to the browser because
+          // it streams with range requests that a cache-first route would break.
           {
-            urlPattern: /^\/topik\/.*\.pdf$/i,
+            urlPattern: ({ url, sameOrigin }) =>
+              sameOrigin && /^\/topik\/.*\.pdf$/i.test(url.pathname),
             handler: "CacheFirst",
             options: {
               cacheName: "topik-pdf-cache",
@@ -56,21 +64,7 @@ export default defineConfig({
                 maxAgeSeconds: 60 * 60 * 24 * 30,
               },
               cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          {
-            urlPattern: /^\/topik\/.*\.mp3$/i,
-            handler: "CacheFirst",
-            options: {
-              cacheName: "topik-audio-cache",
-              expiration: {
-                maxEntries: 5,
-                maxAgeSeconds: 60 * 60 * 24 * 30,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
+                statuses: [200],
               },
             },
           },
@@ -103,7 +97,8 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /^\/api\//i,
+            urlPattern: ({ url, sameOrigin }) =>
+              sameOrigin && url.pathname.startsWith("/api/"),
             handler: "NetworkOnly",
           },
         ],

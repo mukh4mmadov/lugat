@@ -224,4 +224,5 @@ export function AuthProvider({ children }) {
 }
 
 export { AuthContext };
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);

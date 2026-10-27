@@ -14,6 +14,7 @@ import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
 import { TopikExamProvider } from "../context/TopikExamContext";
 import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
 import InstallAppButton from "./InstallAppButton";
 
 const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
@@ -36,6 +37,22 @@ export default function Layout({ onShowIELTSModal }) {
   const moreMenuRef = useRef(null);
 
   const { user, profile, signOut } = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    setIsAdmin(false);
+    if (!user) return undefined;
+    supabase
+      .rpc("is_feedback_admin")
+      .then(({ data }) => {
+        if (!cancelled) setIsAdmin(data === true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   useEffect(() => {
     const updateOnlineStatus = () => setIsOnline(navigator.onLine);
@@ -69,12 +86,13 @@ export default function Layout({ onShowIELTSModal }) {
   const primaryNavItems = [
     ["/", t("nav.home")],
     ["/courses", t("nav.courses")],
+    ["/topik", t("nav.topik")],
     ["/search", t("nav.search")],
   ];
 
   const secondaryNavItems = [
-    ["/topik", t("nav.topik")],
     ["/study", t("nav.study")],
+    ["/review", t("nav.review")],
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
     ["/weak-words", t("library.weakWords")],
@@ -82,7 +100,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
     ["/feedback", t("nav.feedback")],
-    ["/admin", t("admin.title")],
+    ...(isAdmin ? [["/admin", t("admin.title")]] : []),
   ];
 
   const prefersReducedMotion =
@@ -153,7 +171,7 @@ export default function Layout({ onShowIELTSModal }) {
   return (
     <TopikExamProvider>
     <div className={theme === "dark" ? "dark" : ""}>
-      <main className="min-h-screen overflow-hidden bg-slate-50 text-slate-950 transition-colors dark:bg-[#07111f] dark:text-white">
+      <main className="min-h-screen overflow-x-clip bg-slate-50 text-slate-950 transition-colors dark:bg-[#07111f] dark:text-white">
         {!isOnline && (
           <div
             role="alert"
@@ -261,12 +279,12 @@ export default function Layout({ onShowIELTSModal }) {
               {!user ? (
                 <NavLink
                   to="/login"
-                  className="rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:px-4 lg:py-2 lg:text-sm"
+                  className="hidden rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:block lg:px-4 lg:py-2 lg:text-sm"
                 >
                   {t("nav.login")}
                 </NavLink>
               ) : (
-                <div className="relative" ref={userMenuRef}>
+                <div className="relative hidden sm:block" ref={userMenuRef}>
                   <button
                     type="button"
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
@@ -310,7 +328,7 @@ export default function Layout({ onShowIELTSModal }) {
               <button
                 type="button"
                 onClick={() => dispatch(setTheme(nextTheme))}
-                className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
+                className="relative hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
                 aria-label={theme === "dark" ? t("nav.light") : t("nav.dark")}
                 title={theme === "dark" ? t("nav.light") : t("nav.dark")}
               >
@@ -581,6 +599,8 @@ export default function Layout({ onShowIELTSModal }) {
           </div>
         </footer>
       </main>
+      {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
+      <div id="overlay-root" />
       <AIChatWidget />
     </div>
     </TopikExamProvider>

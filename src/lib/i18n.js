@@ -1,5 +1,6 @@
 ﻿import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import extraTranslations from "./i18nExtra";
 
 const resources = {
   en: {
@@ -2661,6 +2662,10 @@ const resources = {
     },
   },
 };
+
+Object.entries(extraTranslations).forEach(([language, keys]) => {
+  Object.assign(resources[language].translation, keys);
+});
 
 i18n.use(initReactI18next).init({
   resources,

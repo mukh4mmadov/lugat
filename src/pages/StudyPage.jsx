@@ -22,65 +22,6 @@ function getTopicParticle(korean) {
   return "은";
 }
 
-function StudyDevelopmentNotice() {
-  const { t } = useTranslation();
-
-  const improvingItems = [
-    t("studyDevelopment.improving.flow"),
-    t("studyDevelopment.improving.selection"),
-    t("studyDevelopment.improving.repetition"),
-    t("studyDevelopment.improving.variety"),
-    t("studyDevelopment.improving.mastery"),
-    t("studyDevelopment.improving.reinforcement"),
-    t("studyDevelopment.improving.ui"),
-  ];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35 }}
-    >
-      <GlassCard className="relative overflow-hidden border border-amber-200/60 bg-amber-50/80 dark:border-amber-400/20 dark:bg-amber-950/30">
-        <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-amber-300/20 blur-2xl" />
-        <div className="relative space-y-5 p-6 md:p-8">
-          <div>
-            <h3 className="text-xl font-black text-slate-900 dark:text-white">
-              {t("studyDevelopment.title")}
-            </h3>
-            <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              {t("studyDevelopment.subtitle")}
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
-              {t("studyDevelopment.improvingTitle")}
-            </h4>
-            <ul className="mt-3 grid gap-2 text-sm text-slate-700 dark:text-slate-200 sm:grid-cols-2">
-              {improvingItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5">
-                  <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-amber-200/60 bg-white/50 p-4 dark:border-amber-400/20 dark:bg-white/5">
-            <h4 className="text-xs font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
-              {t("studyDevelopment.importantTitle")}
-            </h4>
-            <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              {t("studyDevelopment.importantText")}
-            </p>
-          </div>
-        </div>
-      </GlassCard>
-    </motion.div>
-  );
-}
-
 export function StudyHomePage() {
   const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
@@ -107,7 +48,6 @@ export function StudyHomePage() {
         </div>
       </GlassCard>
 
-      <StudyDevelopmentNotice />
 
       <Link to="/courses" className="group block">
         <GlassCard className="relative overflow-hidden p-5 md:p-8 transition hover:-translate-y-1 hover:shadow-2xl">
@@ -469,8 +409,6 @@ export function StudyModePage() {
     return createExerciseForWord(fallback.word);
   }, [
     learnedWords,
-    sourceWords,
-    lastExerciseType,
     wordMastery,
     reviewQueue,
     lastTestedWordId,
@@ -891,7 +829,6 @@ export function StudyModePage() {
     <div className="space-y-6">
       <StudyHeader lesson={lesson} introduced={introducedCount} total={totalWords} mastered={masteredCount} />
 
-      <StudyDevelopmentNotice />
 
       <AnimatePresence mode="wait">
         {sessionState === "learning" && currentWord && (

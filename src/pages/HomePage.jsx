@@ -21,7 +21,11 @@ export default function HomePage() {
     progressSummary.studiedWords === 0 &&
     progressSummary.streak === 0 &&
     completedLessons === 0;
-  const dailyLesson = (new Date().getUTCDate() % lessonInfo.length) + 1;
+  // Point learners at their first unfinished lesson; once everything is done, rotate daily.
+  const dailyLesson =
+    lessonInfo.find(
+      (lesson) => selectLessonProgress({ progress }, lesson.lesson) < 100,
+    )?.lesson ?? (new Date().getUTCDate() % lessonInfo.length) + 1;
 
   return (
     <div className="space-y-8">
@@ -190,6 +194,24 @@ export default function HomePage() {
           {t("home.startChallenge")}
         </Link>
       </GlassCard>
+
+      <Link to="/topik" className="group block">
+        <GlassCard className="relative grid gap-4 overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[1fr_auto] md:items-center md:p-8">
+          <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sky-300/25 blur-3xl" />
+          <div className="relative">
+            <WordBadge tone="violet">TOPIK I · 한국어능력시험</WordBadge>
+            <h2 className="mt-3 text-2xl font-black md:text-3xl">
+              {t("home.topikTitle")}
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300 md:text-base">
+              {t("home.topikText")}
+            </p>
+          </div>
+          <span className="relative rounded-2xl bg-slate-950 px-5 py-2.5 text-center font-black text-white transition group-hover:scale-105 dark:bg-white dark:text-slate-950">
+            {t("home.topikAction")} →
+          </span>
+        </GlassCard>
+      </Link>
 
       <Link to="/courses" className="group block">
         <GlassCard className="relative overflow-hidden p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-2xl">

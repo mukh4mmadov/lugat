@@ -1,3 +1,5 @@
+import { getTopikExam, getTopikVariant, getVariantQuestions } from "../src/data/topik/exams.js";
+
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
     en: "English",
@@ -59,9 +61,7 @@ const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GE
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 let supabaseAuth = null;
-let supabaseAdmin = null;
 let createClient = null;
 
 if (SUPABASE_URL && SUPABASE_ANON_KEY) {
@@ -69,11 +69,6 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY) {
     const module = await import("@supabase/supabase-js");
     createClient = module.createClient;
     supabaseAuth = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    if (SUPABASE_SERVICE_ROLE_KEY) {
-      supabaseAdmin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
-        auth: { persistSession: false, autoRefreshToken: false },
-      });
-    }
   } catch (error) {
     console.error("Failed to initialize Supabase auth client:", error);
   }
@@ -171,8 +166,7 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
 }
 
 async function checkRateLimit(ip, deviceId, user, isTopik = false) {
-  if (isTopik) {
-    if (!user) return { allowed: false, isGuest: true, unauthorized: true };
+  if (isTopik && user) {
     if (topikUserLimiter) {
       const result = await topikUserLimiter.limit(`user:${user.id}`);
       return result.success
@@ -250,59 +244,32 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
   return { allowed: true };
 }
 
-async function loadTopikContext(input, userId) {
-  if (!supabaseAdmin) throw new Error("TOPIK AI is not configured.");
-  const { data: attempt, error: attemptError } = await supabaseAdmin
-    .from("topik_attempts")
-    .select("id, user_id, variant_id, status")
-    .eq("id", input.attemptId)
-    .eq("user_id", userId)
-    .maybeSingle();
-  if (attemptError || !attempt || attempt.status !== "in_progress") {
-    throw new Error("The active TOPIK attempt could not be found.");
-  }
-
-  const [{ data: variant, error: variantError }, { data: activeQuestion, error: questionError }] = await Promise.all([
-    supabaseAdmin.from("topik_variants").select("exam_id, section, mode").eq("id", attempt.variant_id).maybeSingle(),
-    supabaseAdmin.from("topik_questions").select("id, section, question_number, content").eq("id", input.questionId).maybeSingle(),
-  ]);
-  if (variantError || questionError || !variant || !activeQuestion || (variant.section && activeQuestion.section !== variant.section)) {
-    throw new Error("The active TOPIK question could not be found.");
-  }
-
-  const [{ data: key, error: keyError }, { data: options, error: optionsError }, { data: savedAnswers, error: answersError }] = await Promise.all([
-    supabaseAdmin.from("topik_answer_keys").select("correct_option, explanation_ko").eq("question_id", activeQuestion.id).maybeSingle(),
-    supabaseAdmin.from("topik_questions").select("id, section, question_number, content").eq("exam_id", variant.exam_id).order("question_number"),
-    supabaseAdmin.from("topik_attempt_answers").select("question_id, selected_option").eq("attempt_id", attempt.id),
-  ]);
-  if (keyError || optionsError || answersError || !key) {
-    throw new Error("TOPIK answer data is not available yet.");
-  }
-  const variantQuestionIds = (options || [])
-    .filter((question) => !variant.section || question.section === variant.section)
-    .map((question) => question.id);
-  const validQuestionIds = new Set(variantQuestionIds);
-  if (!validQuestionIds.has(activeQuestion.id)) {
-    throw new Error("The question does not belong to this TOPIK test.");
-  }
-  const answerMap = new Map((savedAnswers || []).map((answer) => [answer.question_id, answer.selected_option]));
+function loadTopikContext(input) {
+  const variant = getTopikVariant(input.variantId);
+  if (!variant) throw new Error("The TOPIK test could not be found.");
+  if (variant.mode === "mock") throw new Error("AI help is not available during a full mock exam.");
+  const exam = getTopikExam(variant.examId);
+  const questions = getVariantQuestions(variant);
+  const activeQuestion = questions.find((question) => question.number === Number(input.questionNumber));
+  if (!activeQuestion) throw new Error("The question does not belong to this TOPIK test.");
+  const rawAnswers = input.answers && typeof input.answers === "object" ? input.answers : {};
+  const answers = Object.fromEntries(
+    questions
+      .filter((question) => /^[1-4]$/.test(String(rawAnswers[question.number] ?? "")))
+      .map((question) => [question.number, String(rawAnswers[question.number])]),
+  );
   return {
-    exam: "TOPIK I, 35th exam, form B",
+    exam: `${exam.level}, ${exam.number}th exam, form ${exam.form}`,
+    note: "The learner reads the question from the original paper; question text is not included here.",
     activeQuestion: {
-      number: activeQuestion.question_number,
+      number: activeQuestion.number,
       section: activeQuestion.section,
-      content: activeQuestion.content,
-      selectedOption: answerMap.get(activeQuestion.id) || null,
-      correctOption: key.correct_option,
-      explanationKo: key.explanation_ko || "",
+      paperPage: activeQuestion.page,
+      points: activeQuestion.points,
+      selectedOption: answers[activeQuestion.number] || null,
+      correctOption: activeQuestion.answer,
     },
-    selectedAnswers: (options || [])
-      .filter((question) => validQuestionIds.has(question.id) && answerMap.has(question.id))
-      .map((question) => ({
-        number: question.question_number,
-        section: question.section,
-        selectedOption: answerMap.get(question.id),
-      })),
+    selectedAnswers: Object.entries(answers).map(([number, selectedOption]) => ({ number: Number(number), selectedOption })),
   };
 }
 
@@ -503,20 +470,16 @@ export default async function handler(req, res) {
 
   let topikContext = null;
   if (topikInput !== null && topikInput !== undefined) {
-    if (!user) {
-      return res.status(401).json({ error: "Log in to use TOPIK AI help." });
-    }
     if (
       typeof topikInput !== "object" ||
-      !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(topikInput.attemptId || "") ||
-      !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(topikInput.questionId || "")
+      typeof topikInput.variantId !== "string" ||
+      !Number.isInteger(Number(topikInput.questionNumber))
     ) {
       return res.status(400).json({ error: "Invalid TOPIK question context." });
     }
     try {
-      topikContext = await loadTopikContext(topikInput, user.id);
+      topikContext = loadTopikContext(topikInput);
     } catch (error) {
-      console.error("TOPIK AI context error:", error.message);
       return res.status(400).json({ error: error.message });
     }
   }

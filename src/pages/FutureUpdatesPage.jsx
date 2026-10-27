@@ -14,7 +14,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature1.title"),
       description: t("roadmap.feature1.description"),
       benefit: t("roadmap.feature1.benefit"),
-      status: t("roadmap.planned")
+      status: t("roadmap.completed")
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature2.title"),
       description: t("roadmap.feature2.description"),
       benefit: t("roadmap.feature2.benefit"),
-      status: t("roadmap.planned")
+      status: t("roadmap.completed")
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature3.title"),
       description: t("roadmap.feature3.description"),
       benefit: t("roadmap.feature3.benefit"),
-      status: t("roadmap.comingSoon")
+      status: t("roadmap.completed")
     },
     {
       id: 4,
@@ -94,7 +94,7 @@ export default function FutureUpdatesPage() {
       title: t("roadmap.feature11.title"),
       description: t("roadmap.feature11.description"),
       benefit: t("roadmap.feature11.benefit"),
-      status: t("roadmap.future")
+      status: t("roadmap.completed")
     }
   ];
 
