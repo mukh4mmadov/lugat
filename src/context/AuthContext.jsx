@@ -80,16 +80,21 @@ export function AuthProvider({ children }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
       setUser(session?.user ?? null);
 
       if (session?.user) {
-        const complete = await fetchProfile(session.user.id, session.user);
-        if (complete && event === "SIGNED_IN" && !hasSyncedRef.current) {
-          await syncProgressOnLogin(session.user.id);
-          hasSyncedRef.current = true;
-        }
+        // Supabase holds its auth lock while this callback runs, so awaiting
+        // another Supabase call here deadlocks (e.g. on a token refresh).
+        // Run the follow-up queries after the callback returns.
+        setTimeout(async () => {
+          const complete = await fetchProfile(session.user.id, session.user);
+          if (complete && event === "SIGNED_IN" && !hasSyncedRef.current) {
+            hasSyncedRef.current = true;
+            await syncProgressOnLogin(session.user.id);
+          }
+        }, 0);
       } else {
         setProfile(null);
         setProfileComplete(false);

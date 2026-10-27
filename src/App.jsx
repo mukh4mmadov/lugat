@@ -31,7 +31,8 @@ import TermsOfServicePage from "./pages/TermsOfServicePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import FeedbackPage from "./pages/FeedbackPage";
 import AdminFeedbackPage from "./pages/AdminFeedbackPage";
-import AdminPage from "./pages/AdminPage";
+import AdminPage, { AdminContent, AdminOverview } from "./pages/AdminPage";
+import AdminUsersPage from "./pages/AdminUsersPage";
 import { TopikAttemptPage, TopikHomePage, TopikResultPage } from "./pages/TopikPages";
 
 function LessonRouteGuard({ children }) {
@@ -123,8 +124,12 @@ export default function App() {
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
-            <Route path="admin" element={<AdminPage />} />
-            <Route path="admin/feedback" element={<AdminFeedbackPage />} />
+            <Route path="admin" element={<AdminPage />}>
+              <Route index element={<AdminOverview />} />
+              <Route path="users" element={<AdminUsersPage />} />
+              <Route path="feedback" element={<AdminFeedbackPage />} />
+              <Route path="content" element={<AdminContent />} />
+            </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>
           <Route path="complete-profile" element={<CompleteProfilePage />} />

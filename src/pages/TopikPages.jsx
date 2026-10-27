@@ -16,6 +16,7 @@ import {
   getVariantQuestions,
   questionTypeBreakdown,
 } from "../data/topik/exams";
+import { formatDate } from "../lib/dates";
 import {
   createTopikAttempt,
   deleteTopikAttempt,
@@ -36,14 +37,6 @@ function formatClock(seconds) {
   const remainder = safe % 60;
   const pad = (value) => String(value).padStart(2, "0");
   return hours ? `${hours}:${pad(minutes)}:${pad(remainder)}` : `${pad(minutes)}:${pad(remainder)}`;
-}
-
-function formatDate(timestamp, language) {
-  try {
-    return new Date(timestamp).toLocaleString(language, { dateStyle: "medium", timeStyle: "short" });
-  } catch {
-    return new Date(timestamp).toLocaleString();
-  }
 }
 
 function Overlay({ children }) {
@@ -135,7 +128,7 @@ export function TopikHomePage() {
                   <li key={attempt.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
                     <div className="min-w-0">
                       <p className="font-bold">{variantTitle(t, variant)}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language)} · {formatClock(attempt.elapsedSeconds)}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language, { time: true })} · {formatClock(attempt.elapsedSeconds)}</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-black tabular-nums dark:bg-white/10">{attempt.result?.total ?? 0} / {attempt.result?.maxTotal ?? 0}</span>
@@ -976,7 +969,7 @@ export function TopikResultPage() {
           <div>
             <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
             <h1 className="mt-1 text-3xl font-black">{variantTitle(t, variant)}</h1>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language)} · {t("topik.elapsed")}: {formatClock(attempt.elapsedSeconds)}</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language, { time: true })} · {t("topik.elapsed")}: {formatClock(attempt.elapsedSeconds)}</p>
             {variant.mode === "mock" && (
               <p className={`mt-4 inline-block rounded-2xl px-4 py-2 font-black ${result.level ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
                 {result.level ? `🏅 ${t("topik.estimatedLevel", { level: result.level })}` : t("topik.belowLevel")}

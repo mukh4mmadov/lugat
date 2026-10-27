@@ -3,24 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { useAuth } from "../hooks/useAuth";
+import { formatDate } from "../lib/dates";
 import { supabase } from "../lib/supabase";
 
 const categories = ["bug", "content", "audio", "progress", "other"];
 
-function formatDate(dateStr) {
-  if (!dateStr) return "";
-  const date = new Date(dateStr);
-  return date.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
 export default function FeedbackPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const location = useLocation();
   const [category, setCategory] = useState("bug");
@@ -209,7 +198,7 @@ export default function FeedbackPage() {
                     {ticket.message}
                   </p>
                   <span className="text-xs text-slate-400 whitespace-nowrap">
-                    {formatDate(ticket.created_at)}
+                    {formatDate(ticket.created_at, i18n.language, { time: true })}
                   </span>
                 </div>
                 {ticket.response && (

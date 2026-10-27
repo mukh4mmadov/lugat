@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../context/AuthContext";
 import { useLocation } from "react-router-dom";
+import { formatDate } from "../lib/dates";
 import { getDeviceId } from "../lib/deviceId";
 import EmptyStateIllustrations from "./EmptyStateIllustrations";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
@@ -20,7 +21,7 @@ function formatCountdown(ms) {
     .join(":");
 }
 
-function formatDate(dateStr, t) {
+function formatSessionDate(dateStr, t, language) {
   if (!dateStr) return "";
   const date = new Date(dateStr);
   const now = new Date();
@@ -32,11 +33,11 @@ function formatDate(dateStr, t) {
   if (diffHours < 24) return t("aiChat.hoursAgo", { count: diffHours });
   const diffDays = Math.floor(diffHours / 24);
   if (diffDays < 7) return t("aiChat.daysAgo", { count: diffDays });
-  return date.toLocaleDateString();
+  return formatDate(dateStr, language);
 }
 
 export default function AIChatWidget() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { session } = useAuth();
   const location = useLocation();
   const { context: topikContext } = useTopikExamContext();
@@ -455,7 +456,7 @@ export default function AIChatWidget() {
                               {s.title || t("aiChat.newChat")}
                             </p>
                             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-                              {formatDate(s.updated_at, t)}
+                              {formatSessionDate(s.updated_at, t, i18n.language)}
                             </p>
                           </button>
                         ))}
