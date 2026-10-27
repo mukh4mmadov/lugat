@@ -7,7 +7,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 663
+    "sourceNumber": 663,
+    "romanization": "donghwachaek"
   },
   {
     "id": 664,
@@ -17,7 +18,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 664
+    "sourceNumber": 664,
+    "romanization": "imeil"
   },
   {
     "id": 665,
@@ -27,7 +29,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 665
+    "sourceNumber": 665,
+    "romanization": "jangnangam"
   },
   {
     "id": 666,
@@ -37,7 +40,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 666
+    "sourceNumber": 666,
+    "romanization": "juso"
   },
   {
     "id": 667,
@@ -47,7 +51,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 667
+    "sourceNumber": 667,
+    "romanization": "yongdon"
   },
   {
     "id": 668,
@@ -58,7 +63,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 668,
-    "note": "husnixat"
+    "note": "husnixat",
+    "romanization": "geulssi"
   },
   {
     "id": 669,
@@ -68,7 +74,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 669
+    "sourceNumber": 669,
+    "romanization": "silsu"
   },
   {
     "id": 670,
@@ -78,7 +85,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 670
+    "sourceNumber": 670,
+    "romanization": "uimi"
   },
   {
     "id": 671,
@@ -88,7 +96,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 671
+    "sourceNumber": 671,
+    "romanization": "eumnyosu"
   },
   {
     "id": 672,
@@ -99,7 +108,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 672,
-    "note": "gap"
+    "note": "gap",
+    "romanization": "yemun"
   },
   {
     "id": 673,
@@ -109,7 +119,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 673
+    "sourceNumber": 673,
+    "romanization": "dongnyo"
   },
   {
     "id": 674,
@@ -120,7 +131,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 674,
-    "note": "tajribaliroq shaxs"
+    "note": "tajribaliroq shaxs",
+    "romanization": "seonbae"
   },
   {
     "id": 675,
@@ -130,7 +142,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 675
+    "sourceNumber": 675,
+    "romanization": "hubae"
   },
   {
     "id": 676,
@@ -140,7 +153,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 676
+    "sourceNumber": 676,
+    "romanization": "museun irieyo?"
   },
   {
     "id": 677,
@@ -150,7 +164,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 677
+    "sourceNumber": 677,
+    "romanization": "jeonhada"
   },
   {
     "id": 678,
@@ -161,7 +176,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 678,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "saengsin"
   },
   {
     "id": 679,
@@ -172,7 +188,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 679,
-    "note": "yozma"
+    "note": "yozma",
+    "romanization": "beonyeokhada"
   },
   {
     "id": 680,
@@ -182,7 +199,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 680
+    "sourceNumber": 680,
+    "romanization": "seoryu"
   },
   {
     "id": 681,
@@ -193,7 +211,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 681,
-    "note": "og'zaki"
+    "note": "og'zaki",
+    "romanization": "tongyeokhada"
   },
   {
     "id": 682,
@@ -203,7 +222,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 682
+    "sourceNumber": 682,
+    "romanization": "tongyeokga"
   },
   {
     "id": 683,
@@ -214,7 +234,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 683,
-    "note": "mevani) / Arzonlashtirmoq (narxni"
+    "note": "mevani) / Arzonlashtirmoq (narxni",
+    "romanization": "kkakda (kkakda)"
   },
   {
     "id": 684,
@@ -224,7 +245,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 684
+    "sourceNumber": 684,
+    "romanization": "panmaewon"
   },
   {
     "id": 685,
@@ -235,7 +257,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 685,
-    "note": "Iltimos, tinchlik saqlang"
+    "note": "Iltimos, tinchlik saqlang",
+    "romanization": "joyonghi hada (joyonghi hae juseyo)"
   },
   {
     "id": 686,
@@ -245,7 +268,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 686
+    "sourceNumber": 686,
+    "romanization": "annaehada"
   },
   {
     "id": 687,
@@ -256,7 +280,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 687,
-    "note": "tekin"
+    "note": "tekin",
+    "romanization": "muryo"
   },
   {
     "id": 688,
@@ -266,7 +291,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 688
+    "sourceNumber": 688,
+    "romanization": "yuryo"
   },
   {
     "id": 689,
@@ -276,7 +302,8 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 689
+    "sourceNumber": 689,
+    "romanization": "tongjang"
   },
   {
     "id": 690,
@@ -286,6 +313,7 @@
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 690
+    "sourceNumber": 690,
+    "romanization": "jigwon"
   }
 ]

@@ -8,7 +8,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 442,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "saram / bun"
   },
   {
     "id": 443,
@@ -19,7 +20,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 443,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "jip / daek"
   },
   {
     "id": 444,
@@ -30,7 +32,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 444,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "ireum / seongham"
   },
   {
     "id": 445,
@@ -41,7 +44,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 445,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "nai / yeonse"
   },
   {
     "id": 446,
@@ -52,7 +56,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 446,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "meokda / japsusida / deusida"
   },
   {
     "id": 447,
@@ -63,7 +68,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 447,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "masida / deusida"
   },
   {
     "id": 448,
@@ -74,7 +80,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 448,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "jada / jumusida"
   },
   {
     "id": 449,
@@ -85,7 +92,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 449,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "itda / gyesida"
   },
   {
     "id": 450,
@@ -96,7 +104,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 450,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "eopda / an gyesida"
   },
   {
     "id": 451,
@@ -107,7 +116,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 451,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "jukda / doragasida"
   },
   {
     "id": 452,
@@ -118,7 +128,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 452,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "malhada / malsseumhasida"
   },
   {
     "id": 453,
@@ -129,7 +140,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 453,
-    "note": "odamni/hayvonni"
+    "note": "odamni/hayvonni",
+    "romanization": "deryeogada / oda"
   },
   {
     "id": 454,
@@ -140,7 +152,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 454,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "mosigo gada / oda"
   },
   {
     "id": 455,
@@ -151,7 +164,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 455,
-    "note": "hurmat shakl"
+    "note": "hurmat shakl",
+    "romanization": "uri / jeohui"
   },
   {
     "id": 456,
@@ -162,7 +176,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 456,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "saengil / saengsin"
   },
   {
     "id": 457,
@@ -173,7 +188,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 457,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "bap / jinji"
   },
   {
     "id": 458,
@@ -184,7 +200,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 458,
-    "note": "hurmatli shakli"
+    "note": "hurmatli shakli",
+    "romanization": "anae / buin"
   },
   {
     "id": 459,
@@ -194,7 +211,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 459
+    "sourceNumber": 459,
+    "romanization": "apeuda"
   },
   {
     "id": 460,
@@ -204,7 +222,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 460
+    "sourceNumber": 460,
+    "romanization": "mureup"
   },
   {
     "id": 461,
@@ -214,7 +233,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 461
+    "sourceNumber": 461,
+    "romanization": "jaju"
   },
   {
     "id": 462,
@@ -225,7 +245,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 462,
-    "note": "har kuni, har oy, va h.k"
+    "note": "har kuni, har oy, va h.k",
+    "romanization": "mada"
   },
   {
     "id": 463,
@@ -235,7 +256,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 463
+    "sourceNumber": 463,
+    "romanization": "jiban il"
   },
   {
     "id": 464,
@@ -245,7 +267,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 464
+    "sourceNumber": 464,
+    "romanization": "puk swida"
   },
   {
     "id": 465,
@@ -255,7 +278,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 465
+    "sourceNumber": 465,
+    "romanization": "bujireonhada"
   },
   {
     "id": 466,
@@ -265,7 +289,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 466
+    "sourceNumber": 466,
+    "romanization": "daehoe"
   },
   {
     "id": 467,
@@ -275,7 +300,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 467
+    "sourceNumber": 467,
+    "romanization": "deung"
   },
   {
     "id": 468,
@@ -285,7 +311,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 468
+    "sourceNumber": 468,
+    "romanization": "modu"
   },
   {
     "id": 469,
@@ -295,7 +322,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 469
+    "sourceNumber": 469,
+    "romanization": "saranghada"
   },
   {
     "id": 470,
@@ -305,7 +333,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 470
+    "sourceNumber": 470,
+    "romanization": "gippeohada"
   },
   {
     "id": 471,
@@ -315,7 +344,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 471
+    "sourceNumber": 471,
+    "romanization": "eoryeosseul ttae"
   },
   {
     "id": 472,
@@ -325,7 +355,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 472
+    "sourceNumber": 472,
+    "romanization": "seonggyeok"
   },
   {
     "id": 473,
@@ -335,7 +366,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 473
+    "sourceNumber": 473,
+    "romanization": "yejeon"
   },
   {
     "id": 474,
@@ -345,7 +377,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 474
+    "sourceNumber": 474,
+    "romanization": "jeil"
   },
   {
     "id": 475,
@@ -355,7 +388,8 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 475
+    "sourceNumber": 475,
+    "romanization": "naoda"
   },
   {
     "id": 476,
@@ -366,7 +400,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 476,
-    "note": "buyumni"
+    "note": "buyumni",
+    "romanization": "gajigo oda / gada"
   },
   {
     "id": 477,
@@ -376,6 +411,7 @@
     "category": "polite speech, honorifics and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 477
+    "sourceNumber": 477,
+    "romanization": "gansik"
   }
 ]

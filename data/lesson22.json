@@ -7,7 +7,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 630
+    "sourceNumber": 630,
+    "romanization": "bihaenggi"
   },
   {
     "id": 631,
@@ -17,7 +18,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 631
+    "sourceNumber": 631,
+    "romanization": "gawi"
   },
   {
     "id": 632,
@@ -27,7 +29,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 632
+    "sourceNumber": 632,
+    "romanization": "hakgyobeoseu"
   },
   {
     "id": 633,
@@ -37,7 +40,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 633
+    "sourceNumber": 633,
+    "romanization": "hyeongeum"
   },
   {
     "id": 634,
@@ -47,7 +51,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 634
+    "sourceNumber": 634,
+    "romanization": "chitsol"
   },
   {
     "id": 635,
@@ -57,7 +62,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 635
+    "sourceNumber": 635,
+    "romanization": "ireul dakda"
   },
   {
     "id": 636,
@@ -67,7 +73,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 636
+    "sourceNumber": 636,
+    "romanization": "cheongsogi"
   },
   {
     "id": 637,
@@ -77,7 +84,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 637
+    "sourceNumber": 637,
+    "romanization": "bitjaru"
   },
   {
     "id": 638,
@@ -87,7 +95,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 638
+    "sourceNumber": 638,
+    "romanization": "jareuda"
   },
   {
     "id": 639,
@@ -97,7 +106,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 639
+    "sourceNumber": 639,
+    "romanization": "kal"
   },
   {
     "id": 640,
@@ -107,7 +117,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 640
+    "sourceNumber": 640,
+    "romanization": "sutgarak"
   },
   {
     "id": 641,
@@ -118,7 +129,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 641,
-    "note": "xom"
+    "note": "xom",
+    "romanization": "ssal"
   },
   {
     "id": 642,
@@ -128,7 +140,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 642
+    "sourceNumber": 642,
+    "romanization": "mworo"
   },
   {
     "id": 643,
@@ -139,7 +152,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 643,
-    "note": "koreyscha quyuq sho'rva"
+    "note": "koreyscha quyuq sho'rva",
+    "romanization": "jjigae"
   },
   {
     "id": 644,
@@ -149,7 +163,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 644
+    "sourceNumber": 644,
+    "romanization": "badatga"
   },
   {
     "id": 645,
@@ -159,7 +174,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 645
+    "sourceNumber": 645,
+    "romanization": "milgaru"
   },
   {
     "id": 646,
@@ -169,7 +185,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 646
+    "sourceNumber": 646,
+    "romanization": "gicha"
   },
   {
     "id": 647,
@@ -180,7 +197,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 647,
-    "note": "shahar"
+    "note": "shahar",
+    "romanization": "busan"
   },
   {
     "id": 648,
@@ -190,7 +208,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 648
+    "sourceNumber": 648,
+    "romanization": "jejudo"
   },
   {
     "id": 649,
@@ -201,7 +220,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 649,
-    "note": "shahar"
+    "note": "shahar",
+    "romanization": "incheon"
   },
   {
     "id": 650,
@@ -211,7 +231,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 650
+    "sourceNumber": 650,
+    "romanization": "otobai"
   },
   {
     "id": 651,
@@ -222,7 +243,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 651,
-    "note": "shattl"
+    "note": "shattl",
+    "romanization": "syeoteulbeoseu"
   },
   {
     "id": 652,
@@ -232,7 +254,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 652
+    "sourceNumber": 652,
+    "romanization": "eolmana"
   },
   {
     "id": 653,
@@ -242,7 +265,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 653
+    "sourceNumber": 653,
+    "romanization": "geollida"
   },
   {
     "id": 654,
@@ -252,7 +276,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 654
+    "sourceNumber": 654,
+    "romanization": "meolda"
   },
   {
     "id": 655,
@@ -263,7 +288,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 655,
-    "note": "suyuq"
+    "note": "suyuq",
+    "romanization": "guk"
   },
   {
     "id": 656,
@@ -274,7 +300,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 656,
-    "note": "plyaj"
+    "note": "plyaj",
+    "romanization": "haeundae"
   },
   {
     "id": 657,
@@ -284,7 +311,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 657
+    "sourceNumber": 657,
+    "romanization": "hotel"
   },
   {
     "id": 658,
@@ -294,7 +322,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 658
+    "sourceNumber": 658,
+    "romanization": "sseuda"
   },
   {
     "id": 659,
@@ -304,7 +333,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 659
+    "sourceNumber": 659,
+    "romanization": "gyesanhada"
   },
   {
     "id": 660,
@@ -314,7 +344,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 660
+    "sourceNumber": 660,
+    "romanization": "renteoka"
   },
   {
     "id": 661,
@@ -324,7 +355,8 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 661
+    "sourceNumber": 661,
+    "romanization": "sagwida"
   },
   {
     "id": 662,
@@ -334,6 +366,7 @@
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 662
+    "sourceNumber": 662,
+    "romanization": "meonjeo"
   }
 ]

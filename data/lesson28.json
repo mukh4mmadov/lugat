@@ -7,7 +7,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 795
+    "sourceNumber": 795,
+    "romanization": "jamkkan"
   },
   {
     "id": 796,
@@ -17,7 +18,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 796
+    "sourceNumber": 796,
+    "romanization": "naengjanggo"
   },
   {
     "id": 797,
@@ -27,7 +29,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 797
+    "sourceNumber": 797,
+    "romanization": "gireul geonneoda"
   },
   {
     "id": 798,
@@ -38,7 +41,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 798,
-    "note": "ximchistka"
+    "note": "ximchistka",
+    "romanization": "setakso"
   },
   {
     "id": 799,
@@ -48,7 +52,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 799
+    "sourceNumber": 799,
+    "romanization": "gongjang"
   },
   {
     "id": 800,
@@ -58,7 +63,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 800
+    "sourceNumber": 800,
+    "romanization": "kkamppakhada"
   },
   {
     "id": 801,
@@ -68,7 +74,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 801
+    "sourceNumber": 801,
+    "romanization": "jollida"
   },
   {
     "id": 802,
@@ -78,7 +85,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 802
+    "sourceNumber": 802,
+    "romanization": "piryohada"
   },
   {
     "id": 803,
@@ -88,7 +96,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 803
+    "sourceNumber": 803,
+    "romanization": "piryoeopda"
   },
   {
     "id": 804,
@@ -98,7 +107,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 804
+    "sourceNumber": 804,
+    "romanization": "chwimi"
   },
   {
     "id": 805,
@@ -108,7 +118,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 805
+    "sourceNumber": 805,
+    "romanization": "seonpunggi"
   },
   {
     "id": 806,
@@ -118,7 +129,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 806
+    "sourceNumber": 806,
+    "romanization": "yorichaek"
   },
   {
     "id": 807,
@@ -128,7 +140,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 807
+    "sourceNumber": 807,
+    "romanization": "hoksi"
   },
   {
     "id": 808,
@@ -138,7 +151,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 808
+    "sourceNumber": 808,
+    "romanization": "inhyeong"
   },
   {
     "id": 809,
@@ -148,7 +162,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 809
+    "sourceNumber": 809,
+    "romanization": "yeongeuk"
   },
   {
     "id": 810,
@@ -158,7 +173,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 810
+    "sourceNumber": 810,
+    "romanization": "dambaereul piuda"
   },
   {
     "id": 811,
@@ -168,7 +184,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 811
+    "sourceNumber": 811,
+    "romanization": "himdeulda"
   },
   {
     "id": 812,
@@ -178,7 +195,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 812
+    "sourceNumber": 812,
+    "romanization": "oeguk saenghwal"
   },
   {
     "id": 813,
@@ -188,7 +206,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 813
+    "sourceNumber": 813,
+    "romanization": "ban"
   },
   {
     "id": 814,
@@ -198,7 +217,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 814
+    "sourceNumber": 814,
+    "romanization": "chima"
   },
   {
     "id": 815,
@@ -208,7 +228,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 815
+    "sourceNumber": 815,
+    "romanization": "baji"
   },
   {
     "id": 816,
@@ -218,7 +239,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 816
+    "sourceNumber": 816,
+    "romanization": "honja"
   },
   {
     "id": 817,
@@ -228,7 +250,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 817
+    "sourceNumber": 817,
+    "romanization": "sinmun"
   },
   {
     "id": 818,
@@ -238,7 +261,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 818
+    "sourceNumber": 818,
+    "romanization": "aiseukeurim"
   },
   {
     "id": 819,
@@ -248,7 +272,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 819
+    "sourceNumber": 819,
+    "romanization": "saendeuwichi"
   },
   {
     "id": 820,
@@ -258,7 +283,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 820
+    "sourceNumber": 820,
+    "romanization": "keikeu"
   },
   {
     "id": 821,
@@ -269,7 +295,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 821,
-    "note": "er-xotin murojaati"
+    "note": "er-xotin murojaati",
+    "romanization": "yeobo"
   },
   {
     "id": 822,
@@ -279,7 +306,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 822
+    "sourceNumber": 822,
+    "romanization": "ilgiyebo"
   },
   {
     "id": 823,
@@ -289,7 +317,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 823
+    "sourceNumber": 823,
+    "romanization": "mandeulda"
   },
   {
     "id": 824,
@@ -299,7 +328,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 824
+    "sourceNumber": 824,
+    "romanization": "nolda"
   },
   {
     "id": 825,
@@ -309,7 +339,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 825
+    "sourceNumber": 825,
+    "romanization": "salda"
   },
   {
     "id": 826,
@@ -319,7 +350,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 826
+    "sourceNumber": 826,
+    "romanization": "ulda"
   },
   {
     "id": 827,
@@ -329,7 +361,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 827
+    "sourceNumber": 827,
+    "romanization": "palda"
   },
   {
     "id": 828,
@@ -339,7 +372,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 828
+    "sourceNumber": 828,
+    "romanization": "yeolda"
   },
   {
     "id": 829,
@@ -349,7 +383,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 829
+    "sourceNumber": 829,
+    "romanization": "meolda"
   },
   {
     "id": 830,
@@ -359,7 +394,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 830
+    "sourceNumber": 830,
+    "romanization": "soneul deulda"
   },
   {
     "id": 831,
@@ -369,7 +405,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 831
+    "sourceNumber": 831,
+    "romanization": "gilda"
   },
   {
     "id": 832,
@@ -379,7 +416,8 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 832
+    "sourceNumber": 832,
+    "romanization": "alda"
   },
   {
     "id": 833,
@@ -389,6 +427,7 @@
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 833
+    "sourceNumber": 833,
+    "romanization": "bulda"
   }
 ]

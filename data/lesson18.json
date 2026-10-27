@@ -7,7 +7,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 521
+    "sourceNumber": 521,
+    "romanization": "nun"
   },
   {
     "id": 522,
@@ -17,7 +18,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 522
+    "sourceNumber": 522,
+    "romanization": "gwi"
   },
   {
     "id": 523,
@@ -28,7 +30,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 523,
-    "note": "bilakdan yelkagacha"
+    "note": "bilakdan yelkagacha",
+    "romanization": "pal"
   },
   {
     "id": 524,
@@ -38,7 +41,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 524
+    "sourceNumber": 524,
+    "romanization": "dari"
   },
   {
     "id": 525,
@@ -48,7 +52,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 525
+    "sourceNumber": 525,
+    "romanization": "bal"
   },
   {
     "id": 526,
@@ -58,7 +63,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 526
+    "sourceNumber": 526,
+    "romanization": "ip"
   },
   {
     "id": 527,
@@ -68,7 +74,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 527
+    "sourceNumber": 527,
+    "romanization": "eokkae"
   },
   {
     "id": 528,
@@ -79,7 +86,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 528,
-    "note": "panja qismi"
+    "note": "panja qismi",
+    "romanization": "son"
   },
   {
     "id": 529,
@@ -89,7 +97,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 529
+    "sourceNumber": 529,
+    "romanization": "bae"
   },
   {
     "id": 530,
@@ -99,7 +108,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 530
+    "sourceNumber": 530,
+    "romanization": "eolgul"
   },
   {
     "id": 531,
@@ -109,7 +119,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 531
+    "sourceNumber": 531,
+    "romanization": "songarak"
   },
   {
     "id": 532,
@@ -119,7 +130,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 532
+    "sourceNumber": 532,
+    "romanization": "yeori nada"
   },
   {
     "id": 533,
@@ -129,7 +141,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 533
+    "sourceNumber": 533,
+    "romanization": "mogi apeuda"
   },
   {
     "id": 534,
@@ -139,7 +152,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 534
+    "sourceNumber": 534,
+    "romanization": "konmuri nada"
   },
   {
     "id": 535,
@@ -149,7 +163,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 535
+    "sourceNumber": 535,
+    "romanization": "nappeuda"
   },
   {
     "id": 536,
@@ -159,7 +174,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 536
+    "sourceNumber": 536,
+    "romanization": "bappeuda"
   },
   {
     "id": 537,
@@ -169,7 +185,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 537
+    "sourceNumber": 537,
+    "romanization": "seulpeuda"
   },
   {
     "id": 538,
@@ -179,7 +196,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 538
+    "sourceNumber": 538,
+    "romanization": "baegopeuda"
   },
   {
     "id": 539,
@@ -189,7 +207,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 539
+    "sourceNumber": 539,
+    "romanization": "keuda"
   },
   {
     "id": 540,
@@ -199,7 +218,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 540
+    "sourceNumber": 540,
+    "romanization": "keun soriro iyagihada"
   },
   {
     "id": 541,
@@ -209,7 +229,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 541
+    "sourceNumber": 541,
+    "romanization": "gyeran"
   },
   {
     "id": 542,
@@ -219,7 +240,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 542
+    "sourceNumber": 542,
+    "romanization": "sureul masida"
   },
   {
     "id": 543,
@@ -229,7 +251,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 543
+    "sourceNumber": 543,
+    "romanization": "jameul jada"
   },
   {
     "id": 544,
@@ -239,7 +262,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 544
+    "sourceNumber": 544,
+    "romanization": "keuge deutda"
   },
   {
     "id": 545,
@@ -249,7 +273,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 545
+    "sourceNumber": 545,
+    "romanization": "wae"
   },
   {
     "id": 546,
@@ -259,7 +284,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 546
+    "sourceNumber": 546,
+    "romanization": "yeodeureumi saenggida"
   },
   {
     "id": 547,
@@ -269,7 +295,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 547
+    "sourceNumber": 547,
+    "romanization": "sayonghada"
   },
   {
     "id": 548,
@@ -279,7 +306,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 548
+    "sourceNumber": 548,
+    "romanization": "ellibeiteo"
   },
   {
     "id": 549,
@@ -289,7 +317,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 549
+    "sourceNumber": 549,
+    "romanization": "gyedan"
   },
   {
     "id": 550,
@@ -299,7 +328,8 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 550
+    "sourceNumber": 550,
+    "romanization": "yalbeun ot"
   },
   {
     "id": 551,
@@ -309,6 +339,7 @@
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 551
+    "sourceNumber": 551,
+    "romanization": "ttatteuthan ot"
   }
 ]

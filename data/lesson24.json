@@ -7,7 +7,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 691
+    "sourceNumber": 691,
+    "romanization": "dareuda"
   },
   {
     "id": 692,
@@ -17,7 +18,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 692
+    "sourceNumber": 692,
+    "romanization": "meositda"
   },
   {
     "id": 693,
@@ -27,7 +29,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 693
+    "sourceNumber": 693,
+    "romanization": "jjalda"
   },
   {
     "id": 694,
@@ -37,7 +40,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 694
+    "sourceNumber": 694,
+    "romanization": "dalda"
   },
   {
     "id": 695,
@@ -47,7 +51,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 695
+    "sourceNumber": 695,
+    "romanization": "pyeollihada"
   },
   {
     "id": 696,
@@ -57,7 +62,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 696
+    "sourceNumber": 696,
+    "romanization": "eotteota"
   },
   {
     "id": 697,
@@ -67,7 +73,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 697
+    "sourceNumber": 697,
+    "romanization": "yumyeonghada"
   },
   {
     "id": 698,
@@ -77,7 +84,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 698
+    "sourceNumber": 698,
+    "romanization": "rummeiteu"
   },
   {
     "id": 699,
@@ -87,7 +95,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 699
+    "sourceNumber": 699,
+    "romanization": "maeume deulda"
   },
   {
     "id": 700,
@@ -97,7 +106,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 700
+    "sourceNumber": 700,
+    "romanization": "maeume an deulda"
   },
   {
     "id": 701,
@@ -107,7 +117,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 701
+    "sourceNumber": 701,
+    "romanization": "gang"
   },
   {
     "id": 702,
@@ -117,7 +128,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 702
+    "sourceNumber": 702,
+    "romanization": "pokpo"
   },
   {
     "id": 703,
@@ -127,7 +139,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 703
+    "sourceNumber": 703,
+    "romanization": "seom"
   },
   {
     "id": 704,
@@ -137,7 +150,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 704
+    "sourceNumber": 704,
+    "romanization": "sup"
   },
   {
     "id": 705,
@@ -147,7 +161,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 705
+    "sourceNumber": 705,
+    "romanization": "daeyang"
   },
   {
     "id": 706,
@@ -157,7 +172,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 706
+    "sourceNumber": 706,
+    "romanization": "namiseom"
   },
   {
     "id": 707,
@@ -167,7 +183,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 707
+    "sourceNumber": 707,
+    "romanization": "konseoteu"
   },
   {
     "id": 708,
@@ -177,7 +194,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 708
+    "sourceNumber": 708,
+    "romanization": "iljjik"
   },
   {
     "id": 709,
@@ -187,7 +205,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 709
+    "sourceNumber": 709,
+    "romanization": "kkochi pida"
   },
   {
     "id": 710,
@@ -197,7 +216,8 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 710
+    "sourceNumber": 710,
+    "romanization": "geuncheo"
   },
   {
     "id": 711,
@@ -207,6 +227,7 @@
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 711
+    "sourceNumber": 711,
+    "romanization": "moraenori"
   }
 ]

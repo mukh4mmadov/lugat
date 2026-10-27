@@ -7,7 +7,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 478
+    "sourceNumber": 478,
+    "romanization": "saebyeok"
   },
   {
     "id": 479,
@@ -17,7 +18,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 479
+    "sourceNumber": 479,
+    "romanization": "achim"
   },
   {
     "id": 480,
@@ -27,7 +29,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 480
+    "sourceNumber": 480,
+    "romanization": "jeomsim"
   },
   {
     "id": 481,
@@ -37,7 +40,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 481
+    "sourceNumber": 481,
+    "romanization": "nat"
   },
   {
     "id": 482,
@@ -47,7 +51,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 482
+    "sourceNumber": 482,
+    "romanization": "jeonyeok"
   },
   {
     "id": 483,
@@ -57,7 +62,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 483
+    "sourceNumber": 483,
+    "romanization": "bam"
   },
   {
     "id": 484,
@@ -67,7 +73,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 484
+    "sourceNumber": 484,
+    "romanization": "ojeon / ohu"
   },
   {
     "id": 485,
@@ -77,7 +84,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 485
+    "sourceNumber": 485,
+    "romanization": "botong"
   },
   {
     "id": 486,
@@ -87,7 +95,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 486
+    "sourceNumber": 486,
+    "romanization": "jogeum jeon / jogeum hu"
   },
   {
     "id": 487,
@@ -97,7 +106,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 487
+    "sourceNumber": 487,
+    "romanization": "ireonada"
   },
   {
     "id": 488,
@@ -107,7 +117,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 488
+    "sourceNumber": 488,
+    "romanization": "sesuhada"
   },
   {
     "id": 489,
@@ -117,7 +128,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 489
+    "sourceNumber": 489,
+    "romanization": "ppallaehada"
   },
   {
     "id": 490,
@@ -127,7 +139,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 490
+    "sourceNumber": 490,
+    "romanization": "jihacheoreul tada"
   },
   {
     "id": 491,
@@ -137,7 +150,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 491
+    "sourceNumber": 491,
+    "romanization": "hoeuireul hada"
   },
   {
     "id": 492,
@@ -147,7 +161,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 492
+    "sourceNumber": 492,
+    "romanization": "siheomeul boda"
   },
   {
     "id": 493,
@@ -157,7 +172,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 493
+    "sourceNumber": 493,
+    "romanization": "chulgeunhada"
   },
   {
     "id": 494,
@@ -168,7 +184,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 494,
-    "note": "ishni tugatmoq"
+    "note": "ishni tugatmoq",
+    "romanization": "toegeunhada"
   },
   {
     "id": 495,
@@ -178,7 +195,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 495
+    "sourceNumber": 495,
+    "romanization": "chultoegeunhada"
   },
   {
     "id": 496,
@@ -188,7 +206,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 496
+    "sourceNumber": 496,
+    "romanization": "chultoegeun sigan"
   },
   {
     "id": 497,
@@ -199,7 +218,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 497,
-    "note": "bankdan"
+    "note": "bankdan",
+    "romanization": "doneul chatda"
   },
   {
     "id": 498,
@@ -210,7 +230,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 498,
-    "note": "bankka"
+    "note": "bankka",
+    "romanization": "doneul neota"
   },
   {
     "id": 499,
@@ -220,7 +241,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 499
+    "sourceNumber": 499,
+    "romanization": "sigani geollida"
   },
   {
     "id": 500,
@@ -230,7 +252,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 500
+    "sourceNumber": 500,
+    "romanization": "jjeum"
   },
   {
     "id": 501,
@@ -240,7 +263,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 501
+    "sourceNumber": 501,
+    "romanization": "bun"
   },
   {
     "id": 502,
@@ -250,7 +274,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 502
+    "sourceNumber": 502,
+    "romanization": "si"
   },
   {
     "id": 503,
@@ -261,7 +286,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 503,
-    "note": "ko'rishmaganimizga ancha bo'ldi"
+    "note": "ko'rishmaganimizga ancha bo'ldi",
+    "romanization": "oraenmanida"
   },
   {
     "id": 504,
@@ -271,7 +297,8 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 504
+    "sourceNumber": 504,
+    "romanization": "jal jinaeda"
   },
   {
     "id": 505,
@@ -281,6 +308,7 @@
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 505
+    "sourceNumber": 505,
+    "romanization": "geudongan"
   }
 ]

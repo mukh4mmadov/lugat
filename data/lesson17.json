@@ -7,7 +7,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 506
+    "sourceNumber": 506,
+    "romanization": "chulbalhada"
   },
   {
     "id": 507,
@@ -18,7 +19,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 507,
-    "note": "bormoq"
+    "note": "bormoq",
+    "romanization": "dochakhada"
   },
   {
     "id": 508,
@@ -28,7 +30,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 508
+    "sourceNumber": 508,
+    "romanization": "doragada"
   },
   {
     "id": 509,
@@ -38,7 +41,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 509
+    "sourceNumber": 509,
+    "romanization": "doraoda"
   },
   {
     "id": 510,
@@ -48,7 +52,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 510
+    "sourceNumber": 510,
+    "romanization": "gohyange gada"
   },
   {
     "id": 511,
@@ -58,7 +63,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 511
+    "sourceNumber": 511,
+    "romanization": "ginyeomhada"
   },
   {
     "id": 512,
@@ -68,7 +74,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 512
+    "sourceNumber": 512,
+    "romanization": "moida"
   },
   {
     "id": 513,
@@ -78,7 +85,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 513
+    "sourceNumber": 513,
+    "romanization": "sijakdoeda"
   },
   {
     "id": 514,
@@ -88,7 +96,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 514
+    "sourceNumber": 514,
+    "romanization": "kkeunnada"
   },
   {
     "id": 515,
@@ -98,7 +107,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 515
+    "sourceNumber": 515,
+    "romanization": "eorininal"
   },
   {
     "id": 516,
@@ -108,7 +118,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 516
+    "sourceNumber": 516,
+    "romanization": "gohyang"
   },
   {
     "id": 517,
@@ -118,7 +129,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 517
+    "sourceNumber": 517,
+    "romanization": "georeoseo gada"
   },
   {
     "id": 518,
@@ -128,7 +140,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 518
+    "sourceNumber": 518,
+    "romanization": "beoseureul tago gada"
   },
   {
     "id": 519,
@@ -138,7 +151,8 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 519
+    "sourceNumber": 519,
+    "romanization": "sigani geollida"
   },
   {
     "id": 520,
@@ -148,6 +162,7 @@
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 520
+    "sourceNumber": 520,
+    "romanization": "eolmana"
   }
 ]

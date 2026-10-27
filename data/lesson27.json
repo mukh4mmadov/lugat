@@ -7,7 +7,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 772
+    "sourceNumber": 772,
+    "romanization": "geonganghada"
   },
   {
     "id": 773,
@@ -17,7 +18,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 773
+    "sourceNumber": 773,
+    "romanization": "gyesokhada"
   },
   {
     "id": 774,
@@ -27,7 +29,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 774
+    "sourceNumber": 774,
+    "romanization": "dallida"
   },
   {
     "id": 775,
@@ -38,7 +41,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 775,
-    "note": "piyoda"
+    "note": "piyoda",
+    "romanization": "geotda"
   },
   {
     "id": 776,
@@ -48,7 +52,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 776
+    "sourceNumber": 776,
+    "romanization": "seuteurechinghada"
   },
   {
     "id": 777,
@@ -58,7 +63,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 777
+    "sourceNumber": 777,
+    "romanization": "ttameul heullida"
   },
   {
     "id": 778,
@@ -68,7 +74,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 778
+    "sourceNumber": 778,
+    "romanization": "meomchuda"
   },
   {
     "id": 779,
@@ -78,7 +85,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 779
+    "sourceNumber": 779,
+    "romanization": "jeonche"
   },
   {
     "id": 780,
@@ -88,7 +96,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 780
+    "sourceNumber": 780,
+    "romanization": "ollagada"
   },
   {
     "id": 781,
@@ -98,7 +107,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 781
+    "sourceNumber": 781,
+    "romanization": "naeryeogada"
   },
   {
     "id": 782,
@@ -108,7 +118,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 782
+    "sourceNumber": 782,
+    "romanization": "ganghada"
   },
   {
     "id": 783,
@@ -118,7 +129,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 783
+    "sourceNumber": 783,
+    "romanization": "yakhada"
   },
   {
     "id": 784,
@@ -128,7 +140,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 784
+    "sourceNumber": 784,
+    "romanization": "ama"
   },
   {
     "id": 785,
@@ -138,7 +151,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 785
+    "sourceNumber": 785,
+    "romanization": "ppareuda"
   },
   {
     "id": 786,
@@ -148,7 +162,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 786
+    "sourceNumber": 786,
+    "romanization": "moreuda"
   },
   {
     "id": 787,
@@ -158,7 +173,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 787
+    "sourceNumber": 787,
+    "romanization": "dareuda"
   },
   {
     "id": 788,
@@ -168,7 +184,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 788
+    "sourceNumber": 788,
+    "romanization": "goreuda"
   },
   {
     "id": 789,
@@ -178,7 +195,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 789
+    "sourceNumber": 789,
+    "romanization": "mareuda"
   },
   {
     "id": 790,
@@ -188,7 +206,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 790
+    "sourceNumber": 790,
+    "romanization": "gireuda"
   },
   {
     "id": 791,
@@ -198,7 +217,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 791
+    "sourceNumber": 791,
+    "romanization": "heureuda"
   },
   {
     "id": 792,
@@ -208,7 +228,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 792
+    "sourceNumber": 792,
+    "romanization": "bureuda"
   },
   {
     "id": 793,
@@ -218,7 +239,8 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 793
+    "sourceNumber": 793,
+    "romanization": "jareuda"
   },
   {
     "id": 794,
@@ -228,6 +250,7 @@
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 794
+    "sourceNumber": 794,
+    "romanization": "nureuda"
   }
 ]

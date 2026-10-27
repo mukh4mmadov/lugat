@@ -8,7 +8,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 734,
-    "note": "suvenir"
+    "note": "suvenir",
+    "romanization": "ginyeompum"
   },
   {
     "id": 735,
@@ -18,7 +19,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 735
+    "sourceNumber": 735,
+    "romanization": "gung"
   },
   {
     "id": 736,
@@ -29,7 +31,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 736,
-    "note": "park"
+    "note": "park",
+    "romanization": "seoulsup"
   },
   {
     "id": 737,
@@ -39,7 +42,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 737
+    "sourceNumber": 737,
+    "romanization": "hangang"
   },
   {
     "id": 738,
@@ -49,7 +53,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 738
+    "sourceNumber": 738,
+    "romanization": "kkonmokgeori (kkonmokgeori)"
   },
   {
     "id": 739,
@@ -60,7 +65,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 739,
-    "note": "koreys milliy qo'shig'i"
+    "note": "koreys milliy qo'shig'i",
+    "romanization": "arirang"
   },
   {
     "id": 740,
@@ -70,7 +76,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 740
+    "sourceNumber": 740,
+    "romanization": "deo"
   },
   {
     "id": 741,
@@ -80,7 +87,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 741
+    "sourceNumber": 741,
+    "romanization": "haru"
   },
   {
     "id": 742,
@@ -90,7 +98,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 742
+    "sourceNumber": 742,
+    "romanization": "danpung"
   },
   {
     "id": 743,
@@ -100,7 +109,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 743
+    "sourceNumber": 743,
+    "romanization": "kkeunnaeda"
   },
   {
     "id": 744,
@@ -110,7 +120,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 744
+    "sourceNumber": 744,
+    "romanization": "doneul beolda"
   },
   {
     "id": 745,
@@ -120,7 +131,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 745
+    "sourceNumber": 745,
+    "romanization": "gamgie geollida"
   },
   {
     "id": 746,
@@ -131,7 +143,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 746,
-    "note": "darsni"
+    "note": "darsni",
+    "romanization": "bokseuphada"
   },
   {
     "id": 747,
@@ -141,7 +154,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 747
+    "sourceNumber": 747,
+    "romanization": "kkumeul kkuda"
   },
   {
     "id": 748,
@@ -151,7 +165,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 748
+    "sourceNumber": 748,
+    "romanization": "keunil nada"
   },
   {
     "id": 749,
@@ -162,7 +177,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 749,
-    "note": "avariya"
+    "note": "avariya",
+    "romanization": "gyotongsago"
   },
   {
     "id": 750,
@@ -172,7 +188,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 750
+    "sourceNumber": 750,
+    "romanization": "eojetbam"
   },
   {
     "id": 751,
@@ -182,7 +199,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 751
+    "sourceNumber": 751,
+    "romanization": "dongan"
   },
   {
     "id": 752,
@@ -192,7 +210,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 752
+    "sourceNumber": 752,
+    "romanization": "isanghada"
   },
   {
     "id": 753,
@@ -202,7 +221,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 753
+    "sourceNumber": 753,
+    "romanization": "noryeokhada"
   },
   {
     "id": 754,
@@ -212,7 +232,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 754
+    "sourceNumber": 754,
+    "romanization": "mareul tada"
   },
   {
     "id": 755,
@@ -222,7 +243,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 755
+    "sourceNumber": 755,
+    "romanization": "saineul batda"
   },
   {
     "id": 756,
@@ -232,7 +254,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 756
+    "sourceNumber": 756,
+    "romanization": "janggap"
   },
   {
     "id": 757,
@@ -242,7 +265,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 757
+    "sourceNumber": 757,
+    "romanization": "jigap"
   },
   {
     "id": 758,
@@ -252,7 +276,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 758
+    "sourceNumber": 758,
+    "romanization": "ihaehada"
   },
   {
     "id": 759,
@@ -262,7 +287,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 759
+    "sourceNumber": 759,
+    "romanization": "nupda"
   },
   {
     "id": 760,
@@ -272,7 +298,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 760
+    "sourceNumber": 760,
+    "romanization": "geureochiman"
   },
   {
     "id": 761,
@@ -282,7 +309,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 761
+    "sourceNumber": 761,
+    "romanization": "gojang nada"
   },
   {
     "id": 762,
@@ -292,7 +320,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 762
+    "sourceNumber": 762,
+    "romanization": "ireobeorida"
   },
   {
     "id": 763,
@@ -302,7 +331,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 763
+    "sourceNumber": 763,
+    "romanization": "geulsseyo"
   },
   {
     "id": 764,
@@ -312,7 +342,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 764
+    "sourceNumber": 764,
+    "romanization": "jeulgida"
   },
   {
     "id": 765,
@@ -322,7 +353,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 765
+    "sourceNumber": 765,
+    "romanization": "seontaekhada"
   },
   {
     "id": 766,
@@ -332,7 +364,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 766
+    "sourceNumber": 766,
+    "romanization": "eonjejjeum"
   },
   {
     "id": 767,
@@ -342,7 +375,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 767
+    "sourceNumber": 767,
+    "romanization": "dongdaemunsijang"
   },
   {
     "id": 768,
@@ -353,7 +387,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 768,
-    "note": "fanat"
+    "note": "fanat",
+    "romanization": "paen"
   },
   {
     "id": 769,
@@ -363,7 +398,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 769
+    "sourceNumber": 769,
+    "romanization": "danida"
   },
   {
     "id": 770,
@@ -373,7 +409,8 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 770
+    "sourceNumber": 770,
+    "romanization": "deiteuhada"
   },
   {
     "id": 771,
@@ -383,6 +420,7 @@
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 771
+    "sourceNumber": 771,
+    "romanization": "sajineul jjikda"
   }
 ]

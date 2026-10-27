@@ -7,7 +7,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 604
+    "sourceNumber": 604,
+    "romanization": "SNS"
   },
   {
     "id": 605,
@@ -17,7 +18,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 605
+    "sourceNumber": 605,
+    "romanization": "bakke nagada"
   },
   {
     "id": 606,
@@ -27,7 +29,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 606
+    "sourceNumber": 606,
+    "romanization": "ppareuda"
   },
   {
     "id": 607,
@@ -38,7 +41,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 607,
-    "note": "radio orqali ma'lumot berish"
+    "note": "radio orqali ma'lumot berish",
+    "romanization": "annae bangsong"
   },
   {
     "id": 608,
@@ -48,7 +52,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 608
+    "sourceNumber": 608,
+    "romanization": "ilboneo"
   },
   {
     "id": 609,
@@ -58,7 +63,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 609
+    "sourceNumber": 609,
+    "romanization": "oegugin"
   },
   {
     "id": 610,
@@ -68,7 +74,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 610
+    "sourceNumber": 610,
+    "romanization": "noyakjaseok (noyakjasok)"
   },
   {
     "id": 611,
@@ -78,7 +85,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 611
+    "sourceNumber": 611,
+    "romanization": "imsanbuseok"
   },
   {
     "id": 612,
@@ -88,7 +96,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 612
+    "sourceNumber": 612,
+    "romanization": "noin"
   },
   {
     "id": 613,
@@ -98,7 +107,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 613
+    "sourceNumber": 613,
+    "romanization": "mom"
   },
   {
     "id": 614,
@@ -108,7 +118,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 614
+    "sourceNumber": 614,
+    "romanization": "imsanbu"
   },
   {
     "id": 615,
@@ -119,7 +130,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 615,
-    "note": "yoshi ulug' insonlar"
+    "note": "yoshi ulug' insonlar",
+    "romanization": "eoreun"
   },
   {
     "id": 616,
@@ -129,7 +141,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 616
+    "sourceNumber": 616,
+    "romanization": "eeokeon"
   },
   {
     "id": 617,
@@ -139,7 +152,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 617
+    "sourceNumber": 617,
+    "romanization": "jihacheoryeok"
   },
   {
     "id": 618,
@@ -149,7 +163,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 618
+    "sourceNumber": 618,
+    "romanization": "gyotongkadeu"
   },
   {
     "id": 619,
@@ -159,7 +174,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 619
+    "sourceNumber": 619,
+    "romanization": "chulgu"
   },
   {
     "id": 620,
@@ -169,7 +185,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 620
+    "sourceNumber": 620,
+    "romanization": "ipgu"
   },
   {
     "id": 621,
@@ -180,7 +197,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 621,
-    "note": "peresadka"
+    "note": "peresadka",
+    "romanization": "garatada"
   },
   {
     "id": 622,
@@ -191,7 +209,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 622,
-    "note": "metroda"
+    "note": "metroda",
+    "romanization": "hoseon"
   },
   {
     "id": 623,
@@ -202,7 +221,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 623,
-    "note": "transportdan) / Yog'moq (yomg'ir/qor"
+    "note": "transportdan) / Yog'moq (yomg'ir/qor",
+    "romanization": "naerida"
   },
   {
     "id": 624,
@@ -212,7 +232,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 624
+    "sourceNumber": 624,
+    "romanization": "sikkeureopda"
   },
   {
     "id": 625,
@@ -222,7 +243,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 625
+    "sourceNumber": 625,
+    "romanization": "jari"
   },
   {
     "id": 626,
@@ -232,7 +254,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 626
+    "sourceNumber": 626,
+    "romanization": "oegugeoro"
   },
   {
     "id": 627,
@@ -242,7 +265,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 627
+    "sourceNumber": 627,
+    "romanization": "yeok"
   },
   {
     "id": 628,
@@ -252,7 +276,8 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 628
+    "sourceNumber": 628,
+    "romanization": "bunhongsaek"
   },
   {
     "id": 629,
@@ -262,6 +287,7 @@
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 629
+    "sourceNumber": 629,
+    "romanization": "momi bulpyeonhan saram"
   }
 ]

@@ -7,7 +7,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 578
+    "sourceNumber": 578,
+    "romanization": "iri saenggida"
   },
   {
     "id": 579,
@@ -17,7 +18,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 579
+    "sourceNumber": 579,
+    "romanization": "gapjagi"
   },
   {
     "id": 580,
@@ -28,7 +30,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 580,
-    "note": "maktab, universitetda"
+    "note": "maktab, universitetda",
+    "romanization": "banghak"
   },
   {
     "id": 581,
@@ -39,7 +42,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 581,
-    "note": "pishiriq"
+    "note": "pishiriq",
+    "romanization": "gyeranppang"
   },
   {
     "id": 582,
@@ -50,7 +54,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 582,
-    "note": "tayoqchadagi guruchli taom"
+    "note": "tayoqchadagi guruchli taom",
+    "romanization": "tteokkkochi"
   },
   {
     "id": 583,
@@ -60,7 +65,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 583
+    "sourceNumber": 583,
+    "romanization": "hansik"
   },
   {
     "id": 584,
@@ -70,7 +76,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 584
+    "sourceNumber": 584,
+    "romanization": "hanguksaenghwal"
   },
   {
     "id": 585,
@@ -80,7 +87,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 585
+    "sourceNumber": 585,
+    "romanization": "ibeo boda"
   },
   {
     "id": 586,
@@ -90,7 +98,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 586
+    "sourceNumber": 586,
+    "romanization": "gugyeonghada"
   },
   {
     "id": 587,
@@ -100,7 +109,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 587
+    "sourceNumber": 587,
+    "romanization": "sigan jal bonaeda"
   },
   {
     "id": 588,
@@ -110,7 +120,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 588
+    "sourceNumber": 588,
+    "romanization": "hyuil"
   },
   {
     "id": 589,
@@ -120,7 +131,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 589
+    "sourceNumber": 589,
+    "romanization": "akka"
   },
   {
     "id": 590,
@@ -130,7 +142,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 590
+    "sourceNumber": 590,
+    "romanization": "gimbap"
   },
   {
     "id": 591,
@@ -141,7 +154,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 591,
-    "note": "baliq shaklidagi shirinlik"
+    "note": "baliq shaklidagi shirinlik",
+    "romanization": "bungeoppang"
   },
   {
     "id": 592,
@@ -152,7 +166,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 592,
-    "note": "Seuldagi tog'"
+    "note": "Seuldagi tog'",
+    "romanization": "namsan"
   },
   {
     "id": 593,
@@ -162,7 +177,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 593
+    "sourceNumber": 593,
+    "romanization": "bamgyeongchi"
   },
   {
     "id": 594,
@@ -172,7 +188,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 594
+    "sourceNumber": 594,
+    "romanization": "jeontong"
   },
   {
     "id": 595,
@@ -183,7 +200,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 595,
-    "note": "koreys milliy kiyimi"
+    "note": "koreys milliy kiyimi",
+    "romanization": "hanbok"
   },
   {
     "id": 596,
@@ -193,7 +211,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 596
+    "sourceNumber": 596,
+    "romanization": "deurama"
   },
   {
     "id": 597,
@@ -203,7 +222,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 597
+    "sourceNumber": 597,
+    "romanization": "geuttae"
   },
   {
     "id": 598,
@@ -213,7 +233,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 598
+    "sourceNumber": 598,
+    "romanization": "yeoreo gaji"
   },
   {
     "id": 599,
@@ -223,7 +244,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 599
+    "sourceNumber": 599,
+    "romanization": "gyehoek"
   },
   {
     "id": 600,
@@ -233,7 +255,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 600
+    "sourceNumber": 600,
+    "romanization": "jeulgeopge"
   },
   {
     "id": 601,
@@ -243,7 +266,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 601
+    "sourceNumber": 601,
+    "romanization": "hansikjip"
   },
   {
     "id": 602,
@@ -253,7 +277,8 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 602
+    "sourceNumber": 602,
+    "romanization": "joeun chueogeul mandeulda"
   },
   {
     "id": 603,
@@ -263,6 +288,7 @@
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 603
+    "sourceNumber": 603,
+    "romanization": "gyeongheomhada"
   }
 ]

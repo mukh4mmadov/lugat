@@ -7,7 +7,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 712
+    "sourceNumber": 712,
+    "romanization": "jal an boida"
   },
   {
     "id": 713,
@@ -17,7 +18,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 713
+    "sourceNumber": 713,
+    "romanization": "geomsareul hada"
   },
   {
     "id": 714,
@@ -28,7 +30,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 714,
-    "note": "bolalar bo'limi"
+    "note": "bolalar bo'limi",
+    "romanization": "soagwa"
   },
   {
     "id": 715,
@@ -39,7 +42,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 715,
-    "note": "markazi"
+    "note": "markazi",
+    "romanization": "sangdam(senteo)"
   },
   {
     "id": 716,
@@ -49,7 +53,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 716
+    "sourceNumber": 716,
+    "romanization": "cheoneul hwaginhada"
   },
   {
     "id": 717,
@@ -59,7 +64,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 717
+    "sourceNumber": 717,
+    "romanization": "jakku"
   },
   {
     "id": 718,
@@ -69,7 +75,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 718
+    "sourceNumber": 718,
+    "romanization": "koga makhida"
   },
   {
     "id": 719,
@@ -79,7 +86,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 719
+    "sourceNumber": 719,
+    "romanization": "jaechaegireul hada"
   },
   {
     "id": 720,
@@ -89,7 +97,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 720
+    "sourceNumber": 720,
+    "romanization": "angyeongeul sseuda"
   },
   {
     "id": 721,
@@ -99,7 +108,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 721
+    "sourceNumber": 721,
+    "romanization": "nunmuri nada"
   },
   {
     "id": 722,
@@ -110,7 +120,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 722,
-    "note": "ko'z kasalliklari bo'limi"
+    "note": "ko'z kasalliklari bo'limi",
+    "romanization": "angwa"
   },
   {
     "id": 723,
@@ -121,7 +132,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 723,
-    "note": "tish kasalliklari bo'limi"
+    "note": "tish kasalliklari bo'limi",
+    "romanization": "chigwa"
   },
   {
     "id": 724,
@@ -131,7 +143,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 724
+    "sourceNumber": 724,
+    "romanization": "chokollit"
   },
   {
     "id": 725,
@@ -141,7 +154,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 725
+    "sourceNumber": 725,
+    "romanization": "butda"
   },
   {
     "id": 726,
@@ -151,7 +165,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 726
+    "sourceNumber": 726,
+    "romanization": "piga nada"
   },
   {
     "id": 727,
@@ -161,7 +176,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 727
+    "sourceNumber": 727,
+    "romanization": "sangcheoreul dakda"
   },
   {
     "id": 728,
@@ -171,7 +187,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 728
+    "sourceNumber": 728,
+    "romanization": "gomini manta"
   },
   {
     "id": 729,
@@ -181,7 +198,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 729
+    "sourceNumber": 729,
+    "romanization": "derida"
   },
   {
     "id": 730,
@@ -191,7 +209,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 730
+    "sourceNumber": 730,
+    "romanization": "maseukeu"
   },
   {
     "id": 731,
@@ -201,7 +220,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 731
+    "sourceNumber": 731,
+    "romanization": "siryeok"
   },
   {
     "id": 732,
@@ -211,7 +231,8 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 732
+    "sourceNumber": 732,
+    "romanization": "dutongyak"
   },
   {
     "id": 733,
@@ -221,6 +242,7 @@
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 733
+    "sourceNumber": 733,
+    "romanization": "jillyoreul batda"
   }
 ]
