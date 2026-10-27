@@ -24,6 +24,7 @@ import ShareModal from "../components/ShareModal";
 import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
+import PasswordInput from "../components/PasswordInput";
 
 export function SearchPage() {
   const { t } = useTranslation();
@@ -575,28 +576,28 @@ export function SettingsPage() {
               >
                 <label className="text-xs font-bold">
                   {t("settings.newPassword", { defaultValue: "New password" })}
-                  <input
-                    type="password"
+                  <PasswordInput
                     autoComplete="new-password"
                     minLength={8}
                     required
                     value={newPassword}
                     onChange={(event) => setNewPassword(event.target.value)}
-                    className="premium-input mt-1"
+                    className="premium-input"
+                    wrapperClassName="mt-1"
                   />
                 </label>
                 <label className="text-xs font-bold">
                   {t("settings.confirmPassword", {
                     defaultValue: "Confirm password",
                   })}
-                  <input
-                    type="password"
+                  <PasswordInput
                     autoComplete="new-password"
                     minLength={8}
                     required
                     value={confirmPassword}
                     onChange={(event) => setConfirmPassword(event.target.value)}
-                    className="premium-input mt-1"
+                    className="premium-input"
+                    wrapperClassName="mt-1"
                   />
                 </label>
                 <button

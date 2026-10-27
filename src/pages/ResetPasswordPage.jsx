@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
+import PasswordInput from "../components/PasswordInput";
 
 export default function ResetPasswordPage() {
   const { t } = useTranslation();
@@ -135,10 +136,9 @@ export default function ResetPasswordPage() {
                 >
                   {t("resetPassword.newPassword")}
                 </label>
-                <input
+                <PasswordInput
                   id="reset-password"
                   name="password"
-                  type="password"
                   autoComplete="new-password"
                   required
                   value={form.password}
@@ -168,10 +168,9 @@ export default function ResetPasswordPage() {
                 >
                   {t("resetPassword.confirmPassword")}
                 </label>
-                <input
+                <PasswordInput
                   id="reset-confirm-password"
                   name="confirmPassword"
-                  type="password"
                   autoComplete="new-password"
                   required
                   value={form.confirmPassword}

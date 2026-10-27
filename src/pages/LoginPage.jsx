@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
+import PasswordInput from "../components/PasswordInput";
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -16,7 +17,6 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
   const [generalError, setGeneralError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const update = (field) => (e) => {
     const value = e.target.value;
@@ -157,10 +157,9 @@ export default function LoginPage() {
                 >
                   {t("login.password")}
                 </label>
-                <input
+                <PasswordInput
                   id="login-password"
                   name="password"
-                  type="password"
                   autoComplete="current-password"
                   required
                   value={form.password}
@@ -203,21 +202,14 @@ export default function LoginPage() {
 
               <button
                 type="submit"
-                disabled={loading || !agreedToTerms}
+                disabled={loading}
                 className="action-btn w-full bg-slate-950 text-white dark:bg-white dark:text-slate-950 disabled:opacity-50"
               >
                 {loading ? t("common.loading") : t("login.submit")}
               </button>
             </form>
 
-            <label className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
-              <input
-                type="checkbox"
-                checked={agreedToTerms}
-                onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
-              />
-              <span>
+            <p className="mt-3 text-center text-xs text-slate-500 dark:text-slate-400">
                 {t("login.agreement")}{" "}
                 <Link
                   to="/terms"
@@ -232,8 +224,7 @@ export default function LoginPage() {
                 >
                   {t("login.privacy")}
                 </Link>
-              </span>
-            </label>
+            </p>
 
             <div className="mt-6 flex items-center gap-3">
               <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
@@ -246,7 +237,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleGoogleSignIn}
-              disabled={loading || !agreedToTerms}
+              disabled={loading}
               className="action-btn mt-4 w-full bg-white text-slate-900 border border-slate-200 dark:bg-white/5 dark:text-white dark:border-white/10 disabled:opacity-50"
             >
               {t("login.googleSignIn")}

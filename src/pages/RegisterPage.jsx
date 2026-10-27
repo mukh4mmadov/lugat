@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import GlassCard from "../components/GlassCard";
 import LanguageSelector from "../components/LanguageSelector";
 import { supabase } from "../lib/supabase";
+import PasswordInput from "../components/PasswordInput";
 
 function getDaysInMonth(month, year) {
   if (!month || !year) return 31;
@@ -367,10 +368,9 @@ export default function RegisterPage() {
                 >
                   {t("register.password")}
                 </label>
-                <input
+                <PasswordInput
                   id="register-password"
                   name="password"
-                  type="password"
                   autoComplete="new-password"
                   required
                   value={form.password}
@@ -399,10 +399,9 @@ export default function RegisterPage() {
                 >
                   {t("register.confirmPassword")}
                 </label>
-                <input
+                <PasswordInput
                   id="register-confirm-password"
                   name="confirmPassword"
-                  type="password"
                   autoComplete="new-password"
                   required
                   value={form.confirmPassword}

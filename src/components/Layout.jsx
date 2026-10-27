@@ -386,7 +386,7 @@ export default function Layout({ onShowIELTSModal }) {
         </header>
 
         <AnimatePresence initial={false}>
-          {showTopikAnnouncement && (
+          {showTopikAnnouncement && location.pathname === "/" && (
             <motion.aside
               role="status"
               aria-labelledby="topik-announcement-title"

@@ -339,6 +339,8 @@ const en = {
   "admin.feedback.all": "All",
   "admin.feedback.replied": "Replied",
   "admin.feedback.pick": "Choose a report on the left",
+  "auth.showPassword": "Show password",
+  "auth.hidePassword": "Hide password",
 };
 
 const uz = {
@@ -681,6 +683,8 @@ const uz = {
   "admin.feedback.all": "Hammasi",
   "admin.feedback.replied": "Javob berilgan",
   "admin.feedback.pick": "Chapdan murojaatni tanlang",
+  "auth.showPassword": "Parolni ko‘rsatish",
+  "auth.hidePassword": "Parolni yashirish",
 };
 
 const ru = {
@@ -1074,6 +1078,8 @@ const ru = {
   "admin.feedback.all": "Все",
   "admin.feedback.replied": "Есть ответ",
   "admin.feedback.pick": "Выберите обращение слева",
+  "auth.showPassword": "Показать пароль",
+  "auth.hidePassword": "Скрыть пароль",
 };
 
 export default { en, uz, ru };

@@ -347,11 +347,12 @@ async function createSession(userId, title, token) {
   return data.id;
 }
 
-async function saveMessage(sessionId, role, content, token) {
+async function saveMessage(sessionId, userId, role, content, token) {
   const db = getUserScopedClient(token);
   if (!db) return;
   const { error } = await db.from("ai_chat_messages").insert({
     session_id: sessionId,
+    user_id: userId,
     role,
     content,
   });
@@ -558,9 +559,9 @@ export default async function handler(req, res) {
     });
   }
 
-  if (sessionId) {
-    await saveMessage(sessionId, "user", trimmed, authToken);
-    await saveMessage(sessionId, "assistant", reply, authToken);
+  if (sessionId && user) {
+    await saveMessage(sessionId, user.id, "user", trimmed, authToken);
+    await saveMessage(sessionId, user.id, "assistant", reply, authToken);
     await touchSession(sessionId, authToken);
   }
 
