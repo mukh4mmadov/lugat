@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { supabase, timeoutSignal } from './supabase';
 
 let currentUserId = null;
 
@@ -10,23 +10,19 @@ export function getCurrentSyncUserId() {
   return currentUserId;
 }
 
+// Resolves to the saved progress, or null when the user has none yet.
+// Throws when the request fails: "unknown" must not be mistaken for "none",
+// or the empty local progress would be saved over the real one.
 export async function fetchServerProgress(userId) {
-  try {
-    const { data, error } = await supabase
-      .from('user_progress')
-      .select('data')
-      .eq('user_id', userId)
-      .maybeSingle();
+  const { data, error } = await supabase
+    .from('user_progress')
+    .select('data')
+    .eq('user_id', userId)
+    .abortSignal(timeoutSignal())
+    .maybeSingle();
 
-    if (error) {
-      console.error('Error fetching server progress:', error);
-      return null;
-    }
-    return data?.data ?? null;
-  } catch (err) {
-    console.error('Exception fetching server progress:', err);
-    return null;
-  }
+  if (error) throw error;
+  return data?.data ?? null;
 }
 
 export async function saveServerProgress(userId, progressData) {

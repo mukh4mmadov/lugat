@@ -14,6 +14,14 @@ if (
   );
 }
 
+// Aborts a request that hangs on a bad connection, so the app can fall back
+// to local data instead of waiting for the browser's own (much longer) timeout.
+export function timeoutSignal(ms = 8000) {
+  const controller = new AbortController();
+  setTimeout(() => controller.abort(), ms);
+  return controller.signal;
+}
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     flowType: "pkce",

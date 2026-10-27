@@ -6,13 +6,35 @@ import {
   useRef,
   useCallback,
 } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase, timeoutSignal } from "../lib/supabase";
 import { useDispatch } from "react-redux";
 import { setCurrentSyncUserId } from "../lib/progressSync";
 import { store, hydrateProgress } from "../store";
 import { fetchServerProgress, saveServerProgress } from "../lib/progressSync";
 
 const AuthContext = createContext(null);
+
+// The last loaded profile, so a signed-in learner can keep studying when the
+// profile request fails on a bad connection instead of waiting on a loader.
+const PROFILE_CACHE_KEY = "k-talim:profile:v1";
+
+function readCachedProfile(userId) {
+  try {
+    const cached = JSON.parse(localStorage.getItem(PROFILE_CACHE_KEY) || "null");
+    return cached?.userId === userId ? cached.profile : null;
+  } catch {
+    return null;
+  }
+}
+
+function cacheProfile(userId, profile) {
+  try {
+    if (profile) localStorage.setItem(PROFILE_CACHE_KEY, JSON.stringify({ userId, profile }));
+    else localStorage.removeItem(PROFILE_CACHE_KEY);
+  } catch {
+    // Storage is optional.
+  }
+}
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -25,11 +47,13 @@ export function AuthProvider({ children }) {
   const dispatch = useDispatch();
   const hasSyncedRef = useRef(false);
   const profileRequestRef = useRef(null);
+  const syncRetryRef = useRef(0);
 
   const syncProgressOnLogin = useCallback(
     async (userId) => {
       try {
         const serverData = await fetchServerProgress(userId);
+        syncRetryRef.current = 0;
         if (serverData) {
           dispatch(hydrateProgress(serverData));
           setCurrentSyncUserId(userId);
@@ -47,7 +71,16 @@ export function AuthProvider({ children }) {
           }
         }
       } catch (err) {
+        // Leave server saving off and try again shortly.
         console.error("Error syncing progress on login:", err);
+        if (syncRetryRef.current < 5) {
+          syncRetryRef.current += 1;
+          setTimeout(async () => {
+            // Only if the same user is still signed in.
+            const { data } = await supabase.auth.getSession();
+            if (data.session?.user.id === userId) syncProgressOnLogin(userId);
+          }, 15000 * syncRetryRef.current);
+        }
       }
     },
     [dispatch],
@@ -62,8 +95,10 @@ export function AuthProvider({ children }) {
         if (session?.user) {
           const complete = await fetchProfile(session.user.id, session.user);
           if (complete) {
-            await syncProgressOnLogin(session.user.id);
+            // Progress loads in the background. Saving to the server only
+            // starts once it has loaded, so local data can't overwrite it.
             hasSyncedRef.current = true;
+            syncProgressOnLogin(session.user.id);
           }
         } else {
           setProfile(null);
@@ -101,6 +136,7 @@ export function AuthProvider({ children }) {
         setProfileComplete(false);
         setPendingProgressImport(false);
         setCurrentSyncUserId(null);
+        cacheProfile(null, null);
         hasSyncedRef.current = false;
       }
     });
@@ -128,19 +164,30 @@ export function AuthProvider({ children }) {
         .from("profiles")
         .select("first_name, last_name, birth_year")
         .eq("id", userId)
-        .single();
+        .abortSignal(timeoutSignal())
+        .maybeSingle();
 
       if (error) throw error;
+      // No row yet: handled below like PostgREST's "0 rows" error.
+      if (!data) throw Object.assign(new Error("0 rows"), { code: "PGRST116" });
       setProfile(data);
+      cacheProfile(userId, data);
       setProfileComplete(true);
       isComplete = true;
     } catch (error) {
-      console.error("Error fetching profile:", error);
       setProfile(null);
 
       const isMissingProfile =
         error.code === "PGRST116" || /0 rows/i.test(error.message || "");
-      if (isMissingProfile && user) {
+      if (!isMissingProfile) {
+        // A network or server error says nothing about whether the profile
+        // exists; don't send an existing learner to "complete your profile".
+        console.error("Error fetching profile:", error);
+        setProfile(readCachedProfile(userId));
+        setProfileComplete(true);
+        return true;
+      }
+      if (user) {
         const metadata = user.user_metadata || {};
         const { first_name, last_name, birth_date: birthDateStr } = metadata;
 
@@ -156,11 +203,13 @@ export function AuthProvider({ children }) {
               });
 
             if (!insertError) {
-              setProfile({
+              const created = {
                 first_name: first_name.trim(),
                 last_name: last_name.trim(),
                 birth_year: Number(birthDateStr.split("-")[0]),
-              });
+              };
+              setProfile(created);
+              cacheProfile(userId, created);
               setProfileComplete(true);
               isComplete = true;
             } else {
