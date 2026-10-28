@@ -17,12 +17,15 @@ import {
   questionTypeBreakdown,
 } from "../data/topik/exams";
 import { formatDate } from "../lib/dates";
+import { getDeviceId } from "../lib/deviceId";
+import { isPremium } from "../lib/premium";
 import {
   createTopikAttempt,
   deleteTopikAttempt,
   findActiveAttempt,
   getTopikAttempt,
   listTopikAttempts,
+  saveTopikReview,
   submitTopikAttempt,
   updateTopikAttempt,
 } from "../lib/topikAttempts";
@@ -1112,11 +1115,111 @@ function ConfirmSubmit({ unanswered, flagged, remaining, onCancel, onConfirm }) 
   );
 }
 
+// AI explanations of the learner's mistakes. Free accounts get one
+// explanation as a taste; premium explains them in batches of ten. Results are
+// stored with the attempt so they are never requested twice.
+function AiReviewPanel({ attempt, variant, mistakes, explained, onExplained }) {
+  const { t, i18n } = useTranslation();
+  const { user, session } = useAuth();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const [limitReached, setLimitReached] = useState(false);
+  const pending = mistakes.filter((question) => !explained[question.number]);
+  const premium = isPremium(user);
+  const usedFree = !premium && Object.keys(explained).length > 0;
+
+  const run = async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${session?.access_token || ""}` },
+        body: JSON.stringify({
+          action: "topikReview",
+          variantId: variant.id,
+          numbers: pending.map((question) => question.number),
+          answers: attempt.answers || {},
+          language: i18n.language,
+          deviceId: getDeviceId(),
+        }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (response.status === 429) {
+        setLimitReached(true);
+        return;
+      }
+      if (!response.ok) throw new Error(data.error || "failed");
+      onExplained(data.explanations || {});
+    } catch {
+      setError(t("topik.ai.failed"));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!mistakes.length) return null;
+  return (
+    <GlassCard className="relative overflow-hidden p-6 md:p-8">
+      <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-violet-400/25 blur-3xl" />
+      <div className="relative flex flex-wrap items-start justify-between gap-4">
+        <div className="max-w-2xl">
+          <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">🤖 {t("topik.ai.eyebrow")}</p>
+          <h2 className="mt-1 text-2xl font-black">{t("topik.ai.title")}</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.ai.text", { count: mistakes.length })}</p>
+          <p className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">{t("topik.ai.progress", { done: mistakes.length - pending.length, total: mistakes.length })}</p>
+        </div>
+        <div className="flex flex-col items-stretch gap-2">
+          {!user ? (
+            <Link to="/login" state={{ from: { pathname: window.location.pathname } }} className="rounded-2xl bg-violet-600 px-5 py-3 text-center font-black text-white">{t("topik.ai.signIn")}</Link>
+          ) : pending.length === 0 ? (
+            <span className="rounded-2xl bg-emerald-100 px-5 py-3 text-center font-black text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-200">✓ {t("topik.ai.allDone")}</span>
+          ) : usedFree || limitReached ? (
+            <Link to="/premium" className="rounded-2xl bg-violet-600 px-5 py-3 text-center font-black text-white">
+              ⭐ {limitReached && premium ? t("topik.ai.limitPremium") : t("topik.ai.unlock", { count: pending.length })}
+            </Link>
+          ) : (
+            <button type="button" onClick={run} disabled={busy} className="rounded-2xl bg-violet-600 px-5 py-3 font-black text-white disabled:opacity-60">
+              {busy ? t("topik.ai.working") : premium ? t("topik.ai.explainBatch", { count: Math.min(10, pending.length) }) : t("topik.ai.explainOne")}
+            </button>
+          )}
+          {!premium && user && !usedFree && pending.length > 0 && <p className="text-center text-[11px] font-semibold text-slate-500">{t("topik.ai.freeHint")}</p>}
+        </div>
+      </div>
+      {error && <p role="alert" className="relative mt-3 text-sm font-bold text-rose-600">{error}</p>}
+    </GlassCard>
+  );
+}
+
+function Explanation({ data }) {
+  const { t } = useTranslation();
+  const rows = [
+    ["whyWrong", "❌", "text-rose-700 dark:text-rose-200"],
+    ["whyRight", "✅", "text-emerald-700 dark:text-emerald-200"],
+    ["keyPoint", "🔑", "text-slate-800 dark:text-slate-100"],
+    ["tip", "💡", "text-slate-800 dark:text-slate-100"],
+  ];
+  return (
+    <div className="mt-4 space-y-2 rounded-2xl border border-violet-200 bg-violet-50/70 p-4 text-sm leading-6 dark:border-violet-400/20 dark:bg-violet-500/10">
+      <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">🤖 {t("topik.ai.eyebrow")}</p>
+      {rows.map(([key, icon, tone]) =>
+        data[key] ? (
+          <p key={key} className={tone}>
+            <span className="mr-1">{icon}</span>
+            <b>{t(`topik.ai.${key}`)}:</b> {data[key]}
+          </p>
+        ) : null,
+      )}
+    </div>
+  );
+}
+
 export function TopikResultPage() {
   const { t, i18n } = useTranslation();
   const { attemptId } = useParams();
   const navigate = useNavigate();
-  const attempt = useMemo(() => getTopikAttempt(attemptId), [attemptId]);
+  const [attempt, setAttempt] = useState(() => getTopikAttempt(attemptId));
+  useEffect(() => setAttempt(getTopikAttempt(attemptId)), [attemptId]);
   const [filter, setFilter] = useState("all");
   const [openQuestion, setOpenQuestion] = useState(null);
 
@@ -1132,7 +1235,7 @@ export function TopikResultPage() {
   const variant = getTopikVariant(attempt.variantId);
   const exam = getTopikExam(variant.examId);
   const questions = getVariantQuestions(variant);
-  const { result, answers = {}, flagged = {}, timeSpent = {} } = attempt;
+  const { result, answers = {}, flagged = {}, timeSpent = {}, aiReview = {} } = attempt;
   const breakdown = questionTypeBreakdown(questions, answers);
   const slowest = questions
     .filter((question) => timeSpent[question.number])
@@ -1152,6 +1255,9 @@ export function TopikResultPage() {
     unanswered: questions.filter((question) => statusOf(question) === "unanswered").length,
     flagged: questions.filter((question) => flagged[question.number]).length,
   };
+
+  const mistakes = questions.filter((question) => statusOf(question) !== "correct");
+  const saveExplanations = (explanations) => setAttempt((current) => saveTopikReview(current.id, explanations) || { ...current, aiReview: { ...(current.aiReview || {}), ...explanations } });
 
   const retake = () => {
     createTopikAttempt(variant.id);
@@ -1238,6 +1344,8 @@ export function TopikResultPage() {
         )}
       </GlassCard>
 
+      <AiReviewPanel attempt={attempt} variant={variant} mistakes={mistakes} explained={aiReview} onExplained={saveExplanations} />
+
       <div className="grid gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
         <GlassCard className="h-fit p-5 lg:sticky lg:top-24">
           <AnswerSheet
@@ -1300,9 +1408,16 @@ export function TopikResultPage() {
                     </button>
                   </div>
                 </div>
+                {aiReview[question.number] && <Explanation data={aiReview[question.number]} />}
                 {open && (
                   <div className="mt-4 rounded-2xl bg-slate-100/80 p-3 dark:bg-white/5 md:p-4">
                     <TopikQuestion exam={exam} question={question} selected={answers[question.number]} review showShared />
+                    {question.section === "listening" && exam.transcript?.[question.number] && (
+                      <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-slate-900">
+                        <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">📜 {t("topik.transcript")}</p>
+                        <p className="mt-2 whitespace-pre-line text-[15px] leading-7">{exam.transcript[question.number]}</p>
+                      </div>
+                    )}
                   </div>
                 )}
               </GlassCard>

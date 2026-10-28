@@ -170,6 +170,18 @@ for (const item of questions) {
   });
 }
 
+// The printed text inside a region (a passage, notice or question material),
+// line by line. Used to explain answers; the exam still shows the paper crop.
+function regionText(box) {
+  if (!box) return "";
+  const page = pages.find((item) => item.page === box.page);
+  const inside = { page: box.page, items: page.items.filter((item) => item.x >= box.x0 - 2 && item.x <= box.x1 && item.y >= box.y0 && item.y <= box.y1) };
+  return linesOf(inside)
+    .map((line) => tidy(joinRuns(line.items)))
+    .filter(Boolean)
+    .join("\n");
+}
+
 const content = {};
 const problems = [];
 for (let number = 1; number <= QUESTION_COUNT; number += 1) {
@@ -182,13 +194,17 @@ for (let number = 1; number <= QUESTION_COUNT; number += 1) {
   if (item.options.map((option) => option.id).join("") !== "1234") problems.push(`question ${number}: choices ${item.options.map((option) => option.id).join(",")}`);
   if (!item.picture && item.options.some((option) => !option.text)) problems.push(`question ${number}: empty choice text`);
   const { group: block } = item;
+  const shared = block.y1 !== null && block.y1 - block.y0 >= 14 ? { page: block.page, x0: LEFT, x1: RIGHT, y0: block.y0, y1: block.y1 } : null;
+  const stem = item.stemY1 !== null && item.stemY1 - item.stemY0 >= 14 ? { page: item.page, x0: LEFT, x1: RIGHT, y0: item.stemY0, y1: item.stemY1 } : null;
   content[number] = {
     group: [block.from, block.to],
     instruction: block.instruction,
-    shared: block.y1 !== null && block.y1 - block.y0 >= 14 ? { page: block.page, x0: LEFT, x1: RIGHT, y0: block.y0, y1: block.y1 } : null,
+    shared,
     prompt: item.prompt || "",
-    stem: item.stemY1 !== null && item.stemY1 - item.stemY0 >= 14 ? { page: item.page, x0: LEFT, x1: RIGHT, y0: item.stemY0, y1: item.stemY1 } : null,
+    stem,
     options: item.options.map((option) => (item.picture ? { id: option.id, box: option.box } : { id: option.id, text: option.text })),
+    sharedText: regionText(shared),
+    stemText: regionText(stem),
   };
 }
 if (problems.length) {

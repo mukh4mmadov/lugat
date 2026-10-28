@@ -74,6 +74,15 @@ export function updateTopikAttempt(attemptId, patch) {
   return writeAll(attempts) ? attempts[index] : null;
 }
 
+// Answers are locked once submitted; only AI explanations are added later.
+export function saveTopikReview(attemptId, explanations) {
+  const attempts = readAll();
+  const index = attempts.findIndex((attempt) => attempt.id === attemptId);
+  if (index === -1 || attempts[index].status !== "submitted") return null;
+  attempts[index] = { ...attempts[index], aiReview: { ...(attempts[index].aiReview || {}), ...explanations } };
+  return writeAll(attempts) ? attempts[index] : null;
+}
+
 export function submitTopikAttempt(attemptId) {
   const attempts = readAll();
   const index = attempts.findIndex((attempt) => attempt.id === attemptId);

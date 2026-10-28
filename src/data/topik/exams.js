@@ -4,6 +4,13 @@
 
 import { PAPER_35_AUDIO } from "./paper35Audio.js";
 import { PAPER_35_CONTENT } from "./paper35Content.js";
+import { PAPER_35_TEXT_OVERRIDES } from "./paper35TextOverrides.js";
+import { PAPER_35_TRANSCRIPT } from "./paper35Transcript.js";
+
+// Fills in printed text that the PDF only has as images.
+function withText(content, overrides) {
+  return Object.fromEntries(Object.entries(content).map(([number, item]) => [number, { ...item, ...overrides[number] }]));
+}
 
 const PAPER_35 = [
   [1, "listening", 4, 3, 3],
@@ -102,8 +109,9 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_35),
-    content: PAPER_35_CONTENT,
+    content: withText(PAPER_35_CONTENT, PAPER_35_TEXT_OVERRIDES),
     audioTimeline: PAPER_35_AUDIO,
+    transcript: PAPER_35_TRANSCRIPT,
   },
 ];
 
