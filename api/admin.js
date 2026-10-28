@@ -311,7 +311,11 @@ export default async function handler(req, res) {
   const { data: auth, error: authError } = await db.auth.getUser(token);
   if (authError || !auth.user) return res.status(401).json({ error: "Invalid session" });
   const { data: adminRow, error: adminError } = await db.from("feedback_admins").select("user_id").eq("user_id", auth.user.id).maybeSingle();
-  if (adminError) return res.status(500).json({ error: "Admin check failed" });
+  if (adminError) {
+    // Usually missing grants: see supabase/migrations/202610280001_admin_service_role.sql.
+    console.error("Admin check failed:", adminError);
+    return res.status(500).json({ error: "Admin check failed" });
+  }
   if (!adminRow) return res.status(403).json({ error: "Admin access required" });
 
   try {
