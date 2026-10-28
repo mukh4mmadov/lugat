@@ -39,12 +39,6 @@ function formatClock(seconds) {
   return hours ? `${hours}:${pad(minutes)}:${pad(remainder)}` : `${pad(minutes)}:${pad(remainder)}`;
 }
 
-function Overlay({ children }) {
-  const [target, setTarget] = useState(null);
-  useEffect(() => setTarget(document.getElementById("overlay-root") || document.body), []);
-  return target ? createPortal(children, target) : null;
-}
-
 function useTopikAttempts() {
   const [attempts, setAttempts] = useState(() => listTopikAttempts());
   useEffect(() => {
@@ -262,7 +256,7 @@ function TopikIntro({ variant, onStart }) {
     <div className="mx-auto max-w-3xl">
       <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
       <div className="mt-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl dark:border-white/10 dark:bg-slate-900">
-        <div className="flex items-center justify-between bg-[#17305a] px-6 py-4 text-white">
+        <div className="flex items-center justify-between bg-[#1a6ef5] px-6 py-4 text-white">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-200">{exam.level} · 제{exam.number}회 한국어능력시험</p>
             <p className="mt-0.5 text-lg font-black">{variantTitle(t, variant)}</p>
@@ -307,7 +301,7 @@ function TopikIntro({ variant, onStart }) {
               <ul className="mt-5 space-y-3">
                 {rules.map((rule, index) => (
                   <li key={rule} className="flex gap-3 rounded-2xl bg-slate-100 p-4 text-sm leading-6 dark:bg-white/5">
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#17305a] text-xs font-black text-white">{index + 1}</span>
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#1a6ef5] text-xs font-black text-white">{index + 1}</span>
                     <span>{t(rule)}</span>
                   </li>
                 ))}
@@ -317,7 +311,7 @@ function TopikIntro({ variant, onStart }) {
           <div className="mt-8 flex items-center justify-between gap-3">
             <button type="button" onClick={() => setStep((value) => value - 1)} disabled={step === 0} className="rounded-2xl border border-slate-300 px-5 py-3 font-bold disabled:opacity-0 dark:border-white/20">← {t("topik.previous")}</button>
             {step < steps.length - 1 ? (
-              <button type="button" onClick={() => { soundRef.current?.pause(); setStep((value) => value + 1); }} disabled={current === "sound" && !soundOk} className="rounded-2xl bg-[#17305a] px-6 py-3 font-black text-white disabled:opacity-40">
+              <button type="button" onClick={() => { soundRef.current?.pause(); setStep((value) => value + 1); }} disabled={current === "sound" && !soundOk} className="rounded-2xl bg-[#1a6ef5] px-6 py-3 font-black text-white disabled:opacity-40">
                 {t("topik.next")} →
               </button>
             ) : (
@@ -341,103 +335,187 @@ function InfoRow({ label, value }) {
   );
 }
 
-// Full mocks play the recording the way the exam does: once, from the start,
-// without pausing or seeking. Its position follows the clock, so reopening the
-// page resumes where the recording would be in the room.
-function ExamAudio({ exam, examMode, startedAt, savedTime, onSaveTime }) {
+// The exam screen follows the computer-based TOPIK (IBT): a light screen with
+// a blue bar, one question at a time, the navigation bar at the bottom and the
+// full question list in a pop-up. Learners can switch it to dark.
+const EXAM_THEME_KEY = "k-talim:exam-theme";
+const TRANSLATE_KEY = "k-talim:topik-translate";
+
+function readSetting(key, fallback) {
+  try {
+    return localStorage.getItem(key) ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeSetting(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Settings are a convenience; storage may be unavailable.
+  }
+}
+
+// Rendered on <body>, outside the site's theme wrapper, so the exam keeps its
+// own light or dark look whatever the site uses.
+function ExamPortal({ dark, children }) {
+  return createPortal(<div className={dark ? "dark" : ""}>{children}</div>, document.body);
+}
+
+// Where the recording is: which question, and whether it is being read out
+// ("listen") or the answering silence is running ("answer").
+function audioStatus(timeline, time) {
+  if (!timeline) return null;
+  const entries = Object.entries(timeline).map(([number, range]) => ({ number: Number(number), ...range }));
+  if (!entries.length) return null;
+  if (time < entries[0].start) return { phase: "intro", number: entries[0].number, remaining: entries[0].start - time };
+  const current = entries.find((entry) => time >= entry.start && time < entry.end);
+  if (!current) return { phase: "done" };
+  return time < current.speechEnd
+    ? { phase: "listen", number: current.number, remaining: current.speechEnd - time }
+    : { phase: "answer", number: current.number, remaining: current.end - time };
+}
+
+// The part of the recording to replay for one question in practice. The second
+// question of a "listen and answer" pair replays the shared conversation.
+function replayRange(exam, number) {
+  const timeline = exam.audioTimeline;
+  const content = exam.content?.[number];
+  if (!timeline?.[number]) return null;
+  const first = content && content.instruction.includes("물음에 답하십시오") ? content.group[0] : number;
+  const source = timeline[first] || timeline[number];
+  return { start: source.start, end: source.speechEnd };
+}
+
+const PHASES = [
+  ["intro", "대기"],
+  ["listen", "듣기"],
+  ["answer", "풀이"],
+];
+
+function ListeningPanel({ isMock, status, question, blocked, onResume, clip, onPlay, onStop, onGoReading, canReplay }) {
   const { t } = useTranslation();
-  const audioRef = useRef(null);
-  const [duration, setDuration] = useState(0);
-  const [position, setPosition] = useState(0);
-  const [playing, setPlaying] = useState(false);
-  const [blocked, setBlocked] = useState(false);
-  const [volume, setVolume] = useState(1);
-  const lastSaveRef = useRef(0);
-
-  const expected = () => (Date.now() - startedAt) / 1000;
-
-  const syncAndPlay = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (audio.duration && expected() >= audio.duration) return;
-    audio.currentTime = Math.max(0, expected());
-    audio.play().then(() => setBlocked(false)).catch(() => setBlocked(true));
-    // startedAt never changes during an attempt.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    return () => audio?.pause();
-  }, []);
-
-  const finished = examMode && duration > 0 && position >= duration - 0.5;
-
-  return (
-    <div className={`rounded-2xl border border-sky-200 bg-white dark:border-sky-400/20 dark:bg-slate-900 ${examMode ? "px-3 py-2" : "p-3"}`}>
-      <audio
-        ref={audioRef}
-        src={exam.audio}
-        preload="metadata"
-        controls={!examMode}
-        className={examMode ? "hidden" : "w-full"}
-        onLoadedMetadata={(event) => {
-          setDuration(event.currentTarget.duration);
-          if (examMode && expected() >= event.currentTarget.duration) setPosition(event.currentTarget.duration);
-          else if (examMode) syncAndPlay();
-          else if (savedTime) event.currentTarget.currentTime = savedTime;
-        }}
-        onTimeUpdate={(event) => {
-          setPosition(event.currentTarget.currentTime);
-          if (!examMode && Date.now() - lastSaveRef.current > 4000) {
-            lastSaveRef.current = Date.now();
-            onSaveTime(event.currentTarget.currentTime);
-          }
-        }}
-        onPlay={() => setPlaying(true)}
-        onPause={(event) => {
-          setPlaying(false);
-          if (examMode && !event.currentTarget.ended && expected() < (event.currentTarget.duration || Infinity)) {
-            // Exam audio cannot be paused; a pause here means the browser stopped it.
-            setBlocked(true);
-          }
-          if (!examMode) onSaveTime(event.currentTarget.currentTime);
-        }}
-      >
-        {t("topik.audioUnsupported")}
-      </audio>
-      {examMode && (
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm text-white ${playing ? "animate-pulse bg-rose-600" : "bg-slate-400"}`}>{finished ? "✓" : "🎧"}</span>
-          <p className="shrink-0 text-xs font-black text-[#17305a] dark:text-sky-200">
-            {finished ? t("topik.audioFinished") : playing ? `듣기 · ${t("topik.audioPlaying")}` : t("topik.audioWaiting")}
-          </p>
-          <div className="h-1.5 min-w-[6rem] flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-            <div className="h-full rounded-full bg-sky-500 transition-all" style={{ width: `${duration ? Math.min(100, (position / duration) * 100) : 0}%` }} />
-          </div>
-          <p className="shrink-0 text-[11px] font-bold tabular-nums text-slate-500">{formatClock(position)} / {formatClock(duration)}</p>
-          {blocked && !finished && (
-            <button type="button" onClick={syncAndPlay} className="rounded-xl bg-rose-600 px-3 py-2 text-xs font-black text-white">▶ {t("topik.audioResume")}</button>
+  if (isMock) {
+    if (status?.phase === "done") {
+      return (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-500/10 dark:text-emerald-200">
+          <span>✓ {t("topik.listeningDone")}</span>
+          {question.section === "listening" && (
+            <button type="button" onClick={onGoReading} className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-black text-white">{t("topik.goReading")} →</button>
           )}
-          <label className="flex items-center gap-1.5 text-xs font-bold text-slate-500">
-            🔈
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.05"
-              value={volume}
-              aria-label={t("topik.volume")}
-              onChange={(event) => {
-                const value = Number(event.target.value);
-                setVolume(value);
-                if (audioRef.current) audioRef.current.volume = value;
-              }}
-              className="w-20 accent-sky-600"
-            />
-          </label>
         </div>
-      )}
+      );
+    }
+    const playingOther = status && status.number !== question.number && status.phase !== "intro";
+    return (
+      <div className="flex flex-wrap items-center gap-3 rounded-xl border border-[#cfe0ff] bg-white px-4 py-3 dark:border-white/10 dark:bg-slate-900">
+        <span className="text-sm font-black text-[#0b2a5b] dark:text-sky-100">
+          🎧 {status ? t("topik.audioQuestion", { number: status.number }) : t("topik.audioWaiting")}
+        </span>
+        <div className="flex items-center gap-1.5" aria-label={t("topik.audioPhase")}>
+          {PHASES.map(([phase, label]) => {
+            const active = status?.phase === phase;
+            return (
+              <span
+                key={phase}
+                className={`rounded-lg border px-2.5 py-1 text-xs font-black tabular-nums transition ${
+                  active ? "border-[#1a6ef5] bg-[#1a6ef5] text-white" : "border-slate-200 text-slate-400 dark:border-white/10"
+                }`}
+              >
+                {label}
+                {active && status.remaining > 0 ? ` ${formatClock(Math.ceil(status.remaining))}` : ""}
+              </span>
+            );
+          })}
+        </div>
+        {playingOther && <span className="text-xs font-semibold text-amber-600 dark:text-amber-300">{t("topik.audioElsewhere", { number: status.number })}</span>}
+        {blocked && (
+          <button type="button" onClick={onResume} className="ml-auto rounded-lg bg-rose-600 px-3 py-1.5 text-xs font-black text-white">▶ {t("topik.audioResume")}</button>
+        )}
+      </div>
+    );
+  }
+  if (!canReplay) return null;
+  const playing = clip?.number === question.number;
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-[#cfe0ff] bg-white px-4 py-3 dark:border-white/10 dark:bg-slate-900">
+      <button
+        type="button"
+        onClick={playing ? onStop : onPlay}
+        className="shrink-0 rounded-lg bg-[#1a6ef5] px-4 py-2 text-sm font-black text-white transition hover:bg-[#0f5ad6]"
+      >
+        {playing ? `⏸ ${t("topik.stopAudio")}` : `▶ ${t("topik.playQuestion", { number: question.number })}`}
+      </button>
+      <div className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+        <div className="h-full rounded-full bg-[#1a6ef5] transition-all" style={{ width: `${playing ? Math.min(100, clip.progress * 100) : 0}%` }} />
+      </div>
+      <span className="hidden text-xs font-semibold text-slate-500 sm:inline">{t("topik.replayHint")}</span>
+    </div>
+  );
+}
+
+// The IBT "전체 문제" pop-up: every question with the chosen answer; unanswered
+// ones are red, flagged ones marked. Opening a number goes to that question.
+function AllQuestions({ questions, answers, flagged, cursor, onJump, onClose, onSubmit }) {
+  const { t } = useTranslation();
+  const unanswered = questions.filter((item) => !answers[item.number]).length;
+  const flaggedCount = questions.filter((item) => flagged[item.number]).length;
+  const sections = ["listening", "reading"].filter((section) => questions.some((item) => item.section === section));
+  useEffect(() => {
+    const onKey = (event) => event.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+  return (
+    <div className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/50 sm:items-center sm:p-4" onClick={onClose}>
+      <div role="dialog" aria-modal="true" aria-labelledby="topik-all-title" className="flex max-h-[88vh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl bg-white text-slate-900 shadow-2xl dark:bg-slate-900 dark:text-white sm:rounded-3xl" onClick={(event) => event.stopPropagation()}>
+        <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-white/10">
+          <h2 id="topik-all-title" className="text-xl font-black text-[#0b2a5b] dark:text-white">전체 문제 <span className="text-sm font-bold text-slate-500">· {t("topik.allQuestions")}</span></h2>
+          <button type="button" onClick={onClose} aria-label={t("topik.closeSheet")} className="rounded-lg px-2 py-1 text-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">✕</button>
+        </div>
+        <div className="min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-4">
+          <div className="flex flex-wrap gap-2 text-xs font-black">
+            <span className="rounded-lg bg-[#1a6ef5] px-3 py-1.5 text-white">{t("topik.totalQuestions", { count: questions.length })}</span>
+            <span className={`rounded-lg px-3 py-1.5 ${unanswered ? "bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-200" : "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200"}`}>
+              {t("topik.unansweredCount", { count: unanswered })}
+            </span>
+            {flaggedCount > 0 && <span className="rounded-lg bg-amber-100 px-3 py-1.5 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200">⚑ {t("topik.flaggedCount", { count: flaggedCount })}</span>}
+          </div>
+          {sections.map((section) => (
+            <div key={section}>
+              <p className="mb-2 text-xs font-black text-slate-500 dark:text-slate-400">{section === "listening" ? `듣기 · ${t("topik.listening")}` : `읽기 · ${t("topik.reading")}`}</p>
+              <div className="grid grid-cols-5 overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 sm:grid-cols-10">
+                {questions.map((item, index) => {
+                  if (item.section !== section) return null;
+                  const chosen = answers[item.number];
+                  const current = index === cursor;
+                  return (
+                    <button
+                      key={item.number}
+                      type="button"
+                      onClick={() => onJump(index)}
+                      aria-label={t("topik.questionNumber", { number: item.number })}
+                      aria-current={current ? "step" : undefined}
+                      className={`relative border-b border-r border-slate-200 text-center transition hover:bg-[#eaf2ff] dark:border-white/10 dark:hover:bg-white/10 ${
+                        chosen ? "" : "bg-rose-50 dark:bg-rose-500/10"
+                      } ${current ? "outline outline-2 -outline-offset-2 outline-[#1a6ef5]" : ""}`}
+                    >
+                      <span className="block bg-slate-50 py-1 text-xs font-black tabular-nums text-slate-600 dark:bg-white/5 dark:text-slate-300">{String(item.number).padStart(2, "0")}</span>
+                      <span className={`block py-1.5 text-base ${chosen ? "font-black text-[#1a6ef5] dark:text-sky-300" : "text-rose-400"}`}>{chosen ? OPTION_MARKS[chosen] : "–"}</span>
+                      {flagged[item.number] && <span className="absolute right-1 top-1 text-[10px] text-amber-500">⚑</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-3 border-t border-slate-200 px-5 py-4 dark:border-white/10">
+          <button type="button" onClick={onClose} className="flex-1 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold dark:border-white/15">{t("topik.closeSheet")}</button>
+          <button type="button" onClick={onSubmit} className="flex-1 rounded-xl bg-[#1a6ef5] px-4 py-3 text-sm font-black text-white">답안 제출로 이동 · {t("topik.goSubmit")}</button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -453,11 +531,13 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   const [cursor, setCursor] = useState(Math.min(initialAttempt.cursor || 0, questions.length - 1));
   const [now, setNow] = useState(Date.now());
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const [sheetOpen, setSheetOpen] = useState(false);
+  const [listOpen, setListOpen] = useState(false);
   const [paperOpen, setPaperOpen] = useState(false);
   const [saveError, setSaveError] = useState(false);
   const [warning, setWarning] = useState(null);
   const [timeUp, setTimeUp] = useState(false);
+  const [dark, setDark] = useState(() => readSetting(EXAM_THEME_KEY, "light") === "dark");
+  const [translate, setTranslate] = useState(() => readSetting(TRANSLATE_KEY, "on") === "on");
   const submittedRef = useRef(false);
   const timeSpentRef = useRef({ ...(initialAttempt.timeSpent || {}) });
   const warnedRef = useRef(new Set());
@@ -599,12 +679,81 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
 
   const go = useCallback((index) => {
     setCursor(Math.max(0, Math.min(questions.length - 1, index)));
-    setSheetOpen(false);
+    setListOpen(false);
   }, [questions.length]);
+
+  // --- Listening audio -------------------------------------------------------
+  const audioRef = useRef(null);
+  const clipEndRef = useRef(null);
+  const [audioTime, setAudioTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
+  const [blocked, setBlocked] = useState(false);
+  const [volume, setVolume] = useState(1);
+  const [clip, setClip] = useState(null); // practice: { number, start, end, progress }
+
+  const expectedTime = useCallback(() => (Date.now() - attempt.startedAt) / 1000, [attempt.startedAt]);
+
+  const syncAndPlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.duration && expectedTime() >= audio.duration) return;
+    audio.currentTime = Math.max(0, expectedTime());
+    audio.play().then(() => setBlocked(false)).catch(() => setBlocked(true));
+  }, [expectedTime]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    return () => audio?.pause();
+  }, []);
+
+  const recordingOver = audioDuration > 0 && (now - attempt.startedAt) / 1000 >= audioDuration;
+  const status = useMemo(() => {
+    if (!isMock || !hasListening) return null;
+    return recordingOver ? { phase: "done" } : audioStatus(exam.audioTimeline, audioTime);
+  }, [audioTime, exam.audioTimeline, hasListening, isMock, recordingOver]);
+
+  // Mock: the screen follows the recording to the question being played, as the
+  // computer-based test does. Learners can still go back to change an answer;
+  // the next question in the recording brings them forward again.
+  const followedRef = useRef(null);
+  useEffect(() => {
+    if (!isMock || !status) return;
+    if (status.phase === "listen" || status.phase === "answer") {
+      if (followedRef.current === status.number) return;
+      followedRef.current = status.number;
+      const index = questions.findIndex((item) => item.number === status.number);
+      if (index >= 0 && questionRef.current?.section === "listening") setCursor(index);
+    } else if (status.phase === "done" && followedRef.current !== "done") {
+      followedRef.current = "done";
+      const reading = questions.findIndex((item) => item.section === "reading");
+      if (reading >= 0 && questionRef.current?.section === "listening") setCursor(reading);
+    }
+  }, [isMock, questions, status]);
+
+  const playQuestion = useCallback((number) => {
+    const audio = audioRef.current;
+    const range = replayRange(exam, number);
+    if (!audio || !range) return;
+    clipEndRef.current = range.end;
+    setClip({ number, start: range.start, end: range.end, progress: 0 });
+    audio.currentTime = range.start;
+    audio.play().catch(() => setClip(null));
+  }, [exam]);
+
+  const stopClip = useCallback(() => {
+    clipEndRef.current = null;
+    setClip(null);
+    audioRef.current?.pause();
+  }, []);
+
+  // A practice clip stops when the learner moves to another question.
+  useEffect(() => {
+    if (!isMock) stopClip();
+  }, [cursor, isMock, stopClip]);
 
   useEffect(() => {
     const onKey = (event) => {
-      if (confirmOpen || paperOpen || timeUp || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (confirmOpen || paperOpen || listOpen || timeUp || event.metaKey || event.ctrlKey || event.altKey) return;
       if (event.target.closest?.("input, textarea, select, [contenteditable='true'], [role='dialog']")) return;
       if (OPTIONS.includes(event.key)) {
         event.preventDefault();
@@ -621,133 +770,200 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [confirmOpen, cursor, go, paperOpen, selectAnswer, timeUp, toggleFlag]);
+  }, [confirmOpen, cursor, go, listOpen, paperOpen, selectAnswer, timeUp, toggleFlag]);
 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
     else document.documentElement.requestFullscreen?.().catch(() => {});
   };
 
+  const toggleDark = () => {
+    setDark((value) => {
+      writeSetting(EXAM_THEME_KEY, value ? "light" : "dark");
+      return !value;
+    });
+  };
+
+  const toggleTranslate = () => {
+    setTranslate((value) => {
+      writeSetting(TRANSLATE_KEY, value ? "off" : "on");
+      return !value;
+    });
+  };
+
   if (!question) return <GlassCard role="alert">{t("topik.noQuestions")}</GlassCard>;
 
   const timerTone = remaining === null
-    ? "bg-white/10 text-white"
+    ? "bg-white text-[#1a6ef5]"
     : remaining < 300
       ? "animate-pulse bg-rose-600 text-white"
       : remaining < 600
-        ? "bg-amber-400 text-slate-950"
-        : "bg-white text-[#17305a]";
+        ? "bg-amber-300 text-slate-950"
+        : "bg-white text-[#1a6ef5]";
   const sectionLabel = question.section === "listening" ? `듣기 · ${t("topik.listening")}` : `읽기 · ${t("topik.reading")}`;
   const sectionStart = (section) => questions.findIndex((item) => item.section === section);
-
-  const controls = (compact) => (
-    <AnswerControls
-      compact={compact}
-      question={question}
-      flagged={!!flagged[question.number]}
-      onFlag={toggleFlag}
-      onPrev={() => go(cursor - 1)}
-      onNext={() => go(cursor + 1)}
-      isFirst={cursor === 0}
-      isLast={cursor === questions.length - 1}
-      onFinish={() => setConfirmOpen(true)}
-      showAi={!isMock}
-    />
-  );
+  const isLast = cursor === questions.length - 1;
+  const showListening = hasListening && (isMock || question.section === "listening");
 
   return (
-    <Overlay>
-      <div className="fixed inset-0 z-[55] flex flex-col bg-slate-100 text-slate-900 dark:bg-[#0b1220] dark:text-white" role="application" aria-label={variantTitle(t, variant)}>
-        <header className="shrink-0 bg-[#17305a] text-white shadow-lg">
-          <div className="mx-auto flex max-w-[1500px] flex-wrap items-center gap-x-4 gap-y-2 px-3 py-2.5 md:px-5">
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-[11px] font-bold uppercase tracking-[0.18em] text-sky-200">{exam.level} · 제{exam.number}회 한국어능력시험</p>
-              <p className="truncate text-base font-black md:text-lg">{sectionLabel}</p>
+    <ExamPortal dark={dark}>
+      <div className="fixed inset-0 z-[55] flex flex-col bg-[#eef2f8] text-slate-900 dark:bg-[#0b1220] dark:text-white" role="application" aria-label={variantTitle(t, variant)}>
+        <audio
+          ref={audioRef}
+          src={exam.audio}
+          preload={isMock ? "auto" : "metadata"}
+          className="hidden"
+          onLoadedMetadata={(event) => {
+            setAudioDuration(event.currentTarget.duration);
+            if (isMock) syncAndPlay();
+          }}
+          onTimeUpdate={(event) => {
+            const time = event.currentTarget.currentTime;
+            setAudioTime(time);
+            if (clipEndRef.current !== null) {
+              setClip((current) => current && { ...current, progress: (time - current.start) / (current.end - current.start) });
+              if (time >= clipEndRef.current) stopClip();
+            }
+          }}
+          onPause={(event) => {
+            // Exam audio cannot be paused; a pause here means the browser stopped it.
+            if (isMock && !event.currentTarget.ended && expectedTime() < (event.currentTarget.duration || Infinity)) setBlocked(true);
+          }}
+        >
+          {t("topik.audioUnsupported")}
+        </audio>
+
+        <header className="shrink-0 bg-[#1a6ef5] text-white shadow-md dark:bg-[#123c8c]">
+          <div className="mx-auto flex max-w-6xl items-center gap-3 px-3 py-2.5 md:px-5">
+            <div className="hidden min-w-0 text-xs leading-5 md:block">
+              <p className="text-blue-100">수험번호</p>
+              <p className="font-black tabular-nums">{candidateNumber(exam, attempt.id)}</p>
             </div>
-            <div className="hidden text-right text-xs leading-5 md:block">
-              <p><span className="text-sky-200">수험번호</span> <b className="tabular-nums">{candidateNumber(exam, attempt.id)}</b></p>
-              <p><span className="text-sky-200">{t("topik.candidateName")}</span> <b>{candidate}</b></p>
+            <div className="min-w-0 flex-1 text-left md:text-center">
+              <p className="truncate text-sm font-black md:text-lg">한국어능력시험(TOPIK) I · 제{exam.number}회</p>
+              <p className="truncate text-xs font-semibold text-blue-100">{sectionLabel} · {candidate}</p>
             </div>
-            <div role="timer" aria-live="off" className={`rounded-xl px-3 py-1.5 text-center font-black tabular-nums ${timerTone}`}>
-              <p className="text-[10px] font-bold opacity-80">{remaining === null ? "경과 시간" : "남은 시간"}</p>
-              <p className="text-lg leading-tight md:text-xl">{formatClock(remaining === null ? elapsed : remaining)}</p>
+            <div role="timer" aria-live="off" className={`flex items-center gap-2 rounded-xl px-3 py-1.5 font-black tabular-nums shadow-sm ${timerTone}`}>
+              <span className="hidden text-[11px] font-bold opacity-80 sm:inline">{remaining === null ? "경과 시간" : "남은 시간"}</span>
+              <span className="text-base md:text-lg">{formatClock(remaining === null ? elapsed : remaining)}</span>
             </div>
-            <button type="button" onClick={toggleFullscreen} title={t("topik.fullscreen")} aria-label={t("topik.fullscreen")} className="hidden h-10 w-10 place-items-center rounded-xl bg-white/10 text-lg transition hover:bg-white/20 sm:grid">⛶</button>
-            <button type="button" onClick={() => setConfirmOpen(true)} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black transition hover:bg-rose-500 md:px-4">
-              답안 제출<span className="hidden sm:inline"> · {t("topik.finish")}</span>
+            <button type="button" onClick={toggleDark} title={dark ? t("topik.themeLight") : t("topik.themeDark")} aria-label={dark ? t("topik.themeLight") : t("topik.themeDark")} className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/15 text-base transition hover:bg-white/25">
+              {dark ? "☀️" : "🌙"}
             </button>
+            <button type="button" onClick={toggleFullscreen} title={t("topik.fullscreen")} aria-label={t("topik.fullscreen")} className="hidden h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/15 transition hover:bg-white/25 sm:grid">⛶</button>
           </div>
-          <div className="bg-[#0f2343]">
-            <div className="mx-auto flex max-w-[1500px] items-center gap-3 px-3 py-1.5 text-xs font-bold md:px-5">
+          <div className="bg-[#155fd6] dark:bg-[#0e2f6e]">
+            <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5 text-xs font-bold md:px-5">
               {isMock && ["listening", "reading"].map((section) => (
-                <button key={section} type="button" onClick={() => go(sectionStart(section))} className={`rounded-lg px-2.5 py-1 transition ${question.section === section ? "bg-white text-[#17305a]" : "text-sky-100 hover:bg-white/10"}`}>
+                <button key={section} type="button" onClick={() => go(sectionStart(section))} className={`rounded-lg px-2.5 py-1 transition ${question.section === section ? "bg-white text-[#1a6ef5]" : "text-blue-50 hover:bg-white/15"}`}>
                   {section === "listening" ? "듣기 1–30" : "읽기 31–70"}
                 </button>
               ))}
-              <span className="ml-auto tabular-nums text-sky-100">{t("topik.answeredCount", { answered: answeredCount, total: questions.length })}</span>
-              <div className="hidden h-1.5 w-40 overflow-hidden rounded-full bg-white/15 sm:block">
-                <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
+              <button type="button" onClick={toggleTranslate} aria-pressed={translate} className={`rounded-lg px-2.5 py-1 transition ${translate ? "bg-white/90 text-[#1a6ef5]" : "text-blue-50 hover:bg-white/15"}`}>
+                🌐 {t("topik.translate")}
+              </button>
+              <span className="ml-auto tabular-nums text-blue-50">{t("topik.answeredCount", { answered: answeredCount, total: questions.length })}</span>
+              <div className="hidden h-1.5 w-32 overflow-hidden rounded-full bg-white/25 sm:block">
+                <div className="h-full rounded-full bg-white transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
               </div>
             </div>
           </div>
         </header>
 
         {warning && (
-          <div role="alert" className="absolute left-1/2 top-24 z-10 -translate-x-1/2 rounded-2xl bg-amber-400 px-5 py-3 text-center font-black text-slate-950 shadow-2xl">
+          <div role="alert" className="absolute left-1/2 top-28 z-10 -translate-x-1/2 rounded-2xl bg-amber-300 px-5 py-3 text-center font-black text-slate-950 shadow-2xl">
             ⏰ 시험 종료 {warning}분 전입니다 · {t("topik.timeWarning", { minutes: warning })}
           </div>
         )}
 
         <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto">
-          <div className="mx-auto grid max-w-[1500px] gap-4 p-3 pb-6 md:p-5 lg:grid-cols-[minmax(0,1fr)_23rem]">
-            <main className="min-w-0 space-y-3">
-              {saveError && <p role="alert" className="rounded-2xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
-              {hasListening && (
-                <div className={question.section === "listening" || !isMock ? "" : "opacity-70"}>
-                  <ExamAudio
-                    exam={exam}
-                    examMode={isMock}
-                    startedAt={attempt.startedAt}
-                    savedTime={attempt.audioTime}
-                    onSaveTime={(time) => updateTopikAttempt(attempt.id, { audioTime: time })}
-                  />
-                </div>
-              )}
-              <TopikQuestion
-                exam={exam}
+          <main className="mx-auto max-w-4xl space-y-3 p-3 pb-6 md:p-6">
+            {saveError && <p role="alert" className="rounded-xl bg-rose-100 p-3 text-sm font-semibold text-rose-800 dark:bg-rose-500/15 dark:text-rose-200">{t("topik.saveError")}</p>}
+            {showListening && (
+              <ListeningPanel
+                isMock={isMock}
+                status={status}
                 question={question}
-                selected={answers[question.number]}
-                onSelect={selectAnswer}
-                showShared={showSharedFor(exam, question)}
+                blocked={blocked}
+                onResume={syncAndPlay}
+                clip={clip}
+                onPlay={() => playQuestion(question.number)}
+                onStop={stopClip}
+                onGoReading={() => go(sectionStart("reading"))}
+                canReplay={Boolean(replayRange(exam, question.number))}
               />
-              <button type="button" onClick={() => setPaperOpen(true)} className="text-sm font-bold text-slate-500 underline decoration-dotted underline-offset-4 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white">
-                📄 {t("topik.viewOriginalPage", { number: question.page })}
-              </button>
-            </main>
+            )}
+            <TopikQuestion
+              exam={exam}
+              question={question}
+              selected={answers[question.number]}
+              onSelect={selectAnswer}
+              showShared={showSharedFor(exam, question)}
+              translate={translate}
+            />
+            <button type="button" onClick={() => setPaperOpen(true)} className="text-sm font-bold text-slate-500 underline decoration-dotted underline-offset-4 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white">
+              📄 {t("topik.viewOriginalPage", { number: question.page })}
+            </button>
+          </main>
+        </div>
 
-            <aside className="hidden lg:block">
-              <div className="sticky top-5 space-y-4">
-                <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-slate-900">
-                  <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
+        {/* The IBT footer: previous, audio, question list, flag, next. */}
+        <footer className="shrink-0 border-t border-[#cfe0ff] bg-[#f3f7ff] px-3 pb-[calc(env(safe-area-inset-bottom)+0.6rem)] pt-2.5 dark:border-white/10 dark:bg-slate-950">
+          <div className="mx-auto flex max-w-6xl items-center gap-2">
+            <button type="button" onClick={() => go(cursor - 1)} disabled={cursor === 0} aria-label={t("topik.prevQuestion")} className="flex items-center gap-1 rounded-xl border-2 border-[#1a6ef5] bg-white px-3 py-2 text-sm font-black text-[#1a6ef5] transition disabled:opacity-30 dark:bg-transparent dark:text-sky-300 md:px-5">
+              ‹ <span className="hidden sm:inline">이전</span>
+            </button>
+            {isMock && hasListening && status?.phase !== "done" && (
+              <div className="hidden min-w-0 flex-1 items-center gap-3 rounded-xl bg-white px-4 py-2 dark:bg-white/5 md:flex">
+                <span className="shrink-0 text-xs font-bold tabular-nums text-slate-600 dark:text-slate-300">{formatClock(audioTime)} / {formatClock(audioDuration)}</span>
+                <div className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+                  <div className="h-full rounded-full bg-[#1a6ef5]" style={{ width: `${audioDuration ? Math.min(100, (audioTime / audioDuration) * 100) : 0}%` }} />
                 </div>
+                <label className="flex shrink-0 items-center gap-1.5 text-xs">
+                  🔈
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={volume}
+                    aria-label={t("topik.volume")}
+                    onChange={(event) => {
+                      const value = Number(event.target.value);
+                      setVolume(value);
+                      if (audioRef.current) audioRef.current.volume = value;
+                    }}
+                    className="w-20 accent-[#1a6ef5]"
+                  />
+                </label>
               </div>
-            </aside>
-          </div>
-        </div>
-
-        {/* Navigation stays on screen at every size, like the exam terminal's footer. */}
-        <div className="shrink-0 border-t border-slate-200 bg-white px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-3 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] dark:border-white/10 dark:bg-slate-950 lg:pb-3">
-          <div className="mx-auto max-w-[1500px] lg:grid lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-4 lg:px-2">
-            <div className="mb-2 flex items-center justify-between lg:hidden">
-              <span className="text-sm font-black">{question.number}번 {answers[question.number] ? `· ${OPTION_MARKS[answers[question.number]]}` : ""}</span>
-              <button type="button" onClick={() => setSheetOpen(true)} className="rounded-lg bg-slate-100 px-3 py-1 text-xs font-bold dark:bg-white/10">
-                ☰ {t("topik.answerSheet")} · {answeredCount}/{questions.length}
+            )}
+            <div className="flex flex-1 items-center justify-center gap-2 md:flex-none">
+              <button type="button" onClick={() => setListOpen(true)} className="flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#0b2a5b] shadow-sm transition hover:bg-[#eaf2ff] dark:bg-white/10 dark:text-white">
+                ☰ <span className="hidden sm:inline">전체 문제</span>
+                <span className="tabular-nums text-slate-500 dark:text-slate-300">{question.number}번</span>
               </button>
+              <button type="button" onClick={toggleFlag} aria-pressed={!!flagged[question.number]} title={t("topik.flag")} className={`rounded-xl px-3 py-2 text-sm font-black transition ${flagged[question.number] ? "bg-amber-300 text-slate-950" : "bg-white text-slate-600 shadow-sm hover:bg-amber-50 dark:bg-white/10 dark:text-slate-200"}`}>
+                ⚑<span className="hidden lg:inline"> {flagged[question.number] ? t("topik.flagged") : t("topik.flag")}</span>
+              </button>
+              {!isMock && (
+                <button type="button" onClick={() => window.dispatchEvent(new CustomEvent("k-talim:open-ai-chat"))} aria-label={t("topik.askAi")} title={t("topik.askAi")} className="rounded-xl bg-white px-3 py-2 text-sm font-black text-violet-700 shadow-sm dark:bg-white/10 dark:text-violet-200">
+                  🤖<span className="hidden lg:inline"> {t("topik.askAi")}</span>
+                </button>
+              )}
             </div>
-            <div className="lg:hidden">{controls(true)}</div>
-            <div className="hidden lg:block">{controls(false)}</div>
+            {isLast ? (
+              <button type="button" onClick={() => setConfirmOpen(true)} className="rounded-xl bg-rose-600 px-3 py-2 text-sm font-black text-white md:px-5">
+                답안 제출
+              </button>
+            ) : (
+              <button type="button" onClick={() => go(cursor + 1)} aria-label={t("topik.nextQuestion")} className="flex items-center gap-1 rounded-xl border-2 border-[#1a6ef5] bg-[#1a6ef5] px-3 py-2 text-sm font-black text-white transition hover:bg-[#0f5ad6] md:px-5">
+                <span className="hidden sm:inline">다음</span> ›
+              </button>
+            )}
           </div>
-        </div>
+          <p className="mx-auto mt-1.5 hidden max-w-6xl text-center text-[11px] text-slate-400 md:block">{t("topik.keysHint")}</p>
+        </footer>
 
         {paperOpen && (
           <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/70 p-3" onClick={() => setPaperOpen(false)}>
@@ -758,13 +974,19 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
           </div>
         )}
 
-        {sheetOpen && (
-          <div className="fixed inset-0 z-[70] flex items-end bg-slate-950/50 lg:hidden" onClick={() => setSheetOpen(false)}>
-            <div role="dialog" aria-modal="true" className="max-h-[80vh] w-full overflow-y-auto rounded-t-3xl bg-white p-5 dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
-              <AnswerSheet questions={questions} answers={answers} flagged={flagged} cursor={cursor} onJump={go} />
-              <button type="button" onClick={() => setSheetOpen(false)} className="mt-4 w-full rounded-2xl border border-slate-300 py-3 font-bold dark:border-white/20">{t("topik.closeSheet")}</button>
-            </div>
-          </div>
+        {listOpen && (
+          <AllQuestions
+            questions={questions}
+            answers={answers}
+            flagged={flagged}
+            cursor={cursor}
+            onJump={go}
+            onClose={() => setListOpen(false)}
+            onSubmit={() => {
+              setListOpen(false);
+              setConfirmOpen(true);
+            }}
+          />
         )}
 
         {confirmOpen && (
@@ -787,7 +1009,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
           </div>
         )}
       </div>
-    </Overlay>
+    </ExamPortal>
   );
 }
 
@@ -797,36 +1019,6 @@ function showSharedFor(exam, question) {
   const content = exam.content?.[question.number];
   if (!content) return false;
   return content.instruction.includes("물음에 답하십시오") || content.group[0] === question.number;
-}
-
-function AnswerControls({ question, flagged, onFlag, onPrev, onNext, isFirst, isLast, onFinish, showAi, compact = false }) {
-  const { t } = useTranslation();
-  const openAi = () => window.dispatchEvent(new CustomEvent("k-talim:open-ai-chat"));
-  return (
-    <div className="space-y-2">
-      <div className="flex items-center gap-2">
-        <button type="button" onClick={onPrev} disabled={isFirst} aria-label={t("topik.prevQuestion")} className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold disabled:opacity-30 dark:border-white/10">
-          ← {compact ? "" : `이전 · ${t("topik.prevQuestion")}`}
-        </button>
-        <button type="button" onClick={onFlag} aria-pressed={flagged} className={`flex-1 rounded-xl px-3 py-2 text-sm font-bold transition ${flagged ? "bg-amber-400 text-slate-950" : "border border-slate-200 dark:border-white/10"}`}>
-          ⚑ {flagged ? t("topik.flagged") : t("topik.flag")}
-        </button>
-        {showAi && (
-          <button type="button" onClick={openAi} aria-label={t("topik.askAi")} className="rounded-xl border border-violet-300 px-3 py-2 text-sm font-bold text-violet-700 dark:border-violet-400/30 dark:text-violet-200" title={t("topik.askAi")}>
-            🤖{compact ? "" : ` ${t("topik.askAi")}`}
-          </button>
-        )}
-        {isLast ? (
-          <button type="button" onClick={onFinish} className="rounded-xl bg-rose-600 px-4 py-2.5 text-sm font-black text-white">답안 제출</button>
-        ) : (
-          <button type="button" onClick={onNext} aria-label={t("topik.nextQuestion")} className="rounded-xl bg-[#17305a] px-4 py-2.5 text-sm font-black text-white dark:bg-sky-500">
-            {compact ? "" : `다음 · ${t("topik.nextQuestion")} `}→
-          </button>
-        )}
-      </div>
-      {!compact && <p className="text-center text-[11px] text-slate-400">{t("topik.keysHint")} · {question.number}번</p>}
-    </div>
-  );
 }
 
 function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
@@ -852,7 +1044,7 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
               } else if (index === cursor) {
                 tone = "bg-sky-600 text-white ring-2 ring-sky-300";
               } else if (chosen) {
-                tone = "bg-[#17305a] text-white dark:bg-sky-500/70";
+                tone = "bg-[#1a6ef5] text-white dark:bg-sky-500/70";
               } else {
                 tone = "bg-white text-slate-700 dark:bg-white/5 dark:text-slate-300";
               }
@@ -876,7 +1068,7 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
       ))}
       {!results && (
         <div className="flex flex-wrap gap-3 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-[#17305a] dark:bg-sky-500/70" />{t("topik.legendAnswered")}</span>
+          <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-[#1a6ef5] dark:bg-sky-500/70" />{t("topik.legendAnswered")}</span>
           <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded-full bg-amber-400" />{t("topik.legendFlagged")}</span>
           <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 rounded bg-sky-600 ring-1 ring-sky-300" />{t("topik.legendCurrent")}</span>
         </div>
@@ -897,7 +1089,7 @@ function ConfirmSubmit({ unanswered, flagged, remaining, onCancel, onConfirm }) 
   return (
     <div className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/60 p-4 backdrop-blur-sm sm:items-center" onClick={onCancel}>
       <div role="dialog" aria-modal="true" aria-labelledby="topik-submit-title" className="w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
-        <div className="bg-[#17305a] px-6 py-4 text-white">
+        <div className="bg-[#1a6ef5] px-6 py-4 text-white">
           <h2 id="topik-submit-title" className="text-xl font-black">답안을 제출하시겠습니까?</h2>
           <p className="text-sm text-sky-100">{t("topik.confirmTitle")}</p>
         </div>

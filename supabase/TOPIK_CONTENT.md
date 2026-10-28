@@ -29,10 +29,20 @@ in a generated module such as `src/data/topik/paper35Content.js`.
 
    The script stops and lists the questions it could not read if any of the
    70 questions lacks exactly four choices.
-3. Add an entry to `TOPIK_EXAMS` with the question rows from the official
-   answer key (original question numbers and the PDF page of each question)
-   and `content: PAPER_36_CONTENT`.
-4. The mock, listening and reading variants (`36thmock`, `36thlistening`,
+3. Find where each listening question sits in the recording (needs ffmpeg):
+
+   ```sh
+   FFMPEG=/path/to/ffmpeg node scripts/topik-audio-timeline.mjs public/topik/36th/listening.mp3 src/data/topik/paper36Audio.js PAPER_36_AUDIO
+   ```
+
+   Every question ends with a long answering silence; the script stops unless
+   it finds exactly 30. The mock uses the timeline to follow the recording
+   question by question (대기 · 듣기 · 풀이), and practice replays one question.
+4. Add an entry to `TOPIK_EXAMS` with the question rows from the official
+   answer key (original question numbers and the PDF page of each question),
+   `content: PAPER_36_CONTENT` and `audioTimeline: PAPER_36_AUDIO`. If a block
+   instruction is new, add its translation to `src/data/topik/instructions.js`.
+5. The mock, listening and reading variants (`36thmock`, `36thlistening`,
    `36threading`) are generated automatically.
 
 Each section is scored out of 100. When a key's printed weights don't add to
