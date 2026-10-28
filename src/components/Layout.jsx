@@ -17,6 +17,8 @@ import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 import InstallAppButton from "./InstallAppButton";
 import { useStudyTimer } from "../hooks/useStudyTimer";
+import { formatDate } from "../lib/dates";
+import { premiumUntil } from "../lib/premium";
 
 const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
 
@@ -38,6 +40,7 @@ export default function Layout({ onShowIELTSModal }) {
   const moreMenuRef = useRef(null);
 
   const { user, profile, signOut } = useAuth();
+  const premiumDate = premiumUntil(user);
   useStudyTimer(location.pathname);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -98,6 +101,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],
     ["/weak-words", t("library.weakWords")],
+    ["/premium", "⭐ Premium"],
     ["/stats", t("nav.stats")],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
@@ -293,6 +297,7 @@ export default function Layout({ onShowIELTSModal }) {
                     className="flex min-w-0 max-w-[48vw] items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:max-w-none sm:px-3 lg:px-4 lg:py-2 lg:text-sm"
                   >
                     <span className="min-w-0 truncate">
+                      {premiumDate && <span aria-label="Premium">⭐ </span>}
                       {t("nav.hi")},{" "}
                       {profile?.first_name || t("common.userFallback")}
                     </span>
@@ -312,8 +317,31 @@ export default function Layout({ onShowIELTSModal }) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -8, scale: 0.96 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 top-full mt-2 w-48 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
+                        className="absolute right-0 top-full mt-2 w-60 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
                       >
+                        <Link
+                          to="/premium"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block border-b border-slate-200/60 px-4 py-3 text-sm transition hover:bg-violet-50 dark:border-white/10 dark:hover:bg-violet-500/10"
+                        >
+                          {premiumDate ? (
+                            <>
+                              <span className="block font-black text-violet-700 dark:text-violet-300">⭐ Premium</span>
+                              <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400">
+                                {t("premium.activeUntil", { date: formatDate(premiumDate, i18n.language) })}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="font-black text-violet-700 dark:text-violet-300">⭐ {t("premium.get")}</span>
+                          )}
+                        </Link>
+                        <Link
+                          to="/settings"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10"
+                        >
+                          {t("nav.settings")}
+                        </Link>
                         <button
                           type="button"
                           onClick={handleSignOut}
@@ -523,7 +551,12 @@ export default function Layout({ onShowIELTSModal }) {
                     ) : (
                       <>
                         <div className="px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {t("nav.hi")}, {profile?.first_name || "User"}
+                          {t("nav.hi")}, {profile?.first_name || t("common.userFallback")}
+                          {premiumDate && (
+                            <span className="mt-1 block text-xs font-black text-violet-700 dark:text-violet-300">
+                              ⭐ {t("premium.activeUntil", { date: formatDate(premiumDate, i18n.language) })}
+                            </span>
+                          )}
                         </div>
                         <button
                           type="button"

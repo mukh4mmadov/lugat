@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
@@ -20,6 +20,49 @@ function getDaysInMonth(month, year) {
   return days[m - 1] || 31;
 }
 
+const confirmRedirect = () => `${window.location.origin}/auth/callback?type=signup`;
+
+// Shown after sign-up when the account still has to be confirmed by email.
+function EmailSentScreen({ email }) {
+  const { t } = useTranslation();
+  const [cooldown, setCooldown] = useState(60);
+  const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    if (cooldown <= 0) return undefined;
+    const timer = setTimeout(() => setCooldown((value) => value - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
+
+  const resend = async () => {
+    setStatus("");
+    const { error } = await supabase.auth.resend({ type: "signup", email, options: { emailRedirectTo: confirmRedirect() } });
+    setStatus(error ? authErrorMessage(error, t, "register.genericError") : t("register.emailResent"));
+    setCooldown(60);
+  };
+
+  return (
+    <div className="grid min-h-screen place-items-center bg-slate-50 px-4 dark:bg-[#07111f]">
+      <GlassCard className="w-full max-w-md p-8 text-center">
+        <p className="text-5xl" aria-hidden="true">📬</p>
+        <h1 className="mt-4 text-2xl font-black text-slate-900 dark:text-white">{t("register.checkEmailTitle")}</h1>
+        <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{t("register.checkEmailText", { email })}</p>
+        <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{t("register.checkSpam")}</p>
+        <button
+          type="button"
+          onClick={resend}
+          disabled={cooldown > 0}
+          className="mt-6 w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm font-black disabled:opacity-50 dark:border-white/15 dark:text-white"
+        >
+          {cooldown > 0 ? t("register.resendIn", { seconds: cooldown }) : t("register.resend")}
+        </button>
+        {status && <p role="status" className="mt-3 text-sm font-bold text-slate-600 dark:text-slate-300">{status}</p>}
+        <Link to="/login" className="mt-4 block text-sm font-black text-sky-600 dark:text-sky-300">{t("register.goToLogin")}</Link>
+      </GlassCard>
+    </div>
+  );
+}
+
 export default function RegisterPage() {
   const { t } = useTranslation();
   const [form, setForm] = useState({
@@ -37,6 +80,7 @@ export default function RegisterPage() {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [sentTo, setSentTo] = useState("");
 
   const update = (field) => (e) => {
     const value = e.target.value;
@@ -106,12 +150,16 @@ export default function RegisterPage() {
             last_name: form.lastName.trim(),
             birth_date: birthDate,
           },
+          emailRedirectTo: confirmRedirect(),
         },
       });
       if (error) {
         setGeneralError(authErrorMessage(error, t, "register.genericError"));
-      } else if (data?.user) {
+      } else if (data?.session) {
         window.location.href = "/";
+      } else if (data?.user) {
+        // Email confirmation is on: the account exists but isn't signed in yet.
+        setSentTo(form.email.trim());
         setForm({
           firstName: "",
           lastName: "",
@@ -148,6 +196,8 @@ export default function RegisterPage() {
       setLoading(false);
     }
   };
+
+  if (sentTo) return <EmailSentScreen email={sentTo} />;
 
   const inputClassName =
     "premium-input w-full rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-base font-bold text-slate-900 shadow-sm outline-none transition focus:border-sky-400 dark:border-white/10 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-500";

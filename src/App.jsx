@@ -18,6 +18,7 @@ import {
 } from "./pages/LibraryPages";
 import CoursesPage from "./pages/CoursesPage";
 import FutureUpdatesPage from "./pages/FutureUpdatesPage";
+import PremiumPage from "./pages/PremiumPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
@@ -122,6 +123,7 @@ export default function App() {
             <Route path="difficult" element={<DifficultPage />} />
             <Route path="stats" element={<StatsPage />} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
+            <Route path="premium" element={<PremiumPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>

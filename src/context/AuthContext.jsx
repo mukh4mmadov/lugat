@@ -275,6 +275,17 @@ export function AuthProvider({ children }) {
     setCurrentSyncUserId(null);
   };
 
+  // The stored session can carry an old copy of the user; reload it so
+  // changes made by an admin (such as premium) show up without signing out.
+  const refreshUser = useCallback(async () => {
+    const { data } = await supabase.auth.getUser();
+    if (data?.user) setUser((current) => (current?.id === data.user.id ? data.user : current));
+  }, []);
+
+  useEffect(() => {
+    if (user?.id) refreshUser().catch(() => {});
+  }, [user?.id, refreshUser]);
+
   const value = {
     user,
     session,
@@ -286,6 +297,7 @@ export function AuthProvider({ children }) {
     completeProfile,
     updateProfile,
     resolveProgressImport,
+    refreshUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

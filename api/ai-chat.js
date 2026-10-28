@@ -76,6 +76,18 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY) {
 
 const memoryRateLimiters = new Map();
 
+// Daily AI questions. Free accounts are also counted per device, so opening
+// new accounts on the same browser doesn't reset the allowance. The premium
+// cap only guards against runaway costs.
+const FREE_DAILY_LIMIT = 10;
+const PREMIUM_DAILY_LIMIT = 200;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function isPremiumUser(user) {
+  const until = user?.app_metadata?.premium_until;
+  return Boolean(until) && new Date(until).getTime() > Date.now();
+}
+
 function getHeader(req, name) {
   const value = req.headers[name.toLowerCase()];
   if (Array.isArray(value)) return value[0];
@@ -94,15 +106,15 @@ function checkMemoryRateLimit(key, maxRequests, windowMs) {
   const record = memoryRateLimiters.get(key);
   if (!record || now > record.resetAt) {
     memoryRateLimiters.set(key, { count: 1, resetAt: now + windowMs });
-    return { allowed: true };
+    return { allowed: true, remaining: maxRequests - 1 };
   }
 
   if (record.count >= maxRequests) {
-    return { allowed: false, resetAt: record.resetAt };
+    return { allowed: false, resetAt: record.resetAt, remaining: 0 };
   }
 
   record.count += 1;
-  return { allowed: true };
+  return { allowed: true, remaining: maxRequests - record.count };
 }
 
 async function verifyAuthToken(token) {
@@ -127,6 +139,8 @@ const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
 const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 let redis = null;
 let userLimiter = null;
+let userDeviceLimiter = null;
+let premiumLimiter = null;
 let topikUserLimiter = null;
 let ipLimiter = null;
 let deviceLimiter = null;
@@ -138,8 +152,18 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
     redis = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN });
     userLimiter = new Ratelimit({
       redis,
-      limiter: Ratelimit.slidingWindow(15, "24 h"),
-      prefix: "ratelimit:user",
+      limiter: Ratelimit.slidingWindow(FREE_DAILY_LIMIT, "24 h"),
+      prefix: "ratelimit:free-user",
+    });
+    userDeviceLimiter = new Ratelimit({
+      redis,
+      limiter: Ratelimit.slidingWindow(FREE_DAILY_LIMIT, "24 h"),
+      prefix: "ratelimit:free-device",
+    });
+    premiumLimiter = new Ratelimit({
+      redis,
+      limiter: Ratelimit.slidingWindow(PREMIUM_DAILY_LIMIT, "24 h"),
+      prefix: "ratelimit:premium-user",
     });
     topikUserLimiter = new Ratelimit({
       redis,
@@ -163,6 +187,40 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
   console.warn(
     "Upstash Redis env vars not set. Falling back to in-memory rate limiting.",
   );
+}
+
+async function checkUserLimit(user, deviceId) {
+  const premium = isPremiumUser(user);
+  const denied = (resetAt) => ({
+    allowed: false,
+    reason: "Daily AI chat limit reached. Please try again tomorrow.",
+    resetAt: resetAt || Date.now() + DAY_MS,
+    isGuest: false,
+    isPremium: premium,
+  });
+  if (premium) {
+    const result = premiumLimiter
+      ? await premiumLimiter.limit(`user:${user.id}`)
+      : toUpstashShape(checkMemoryRateLimit(`premium:${user.id}`, PREMIUM_DAILY_LIMIT, DAY_MS));
+    return result.success ? { allowed: true, remaining: result.remaining, isPremium: true } : denied(result.reset);
+  }
+  const [userResult, deviceResult] = userLimiter
+    ? await Promise.all([
+        userLimiter.limit(`user:${user.id}`),
+        deviceId ? userDeviceLimiter.limit(`device:${deviceId}`) : Promise.resolve(null),
+      ])
+    : [
+        toUpstashShape(checkMemoryRateLimit(`free-user:${user.id}`, FREE_DAILY_LIMIT, DAY_MS)),
+        deviceId ? toUpstashShape(checkMemoryRateLimit(`free-device:${deviceId}`, FREE_DAILY_LIMIT, DAY_MS)) : null,
+      ];
+  if (!userResult.success) return denied(userResult.reset);
+  if (deviceResult && !deviceResult.success) return denied(deviceResult.reset);
+  const remaining = Math.min(userResult.remaining, deviceResult ? deviceResult.remaining : Infinity);
+  return { allowed: true, remaining, isPremium: false };
+}
+
+function toUpstashShape(result) {
+  return { success: result.allowed, remaining: result.remaining ?? 0, reset: result.resetAt };
 }
 
 async function checkRateLimit(ip, deviceId, user, isTopik = false) {
@@ -193,18 +251,7 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
         };
   }
 
-  if (user && userLimiter) {
-    const userResult = await userLimiter.limit(`user:${user.id}`);
-    if (!userResult.success) {
-      return {
-        allowed: false,
-        reason: "Daily AI chat limit reached. Please try again tomorrow.",
-        resetAt: userResult.reset || Date.now() + 24 * 60 * 60 * 1000,
-        isGuest: false,
-      };
-    }
-    return { allowed: true };
-  }
+  if (user) return checkUserLimit(user, deviceId);
 
   if (ipLimiter && deviceLimiter) {
     const [ipResult, deviceResult] = await Promise.all([
@@ -229,9 +276,7 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
     return { allowed: true };
   }
 
-  const memoryResult = user
-    ? checkMemoryRateLimit(`user:${user.id}`, 15, 24 * 60 * 60 * 1000)
-    : checkMemoryRateLimit(`ip:${ip}`, 2, 24 * 60 * 60 * 1000);
+  const memoryResult = checkMemoryRateLimit(`ip:${ip}`, 2, DAY_MS);
   if (!memoryResult.allowed) {
     return {
       allowed: false,
@@ -444,7 +489,7 @@ export default async function handler(req, res) {
   }
 
   const message = typeof body === "string" ? body : body?.message;
-  const deviceId = typeof body === "string" ? null : body?.deviceId;
+  const deviceId = typeof body?.deviceId === "string" && /^[\w-]{8,100}$/.test(body.deviceId) ? body.deviceId : null;
   const incomingSessionId = typeof body === "string" ? null : body?.sessionId;
   const language = typeof body === "string" ? "en" : (body?.language || "en");
   const chatHistory = typeof body === "string" ? [] : sanitizeChatHistory(body?.chatHistory);
@@ -503,6 +548,8 @@ export default async function handler(req, res) {
       resetAt: rateLimitResult.resetAt,
       isGuest: rateLimitResult.isGuest,
       isTopik: !!topikContext,
+      isPremium: !!rateLimitResult.isPremium,
+      limit: rateLimitResult.isGuest ? null : rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT,
     });
   }
 
@@ -565,5 +612,11 @@ export default async function handler(req, res) {
     await touchSession(sessionId, authToken);
   }
 
-  return res.status(200).json({ reply, sessionId });
+  return res.status(200).json({
+    reply,
+    sessionId,
+    // Questions left today for signed-in users (null for guests and TOPIK hints).
+    remaining: user && !topikContext ? rateLimitResult.remaining ?? null : null,
+    limit: user && !topikContext ? (rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT) : null,
+  });
 }

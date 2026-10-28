@@ -16,7 +16,12 @@ export default function LoginPage() {
     password: "",
   });
   const [errors, setErrors] = useState({});
-  const [generalError, setGeneralError] = useState("");
+  const params = new URLSearchParams(location.search);
+  // Messages from /auth/callback: email confirmed, broken link, failed Google sign-in.
+  const notice = params.get("notice");
+  const [generalError, setGeneralError] = useState(() => (params.get("error") === "oauth_failed" ? t("login.oauthFailed") : ""));
+  const [unconfirmed, setUnconfirmed] = useState(false);
+  const [resendStatus, setResendStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
   const update = (field) => (e) => {
@@ -54,6 +59,7 @@ export default function LoginPage() {
       });
       if (error) {
         setGeneralError(authErrorMessage(error, t, "login.genericError"));
+        setUnconfirmed(error.code === "email_not_confirmed" || /email not confirmed/i.test(error.message || ""));
       } else if (data?.user) {
         window.location.href = location.state?.from?.pathname || "/";
       }
@@ -192,12 +198,38 @@ export default function LoginPage() {
                 </Link>
               </div>
 
+              {notice && !generalError && (
+                <div
+                  role="status"
+                  className={`rounded-2xl px-4 py-3 text-sm font-bold ${notice === "emailConfirmed" ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-200" : "bg-amber-50 text-amber-800 dark:bg-amber-500/10 dark:text-amber-200"}`}
+                >
+                  {notice === "emailConfirmed" ? t("login.emailConfirmed") : t("login.confirmLinkInvalid")}
+                </div>
+              )}
+
               {generalError && (
                 <div
                   role="alert"
                   className="rounded-2xl bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700 dark:bg-rose-500/10 dark:text-rose-200"
                 >
                   {generalError}
+                  {unconfirmed && (
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        const { error } = await supabase.auth.resend({
+                          type: "signup",
+                          email: form.email.trim(),
+                          options: { emailRedirectTo: `${window.location.origin}/auth/callback?type=signup` },
+                        });
+                        setResendStatus(error ? authErrorMessage(error, t, "login.genericError") : t("register.emailResent"));
+                      }}
+                      className="mt-2 block underline"
+                    >
+                      {t("register.resend")}
+                    </button>
+                  )}
+                  {resendStatus && <span className="mt-1 block font-semibold">{resendStatus}</span>}
                 </div>
               )}
 

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../context/AuthContext";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { formatDate } from "../lib/dates";
 import { getDeviceId } from "../lib/deviceId";
 import EmptyStateIllustrations from "./EmptyStateIllustrations";
@@ -47,6 +47,10 @@ export default function AIChatWidget() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [resetAt, setResetAt] = useState(null);
+  // Daily allowance for signed-in users ({ remaining, limit }) and, once it
+  // runs out, which kind of limit was hit: "free", "premium", "guest" or "topik".
+  const [quota, setQuota] = useState(null);
+  const [limitKind, setLimitKind] = useState(null);
   const [countdown, setCountdown] = useState("00:00:00");
   const [sessions, setSessions] = useState([]);
   const [currentSessionId, setCurrentSessionId] = useState(null);
@@ -147,6 +151,8 @@ export default function AIChatWidget() {
         if (remaining <= 0) {
           setCountdown("00:00:00");
           setResetAt(null);
+          setLimitKind(null);
+          setQuota(null);
           setError("");
           clearInterval(intervalRef.current);
           intervalRef.current = null;
@@ -272,6 +278,10 @@ export default function AIChatWidget() {
       if (response.status === 429) {
         const serverResetAt = typeof data.resetAt === "number" ? data.resetAt : Date.now() + 60 * 1000;
         setResetAt(serverResetAt);
+        // Show the limit box right away instead of after the first countdown tick.
+        setCountdown(formatCountdown(Math.max(0, serverResetAt - Date.now())));
+        setLimitKind(data.isTopik ? "topik" : data.isGuest ? "guest" : data.isPremium ? "premium" : "free");
+        if (data.limit) setQuota({ remaining: 0, limit: data.limit });
         if (data.isTopik) {
           throw new Error(t("aiChat.topikLimitReached"));
         }
@@ -283,6 +293,10 @@ export default function AIChatWidget() {
 
       if (!response.ok) {
         throw new Error(data.error || t("aiChat.failedToGetResponse"));
+      }
+
+      if (typeof data.remaining === "number" && data.limit) {
+        setQuota({ remaining: data.remaining, limit: data.limit });
       }
 
       if (data.sessionId) {
@@ -522,7 +536,33 @@ export default function AIChatWidget() {
                     <p className="text-sm font-black text-slate-900 dark:text-white">
                       {t("aiChat.limitResetsIn", { time: countdown })}
                     </p>
+                    {limitKind === "free" && (
+                      <Link
+                        to="/premium"
+                        onClick={() => setIsOpen(false)}
+                        className="mt-2 inline-flex rounded-xl bg-violet-600 px-4 py-2 text-sm font-black text-white"
+                      >
+                        ⭐ {t("aiChat.premiumUnlimited")}
+                      </Link>
+                    )}
+                    {limitKind === "guest" && (
+                      <Link
+                        to="/register"
+                        onClick={() => setIsOpen(false)}
+                        className="mt-2 inline-flex rounded-xl bg-sky-500 px-4 py-2 text-sm font-black text-white"
+                      >
+                        {t("aiChat.registerForMore")}
+                      </Link>
+                    )}
                   </div>
+                )}
+                {!isRateLimited && quota && quota.limit <= 10 && (
+                  <p className="mb-2 flex items-center justify-between gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                    <span>{t("aiChat.freeLeft", { count: quota.remaining, limit: quota.limit })}</span>
+                    <Link to="/premium" onClick={() => setIsOpen(false)} className="font-black text-violet-600 dark:text-violet-300">
+                      ⭐ Premium
+                    </Link>
+                  </p>
                 )}
                 <div className="flex gap-2">
                   <label htmlFor="ai-chat-input" className="sr-only">{t("aiChat.placeholder")}</label>

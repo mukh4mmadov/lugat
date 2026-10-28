@@ -20,17 +20,25 @@ export default function AuthCallbackPage() {
         const url = new URL(window.location.href);
         const errorParam = url.searchParams.get('error');
         const code = url.searchParams.get('code');
+        // Email confirmation links land here too. Supabase has already confirmed
+        // the address before redirecting, so if the session can't be created
+        // (e.g. the link was opened on another device), ask the user to sign in.
+        const isSignup = url.searchParams.get('type') === 'signup';
 
         if (errorParam) {
           const errorDescription = url.searchParams.get('error_description') || errorParam;
           console.error('Auth callback error from provider:', errorDescription);
+          if (isSignup) {
+            navigate('/login?notice=confirmLinkInvalid', { replace: true });
+            return;
+          }
           navigate(`/login?error=oauth_failed&description=${encodeURIComponent(errorDescription)}`, { replace: true });
           return;
         }
 
         if (!code) {
           console.error('No authorization code found in callback URL');
-          navigate('/login?error=oauth_failed', { replace: true });
+          navigate(isSignup ? '/login?notice=emailConfirmed' : '/login?error=oauth_failed', { replace: true });
           return;
         }
 
@@ -38,7 +46,7 @@ export default function AuthCallbackPage() {
 
         if (error) {
           console.error('Auth callback exchange error:', error);
-          navigate('/login?error=oauth_failed', { replace: true });
+          navigate(isSignup ? '/login?notice=emailConfirmed' : '/login?error=oauth_failed', { replace: true });
           return;
         }
 
