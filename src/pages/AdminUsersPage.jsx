@@ -68,7 +68,7 @@ function ConfirmDelete({ user, onCancel, onConfirm, busy }) {
   );
 }
 
-function UserDrawer({ userId, currentUserId, onClose, onChanged }) {
+function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
   const { t, i18n } = useTranslation();
   const [detail, setDetail] = useState(null);
   const [error, setError] = useState(null);
@@ -106,7 +106,7 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged }) {
       await adminRequest({}, { action, userId, ...payload });
       setMessage({ ok: true, text: success });
       if (action === "delete") {
-        onChanged();
+        onDeleted(userId);
         onClose();
         return;
       }
@@ -393,7 +393,7 @@ export default function AdminUsersPage() {
         </div>
       )}
 
-      {openId && <UserDrawer userId={openId} currentUserId={currentUserId} onClose={close} onChanged={load} />}
+      {openId && <UserDrawer userId={openId} currentUserId={currentUserId} onClose={close} onChanged={load} onDeleted={(id) => setUsers((list) => list.filter((user) => user.id !== id))} />}
     </div>
   );
 }
