@@ -23,6 +23,7 @@ export const ACTIVE_RECALL_TYPES = [
   "sentenceContext",
   "listening",
   "writing",
+  "dictation",
 ];
 
 export function getWordMastery(wordKey, wordsState = {}) {

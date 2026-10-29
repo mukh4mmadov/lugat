@@ -1,5 +1,5 @@
 import { getWordKey } from "../data";
-import { shuffle } from "./study";
+import { pickDistractors, shuffle } from "./study";
 
 // Study mode introduces a lesson a few words at a time and drills them until
 // each is mastered: answered correctly MASTERY_CORRECT times, including at
@@ -21,24 +21,6 @@ const STAGE_TYPES = [
   ["typingChallenge", "missingSyllable", "sentenceContext"],
 ];
 
-// Hand-checked example sentences; the blank exercise only uses these.
-export const EXAMPLES = {
-  독일: { ko: "저는 독일에서 왔습니다.", uz: "Men Germaniyadan keldim." },
-  미국: { ko: "그는 미국에 삽니다.", uz: "U AQShda yashaydi." },
-  영국: { ko: "영국은 유럽에 있습니다.", uz: "Angliya Yevropada joylashgan." },
-  일본: { ko: "일본 음식을 좋아합니다.", uz: "Men Yaponiya taomlarini yaxshi ko'raman." },
-  중국: { ko: "중국은 인구가 많습니다.", uz: "Xitoyda aholi ko'p." },
-  한국: { ko: "한국 음식을 좋아합니다.", uz: "Men Koreya taomlarini yaxshi ko'raman." },
-  학생: { ko: "저는 학생입니다.", uz: "Men o'quvchiman." },
-  선생님: { ko: "그분은 선생님입니다.", uz: "U kishi o'qituvchi." },
-  의사: { ko: "우리 언니는 의사입니다.", uz: "Opam shifokor." },
-  경찰관: { ko: "그는 경찰관입니다.", uz: "U politsiyachi." },
-  직업: { ko: "직업이 무엇입니까?", uz: "Kasbingiz nima?" },
-  회사원: { ko: "아버지는 회사원입니다.", uz: "Otam kompaniya xodimi." },
-  요리사: { ko: "그녀는 요리사입니다.", uz: "U oshpaz." },
-  배우: { ko: "그 배우는 유명합니다.", uz: "U aktyor mashhur." },
-  가수: { ko: "가수가 노래합니다.", uz: "Qo'shiqchi qo'shiq aytadi." },
-};
 
 const isHangul = (char) => /[가-힣]/.test(char);
 
@@ -46,10 +28,12 @@ function pick(items) {
   return items[Math.floor(Math.random() * items.length)];
 }
 
+// The fill-in-the-blank exercise only works when the example contains the
+// word exactly as listed (verbs are usually conjugated, so they skip it).
 function blankSentence(word) {
-  const example = EXAMPLES[word.korean];
+  const example = word.example;
   if (!example || !example.ko.includes(word.korean)) return null;
-  return { ko: example.ko.replace(word.korean, "＿＿＿"), uz: example.uz };
+  return { ...example, ko: example.ko.replace(word.korean, "＿＿＿") };
 }
 
 function availableTypes(stage, word, otherSyllables) {
@@ -69,14 +53,8 @@ function makeExercise(session, key, words) {
   let stage = Math.min(state.correct, 2);
   if (state.correct >= 2 && state.recall) stage = pick([1, 2]);
 
-  const seenMeanings = new Set([word.uzbek]);
-  const seenKorean = new Set([word.korean]);
-  const distractors = shuffle(words).filter((item) => {
-    if (seenMeanings.has(item.uzbek) || seenKorean.has(item.korean)) return false;
-    seenMeanings.add(item.uzbek);
-    seenKorean.add(item.korean);
-    return true;
-  });
+  // Options are stored as keys of this lesson's words, so distractors stay in the lesson.
+  const distractors = pickDistractors(word, words, words, 3);
   const wordSyllables = new Set([...word.korean].filter(isHangul));
   const otherSyllables = [...new Set(words.flatMap((item) => [...item.korean].filter(isHangul)))].filter(
     (syllable) => !wordSyllables.has(syllable),
@@ -216,7 +194,7 @@ export function continueAfterFeedback(session, words) {
 }
 
 export function wordExample(word) {
-  return EXAMPLES[word.korean] || null;
+  return word.example || null;
 }
 
 export function exerciseBlank(word) {

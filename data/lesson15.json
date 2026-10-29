@@ -9,7 +9,15 @@
     "needsReview": false,
     "sourceNumber": 442,
     "note": "hurmatli shakli",
-    "romanization": "saram / bun"
+    "romanization": "saram / bun",
+    "english": "Person / Person (honorific)",
+    "russian": "Человек / Человек (почтительно)",
+    "example": {
+      "ko": "저분은 우리 선생님이세요.",
+      "uz": "U kishi bizning o'qituvchimiz.",
+      "en": "That person is our teacher.",
+      "ru": "Это наш учитель."
+    }
   },
   {
     "id": 443,
@@ -21,7 +29,15 @@
     "needsReview": false,
     "sourceNumber": 443,
     "note": "hurmatli shakli",
-    "romanization": "jip / daek"
+    "romanization": "jip / daek",
+    "english": "House / Home (honorific)",
+    "russian": "Дом / Дом (почтительно)",
+    "example": {
+      "ko": "선생님 댁이 어디세요?",
+      "uz": "O'qituvchining uyi qayerda?",
+      "en": "Where is your home, teacher?",
+      "ru": "Где ваш дом, учитель?"
+    }
   },
   {
     "id": 444,
@@ -33,7 +49,15 @@
     "needsReview": false,
     "sourceNumber": 444,
     "note": "hurmatli shakli",
-    "romanization": "ireum / seongham"
+    "romanization": "ireum / seongham",
+    "english": "Name / Name (honorific)",
+    "russian": "Имя / Имя (почтительно)",
+    "example": {
+      "ko": "성함이 어떻게 되세요?",
+      "uz": "Ism-sharifingiz nima?",
+      "en": "May I have your name?",
+      "ru": "Как вас зовут? (вежливо)"
+    }
   },
   {
     "id": 445,
@@ -45,7 +69,15 @@
     "needsReview": false,
     "sourceNumber": 445,
     "note": "hurmatli shakli",
-    "romanization": "nai / yeonse"
+    "romanization": "nai / yeonse",
+    "english": "Age / Age (honorific)",
+    "russian": "Возраст / Возраст (почтительно)",
+    "example": {
+      "ko": "할아버지 연세가 어떻게 되세요?",
+      "uz": "Bobongiz necha yoshda?",
+      "en": "How old is your grandfather?",
+      "ru": "Сколько лет вашему дедушке?"
+    }
   },
   {
     "id": 446,
@@ -57,7 +89,15 @@
     "needsReview": false,
     "sourceNumber": 446,
     "note": "hurmatli shakli",
-    "romanization": "meokda / japsusida / deusida"
+    "romanization": "meokda / japsusida / deusida",
+    "english": "To eat / To eat (honorific)",
+    "russian": "Есть / Кушать (почтительно)",
+    "example": {
+      "ko": "할머니께서 진지를 드세요.",
+      "uz": "Buvim ovqat tanovul qilyaptilar.",
+      "en": "My grandmother is eating.",
+      "ru": "Бабушка кушает."
+    }
   },
   {
     "id": 447,
@@ -69,7 +109,15 @@
     "needsReview": false,
     "sourceNumber": 447,
     "note": "hurmatli shakli",
-    "romanization": "masida / deusida"
+    "romanization": "masida / deusida",
+    "english": "To drink / To drink (honorific)",
+    "russian": "Пить / Пить (почтительно)",
+    "example": {
+      "ko": "아버지께서 커피를 드세요.",
+      "uz": "Otam kofe ichyaptilar.",
+      "en": "My father is drinking coffee.",
+      "ru": "Отец пьёт кофе."
+    }
   },
   {
     "id": 448,
@@ -81,7 +129,15 @@
     "needsReview": false,
     "sourceNumber": 448,
     "note": "hurmatli shakli",
-    "romanization": "jada / jumusida"
+    "romanization": "jada / jumusida",
+    "english": "To sleep / To sleep (honorific)",
+    "russian": "Спать / Почивать (почтительно)",
+    "example": {
+      "ko": "할아버지께서 주무세요.",
+      "uz": "Bobom uxlayaptilar.",
+      "en": "My grandfather is sleeping.",
+      "ru": "Дедушка спит."
+    }
   },
   {
     "id": 449,
@@ -93,7 +149,15 @@
     "needsReview": false,
     "sourceNumber": 449,
     "note": "hurmatli shakli",
-    "romanization": "itda / gyesida"
+    "romanization": "itda / gyesida",
+    "english": "To be, to exist / To be (honorific)",
+    "russian": "Быть, иметься / Быть (почтительно)",
+    "example": {
+      "ko": "선생님께서 교실에 계세요.",
+      "uz": "O'qituvchi sinfda.",
+      "en": "The teacher is in the classroom.",
+      "ru": "Учитель в классе."
+    }
   },
   {
     "id": 450,
@@ -105,7 +169,15 @@
     "needsReview": false,
     "sourceNumber": 450,
     "note": "hurmatli shakli",
-    "romanization": "eopda / an gyesida"
+    "romanization": "eopda / an gyesida",
+    "english": "Not to be / Not to be (honorific)",
+    "russian": "Не быть / Отсутствовать (почтительно)",
+    "example": {
+      "ko": "사장님은 지금 안 계세요.",
+      "uz": "Rahbar hozir yo'qlar.",
+      "en": "The boss isn't here now.",
+      "ru": "Директора сейчас нет."
+    }
   },
   {
     "id": 451,
@@ -117,7 +189,15 @@
     "needsReview": false,
     "sourceNumber": 451,
     "note": "hurmatli shakli",
-    "romanization": "jukda / doragasida"
+    "romanization": "jukda / doragasida",
+    "english": "To die / To pass away (honorific)",
+    "russian": "Умирать / Скончаться (почтительно)",
+    "example": {
+      "ko": "할아버지께서 작년에 돌아가셨어요.",
+      "uz": "Bobom o'tgan yili vafot etdilar.",
+      "en": "My grandfather passed away last year.",
+      "ru": "Дедушка скончался в прошлом году."
+    }
   },
   {
     "id": 452,
@@ -129,7 +209,15 @@
     "needsReview": false,
     "sourceNumber": 452,
     "note": "hurmatli shakli",
-    "romanization": "malhada / malsseumhasida"
+    "romanization": "malhada / malsseumhasida",
+    "english": "To speak / To speak (honorific)",
+    "russian": "Говорить / Говорить (почтительно)",
+    "example": {
+      "ko": "선생님께서 말씀하세요.",
+      "uz": "O'qituvchi gapiryaptilar.",
+      "en": "The teacher is speaking.",
+      "ru": "Учитель говорит."
+    }
   },
   {
     "id": 453,
@@ -141,7 +229,15 @@
     "needsReview": false,
     "sourceNumber": 453,
     "note": "odamni/hayvonni",
-    "romanization": "deryeogada / oda"
+    "romanization": "deryeogada / oda",
+    "english": "To take (someone) / To bring (someone)",
+    "russian": "Отводить / Приводить (кого-то)",
+    "example": {
+      "ko": "동생을 학교에 데려가요.",
+      "uz": "Ukamni maktabga olib boraman.",
+      "en": "I take my younger brother to school.",
+      "ru": "Я отвожу младшего брата в школу."
+    }
   },
   {
     "id": 454,
@@ -153,7 +249,15 @@
     "needsReview": false,
     "sourceNumber": 454,
     "note": "hurmatli shakli",
-    "romanization": "mosigo gada / oda"
+    "romanization": "mosigo gada / oda",
+    "english": "To escort there / To escort here (honorific)",
+    "russian": "Сопровождать туда / сюда (почтительно)",
+    "example": {
+      "ko": "할머니를 병원에 모시고 가요.",
+      "uz": "Buvimni shifoxonaga kuzatib boraman.",
+      "en": "I escort my grandmother to the hospital.",
+      "ru": "Я сопровождаю бабушку в больницу."
+    }
   },
   {
     "id": 455,
@@ -165,7 +269,15 @@
     "needsReview": false,
     "sourceNumber": 455,
     "note": "hurmat shakl",
-    "romanization": "uri / jeohui"
+    "romanization": "uri / jeohui",
+    "english": "We / We (humble)",
+    "russian": "Мы / Мы (скромно)",
+    "example": {
+      "ko": "저희 집에 오세요.",
+      "uz": "Bizning uyimizga keling.",
+      "en": "Please come to our house.",
+      "ru": "Приходите к нам домой."
+    }
   },
   {
     "id": 456,
@@ -177,7 +289,15 @@
     "needsReview": false,
     "sourceNumber": 456,
     "note": "hurmatli shakli",
-    "romanization": "saengil / saengsin"
+    "romanization": "saengil / saengsin",
+    "english": "Birthday / Birthday (honorific)",
+    "russian": "День рождения / День рождения (почтительно)",
+    "example": {
+      "ko": "오늘은 할머니 생신이에요.",
+      "uz": "Bugun buvimning tug'ilgan kuni.",
+      "en": "Today is my grandmother's birthday.",
+      "ru": "Сегодня день рождения бабушки."
+    }
   },
   {
     "id": 457,
@@ -189,7 +309,15 @@
     "needsReview": false,
     "sourceNumber": 457,
     "note": "hurmatli shakli",
-    "romanization": "bap / jinji"
+    "romanization": "bap / jinji",
+    "english": "Meal, rice / Meal (honorific)",
+    "russian": "Еда, рис / Еда (почтительно)",
+    "example": {
+      "ko": "할아버지, 진지 드세요.",
+      "uz": "Bobojon, ovqatlaning.",
+      "en": "Grandfather, please have your meal.",
+      "ru": "Дедушка, кушайте, пожалуйста."
+    }
   },
   {
     "id": 458,
@@ -201,7 +329,15 @@
     "needsReview": false,
     "sourceNumber": 458,
     "note": "hurmatli shakli",
-    "romanization": "anae / buin"
+    "romanization": "anae / buin",
+    "english": "Wife / Wife (honorific)",
+    "russian": "Жена / Супруга (почтительно)",
+    "example": {
+      "ko": "사장님 부인은 선생님이세요.",
+      "uz": "Rahbarning rafiqasi o'qituvchi.",
+      "en": "The boss's wife is a teacher.",
+      "ru": "Жена директора — учитель."
+    }
   },
   {
     "id": 459,
@@ -212,7 +348,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 459,
-    "romanization": "apeuda"
+    "romanization": "apeuda",
+    "english": "To be sick / To hurt",
+    "russian": "Болеть",
+    "example": {
+      "ko": "머리가 아파요.",
+      "uz": "Boshim og'riyapti.",
+      "en": "I have a headache.",
+      "ru": "У меня болит голова."
+    }
   },
   {
     "id": 460,
@@ -223,7 +367,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 460,
-    "romanization": "mureup"
+    "romanization": "mureup",
+    "english": "Knee",
+    "russian": "Колено",
+    "example": {
+      "ko": "무릎이 아파요.",
+      "uz": "Tizzam og'riyapti.",
+      "en": "My knee hurts.",
+      "ru": "У меня болит колено."
+    }
   },
   {
     "id": 461,
@@ -234,7 +386,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 461,
-    "romanization": "jaju"
+    "romanization": "jaju",
+    "english": "Often",
+    "russian": "Часто",
+    "example": {
+      "ko": "자주 운동해요.",
+      "uz": "Tez-tez sport bilan shug'ullanaman.",
+      "en": "I exercise often.",
+      "ru": "Я часто занимаюсь спортом."
+    }
   },
   {
     "id": 462,
@@ -246,7 +406,15 @@
     "needsReview": false,
     "sourceNumber": 462,
     "note": "har kuni, har oy, va h.k",
-    "romanization": "mada"
+    "romanization": "mada",
+    "english": "Every",
+    "russian": "Каждый",
+    "example": {
+      "ko": "주말마다 등산해요.",
+      "uz": "Har dam olish kuni tog'ga chiqaman.",
+      "en": "I go hiking every weekend.",
+      "ru": "Каждые выходные я хожу в горы."
+    }
   },
   {
     "id": 463,
@@ -257,7 +425,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 463,
-    "romanization": "jiban il"
+    "romanization": "jiban il",
+    "english": "Housework",
+    "russian": "Работа по дому",
+    "example": {
+      "ko": "주말에 집안 일을 해요.",
+      "uz": "Dam olish kunlari uy ishlarini qilaman.",
+      "en": "I do housework on weekends.",
+      "ru": "По выходным я делаю работу по дому."
+    }
   },
   {
     "id": 464,
@@ -268,7 +444,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 464,
-    "romanization": "puk swida"
+    "romanization": "puk swida",
+    "english": "To rest well",
+    "russian": "Хорошо отдохнуть",
+    "example": {
+      "ko": "주말에는 푹 쉬세요.",
+      "uz": "Dam olish kunlari yaxshilab dam oling.",
+      "en": "Get plenty of rest this weekend.",
+      "ru": "Хорошенько отдохните в выходные."
+    }
   },
   {
     "id": 465,
@@ -279,7 +463,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 465,
-    "romanization": "bujireonhada"
+    "romanization": "bujireonhada",
+    "english": "To be diligent",
+    "russian": "Быть трудолюбивым",
+    "example": {
+      "ko": "어머니는 부지런하세요.",
+      "uz": "Onam mehnatkash.",
+      "en": "My mother is diligent.",
+      "ru": "Мама трудолюбивая."
+    }
   },
   {
     "id": 466,
@@ -290,7 +482,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 466,
-    "romanization": "daehoe"
+    "romanization": "daehoe",
+    "english": "Competition / Contest",
+    "russian": "Соревнование / Конкурс",
+    "example": {
+      "ko": "노래 대회에 나가요.",
+      "uz": "Qo'shiq musobaqasiga chiqaman.",
+      "en": "I'm entering a singing contest.",
+      "ru": "Я участвую в песенном конкурсе."
+    }
   },
   {
     "id": 467,
@@ -301,7 +501,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 467,
-    "romanization": "deung"
+    "romanization": "deung",
+    "english": "Etc. / Back / Rank",
+    "russian": "И т. д. / Спина / Место",
+    "example": {
+      "ko": "사과, 배, 포도 등을 샀어요.",
+      "uz": "Olma, nok, uzum va hokazolarni sotib oldim.",
+      "en": "I bought apples, pears, grapes and so on.",
+      "ru": "Я купил яблоки, груши, виноград и т. д."
+    }
   },
   {
     "id": 468,
@@ -312,7 +520,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 468,
-    "romanization": "modu"
+    "romanization": "modu",
+    "english": "All / Everyone",
+    "russian": "Все / Всё",
+    "example": {
+      "ko": "모두 같이 가요.",
+      "uz": "Hammamiz birga boraylik.",
+      "en": "Let's all go together.",
+      "ru": "Пойдём все вместе."
+    }
   },
   {
     "id": 469,
@@ -323,7 +539,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 469,
-    "romanization": "saranghada"
+    "romanization": "saranghada",
+    "english": "To love",
+    "russian": "Любить",
+    "example": {
+      "ko": "가족을 사랑해요.",
+      "uz": "Oilamni yaxshi ko'raman.",
+      "en": "I love my family.",
+      "ru": "Я люблю свою семью."
+    }
   },
   {
     "id": 470,
@@ -334,7 +558,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 470,
-    "romanization": "gippeohada"
+    "romanization": "gippeohada",
+    "english": "To be glad",
+    "russian": "Радоваться",
+    "example": {
+      "ko": "어머니께서 선물을 받고 기뻐하셨어요.",
+      "uz": "Onam sovg'ani olib xursand bo'ldilar.",
+      "en": "My mother was glad to receive the gift.",
+      "ru": "Мама обрадовалась подарку."
+    }
   },
   {
     "id": 471,
@@ -345,7 +577,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 471,
-    "romanization": "eoryeosseul ttae"
+    "romanization": "eoryeosseul ttae",
+    "english": "When (I was) young",
+    "russian": "В детстве",
+    "example": {
+      "ko": "어렸을 때 부산에 살았어요.",
+      "uz": "Bolaligimda Pusanda yashaganman.",
+      "en": "I lived in Busan when I was young.",
+      "ru": "В детстве я жил в Пусане."
+    }
   },
   {
     "id": 472,
@@ -356,7 +596,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 472,
-    "romanization": "seonggyeok"
+    "romanization": "seonggyeok",
+    "english": "Personality",
+    "russian": "Характер",
+    "example": {
+      "ko": "동생은 성격이 밝아요.",
+      "uz": "Ukamning fe'l-atvori quvnoq.",
+      "en": "My younger brother has a cheerful personality.",
+      "ru": "У младшего брата весёлый характер."
+    }
   },
   {
     "id": 473,
@@ -367,7 +615,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 473,
-    "romanization": "yejeon"
+    "romanization": "yejeon",
+    "english": "The old days / Before",
+    "russian": "Прежде / Раньше",
+    "example": {
+      "ko": "예전에는 여기가 공원이었어요.",
+      "uz": "Oldin bu yer park edi.",
+      "en": "This used to be a park.",
+      "ru": "Раньше здесь был парк."
+    }
   },
   {
     "id": 474,
@@ -378,7 +634,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 474,
-    "romanization": "jeil"
+    "romanization": "jeil",
+    "english": "The most",
+    "russian": "Самый",
+    "example": {
+      "ko": "저는 사과를 제일 좋아해요.",
+      "uz": "Men olmani eng yaxshi ko'raman.",
+      "en": "I like apples the most.",
+      "ru": "Больше всего я люблю яблоки."
+    }
   },
   {
     "id": 475,
@@ -389,7 +653,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 475,
-    "romanization": "naoda"
+    "romanization": "naoda",
+    "english": "To come out",
+    "russian": "Выходить",
+    "example": {
+      "ko": "학생들이 교실에서 나와요.",
+      "uz": "O'quvchilar sinfdan chiqishyapti.",
+      "en": "The students are coming out of the classroom.",
+      "ru": "Ученики выходят из класса."
+    }
   },
   {
     "id": 476,
@@ -401,7 +673,15 @@
     "needsReview": false,
     "sourceNumber": 476,
     "note": "buyumni",
-    "romanization": "gajigo oda / gada"
+    "romanization": "gajigo oda / gada",
+    "english": "To bring / To take (something)",
+    "russian": "Приносить / Уносить",
+    "example": {
+      "ko": "우산을 가지고 오세요.",
+      "uz": "Soyabon olib keling.",
+      "en": "Please bring an umbrella.",
+      "ru": "Возьмите с собой зонт."
+    }
   },
   {
     "id": 477,
@@ -412,6 +692,14 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 477,
-    "romanization": "gansik"
+    "romanization": "gansik",
+    "english": "Snack",
+    "russian": "Перекус",
+    "example": {
+      "ko": "오후에 간식을 먹어요.",
+      "uz": "Tushdan keyin yengil tamaddi qilaman.",
+      "en": "I have a snack in the afternoon.",
+      "ru": "После обеда я перекусываю."
+    }
   }
 ]

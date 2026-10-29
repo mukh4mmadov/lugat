@@ -7,6 +7,9 @@ import PWAUpdate from "./components/PWAUpdate";
 import "./index.css";
 import { store } from "./store";
 import "./lib/i18n";
+import { initWordOverrides } from "./lib/wordOverrides";
+
+initWordOverrides();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

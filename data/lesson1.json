@@ -8,7 +8,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 1
+    "sourceNumber": 1,
+    "english": "Germany",
+    "russian": "Германия",
+    "example": {
+      "ko": "저는 독일에서 왔습니다.",
+      "uz": "Men Germaniyadan keldim.",
+      "en": "I came from Germany.",
+      "ru": "Я приехал из Германии."
+    }
   },
   {
     "id": 2,
@@ -19,7 +27,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 2
+    "sourceNumber": 2,
+    "english": "USA (America)",
+    "russian": "США (Америка)",
+    "example": {
+      "ko": "그는 미국에 삽니다.",
+      "uz": "U AQShda yashaydi.",
+      "en": "He lives in the USA.",
+      "ru": "Он живёт в США."
+    }
   },
   {
     "id": 3,
@@ -30,7 +46,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 3
+    "sourceNumber": 3,
+    "english": "England (UK)",
+    "russian": "Англия (Великобритания)",
+    "example": {
+      "ko": "영국은 유럽에 있습니다.",
+      "uz": "Angliya Yevropada joylashgan.",
+      "en": "England is in Europe.",
+      "ru": "Англия находится в Европе."
+    }
   },
   {
     "id": 4,
@@ -41,7 +65,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 4
+    "sourceNumber": 4,
+    "english": "Japan",
+    "russian": "Япония",
+    "example": {
+      "ko": "일본 음식을 좋아합니다.",
+      "uz": "Men Yaponiya taomlarini yaxshi ko'raman.",
+      "en": "I like Japanese food.",
+      "ru": "Я люблю японскую еду."
+    }
   },
   {
     "id": 5,
@@ -52,7 +84,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 5
+    "sourceNumber": 5,
+    "english": "China",
+    "russian": "Китай",
+    "example": {
+      "ko": "중국은 인구가 많습니다.",
+      "uz": "Xitoyda aholi ko'p.",
+      "en": "China has a large population.",
+      "ru": "В Китае большое население."
+    }
   },
   {
     "id": 6,
@@ -63,7 +103,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 6
+    "sourceNumber": 6,
+    "english": "Australia",
+    "russian": "Австралия",
+    "example": {
+      "ko": "호주에는 캥거루가 있어요.",
+      "uz": "Avstraliyada kenguru bor.",
+      "en": "There are kangaroos in Australia.",
+      "ru": "В Австралии есть кенгуру."
+    }
   },
   {
     "id": 7,
@@ -74,7 +122,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 7
+    "sourceNumber": 7,
+    "english": "Korea",
+    "russian": "Корея",
+    "example": {
+      "ko": "한국 음식을 좋아합니다.",
+      "uz": "Men Koreya taomlarini yaxshi ko'raman.",
+      "en": "I like Korean food.",
+      "ru": "Я люблю корейскую еду."
+    }
   },
   {
     "id": 8,
@@ -85,7 +141,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 8
+    "sourceNumber": 8,
+    "english": "Uzbekistan",
+    "russian": "Узбекистан",
+    "example": {
+      "ko": "저는 우즈베키스탄 사람입니다.",
+      "uz": "Men o'zbekistonlikman.",
+      "en": "I am from Uzbekistan.",
+      "ru": "Я из Узбекистана."
+    }
   },
   {
     "id": 9,
@@ -96,7 +160,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 9
+    "sourceNumber": 9,
+    "english": "Pakistan",
+    "russian": "Пакистан",
+    "example": {
+      "ko": "제 친구는 파키스탄 사람이에요.",
+      "uz": "Do'stim pokistonlik.",
+      "en": "My friend is from Pakistan.",
+      "ru": "Мой друг из Пакистана."
+    }
   },
   {
     "id": 10,
@@ -107,7 +179,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 10
+    "sourceNumber": 10,
+    "english": "Police officer",
+    "russian": "Полицейский",
+    "example": {
+      "ko": "그는 경찰관입니다.",
+      "uz": "U politsiyachi.",
+      "en": "He is a police officer.",
+      "ru": "Он полицейский."
+    }
   },
   {
     "id": 11,
@@ -118,7 +198,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 11
+    "sourceNumber": 11,
+    "english": "Cook / Chef",
+    "russian": "Повар",
+    "example": {
+      "ko": "그녀는 요리사입니다.",
+      "uz": "U oshpaz.",
+      "en": "She is a chef.",
+      "ru": "Она повар."
+    }
   },
   {
     "id": 12,
@@ -129,7 +217,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 12
+    "sourceNumber": 12,
+    "english": "Doctor",
+    "russian": "Врач",
+    "example": {
+      "ko": "우리 언니는 의사입니다.",
+      "uz": "Opam shifokor.",
+      "en": "My older sister is a doctor.",
+      "ru": "Моя старшая сестра — врач."
+    }
   },
   {
     "id": 13,
@@ -140,7 +236,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 13
+    "sourceNumber": 13,
+    "english": "Student",
+    "russian": "Ученик / Студент",
+    "example": {
+      "ko": "저는 학생입니다.",
+      "uz": "Men o'quvchiman.",
+      "en": "I am a student.",
+      "ru": "Я студент."
+    }
   },
   {
     "id": 14,
@@ -151,7 +255,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 14
+    "sourceNumber": 14,
+    "english": "Office worker",
+    "russian": "Офисный работник",
+    "example": {
+      "ko": "아버지는 회사원입니다.",
+      "uz": "Otam kompaniya xodimi.",
+      "en": "My father is an office worker.",
+      "ru": "Мой отец — офисный работник."
+    }
   },
   {
     "id": 15,
@@ -162,7 +274,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 15
+    "sourceNumber": 15,
+    "english": "Teacher",
+    "russian": "Учитель",
+    "example": {
+      "ko": "그분은 선생님입니다.",
+      "uz": "U kishi o'qituvchi.",
+      "en": "That person is a teacher.",
+      "ru": "Этот человек — учитель."
+    }
   },
   {
     "id": 16,
@@ -173,7 +293,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 16
+    "sourceNumber": 16,
+    "english": "Which",
+    "russian": "Какой / Который",
+    "example": {
+      "ko": "어느 나라 사람이에요?",
+      "uz": "Qaysi davlatdansiz?",
+      "en": "Which country are you from?",
+      "ru": "Из какой вы страны?"
+    }
   },
   {
     "id": 17,
@@ -184,7 +312,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 17
+    "sourceNumber": 17,
+    "english": "Job / Occupation",
+    "russian": "Профессия",
+    "example": {
+      "ko": "직업이 무엇입니까?",
+      "uz": "Kasbingiz nima?",
+      "en": "What is your job?",
+      "ru": "Кем вы работаете?"
+    }
   },
   {
     "id": 18,
@@ -195,7 +331,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 18
+    "sourceNumber": 18,
+    "english": "I (humble)",
+    "russian": "Я (вежливая форма)",
+    "example": {
+      "ko": "저는 김민수입니다.",
+      "uz": "Men Kim Minsuman.",
+      "en": "I am Kim Minsu.",
+      "ru": "Я Ким Минсу."
+    }
   },
   {
     "id": 19,
@@ -206,7 +350,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 19
+    "sourceNumber": 19,
+    "english": "What is your name?",
+    "russian": "Как вас зовут?",
+    "example": {
+      "ko": "안녕하세요? 이름이 뭐예요?",
+      "uz": "Assalomu alaykum! Ismingiz nima?",
+      "en": "Hello! What is your name?",
+      "ru": "Здравствуйте! Как вас зовут?"
+    }
   },
   {
     "id": 20,
@@ -217,7 +369,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 20
+    "sourceNumber": 20,
+    "english": "Who",
+    "russian": "Кто",
+    "example": {
+      "ko": "저 사람은 누구예요?",
+      "uz": "Anavi odam kim?",
+      "en": "Who is that person?",
+      "ru": "Кто тот человек?"
+    }
   },
   {
     "id": 21,
@@ -228,7 +388,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 21
+    "sourceNumber": 21,
+    "english": "This",
+    "russian": "Этот",
+    "example": {
+      "ko": "이 사람은 제 친구예요.",
+      "uz": "Bu odam mening do'stim.",
+      "en": "This person is my friend.",
+      "ru": "Этот человек — мой друг."
+    }
   },
   {
     "id": 22,
@@ -239,7 +407,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 22
+    "sourceNumber": 22,
+    "english": "Thing",
+    "russian": "Вещь / Предмет",
+    "example": {
+      "ko": "이것은 제 것이에요.",
+      "uz": "Bu meniki.",
+      "en": "This is mine.",
+      "ru": "Это моё."
+    }
   },
   {
     "id": 23,
@@ -250,7 +426,15 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 23
+    "sourceNumber": 23,
+    "english": "What",
+    "russian": "Что",
+    "example": {
+      "ko": "이게 뭐예요?",
+      "uz": "Bu nima?",
+      "en": "What is this?",
+      "ru": "Что это?"
+    }
   },
   {
     "id": 24,
@@ -261,6 +445,14 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 24
+    "sourceNumber": 24,
+    "english": "What (formal)",
+    "russian": "Что (официальная форма)",
+    "example": {
+      "ko": "이것은 무엇입니까?",
+      "uz": "Bu nima?",
+      "en": "What is this? (formal)",
+      "ru": "Что это? (официально)"
+    }
   }
 ]

@@ -16,6 +16,7 @@ import {
   getVariantQuestions,
   questionTypeBreakdown,
 } from "../data/topik/exams";
+import ShareResult from "../components/ShareResult";
 import { formatDate } from "../lib/dates";
 import { getDeviceId } from "../lib/deviceId";
 import { isPremium } from "../lib/premium";
@@ -104,7 +105,12 @@ export function TopikHomePage() {
               <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
               <h2 className="text-2xl font-black">{t("topik.examTitle", { number: exam.number })}</h2>
             </div>
-            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+              <Link to={`/topik/words/${exam.id}`} className="rounded-xl bg-violet-100 px-3 py-1.5 text-sm font-black text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">
+                📚 {t("topikWords.link")}
+              </Link>
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {TOPIK_VARIANTS.filter((variant) => variant.examId === exam.id).map((variant) => (
@@ -1296,6 +1302,22 @@ export function TopikResultPage() {
           <ScoreTile label={t("topik.unanswered")} value={counts.unanswered} sub={t("topik.questionsWord")} />
         </div>
         <div className="relative mt-6 flex flex-wrap gap-3">
+          <ShareResult
+            fileName={`k-talim-topik-${variant.id}`}
+            text={t("shareResult.topikText", { title: variantTitle(t, variant), total: result.total, max: result.maxTotal })}
+            card={{
+              eyebrow: `${exam.level} · ${variantTitle(t, variant)}`,
+              score: result.total,
+              outOf: result.maxTotal,
+              percent,
+              badge: variant.mode === "mock" && result.level ? t("topik.estimatedLevel", { level: result.level }) : null,
+              chips: [
+                result.listening && `🎧 ${result.listening.score}/100`,
+                result.reading && `📖 ${result.reading.score}/100`,
+                t("topik.correctOf", { correct: counts.correct, total: counts.all }),
+              ].filter(Boolean),
+            }}
+          />
           <button type="button" onClick={retake} className="rounded-2xl bg-slate-950 px-5 py-3 font-black text-white dark:bg-white dark:text-slate-950">{t("topik.retake")}</button>
           <Link to="/topik" className="rounded-2xl border border-slate-300 px-5 py-3 font-bold dark:border-white/20">{t("topik.backToTests")}</Link>
           <button type="button" onClick={remove} className="rounded-2xl px-5 py-3 font-bold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">{t("topik.deleteAttempt")}</button>

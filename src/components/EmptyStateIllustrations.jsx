@@ -66,11 +66,11 @@ const EmptyStateIllustrations = {
   ),
 
   WelcomeNewUser: ({ className }) => (
-    <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <circle cx="80" cy="80" r="50" stroke="#38bdf8" strokeWidth="4" fill="#38bdf8" fillOpacity="0.08" />
-      <path d="M80 45V85M80 95V105" stroke="#38bdf8" strokeWidth="6" strokeLinecap="round" />
-      <circle cx="80" cy="115" r="6" fill="#38bdf8" />
-      <path d="M55 55L65 65M105 55L95 65" stroke="#38bdf8" strokeWidth="4" strokeLinecap="round" />
+    <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <path d="M32 42C32 33 39 26 48 26H112C121 26 128 33 128 42V94C128 103 121 110 112 110H74L50 132V110H48C39 110 32 103 32 94V42Z" stroke="#38bdf8" strokeWidth="4" strokeLinejoin="round" fill="#38bdf8" fillOpacity="0.1" />
+      <text x="80" y="80" textAnchor="middle" fontSize="34" fontWeight="900" fill="#38bdf8" fontFamily="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">안녕!</text>
+      <path d="M132 22L135 30L143 33L135 36L132 44L129 36L121 33L129 30Z" fill="#a78bfa" />
+      <circle cx="24" cy="120" r="4" fill="#34d399" />
     </svg>
   ),
 };

@@ -8,7 +8,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 326
+    "sourceNumber": 326,
+    "english": "To be fast",
+    "russian": "Быть быстрым",
+    "example": {
+      "ko": "지하철이 빨라요.",
+      "uz": "Metro tez.",
+      "en": "The subway is fast.",
+      "ru": "Метро быстрое."
+    }
   },
   {
     "id": 327,
@@ -19,7 +27,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 327
+    "sourceNumber": 327,
+    "english": "To be slow",
+    "russian": "Быть медленным",
+    "example": {
+      "ko": "버스가 느려요.",
+      "uz": "Avtobus sekin.",
+      "en": "The bus is slow.",
+      "ru": "Автобус медленный."
+    }
   },
   {
     "id": 328,
@@ -30,7 +46,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 328
+    "sourceNumber": 328,
+    "english": "To be short",
+    "russian": "Быть коротким",
+    "example": {
+      "ko": "머리가 짧아요.",
+      "uz": "Sochim kalta.",
+      "en": "My hair is short.",
+      "ru": "У меня короткие волосы."
+    }
   },
   {
     "id": 329,
@@ -41,7 +65,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 329
+    "sourceNumber": 329,
+    "english": "Head / Hair",
+    "russian": "Голова / Волосы",
+    "example": {
+      "ko": "머리가 길어요.",
+      "uz": "Sochi uzun.",
+      "en": "Her hair is long.",
+      "ru": "У неё длинные волосы."
+    }
   },
   {
     "id": 330,
@@ -52,7 +84,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 330
+    "sourceNumber": 330,
+    "english": "To be tall",
+    "russian": "Быть высоким (о росте)",
+    "example": {
+      "ko": "형은 키가 커요.",
+      "uz": "Akamning bo'yi baland.",
+      "en": "My older brother is tall.",
+      "ru": "Мой старший брат высокий."
+    }
   },
   {
     "id": 331,
@@ -63,7 +103,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 331
+    "sourceNumber": 331,
+    "english": "To be short (height)",
+    "russian": "Быть низким (о росте)",
+    "example": {
+      "ko": "동생은 키가 작아요.",
+      "uz": "Ukamning bo'yi past.",
+      "en": "My younger brother is short.",
+      "ru": "Мой младший брат невысокий."
+    }
   },
   {
     "id": 332,
@@ -74,7 +122,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 332
+    "sourceNumber": 332,
+    "english": "To be pretty",
+    "russian": "Быть красивым",
+    "example": {
+      "ko": "꽃이 예뻐요.",
+      "uz": "Gul chiroyli.",
+      "en": "The flower is pretty.",
+      "ru": "Цветок красивый."
+    }
   },
   {
     "id": 333,
@@ -85,7 +141,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 333
+    "sourceNumber": 333,
+    "english": "To be deep",
+    "russian": "Быть глубоким",
+    "example": {
+      "ko": "이 강은 깊어요.",
+      "uz": "Bu daryo chuqur.",
+      "en": "This river is deep.",
+      "ru": "Эта река глубокая."
+    }
   },
   {
     "id": 334,
@@ -96,7 +160,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 334
+    "sourceNumber": 334,
+    "english": "River",
+    "russian": "Река",
+    "example": {
+      "ko": "강에서 배를 타요.",
+      "uz": "Daryoda qayiqda suzaman.",
+      "en": "I ride a boat on the river.",
+      "ru": "Я катаюсь на лодке по реке."
+    }
   },
   {
     "id": 335,
@@ -107,7 +179,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 335
+    "sourceNumber": 335,
+    "english": "Room",
+    "russian": "Комната",
+    "example": {
+      "ko": "제 방은 작아요.",
+      "uz": "Mening xonam kichik.",
+      "en": "My room is small.",
+      "ru": "Моя комната маленькая."
+    }
   },
   {
     "id": 336,
@@ -118,7 +198,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 336
+    "sourceNumber": 336,
+    "english": "To be beautiful",
+    "russian": "Быть прекрасным",
+    "example": {
+      "ko": "제주도는 아름다워요.",
+      "uz": "Jeju oroli go'zal.",
+      "en": "Jeju Island is beautiful.",
+      "ru": "Остров Чеджу прекрасен."
+    }
   },
   {
     "id": 337,
@@ -129,7 +217,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 337
+    "sourceNumber": 337,
+    "english": "To be quiet",
+    "russian": "Быть тихим",
+    "example": {
+      "ko": "도서관은 조용해요.",
+      "uz": "Kutubxona jimjit.",
+      "en": "The library is quiet.",
+      "ru": "В библиотеке тихо."
+    }
   },
   {
     "id": 338,
@@ -140,7 +236,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 338
+    "sourceNumber": 338,
+    "english": "Sea",
+    "russian": "Море",
+    "example": {
+      "ko": "바다가 파래요.",
+      "uz": "Dengiz moviy.",
+      "en": "The sea is blue.",
+      "ru": "Море синее."
+    }
   },
   {
     "id": 339,
@@ -151,7 +255,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 339
+    "sourceNumber": 339,
+    "english": "Asia",
+    "russian": "Азия",
+    "example": {
+      "ko": "한국은 아시아에 있어요.",
+      "uz": "Koreya Osiyoda joylashgan.",
+      "en": "Korea is in Asia.",
+      "ru": "Корея находится в Азии."
+    }
   },
   {
     "id": 340,
@@ -162,7 +274,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 340
+    "sourceNumber": 340,
+    "english": "Europe",
+    "russian": "Европа",
+    "example": {
+      "ko": "유럽으로 여행을 가요.",
+      "uz": "Yevropaga sayohatga boraman.",
+      "en": "I'm traveling to Europe.",
+      "ru": "Я еду в путешествие по Европе."
+    }
   },
   {
     "id": 341,
@@ -173,7 +293,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 341
+    "sourceNumber": 341,
+    "english": "France",
+    "russian": "Франция",
+    "example": {
+      "ko": "프랑스 빵이 맛있어요.",
+      "uz": "Fransuz noni mazali.",
+      "en": "French bread is delicious.",
+      "ru": "Французский хлеб вкусный."
+    }
   },
   {
     "id": 342,
@@ -184,7 +312,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 342
+    "sourceNumber": 342,
+    "english": "Bus",
+    "russian": "Автобус",
+    "example": {
+      "ko": "버스를 타고 학교에 가요.",
+      "uz": "Avtobusda maktabga boraman.",
+      "en": "I take the bus to school.",
+      "ru": "Я езжу в школу на автобусе."
+    }
   },
   {
     "id": 343,
@@ -195,7 +331,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 343
+    "sourceNumber": 343,
+    "english": "Subway",
+    "russian": "Метро",
+    "example": {
+      "ko": "지하철로 회사에 가요.",
+      "uz": "Metroda ishga boraman.",
+      "en": "I go to work by subway.",
+      "ru": "Я езжу на работу на метро."
+    }
   },
   {
     "id": 344,
@@ -206,7 +350,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 344
+    "sourceNumber": 344,
+    "english": "To be smart",
+    "russian": "Быть умным",
+    "example": {
+      "ko": "제 친구는 똑똑해요.",
+      "uz": "Do'stim aqlli.",
+      "en": "My friend is smart.",
+      "ru": "Мой друг умный."
+    }
   },
   {
     "id": 345,
@@ -217,7 +369,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 345
+    "sourceNumber": 345,
+    "english": "To be cute",
+    "russian": "Быть милым",
+    "example": {
+      "ko": "강아지가 귀여워요.",
+      "uz": "Kuchukcha shirintoy.",
+      "en": "The puppy is cute.",
+      "ru": "Щенок милый."
+    }
   },
   {
     "id": 346,
@@ -228,7 +388,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 346
+    "sourceNumber": 346,
+    "english": "Daughter",
+    "russian": "Дочь",
+    "example": {
+      "ko": "딸이 두 명 있어요.",
+      "uz": "Ikki qizim bor.",
+      "en": "I have two daughters.",
+      "ru": "У меня две дочери."
+    }
   },
   {
     "id": 347,
@@ -239,7 +407,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 347
+    "sourceNumber": 347,
+    "english": "Son",
+    "russian": "Сын",
+    "example": {
+      "ko": "아들이 학교에 가요.",
+      "uz": "O'g'lim maktabga boradi.",
+      "en": "My son goes to school.",
+      "ru": "Мой сын ходит в школу."
+    }
   },
   {
     "id": 348,
@@ -250,7 +426,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 348
+    "sourceNumber": 348,
+    "english": "Younger brother",
+    "russian": "Младший брат",
+    "example": {
+      "ko": "남동생은 고등학생이에요.",
+      "uz": "Ukam o'rta maktab o'quvchisi.",
+      "en": "My younger brother is a high school student.",
+      "ru": "Мой младший брат — старшеклассник."
+    }
   },
   {
     "id": 349,
@@ -261,7 +445,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 349
+    "sourceNumber": 349,
+    "english": "Younger sister",
+    "russian": "Младшая сестра",
+    "example": {
+      "ko": "여동생이 노래를 잘해요.",
+      "uz": "Singlim yaxshi qo'shiq aytadi.",
+      "en": "My younger sister sings well.",
+      "ru": "Моя младшая сестра хорошо поёт."
+    }
   },
   {
     "id": 350,
@@ -272,7 +464,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 350
+    "sourceNumber": 350,
+    "english": "To wash the dishes",
+    "russian": "Мыть посуду",
+    "example": {
+      "ko": "저녁을 먹고 설거지를 해요.",
+      "uz": "Kechki ovqatdan keyin idish yuvaman.",
+      "en": "I wash the dishes after dinner.",
+      "ru": "После ужина я мою посуду."
+    }
   },
   {
     "id": 351,
@@ -283,7 +483,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 351
+    "sourceNumber": 351,
+    "english": "To dislike",
+    "russian": "Не любить",
+    "example": {
+      "ko": "저는 매운 음식을 싫어해요.",
+      "uz": "Men achchiq taomni yoqtirmayman.",
+      "en": "I dislike spicy food.",
+      "ru": "Я не люблю острую еду."
+    }
   },
   {
     "id": 352,
@@ -294,7 +502,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 352
+    "sourceNumber": 352,
+    "english": "To ride / To take (transport)",
+    "russian": "Ехать / Кататься",
+    "example": {
+      "ko": "자전거를 타요.",
+      "uz": "Velosiped minaman.",
+      "en": "I ride a bicycle.",
+      "ru": "Я катаюсь на велосипеде."
+    }
   },
   {
     "id": 353,
@@ -305,7 +521,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 353
+    "sourceNumber": 353,
+    "english": "Taxi",
+    "russian": "Такси",
+    "example": {
+      "ko": "택시를 타고 공항에 가요.",
+      "uz": "Taksida aeroportga boraman.",
+      "en": "I take a taxi to the airport.",
+      "ru": "Я еду в аэропорт на такси."
+    }
   },
   {
     "id": 354,
@@ -316,7 +540,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 354
+    "sourceNumber": 354,
+    "english": "Skateboard",
+    "russian": "Скейтборд",
+    "example": {
+      "ko": "공원에서 스케이트보드를 타요.",
+      "uz": "Parkda skeytbord uchaman.",
+      "en": "I skateboard in the park.",
+      "ru": "Я катаюсь на скейтборде в парке."
+    }
   },
   {
     "id": 355,
@@ -327,7 +559,15 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 355
+    "sourceNumber": 355,
+    "english": "Mobile phone",
+    "russian": "Мобильный телефон",
+    "example": {
+      "ko": "휴대폰을 잃어버렸어요.",
+      "uz": "Telefonimni yo'qotib qo'ydim.",
+      "en": "I lost my mobile phone.",
+      "ru": "Я потерял мобильный телефон."
+    }
   },
   {
     "id": 356,
@@ -338,6 +578,14 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 356
+    "sourceNumber": 356,
+    "english": "Understood / Okay",
+    "russian": "Понятно / Хорошо",
+    "example": {
+      "ko": "네, 알겠습니다.",
+      "uz": "Ha, tushunarli.",
+      "en": "Yes, I understand.",
+      "ru": "Да, понятно."
+    }
   }
 ]

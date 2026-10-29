@@ -57,7 +57,8 @@ function Notice({ tone = "error", children }) {
 function NewReportForm({ onCreated }) {
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const [draft] = useState(readDraft);
+  // A "report this word" link passes a prefilled report instead of the draft.
+  const [draft] = useState(() => location.state?.prefill || readDraft());
   const [category, setCategory] = useState(draft.category || "");
   const [subject, setSubject] = useState(draft.subject || "");
   const [message, setMessage] = useState(draft.message || "");

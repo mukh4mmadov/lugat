@@ -2,7 +2,27 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
+// Libraries change less often than the app, so they get their own cached files.
+const VENDOR_CHUNKS = {
+  react: ["react", "react-dom", "react-router", "react-router-dom", "scheduler"],
+  supabase: ["@supabase"],
+  motion: ["framer-motion", "motion-dom", "motion-utils"],
+  state: ["@reduxjs", "react-redux", "redux", "immer", "reselect"],
+  i18n: ["i18next", "react-i18next"],
+};
+
+function vendorChunk(id) {
+  if (!id.includes("node_modules")) return undefined;
+  const name = id.split("node_modules/").pop();
+  return Object.keys(VENDOR_CHUNKS).find((chunk) =>
+    VENDOR_CHUNKS[chunk].some((pkg) => name === pkg || name.startsWith(`${pkg}/`)),
+  );
+}
+
 export default defineConfig({
+  build: {
+    rollupOptions: { output: { manualChunks: vendorChunk } },
+  },
   server: {
     // Build output holds the large TOPIK audio; watching it crashes dev on Windows (EBUSY).
     watch: { ignored: ["**/dist/**", "**/dev-dist/**"] },

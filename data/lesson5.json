@@ -8,7 +8,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 109
+    "sourceNumber": 109,
+    "english": "To play the guitar",
+    "russian": "Играть на гитаре",
+    "example": {
+      "ko": "저는 기타를 쳐요.",
+      "uz": "Men gitara chalaman.",
+      "en": "I play the guitar.",
+      "ru": "Я играю на гитаре."
+    }
   },
   {
     "id": 110,
@@ -19,7 +27,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 110
+    "sourceNumber": 110,
+    "english": "To exchange money",
+    "russian": "Обменивать деньги",
+    "example": {
+      "ko": "은행에서 돈을 바꿔요.",
+      "uz": "Bankda pul almashtiraman.",
+      "en": "I exchange money at the bank.",
+      "ru": "Я меняю деньги в банке."
+    }
   },
   {
     "id": 111,
@@ -30,7 +46,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 111
+    "sourceNumber": 111,
+    "english": "To send a letter",
+    "russian": "Отправлять письмо",
+    "example": {
+      "ko": "친구에게 편지를 보내요.",
+      "uz": "Do'stimga xat yuboraman.",
+      "en": "I send a letter to my friend.",
+      "ru": "Я отправляю письмо другу."
+    }
   },
   {
     "id": 112,
@@ -41,7 +65,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 112
+    "sourceNumber": 112,
+    "english": "To play tennis",
+    "russian": "Играть в теннис",
+    "example": {
+      "ko": "친구와 테니스를 쳐요.",
+      "uz": "Do'stim bilan tennis o'ynayman.",
+      "en": "I play tennis with a friend.",
+      "ru": "Я играю в теннис с другом."
+    }
   },
   {
     "id": 113,
@@ -52,7 +84,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 113
+    "sourceNumber": 113,
+    "english": "To send money",
+    "russian": "Отправлять деньги (перевод)",
+    "example": {
+      "ko": "부모님께 돈을 보내요.",
+      "uz": "Ota-onamga pul jo'nataman.",
+      "en": "I send money to my parents.",
+      "ru": "Я отправляю деньги родителям."
+    }
   },
   {
     "id": 114,
@@ -63,7 +103,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 114
+    "sourceNumber": 114,
+    "english": "Bank",
+    "russian": "Банк",
+    "example": {
+      "ko": "은행이 어디에 있어요?",
+      "uz": "Bank qayerda?",
+      "en": "Where is the bank?",
+      "ru": "Где банк?"
+    }
   },
   {
     "id": 115,
@@ -74,7 +122,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 115
+    "sourceNumber": 115,
+    "english": "Post office",
+    "russian": "Почта",
+    "example": {
+      "ko": "우체국에서 소포를 보내요.",
+      "uz": "Pochtaxonadan posilka jo'nataman.",
+      "en": "I send a parcel at the post office.",
+      "ru": "Я отправляю посылку на почте."
+    }
   },
   {
     "id": 116,
@@ -85,7 +141,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 116
+    "sourceNumber": 116,
+    "english": "School",
+    "russian": "Школа",
+    "example": {
+      "ko": "학교에 가요.",
+      "uz": "Maktabga boraman.",
+      "en": "I go to school.",
+      "ru": "Я иду в школу."
+    }
   },
   {
     "id": 117,
@@ -96,7 +160,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 117
+    "sourceNumber": 117,
+    "english": "Tennis court",
+    "russian": "Теннисный корт",
+    "example": {
+      "ko": "테니스장이 학교 옆에 있어요.",
+      "uz": "Tennis korti maktab yonida.",
+      "en": "The tennis court is next to the school.",
+      "ru": "Теннисный корт рядом со школой."
+    }
   },
   {
     "id": 118,
@@ -107,7 +179,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 118
+    "sourceNumber": 118,
+    "english": "Gym",
+    "russian": "Тренажёрный зал",
+    "example": {
+      "ko": "저녁에 헬스장에 가요.",
+      "uz": "Kechqurun trenajyor zaliga boraman.",
+      "en": "I go to the gym in the evening.",
+      "ru": "Вечером я хожу в спортзал."
+    }
   },
   {
     "id": 119,
@@ -118,7 +198,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 119
+    "sourceNumber": 119,
+    "english": "Swimming pool",
+    "russian": "Бассейн",
+    "example": {
+      "ko": "수영장에서 수영해요.",
+      "uz": "Basseynda suzaman.",
+      "en": "I swim at the pool.",
+      "ru": "Я плаваю в бассейне."
+    }
   },
   {
     "id": 120,
@@ -129,7 +217,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 120
+    "sourceNumber": 120,
+    "english": "Park",
+    "russian": "Парк",
+    "example": {
+      "ko": "공원에서 산책해요.",
+      "uz": "Parkda sayr qilaman.",
+      "en": "I take a walk in the park.",
+      "ru": "Я гуляю в парке."
+    }
   },
   {
     "id": 121,
@@ -140,7 +236,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 121
+    "sourceNumber": 121,
+    "english": "House / Home",
+    "russian": "Дом",
+    "example": {
+      "ko": "집에서 쉬어요.",
+      "uz": "Uyda dam olaman.",
+      "en": "I rest at home.",
+      "ru": "Я отдыхаю дома."
+    }
   },
   {
     "id": 122,
@@ -151,7 +255,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 122
+    "sourceNumber": 122,
+    "english": "Bicycle",
+    "russian": "Велосипед",
+    "example": {
+      "ko": "자전거를 타요.",
+      "uz": "Velosiped minaman.",
+      "en": "I ride a bicycle.",
+      "ru": "Я катаюсь на велосипеде."
+    }
   },
   {
     "id": 123,
@@ -162,7 +274,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 123
+    "sourceNumber": 123,
+    "english": "Library",
+    "russian": "Библиотека",
+    "example": {
+      "ko": "도서관에서 책을 빌려요.",
+      "uz": "Kutubxonadan kitob olaman.",
+      "en": "I borrow books from the library.",
+      "ru": "Я беру книги в библиотеке."
+    }
   },
   {
     "id": 124,
@@ -173,7 +293,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 124
+    "sourceNumber": 124,
+    "english": "Restaurant",
+    "russian": "Ресторан / Столовая",
+    "example": {
+      "ko": "식당에서 점심을 먹어요.",
+      "uz": "Restoranda tushlik qilaman.",
+      "en": "I eat lunch at a restaurant.",
+      "ru": "Я обедаю в ресторане."
+    }
   },
   {
     "id": 125,
@@ -184,7 +312,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 125
+    "sourceNumber": 125,
+    "english": "Market",
+    "russian": "Рынок",
+    "example": {
+      "ko": "시장에서 과일을 사요.",
+      "uz": "Bozordan meva sotib olaman.",
+      "en": "I buy fruit at the market.",
+      "ru": "Я покупаю фрукты на рынке."
+    }
   },
   {
     "id": 126,
@@ -195,7 +331,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 126
+    "sourceNumber": 126,
+    "english": "Where",
+    "russian": "Где",
+    "example": {
+      "ko": "화장실이 어디예요?",
+      "uz": "Hojatxona qayerda?",
+      "en": "Where is the restroom?",
+      "ru": "Где туалет?"
+    }
   },
   {
     "id": 127,
@@ -206,7 +350,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 127
+    "sourceNumber": 127,
+    "english": "To be sorry",
+    "russian": "Извиняться (Прости)",
+    "example": {
+      "ko": "늦어서 미안해.",
+      "uz": "Kechikkanim uchun kechir.",
+      "en": "Sorry I'm late.",
+      "ru": "Прости, что опоздал."
+    }
   },
   {
     "id": 128,
@@ -217,7 +369,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 128
+    "sourceNumber": 128,
+    "english": "To be sorry (polite)",
+    "russian": "Извиняться (Извините — вежливо)",
+    "example": {
+      "ko": "정말 죄송합니다.",
+      "uz": "Juda uzr so'rayman.",
+      "en": "I'm very sorry.",
+      "ru": "Мне очень жаль."
+    }
   },
   {
     "id": 129,
@@ -228,7 +388,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 129
+    "sourceNumber": 129,
+    "english": "To play computer games",
+    "russian": "Играть в компьютерные игры",
+    "example": {
+      "ko": "동생이 컴퓨터 게임을 해요.",
+      "uz": "Ukam kompyuter o'yini o'ynaydi.",
+      "en": "My younger brother plays computer games.",
+      "ru": "Мой младший брат играет в компьютерные игры."
+    }
   },
   {
     "id": 130,
@@ -239,7 +407,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 130
+    "sourceNumber": 130,
+    "english": "To take a walk",
+    "russian": "Гулять",
+    "example": {
+      "ko": "저녁에 공원에서 산책해요.",
+      "uz": "Kechqurun parkda sayr qilaman.",
+      "en": "I take a walk in the park in the evening.",
+      "ru": "Вечером я гуляю в парке."
+    }
   },
   {
     "id": 131,
@@ -250,7 +426,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 131
+    "sourceNumber": 131,
+    "english": "Embassy",
+    "russian": "Посольство",
+    "example": {
+      "ko": "대사관에서 비자를 받아요.",
+      "uz": "Elchixonadan viza olaman.",
+      "en": "I get a visa at the embassy.",
+      "ru": "Я получаю визу в посольстве."
+    }
   },
   {
     "id": 132,
@@ -261,7 +445,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 132
+    "sourceNumber": 132,
+    "english": "Classroom",
+    "russian": "Класс (аудитория)",
+    "example": {
+      "ko": "교실에 학생이 많아요.",
+      "uz": "Sinfda o'quvchilar ko'p.",
+      "en": "There are many students in the classroom.",
+      "ru": "В классе много учеников."
+    }
   },
   {
     "id": 133,
@@ -272,7 +464,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 133
+    "sourceNumber": 133,
+    "english": "Cinema",
+    "russian": "Кинотеатр",
+    "example": {
+      "ko": "영화관에서 영화를 봐요.",
+      "uz": "Kinoteatrda kino ko'raman.",
+      "en": "I watch a movie at the cinema.",
+      "ru": "Я смотрю фильм в кинотеатре."
+    }
   },
   {
     "id": 134,
@@ -283,7 +483,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 134
+    "sourceNumber": 134,
+    "english": "Stationery store",
+    "russian": "Канцелярский магазин",
+    "example": {
+      "ko": "문구점에서 공책을 사요.",
+      "uz": "Kanselyariya do'konidan daftar sotib olaman.",
+      "en": "I buy a notebook at the stationery store.",
+      "ru": "Я покупаю тетрадь в канцелярском магазине."
+    }
   },
   {
     "id": 135,
@@ -294,7 +502,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 135
+    "sourceNumber": 135,
+    "english": "Bookstore",
+    "russian": "Книжный магазин",
+    "example": {
+      "ko": "서점에서 사전을 사요.",
+      "uz": "Kitob do'konidan lug'at sotib olaman.",
+      "en": "I buy a dictionary at the bookstore.",
+      "ru": "Я покупаю словарь в книжном магазине."
+    }
   },
   {
     "id": 136,
@@ -305,7 +521,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 136
+    "sourceNumber": 136,
+    "english": "Department store",
+    "russian": "Универмаг",
+    "example": {
+      "ko": "백화점에서 쇼핑해요.",
+      "uz": "Savdo markazida xarid qilaman.",
+      "en": "I shop at the department store.",
+      "ru": "Я делаю покупки в универмаге."
+    }
   },
   {
     "id": 137,
@@ -316,7 +540,15 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 137
+    "sourceNumber": 137,
+    "english": "Company",
+    "russian": "Компания / Фирма",
+    "example": {
+      "ko": "형은 회사에 다녀요.",
+      "uz": "Akam kompaniyada ishlaydi.",
+      "en": "My older brother works at a company.",
+      "ru": "Мой старший брат работает в компании."
+    }
   },
   {
     "id": 138,
@@ -327,6 +559,14 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 138
+    "sourceNumber": 138,
+    "english": "Pharmacy",
+    "russian": "Аптека",
+    "example": {
+      "ko": "약국에서 약을 사요.",
+      "uz": "Dorixonadan dori sotib olaman.",
+      "en": "I buy medicine at the pharmacy.",
+      "ru": "Я покупаю лекарство в аптеке."
+    }
   }
 ]

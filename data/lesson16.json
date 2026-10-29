@@ -8,7 +8,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 478,
-    "romanization": "saebyeok"
+    "romanization": "saebyeok",
+    "english": "Dawn / Early morning",
+    "russian": "Рассвет / Раннее утро",
+    "example": {
+      "ko": "새벽에 일어나요.",
+      "uz": "Saharda turaman.",
+      "en": "I get up at dawn.",
+      "ru": "Я встаю на рассвете."
+    }
   },
   {
     "id": 479,
@@ -19,7 +27,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 479,
-    "romanization": "achim"
+    "romanization": "achim",
+    "english": "Morning / Breakfast",
+    "russian": "Утро / Завтрак",
+    "example": {
+      "ko": "아침에 운동해요.",
+      "uz": "Ertalab sport bilan shug'ullanaman.",
+      "en": "I exercise in the morning.",
+      "ru": "Утром я занимаюсь спортом."
+    }
   },
   {
     "id": 480,
@@ -30,7 +46,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 480,
-    "romanization": "jeomsim"
+    "romanization": "jeomsim",
+    "english": "Noon / Lunch",
+    "russian": "Полдень / Обед",
+    "example": {
+      "ko": "점심에 김밥을 먹어요.",
+      "uz": "Tushlikka kimbap yeyman.",
+      "en": "I eat kimbap for lunch.",
+      "ru": "На обед я ем кимбап."
+    }
   },
   {
     "id": 481,
@@ -41,7 +65,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 481,
-    "romanization": "nat"
+    "romanization": "nat",
+    "english": "Daytime",
+    "russian": "День (дневное время)",
+    "example": {
+      "ko": "낮에는 따뜻해요.",
+      "uz": "Kunduzi iliq.",
+      "en": "It's warm during the day.",
+      "ru": "Днём тепло."
+    }
   },
   {
     "id": 482,
@@ -52,7 +84,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 482,
-    "romanization": "jeonyeok"
+    "romanization": "jeonyeok",
+    "english": "Evening / Dinner",
+    "russian": "Вечер / Ужин",
+    "example": {
+      "ko": "저녁에 친구를 만나요.",
+      "uz": "Kechqurun do'stim bilan uchrashaman.",
+      "en": "I meet a friend in the evening.",
+      "ru": "Вечером я встречаюсь с другом."
+    }
   },
   {
     "id": 483,
@@ -63,7 +103,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 483,
-    "romanization": "bam"
+    "romanization": "bam",
+    "english": "Night",
+    "russian": "Ночь",
+    "example": {
+      "ko": "밤에 별이 많아요.",
+      "uz": "Tunda yulduzlar ko'p.",
+      "en": "There are many stars at night.",
+      "ru": "Ночью много звёзд."
+    }
   },
   {
     "id": 484,
@@ -74,7 +122,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 484,
-    "romanization": "ojeon / ohu"
+    "romanization": "ojeon / ohu",
+    "english": "A.M. / P.M.",
+    "russian": "До полудня / После полудня",
+    "example": {
+      "ko": "오전에 수업이 있어요.",
+      "uz": "Tushdan oldin darsim bor.",
+      "en": "I have class in the morning.",
+      "ru": "До обеда у меня занятия."
+    }
   },
   {
     "id": 485,
@@ -85,7 +141,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 485,
-    "romanization": "botong"
+    "romanization": "botong",
+    "english": "Usually",
+    "russian": "Обычно",
+    "example": {
+      "ko": "보통 일곱 시에 일어나요.",
+      "uz": "Odatda soat yettida turaman.",
+      "en": "I usually get up at seven.",
+      "ru": "Обычно я встаю в семь."
+    }
   },
   {
     "id": 486,
@@ -96,7 +160,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 486,
-    "romanization": "jogeum jeon / jogeum hu"
+    "romanization": "jogeum jeon / jogeum hu",
+    "english": "A little while ago / A little later",
+    "russian": "Недавно / Чуть позже",
+    "example": {
+      "ko": "조금 전에 집에 왔어요.",
+      "uz": "Biroz oldin uyga keldim.",
+      "en": "I came home a little while ago.",
+      "ru": "Я пришёл домой недавно."
+    }
   },
   {
     "id": 487,
@@ -107,7 +179,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 487,
-    "romanization": "ireonada"
+    "romanization": "ireonada",
+    "english": "To get up / Wake up",
+    "russian": "Вставать / Просыпаться",
+    "example": {
+      "ko": "몇 시에 일어나요?",
+      "uz": "Soat nechada turasiz?",
+      "en": "What time do you get up?",
+      "ru": "Во сколько вы встаёте?"
+    }
   },
   {
     "id": 488,
@@ -118,7 +198,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 488,
-    "romanization": "sesuhada"
+    "romanization": "sesuhada",
+    "english": "To wash one's face",
+    "russian": "Умываться",
+    "example": {
+      "ko": "일어나서 세수해요.",
+      "uz": "Turib yuz-qo'limni yuvaman.",
+      "en": "I get up and wash my face.",
+      "ru": "Я встаю и умываюсь."
+    }
   },
   {
     "id": 489,
@@ -129,7 +217,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 489,
-    "romanization": "ppallaehada"
+    "romanization": "ppallaehada",
+    "english": "To do laundry",
+    "russian": "Стирать бельё",
+    "example": {
+      "ko": "일요일에 빨래해요.",
+      "uz": "Yakshanba kuni kir yuvaman.",
+      "en": "I do laundry on Sunday.",
+      "ru": "В воскресенье я стираю."
+    }
   },
   {
     "id": 490,
@@ -140,7 +236,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 490,
-    "romanization": "jihacheoreul tada"
+    "romanization": "jihacheoreul tada",
+    "english": "To take the subway",
+    "russian": "Ехать на метро",
+    "example": {
+      "ko": "지하철을 타고 학교에 가요.",
+      "uz": "Metroda maktabga boraman.",
+      "en": "I take the subway to school.",
+      "ru": "Я езжу в школу на метро."
+    }
   },
   {
     "id": 491,
@@ -151,7 +255,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 491,
-    "romanization": "hoeuireul hada"
+    "romanization": "hoeuireul hada",
+    "english": "To have a meeting",
+    "russian": "Проводить совещание",
+    "example": {
+      "ko": "오후에 회의를 해요.",
+      "uz": "Tushdan keyin majlis o'tkazamiz.",
+      "en": "We have a meeting in the afternoon.",
+      "ru": "Днём у нас совещание."
+    }
   },
   {
     "id": 492,
@@ -162,7 +274,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 492,
-    "romanization": "siheomeul boda"
+    "romanization": "siheomeul boda",
+    "english": "To take an exam",
+    "russian": "Сдавать экзамен",
+    "example": {
+      "ko": "내일 시험을 봐요.",
+      "uz": "Ertaga imtihon topshiraman.",
+      "en": "I take an exam tomorrow.",
+      "ru": "Завтра я сдаю экзамен."
+    }
   },
   {
     "id": 493,
@@ -173,7 +293,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 493,
-    "romanization": "chulgeunhada"
+    "romanization": "chulgeunhada",
+    "english": "To go to work",
+    "russian": "Идти на работу",
+    "example": {
+      "ko": "아버지는 여덟 시에 출근해요.",
+      "uz": "Otam soat sakkizda ishga boradi.",
+      "en": "My father goes to work at eight.",
+      "ru": "Отец уходит на работу в восемь."
+    }
   },
   {
     "id": 494,
@@ -185,7 +313,15 @@
     "needsReview": false,
     "sourceNumber": 494,
     "note": "ishni tugatmoq",
-    "romanization": "toegeunhada"
+    "romanization": "toegeunhada",
+    "english": "To leave work",
+    "russian": "Уходить с работы",
+    "example": {
+      "ko": "여섯 시에 퇴근해요.",
+      "uz": "Soat oltida ishdan qaytaman.",
+      "en": "I leave work at six.",
+      "ru": "Я ухожу с работы в шесть."
+    }
   },
   {
     "id": 495,
@@ -196,7 +332,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 495,
-    "romanization": "chultoegeunhada"
+    "romanization": "chultoegeunhada",
+    "english": "To commute",
+    "russian": "Ездить на работу и обратно",
+    "example": {
+      "ko": "지하철로 출퇴근해요.",
+      "uz": "Ishga metroda qatnayman.",
+      "en": "I commute by subway.",
+      "ru": "Я езжу на работу на метро."
+    }
   },
   {
     "id": 496,
@@ -207,7 +351,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 496,
-    "romanization": "chultoegeun sigan"
+    "romanization": "chultoegeun sigan",
+    "english": "Rush hour",
+    "russian": "Час пик",
+    "example": {
+      "ko": "출퇴근 시간에는 길이 복잡해요.",
+      "uz": "Tig'iz vaqtda yo'llar gavjum.",
+      "en": "The roads are crowded during rush hour.",
+      "ru": "В час пик на дорогах пробки."
+    }
   },
   {
     "id": 497,
@@ -219,7 +371,15 @@
     "needsReview": false,
     "sourceNumber": 497,
     "note": "bankdan",
-    "romanization": "doneul chatda"
+    "romanization": "doneul chatda",
+    "english": "To withdraw money",
+    "russian": "Снимать деньги",
+    "example": {
+      "ko": "은행에서 돈을 찾아요.",
+      "uz": "Bankdan pul yechib olaman.",
+      "en": "I withdraw money at the bank.",
+      "ru": "Я снимаю деньги в банке."
+    }
   },
   {
     "id": 498,
@@ -231,7 +391,15 @@
     "needsReview": false,
     "sourceNumber": 498,
     "note": "bankka",
-    "romanization": "doneul neota"
+    "romanization": "doneul neota",
+    "english": "To deposit money",
+    "russian": "Класть деньги (на счёт)",
+    "example": {
+      "ko": "통장에 돈을 넣어요.",
+      "uz": "Hisobga pul solaman.",
+      "en": "I deposit money into my account.",
+      "ru": "Я кладу деньги на счёт."
+    }
   },
   {
     "id": 499,
@@ -242,7 +410,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 499,
-    "romanization": "sigani geollida"
+    "romanization": "sigani geollida",
+    "english": "To take (time)",
+    "russian": "Занимать (время)",
+    "example": {
+      "ko": "집에서 학교까지 시간이 얼마나 걸려요?",
+      "uz": "Uydan maktabgacha qancha vaqt ketadi?",
+      "en": "How long does it take from home to school?",
+      "ru": "Сколько времени занимает дорога от дома до школы?"
+    }
   },
   {
     "id": 500,
@@ -253,7 +429,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 500,
-    "romanization": "jjeum"
+    "romanization": "jjeum",
+    "english": "About / Around",
+    "russian": "Примерно / Около",
+    "example": {
+      "ko": "세 시쯤 만나요.",
+      "uz": "Soat uchlar atrofida uchrashamiz.",
+      "en": "Let's meet around three.",
+      "ru": "Встретимся около трёх."
+    }
   },
   {
     "id": 501,
@@ -264,7 +448,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 501,
-    "romanization": "bun"
+    "romanization": "bun",
+    "english": "Minute",
+    "russian": "Минута",
+    "example": {
+      "ko": "십 분만 기다려 주세요.",
+      "uz": "Iltimos, o'n daqiqa kuting.",
+      "en": "Please wait ten minutes.",
+      "ru": "Подождите, пожалуйста, десять минут."
+    }
   },
   {
     "id": 502,
@@ -275,7 +467,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 502,
-    "romanization": "si"
+    "romanization": "si",
+    "english": "O'clock / Hour",
+    "russian": "Час",
+    "example": {
+      "ko": "지금 몇 시예요?",
+      "uz": "Hozir soat necha?",
+      "en": "What time is it now?",
+      "ru": "Который сейчас час?"
+    }
   },
   {
     "id": 503,
@@ -287,7 +487,15 @@
     "needsReview": false,
     "sourceNumber": 503,
     "note": "ko'rishmaganimizga ancha bo'ldi",
-    "romanization": "oraenmanida"
+    "romanization": "oraenmanida",
+    "english": "It's been a long time",
+    "russian": "Давно не виделись",
+    "example": {
+      "ko": "오랜만이에요!",
+      "uz": "Anchadan beri ko'rishmadik!",
+      "en": "Long time no see!",
+      "ru": "Давно не виделись!"
+    }
   },
   {
     "id": 504,
@@ -298,7 +506,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 504,
-    "romanization": "jal jinaeda"
+    "romanization": "jal jinaeda",
+    "english": "To be doing well",
+    "russian": "Хорошо поживать",
+    "example": {
+      "ko": "잘 지냈어요?",
+      "uz": "Yaxshi yurdingizmi?",
+      "en": "How have you been?",
+      "ru": "Как поживали?"
+    }
   },
   {
     "id": 505,
@@ -309,6 +525,14 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 505,
-    "romanization": "geudongan"
+    "romanization": "geudongan",
+    "english": "Meanwhile / All this time",
+    "russian": "За это время",
+    "example": {
+      "ko": "그동안 잘 지냈어요?",
+      "uz": "Shu vaqt ichida yaxshi yurdingizmi?",
+      "en": "Have you been well all this time?",
+      "ru": "Как вы поживали всё это время?"
+    }
   }
 ]

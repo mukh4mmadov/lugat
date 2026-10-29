@@ -8,7 +8,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 604,
-    "romanization": "SNS"
+    "romanization": "SNS",
+    "english": "Social media (SNS)",
+    "russian": "Соцсети",
+    "example": {
+      "ko": "SNS에 사진을 올려요.",
+      "uz": "Ijtimoiy tarmoqqa rasm joylayman.",
+      "en": "I post photos on social media.",
+      "ru": "Я выкладываю фото в соцсети."
+    }
   },
   {
     "id": 605,
@@ -19,7 +27,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 605,
-    "romanization": "bakke nagada"
+    "romanization": "bakke nagada",
+    "english": "To go outside",
+    "russian": "Выходить на улицу",
+    "example": {
+      "ko": "비가 와서 밖에 나가지 않아요.",
+      "uz": "Yomg'ir yog'yapti, shuning uchun tashqariga chiqmayman.",
+      "en": "It's raining, so I'm not going outside.",
+      "ru": "Идёт дождь, поэтому я не выхожу на улицу."
+    }
   },
   {
     "id": 606,
@@ -30,7 +46,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 606,
-    "romanization": "ppareuda"
+    "romanization": "ppareuda",
+    "english": "To be fast",
+    "russian": "Быть быстрым",
+    "example": {
+      "ko": "KTX는 정말 빨라요.",
+      "uz": "KTX juda tez.",
+      "en": "The KTX is really fast.",
+      "ru": "KTX очень быстрый."
+    }
   },
   {
     "id": 607,
@@ -42,7 +66,15 @@
     "needsReview": false,
     "sourceNumber": 607,
     "note": "radio orqali ma'lumot berish",
-    "romanization": "annae bangsong"
+    "romanization": "annae bangsong",
+    "english": "Announcement",
+    "russian": "Объявление (по громкой связи)",
+    "example": {
+      "ko": "지하철에서 안내 방송이 나와요.",
+      "uz": "Metroda e'lon eshittiriladi.",
+      "en": "An announcement plays on the subway.",
+      "ru": "В метро звучит объявление."
+    }
   },
   {
     "id": 608,
@@ -53,7 +85,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 608,
-    "romanization": "ilboneo"
+    "romanization": "ilboneo",
+    "english": "Japanese (language)",
+    "russian": "Японский язык",
+    "example": {
+      "ko": "일본어를 조금 해요.",
+      "uz": "Yapon tilida biroz gapiraman.",
+      "en": "I speak a little Japanese.",
+      "ru": "Я немного говорю по-японски."
+    }
   },
   {
     "id": 609,
@@ -64,7 +104,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 609,
-    "romanization": "oegugin"
+    "romanization": "oegugin",
+    "english": "Foreigner",
+    "russian": "Иностранец",
+    "example": {
+      "ko": "서울에 외국인이 많아요.",
+      "uz": "Seulda chet elliklar ko'p.",
+      "en": "There are many foreigners in Seoul.",
+      "ru": "В Сеуле много иностранцев."
+    }
   },
   {
     "id": 610,
@@ -75,7 +123,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 610,
-    "romanization": "noyakjaseok (noyakjasok)"
+    "romanization": "noyakjaseok (noyakjasok)",
+    "english": "Seats for the elderly and disabled",
+    "russian": "Места для пожилых и инвалидов",
+    "example": {
+      "ko": "노약자석에 앉지 마세요.",
+      "uz": "Qariyalar uchun joyga o'tirmang.",
+      "en": "Please don't sit in the seats for the elderly.",
+      "ru": "Не садитесь на места для пожилых."
+    }
   },
   {
     "id": 611,
@@ -86,7 +142,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 611,
-    "romanization": "imsanbuseok"
+    "romanization": "imsanbuseok",
+    "english": "Seats for pregnant women",
+    "russian": "Места для беременных",
+    "example": {
+      "ko": "임산부석은 분홍색이에요.",
+      "uz": "Homilador ayollar uchun joy pushti rangda.",
+      "en": "The seats for pregnant women are pink.",
+      "ru": "Места для беременных розовые."
+    }
   },
   {
     "id": 612,
@@ -97,7 +161,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 612,
-    "romanization": "noin"
+    "romanization": "noin",
+    "english": "Elderly person",
+    "russian": "Пожилой человек",
+    "example": {
+      "ko": "노인에게 자리를 양보해요.",
+      "uz": "Keksa insonga joy beraman.",
+      "en": "I give my seat to an elderly person.",
+      "ru": "Я уступаю место пожилому человеку."
+    }
   },
   {
     "id": 613,
@@ -108,7 +180,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 613,
-    "romanization": "mom"
+    "romanization": "mom",
+    "english": "Body",
+    "russian": "Тело",
+    "example": {
+      "ko": "몸이 안 좋아요.",
+      "uz": "Mazam yo'q.",
+      "en": "I don't feel well.",
+      "ru": "Я плохо себя чувствую."
+    }
   },
   {
     "id": 614,
@@ -119,7 +199,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 614,
-    "romanization": "imsanbu"
+    "romanization": "imsanbu",
+    "english": "Pregnant woman",
+    "russian": "Беременная женщина",
+    "example": {
+      "ko": "임산부에게 자리를 양보하세요.",
+      "uz": "Homilador ayolga joy bering.",
+      "en": "Please give your seat to a pregnant woman.",
+      "ru": "Уступите место беременной женщине."
+    }
   },
   {
     "id": 615,
@@ -131,7 +219,15 @@
     "needsReview": false,
     "sourceNumber": 615,
     "note": "yoshi ulug' insonlar",
-    "romanization": "eoreun"
+    "romanization": "eoreun",
+    "english": "Adult / Elder",
+    "russian": "Взрослый / Старший",
+    "example": {
+      "ko": "어른에게 존댓말을 써요.",
+      "uz": "Kattalarga hurmat bilan gapiramiz.",
+      "en": "We use polite speech with elders.",
+      "ru": "Со старшими мы говорим вежливо."
+    }
   },
   {
     "id": 616,
@@ -142,7 +238,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 616,
-    "romanization": "eeokeon"
+    "romanization": "eeokeon",
+    "english": "Air conditioner",
+    "russian": "Кондиционер",
+    "example": {
+      "ko": "더워서 에어컨을 켜요.",
+      "uz": "Issiq bo'lgani uchun konditsionerni yoqaman.",
+      "en": "It's hot, so I turn on the air conditioner.",
+      "ru": "Жарко, поэтому я включаю кондиционер."
+    }
   },
   {
     "id": 617,
@@ -153,7 +257,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 617,
-    "romanization": "jihacheoryeok"
+    "romanization": "jihacheoryeok",
+    "english": "Subway station",
+    "russian": "Станция метро",
+    "example": {
+      "ko": "지하철역이 어디에 있어요?",
+      "uz": "Metro bekati qayerda?",
+      "en": "Where is the subway station?",
+      "ru": "Где станция метро?"
+    }
   },
   {
     "id": 618,
@@ -164,7 +276,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 618,
-    "romanization": "gyotongkadeu"
+    "romanization": "gyotongkadeu",
+    "english": "Transportation card",
+    "russian": "Транспортная карта",
+    "example": {
+      "ko": "교통카드를 충전해요.",
+      "uz": "Transport kartasini to'ldiraman.",
+      "en": "I top up my transportation card.",
+      "ru": "Я пополняю транспортную карту."
+    }
   },
   {
     "id": 619,
@@ -175,7 +295,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 619,
-    "romanization": "chulgu"
+    "romanization": "chulgu",
+    "english": "Exit",
+    "russian": "Выход",
+    "example": {
+      "ko": "3번 출구로 나오세요.",
+      "uz": "3-chiqishdan chiqing.",
+      "en": "Please come out of exit 3.",
+      "ru": "Выходите через выход номер 3."
+    }
   },
   {
     "id": 620,
@@ -186,7 +314,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 620,
-    "romanization": "ipgu"
+    "romanization": "ipgu",
+    "english": "Entrance",
+    "russian": "Вход",
+    "example": {
+      "ko": "입구에서 기다릴게요.",
+      "uz": "Kirish joyida kutaman.",
+      "en": "I'll wait at the entrance.",
+      "ru": "Я подожду у входа."
+    }
   },
   {
     "id": 621,
@@ -198,7 +334,15 @@
     "needsReview": false,
     "sourceNumber": 621,
     "note": "peresadka",
-    "romanization": "garatada"
+    "romanization": "garatada",
+    "english": "To transfer (transport)",
+    "russian": "Пересаживаться",
+    "example": {
+      "ko": "시청역에서 2호선으로 갈아타세요.",
+      "uz": "Sicheong (shahar hokimligi) bekatida 2-liniyaga o'ting.",
+      "en": "Transfer to Line 2 at City Hall station.",
+      "ru": "На станции «Мэрия» пересядьте на линию 2."
+    }
   },
   {
     "id": 622,
@@ -210,7 +354,15 @@
     "needsReview": false,
     "sourceNumber": 622,
     "note": "metroda",
-    "romanization": "hoseon"
+    "romanization": "hoseon",
+    "english": "Line (subway line number)",
+    "russian": "Линия (метро)",
+    "example": {
+      "ko": "몇 호선을 타요?",
+      "uz": "Qaysi liniyaga chiqasiz?",
+      "en": "Which line do you take?",
+      "ru": "На какую линию вы садитесь?"
+    }
   },
   {
     "id": 623,
@@ -222,7 +374,15 @@
     "needsReview": false,
     "sourceNumber": 623,
     "note": "transportdan) / Yog'moq (yomg'ir/qor",
-    "romanization": "naerida"
+    "romanization": "naerida",
+    "english": "To get off",
+    "russian": "Выходить (из транспорта)",
+    "example": {
+      "ko": "다음 역에서 내려요.",
+      "uz": "Keyingi bekatda tushaman.",
+      "en": "I get off at the next station.",
+      "ru": "Я выхожу на следующей станции."
+    }
   },
   {
     "id": 624,
@@ -233,7 +393,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 624,
-    "romanization": "sikkeureopda"
+    "romanization": "sikkeureopda",
+    "english": "To be noisy",
+    "russian": "Быть шумным",
+    "example": {
+      "ko": "교실이 시끄러워요.",
+      "uz": "Sinf shovqinli.",
+      "en": "The classroom is noisy.",
+      "ru": "В классе шумно."
+    }
   },
   {
     "id": 625,
@@ -244,7 +412,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 625,
-    "romanization": "jari"
+    "romanization": "jari",
+    "english": "Seat / Place",
+    "russian": "Место",
+    "example": {
+      "ko": "여기 자리 있어요?",
+      "uz": "Bu yer band emasmi?",
+      "en": "Is this seat taken?",
+      "ru": "Это место свободно?"
+    }
   },
   {
     "id": 626,
@@ -255,7 +431,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 626,
-    "romanization": "oegugeoro"
+    "romanization": "oegugeoro",
+    "english": "In a foreign language",
+    "russian": "На иностранном языке",
+    "example": {
+      "ko": "외국어로 말하는 것은 어려워요.",
+      "uz": "Chet tilida gapirish qiyin.",
+      "en": "Speaking in a foreign language is hard.",
+      "ru": "Говорить на иностранном языке трудно."
+    }
   },
   {
     "id": 627,
@@ -266,7 +450,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 627,
-    "romanization": "yeok"
+    "romanization": "yeok",
+    "english": "Station",
+    "russian": "Станция",
+    "example": {
+      "ko": "서울역에서 만나요.",
+      "uz": "Seul bekatida uchrashamiz.",
+      "en": "Let's meet at Seoul Station.",
+      "ru": "Встретимся на Сеульском вокзале."
+    }
   },
   {
     "id": 628,
@@ -277,7 +469,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 628,
-    "romanization": "bunhongsaek"
+    "romanization": "bunhongsaek",
+    "english": "Pink",
+    "russian": "Розовый цвет",
+    "example": {
+      "ko": "분홍색 꽃이 예뻐요.",
+      "uz": "Pushti gullar chiroyli.",
+      "en": "The pink flowers are pretty.",
+      "ru": "Розовые цветы красивые."
+    }
   },
   {
     "id": 629,
@@ -288,6 +488,14 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 629,
-    "romanization": "momi bulpyeonhan saram"
+    "romanization": "momi bulpyeonhan saram",
+    "english": "Person with a disability",
+    "russian": "Человек с ограниченными возможностями",
+    "example": {
+      "ko": "몸이 불편한 사람을 도와요.",
+      "uz": "Harakatlanishi qiyin odamga yordam beraman.",
+      "en": "I help a person with a disability.",
+      "ru": "Я помогаю человеку с ограниченными возможностями."
+    }
   }
 ]

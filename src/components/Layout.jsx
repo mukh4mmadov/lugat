@@ -8,8 +8,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef } from "react";
-import { setTheme } from "../store";
+import { Suspense, useEffect, useState, useRef } from "react";
+import PageLoader from "./PageLoader";
+import VoiceNotice from "./VoiceNotice";
+import BottomNav from "./BottomNav";
+import { setLastPlace, setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
 import { TopikExamProvider } from "../context/TopikExamContext";
@@ -85,6 +88,15 @@ export default function Layout({ onShowIELTSModal }) {
     };
   }, [user, isAdmin]);
 
+  // Remember the last lesson, study session or TOPIK paper for "Continue".
+  const lastPlace = useSelector((state) => state.progress.lastPlace);
+  useEffect(() => {
+    const path = location.pathname;
+    if (!/^\/(study\/\d+|lesson\/\d+\/\w+|topik\/(?!result)[^/]+)$/.test(path)) return;
+    if (lastPlace?.path === path) return;
+    dispatch(setLastPlace({ path, at: Date.now() }));
+  }, [location.pathname, lastPlace?.path, dispatch]);
+
   // Remember where the learner was so a feedback report can say so.
   useEffect(() => {
     if (/^\/(feedback|admin|login|register|auth)/.test(location.pathname)) return;
@@ -139,6 +151,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/weak-words", t("library.weakWords")],
     ["/premium", "⭐ Premium"],
     ["/stats", t("nav.stats")],
+    ["/leaderboard", `🏆 ${t("leaderboard.title")}`],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
     ["/feedback", t("nav.feedback"), unread.user],
@@ -158,21 +171,6 @@ export default function Layout({ onShowIELTSModal }) {
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
 
-  useEffect(() => {
-    const langMap = {
-      uz: "uz",
-      en: "en",
-      ru: "ru",
-    };
-    document.documentElement.lang = langMap[i18n.language] || "uz";
-
-    const titleMap = {
-      uz: "Koreyscha Lug'at Studio",
-      en: "Korean Vocabulary Studio",
-      ru: "Студия корейского словаря",
-    };
-    document.title = titleMap[i18n.language] || "Korean Vocabulary Studio";
-  }, [i18n.language]);
 
   useEffect(() => {
     if (i18n.language !== displayLang) {
@@ -250,13 +248,9 @@ export default function Layout({ onShowIELTSModal }) {
               </motion.div>
               <div className="hidden sm:block">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
-                  KOREAN
+                  {t("header.brand")}
                 </p>
-                <span className="text-sm font-black tracking-tight">
-                  {t("header.brand", {
-                    defaultValue: "Korean Vocabulary Studio",
-                  })}
-                </span>
+                <span className="text-sm font-black tracking-tight">K-TALIM</span>
               </div>
             </NavLink>
 
@@ -643,12 +637,14 @@ export default function Layout({ onShowIELTSModal }) {
               transition={transitionConfig}
               className="min-h-[400px]"
             >
-              <Outlet />
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <footer className="relative z-10 mt-16 border-t border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+        <footer className="relative z-10 mt-16 border-t pb-24 md:pb-8 border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
           <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
             <div>
               <p className="font-black text-slate-900 dark:text-white">
@@ -684,6 +680,10 @@ export default function Layout({ onShowIELTSModal }) {
       </main>
       {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
       <div id="overlay-root" />
+      <VoiceNotice />
+      {!/^\/topik\/(?!result|words)[^/]+/.test(location.pathname) && (
+        <BottomNav onMenu={() => setMobileMenuOpen(true)} badge={unreadTotal} />
+      )}
       <AIChatWidget />
     </div>
     </TopikExamProvider>

@@ -3,11 +3,12 @@ import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import ReportWordLink from "../components/ReportWordLink";
 import GlassCard from "../components/GlassCard";
 import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { allWords, getLessonWords, getWordKey, lessonInfo } from "../data";
+import { allWords, exampleTranslation, getLessonWords, getWordKey, lessonInfo } from "../data";
 import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import {
   addActivity,
@@ -419,15 +420,15 @@ export default function FlashcardsPage({ review = false, weak = false }) {
                     </p>
                   )}
                 </div>
-                <div className="grid gap-2 text-xs font-bold text-slate-500 dark:text-slate-300 sm:grid-cols-3">
-                  <span>{t("card.lesson", { lesson: word.lesson })}</span>
-                  <span className="capitalize">{word.category}</span>
-                  <span>
-                    {word.needsReview
-                      ? t("card.needsReview")
-                      : t("card.verified")}
-                  </span>
-                </div>
+                {word.example ? (
+                  <div className="rounded-2xl bg-slate-950/5 px-3 py-2 text-center dark:bg-white/10">
+                    <p className="text-sm font-bold">{word.example.ko}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-300">{exampleTranslation(word.example)}</p>
+                    <ReportWordLink word={word} className="mt-1" />
+                  </div>
+                ) : (
+                  <p className="text-center text-xs font-bold text-slate-500 dark:text-slate-300">{t("card.lesson", { lesson: word.lesson })}</p>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -515,6 +516,7 @@ export function ModeHeader({ lesson, review = false, weak = false }) {
           [`/lesson/${lesson}/listening`, t("practice.listening")],
           [`/lesson/${lesson}/quiz`, t("practice.quiz")],
           [`/lesson/${lesson}/writing`, t("practice.writing")],
+          [`/lesson/${lesson}/dictation`, t("dictation.title")],
         ];
 
   return (

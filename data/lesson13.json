@@ -2,13 +2,21 @@
   {
     "id": 386,
     "korean": "전통",
-    "uzbek": "Milliy",
+    "uzbek": "An'ana / Milliy",
     "romanization": "jeontong",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 386
+    "sourceNumber": 386,
+    "english": "Tradition / Traditional",
+    "russian": "Традиция / Традиционный",
+    "example": {
+      "ko": "한복은 한국의 전통 옷이에요.",
+      "uz": "Xanbok — Koreyaning milliy kiyimi.",
+      "en": "Hanbok is Korea's traditional clothing.",
+      "ru": "Ханбок — традиционная корейская одежда."
+    }
   },
   {
     "id": 387,
@@ -19,7 +27,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 387
+    "sourceNumber": 387,
+    "english": "Culture",
+    "russian": "Культура",
+    "example": {
+      "ko": "한국 문화를 좋아해요.",
+      "uz": "Koreys madaniyatini yaxshi ko'raman.",
+      "en": "I like Korean culture.",
+      "ru": "Мне нравится корейская культура."
+    }
   },
   {
     "id": 388,
@@ -30,7 +46,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 388
+    "sourceNumber": 388,
+    "english": "Husband",
+    "russian": "Муж",
+    "example": {
+      "ko": "제 남편은 의사예요.",
+      "uz": "Erim shifokor.",
+      "en": "My husband is a doctor.",
+      "ru": "Мой муж — врач."
+    }
   },
   {
     "id": 389,
@@ -41,7 +65,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 389
+    "sourceNumber": 389,
+    "english": "Wife",
+    "russian": "Жена",
+    "example": {
+      "ko": "아내와 같이 여행해요.",
+      "uz": "Rafiqam bilan birga sayohat qilaman.",
+      "en": "I travel with my wife.",
+      "ru": "Я путешествую с женой."
+    }
   },
   {
     "id": 390,
@@ -52,7 +84,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 390
+    "sourceNumber": 390,
+    "english": "Concert",
+    "russian": "Концерт",
+    "example": {
+      "ko": "음악회에 가요.",
+      "uz": "Konsertga boraman.",
+      "en": "I go to a concert.",
+      "ru": "Я иду на концерт."
+    }
   },
   {
     "id": 391,
@@ -63,7 +103,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 391
+    "sourceNumber": 391,
+    "english": "Bird / New",
+    "russian": "Птица / Новый",
+    "example": {
+      "ko": "새 옷을 샀어요.",
+      "uz": "Yangi kiyim sotib oldim.",
+      "en": "I bought new clothes.",
+      "ru": "Я купил новую одежду."
+    }
   },
   {
     "id": 392,
@@ -74,7 +122,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 392
+    "sourceNumber": 392,
+    "english": "Living room",
+    "russian": "Гостиная",
+    "example": {
+      "ko": "거실에서 텔레비전을 봐요.",
+      "uz": "Mehmonxonada televizor ko'raman.",
+      "en": "I watch TV in the living room.",
+      "ru": "Я смотрю телевизор в гостиной."
+    }
   },
   {
     "id": 393,
@@ -85,7 +141,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 393
+    "sourceNumber": 393,
+    "english": "Among / During",
+    "russian": "Среди / Во время",
+    "example": {
+      "ko": "과일 중에서 사과를 제일 좋아해요.",
+      "uz": "Mevalar ichida olmani eng yaxshi ko'raman.",
+      "en": "Among fruits, I like apples the most.",
+      "ru": "Из фруктов я больше всего люблю яблоки."
+    }
   },
   {
     "id": 394,
@@ -96,7 +160,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 394
+    "sourceNumber": 394,
+    "english": "Atmosphere / Mood",
+    "russian": "Атмосфера",
+    "example": {
+      "ko": "이 카페는 분위기가 좋아요.",
+      "uz": "Bu kafeda muhit yaxshi.",
+      "en": "This café has a nice atmosphere.",
+      "ru": "В этом кафе хорошая атмосфера."
+    }
   },
   {
     "id": 395,
@@ -107,7 +179,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 395
+    "sourceNumber": 395,
+    "english": "Indoors",
+    "russian": "В помещении",
+    "example": {
+      "ko": "실내에서 담배를 피우지 마세요.",
+      "uz": "Xona ichida chekmang.",
+      "en": "Don't smoke indoors.",
+      "ru": "Не курите в помещении."
+    }
   },
   {
     "id": 396,
@@ -118,7 +198,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 396
+    "sourceNumber": 396,
+    "english": "Kitchen",
+    "russian": "Кухня",
+    "example": {
+      "ko": "부엌에서 요리해요.",
+      "uz": "Oshxonada ovqat pishiraman.",
+      "en": "I cook in the kitchen.",
+      "ru": "Я готовлю на кухне."
+    }
   },
   {
     "id": 397,
@@ -129,7 +217,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 397
+    "sourceNumber": 397,
+    "english": "Neighbor",
+    "russian": "Сосед",
+    "example": {
+      "ko": "이웃이 친절해요.",
+      "uz": "Qo'shnim mehribon.",
+      "en": "My neighbor is kind.",
+      "ru": "Мой сосед добрый."
+    }
   },
   {
     "id": 398,
@@ -140,7 +236,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 398
+    "sourceNumber": 398,
+    "english": "Internet",
+    "russian": "Интернет",
+    "example": {
+      "ko": "인터넷으로 옷을 사요.",
+      "uz": "Internet orqali kiyim sotib olaman.",
+      "en": "I buy clothes online.",
+      "ru": "Я покупаю одежду через интернет."
+    }
   },
   {
     "id": 399,
@@ -151,7 +255,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 399
+    "sourceNumber": 399,
+    "english": "Speed",
+    "russian": "Скорость",
+    "example": {
+      "ko": "인터넷 속도가 빨라요.",
+      "uz": "Internet tezligi yuqori.",
+      "en": "The internet speed is fast.",
+      "ru": "Скорость интернета высокая."
+    }
   },
   {
     "id": 400,
@@ -162,7 +274,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 400
+    "sourceNumber": 400,
+    "english": "Early",
+    "russian": "Рано",
+    "example": {
+      "ko": "아침에 일찍 일어나요.",
+      "uz": "Ertalab erta turaman.",
+      "en": "I get up early in the morning.",
+      "ru": "Утром я рано встаю."
+    }
   },
   {
     "id": 401,
@@ -173,7 +293,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 401
+    "sourceNumber": 401,
+    "english": "To explain",
+    "russian": "Объяснять",
+    "example": {
+      "ko": "선생님이 문법을 설명해요.",
+      "uz": "O'qituvchi grammatikani tushuntiradi.",
+      "en": "The teacher explains the grammar.",
+      "ru": "Учитель объясняет грамматику."
+    }
   },
   {
     "id": 402,
@@ -184,7 +312,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 402
+    "sourceNumber": 402,
+    "english": "To sing a song",
+    "russian": "Петь песню",
+    "example": {
+      "ko": "노래방에서 노래를 불러요.",
+      "uz": "Karaokeda qo'shiq kuylayman.",
+      "en": "I sing songs at karaoke.",
+      "ru": "Я пою песни в караоке."
+    }
   },
   {
     "id": 403,
@@ -195,7 +331,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 403
+    "sourceNumber": 403,
+    "english": "To solve a problem",
+    "russian": "Решать задачу",
+    "example": {
+      "ko": "수학 문제를 풀어요.",
+      "uz": "Matematika masalasini yechaman.",
+      "en": "I solve a math problem.",
+      "ru": "Я решаю задачу по математике."
+    }
   },
   {
     "id": 404,
@@ -206,7 +350,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 404
+    "sourceNumber": 404,
+    "english": "Who (as subject)",
+    "russian": "Кто (как подлежащее)",
+    "example": {
+      "ko": "누가 왔어요?",
+      "uz": "Kim keldi?",
+      "en": "Who came?",
+      "ru": "Кто пришёл?"
+    }
   },
   {
     "id": 405,
@@ -217,7 +369,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 405
+    "sourceNumber": 405,
+    "english": "To answer the phone",
+    "russian": "Отвечать на звонок",
+    "example": {
+      "ko": "동생이 전화를 받아요.",
+      "uz": "Ukam telefonni ko'taradi.",
+      "en": "My younger brother answers the phone.",
+      "ru": "Мой младший брат отвечает на звонок."
+    }
   },
   {
     "id": 406,
@@ -228,7 +388,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 406
+    "sourceNumber": 406,
+    "english": "First / Before",
+    "russian": "Сначала / Сперва",
+    "example": {
+      "ko": "먼저 손을 씻으세요.",
+      "uz": "Avval qo'lingizni yuving.",
+      "en": "Please wash your hands first.",
+      "ru": "Сначала вымойте руки."
+    }
   },
   {
     "id": 407,
@@ -239,7 +407,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 407
+    "sourceNumber": 407,
+    "english": "To send by fax",
+    "russian": "Отправлять по факсу",
+    "example": {
+      "ko": "서류를 팩스로 보내요.",
+      "uz": "Hujjatni faks orqali jo'nataman.",
+      "en": "I send the documents by fax.",
+      "ru": "Я отправляю документы по факсу."
+    }
   },
   {
     "id": 408,
@@ -250,7 +426,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 408
+    "sourceNumber": 408,
+    "english": "To quit drinking",
+    "russian": "Бросить пить",
+    "example": {
+      "ko": "아버지가 술을 끊었어요.",
+      "uz": "Otam ichishni tashladi.",
+      "en": "My father quit drinking.",
+      "ru": "Мой отец бросил пить."
+    }
   },
   {
     "id": 409,
@@ -261,7 +445,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 409
+    "sourceNumber": 409,
+    "english": "To quit smoking",
+    "russian": "Бросить курить",
+    "example": {
+      "ko": "올해 담배를 끊을 거예요.",
+      "uz": "Bu yil chekishni tashlayman.",
+      "en": "I'm going to quit smoking this year.",
+      "ru": "В этом году я брошу курить."
+    }
   },
   {
     "id": 410,
@@ -272,7 +464,15 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 410
+    "sourceNumber": 410,
+    "english": "Now (from now on)",
+    "russian": "Теперь",
+    "example": {
+      "ko": "이제 집에 가요.",
+      "uz": "Endi uyga boraman.",
+      "en": "I'm going home now.",
+      "ru": "Теперь я иду домой."
+    }
   },
   {
     "id": 411,
@@ -283,6 +483,14 @@
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 411
+    "sourceNumber": 411,
+    "english": "To throw away trash",
+    "russian": "Выбрасывать мусор",
+    "example": {
+      "ko": "쓰레기를 버려요.",
+      "uz": "Chiqindini tashlayman.",
+      "en": "I throw away the trash.",
+      "ru": "Я выбрасываю мусор."
+    }
   }
 ]
