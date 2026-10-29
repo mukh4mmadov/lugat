@@ -51,6 +51,10 @@ const grammar = () => import("./pages/GrammarPage");
 const GrammarCatalogPage = page(grammar, "GrammarCatalogPage");
 const GrammarPointPage = page(grammar, "GrammarPointPage");
 const LessonGrammarPage = page(grammar, "LessonGrammarPage");
+const storiesPages = () => import("./pages/StoriesPage");
+const StoriesLibraryPage = page(storiesPages, "StoriesLibraryPage");
+const StoryReaderPage = page(storiesPages, "StoryReaderPage");
+const LessonStoriesPage = page(storiesPages, "LessonStoriesPage");
 const AdminFeedbackPage = page(() => import("./pages/AdminFeedbackPage"));
 const AdminPage = page(admin);
 const AdminContent = page(admin, "AdminContent");
@@ -167,6 +171,16 @@ export default function App() {
             <Route path="achievements" element={<AchievementsPage />} />
             <Route path="grammar" element={<GrammarCatalogPage />} />
             <Route path="grammar/:pointId" element={<GrammarPointPage />} />
+            <Route path="stories" element={<StoriesLibraryPage />} />
+            <Route path="stories/:storyId" element={<StoryReaderPage />} />
+            <Route
+              path="lesson/:lessonId/stories"
+              element={
+                <LessonRouteGuard>
+                  <LessonStoriesPage />
+                </LessonRouteGuard>
+              }
+            />
             <Route
               path="lesson/:lessonId/grammar"
               element={

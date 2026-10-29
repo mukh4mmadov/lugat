@@ -48,6 +48,7 @@ const defaultState = {
   xp: 0,
   badges: {},
   grammar: {},
+  stories: {},
 };
 
 const DAILY_HISTORY_DAYS = 60;
@@ -346,6 +347,15 @@ const progressSlice = createSlice({
       grantXp(state, before?.done ? 5 : XP.grammar);
       refreshBadges(state);
     },
+    // A story read to the end with its questions answered.
+    completeStory(state, action) {
+      const { id, score } = action.payload;
+      state.stories = state.stories || {};
+      const before = state.stories[id];
+      state.stories[id] = { read: true, best: Math.max(before?.best || 0, score), at: Date.now() };
+      grantXp(state, before?.read ? 5 : XP.story);
+      refreshBadges(state);
+    },
     clearFx(state) {
       delete state.fx;
     },
@@ -402,6 +412,7 @@ export const {
   clearFx,
   setPremiumUntil,
   completeGrammar,
+  completeStory,
 } = progressSlice.actions;
 
 export const store = configureStore({

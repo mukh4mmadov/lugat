@@ -56,6 +56,7 @@ const learnedWords = (state) => Object.values(state.words || {}).filter((record)
 const favoritesCount = (state) => Object.values(state.favorites || {}).filter(Boolean).length;
 const level = (state) => levelForXp(state.xp || 0);
 const grammarDone = (state) => Object.values(state.grammar || {}).filter((item) => item?.done).length;
+const storiesRead = (state) => Object.values(state.stories || {}).filter((item) => item?.read).length;
 
 // Each badge: id (translation key badge.<id>), icon and when it is earned.
 export const BADGES = [
@@ -86,6 +87,9 @@ export const BADGES = [
   { id: "grammar10", icon: "📏", check: (s) => grammarDone(s) >= 10 },
   { id: "grammarHalf", icon: "🧩", check: (s) => grammarDone(s) >= 28 },
   { id: "grammarAll", icon: "🏛️", check: (s) => grammarDone(s) >= 56 },
+  { id: "storyFirst", icon: "📖", check: (s) => storiesRead(s) >= 1 },
+  { id: "stories10", icon: "📚", check: (s) => storiesRead(s) >= 10 },
+  { id: "storiesAll", icon: "🏯", check: (s) => storiesRead(s) >= 56 },
   { id: "favorites20", icon: "⭐", check: (s) => favoritesCount(s) >= 20 },
   { id: "nightOwl", icon: "🦉", check: (s) => Boolean(s.stats.nightOwl) },
   { id: "earlyBird", icon: "🐦", check: (s) => Boolean(s.stats.earlyBird) },
