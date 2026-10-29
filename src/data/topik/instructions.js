@@ -12,6 +12,11 @@ export const TOPIK_INSTRUCTIONS = {
     ru: "Прослушайте и, как в <образце>, выберите продолжение реплики.",
     en: "Listen and choose what comes next, as in the <example>.",
   },
+  "다음을 듣고 <보기>와 같이 이어지는 말을 고르십시오.": {
+    uz: "Tinglang va <namuna>dagidek davom etuvchi gapni tanlang.",
+    ru: "Прослушайте и, как в <образце>, выберите продолжение разговора.",
+    en: "Listen and choose the follow-up response, as in the <example>.",
+  },
   "여기는 어디입니까? <보기>와 같이 알맞은 것을 고르십시오.": {
     uz: "Bu qayer? <Namuna>dagidek mos javobni tanlang.",
     ru: "Где это происходит? Как в <образце>, выберите подходящий вариант.",
