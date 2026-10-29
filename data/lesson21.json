@@ -10,7 +10,13 @@
     "sourceNumber": 604,
     "romanization": "SNS",
     "english": "Social media (SNS)",
-    "russian": "Соцсети"
+    "russian": "Соцсети",
+    "example": {
+      "ko": "SNS에 사진을 올려요.",
+      "uz": "Ijtimoiy tarmoqqa rasm joylayman.",
+      "en": "I post photos on social media.",
+      "ru": "Я выкладываю фото в соцсети."
+    }
   },
   {
     "id": 605,
@@ -23,7 +29,13 @@
     "sourceNumber": 605,
     "romanization": "bakke nagada",
     "english": "To go outside",
-    "russian": "Выходить на улицу"
+    "russian": "Выходить на улицу",
+    "example": {
+      "ko": "비가 와서 밖에 나가지 않아요.",
+      "uz": "Yomg'ir yog'yapti, shuning uchun tashqariga chiqmayman.",
+      "en": "It's raining, so I'm not going outside.",
+      "ru": "Идёт дождь, поэтому я не выхожу на улицу."
+    }
   },
   {
     "id": 606,
@@ -36,7 +48,13 @@
     "sourceNumber": 606,
     "romanization": "ppareuda",
     "english": "To be fast",
-    "russian": "Быть быстрым"
+    "russian": "Быть быстрым",
+    "example": {
+      "ko": "KTX는 정말 빨라요.",
+      "uz": "KTX juda tez.",
+      "en": "The KTX is really fast.",
+      "ru": "KTX очень быстрый."
+    }
   },
   {
     "id": 607,
@@ -50,7 +68,13 @@
     "note": "radio orqali ma'lumot berish",
     "romanization": "annae bangsong",
     "english": "Announcement",
-    "russian": "Объявление (по громкой связи)"
+    "russian": "Объявление (по громкой связи)",
+    "example": {
+      "ko": "지하철에서 안내 방송이 나와요.",
+      "uz": "Metroda e'lon eshittiriladi.",
+      "en": "An announcement plays on the subway.",
+      "ru": "В метро звучит объявление."
+    }
   },
   {
     "id": 608,
@@ -63,7 +87,13 @@
     "sourceNumber": 608,
     "romanization": "ilboneo",
     "english": "Japanese (language)",
-    "russian": "Японский язык"
+    "russian": "Японский язык",
+    "example": {
+      "ko": "일본어를 조금 해요.",
+      "uz": "Yapon tilida biroz gapiraman.",
+      "en": "I speak a little Japanese.",
+      "ru": "Я немного говорю по-японски."
+    }
   },
   {
     "id": 609,
@@ -76,7 +106,13 @@
     "sourceNumber": 609,
     "romanization": "oegugin",
     "english": "Foreigner",
-    "russian": "Иностранец"
+    "russian": "Иностранец",
+    "example": {
+      "ko": "서울에 외국인이 많아요.",
+      "uz": "Seulda chet elliklar ko'p.",
+      "en": "There are many foreigners in Seoul.",
+      "ru": "В Сеуле много иностранцев."
+    }
   },
   {
     "id": 610,
@@ -89,7 +125,13 @@
     "sourceNumber": 610,
     "romanization": "noyakjaseok (noyakjasok)",
     "english": "Seats for the elderly and disabled",
-    "russian": "Места для пожилых и инвалидов"
+    "russian": "Места для пожилых и инвалидов",
+    "example": {
+      "ko": "노약자석에 앉지 마세요.",
+      "uz": "Qariyalar uchun joyga o'tirmang.",
+      "en": "Please don't sit in the seats for the elderly.",
+      "ru": "Не садитесь на места для пожилых."
+    }
   },
   {
     "id": 611,
@@ -102,7 +144,13 @@
     "sourceNumber": 611,
     "romanization": "imsanbuseok",
     "english": "Seats for pregnant women",
-    "russian": "Места для беременных"
+    "russian": "Места для беременных",
+    "example": {
+      "ko": "임산부석은 분홍색이에요.",
+      "uz": "Homilador ayollar uchun joy pushti rangda.",
+      "en": "The seats for pregnant women are pink.",
+      "ru": "Места для беременных розовые."
+    }
   },
   {
     "id": 612,
@@ -115,7 +163,13 @@
     "sourceNumber": 612,
     "romanization": "noin",
     "english": "Elderly person",
-    "russian": "Пожилой человек"
+    "russian": "Пожилой человек",
+    "example": {
+      "ko": "노인에게 자리를 양보해요.",
+      "uz": "Keksa insonga joy beraman.",
+      "en": "I give my seat to an elderly person.",
+      "ru": "Я уступаю место пожилому человеку."
+    }
   },
   {
     "id": 613,
@@ -128,7 +182,13 @@
     "sourceNumber": 613,
     "romanization": "mom",
     "english": "Body",
-    "russian": "Тело"
+    "russian": "Тело",
+    "example": {
+      "ko": "몸이 안 좋아요.",
+      "uz": "Mazam yo'q.",
+      "en": "I don't feel well.",
+      "ru": "Я плохо себя чувствую."
+    }
   },
   {
     "id": 614,
@@ -141,7 +201,13 @@
     "sourceNumber": 614,
     "romanization": "imsanbu",
     "english": "Pregnant woman",
-    "russian": "Беременная женщина"
+    "russian": "Беременная женщина",
+    "example": {
+      "ko": "임산부에게 자리를 양보하세요.",
+      "uz": "Homilador ayolga joy bering.",
+      "en": "Please give your seat to a pregnant woman.",
+      "ru": "Уступите место беременной женщине."
+    }
   },
   {
     "id": 615,
@@ -155,7 +221,13 @@
     "note": "yoshi ulug' insonlar",
     "romanization": "eoreun",
     "english": "Adult / Elder",
-    "russian": "Взрослый / Старший"
+    "russian": "Взрослый / Старший",
+    "example": {
+      "ko": "어른에게 존댓말을 써요.",
+      "uz": "Kattalarga hurmat bilan gapiramiz.",
+      "en": "We use polite speech with elders.",
+      "ru": "Со старшими мы говорим вежливо."
+    }
   },
   {
     "id": 616,
@@ -168,7 +240,13 @@
     "sourceNumber": 616,
     "romanization": "eeokeon",
     "english": "Air conditioner",
-    "russian": "Кондиционер"
+    "russian": "Кондиционер",
+    "example": {
+      "ko": "더워서 에어컨을 켜요.",
+      "uz": "Issiq bo'lgani uchun konditsionerni yoqaman.",
+      "en": "It's hot, so I turn on the air conditioner.",
+      "ru": "Жарко, поэтому я включаю кондиционер."
+    }
   },
   {
     "id": 617,
@@ -181,7 +259,13 @@
     "sourceNumber": 617,
     "romanization": "jihacheoryeok",
     "english": "Subway station",
-    "russian": "Станция метро"
+    "russian": "Станция метро",
+    "example": {
+      "ko": "지하철역이 어디에 있어요?",
+      "uz": "Metro bekati qayerda?",
+      "en": "Where is the subway station?",
+      "ru": "Где станция метро?"
+    }
   },
   {
     "id": 618,
@@ -194,7 +278,13 @@
     "sourceNumber": 618,
     "romanization": "gyotongkadeu",
     "english": "Transportation card",
-    "russian": "Транспортная карта"
+    "russian": "Транспортная карта",
+    "example": {
+      "ko": "교통카드를 충전해요.",
+      "uz": "Transport kartasini to'ldiraman.",
+      "en": "I top up my transportation card.",
+      "ru": "Я пополняю транспортную карту."
+    }
   },
   {
     "id": 619,
@@ -207,7 +297,13 @@
     "sourceNumber": 619,
     "romanization": "chulgu",
     "english": "Exit",
-    "russian": "Выход"
+    "russian": "Выход",
+    "example": {
+      "ko": "3번 출구로 나오세요.",
+      "uz": "3-chiqishdan chiqing.",
+      "en": "Please come out of exit 3.",
+      "ru": "Выходите через выход номер 3."
+    }
   },
   {
     "id": 620,
@@ -220,7 +316,13 @@
     "sourceNumber": 620,
     "romanization": "ipgu",
     "english": "Entrance",
-    "russian": "Вход"
+    "russian": "Вход",
+    "example": {
+      "ko": "입구에서 기다릴게요.",
+      "uz": "Kirish joyida kutaman.",
+      "en": "I'll wait at the entrance.",
+      "ru": "Я подожду у входа."
+    }
   },
   {
     "id": 621,
@@ -234,7 +336,13 @@
     "note": "peresadka",
     "romanization": "garatada",
     "english": "To transfer (transport)",
-    "russian": "Пересаживаться"
+    "russian": "Пересаживаться",
+    "example": {
+      "ko": "시청역에서 2호선으로 갈아타세요.",
+      "uz": "Sicheong (shahar hokimligi) bekatida 2-liniyaga o'ting.",
+      "en": "Transfer to Line 2 at City Hall station.",
+      "ru": "На станции «Мэрия» пересядьте на линию 2."
+    }
   },
   {
     "id": 622,
@@ -248,7 +356,13 @@
     "note": "metroda",
     "romanization": "hoseon",
     "english": "Line (subway line number)",
-    "russian": "Линия (метро)"
+    "russian": "Линия (метро)",
+    "example": {
+      "ko": "몇 호선을 타요?",
+      "uz": "Qaysi liniyaga chiqasiz?",
+      "en": "Which line do you take?",
+      "ru": "На какую линию вы садитесь?"
+    }
   },
   {
     "id": 623,
@@ -262,7 +376,13 @@
     "note": "transportdan) / Yog'moq (yomg'ir/qor",
     "romanization": "naerida",
     "english": "To get off",
-    "russian": "Выходить (из транспорта)"
+    "russian": "Выходить (из транспорта)",
+    "example": {
+      "ko": "다음 역에서 내려요.",
+      "uz": "Keyingi bekatda tushaman.",
+      "en": "I get off at the next station.",
+      "ru": "Я выхожу на следующей станции."
+    }
   },
   {
     "id": 624,
@@ -275,7 +395,13 @@
     "sourceNumber": 624,
     "romanization": "sikkeureopda",
     "english": "To be noisy",
-    "russian": "Быть шумным"
+    "russian": "Быть шумным",
+    "example": {
+      "ko": "교실이 시끄러워요.",
+      "uz": "Sinf shovqinli.",
+      "en": "The classroom is noisy.",
+      "ru": "В классе шумно."
+    }
   },
   {
     "id": 625,
@@ -288,7 +414,13 @@
     "sourceNumber": 625,
     "romanization": "jari",
     "english": "Seat / Place",
-    "russian": "Место"
+    "russian": "Место",
+    "example": {
+      "ko": "여기 자리 있어요?",
+      "uz": "Bu yer band emasmi?",
+      "en": "Is this seat taken?",
+      "ru": "Это место свободно?"
+    }
   },
   {
     "id": 626,
@@ -301,7 +433,13 @@
     "sourceNumber": 626,
     "romanization": "oegugeoro",
     "english": "In a foreign language",
-    "russian": "На иностранном языке"
+    "russian": "На иностранном языке",
+    "example": {
+      "ko": "외국어로 말하는 것은 어려워요.",
+      "uz": "Chet tilida gapirish qiyin.",
+      "en": "Speaking in a foreign language is hard.",
+      "ru": "Говорить на иностранном языке трудно."
+    }
   },
   {
     "id": 627,
@@ -314,7 +452,13 @@
     "sourceNumber": 627,
     "romanization": "yeok",
     "english": "Station",
-    "russian": "Станция"
+    "russian": "Станция",
+    "example": {
+      "ko": "서울역에서 만나요.",
+      "uz": "Seul bekatida uchrashamiz.",
+      "en": "Let's meet at Seoul Station.",
+      "ru": "Встретимся на Сеульском вокзале."
+    }
   },
   {
     "id": 628,
@@ -327,7 +471,13 @@
     "sourceNumber": 628,
     "romanization": "bunhongsaek",
     "english": "Pink",
-    "russian": "Розовый цвет"
+    "russian": "Розовый цвет",
+    "example": {
+      "ko": "분홍색 꽃이 예뻐요.",
+      "uz": "Pushti gullar chiroyli.",
+      "en": "The pink flowers are pretty.",
+      "ru": "Розовые цветы красивые."
+    }
   },
   {
     "id": 629,
@@ -340,6 +490,12 @@
     "sourceNumber": 629,
     "romanization": "momi bulpyeonhan saram",
     "english": "Person with a disability",
-    "russian": "Человек с ограниченными возможностями"
+    "russian": "Человек с ограниченными возможностями",
+    "example": {
+      "ko": "몸이 불편한 사람을 도와요.",
+      "uz": "Harakatlanishi qiyin odamga yordam beraman.",
+      "en": "I help a person with a disability.",
+      "ru": "Я помогаю человеку с ограниченными возможностями."
+    }
   }
 ]

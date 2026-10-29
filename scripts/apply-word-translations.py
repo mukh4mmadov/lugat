@@ -1,7 +1,9 @@
-"""Merge scripts/word-translations/*.tsv into data/lessonN.json.
+"""Merge scripts/word-translations/*.tsv and scripts/word-examples/*.tsv into
+data/lessonN.json.
 
-Each line: <lesson>-<id> <TAB> english <TAB> russian.
-uzbek-fixes.tsv: <lesson>-<id> <TAB> corrected uzbek.
+word-translations: <lesson>-<id> <TAB> english <TAB> russian.
+uzbek-fixes.tsv:   <lesson>-<id> <TAB> corrected uzbek.
+word-examples:     <lesson>-<id> <TAB> korean <TAB> uzbek <TAB> english <TAB> russian.
 """
 import glob
 import json
@@ -17,6 +19,13 @@ for path in sorted(glob.glob(os.path.join(ROOT, "scripts/word-translations/*.tsv
         key, *values = line.rstrip("\n").split("\t")
         target[key] = values
 
+examples = {}
+for path in sorted(glob.glob(os.path.join(ROOT, "scripts/word-examples/*.tsv"))):
+    for line in open(path, encoding="utf-8"):
+        if line.strip():
+            key, ko, uz, en, ru = line.rstrip("\n").split("\t")
+            examples[key] = {"ko": ko, "uz": uz, "en": en, "ru": ru}
+
 missing = []
 for n in range(1, 29):
     path = os.path.join(ROOT, f"data/lesson{n}.json")
@@ -25,6 +34,8 @@ for n in range(1, 29):
         key = f"{word['lesson']}-{word['id']}"
         if key in fixes:
             word["uzbek"] = fixes[key][0]
+        if key in examples:
+            word["example"] = examples[key]
         if key not in meanings:
             missing.append(key)
             continue
@@ -33,4 +44,4 @@ for n in range(1, 29):
     with open(path, "w", encoding="utf-8") as handle:
         json.dump(words, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
-print("missing:", missing or "none", "| translated:", len(meanings))
+print("missing:", missing or "none", "| translated:", len(meanings), "| examples:", len(examples))

@@ -10,7 +10,13 @@
     "needsReview": false,
     "sourceNumber": 50,
     "english": "To travel",
-    "russian": "Путешествовать"
+    "russian": "Путешествовать",
+    "example": {
+      "ko": "여름에 여행을 해요.",
+      "uz": "Yozda sayohat qilaman.",
+      "en": "I travel in the summer.",
+      "ru": "Летом я путешествую."
+    }
   },
   {
     "id": 51,
@@ -23,7 +29,13 @@
     "needsReview": false,
     "sourceNumber": 51,
     "english": "To go shopping",
-    "russian": "Делать покупки"
+    "russian": "Делать покупки",
+    "example": {
+      "ko": "주말에 쇼핑해요.",
+      "uz": "Dam olish kunlari xarid qilaman.",
+      "en": "I go shopping on weekends.",
+      "ru": "По выходным я хожу по магазинам."
+    }
   },
   {
     "id": 52,
@@ -36,7 +48,13 @@
     "needsReview": false,
     "sourceNumber": 52,
     "english": "To learn Korean",
-    "russian": "Учить корейский язык"
+    "russian": "Учить корейский язык",
+    "example": {
+      "ko": "저는 한국어를 배워요.",
+      "uz": "Men koreys tilini o'rganyapman.",
+      "en": "I am learning Korean.",
+      "ru": "Я учу корейский язык."
+    }
   },
   {
     "id": 53,
@@ -49,7 +67,13 @@
     "needsReview": false,
     "sourceNumber": 53,
     "english": "To talk / To chat",
-    "russian": "Разговаривать / Беседовать"
+    "russian": "Разговаривать / Беседовать",
+    "example": {
+      "ko": "친구와 이야기해요.",
+      "uz": "Do'stim bilan gaplashaman.",
+      "en": "I talk with my friend.",
+      "ru": "Я разговариваю с другом."
+    }
   },
   {
     "id": 54,
@@ -62,7 +86,13 @@
     "needsReview": false,
     "sourceNumber": 54,
     "english": "To drive",
-    "russian": "Водить машину"
+    "russian": "Водить машину",
+    "example": {
+      "ko": "아버지가 운전해요.",
+      "uz": "Otam mashina haydaydi.",
+      "en": "My father drives.",
+      "ru": "Мой отец водит машину."
+    }
   },
   {
     "id": 55,
@@ -75,7 +105,13 @@
     "needsReview": false,
     "sourceNumber": 55,
     "english": "To buy clothes",
-    "russian": "Покупать одежду"
+    "russian": "Покупать одежду",
+    "example": {
+      "ko": "백화점에서 옷을 사요.",
+      "uz": "Savdo markazidan kiyim sotib olaman.",
+      "en": "I buy clothes at the department store.",
+      "ru": "Я покупаю одежду в универмаге."
+    }
   },
   {
     "id": 56,
@@ -88,7 +124,13 @@
     "needsReview": false,
     "sourceNumber": 56,
     "english": "To exercise",
-    "russian": "Заниматься спортом"
+    "russian": "Заниматься спортом",
+    "example": {
+      "ko": "아침에 운동해요.",
+      "uz": "Ertalab sport bilan shug'ullanaman.",
+      "en": "I exercise in the morning.",
+      "ru": "Утром я занимаюсь спортом."
+    }
   },
   {
     "id": 57,
@@ -101,7 +143,13 @@
     "needsReview": false,
     "sourceNumber": 57,
     "english": "To watch a movie",
-    "russian": "Смотреть фильм"
+    "russian": "Смотреть фильм",
+    "example": {
+      "ko": "친구와 영화를 봐요.",
+      "uz": "Do'stim bilan kino ko'raman.",
+      "en": "I watch a movie with my friend.",
+      "ru": "Я смотрю фильм с другом."
+    }
   },
   {
     "id": 58,
@@ -114,7 +162,13 @@
     "needsReview": false,
     "sourceNumber": 58,
     "english": "To sleep",
-    "russian": "Спать"
+    "russian": "Спать",
+    "example": {
+      "ko": "밤 열한 시에 자요.",
+      "uz": "Kechasi soat o'n birda uxlayman.",
+      "en": "I sleep at eleven at night.",
+      "ru": "Я ложусь спать в одиннадцать вечера."
+    }
   },
   {
     "id": 59,
@@ -127,7 +181,13 @@
     "needsReview": false,
     "sourceNumber": 59,
     "english": "To dance",
-    "russian": "Танцевать"
+    "russian": "Танцевать",
+    "example": {
+      "ko": "파티에서 춤을 춰요.",
+      "uz": "Bazmda raqsga tushaman.",
+      "en": "I dance at the party.",
+      "ru": "Я танцую на вечеринке."
+    }
   },
   {
     "id": 60,
@@ -140,7 +200,13 @@
     "needsReview": false,
     "sourceNumber": 60,
     "english": "To drink",
-    "russian": "Пить"
+    "russian": "Пить",
+    "example": {
+      "ko": "물을 마셔요.",
+      "uz": "Suv ichaman.",
+      "en": "I drink water.",
+      "ru": "Я пью воду."
+    }
   },
   {
     "id": 61,
@@ -153,7 +219,13 @@
     "needsReview": false,
     "sourceNumber": 61,
     "english": "To eat (a meal)",
-    "russian": "Есть / Кушать"
+    "russian": "Есть / Кушать",
+    "example": {
+      "ko": "같이 밥을 먹어요.",
+      "uz": "Birga ovqat yeymiz.",
+      "en": "Let's eat together.",
+      "ru": "Давайте поедим вместе."
+    }
   },
   {
     "id": 62,
@@ -166,7 +238,13 @@
     "needsReview": false,
     "sourceNumber": 62,
     "english": "To read a book",
-    "russian": "Читать книгу"
+    "russian": "Читать книгу",
+    "example": {
+      "ko": "도서관에서 책을 읽어요.",
+      "uz": "Kutubxonada kitob o'qiyman.",
+      "en": "I read a book at the library.",
+      "ru": "Я читаю книгу в библиотеке."
+    }
   },
   {
     "id": 63,
@@ -179,7 +257,13 @@
     "needsReview": false,
     "sourceNumber": 63,
     "english": "To swim",
-    "russian": "Плавать"
+    "russian": "Плавать",
+    "example": {
+      "ko": "바다에서 수영해요.",
+      "uz": "Dengizda suzaman.",
+      "en": "I swim in the sea.",
+      "ru": "Я плаваю в море."
+    }
   },
   {
     "id": 64,
@@ -192,7 +276,13 @@
     "needsReview": false,
     "sourceNumber": 64,
     "english": "To play tennis",
-    "russian": "Играть в теннис"
+    "russian": "Играть в теннис",
+    "example": {
+      "ko": "토요일에 테니스를 쳐요.",
+      "uz": "Shanba kuni tennis o'ynayman.",
+      "en": "I play tennis on Saturday.",
+      "ru": "В субботу я играю в теннис."
+    }
   },
   {
     "id": 65,
@@ -205,7 +295,13 @@
     "needsReview": false,
     "sourceNumber": 65,
     "english": "To do homework",
-    "russian": "Делать домашнее задание"
+    "russian": "Делать домашнее задание",
+    "example": {
+      "ko": "저녁에 숙제해요.",
+      "uz": "Kechqurun uy vazifasini bajaraman.",
+      "en": "I do my homework in the evening.",
+      "ru": "Вечером я делаю домашнее задание."
+    }
   },
   {
     "id": 66,
@@ -218,7 +314,13 @@
     "needsReview": false,
     "sourceNumber": 66,
     "english": "Now",
-    "russian": "Сейчас"
+    "russian": "Сейчас",
+    "example": {
+      "ko": "지금 공부해요.",
+      "uz": "Hozir dars qilyapman.",
+      "en": "I am studying now.",
+      "ru": "Сейчас я занимаюсь."
+    }
   },
   {
     "id": 67,
@@ -231,7 +333,13 @@
     "needsReview": false,
     "sourceNumber": 67,
     "english": "Today",
-    "russian": "Сегодня"
+    "russian": "Сегодня",
+    "example": {
+      "ko": "오늘 날씨가 좋아요.",
+      "uz": "Bugun ob-havo yaxshi.",
+      "en": "The weather is nice today.",
+      "ru": "Сегодня хорошая погода."
+    }
   },
   {
     "id": 68,
@@ -244,7 +352,13 @@
     "needsReview": false,
     "sourceNumber": 68,
     "english": "And / Also",
-    "russian": "И / А также"
+    "russian": "И / А также",
+    "example": {
+      "ko": "빵을 먹어요. 그리고 우유를 마셔요.",
+      "uz": "Non yeyman. Va sut ichaman.",
+      "en": "I eat bread. And I drink milk.",
+      "ru": "Я ем хлеб. И пью молоко."
+    }
   },
   {
     "id": 69,
@@ -257,7 +371,13 @@
     "needsReview": false,
     "sourceNumber": 69,
     "english": "To like",
-    "russian": "Любить / Нравиться"
+    "russian": "Любить / Нравиться",
+    "example": {
+      "ko": "저는 커피를 좋아해요.",
+      "uz": "Men kofeni yaxshi ko'raman.",
+      "en": "I like coffee.",
+      "ru": "Я люблю кофе."
+    }
   },
   {
     "id": 70,
@@ -270,7 +390,13 @@
     "needsReview": false,
     "sourceNumber": 70,
     "english": "To meet a friend",
-    "russian": "Встречаться с другом"
+    "russian": "Встречаться с другом",
+    "example": {
+      "ko": "카페에서 친구를 만나요.",
+      "uz": "Kafeda do'stim bilan uchrashaman.",
+      "en": "I meet my friend at a café.",
+      "ru": "Я встречаюсь с другом в кафе."
+    }
   },
   {
     "id": 71,
@@ -283,7 +409,13 @@
     "needsReview": false,
     "sourceNumber": 71,
     "english": "To teach Japanese",
-    "russian": "Преподавать японский"
+    "russian": "Преподавать японский",
+    "example": {
+      "ko": "다나카 씨는 일본어를 가르쳐요.",
+      "uz": "Tanaka yapon tilidan dars beradi.",
+      "en": "Mr. Tanaka teaches Japanese.",
+      "ru": "Танака преподаёт японский."
+    }
   },
   {
     "id": 72,
@@ -296,7 +428,13 @@
     "needsReview": false,
     "sourceNumber": 72,
     "english": "Really? / Is that so?",
-    "russian": "Правда? / Вот как?"
+    "russian": "Правда? / Вот как?",
+    "example": {
+      "ko": "그래요? 정말 재미있네요.",
+      "uz": "Shunaqami? Juda qiziq ekan.",
+      "en": "Really? That's really interesting.",
+      "ru": "Правда? Очень интересно."
+    }
   },
   {
     "id": 73,
@@ -309,7 +447,13 @@
     "needsReview": false,
     "sourceNumber": 73,
     "english": "To do",
-    "russian": "Делать"
+    "russian": "Делать",
+    "example": {
+      "ko": "주말에 뭐 해요?",
+      "uz": "Dam olish kunlari nima qilasiz?",
+      "en": "What do you do on weekends?",
+      "ru": "Что вы делаете в выходные?"
+    }
   },
   {
     "id": 74,
@@ -322,7 +466,13 @@
     "needsReview": false,
     "sourceNumber": 74,
     "english": "To study",
-    "russian": "Учиться / Заниматься"
+    "russian": "Учиться / Заниматься",
+    "example": {
+      "ko": "도서관에서 공부해요.",
+      "uz": "Kutubxonada o'qiyman.",
+      "en": "I study at the library.",
+      "ru": "Я занимаюсь в библиотеке."
+    }
   },
   {
     "id": 75,
@@ -335,7 +485,13 @@
     "needsReview": false,
     "sourceNumber": 75,
     "english": "To know",
-    "russian": "Знать"
+    "russian": "Знать",
+    "example": {
+      "ko": "그 사람을 알아요.",
+      "uz": "U odamni bilaman.",
+      "en": "I know that person.",
+      "ru": "Я знаю этого человека."
+    }
   },
   {
     "id": 76,
@@ -348,6 +504,12 @@
     "needsReview": false,
     "sourceNumber": 76,
     "english": "To wash one's face",
-    "russian": "Умываться"
+    "russian": "Умываться",
+    "example": {
+      "ko": "아침에 세수해요.",
+      "uz": "Ertalab yuz-qo'limni yuvaman.",
+      "en": "I wash my face in the morning.",
+      "ru": "Утром я умываюсь."
+    }
   }
 ]

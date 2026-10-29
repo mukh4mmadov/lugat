@@ -10,7 +10,13 @@
     "sourceNumber": 663,
     "romanization": "donghwachaek",
     "english": "Storybook",
-    "russian": "Книга сказок"
+    "russian": "Книга сказок",
+    "example": {
+      "ko": "아이에게 동화책을 읽어 줘요.",
+      "uz": "Bolaga ertak kitobi o'qib beraman.",
+      "en": "I read a storybook to the child.",
+      "ru": "Я читаю ребёнку книгу сказок."
+    }
   },
   {
     "id": 664,
@@ -23,7 +29,13 @@
     "sourceNumber": 664,
     "romanization": "imeil",
     "english": "Email",
-    "russian": "Электронная почта"
+    "russian": "Электронная почта",
+    "example": {
+      "ko": "이메일을 보냈어요.",
+      "uz": "Elektron xat yubordim.",
+      "en": "I sent an email.",
+      "ru": "Я отправил письмо по электронной почте."
+    }
   },
   {
     "id": 665,
@@ -36,7 +48,13 @@
     "sourceNumber": 665,
     "romanization": "jangnangam",
     "english": "Toy",
-    "russian": "Игрушка"
+    "russian": "Игрушка",
+    "example": {
+      "ko": "동생에게 장난감을 사 줬어요.",
+      "uz": "Ukamga o'yinchoq sotib oldim.",
+      "en": "I bought a toy for my younger brother.",
+      "ru": "Я купил младшему брату игрушку."
+    }
   },
   {
     "id": 666,
@@ -49,7 +67,13 @@
     "sourceNumber": 666,
     "romanization": "juso",
     "english": "Address",
-    "russian": "Адрес"
+    "russian": "Адрес",
+    "example": {
+      "ko": "주소를 써 주세요.",
+      "uz": "Iltimos, manzilni yozing.",
+      "en": "Please write down the address.",
+      "ru": "Напишите, пожалуйста, адрес."
+    }
   },
   {
     "id": 667,
@@ -62,7 +86,13 @@
     "sourceNumber": 667,
     "romanization": "yongdon",
     "english": "Pocket money",
-    "russian": "Карманные деньги"
+    "russian": "Карманные деньги",
+    "example": {
+      "ko": "부모님께 용돈을 받아요.",
+      "uz": "Ota-onamdan cho'ntak puli olaman.",
+      "en": "I get pocket money from my parents.",
+      "ru": "Я получаю карманные деньги от родителей."
+    }
   },
   {
     "id": 668,
@@ -76,7 +106,13 @@
     "note": "husnixat",
     "romanization": "geulssi",
     "english": "Handwriting",
-    "russian": "Почерк / Надпись"
+    "russian": "Почерк / Надпись",
+    "example": {
+      "ko": "글씨가 예뻐요.",
+      "uz": "Yozuvingiz chiroyli.",
+      "en": "Your handwriting is pretty.",
+      "ru": "У вас красивый почерк."
+    }
   },
   {
     "id": 669,
@@ -89,7 +125,13 @@
     "sourceNumber": 669,
     "romanization": "silsu",
     "english": "Mistake",
-    "russian": "Ошибка"
+    "russian": "Ошибка",
+    "example": {
+      "ko": "실수해서 미안해요.",
+      "uz": "Xato qilganim uchun uzr.",
+      "en": "Sorry for my mistake.",
+      "ru": "Извините за ошибку."
+    }
   },
   {
     "id": 670,
@@ -102,7 +144,13 @@
     "sourceNumber": 670,
     "romanization": "uimi",
     "english": "Meaning",
-    "russian": "Значение"
+    "russian": "Значение",
+    "example": {
+      "ko": "이 단어의 의미가 뭐예요?",
+      "uz": "Bu so'zning ma'nosi nima?",
+      "en": "What does this word mean?",
+      "ru": "Что значит это слово?"
+    }
   },
   {
     "id": 671,
@@ -115,7 +163,13 @@
     "sourceNumber": 671,
     "romanization": "eumnyosu",
     "english": "Beverage / Drink",
-    "russian": "Напиток"
+    "russian": "Напиток",
+    "example": {
+      "ko": "음료수를 마셔요.",
+      "uz": "Ichimlik ichaman.",
+      "en": "I have a drink.",
+      "ru": "Я пью напиток."
+    }
   },
   {
     "id": 672,
@@ -129,7 +183,13 @@
     "note": "gap",
     "romanization": "yemun",
     "english": "Example sentence",
-    "russian": "Пример (предложение)"
+    "russian": "Пример (предложение)",
+    "example": {
+      "ko": "예문을 만들어 보세요.",
+      "uz": "Misol gap tuzib ko'ring.",
+      "en": "Try making an example sentence.",
+      "ru": "Попробуйте составить пример."
+    }
   },
   {
     "id": 673,
@@ -142,7 +202,13 @@
     "sourceNumber": 673,
     "romanization": "dongnyo",
     "english": "Colleague",
-    "russian": "Коллега"
+    "russian": "Коллега",
+    "example": {
+      "ko": "동료와 점심을 먹어요.",
+      "uz": "Hamkasbim bilan tushlik qilaman.",
+      "en": "I eat lunch with a colleague.",
+      "ru": "Я обедаю с коллегой."
+    }
   },
   {
     "id": 674,
@@ -156,7 +222,13 @@
     "note": "tajribaliroq shaxs",
     "romanization": "seonbae",
     "english": "Senior (at school or work)",
-    "russian": "Старший (по учёбе или работе)"
+    "russian": "Старший (по учёбе или работе)",
+    "example": {
+      "ko": "선배가 도와줬어요.",
+      "uz": "Katta kursdoshim yordam berdi.",
+      "en": "My senior helped me.",
+      "ru": "Мне помог старший товарищ."
+    }
   },
   {
     "id": 675,
@@ -169,7 +241,13 @@
     "sourceNumber": 675,
     "romanization": "hubae",
     "english": "Junior (at school or work)",
-    "russian": "Младший (по учёбе или работе)"
+    "russian": "Младший (по учёбе или работе)",
+    "example": {
+      "ko": "후배에게 책을 줬어요.",
+      "uz": "Kichik kursdoshimga kitob berdim.",
+      "en": "I gave a book to my junior.",
+      "ru": "Я отдал книгу младшему товарищу."
+    }
   },
   {
     "id": 676,
@@ -182,7 +260,13 @@
     "sourceNumber": 676,
     "romanization": "museun irieyo?",
     "english": "What's the matter?",
-    "russian": "Что случилось?"
+    "russian": "Что случилось?",
+    "example": {
+      "ko": "무슨 일이에요? 왜 울어요?",
+      "uz": "Nima bo'ldi? Nega yig'layapsiz?",
+      "en": "What's the matter? Why are you crying?",
+      "ru": "Что случилось? Почему вы плачете?"
+    }
   },
   {
     "id": 677,
@@ -195,7 +279,13 @@
     "sourceNumber": 677,
     "romanization": "jeonhada",
     "english": "To pass on / Deliver",
-    "russian": "Передавать"
+    "russian": "Передавать",
+    "example": {
+      "ko": "이 편지를 전해 주세요.",
+      "uz": "Iltimos, bu xatni yetkazing.",
+      "en": "Please pass on this letter.",
+      "ru": "Передайте, пожалуйста, это письмо."
+    }
   },
   {
     "id": 678,
@@ -209,7 +299,13 @@
     "note": "hurmatli shakli",
     "romanization": "saengsin",
     "english": "Birthday (honorific)",
-    "russian": "День рождения (почтительно)"
+    "russian": "День рождения (почтительно)",
+    "example": {
+      "ko": "아버지 생신 선물을 샀어요.",
+      "uz": "Otamning tug'ilgan kuni uchun sovg'a oldim.",
+      "en": "I bought a present for my father's birthday.",
+      "ru": "Я купил подарок на день рождения отца."
+    }
   },
   {
     "id": 679,
@@ -223,7 +319,13 @@
     "note": "yozma",
     "romanization": "beonyeokhada",
     "english": "To translate (written)",
-    "russian": "Переводить (письменно)"
+    "russian": "Переводить (письменно)",
+    "example": {
+      "ko": "이 문장을 번역해 주세요.",
+      "uz": "Iltimos, bu gapni tarjima qiling.",
+      "en": "Please translate this sentence.",
+      "ru": "Переведите, пожалуйста, это предложение."
+    }
   },
   {
     "id": 680,
@@ -236,7 +338,13 @@
     "sourceNumber": 680,
     "romanization": "seoryu",
     "english": "Documents",
-    "russian": "Документы"
+    "russian": "Документы",
+    "example": {
+      "ko": "서류를 준비했어요.",
+      "uz": "Hujjatlarni tayyorladim.",
+      "en": "I prepared the documents.",
+      "ru": "Я подготовил документы."
+    }
   },
   {
     "id": 681,
@@ -250,7 +358,13 @@
     "note": "og'zaki",
     "romanization": "tongyeokhada",
     "english": "To interpret (spoken)",
-    "russian": "Переводить (устно)"
+    "russian": "Переводить (устно)",
+    "example": {
+      "ko": "회의에서 통역해요.",
+      "uz": "Majlisda og'zaki tarjima qilaman.",
+      "en": "I interpret at the meeting.",
+      "ru": "Я перевожу на совещании."
+    }
   },
   {
     "id": 682,
@@ -263,7 +377,13 @@
     "sourceNumber": 682,
     "romanization": "tongyeokga",
     "english": "Interpreter",
-    "russian": "Переводчик (устный)"
+    "russian": "Переводчик (устный)",
+    "example": {
+      "ko": "제 꿈은 통역가예요.",
+      "uz": "Mening orzuim — tarjimon bo'lish.",
+      "en": "My dream is to be an interpreter.",
+      "ru": "Моя мечта — стать переводчиком."
+    }
   },
   {
     "id": 683,
@@ -277,7 +397,13 @@
     "note": "mevani) / Arzonlashtirmoq (narxni",
     "romanization": "kkakda (kkakda)",
     "english": "To peel / To give a discount",
-    "russian": "Чистить (кожуру) / Делать скидку"
+    "russian": "Чистить (кожуру) / Делать скидку",
+    "example": {
+      "ko": "사과를 깎아요.",
+      "uz": "Olmani archaman.",
+      "en": "I peel an apple.",
+      "ru": "Я чищу яблоко."
+    }
   },
   {
     "id": 684,
@@ -290,7 +416,13 @@
     "sourceNumber": 684,
     "romanization": "panmaewon",
     "english": "Salesperson",
-    "russian": "Продавец"
+    "russian": "Продавец",
+    "example": {
+      "ko": "판매원이 친절해요.",
+      "uz": "Sotuvchi muloyim.",
+      "en": "The salesperson is kind.",
+      "ru": "Продавец вежливый."
+    }
   },
   {
     "id": 685,
@@ -304,7 +436,13 @@
     "note": "Iltimos, tinchlik saqlang",
     "romanization": "joyonghi hada (joyonghi hae juseyo)",
     "english": "To be quiet",
-    "russian": "Вести себя тихо"
+    "russian": "Вести себя тихо",
+    "example": {
+      "ko": "도서관에서는 조용히 해 주세요.",
+      "uz": "Kutubxonada jim bo'ling.",
+      "en": "Please be quiet in the library.",
+      "ru": "В библиотеке, пожалуйста, соблюдайте тишину."
+    }
   },
   {
     "id": 686,
@@ -317,7 +455,13 @@
     "sourceNumber": 686,
     "romanization": "annaehada",
     "english": "To guide / To inform",
-    "russian": "Показывать дорогу / Информировать"
+    "russian": "Показывать дорогу / Информировать",
+    "example": {
+      "ko": "제가 길을 안내할게요.",
+      "uz": "Men yo'lni ko'rsataman.",
+      "en": "I'll show you the way.",
+      "ru": "Я покажу вам дорогу."
+    }
   },
   {
     "id": 687,
@@ -331,7 +475,13 @@
     "note": "tekin",
     "romanization": "muryo",
     "english": "Free (of charge)",
-    "russian": "Бесплатно"
+    "russian": "Бесплатно",
+    "example": {
+      "ko": "박물관 입장은 무료예요.",
+      "uz": "Muzeyga kirish bepul.",
+      "en": "Admission to the museum is free.",
+      "ru": "Вход в музей бесплатный."
+    }
   },
   {
     "id": 688,
@@ -344,7 +494,13 @@
     "sourceNumber": 688,
     "romanization": "yuryo",
     "english": "Paid (requires payment)",
-    "russian": "Платно"
+    "russian": "Платно",
+    "example": {
+      "ko": "주차장은 유료예요.",
+      "uz": "Avtoturargoh pullik.",
+      "en": "The parking lot is paid.",
+      "ru": "Парковка платная."
+    }
   },
   {
     "id": 689,
@@ -357,7 +513,13 @@
     "sourceNumber": 689,
     "romanization": "tongjang",
     "english": "Bankbook",
-    "russian": "Сберкнижка"
+    "russian": "Сберкнижка",
+    "example": {
+      "ko": "은행에서 통장을 만들었어요.",
+      "uz": "Bankda hisob daftarchasi ochdim.",
+      "en": "I opened a bank account.",
+      "ru": "Я открыл счёт в банке."
+    }
   },
   {
     "id": 690,
@@ -370,6 +532,12 @@
     "sourceNumber": 690,
     "romanization": "jigwon",
     "english": "Employee / Staff",
-    "russian": "Сотрудник"
+    "russian": "Сотрудник",
+    "example": {
+      "ko": "직원에게 물어보세요.",
+      "uz": "Xodimdan so'rang.",
+      "en": "Please ask a staff member.",
+      "ru": "Спросите у сотрудника."
+    }
   }
 ]

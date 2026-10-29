@@ -10,7 +10,13 @@
     "sourceNumber": 630,
     "romanization": "bihaenggi",
     "english": "Airplane",
-    "russian": "Самолёт"
+    "russian": "Самолёт",
+    "example": {
+      "ko": "비행기를 타고 제주도에 가요.",
+      "uz": "Samolyotda Jeju oroliga boraman.",
+      "en": "I fly to Jeju Island.",
+      "ru": "Я лечу на остров Чеджу на самолёте."
+    }
   },
   {
     "id": 631,
@@ -23,7 +29,13 @@
     "sourceNumber": 631,
     "romanization": "gawi",
     "english": "Scissors",
-    "russian": "Ножницы"
+    "russian": "Ножницы",
+    "example": {
+      "ko": "가위로 종이를 잘라요.",
+      "uz": "Qaychi bilan qog'oz kesaman.",
+      "en": "I cut paper with scissors.",
+      "ru": "Я режу бумагу ножницами."
+    }
   },
   {
     "id": 632,
@@ -36,7 +48,13 @@
     "sourceNumber": 632,
     "romanization": "hakgyobeoseu",
     "english": "School bus",
-    "russian": "Школьный автобус"
+    "russian": "Школьный автобус",
+    "example": {
+      "ko": "학교버스를 타요.",
+      "uz": "Maktab avtobusiga chiqaman.",
+      "en": "I take the school bus.",
+      "ru": "Я езжу на школьном автобусе."
+    }
   },
   {
     "id": 633,
@@ -49,7 +67,13 @@
     "sourceNumber": 633,
     "romanization": "hyeongeum",
     "english": "Cash",
-    "russian": "Наличные"
+    "russian": "Наличные",
+    "example": {
+      "ko": "현금으로 계산해요.",
+      "uz": "Naqd pul bilan to'layman.",
+      "en": "I pay in cash.",
+      "ru": "Я плачу наличными."
+    }
   },
   {
     "id": 634,
@@ -62,7 +86,13 @@
     "sourceNumber": 634,
     "romanization": "chitsol",
     "english": "Toothbrush",
-    "russian": "Зубная щётка"
+    "russian": "Зубная щётка",
+    "example": {
+      "ko": "새 칫솔을 샀어요.",
+      "uz": "Yangi tish cho'tkasi sotib oldim.",
+      "en": "I bought a new toothbrush.",
+      "ru": "Я купил новую зубную щётку."
+    }
   },
   {
     "id": 635,
@@ -75,7 +105,13 @@
     "sourceNumber": 635,
     "romanization": "ireul dakda",
     "english": "To brush one's teeth",
-    "russian": "Чистить зубы"
+    "russian": "Чистить зубы",
+    "example": {
+      "ko": "밥을 먹고 이를 닦아요.",
+      "uz": "Ovqatdan keyin tishimni yuvaman.",
+      "en": "I brush my teeth after eating.",
+      "ru": "После еды я чищу зубы."
+    }
   },
   {
     "id": 636,
@@ -88,7 +124,13 @@
     "sourceNumber": 636,
     "romanization": "cheongsogi",
     "english": "Vacuum cleaner",
-    "russian": "Пылесос"
+    "russian": "Пылесос",
+    "example": {
+      "ko": "청소기로 청소해요.",
+      "uz": "Changyutgich bilan tozalayman.",
+      "en": "I clean with a vacuum cleaner.",
+      "ru": "Я убираю пылесосом."
+    }
   },
   {
     "id": 637,
@@ -101,7 +143,13 @@
     "sourceNumber": 637,
     "romanization": "bitjaru",
     "english": "Broom",
-    "russian": "Веник"
+    "russian": "Веник",
+    "example": {
+      "ko": "빗자루로 마당을 쓸어요.",
+      "uz": "Supurgi bilan hovlini supuraman.",
+      "en": "I sweep the yard with a broom.",
+      "ru": "Я подметаю двор веником."
+    }
   },
   {
     "id": 638,
@@ -114,7 +162,13 @@
     "sourceNumber": 638,
     "romanization": "jareuda",
     "english": "To cut",
-    "russian": "Резать"
+    "russian": "Резать",
+    "example": {
+      "ko": "머리를 잘랐어요.",
+      "uz": "Sochimni oldirdim.",
+      "en": "I got a haircut.",
+      "ru": "Я подстригся."
+    }
   },
   {
     "id": 639,
@@ -127,7 +181,13 @@
     "sourceNumber": 639,
     "romanization": "kal",
     "english": "Knife",
-    "russian": "Нож"
+    "russian": "Нож",
+    "example": {
+      "ko": "칼로 사과를 잘라요.",
+      "uz": "Pichoq bilan olmani kesaman.",
+      "en": "I cut an apple with a knife.",
+      "ru": "Я режу яблоко ножом."
+    }
   },
   {
     "id": 640,
@@ -140,7 +200,13 @@
     "sourceNumber": 640,
     "romanization": "sutgarak",
     "english": "Spoon",
-    "russian": "Ложка"
+    "russian": "Ложка",
+    "example": {
+      "ko": "숟가락으로 밥을 먹어요.",
+      "uz": "Qoshiq bilan ovqat yeyman.",
+      "en": "I eat rice with a spoon.",
+      "ru": "Я ем рис ложкой."
+    }
   },
   {
     "id": 641,
@@ -154,7 +220,13 @@
     "note": "xom",
     "romanization": "ssal",
     "english": "Rice (uncooked)",
-    "russian": "Рис (крупа)"
+    "russian": "Рис (крупа)",
+    "example": {
+      "ko": "쌀로 밥을 지어요.",
+      "uz": "Guruch pishiraman.",
+      "en": "I cook rice.",
+      "ru": "Я варю рис."
+    }
   },
   {
     "id": 642,
@@ -167,7 +239,13 @@
     "sourceNumber": 642,
     "romanization": "mworo",
     "english": "With what / By what",
-    "russian": "Чем / На чём"
+    "russian": "Чем / На чём",
+    "example": {
+      "ko": "뭐로 가요?",
+      "uz": "Nima bilan borasiz?",
+      "en": "How are you getting there?",
+      "ru": "На чём вы поедете?"
+    }
   },
   {
     "id": 643,
@@ -181,7 +259,13 @@
     "note": "koreyscha quyuq sho'rva",
     "romanization": "jjigae",
     "english": "Stew (jjigae)",
-    "russian": "Рагу (чигэ)"
+    "russian": "Рагу (чигэ)",
+    "example": {
+      "ko": "된장찌개를 좋아해요.",
+      "uz": "Toenjang chigeni yaxshi ko'raman.",
+      "en": "I like soybean paste stew.",
+      "ru": "Я люблю рагу из соевой пасты."
+    }
   },
   {
     "id": 644,
@@ -194,7 +278,13 @@
     "sourceNumber": 644,
     "romanization": "badatga",
     "english": "Beach / Seaside",
-    "russian": "Пляж / Побережье"
+    "russian": "Пляж / Побережье",
+    "example": {
+      "ko": "바닷가에서 산책해요.",
+      "uz": "Dengiz sohilida sayr qilaman.",
+      "en": "I walk along the beach.",
+      "ru": "Я гуляю по пляжу."
+    }
   },
   {
     "id": 645,
@@ -207,7 +297,13 @@
     "sourceNumber": 645,
     "romanization": "milgaru",
     "english": "Flour",
-    "russian": "Мука"
+    "russian": "Мука",
+    "example": {
+      "ko": "밀가루로 빵을 만들어요.",
+      "uz": "Undan non tayyorlayman.",
+      "en": "I make bread from flour.",
+      "ru": "Я делаю хлеб из муки."
+    }
   },
   {
     "id": 646,
@@ -220,7 +316,13 @@
     "sourceNumber": 646,
     "romanization": "gicha",
     "english": "Train",
-    "russian": "Поезд"
+    "russian": "Поезд",
+    "example": {
+      "ko": "기차를 타고 부산에 가요.",
+      "uz": "Poyezdda Pusanga boraman.",
+      "en": "I take the train to Busan.",
+      "ru": "Я еду в Пусан на поезде."
+    }
   },
   {
     "id": 647,
@@ -234,7 +336,13 @@
     "note": "shahar",
     "romanization": "busan",
     "english": "Busan",
-    "russian": "Пусан"
+    "russian": "Пусан",
+    "example": {
+      "ko": "부산에 바다가 있어요.",
+      "uz": "Pusanda dengiz bor.",
+      "en": "Busan has a sea.",
+      "ru": "В Пусане есть море."
+    }
   },
   {
     "id": 648,
@@ -247,7 +355,13 @@
     "sourceNumber": 648,
     "romanization": "jejudo",
     "english": "Jeju Island",
-    "russian": "Остров Чеджу"
+    "russian": "Остров Чеджу",
+    "example": {
+      "ko": "제주도는 섬이에요.",
+      "uz": "Jeju — orol.",
+      "en": "Jeju is an island.",
+      "ru": "Чеджу — это остров."
+    }
   },
   {
     "id": 649,
@@ -261,7 +375,13 @@
     "note": "shahar",
     "romanization": "incheon",
     "english": "Incheon",
-    "russian": "Инчхон"
+    "russian": "Инчхон",
+    "example": {
+      "ko": "인천 공항에 도착했어요.",
+      "uz": "Inchon aeroportiga yetib keldim.",
+      "en": "I arrived at Incheon Airport.",
+      "ru": "Я прибыл в аэропорт Инчхон."
+    }
   },
   {
     "id": 650,
@@ -274,7 +394,13 @@
     "sourceNumber": 650,
     "romanization": "otobai",
     "english": "Motorcycle",
-    "russian": "Мотоцикл"
+    "russian": "Мотоцикл",
+    "example": {
+      "ko": "오토바이를 타요.",
+      "uz": "Mototsikl minaman.",
+      "en": "I ride a motorcycle.",
+      "ru": "Я езжу на мотоцикле."
+    }
   },
   {
     "id": 651,
@@ -288,7 +414,13 @@
     "note": "shattl",
     "romanization": "syeoteulbeoseu",
     "english": "Shuttle bus",
-    "russian": "Шаттл-автобус"
+    "russian": "Шаттл-автобус",
+    "example": {
+      "ko": "셔틀버스를 타고 호텔에 가요.",
+      "uz": "Qatnovchi avtobusda mehmonxonaga boraman.",
+      "en": "I take the shuttle bus to the hotel.",
+      "ru": "Я еду в гостиницу на шаттле."
+    }
   },
   {
     "id": 652,
@@ -301,7 +433,13 @@
     "sourceNumber": 652,
     "romanization": "eolmana",
     "english": "How much / How long",
-    "russian": "Сколько"
+    "russian": "Сколько",
+    "example": {
+      "ko": "서울에서 부산까지 얼마나 걸려요?",
+      "uz": "Seuldan Pusangacha qancha vaqt ketadi?",
+      "en": "How long does it take from Seoul to Busan?",
+      "ru": "Сколько ехать от Сеула до Пусана?"
+    }
   },
   {
     "id": 653,
@@ -314,7 +452,13 @@
     "sourceNumber": 653,
     "romanization": "geollida",
     "english": "To take (time) / To hang",
-    "russian": "Занимать (время) / Висеть"
+    "russian": "Занимать (время) / Висеть",
+    "example": {
+      "ko": "지하철로 삼십 분 걸려요.",
+      "uz": "Metroda o'ttiz daqiqa ketadi.",
+      "en": "It takes thirty minutes by subway.",
+      "ru": "На метро это занимает тридцать минут."
+    }
   },
   {
     "id": 654,
@@ -327,7 +471,13 @@
     "sourceNumber": 654,
     "romanization": "meolda",
     "english": "To be far",
-    "russian": "Быть далёким"
+    "russian": "Быть далёким",
+    "example": {
+      "ko": "회사가 집에서 멀어요.",
+      "uz": "Ishxona uydan uzoq.",
+      "en": "My office is far from home.",
+      "ru": "Работа далеко от дома."
+    }
   },
   {
     "id": 655,
@@ -341,7 +491,13 @@
     "note": "suyuq",
     "romanization": "guk",
     "english": "Soup",
-    "russian": "Суп"
+    "russian": "Суп",
+    "example": {
+      "ko": "국이 뜨거워요.",
+      "uz": "Sho'rva issiq.",
+      "en": "The soup is hot.",
+      "ru": "Суп горячий."
+    }
   },
   {
     "id": 656,
@@ -355,7 +511,13 @@
     "note": "plyaj",
     "romanization": "haeundae",
     "english": "Haeundae (beach in Busan)",
-    "russian": "Хэундэ (пляж в Пусане)"
+    "russian": "Хэундэ (пляж в Пусане)",
+    "example": {
+      "ko": "여름에 해운대에 가요.",
+      "uz": "Yozda Heundega boraman.",
+      "en": "I go to Haeundae in summer.",
+      "ru": "Летом я езжу в Хэундэ."
+    }
   },
   {
     "id": 657,
@@ -368,7 +530,13 @@
     "sourceNumber": 657,
     "romanization": "hotel",
     "english": "Hotel",
-    "russian": "Гостиница"
+    "russian": "Гостиница",
+    "example": {
+      "ko": "호텔을 예약했어요.",
+      "uz": "Mehmonxonani band qildim.",
+      "en": "I booked a hotel.",
+      "ru": "Я забронировал гостиницу."
+    }
   },
   {
     "id": 658,
@@ -381,7 +549,13 @@
     "sourceNumber": 658,
     "romanization": "sseuda",
     "english": "To write / Bitter / To wear / To use",
-    "russian": "Писать / Горький / Надевать / Использовать"
+    "russian": "Писать / Горький / Надевать / Использовать",
+    "example": {
+      "ko": "이 약은 맛이 써요.",
+      "uz": "Bu dori achchiq.",
+      "en": "This medicine tastes bitter.",
+      "ru": "Это лекарство горькое."
+    }
   },
   {
     "id": 659,
@@ -394,7 +568,13 @@
     "sourceNumber": 659,
     "romanization": "gyesanhada",
     "english": "To calculate / To pay",
-    "russian": "Считать / Платить"
+    "russian": "Считать / Платить",
+    "example": {
+      "ko": "제가 계산할게요.",
+      "uz": "Men to'layman.",
+      "en": "I'll pay.",
+      "ru": "Я заплачу."
+    }
   },
   {
     "id": 660,
@@ -407,7 +587,13 @@
     "sourceNumber": 660,
     "romanization": "renteoka",
     "english": "Rental car",
-    "russian": "Арендованная машина"
+    "russian": "Арендованная машина",
+    "example": {
+      "ko": "제주도에서 렌터카를 빌려요.",
+      "uz": "Jejuda ijaraga mashina olaman.",
+      "en": "I rent a car on Jeju.",
+      "ru": "На Чеджу я беру машину напрокат."
+    }
   },
   {
     "id": 661,
@@ -420,7 +606,13 @@
     "sourceNumber": 661,
     "romanization": "sagwida",
     "english": "To make friends / To date",
-    "russian": "Дружить / Встречаться"
+    "russian": "Дружить / Встречаться",
+    "example": {
+      "ko": "한국 친구를 사귀었어요.",
+      "uz": "Koreys do'st orttirdim.",
+      "en": "I made a Korean friend.",
+      "ru": "Я подружился с корейцем."
+    }
   },
   {
     "id": 662,
@@ -433,6 +625,12 @@
     "sourceNumber": 662,
     "romanization": "meonjeo",
     "english": "First / Before",
-    "russian": "Сначала / Первым"
+    "russian": "Сначала / Первым",
+    "example": {
+      "ko": "먼저 가세요.",
+      "uz": "Siz oldin boring.",
+      "en": "Please go ahead first.",
+      "ru": "Идите первым."
+    }
   }
 ]

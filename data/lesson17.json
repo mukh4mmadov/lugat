@@ -10,7 +10,13 @@
     "sourceNumber": 506,
     "romanization": "chulbalhada",
     "english": "To depart",
-    "russian": "Отправляться"
+    "russian": "Отправляться",
+    "example": {
+      "ko": "기차가 아홉 시에 출발해요.",
+      "uz": "Poyezd soat to'qqizda jo'naydi.",
+      "en": "The train departs at nine.",
+      "ru": "Поезд отправляется в девять."
+    }
   },
   {
     "id": 507,
@@ -24,7 +30,13 @@
     "note": "bormoq",
     "romanization": "dochakhada",
     "english": "To arrive",
-    "russian": "Прибывать"
+    "russian": "Прибывать",
+    "example": {
+      "ko": "부산에 열두 시에 도착해요.",
+      "uz": "Pusanga soat o'n ikkida yetib boraman.",
+      "en": "I arrive in Busan at twelve.",
+      "ru": "Я прибываю в Пусан в двенадцать."
+    }
   },
   {
     "id": 508,
@@ -37,7 +49,13 @@
     "sourceNumber": 508,
     "romanization": "doragada",
     "english": "To go back",
-    "russian": "Возвращаться (туда)"
+    "russian": "Возвращаться (туда)",
+    "example": {
+      "ko": "집에 돌아가요.",
+      "uz": "Uyga qaytib ketaman.",
+      "en": "I'm going back home.",
+      "ru": "Я возвращаюсь домой."
+    }
   },
   {
     "id": 509,
@@ -50,7 +68,13 @@
     "sourceNumber": 509,
     "romanization": "doraoda",
     "english": "To come back",
-    "russian": "Возвращаться (сюда)"
+    "russian": "Возвращаться (сюда)",
+    "example": {
+      "ko": "언제 돌아와요?",
+      "uz": "Qachon qaytib kelasiz?",
+      "en": "When are you coming back?",
+      "ru": "Когда вы вернётесь?"
+    }
   },
   {
     "id": 510,
@@ -63,7 +87,13 @@
     "sourceNumber": 510,
     "romanization": "gohyange gada",
     "english": "To go to one's hometown",
-    "russian": "Ехать на родину"
+    "russian": "Ехать на родину",
+    "example": {
+      "ko": "방학에 고향에 가요.",
+      "uz": "Ta'tilda tug'ilib o'sgan joyimga boraman.",
+      "en": "I go to my hometown during the vacation.",
+      "ru": "На каникулах я еду на родину."
+    }
   },
   {
     "id": 511,
@@ -76,7 +106,13 @@
     "sourceNumber": 511,
     "romanization": "ginyeomhada",
     "english": "To commemorate / Celebrate",
-    "russian": "Отмечать / Праздновать"
+    "russian": "Отмечать / Праздновать",
+    "example": {
+      "ko": "어린이날을 기념해요.",
+      "uz": "Bolalar kunini nishonlaymiz.",
+      "en": "We celebrate Children's Day.",
+      "ru": "Мы отмечаем День защиты детей."
+    }
   },
   {
     "id": 512,
@@ -89,7 +125,13 @@
     "sourceNumber": 512,
     "romanization": "moida",
     "english": "To gather",
-    "russian": "Собираться"
+    "russian": "Собираться",
+    "example": {
+      "ko": "가족이 모두 모였어요.",
+      "uz": "Butun oila yig'ildi.",
+      "en": "The whole family gathered.",
+      "ru": "Вся семья собралась."
+    }
   },
   {
     "id": 513,
@@ -102,7 +144,13 @@
     "sourceNumber": 513,
     "romanization": "sijakdoeda",
     "english": "To begin",
-    "russian": "Начинаться"
+    "russian": "Начинаться",
+    "example": {
+      "ko": "수업이 아홉 시에 시작돼요.",
+      "uz": "Dars soat to'qqizda boshlanadi.",
+      "en": "Class begins at nine.",
+      "ru": "Урок начинается в девять."
+    }
   },
   {
     "id": 514,
@@ -115,7 +163,13 @@
     "sourceNumber": 514,
     "romanization": "kkeunnada",
     "english": "To end",
-    "russian": "Заканчиваться"
+    "russian": "Заканчиваться",
+    "example": {
+      "ko": "수업이 끝났어요.",
+      "uz": "Dars tugadi.",
+      "en": "Class is over.",
+      "ru": "Урок закончился."
+    }
   },
   {
     "id": 515,
@@ -128,7 +182,13 @@
     "sourceNumber": 515,
     "romanization": "eorininal",
     "english": "Children's Day",
-    "russian": "День защиты детей"
+    "russian": "День защиты детей",
+    "example": {
+      "ko": "오월 오일은 어린이날이에요.",
+      "uz": "Beshinchi may — Bolalar kuni.",
+      "en": "May 5th is Children's Day.",
+      "ru": "Пятое мая — День защиты детей."
+    }
   },
   {
     "id": 516,
@@ -141,7 +201,13 @@
     "sourceNumber": 516,
     "romanization": "gohyang",
     "english": "Hometown",
-    "russian": "Родной город"
+    "russian": "Родной город",
+    "example": {
+      "ko": "제 고향은 사마르칸트예요.",
+      "uz": "Mening tug'ilgan joyim Samarqand.",
+      "en": "My hometown is Samarkand.",
+      "ru": "Мой родной город — Самарканд."
+    }
   },
   {
     "id": 517,
@@ -154,7 +220,13 @@
     "sourceNumber": 517,
     "romanization": "georeoseo gada",
     "english": "To go on foot",
-    "russian": "Идти пешком"
+    "russian": "Идти пешком",
+    "example": {
+      "ko": "학교에 걸어서 가요.",
+      "uz": "Maktabga piyoda boraman.",
+      "en": "I walk to school.",
+      "ru": "Я хожу в школу пешком."
+    }
   },
   {
     "id": 518,
@@ -167,7 +239,13 @@
     "sourceNumber": 518,
     "romanization": "beoseureul tago gada",
     "english": "To go by bus",
-    "russian": "Ехать на автобусе"
+    "russian": "Ехать на автобусе",
+    "example": {
+      "ko": "회사에 버스를 타고 가요.",
+      "uz": "Ishga avtobusda boraman.",
+      "en": "I go to work by bus.",
+      "ru": "Я езжу на работу на автобусе."
+    }
   },
   {
     "id": 519,
@@ -180,7 +258,13 @@
     "sourceNumber": 519,
     "romanization": "sigani geollida",
     "english": "To take (time)",
-    "russian": "Занимать (время)"
+    "russian": "Занимать (время)",
+    "example": {
+      "ko": "비행기로 두 시간 걸려요.",
+      "uz": "Samolyotda ikki soat ketadi.",
+      "en": "It takes two hours by plane.",
+      "ru": "На самолёте это занимает два часа."
+    }
   },
   {
     "id": 520,
@@ -193,6 +277,12 @@
     "sourceNumber": 520,
     "romanization": "eolmana",
     "english": "How much / How long",
-    "russian": "Сколько / Насколько"
+    "russian": "Сколько / Насколько",
+    "example": {
+      "ko": "얼마나 걸려요?",
+      "uz": "Qancha vaqt ketadi?",
+      "en": "How long does it take?",
+      "ru": "Сколько времени это занимает?"
+    }
   }
 ]

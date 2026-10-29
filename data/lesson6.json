@@ -10,7 +10,13 @@
     "needsReview": false,
     "sourceNumber": 139,
     "english": "Hospital",
-    "russian": "Больница"
+    "russian": "Больница",
+    "example": {
+      "ko": "병원에 가요.",
+      "uz": "Shifoxonaga boraman.",
+      "en": "I go to the hospital.",
+      "ru": "Я иду в больницу."
+    }
   },
   {
     "id": 140,
@@ -23,7 +29,13 @@
     "needsReview": false,
     "sourceNumber": 140,
     "english": "Front / In front of",
-    "russian": "Перед / Впереди"
+    "russian": "Перед / Впереди",
+    "example": {
+      "ko": "학교 앞에서 만나요.",
+      "uz": "Maktab oldida uchrashamiz.",
+      "en": "Let's meet in front of the school.",
+      "ru": "Встретимся перед школой."
+    }
   },
   {
     "id": 141,
@@ -36,7 +48,13 @@
     "needsReview": false,
     "sourceNumber": 141,
     "english": "Back / Behind",
-    "russian": "Сзади / За"
+    "russian": "Сзади / За",
+    "example": {
+      "ko": "의자 뒤에 가방이 있어요.",
+      "uz": "Stul orqasida sumka bor.",
+      "en": "There is a bag behind the chair.",
+      "ru": "За стулом есть сумка."
+    }
   },
   {
     "id": 142,
@@ -49,7 +67,13 @@
     "needsReview": false,
     "sourceNumber": 142,
     "english": "Side / Next to",
-    "russian": "Сбоку / Рядом"
+    "russian": "Сбоку / Рядом",
+    "example": {
+      "ko": "은행 옆에 약국이 있어요.",
+      "uz": "Bank yonida dorixona bor.",
+      "en": "There is a pharmacy next to the bank.",
+      "ru": "Рядом с банком есть аптека."
+    }
   },
   {
     "id": 143,
@@ -62,7 +86,13 @@
     "needsReview": false,
     "sourceNumber": 143,
     "english": "Below / Under",
-    "russian": "Под / Внизу"
+    "russian": "Под / Внизу",
+    "example": {
+      "ko": "책상 아래에 고양이가 있어요.",
+      "uz": "Stol tagida mushuk bor.",
+      "en": "There is a cat under the desk.",
+      "ru": "Под столом кошка."
+    }
   },
   {
     "id": 144,
@@ -75,7 +105,13 @@
     "needsReview": false,
     "sourceNumber": 144,
     "english": "Inside",
-    "russian": "Внутри"
+    "russian": "Внутри",
+    "example": {
+      "ko": "가방 안에 책이 있어요.",
+      "uz": "Sumka ichida kitob bor.",
+      "en": "There is a book in the bag.",
+      "ru": "В сумке есть книга."
+    }
   },
   {
     "id": 145,
@@ -88,7 +124,13 @@
     "needsReview": false,
     "sourceNumber": 145,
     "english": "Top / On / Above",
-    "russian": "Сверху / На / Над"
+    "russian": "Сверху / На / Над",
+    "example": {
+      "ko": "책상 위에 컴퓨터가 있어요.",
+      "uz": "Stol ustida kompyuter bor.",
+      "en": "There is a computer on the desk.",
+      "ru": "На столе компьютер."
+    }
   },
   {
     "id": 146,
@@ -101,7 +143,13 @@
     "needsReview": false,
     "sourceNumber": 146,
     "english": "Between",
-    "russian": "Между"
+    "russian": "Между",
+    "example": {
+      "ko": "은행과 우체국 사이에 공원이 있어요.",
+      "uz": "Bank va pochtaxona orasida park bor.",
+      "en": "There is a park between the bank and the post office.",
+      "ru": "Между банком и почтой есть парк."
+    }
   },
   {
     "id": 147,
@@ -114,7 +162,13 @@
     "needsReview": false,
     "sourceNumber": 147,
     "english": "Left side",
-    "russian": "Левая сторона"
+    "russian": "Левая сторона",
+    "example": {
+      "ko": "왼쪽으로 가세요.",
+      "uz": "Chap tomonga boring.",
+      "en": "Please go to the left.",
+      "ru": "Идите налево."
+    }
   },
   {
     "id": 148,
@@ -127,7 +181,13 @@
     "needsReview": false,
     "sourceNumber": 148,
     "english": "Right side",
-    "russian": "Правая сторона"
+    "russian": "Правая сторона",
+    "example": {
+      "ko": "화장실은 오른쪽에 있어요.",
+      "uz": "Hojatxona o'ng tomonda.",
+      "en": "The restroom is on the right.",
+      "ru": "Туалет справа."
+    }
   },
   {
     "id": 149,
@@ -140,7 +200,13 @@
     "needsReview": false,
     "sourceNumber": 149,
     "english": "Nearby",
-    "russian": "Поблизости / Рядом"
+    "russian": "Поблизости / Рядом",
+    "example": {
+      "ko": "집 근처에 시장이 있어요.",
+      "uz": "Uy yaqinida bozor bor.",
+      "en": "There is a market near my house.",
+      "ru": "Рядом с домом есть рынок."
+    }
   },
   {
     "id": 150,
@@ -153,7 +219,13 @@
     "needsReview": false,
     "sourceNumber": 150,
     "english": "Here",
-    "russian": "Здесь"
+    "russian": "Здесь",
+    "example": {
+      "ko": "여기가 제 방이에요.",
+      "uz": "Bu yer mening xonam.",
+      "en": "This is my room.",
+      "ru": "Здесь моя комната."
+    }
   },
   {
     "id": 151,
@@ -166,7 +238,13 @@
     "needsReview": false,
     "sourceNumber": 151,
     "english": "There (near you)",
-    "russian": "Там (рядом с вами)"
+    "russian": "Там (рядом с вами)",
+    "example": {
+      "ko": "거기에서 기다리세요.",
+      "uz": "U yerda kuting.",
+      "en": "Please wait there.",
+      "ru": "Подождите там."
+    }
   },
   {
     "id": 152,
@@ -179,7 +257,13 @@
     "needsReview": false,
     "sourceNumber": 152,
     "english": "Over there",
-    "russian": "Вон там"
+    "russian": "Вон там",
+    "example": {
+      "ko": "저기가 우체국이에요.",
+      "uz": "Anavi yer pochtaxona.",
+      "en": "Over there is the post office.",
+      "ru": "Вон там почта."
+    }
   },
   {
     "id": 153,
@@ -192,7 +276,13 @@
     "needsReview": false,
     "sourceNumber": 153,
     "english": "Zero (0)",
-    "russian": "Ноль (0)"
+    "russian": "Ноль (0)",
+    "example": {
+      "ko": "제 번호는 공일공이에요.",
+      "uz": "Mening raqamim nol-bir-nol.",
+      "en": "My number is zero-one-zero.",
+      "ru": "Мой номер — ноль-один-ноль."
+    }
   },
   {
     "id": 154,
@@ -205,7 +295,13 @@
     "needsReview": false,
     "sourceNumber": 154,
     "english": "One (1)",
-    "russian": "Один (1)"
+    "russian": "Один (1)",
+    "example": {
+      "ko": "일 층에 식당이 있어요.",
+      "uz": "Birinchi qavatda restoran bor.",
+      "en": "There is a restaurant on the first floor.",
+      "ru": "На первом этаже есть ресторан."
+    }
   },
   {
     "id": 155,
@@ -218,7 +314,13 @@
     "needsReview": false,
     "sourceNumber": 155,
     "english": "Two (2)",
-    "russian": "Два (2)"
+    "russian": "Два (2)",
+    "example": {
+      "ko": "이 월에 한국에 가요.",
+      "uz": "Fevralda Koreyaga boraman.",
+      "en": "I go to Korea in February.",
+      "ru": "В феврале я еду в Корею."
+    }
   },
   {
     "id": 156,
@@ -231,7 +333,13 @@
     "needsReview": false,
     "sourceNumber": 156,
     "english": "Three (3)",
-    "russian": "Три (3)"
+    "russian": "Три (3)",
+    "example": {
+      "ko": "삼 층으로 올라가세요.",
+      "uz": "Uchinchi qavatga chiqing.",
+      "en": "Please go up to the third floor.",
+      "ru": "Поднимитесь на третий этаж."
+    }
   },
   {
     "id": 157,
@@ -244,7 +352,13 @@
     "needsReview": false,
     "sourceNumber": 157,
     "english": "Four (4)",
-    "russian": "Четыре (4)"
+    "russian": "Четыре (4)",
+    "example": {
+      "ko": "사 월에 꽃이 피어요.",
+      "uz": "Aprelda gullar ochiladi.",
+      "en": "Flowers bloom in April.",
+      "ru": "В апреле цветут цветы."
+    }
   },
   {
     "id": 158,
@@ -257,7 +371,13 @@
     "needsReview": false,
     "sourceNumber": 158,
     "english": "Five (5)",
-    "russian": "Пять (5)"
+    "russian": "Пять (5)",
+    "example": {
+      "ko": "오 분만 기다려 주세요.",
+      "uz": "Iltimos, besh daqiqa kuting.",
+      "en": "Please wait five minutes.",
+      "ru": "Подождите, пожалуйста, пять минут."
+    }
   },
   {
     "id": 159,
@@ -270,7 +390,13 @@
     "needsReview": false,
     "sourceNumber": 159,
     "english": "Six (6)",
-    "russian": "Шесть (6)"
+    "russian": "Шесть (6)",
+    "example": {
+      "ko": "육 월은 더워요.",
+      "uz": "Iyun issiq.",
+      "en": "June is hot.",
+      "ru": "В июне жарко."
+    }
   },
   {
     "id": 160,
@@ -283,7 +409,13 @@
     "needsReview": false,
     "sourceNumber": 160,
     "english": "Seven (7)",
-    "russian": "Семь (7)"
+    "russian": "Семь (7)",
+    "example": {
+      "ko": "칠 월에 방학이 있어요.",
+      "uz": "Iyulda ta'til bor.",
+      "en": "There is a vacation in July.",
+      "ru": "В июле каникулы."
+    }
   },
   {
     "id": 161,
@@ -296,7 +428,13 @@
     "needsReview": false,
     "sourceNumber": 161,
     "english": "Eight (8)",
-    "russian": "Восемь (8)"
+    "russian": "Восемь (8)",
+    "example": {
+      "ko": "제 생일은 팔 월이에요.",
+      "uz": "Mening tug'ilgan kunim avgustda.",
+      "en": "My birthday is in August.",
+      "ru": "Мой день рождения в августе."
+    }
   },
   {
     "id": 162,
@@ -309,7 +447,13 @@
     "needsReview": false,
     "sourceNumber": 162,
     "english": "Nine (9)",
-    "russian": "Девять (9)"
+    "russian": "Девять (9)",
+    "example": {
+      "ko": "구 월에 학교가 시작해요.",
+      "uz": "Sentyabrda maktab boshlanadi.",
+      "en": "School starts in September.",
+      "ru": "Учёба начинается в сентябре."
+    }
   },
   {
     "id": 163,
@@ -322,7 +466,13 @@
     "needsReview": false,
     "sourceNumber": 163,
     "english": "Ten (10)",
-    "russian": "Десять (10)"
+    "russian": "Десять (10)",
+    "example": {
+      "ko": "십 월은 시원해요.",
+      "uz": "Oktyabr salqin.",
+      "en": "October is cool.",
+      "ru": "В октябре прохладно."
+    }
   },
   {
     "id": 164,
@@ -335,7 +485,13 @@
     "needsReview": false,
     "sourceNumber": 164,
     "english": "Hundred (100)",
-    "russian": "Сто (100)"
+    "russian": "Сто (100)",
+    "example": {
+      "ko": "백 원이에요.",
+      "uz": "Yuz von.",
+      "en": "It's one hundred won.",
+      "ru": "Сто вон."
+    }
   },
   {
     "id": 165,
@@ -348,7 +504,13 @@
     "needsReview": false,
     "sourceNumber": 165,
     "english": "Thousand (1000)",
-    "russian": "Тысяча (1000)"
+    "russian": "Тысяча (1000)",
+    "example": {
+      "ko": "천 원 주세요.",
+      "uz": "Ming von bering.",
+      "en": "Please give me a thousand won.",
+      "ru": "Дайте тысячу вон."
+    }
   },
   {
     "id": 166,
@@ -361,7 +523,13 @@
     "needsReview": false,
     "sourceNumber": 166,
     "english": "Ten thousand (10000)",
-    "russian": "Десять тысяч (10000)"
+    "russian": "Десять тысяч (10000)",
+    "example": {
+      "ko": "만 원이에요.",
+      "uz": "O'n ming von.",
+      "en": "It's ten thousand won.",
+      "ru": "Десять тысяч вон."
+    }
   },
   {
     "id": 167,
@@ -374,7 +542,13 @@
     "needsReview": false,
     "sourceNumber": 167,
     "english": "Today",
-    "russian": "Сегодня"
+    "russian": "Сегодня",
+    "example": {
+      "ko": "오늘은 월요일이에요.",
+      "uz": "Bugun dushanba.",
+      "en": "Today is Monday.",
+      "ru": "Сегодня понедельник."
+    }
   },
   {
     "id": 168,
@@ -387,7 +561,13 @@
     "needsReview": false,
     "sourceNumber": 168,
     "english": "Tomorrow",
-    "russian": "Завтра"
+    "russian": "Завтра",
+    "example": {
+      "ko": "내일 만나요.",
+      "uz": "Ertaga ko'rishamiz.",
+      "en": "See you tomorrow.",
+      "ru": "Увидимся завтра."
+    }
   },
   {
     "id": 169,
@@ -400,7 +580,13 @@
     "needsReview": false,
     "sourceNumber": 169,
     "english": "Monday",
-    "russian": "Понедельник"
+    "russian": "Понедельник",
+    "example": {
+      "ko": "월요일에 학교에 가요.",
+      "uz": "Dushanba kuni maktabga boraman.",
+      "en": "I go to school on Monday.",
+      "ru": "В понедельник я иду в школу."
+    }
   },
   {
     "id": 170,
@@ -413,7 +599,13 @@
     "needsReview": false,
     "sourceNumber": 170,
     "english": "Tuesday",
-    "russian": "Вторник"
+    "russian": "Вторник",
+    "example": {
+      "ko": "화요일에 수업이 있어요.",
+      "uz": "Seshanba kuni darsim bor.",
+      "en": "I have class on Tuesday.",
+      "ru": "Во вторник у меня занятия."
+    }
   },
   {
     "id": 171,
@@ -426,7 +618,13 @@
     "needsReview": false,
     "sourceNumber": 171,
     "english": "Wednesday",
-    "russian": "Среда"
+    "russian": "Среда",
+    "example": {
+      "ko": "수요일에 친구를 만나요.",
+      "uz": "Chorshanba kuni do'stim bilan uchrashaman.",
+      "en": "I meet my friend on Wednesday.",
+      "ru": "В среду я встречаюсь с другом."
+    }
   },
   {
     "id": 172,
@@ -439,7 +637,13 @@
     "needsReview": false,
     "sourceNumber": 172,
     "english": "Thursday",
-    "russian": "Четверг"
+    "russian": "Четверг",
+    "example": {
+      "ko": "목요일에 운동해요.",
+      "uz": "Payshanba kuni sport bilan shug'ullanaman.",
+      "en": "I exercise on Thursday.",
+      "ru": "В четверг я занимаюсь спортом."
+    }
   },
   {
     "id": 173,
@@ -452,7 +656,13 @@
     "needsReview": false,
     "sourceNumber": 173,
     "english": "Friday",
-    "russian": "Пятница"
+    "russian": "Пятница",
+    "example": {
+      "ko": "금요일에 영화를 봐요.",
+      "uz": "Juma kuni kino ko'raman.",
+      "en": "I watch a movie on Friday.",
+      "ru": "В пятницу я смотрю фильм."
+    }
   },
   {
     "id": 174,
@@ -465,7 +675,13 @@
     "needsReview": false,
     "sourceNumber": 174,
     "english": "Saturday",
-    "russian": "Суббота"
+    "russian": "Суббота",
+    "example": {
+      "ko": "토요일에 쉬어요.",
+      "uz": "Shanba kuni dam olaman.",
+      "en": "I rest on Saturday.",
+      "ru": "В субботу я отдыхаю."
+    }
   },
   {
     "id": 175,
@@ -478,7 +694,13 @@
     "needsReview": false,
     "sourceNumber": 175,
     "english": "Sunday",
-    "russian": "Воскресенье"
+    "russian": "Воскресенье",
+    "example": {
+      "ko": "일요일에 집에 있어요.",
+      "uz": "Yakshanba kuni uydaman.",
+      "en": "I'm at home on Sunday.",
+      "ru": "В воскресенье я дома."
+    }
   },
   {
     "id": 176,
@@ -491,7 +713,13 @@
     "needsReview": false,
     "sourceNumber": 176,
     "english": "Date",
-    "russian": "Дата / Число"
+    "russian": "Дата / Число",
+    "example": {
+      "ko": "오늘 날짜가 며칠이에요?",
+      "uz": "Bugun nechanchi sana?",
+      "en": "What's the date today?",
+      "ru": "Какое сегодня число?"
+    }
   },
   {
     "id": 177,
@@ -504,7 +732,13 @@
     "needsReview": false,
     "sourceNumber": 177,
     "english": "Day of the week",
-    "russian": "День недели"
+    "russian": "День недели",
+    "example": {
+      "ko": "오늘 무슨 요일이에요?",
+      "uz": "Bugun haftaning qaysi kuni?",
+      "en": "What day of the week is it today?",
+      "ru": "Какой сегодня день недели?"
+    }
   },
   {
     "id": 178,
@@ -517,7 +751,13 @@
     "needsReview": false,
     "sourceNumber": 178,
     "english": "Month",
-    "russian": "Месяц"
+    "russian": "Месяц",
+    "example": {
+      "ko": "지금은 몇 월이에요?",
+      "uz": "Hozir qaysi oy?",
+      "en": "What month is it now?",
+      "ru": "Какой сейчас месяц?"
+    }
   },
   {
     "id": 179,
@@ -530,7 +770,13 @@
     "needsReview": false,
     "sourceNumber": 179,
     "english": "Day",
-    "russian": "День"
+    "russian": "День",
+    "example": {
+      "ko": "오늘은 십오 일이에요.",
+      "uz": "Bugun o'n beshinchi sana.",
+      "en": "Today is the fifteenth.",
+      "ru": "Сегодня пятнадцатое число."
+    }
   },
   {
     "id": 180,
@@ -543,7 +789,13 @@
     "needsReview": false,
     "sourceNumber": 180,
     "english": "Year",
-    "russian": "Год"
+    "russian": "Год",
+    "example": {
+      "ko": "이천이십육 년이에요.",
+      "uz": "Ikki ming yigirma oltinchi yil.",
+      "en": "It's the year 2026.",
+      "ru": "Сейчас 2026 год."
+    }
   },
   {
     "id": 181,
@@ -556,7 +808,13 @@
     "needsReview": false,
     "sourceNumber": 181,
     "english": "Birthday",
-    "russian": "День рождения"
+    "russian": "День рождения",
+    "example": {
+      "ko": "생일 축하해요!",
+      "uz": "Tug'ilgan kuningiz bilan!",
+      "en": "Happy birthday!",
+      "ru": "С днём рождения!"
+    }
   },
   {
     "id": 182,
@@ -569,7 +827,13 @@
     "needsReview": false,
     "sourceNumber": 182,
     "english": "What kind of / Which",
-    "russian": "Какой / Что за"
+    "russian": "Какой / Что за",
+    "example": {
+      "ko": "무슨 음식을 좋아해요?",
+      "uz": "Qanday taomni yoqtirasiz?",
+      "en": "What kind of food do you like?",
+      "ru": "Какую еду вы любите?"
+    }
   },
   {
     "id": 183,
@@ -582,7 +846,13 @@
     "needsReview": false,
     "sourceNumber": 183,
     "english": "Phone number",
-    "russian": "Номер телефона"
+    "russian": "Номер телефона",
+    "example": {
+      "ko": "전화번호가 몇 번이에요?",
+      "uz": "Telefon raqamingiz qanday?",
+      "en": "What is your phone number?",
+      "ru": "Какой у вас номер телефона?"
+    }
   },
   {
     "id": 184,
@@ -595,7 +865,13 @@
     "needsReview": false,
     "sourceNumber": 184,
     "english": "How many",
-    "russian": "Сколько"
+    "russian": "Сколько",
+    "example": {
+      "ko": "몇 시예요?",
+      "uz": "Soat necha?",
+      "en": "What time is it?",
+      "ru": "Который час?"
+    }
   },
   {
     "id": 185,
@@ -608,6 +884,12 @@
     "needsReview": false,
     "sourceNumber": 185,
     "english": "Number / Time (counter)",
-    "russian": "Номер / Раз"
+    "russian": "Номер / Раз",
+    "example": {
+      "ko": "제 번호는 칠 번이에요.",
+      "uz": "Mening raqamim yettinchi.",
+      "en": "My number is seven.",
+      "ru": "Мой номер — семь."
+    }
   }
 ]

@@ -10,7 +10,13 @@
     "needsReview": false,
     "sourceNumber": 260,
     "english": "To sit",
-    "russian": "Сидеть / Садиться"
+    "russian": "Сидеть / Садиться",
+    "example": {
+      "ko": "여기에 앉으세요.",
+      "uz": "Bu yerga o'tiring.",
+      "en": "Please sit here.",
+      "ru": "Садитесь сюда."
+    }
   },
   {
     "id": 261,
@@ -23,7 +29,13 @@
     "needsReview": false,
     "sourceNumber": 261,
     "english": "Welcome",
-    "russian": "Добро пожаловать"
+    "russian": "Добро пожаловать",
+    "example": {
+      "ko": "어서 오세요! 들어오세요.",
+      "uz": "Xush kelibsiz! Kiring.",
+      "en": "Welcome! Come in.",
+      "ru": "Добро пожаловать! Входите."
+    }
   },
   {
     "id": 262,
@@ -36,7 +48,13 @@
     "needsReview": false,
     "sourceNumber": 262,
     "english": "To wear (clothes)",
-    "russian": "Надевать (одежду)"
+    "russian": "Надевать (одежду)",
+    "example": {
+      "ko": "따뜻한 옷을 입으세요.",
+      "uz": "Issiq kiyim kiying.",
+      "en": "Please wear warm clothes.",
+      "ru": "Наденьте тёплую одежду."
+    }
   },
   {
     "id": 263,
@@ -49,7 +67,13 @@
     "needsReview": false,
     "sourceNumber": 263,
     "english": "Quickly",
-    "russian": "Быстро"
+    "russian": "Быстро",
+    "example": {
+      "ko": "빨리 오세요.",
+      "uz": "Tezroq keling.",
+      "en": "Please come quickly.",
+      "ru": "Приходите скорее."
+    }
   },
   {
     "id": 264,
@@ -62,7 +86,13 @@
     "needsReview": false,
     "sourceNumber": 264,
     "english": "To have no time",
-    "russian": "Не иметь времени"
+    "russian": "Не иметь времени",
+    "example": {
+      "ko": "오늘은 시간이 없어요.",
+      "uz": "Bugun vaqtim yo'q.",
+      "en": "I have no time today.",
+      "ru": "Сегодня у меня нет времени."
+    }
   },
   {
     "id": 265,
@@ -75,7 +105,13 @@
     "needsReview": false,
     "sourceNumber": 265,
     "english": "To have a good time",
-    "russian": "Хорошо провести время"
+    "russian": "Хорошо провести время",
+    "example": {
+      "ko": "여행에서 시간 잘 보내세요.",
+      "uz": "Sayohatda vaqtingizni yaxshi o'tkazing.",
+      "en": "Have a good time on your trip.",
+      "ru": "Хорошо проведите время в поездке."
+    }
   },
   {
     "id": 266,
@@ -88,7 +124,13 @@
     "needsReview": false,
     "sourceNumber": 266,
     "english": "Museum",
-    "russian": "Музей"
+    "russian": "Музей",
+    "example": {
+      "ko": "박물관에 같이 가요.",
+      "uz": "Muzeyga birga boraylik.",
+      "en": "Let's go to the museum together.",
+      "ru": "Пойдём вместе в музей."
+    }
   },
   {
     "id": 267,
@@ -101,7 +143,13 @@
     "needsReview": false,
     "sourceNumber": 267,
     "english": "To be happy",
-    "russian": "Быть счастливым"
+    "russian": "Быть счастливым",
+    "example": {
+      "ko": "가족과 함께 있어서 행복해요.",
+      "uz": "Oilam bilan birga bo'lganim uchun baxtliman.",
+      "en": "I'm happy to be with my family.",
+      "ru": "Я счастлив быть с семьёй."
+    }
   },
   {
     "id": 268,
@@ -114,7 +162,13 @@
     "needsReview": false,
     "sourceNumber": 268,
     "english": "To come in",
-    "russian": "Входить"
+    "russian": "Входить",
+    "example": {
+      "ko": "들어오세요.",
+      "uz": "Kiring.",
+      "en": "Please come in.",
+      "ru": "Входите."
+    }
   },
   {
     "id": 269,
@@ -127,7 +181,13 @@
     "needsReview": false,
     "sourceNumber": 269,
     "english": "To congratulate",
-    "russian": "Поздравлять"
+    "russian": "Поздравлять",
+    "example": {
+      "ko": "졸업을 축하해요!",
+      "uz": "Bitiruvingiz bilan tabriklayman!",
+      "en": "Congratulations on your graduation!",
+      "ru": "Поздравляю с выпуском!"
+    }
   },
   {
     "id": 270,
@@ -140,7 +200,13 @@
     "needsReview": false,
     "sourceNumber": 270,
     "english": "To be healthy",
-    "russian": "Быть здоровым"
+    "russian": "Быть здоровым",
+    "example": {
+      "ko": "할머니가 건강하세요.",
+      "uz": "Buvim sog'lom.",
+      "en": "My grandmother is healthy.",
+      "ru": "Моя бабушка здорова."
+    }
   },
   {
     "id": 271,
@@ -153,7 +219,13 @@
     "needsReview": false,
     "sourceNumber": 271,
     "english": "To be careful",
-    "russian": "Быть осторожным"
+    "russian": "Быть осторожным",
+    "example": {
+      "ko": "길이 미끄러워요. 조심하세요.",
+      "uz": "Yo'l sirpanchiq. Ehtiyot bo'ling.",
+      "en": "The road is slippery. Be careful.",
+      "ru": "Дорога скользкая. Будьте осторожны."
+    }
   },
   {
     "id": 272,
@@ -166,7 +238,13 @@
     "needsReview": false,
     "sourceNumber": 272,
     "english": "Hard / Diligently",
-    "russian": "Усердно / Старательно"
+    "russian": "Усердно / Старательно",
+    "example": {
+      "ko": "열심히 공부해요.",
+      "uz": "Qunt bilan o'qiyman.",
+      "en": "I study hard.",
+      "ru": "Я усердно учусь."
+    }
   },
   {
     "id": 273,
@@ -179,7 +257,13 @@
     "needsReview": false,
     "sourceNumber": 273,
     "english": "A little later",
-    "russian": "Чуть позже"
+    "russian": "Чуть позже",
+    "example": {
+      "ko": "이따 전화할게요.",
+      "uz": "Birozdan keyin qo'ng'iroq qilaman.",
+      "en": "I'll call you a little later.",
+      "ru": "Я позвоню чуть позже."
+    }
   },
   {
     "id": 274,
@@ -192,7 +276,13 @@
     "needsReview": false,
     "sourceNumber": 274,
     "english": "To write",
-    "russian": "Писать"
+    "russian": "Писать",
+    "example": {
+      "ko": "이름을 쓰세요.",
+      "uz": "Ismingizni yozing.",
+      "en": "Please write your name.",
+      "ru": "Напишите своё имя."
+    }
   },
   {
     "id": 275,
@@ -205,7 +295,13 @@
     "needsReview": false,
     "sourceNumber": 275,
     "english": "To close",
-    "russian": "Закрывать"
+    "russian": "Закрывать",
+    "example": {
+      "ko": "창문을 닫으세요.",
+      "uz": "Derazani yoping.",
+      "en": "Please close the window.",
+      "ru": "Закройте окно."
+    }
   },
   {
     "id": 276,
@@ -218,7 +314,13 @@
     "needsReview": false,
     "sourceNumber": 276,
     "english": "Door",
-    "russian": "Дверь"
+    "russian": "Дверь",
+    "example": {
+      "ko": "문을 열어 주세요.",
+      "uz": "Iltimos, eshikni oching.",
+      "en": "Please open the door.",
+      "ru": "Откройте, пожалуйста, дверь."
+    }
   },
   {
     "id": 277,
@@ -231,7 +333,13 @@
     "needsReview": false,
     "sourceNumber": 277,
     "english": "Window",
-    "russian": "Окно"
+    "russian": "Окно",
+    "example": {
+      "ko": "창문이 커요.",
+      "uz": "Deraza katta.",
+      "en": "The window is big.",
+      "ru": "Окно большое."
+    }
   },
   {
     "id": 278,
@@ -244,7 +352,13 @@
     "needsReview": false,
     "sourceNumber": 278,
     "english": "To make a phone call",
-    "russian": "Звонить по телефону"
+    "russian": "Звонить по телефону",
+    "example": {
+      "ko": "저녁에 전화하세요.",
+      "uz": "Kechqurun qo'ng'iroq qiling.",
+      "en": "Please call in the evening.",
+      "ru": "Позвоните вечером."
+    }
   },
   {
     "id": 279,
@@ -257,7 +371,13 @@
     "needsReview": false,
     "sourceNumber": 279,
     "english": "To put on (shoes, socks)",
-    "russian": "Надевать (обувь, носки)"
+    "russian": "Надевать (обувь, носки)",
+    "example": {
+      "ko": "운동화를 신으세요.",
+      "uz": "Sport poyabzalini kiying.",
+      "en": "Please put on sneakers.",
+      "ru": "Наденьте кроссовки."
+    }
   },
   {
     "id": 280,
@@ -270,7 +390,13 @@
     "needsReview": false,
     "sourceNumber": 280,
     "english": "To go hiking",
-    "russian": "Ходить в горы"
+    "russian": "Ходить в горы",
+    "example": {
+      "ko": "주말에 등산해요.",
+      "uz": "Dam olish kunlari tog'ga chiqaman.",
+      "en": "I go hiking on weekends.",
+      "ru": "По выходным я хожу в горы."
+    }
   },
   {
     "id": 281,
@@ -283,7 +409,13 @@
     "needsReview": false,
     "sourceNumber": 281,
     "english": "Hiking boots",
-    "russian": "Туристические ботинки"
+    "russian": "Туристические ботинки",
+    "example": {
+      "ko": "등산화를 신고 산에 가요.",
+      "uz": "Tog' poyabzalini kiyib tog'ga boraman.",
+      "en": "I wear hiking boots and go to the mountains.",
+      "ru": "Я надеваю туристические ботинки и иду в горы."
+    }
   },
   {
     "id": 282,
@@ -296,7 +428,13 @@
     "needsReview": false,
     "sourceNumber": 282,
     "english": "To bring",
-    "russian": "Приносить"
+    "russian": "Приносить",
+    "example": {
+      "ko": "우산을 가져오세요.",
+      "uz": "Soyabon olib keling.",
+      "en": "Please bring an umbrella.",
+      "ru": "Принесите зонт."
+    }
   },
   {
     "id": 283,
@@ -309,7 +447,13 @@
     "needsReview": false,
     "sourceNumber": 283,
     "english": "To rest",
-    "russian": "Отдыхать"
+    "russian": "Отдыхать",
+    "example": {
+      "ko": "집에서 쉬세요.",
+      "uz": "Uyda dam oling.",
+      "en": "Please rest at home.",
+      "ru": "Отдохните дома."
+    }
   },
   {
     "id": 284,
@@ -322,7 +466,13 @@
     "needsReview": false,
     "sourceNumber": 284,
     "english": "Older brother (said by a female)",
-    "russian": "Старший брат (для девушки)"
+    "russian": "Старший брат (для девушки)",
+    "example": {
+      "ko": "오빠는 대학생이에요.",
+      "uz": "Akam talaba.",
+      "en": "My older brother is a university student.",
+      "ru": "Мой старший брат — студент."
+    }
   },
   {
     "id": 285,
@@ -335,7 +485,13 @@
     "needsReview": false,
     "sourceNumber": 285,
     "english": "Older brother (said by a male)",
-    "russian": "Старший брат (для парня)"
+    "russian": "Старший брат (для парня)",
+    "example": {
+      "ko": "형은 키가 커요.",
+      "uz": "Akam bo'yi baland.",
+      "en": "My older brother is tall.",
+      "ru": "Мой старший брат высокий."
+    }
   },
   {
     "id": 286,
@@ -348,7 +504,13 @@
     "needsReview": false,
     "sourceNumber": 286,
     "english": "Older sister (said by a male)",
-    "russian": "Старшая сестра (для парня)"
+    "russian": "Старшая сестра (для парня)",
+    "example": {
+      "ko": "누나는 회사원이에요.",
+      "uz": "Opam ofis xodimi.",
+      "en": "My older sister is an office worker.",
+      "ru": "Моя старшая сестра — офисный работник."
+    }
   },
   {
     "id": 287,
@@ -361,7 +523,13 @@
     "needsReview": false,
     "sourceNumber": 287,
     "english": "Older sister (said by a female)",
-    "russian": "Старшая сестра (для девушки)"
+    "russian": "Старшая сестра (для девушки)",
+    "example": {
+      "ko": "언니는 요리를 잘해요.",
+      "uz": "Opam yaxshi ovqat pishiradi.",
+      "en": "My older sister cooks well.",
+      "ru": "Моя старшая сестра хорошо готовит."
+    }
   },
   {
     "id": 288,
@@ -374,7 +542,13 @@
     "needsReview": false,
     "sourceNumber": 288,
     "english": "To help",
-    "russian": "Помогать"
+    "russian": "Помогать",
+    "example": {
+      "ko": "이것 좀 도와 주세요.",
+      "uz": "Iltimos, bunga yordam bering.",
+      "en": "Please help me with this.",
+      "ru": "Помогите мне, пожалуйста, с этим."
+    }
   },
   {
     "id": 289,
@@ -387,6 +561,12 @@
     "needsReview": false,
     "sourceNumber": 289,
     "english": "Surely / Without fail",
-    "russian": "Обязательно"
+    "russian": "Обязательно",
+    "example": {
+      "ko": "내일 꼭 오세요.",
+      "uz": "Ertaga albatta keling.",
+      "en": "Please be sure to come tomorrow.",
+      "ru": "Обязательно приходите завтра."
+    }
   }
 ]

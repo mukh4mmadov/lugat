@@ -10,7 +10,13 @@
     "needsReview": false,
     "sourceNumber": 357,
     "english": "Karaoke room (noraebang)",
-    "russian": "Караоке (норэбан)"
+    "russian": "Караоке (норэбан)",
+    "example": {
+      "ko": "친구들과 노래방에 가요.",
+      "uz": "Do'stlarim bilan karaokega boraman.",
+      "en": "I go to karaoke with my friends.",
+      "ru": "Я хожу в караоке с друзьями."
+    }
   },
   {
     "id": 358,
@@ -23,7 +29,13 @@
     "needsReview": false,
     "sourceNumber": 358,
     "english": "To watch a performance",
-    "russian": "Смотреть выступление"
+    "russian": "Смотреть выступление",
+    "example": {
+      "ko": "극장에서 공연을 봐요.",
+      "uz": "Teatrda tomosha ko'raman.",
+      "en": "I watch a performance at the theater.",
+      "ru": "Я смотрю спектакль в театре."
+    }
   },
   {
     "id": 359,
@@ -36,7 +48,13 @@
     "needsReview": false,
     "sourceNumber": 359,
     "english": "To make cookies",
-    "russian": "Печь печенье"
+    "russian": "Печь печенье",
+    "example": {
+      "ko": "어머니와 쿠키를 만들어요.",
+      "uz": "Onam bilan pechenye pishiraman.",
+      "en": "I make cookies with my mother.",
+      "ru": "Я пеку печенье с мамой."
+    }
   },
   {
     "id": 360,
@@ -49,7 +67,13 @@
     "needsReview": false,
     "sourceNumber": 360,
     "english": "To take a photo",
-    "russian": "Фотографировать"
+    "russian": "Фотографировать",
+    "example": {
+      "ko": "여기에서 사진을 찍어요.",
+      "uz": "Bu yerda rasmga olamiz.",
+      "en": "Let's take a photo here.",
+      "ru": "Давайте сфотографируемся здесь."
+    }
   },
   {
     "id": 361,
@@ -62,7 +86,13 @@
     "needsReview": false,
     "sourceNumber": 361,
     "english": "Fried chicken",
-    "russian": "Жареная курица"
+    "russian": "Жареная курица",
+    "example": {
+      "ko": "저녁에 치킨을 먹어요.",
+      "uz": "Kechqurun qovurilgan tovuq yeymiz.",
+      "en": "We eat fried chicken in the evening.",
+      "ru": "Вечером мы едим жареную курицу."
+    }
   },
   {
     "id": 362,
@@ -75,7 +105,13 @@
     "needsReview": false,
     "sourceNumber": 362,
     "english": "To walk",
-    "russian": "Ходить пешком"
+    "russian": "Ходить пешком",
+    "example": {
+      "ko": "학교까지 걸어요.",
+      "uz": "Maktabgacha piyoda yuraman.",
+      "en": "I walk to school.",
+      "ru": "Я хожу в школу пешком."
+    }
   },
   {
     "id": 363,
@@ -88,7 +124,13 @@
     "needsReview": false,
     "sourceNumber": 363,
     "english": "To ask / To bury",
-    "russian": "Спрашивать / Закапывать"
+    "russian": "Спрашивать / Закапывать",
+    "example": {
+      "ko": "선생님께 길을 물어요.",
+      "uz": "O'qituvchidan yo'lni so'rayman.",
+      "en": "I ask the teacher for directions.",
+      "ru": "Я спрашиваю у учителя дорогу."
+    }
   },
   {
     "id": 364,
@@ -101,7 +143,13 @@
     "needsReview": false,
     "sourceNumber": 364,
     "english": "To listen / To hear",
-    "russian": "Слушать / Слышать"
+    "russian": "Слушать / Слышать",
+    "example": {
+      "ko": "음악을 들어요.",
+      "uz": "Musiqa tinglayman.",
+      "en": "I listen to music.",
+      "ru": "Я слушаю музыку."
+    }
   },
   {
     "id": 365,
@@ -114,7 +162,13 @@
     "needsReview": false,
     "sourceNumber": 365,
     "english": "To load (into a vehicle)",
-    "russian": "Грузить"
+    "russian": "Грузить",
+    "example": {
+      "ko": "차에 짐을 실어요.",
+      "uz": "Mashinaga yuk ortaman.",
+      "en": "I load the luggage into the car.",
+      "ru": "Я гружу багаж в машину."
+    }
   },
   {
     "id": 366,
@@ -127,7 +181,13 @@
     "needsReview": false,
     "sourceNumber": 366,
     "english": "To spill",
-    "russian": "Проливать"
+    "russian": "Проливать",
+    "example": {
+      "ko": "커피를 쏟았어요.",
+      "uz": "Kofeni to'kib yubordim.",
+      "en": "I spilled the coffee.",
+      "ru": "Я пролил кофе."
+    }
   },
   {
     "id": 367,
@@ -140,7 +200,13 @@
     "needsReview": false,
     "sourceNumber": 367,
     "english": "To believe",
-    "russian": "Верить"
+    "russian": "Верить",
+    "example": {
+      "ko": "저는 친구를 믿어요.",
+      "uz": "Men do'stimga ishonaman.",
+      "en": "I trust my friend.",
+      "ru": "Я верю своему другу."
+    }
   },
   {
     "id": 368,
@@ -153,7 +219,13 @@
     "needsReview": false,
     "sourceNumber": 368,
     "english": "To receive",
-    "russian": "Получать"
+    "russian": "Получать",
+    "example": {
+      "ko": "생일 선물을 받았어요.",
+      "uz": "Tug'ilgan kun sovg'asini oldim.",
+      "en": "I received a birthday present.",
+      "ru": "Я получил подарок на день рождения."
+    }
   },
   {
     "id": 369,
@@ -166,7 +238,13 @@
     "needsReview": false,
     "sourceNumber": 369,
     "english": "To bury",
-    "russian": "Закапывать"
+    "russian": "Закапывать",
+    "example": {
+      "ko": "개가 뼈를 땅에 묻어요.",
+      "uz": "It suyakni yerga ko'madi.",
+      "en": "The dog buries a bone in the ground.",
+      "ru": "Собака закапывает кость в землю."
+    }
   },
   {
     "id": 370,
@@ -179,7 +257,13 @@
     "needsReview": false,
     "sourceNumber": 370,
     "english": "To start",
-    "russian": "Начинать"
+    "russian": "Начинать",
+    "example": {
+      "ko": "수업을 시작해요.",
+      "uz": "Darsni boshlaymiz.",
+      "en": "Let's start the class.",
+      "ru": "Начинаем урок."
+    }
   },
   {
     "id": 371,
@@ -192,7 +276,13 @@
     "needsReview": false,
     "sourceNumber": 371,
     "english": "Store / Shop",
-    "russian": "Магазин"
+    "russian": "Магазин",
+    "example": {
+      "ko": "가게에서 우유를 사요.",
+      "uz": "Do'kondan sut sotib olaman.",
+      "en": "I buy milk at the store.",
+      "ru": "Я покупаю молоко в магазине."
+    }
   },
   {
     "id": 372,
@@ -205,7 +295,13 @@
     "needsReview": false,
     "sourceNumber": 372,
     "english": "Gift",
-    "russian": "Подарок"
+    "russian": "Подарок",
+    "example": {
+      "ko": "친구에게 선물을 줘요.",
+      "uz": "Do'stimga sovg'a beraman.",
+      "en": "I give my friend a gift.",
+      "ru": "Я дарю другу подарок."
+    }
   },
   {
     "id": 373,
@@ -218,7 +314,13 @@
     "needsReview": false,
     "sourceNumber": 373,
     "english": "Kimbap",
-    "russian": "Кимбап"
+    "russian": "Кимбап",
+    "example": {
+      "ko": "소풍 때 김밥을 먹어요.",
+      "uz": "Sayrda kimbap yeymiz.",
+      "en": "We eat kimbap on picnics.",
+      "ru": "На пикнике мы едим кимбап."
+    }
   },
   {
     "id": 374,
@@ -231,7 +333,13 @@
     "needsReview": false,
     "sourceNumber": 374,
     "english": "Tteokbokki",
-    "russian": "Ттокпокки"
+    "russian": "Ттокпокки",
+    "example": {
+      "ko": "떡볶이가 매워요.",
+      "uz": "Tokpoki achchiq.",
+      "en": "Tteokbokki is spicy.",
+      "ru": "Ттокпокки острые."
+    }
   },
   {
     "id": 375,
@@ -244,7 +352,13 @@
     "needsReview": false,
     "sourceNumber": 375,
     "english": "To eat lunch",
-    "russian": "Обедать"
+    "russian": "Обедать",
+    "example": {
+      "ko": "친구와 점심을 먹어요.",
+      "uz": "Do'stim bilan tushlik qilaman.",
+      "en": "I eat lunch with my friend.",
+      "ru": "Я обедаю с другом."
+    }
   },
   {
     "id": 376,
@@ -257,7 +371,13 @@
     "needsReview": false,
     "sourceNumber": 376,
     "english": "We / Our",
-    "russian": "Мы / Наш"
+    "russian": "Мы / Наш",
+    "example": {
+      "ko": "우리는 친구예요.",
+      "uz": "Biz do'stmiz.",
+      "en": "We are friends.",
+      "ru": "Мы друзья."
+    }
   },
   {
     "id": 377,
@@ -270,7 +390,13 @@
     "needsReview": false,
     "sourceNumber": 377,
     "english": "Success",
-    "russian": "Успех"
+    "russian": "Успех",
+    "example": {
+      "ko": "성공을 축하해요!",
+      "uz": "Muvaffaqiyatingiz bilan tabriklayman!",
+      "en": "Congratulations on your success!",
+      "ru": "Поздравляю с успехом!"
+    }
   },
   {
     "id": 378,
@@ -283,7 +409,13 @@
     "needsReview": false,
     "sourceNumber": 378,
     "english": "Basketball",
-    "russian": "Баскетбол"
+    "russian": "Баскетбол",
+    "example": {
+      "ko": "친구들과 농구를 해요.",
+      "uz": "Do'stlarim bilan basketbol o'ynayman.",
+      "en": "I play basketball with my friends.",
+      "ru": "Я играю в баскетбол с друзьями."
+    }
   },
   {
     "id": 379,
@@ -296,7 +428,13 @@
     "needsReview": false,
     "sourceNumber": 379,
     "english": "Baseball",
-    "russian": "Бейсбол"
+    "russian": "Бейсбол",
+    "example": {
+      "ko": "야구를 좋아해요.",
+      "uz": "Beysbolni yaxshi ko'raman.",
+      "en": "I like baseball.",
+      "ru": "Я люблю бейсбол."
+    }
   },
   {
     "id": 380,
@@ -309,7 +447,13 @@
     "needsReview": false,
     "sourceNumber": 380,
     "english": "Baseball game",
-    "russian": "Бейсбольный матч"
+    "russian": "Бейсбольный матч",
+    "example": {
+      "ko": "주말에 야구 경기를 봐요.",
+      "uz": "Dam olish kunlari beysbol musobaqasini ko'raman.",
+      "en": "I watch a baseball game on the weekend.",
+      "ru": "В выходные я смотрю бейсбольный матч."
+    }
   },
   {
     "id": 381,
@@ -322,7 +466,13 @@
     "needsReview": false,
     "sourceNumber": 381,
     "english": "To put / To place",
-    "russian": "Класть / Ставить"
+    "russian": "Класть / Ставить",
+    "example": {
+      "ko": "책상 위에 책을 놓아요.",
+      "uz": "Kitobni stol ustiga qo'yaman.",
+      "en": "I put the book on the desk.",
+      "ru": "Я кладу книгу на стол."
+    }
   },
   {
     "id": 382,
@@ -335,7 +485,13 @@
     "needsReview": false,
     "sourceNumber": 382,
     "english": "Perfume",
-    "russian": "Духи"
+    "russian": "Духи",
+    "example": {
+      "ko": "향수 냄새가 좋아요.",
+      "uz": "Atirning hidi yoqimli.",
+      "en": "The perfume smells nice.",
+      "ru": "У духов приятный запах."
+    }
   },
   {
     "id": 383,
@@ -348,7 +504,13 @@
     "needsReview": false,
     "sourceNumber": 383,
     "english": "Foreign country",
-    "russian": "Заграница"
+    "russian": "Заграница",
+    "example": {
+      "ko": "외국에서 공부하고 싶어요.",
+      "uz": "Chet elda o'qishni xohlayman.",
+      "en": "I want to study abroad.",
+      "ru": "Я хочу учиться за границей."
+    }
   },
   {
     "id": 384,
@@ -361,7 +523,13 @@
     "needsReview": false,
     "sourceNumber": 384,
     "english": "Japchae (glass noodles)",
-    "russian": "Чапчхэ (корейская лапша)"
+    "russian": "Чапчхэ (корейская лапша)",
+    "example": {
+      "ko": "잡채는 한국 음식이에요.",
+      "uz": "Jabche koreys taomi.",
+      "en": "Japchae is a Korean dish.",
+      "ru": "Чапчхэ — корейское блюдо."
+    }
   },
   {
     "id": 385,
@@ -374,6 +542,12 @@
     "needsReview": false,
     "sourceNumber": 385,
     "english": "Promise / Appointment",
-    "russian": "Обещание / Встреча"
+    "russian": "Обещание / Встреча",
+    "example": {
+      "ko": "오늘 친구와 약속이 있어요.",
+      "uz": "Bugun do'stim bilan uchrashuvim bor.",
+      "en": "I have plans with a friend today.",
+      "ru": "Сегодня у меня встреча с другом."
+    }
   }
 ]

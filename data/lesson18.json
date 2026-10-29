@@ -10,7 +10,13 @@
     "sourceNumber": 521,
     "romanization": "nun",
     "english": "Eye / Snow",
-    "russian": "Глаз / Снег"
+    "russian": "Глаз / Снег",
+    "example": {
+      "ko": "눈이 아파요.",
+      "uz": "Ko'zim og'riyapti.",
+      "en": "My eyes hurt.",
+      "ru": "У меня болят глаза."
+    }
   },
   {
     "id": 522,
@@ -23,7 +29,13 @@
     "sourceNumber": 522,
     "romanization": "gwi",
     "english": "Ear",
-    "russian": "Ухо"
+    "russian": "Ухо",
+    "example": {
+      "ko": "귀가 아파요.",
+      "uz": "Qulog'im og'riyapti.",
+      "en": "My ear hurts.",
+      "ru": "У меня болит ухо."
+    }
   },
   {
     "id": 523,
@@ -37,7 +49,13 @@
     "note": "bilakdan yelkagacha",
     "romanization": "pal",
     "english": "Arm",
-    "russian": "Рука (от плеча)"
+    "russian": "Рука (от плеча)",
+    "example": {
+      "ko": "팔을 다쳤어요.",
+      "uz": "Qo'limni jarohatladim.",
+      "en": "I hurt my arm.",
+      "ru": "Я повредил руку."
+    }
   },
   {
     "id": 524,
@@ -50,7 +68,13 @@
     "sourceNumber": 524,
     "romanization": "dari",
     "english": "Leg / Bridge",
-    "russian": "Нога / Мост"
+    "russian": "Нога / Мост",
+    "example": {
+      "ko": "다리가 아파요.",
+      "uz": "Oyog'im og'riyapti.",
+      "en": "My leg hurts.",
+      "ru": "У меня болит нога."
+    }
   },
   {
     "id": 525,
@@ -63,7 +87,13 @@
     "sourceNumber": 525,
     "romanization": "bal",
     "english": "Foot",
-    "russian": "Ступня"
+    "russian": "Ступня",
+    "example": {
+      "ko": "발이 차가워요.",
+      "uz": "Oyog'im sovuq.",
+      "en": "My feet are cold.",
+      "ru": "У меня холодные ноги."
+    }
   },
   {
     "id": 526,
@@ -76,7 +106,13 @@
     "sourceNumber": 526,
     "romanization": "ip",
     "english": "Mouth",
-    "russian": "Рот"
+    "russian": "Рот",
+    "example": {
+      "ko": "입을 크게 벌리세요.",
+      "uz": "Og'zingizni katta oching.",
+      "en": "Please open your mouth wide.",
+      "ru": "Откройте рот пошире."
+    }
   },
   {
     "id": 527,
@@ -89,7 +125,13 @@
     "sourceNumber": 527,
     "romanization": "eokkae",
     "english": "Shoulder",
-    "russian": "Плечо"
+    "russian": "Плечо",
+    "example": {
+      "ko": "어깨가 아파요.",
+      "uz": "Yelkam og'riyapti.",
+      "en": "My shoulder hurts.",
+      "ru": "У меня болит плечо."
+    }
   },
   {
     "id": 528,
@@ -103,7 +145,13 @@
     "note": "panja qismi",
     "romanization": "son",
     "english": "Hand",
-    "russian": "Кисть руки"
+    "russian": "Кисть руки",
+    "example": {
+      "ko": "손을 씻어요.",
+      "uz": "Qo'limni yuvaman.",
+      "en": "I wash my hands.",
+      "ru": "Я мою руки."
+    }
   },
   {
     "id": 529,
@@ -116,7 +164,13 @@
     "sourceNumber": 529,
     "romanization": "bae",
     "english": "Stomach / Ship / Pear",
-    "russian": "Живот / Корабль / Груша"
+    "russian": "Живот / Корабль / Груша",
+    "example": {
+      "ko": "배가 아파요.",
+      "uz": "Qornim og'riyapti.",
+      "en": "I have a stomachache.",
+      "ru": "У меня болит живот."
+    }
   },
   {
     "id": 530,
@@ -129,7 +183,13 @@
     "sourceNumber": 530,
     "romanization": "eolgul",
     "english": "Face",
-    "russian": "Лицо"
+    "russian": "Лицо",
+    "example": {
+      "ko": "얼굴이 빨개요.",
+      "uz": "Yuzi qizarib ketgan.",
+      "en": "Your face is red.",
+      "ru": "У тебя красное лицо."
+    }
   },
   {
     "id": 531,
@@ -142,7 +202,13 @@
     "sourceNumber": 531,
     "romanization": "songarak",
     "english": "Finger",
-    "russian": "Палец"
+    "russian": "Палец",
+    "example": {
+      "ko": "손가락을 다쳤어요.",
+      "uz": "Barmog'imni jarohatladim.",
+      "en": "I hurt my finger.",
+      "ru": "Я поранил палец."
+    }
   },
   {
     "id": 532,
@@ -155,7 +221,13 @@
     "sourceNumber": 532,
     "romanization": "yeori nada",
     "english": "To have a fever",
-    "russian": "Иметь температуру"
+    "russian": "Иметь температуру",
+    "example": {
+      "ko": "아이가 열이 나요.",
+      "uz": "Bolaning isitmasi chiqyapti.",
+      "en": "The child has a fever.",
+      "ru": "У ребёнка температура."
+    }
   },
   {
     "id": 533,
@@ -168,7 +240,13 @@
     "sourceNumber": 533,
     "romanization": "mogi apeuda",
     "english": "To have a sore throat",
-    "russian": "Болит горло"
+    "russian": "Болит горло",
+    "example": {
+      "ko": "감기에 걸려서 목이 아파요.",
+      "uz": "Shamollaganim uchun tomog'im og'riyapti.",
+      "en": "I have a cold, so my throat hurts.",
+      "ru": "Я простудился, и у меня болит горло."
+    }
   },
   {
     "id": 534,
@@ -181,7 +259,13 @@
     "sourceNumber": 534,
     "romanization": "konmuri nada",
     "english": "To have a runny nose",
-    "russian": "Насморк"
+    "russian": "Насморк",
+    "example": {
+      "ko": "콧물이 나요.",
+      "uz": "Burnim oqyapti.",
+      "en": "I have a runny nose.",
+      "ru": "У меня насморк."
+    }
   },
   {
     "id": 535,
@@ -194,7 +278,13 @@
     "sourceNumber": 535,
     "romanization": "nappeuda",
     "english": "To be bad",
-    "russian": "Быть плохим"
+    "russian": "Быть плохим",
+    "example": {
+      "ko": "오늘 기분이 나빠요.",
+      "uz": "Bugun kayfiyatim yomon.",
+      "en": "I'm in a bad mood today.",
+      "ru": "Сегодня у меня плохое настроение."
+    }
   },
   {
     "id": 536,
@@ -207,7 +297,13 @@
     "sourceNumber": 536,
     "romanization": "bappeuda",
     "english": "To be busy",
-    "russian": "Быть занятым"
+    "russian": "Быть занятым",
+    "example": {
+      "ko": "요즘 너무 바빠요.",
+      "uz": "Hozir juda bandman.",
+      "en": "I'm very busy these days.",
+      "ru": "В последнее время я очень занят."
+    }
   },
   {
     "id": 537,
@@ -220,7 +316,13 @@
     "sourceNumber": 537,
     "romanization": "seulpeuda",
     "english": "To be sad",
-    "russian": "Быть грустным"
+    "russian": "Быть грустным",
+    "example": {
+      "ko": "영화가 슬퍼요.",
+      "uz": "Kino qayg'uli.",
+      "en": "The movie is sad.",
+      "ru": "Фильм грустный."
+    }
   },
   {
     "id": 538,
@@ -233,7 +335,13 @@
     "sourceNumber": 538,
     "romanization": "baegopeuda",
     "english": "To be hungry",
-    "russian": "Быть голодным"
+    "russian": "Быть голодным",
+    "example": {
+      "ko": "배고파요. 밥 먹어요.",
+      "uz": "Qornim och. Ovqatlanaylik.",
+      "en": "I'm hungry. Let's eat.",
+      "ru": "Я голоден. Давай поедим."
+    }
   },
   {
     "id": 539,
@@ -246,7 +354,13 @@
     "sourceNumber": 539,
     "romanization": "keuda",
     "english": "To be big",
-    "russian": "Быть большим"
+    "russian": "Быть большим",
+    "example": {
+      "ko": "집이 커요.",
+      "uz": "Uy katta.",
+      "en": "The house is big.",
+      "ru": "Дом большой."
+    }
   },
   {
     "id": 540,
@@ -259,7 +373,13 @@
     "sourceNumber": 540,
     "romanization": "keun soriro iyagihada",
     "english": "To speak loudly",
-    "russian": "Говорить громко"
+    "russian": "Говорить громко",
+    "example": {
+      "ko": "도서관에서 큰 소리로 이야기하지 마세요.",
+      "uz": "Kutubxonada baland ovozda gapirmang.",
+      "en": "Don't speak loudly in the library.",
+      "ru": "Не разговаривайте громко в библиотеке."
+    }
   },
   {
     "id": 541,
@@ -272,7 +392,13 @@
     "sourceNumber": 541,
     "romanization": "gyeran",
     "english": "Egg",
-    "russian": "Яйцо"
+    "russian": "Яйцо",
+    "example": {
+      "ko": "아침에 계란을 먹어요.",
+      "uz": "Ertalab tuxum yeyman.",
+      "en": "I eat eggs in the morning.",
+      "ru": "Утром я ем яйца."
+    }
   },
   {
     "id": 542,
@@ -285,7 +411,13 @@
     "sourceNumber": 542,
     "romanization": "sureul masida",
     "english": "To drink alcohol",
-    "russian": "Пить алкоголь"
+    "russian": "Пить алкоголь",
+    "example": {
+      "ko": "감기에 걸리면 술을 마시지 마세요.",
+      "uz": "Shamollasangiz, spirtli ichimlik ichmang.",
+      "en": "Don't drink alcohol if you have a cold.",
+      "ru": "Если простудились, не пейте алкоголь."
+    }
   },
   {
     "id": 543,
@@ -298,7 +430,13 @@
     "sourceNumber": 543,
     "romanization": "jameul jada",
     "english": "To sleep",
-    "russian": "Спать"
+    "russian": "Спать",
+    "example": {
+      "ko": "일찍 잠을 자요.",
+      "uz": "Erta uxlayman.",
+      "en": "I go to sleep early.",
+      "ru": "Я рано ложусь спать."
+    }
   },
   {
     "id": 544,
@@ -311,7 +449,13 @@
     "sourceNumber": 544,
     "romanization": "keuge deutda",
     "english": "To listen loudly",
-    "russian": "Слушать громко"
+    "russian": "Слушать громко",
+    "example": {
+      "ko": "음악을 크게 듣지 마세요.",
+      "uz": "Musiqani baland qilib tinglamang.",
+      "en": "Don't listen to music too loudly.",
+      "ru": "Не слушайте музыку слишком громко."
+    }
   },
   {
     "id": 545,
@@ -324,7 +468,13 @@
     "sourceNumber": 545,
     "romanization": "wae",
     "english": "Why",
-    "russian": "Почему"
+    "russian": "Почему",
+    "example": {
+      "ko": "왜 늦었어요?",
+      "uz": "Nega kechikdingiz?",
+      "en": "Why were you late?",
+      "ru": "Почему вы опоздали?"
+    }
   },
   {
     "id": 546,
@@ -337,7 +487,13 @@
     "sourceNumber": 546,
     "romanization": "yeodeureumi saenggida",
     "english": "To get pimples",
-    "russian": "Появляются прыщи"
+    "russian": "Появляются прыщи",
+    "example": {
+      "ko": "얼굴에 여드름이 생겼어요.",
+      "uz": "Yuzimga husnbuzar toshdi.",
+      "en": "I got pimples on my face.",
+      "ru": "У меня на лице появились прыщи."
+    }
   },
   {
     "id": 547,
@@ -350,7 +506,13 @@
     "sourceNumber": 547,
     "romanization": "sayonghada",
     "english": "To use",
-    "russian": "Использовать"
+    "russian": "Использовать",
+    "example": {
+      "ko": "이 컴퓨터를 사용해도 돼요?",
+      "uz": "Bu kompyuterdan foydalansam bo'ladimi?",
+      "en": "May I use this computer?",
+      "ru": "Можно воспользоваться этим компьютером?"
+    }
   },
   {
     "id": 548,
@@ -363,7 +525,13 @@
     "sourceNumber": 548,
     "romanization": "ellibeiteo",
     "english": "Elevator",
-    "russian": "Лифт"
+    "russian": "Лифт",
+    "example": {
+      "ko": "엘리베이터를 타세요.",
+      "uz": "Liftga chiqing.",
+      "en": "Please take the elevator.",
+      "ru": "Поднимитесь на лифте."
+    }
   },
   {
     "id": 549,
@@ -376,7 +544,13 @@
     "sourceNumber": 549,
     "romanization": "gyedan",
     "english": "Stairs",
-    "russian": "Лестница"
+    "russian": "Лестница",
+    "example": {
+      "ko": "계단으로 올라가요.",
+      "uz": "Zinadan chiqaman.",
+      "en": "I go up the stairs.",
+      "ru": "Я поднимаюсь по лестнице."
+    }
   },
   {
     "id": 550,
@@ -389,7 +563,13 @@
     "sourceNumber": 550,
     "romanization": "yalbeun ot",
     "english": "Light (thin) clothes",
-    "russian": "Лёгкая (тонкая) одежда"
+    "russian": "Лёгкая (тонкая) одежда",
+    "example": {
+      "ko": "여름에는 얇은 옷을 입어요.",
+      "uz": "Yozda yupqa kiyim kiyaman.",
+      "en": "I wear light clothes in summer.",
+      "ru": "Летом я ношу лёгкую одежду."
+    }
   },
   {
     "id": 551,
@@ -402,6 +582,12 @@
     "sourceNumber": 551,
     "romanization": "ttatteuthan ot",
     "english": "Warm clothes",
-    "russian": "Тёплая одежда"
+    "russian": "Тёплая одежда",
+    "example": {
+      "ko": "겨울에는 따뜻한 옷을 입으세요.",
+      "uz": "Qishda issiq kiyim kiying.",
+      "en": "Wear warm clothes in winter.",
+      "ru": "Зимой носите тёплую одежду."
+    }
   }
 ]

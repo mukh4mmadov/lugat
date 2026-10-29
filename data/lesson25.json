@@ -10,7 +10,13 @@
     "sourceNumber": 712,
     "romanization": "jal an boida",
     "english": "Can't see well",
-    "russian": "Плохо видно"
+    "russian": "Плохо видно",
+    "example": {
+      "ko": "칠판 글씨가 잘 안 보여요.",
+      "uz": "Doskadagi yozuv yaxshi ko'rinmayapti.",
+      "en": "I can't see the writing on the board well.",
+      "ru": "Плохо видно, что написано на доске."
+    }
   },
   {
     "id": 713,
@@ -23,7 +29,13 @@
     "sourceNumber": 713,
     "romanization": "geomsareul hada",
     "english": "To have a checkup / test",
-    "russian": "Проходить обследование"
+    "russian": "Проходить обследование",
+    "example": {
+      "ko": "병원에서 검사를 했어요.",
+      "uz": "Shifoxonada tekshiruvdan o'tdim.",
+      "en": "I had a checkup at the hospital.",
+      "ru": "Я прошёл обследование в больнице."
+    }
   },
   {
     "id": 714,
@@ -37,7 +49,13 @@
     "note": "bolalar bo'limi",
     "romanization": "soagwa",
     "english": "Pediatrics",
-    "russian": "Педиатрия"
+    "russian": "Педиатрия",
+    "example": {
+      "ko": "아이가 아파서 소아과에 가요.",
+      "uz": "Bolam kasal, shuning uchun pediatrga boraman.",
+      "en": "My child is sick, so I go to the pediatrician.",
+      "ru": "Ребёнок болеет, поэтому я иду к педиатру."
+    }
   },
   {
     "id": 715,
@@ -51,7 +69,13 @@
     "note": "markazi",
     "romanization": "sangdam(senteo)",
     "english": "Counseling (center)",
-    "russian": "Консультация (центр)"
+    "russian": "Консультация (центр)",
+    "example": {
+      "ko": "상담 센터에서 상담을 받아요.",
+      "uz": "Maslahat markazida maslahat olaman.",
+      "en": "I get counseling at the counseling center.",
+      "ru": "Я получаю консультацию в центре."
+    }
   },
   {
     "id": 716,
@@ -64,7 +88,13 @@
     "sourceNumber": 716,
     "romanization": "cheoneul hwaginhada",
     "english": "To check body temperature",
-    "russian": "Измерять температуру"
+    "russian": "Измерять температуру",
+    "example": {
+      "ko": "간호사가 체온을 확인해요.",
+      "uz": "Hamshira tana haroratini tekshiradi.",
+      "en": "The nurse checks my temperature.",
+      "ru": "Медсестра измеряет температуру."
+    }
   },
   {
     "id": 717,
@@ -77,7 +107,13 @@
     "sourceNumber": 717,
     "romanization": "jakku",
     "english": "Repeatedly / Keep (doing)",
-    "russian": "Постоянно / Снова и снова"
+    "russian": "Постоянно / Снова и снова",
+    "example": {
+      "ko": "자꾸 기침이 나요.",
+      "uz": "Tez-tez yo'talyapman.",
+      "en": "I keep coughing.",
+      "ru": "Я постоянно кашляю."
+    }
   },
   {
     "id": 718,
@@ -90,7 +126,13 @@
     "sourceNumber": 718,
     "romanization": "koga makhida",
     "english": "To have a stuffy nose",
-    "russian": "Нос заложен"
+    "russian": "Нос заложен",
+    "example": {
+      "ko": "감기 때문에 코가 막혀요.",
+      "uz": "Shamollash tufayli burnim bitib qoldi.",
+      "en": "My nose is stuffy because of a cold.",
+      "ru": "Из-за простуды у меня заложен нос."
+    }
   },
   {
     "id": 719,
@@ -103,7 +145,13 @@
     "sourceNumber": 719,
     "romanization": "jaechaegireul hada",
     "english": "To sneeze",
-    "russian": "Чихать"
+    "russian": "Чихать",
+    "example": {
+      "ko": "먼지 때문에 재채기를 해요.",
+      "uz": "Chang tufayli aksiraman.",
+      "en": "I sneeze because of the dust.",
+      "ru": "Я чихаю из-за пыли."
+    }
   },
   {
     "id": 720,
@@ -116,7 +164,13 @@
     "sourceNumber": 720,
     "romanization": "angyeongeul sseuda",
     "english": "To wear glasses",
-    "russian": "Носить очки"
+    "russian": "Носить очки",
+    "example": {
+      "ko": "저는 안경을 써요.",
+      "uz": "Men ko'zoynak taqaman.",
+      "en": "I wear glasses.",
+      "ru": "Я ношу очки."
+    }
   },
   {
     "id": 721,
@@ -129,7 +183,13 @@
     "sourceNumber": 721,
     "romanization": "nunmuri nada",
     "english": "Tears come out",
-    "russian": "Текут слёзы"
+    "russian": "Текут слёзы",
+    "example": {
+      "ko": "슬픈 영화를 보면 눈물이 나요.",
+      "uz": "Qayg'uli kino ko'rsam, ko'zimdan yosh oqadi.",
+      "en": "I cry when I watch sad movies.",
+      "ru": "Когда я смотрю грустные фильмы, у меня текут слёзы."
+    }
   },
   {
     "id": 722,
@@ -143,7 +203,13 @@
     "note": "ko'z kasalliklari bo'limi",
     "romanization": "angwa",
     "english": "Ophthalmology (eye clinic)",
-    "russian": "Офтальмология (глазной врач)"
+    "russian": "Офтальмология (глазной врач)",
+    "example": {
+      "ko": "눈이 아파서 안과에 가요.",
+      "uz": "Ko'zim og'riyapti, shuning uchun ko'z shifokoriga boraman.",
+      "en": "My eyes hurt, so I go to the eye doctor.",
+      "ru": "У меня болят глаза, поэтому я иду к окулисту."
+    }
   },
   {
     "id": 723,
@@ -157,7 +223,13 @@
     "note": "tish kasalliklari bo'limi",
     "romanization": "chigwa",
     "english": "Dentistry (dental clinic)",
-    "russian": "Стоматология"
+    "russian": "Стоматология",
+    "example": {
+      "ko": "이가 아파서 치과에 가요.",
+      "uz": "Tishim og'riyapti, shuning uchun stomatologga boraman.",
+      "en": "I have a toothache, so I go to the dentist.",
+      "ru": "У меня болит зуб, поэтому я иду к стоматологу."
+    }
   },
   {
     "id": 724,
@@ -170,7 +242,13 @@
     "sourceNumber": 724,
     "romanization": "chokollit",
     "english": "Chocolate",
-    "russian": "Шоколад"
+    "russian": "Шоколад",
+    "example": {
+      "ko": "초콜릿을 너무 많이 먹지 마세요.",
+      "uz": "Shokoladni juda ko'p yemang.",
+      "en": "Don't eat too much chocolate.",
+      "ru": "Не ешьте слишком много шоколада."
+    }
   },
   {
     "id": 725,
@@ -183,7 +261,13 @@
     "sourceNumber": 725,
     "romanization": "butda",
     "english": "To swell / To pour",
-    "russian": "Опухать / Наливать"
+    "russian": "Опухать / Наливать",
+    "example": {
+      "ko": "다리가 부었어요.",
+      "uz": "Oyog'im shishib ketdi.",
+      "en": "My leg is swollen.",
+      "ru": "У меня опухла нога."
+    }
   },
   {
     "id": 726,
@@ -196,7 +280,13 @@
     "sourceNumber": 726,
     "romanization": "piga nada",
     "english": "To bleed",
-    "russian": "Кровоточить"
+    "russian": "Кровоточить",
+    "example": {
+      "ko": "손가락에서 피가 나요.",
+      "uz": "Barmog'imdan qon oqyapti.",
+      "en": "My finger is bleeding.",
+      "ru": "У меня кровоточит палец."
+    }
   },
   {
     "id": 727,
@@ -209,7 +299,13 @@
     "sourceNumber": 727,
     "romanization": "sangcheoreul dakda",
     "english": "To clean a wound",
-    "russian": "Обрабатывать рану"
+    "russian": "Обрабатывать рану",
+    "example": {
+      "ko": "상처를 닦고 약을 발라요.",
+      "uz": "Jarohatni tozalab, dori surtaman.",
+      "en": "I clean the wound and put on medicine.",
+      "ru": "Я обрабатываю рану и мажу лекарством."
+    }
   },
   {
     "id": 728,
@@ -222,7 +318,13 @@
     "sourceNumber": 728,
     "romanization": "gomini manta",
     "english": "To have many worries",
-    "russian": "Иметь много забот"
+    "russian": "Иметь много забот",
+    "example": {
+      "ko": "요즘 고민이 많아요.",
+      "uz": "Hozir tashvishlarim ko'p.",
+      "en": "I have a lot on my mind these days.",
+      "ru": "В последнее время у меня много забот."
+    }
   },
   {
     "id": 729,
@@ -235,7 +337,13 @@
     "sourceNumber": 729,
     "romanization": "derida",
     "english": "To take (someone) along",
-    "russian": "Брать с собой (кого-то)"
+    "russian": "Брать с собой (кого-то)",
+    "example": {
+      "ko": "동생을 데리고 병원에 가요.",
+      "uz": "Ukamni olib shifoxonaga boraman.",
+      "en": "I take my younger brother to the hospital.",
+      "ru": "Я веду младшего брата в больницу."
+    }
   },
   {
     "id": 730,
@@ -248,7 +356,13 @@
     "sourceNumber": 730,
     "romanization": "maseukeu",
     "english": "Face mask",
-    "russian": "Маска"
+    "russian": "Маска",
+    "example": {
+      "ko": "감기에 걸리면 마스크를 쓰세요.",
+      "uz": "Shamollasangiz, niqob taqing.",
+      "en": "Wear a mask if you have a cold.",
+      "ru": "Если простудились, носите маску."
+    }
   },
   {
     "id": 731,
@@ -261,7 +375,13 @@
     "sourceNumber": 731,
     "romanization": "siryeok",
     "english": "Eyesight",
-    "russian": "Зрение"
+    "russian": "Зрение",
+    "example": {
+      "ko": "시력이 나빠졌어요.",
+      "uz": "Ko'rish qobiliyatim yomonlashdi.",
+      "en": "My eyesight got worse.",
+      "ru": "У меня ухудшилось зрение."
+    }
   },
   {
     "id": 732,
@@ -274,7 +394,13 @@
     "sourceNumber": 732,
     "romanization": "dutongyak",
     "english": "Headache medicine",
-    "russian": "Лекарство от головной боли"
+    "russian": "Лекарство от головной боли",
+    "example": {
+      "ko": "머리가 아파서 두통약을 먹었어요.",
+      "uz": "Boshim og'rigani uchun bosh og'rig'i dorisini ichdim.",
+      "en": "I had a headache, so I took headache medicine.",
+      "ru": "У меня болела голова, и я выпил лекарство от головной боли."
+    }
   },
   {
     "id": 733,
@@ -287,6 +413,12 @@
     "sourceNumber": 733,
     "romanization": "jillyoreul batda",
     "english": "To see a doctor",
-    "russian": "Получать медицинскую помощь"
+    "russian": "Получать медицинскую помощь",
+    "example": {
+      "ko": "병원에서 진료를 받았어요.",
+      "uz": "Shifoxonada shifokor ko'rigidan o'tdim.",
+      "en": "I saw a doctor at the hospital.",
+      "ru": "Я был на приёме у врача в больнице."
+    }
   }
 ]

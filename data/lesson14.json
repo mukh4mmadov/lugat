@@ -10,7 +10,13 @@
     "needsReview": false,
     "sourceNumber": 412,
     "english": "To play the piano",
-    "russian": "Играть на пианино"
+    "russian": "Играть на пианино",
+    "example": {
+      "ko": "동생이 피아노를 쳐요.",
+      "uz": "Ukam pianino chaladi.",
+      "en": "My younger brother plays the piano.",
+      "ru": "Мой младший брат играет на пианино."
+    }
   },
   {
     "id": 413,
@@ -23,7 +29,13 @@
     "needsReview": false,
     "sourceNumber": 413,
     "english": "To ski",
-    "russian": "Кататься на лыжах"
+    "russian": "Кататься на лыжах",
+    "example": {
+      "ko": "겨울에 스키를 타요.",
+      "uz": "Qishda chang'i uchaman.",
+      "en": "I ski in winter.",
+      "ru": "Зимой я катаюсь на лыжах."
+    }
   },
   {
     "id": 414,
@@ -36,7 +48,13 @@
     "needsReview": false,
     "sourceNumber": 414,
     "english": "To play table tennis",
-    "russian": "Играть в настольный теннис"
+    "russian": "Играть в настольный теннис",
+    "example": {
+      "ko": "친구와 탁구를 쳐요.",
+      "uz": "Do'stim bilan stol tennisi o'ynayman.",
+      "en": "I play table tennis with a friend.",
+      "ru": "Я играю в настольный теннис с другом."
+    }
   },
   {
     "id": 415,
@@ -49,7 +67,13 @@
     "needsReview": false,
     "sourceNumber": 415,
     "english": "English (language)",
-    "russian": "Английский язык"
+    "russian": "Английский язык",
+    "example": {
+      "ko": "영어를 할 수 있어요.",
+      "uz": "Ingliz tilida gapira olaman.",
+      "en": "I can speak English.",
+      "ru": "Я говорю по-английски."
+    }
   },
   {
     "id": 416,
@@ -62,7 +86,13 @@
     "needsReview": false,
     "sourceNumber": 416,
     "english": "Korean (language)",
-    "russian": "Корейский язык"
+    "russian": "Корейский язык",
+    "example": {
+      "ko": "한국말을 잘해요.",
+      "uz": "Koreyscha yaxshi gapirasiz.",
+      "en": "You speak Korean well.",
+      "ru": "Вы хорошо говорите по-корейски."
+    }
   },
   {
     "id": 417,
@@ -75,7 +105,13 @@
     "needsReview": false,
     "sourceNumber": 417,
     "english": "To draw a picture",
-    "russian": "Рисовать"
+    "russian": "Рисовать",
+    "example": {
+      "ko": "공원에서 그림을 그려요.",
+      "uz": "Parkda rasm chizaman.",
+      "en": "I draw pictures in the park.",
+      "ru": "Я рисую в парке."
+    }
   },
   {
     "id": 418,
@@ -88,7 +124,13 @@
     "needsReview": false,
     "sourceNumber": 418,
     "english": "To use a computer",
-    "russian": "Работать на компьютере"
+    "russian": "Работать на компьютере",
+    "example": {
+      "ko": "저녁에 컴퓨터해요.",
+      "uz": "Kechqurun kompyuterda ishlayman.",
+      "en": "I use the computer in the evening.",
+      "ru": "Вечером я сижу за компьютером."
+    }
   },
   {
     "id": 419,
@@ -101,7 +143,13 @@
     "needsReview": false,
     "sourceNumber": 419,
     "english": "To fish",
-    "russian": "Рыбачить"
+    "russian": "Рыбачить",
+    "example": {
+      "ko": "아버지와 강에서 낚시해요.",
+      "uz": "Otam bilan daryoda baliq ovlayman.",
+      "en": "I go fishing at the river with my father.",
+      "ru": "Я рыбачу на реке с отцом."
+    }
   },
   {
     "id": 420,
@@ -114,7 +162,13 @@
     "needsReview": false,
     "sourceNumber": 420,
     "english": "Really",
-    "russian": "Правда / Действительно"
+    "russian": "Правда / Действительно",
+    "example": {
+      "ko": "정말 맛있어요!",
+      "uz": "Rostdan ham mazali!",
+      "en": "It's really delicious!",
+      "ru": "Правда вкусно!"
+    }
   },
   {
     "id": 421,
@@ -127,7 +181,13 @@
     "needsReview": false,
     "sourceNumber": 421,
     "english": "To sing",
-    "russian": "Петь"
+    "russian": "Петь",
+    "example": {
+      "ko": "언니는 노래를 잘해요.",
+      "uz": "Opam yaxshi qo'shiq kuylaydi.",
+      "en": "My older sister sings well.",
+      "ru": "Моя старшая сестра хорошо поёт."
+    }
   },
   {
     "id": 422,
@@ -140,7 +200,13 @@
     "needsReview": false,
     "sourceNumber": 422,
     "english": "Personality",
-    "russian": "Характер"
+    "russian": "Характер",
+    "example": {
+      "ko": "제 친구는 성격이 좋아요.",
+      "uz": "Do'stimning fe'l-atvori yaxshi.",
+      "en": "My friend has a good personality.",
+      "ru": "У моего друга хороший характер."
+    }
   },
   {
     "id": 423,
@@ -153,7 +219,13 @@
     "needsReview": false,
     "sourceNumber": 423,
     "english": "To be kind",
-    "russian": "Быть добрым / Вежливым"
+    "russian": "Быть добрым / Вежливым",
+    "example": {
+      "ko": "선생님은 친절해요.",
+      "uz": "O'qituvchi mehribon.",
+      "en": "The teacher is kind.",
+      "ru": "Учитель добрый."
+    }
   },
   {
     "id": 424,
@@ -166,7 +238,13 @@
     "needsReview": false,
     "sourceNumber": 424,
     "english": "Word",
-    "russian": "Слово"
+    "russian": "Слово",
+    "example": {
+      "ko": "새 단어를 외워요.",
+      "uz": "Yangi so'zlarni yodlayman.",
+      "en": "I memorize new words.",
+      "ru": "Я учу новые слова."
+    }
   },
   {
     "id": 425,
@@ -179,7 +257,13 @@
     "needsReview": false,
     "sourceNumber": 425,
     "english": "To memorize",
-    "russian": "Запоминать / Заучивать"
+    "russian": "Запоминать / Заучивать",
+    "example": {
+      "ko": "매일 단어를 외워요.",
+      "uz": "Har kuni so'z yodlayman.",
+      "en": "I memorize words every day.",
+      "ru": "Я каждый день учу слова."
+    }
   },
   {
     "id": 426,
@@ -192,7 +276,13 @@
     "needsReview": false,
     "sourceNumber": 426,
     "english": "To answer",
-    "russian": "Отвечать"
+    "russian": "Отвечать",
+    "example": {
+      "ko": "질문에 대답해요.",
+      "uz": "Savolga javob beraman.",
+      "en": "I answer the question.",
+      "ru": "Я отвечаю на вопрос."
+    }
   },
   {
     "id": 427,
@@ -205,7 +295,13 @@
     "needsReview": false,
     "sourceNumber": 427,
     "english": "Price",
-    "russian": "Цена"
+    "russian": "Цена",
+    "example": {
+      "ko": "가격이 얼마예요?",
+      "uz": "Narxi qancha?",
+      "en": "What is the price?",
+      "ru": "Сколько стоит?"
+    }
   },
   {
     "id": 428,
@@ -218,7 +314,13 @@
     "needsReview": false,
     "sourceNumber": 428,
     "english": "To have a nice voice",
-    "russian": "Иметь приятный голос"
+    "russian": "Иметь приятный голос",
+    "example": {
+      "ko": "그 가수는 목소리가 좋아요.",
+      "uz": "U qo'shiqchining ovozi yoqimli.",
+      "en": "That singer has a nice voice.",
+      "ru": "У этого певца приятный голос."
+    }
   },
   {
     "id": 429,
@@ -231,7 +333,13 @@
     "needsReview": false,
     "sourceNumber": 429,
     "english": "Time passes quickly",
-    "russian": "Время летит быстро"
+    "russian": "Время летит быстро",
+    "example": {
+      "ko": "친구와 있으면 시간이 빨리 가요.",
+      "uz": "Do'stim bilan bo'lsam, vaqt tez o'tadi.",
+      "en": "Time passes quickly with my friend.",
+      "ru": "С другом время летит быстро."
+    }
   },
   {
     "id": 430,
@@ -244,7 +352,13 @@
     "needsReview": false,
     "sourceNumber": 430,
     "english": "Already",
-    "russian": "Уже"
+    "russian": "Уже",
+    "example": {
+      "ko": "벌써 밤이에요.",
+      "uz": "Allaqachon tun bo'ldi.",
+      "en": "It's already night.",
+      "ru": "Уже ночь."
+    }
   },
   {
     "id": 431,
@@ -257,7 +371,13 @@
     "needsReview": false,
     "sourceNumber": 431,
     "english": "Than expected",
-    "russian": "Чем ожидалось"
+    "russian": "Чем ожидалось",
+    "example": {
+      "ko": "한국어가 생각보다 쉬워요.",
+      "uz": "Koreys tili o'ylaganimdan osonroq.",
+      "en": "Korean is easier than I expected.",
+      "ru": "Корейский легче, чем я думал."
+    }
   },
   {
     "id": 432,
@@ -270,7 +390,13 @@
     "needsReview": false,
     "sourceNumber": 432,
     "english": "To rain a lot",
-    "russian": "Идёт сильный дождь"
+    "russian": "Идёт сильный дождь",
+    "example": {
+      "ko": "여름에 비가 많이 와요.",
+      "uz": "Yozda yomg'ir ko'p yog'adi.",
+      "en": "It rains a lot in summer.",
+      "ru": "Летом идёт много дождей."
+    }
   },
   {
     "id": 433,
@@ -283,7 +409,13 @@
     "needsReview": false,
     "sourceNumber": 433,
     "english": "To have a loud voice",
-    "russian": "Иметь громкий голос"
+    "russian": "Иметь громкий голос",
+    "example": {
+      "ko": "동생은 목소리가 커요.",
+      "uz": "Ukamning ovozi baland.",
+      "en": "My younger brother has a loud voice.",
+      "ru": "У моего младшего брата громкий голос."
+    }
   },
   {
     "id": 434,
@@ -296,7 +428,13 @@
     "needsReview": false,
     "sourceNumber": 434,
     "english": "To be diverse",
-    "russian": "Быть разнообразным"
+    "russian": "Быть разнообразным",
+    "example": {
+      "ko": "시장에 과일이 다양해요.",
+      "uz": "Bozorda mevalar turli-tuman.",
+      "en": "There's a wide variety of fruit at the market.",
+      "ru": "На рынке разнообразные фрукты."
+    }
   },
   {
     "id": 435,
@@ -309,7 +447,13 @@
     "needsReview": false,
     "sourceNumber": 435,
     "english": "Hanja (Chinese characters)",
-    "russian": "Ханча (китайские иероглифы)"
+    "russian": "Ханча (китайские иероглифы)",
+    "example": {
+      "ko": "한자를 배워요.",
+      "uz": "Xanja o'rganyapman.",
+      "en": "I'm learning Hanja.",
+      "ru": "Я учу ханча."
+    }
   },
   {
     "id": 436,
@@ -322,7 +466,13 @@
     "needsReview": false,
     "sourceNumber": 436,
     "english": "To speak",
-    "russian": "Говорить"
+    "russian": "Говорить",
+    "example": {
+      "ko": "천천히 말해 주세요.",
+      "uz": "Iltimos, sekin gapiring.",
+      "en": "Please speak slowly.",
+      "ru": "Говорите, пожалуйста, медленно."
+    }
   },
   {
     "id": 437,
@@ -335,7 +485,13 @@
     "needsReview": false,
     "sourceNumber": 437,
     "english": "Baby",
-    "russian": "Малыш / Младенец"
+    "russian": "Малыш / Младенец",
+    "example": {
+      "ko": "아기가 자요.",
+      "uz": "Chaqaloq uxlayapti.",
+      "en": "The baby is sleeping.",
+      "ru": "Малыш спит."
+    }
   },
   {
     "id": 438,
@@ -348,7 +504,13 @@
     "needsReview": false,
     "sourceNumber": 438,
     "english": "To pay / To calculate",
-    "russian": "Платить / Рассчитываться"
+    "russian": "Платить / Рассчитываться",
+    "example": {
+      "ko": "카드로 계산해요.",
+      "uz": "Karta bilan to'layman.",
+      "en": "I'll pay by card.",
+      "ru": "Я заплачу картой."
+    }
   },
   {
     "id": 439,
@@ -361,7 +523,13 @@
     "needsReview": false,
     "sourceNumber": 439,
     "english": "Hangul (Korean alphabet)",
-    "russian": "Хангыль (корейский алфавит)"
+    "russian": "Хангыль (корейский алфавит)",
+    "example": {
+      "ko": "한글은 쉬워요.",
+      "uz": "Hangil oson.",
+      "en": "Hangul is easy.",
+      "ru": "Хангыль лёгкий."
+    }
   },
   {
     "id": 440,
@@ -374,7 +542,13 @@
     "needsReview": false,
     "sourceNumber": 440,
     "english": "To wrap / To pack",
-    "russian": "Упаковывать"
+    "russian": "Упаковывать",
+    "example": {
+      "ko": "선물을 포장해 주세요.",
+      "uz": "Iltimos, sovg'ani o'rab bering.",
+      "en": "Please gift-wrap it.",
+      "ru": "Упакуйте, пожалуйста, подарок."
+    }
   },
   {
     "id": 441,
@@ -387,6 +561,12 @@
     "needsReview": false,
     "sourceNumber": 441,
     "english": "How",
-    "russian": "Как / Каким образом"
+    "russian": "Как / Каким образом",
+    "example": {
+      "ko": "학교에 어떻게 가요?",
+      "uz": "Maktabga qanday borasiz?",
+      "en": "How do you get to school?",
+      "ru": "Как вы добираетесь до школы?"
+    }
   }
 ]

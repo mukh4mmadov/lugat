@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
-import { getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
+import { exampleTranslation, getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
 import { markKnown, markDifficult, selectStudyProgress } from "../store";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
@@ -374,7 +374,7 @@ function LearningCard({ word, position, batchSize, settings, reduxMastery, onCon
                 <div className="mt-4 border-t border-emerald-200/70 pt-4 text-left dark:border-white/10">
                   <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("study.example")}</p>
                   <button type="button" onClick={() => speakKorean(example.ko, settings.speechRate)} className="mt-1 text-left text-lg font-bold">{example.ko} 🔊</button>
-                  <p className="text-sm text-slate-600 dark:text-slate-300">{example.uz}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{exampleTranslation(example)}</p>
                 </div>
               )}
             </motion.div>
@@ -504,7 +504,7 @@ function ExerciseBody({ exercise, word, byKey, result, settings, onAnswer }) {
       const blank = exerciseBlank(word);
       return (
         <>
-          <Prompt title={blank.ko} hint={t("study.chooseWordForBlank")} sub={blank.uz} />
+          <Prompt title={blank.ko} hint={t("study.chooseWordForBlank")} sub={exampleTranslation(blank)} />
           {optionList(korean)}
         </>
       );
@@ -661,7 +661,7 @@ function ReinforcementCard({ word, settings, onContinue }) {
           <div className="mt-4 rounded-2xl bg-slate-100 p-4 text-left dark:bg-white/5">
             <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("study.example")}</p>
             <p className="mt-1 text-lg font-bold">{example.ko}</p>
-            <p className="text-sm text-slate-600 dark:text-slate-300">{example.uz}</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300">{exampleTranslation(example)}</p>
           </div>
         )}
         <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{t("study.reviewLater")}</p>

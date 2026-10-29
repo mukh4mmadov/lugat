@@ -10,7 +10,13 @@
     "sourceNumber": 578,
     "romanization": "iri saenggida",
     "english": "Something comes up",
-    "russian": "Возникают дела"
+    "russian": "Возникают дела",
+    "example": {
+      "ko": "갑자기 일이 생겼어요.",
+      "uz": "To'satdan ish chiqib qoldi.",
+      "en": "Something suddenly came up.",
+      "ru": "Внезапно возникли дела."
+    }
   },
   {
     "id": 579,
@@ -23,7 +29,13 @@
     "sourceNumber": 579,
     "romanization": "gapjagi",
     "english": "Suddenly",
-    "russian": "Вдруг / Внезапно"
+    "russian": "Вдруг / Внезапно",
+    "example": {
+      "ko": "갑자기 비가 와요.",
+      "uz": "To'satdan yomg'ir yog'a boshladi.",
+      "en": "It suddenly started raining.",
+      "ru": "Вдруг пошёл дождь."
+    }
   },
   {
     "id": 580,
@@ -37,7 +49,13 @@
     "note": "maktab, universitetda",
     "romanization": "banghak",
     "english": "School vacation",
-    "russian": "Каникулы"
+    "russian": "Каникулы",
+    "example": {
+      "ko": "방학에 여행을 가요.",
+      "uz": "Ta'tilda sayohatga boraman.",
+      "en": "I go on a trip during the vacation.",
+      "ru": "На каникулах я еду в путешествие."
+    }
   },
   {
     "id": 581,
@@ -51,7 +69,13 @@
     "note": "pishiriq",
     "romanization": "gyeranppang",
     "english": "Egg bread",
-    "russian": "Яичный хлебец (керанппан)"
+    "russian": "Яичный хлебец (керанппан)",
+    "example": {
+      "ko": "겨울에 계란빵을 먹어요.",
+      "uz": "Qishda tuxumli non yeyman.",
+      "en": "I eat egg bread in winter.",
+      "ru": "Зимой я ем яичный хлебец."
+    }
   },
   {
     "id": 582,
@@ -65,7 +89,13 @@
     "note": "tayoqchadagi guruchli taom",
     "romanization": "tteokkkochi",
     "english": "Rice cake skewer (tteokkochi)",
-    "russian": "Шашлычок из рисовых лепёшек (ттоккочхи)"
+    "russian": "Шашлычок из рисовых лепёшек (ттоккочхи)",
+    "example": {
+      "ko": "시장에서 떡꼬치를 샀어요.",
+      "uz": "Bozordan ttokkochi sotib oldim.",
+      "en": "I bought rice cake skewers at the market.",
+      "ru": "Я купил ттоккочхи на рынке."
+    }
   },
   {
     "id": 583,
@@ -78,7 +108,13 @@
     "sourceNumber": 583,
     "romanization": "hansik",
     "english": "Korean food",
-    "russian": "Корейская кухня"
+    "russian": "Корейская кухня",
+    "example": {
+      "ko": "한식을 좋아해요.",
+      "uz": "Koreys taomlarini yaxshi ko'raman.",
+      "en": "I like Korean food.",
+      "ru": "Я люблю корейскую кухню."
+    }
   },
   {
     "id": 584,
@@ -91,7 +127,13 @@
     "sourceNumber": 584,
     "romanization": "hanguksaenghwal",
     "english": "Life in Korea",
-    "russian": "Жизнь в Корее"
+    "russian": "Жизнь в Корее",
+    "example": {
+      "ko": "한국생활이 재미있어요.",
+      "uz": "Koreyadagi hayot qiziqarli.",
+      "en": "Life in Korea is interesting.",
+      "ru": "Жизнь в Корее интересная."
+    }
   },
   {
     "id": 585,
@@ -104,7 +146,13 @@
     "sourceNumber": 585,
     "romanization": "ibeo boda",
     "english": "To try on (clothes)",
-    "russian": "Примерять (одежду)"
+    "russian": "Примерять (одежду)",
+    "example": {
+      "ko": "이 옷을 입어 봐도 돼요?",
+      "uz": "Bu kiyimni kiyib ko'rsam bo'ladimi?",
+      "en": "May I try on these clothes?",
+      "ru": "Можно примерить эту одежду?"
+    }
   },
   {
     "id": 586,
@@ -117,7 +165,13 @@
     "sourceNumber": 586,
     "romanization": "gugyeonghada",
     "english": "To look around / Sightsee",
-    "russian": "Осматривать / Глазеть"
+    "russian": "Осматривать / Глазеть",
+    "example": {
+      "ko": "시장을 구경해요.",
+      "uz": "Bozorni tomosha qilaman.",
+      "en": "I look around the market.",
+      "ru": "Я осматриваю рынок."
+    }
   },
   {
     "id": 587,
@@ -130,7 +184,13 @@
     "sourceNumber": 587,
     "romanization": "sigan jal bonaeda",
     "english": "To have a good time",
-    "russian": "Хорошо провести время"
+    "russian": "Хорошо провести время",
+    "example": {
+      "ko": "주말에 시간 잘 보냈어요?",
+      "uz": "Dam olish kunlarini yaxshi o'tkazdingizmi?",
+      "en": "Did you have a good weekend?",
+      "ru": "Хорошо провели выходные?"
+    }
   },
   {
     "id": 588,
@@ -143,7 +203,13 @@
     "sourceNumber": 588,
     "romanization": "hyuil",
     "english": "Holiday / Day off",
-    "russian": "Выходной / Праздник"
+    "russian": "Выходной / Праздник",
+    "example": {
+      "ko": "휴일에 집에서 쉬어요.",
+      "uz": "Dam olish kuni uyda dam olaman.",
+      "en": "I rest at home on holidays.",
+      "ru": "В выходной я отдыхаю дома."
+    }
   },
   {
     "id": 589,
@@ -156,7 +222,13 @@
     "sourceNumber": 589,
     "romanization": "akka",
     "english": "A while ago",
-    "russian": "Недавно / Только что"
+    "russian": "Недавно / Только что",
+    "example": {
+      "ko": "아까 전화했어요.",
+      "uz": "Biroz oldin qo'ng'iroq qildim.",
+      "en": "I called a while ago.",
+      "ru": "Я звонил недавно."
+    }
   },
   {
     "id": 590,
@@ -169,7 +241,13 @@
     "sourceNumber": 590,
     "romanization": "gimbap",
     "english": "Kimbap",
-    "russian": "Кимбап"
+    "russian": "Кимбап",
+    "example": {
+      "ko": "김밥 두 줄 주세요.",
+      "uz": "Ikkita kimbap bering.",
+      "en": "Two rolls of kimbap, please.",
+      "ru": "Два ролла кимбапа, пожалуйста."
+    }
   },
   {
     "id": 591,
@@ -183,7 +261,13 @@
     "note": "baliq shaklidagi shirinlik",
     "romanization": "bungeoppang",
     "english": "Fish-shaped bread (bungeoppang)",
-    "russian": "Пирожок-рыбка (пуноппан)"
+    "russian": "Пирожок-рыбка (пуноппан)",
+    "example": {
+      "ko": "붕어빵은 겨울 간식이에요.",
+      "uz": "Pungoppang — qishki gazak.",
+      "en": "Bungeoppang is a winter snack.",
+      "ru": "Пуноппан — зимняя закуска."
+    }
   },
   {
     "id": 592,
@@ -197,7 +281,13 @@
     "note": "Seuldagi tog'",
     "romanization": "namsan",
     "english": "Namsan (mountain in Seoul)",
-    "russian": "Намсан (гора в Сеуле)"
+    "russian": "Намсан (гора в Сеуле)",
+    "example": {
+      "ko": "남산에서 서울을 봐요.",
+      "uz": "Namsandan Seulni tomosha qilaman.",
+      "en": "I look at Seoul from Namsan.",
+      "ru": "Я смотрю на Сеул с Намсана."
+    }
   },
   {
     "id": 593,
@@ -210,7 +300,13 @@
     "sourceNumber": 593,
     "romanization": "bamgyeongchi",
     "english": "Night view",
-    "russian": "Ночной пейзаж"
+    "russian": "Ночной пейзаж",
+    "example": {
+      "ko": "서울의 밤경치가 아름다워요.",
+      "uz": "Seulning tungi manzarasi go'zal.",
+      "en": "Seoul's night view is beautiful.",
+      "ru": "Ночной Сеул прекрасен."
+    }
   },
   {
     "id": 594,
@@ -223,7 +319,13 @@
     "sourceNumber": 594,
     "romanization": "jeontong",
     "english": "Tradition",
-    "russian": "Традиция"
+    "russian": "Традиция",
+    "example": {
+      "ko": "한국의 전통을 배워요.",
+      "uz": "Koreya an'analarini o'rganaman.",
+      "en": "I learn about Korean traditions.",
+      "ru": "Я изучаю корейские традиции."
+    }
   },
   {
     "id": 595,
@@ -237,7 +339,13 @@
     "note": "koreys milliy kiyimi",
     "romanization": "hanbok",
     "english": "Hanbok (traditional clothes)",
-    "russian": "Ханбок (традиционная одежда)"
+    "russian": "Ханбок (традиционная одежда)",
+    "example": {
+      "ko": "설날에 한복을 입어요.",
+      "uz": "Yangi yilda xanbok kiyamiz.",
+      "en": "We wear hanbok on Lunar New Year.",
+      "ru": "На Новый год по лунному календарю мы носим ханбок."
+    }
   },
   {
     "id": 596,
@@ -250,7 +358,13 @@
     "sourceNumber": 596,
     "romanization": "deurama",
     "english": "TV drama / Series",
-    "russian": "Дорама / Сериал"
+    "russian": "Дорама / Сериал",
+    "example": {
+      "ko": "한국 드라마를 봐요.",
+      "uz": "Koreys seriallarini ko'raman.",
+      "en": "I watch Korean dramas.",
+      "ru": "Я смотрю корейские дорамы."
+    }
   },
   {
     "id": 597,
@@ -263,7 +377,13 @@
     "sourceNumber": 597,
     "romanization": "geuttae",
     "english": "At that time",
-    "russian": "В то время"
+    "russian": "В то время",
+    "example": {
+      "ko": "그때 저는 학생이었어요.",
+      "uz": "O'sha paytda men talaba edim.",
+      "en": "At that time, I was a student.",
+      "ru": "В то время я был студентом."
+    }
   },
   {
     "id": 598,
@@ -276,7 +396,13 @@
     "sourceNumber": 598,
     "romanization": "yeoreo gaji",
     "english": "Various",
-    "russian": "Разные / Различные"
+    "russian": "Разные / Различные",
+    "example": {
+      "ko": "여러 가지 음식을 먹었어요.",
+      "uz": "Har xil taomlarni yedim.",
+      "en": "I ate various foods.",
+      "ru": "Я попробовал разные блюда."
+    }
   },
   {
     "id": 599,
@@ -289,7 +415,13 @@
     "sourceNumber": 599,
     "romanization": "gyehoek",
     "english": "Plan",
-    "russian": "План"
+    "russian": "План",
+    "example": {
+      "ko": "방학 계획이 있어요?",
+      "uz": "Ta'tilga rejangiz bormi?",
+      "en": "Do you have plans for the vacation?",
+      "ru": "У вас есть планы на каникулы?"
+    }
   },
   {
     "id": 600,
@@ -302,7 +434,13 @@
     "sourceNumber": 600,
     "romanization": "jeulgeopge",
     "english": "Joyfully / In a fun way",
-    "russian": "Весело / С удовольствием"
+    "russian": "Весело / С удовольствием",
+    "example": {
+      "ko": "즐겁게 놀았어요.",
+      "uz": "Maroqli o'ynadik.",
+      "en": "We had fun.",
+      "ru": "Мы весело провели время."
+    }
   },
   {
     "id": 601,
@@ -315,7 +453,13 @@
     "sourceNumber": 601,
     "romanization": "hansikjip",
     "english": "Korean restaurant",
-    "russian": "Корейский ресторан"
+    "russian": "Корейский ресторан",
+    "example": {
+      "ko": "한식집에서 불고기를 먹어요.",
+      "uz": "Koreys restoranida pulgogi yeymiz.",
+      "en": "We eat bulgogi at a Korean restaurant.",
+      "ru": "Мы едим пулькоги в корейском ресторане."
+    }
   },
   {
     "id": 602,
@@ -328,7 +472,13 @@
     "sourceNumber": 602,
     "romanization": "joeun chueogeul mandeulda",
     "english": "To make good memories",
-    "russian": "Создавать хорошие воспоминания"
+    "russian": "Создавать хорошие воспоминания",
+    "example": {
+      "ko": "여행에서 좋은 추억을 만들었어요.",
+      "uz": "Sayohatda yaxshi xotiralar qoldirdik.",
+      "en": "We made good memories on the trip.",
+      "ru": "В поездке у нас появились хорошие воспоминания."
+    }
   },
   {
     "id": 603,
@@ -341,6 +491,12 @@
     "sourceNumber": 603,
     "romanization": "gyeongheomhada",
     "english": "To experience",
-    "russian": "Испытывать / Пробовать на опыте"
+    "russian": "Испытывать / Пробовать на опыте",
+    "example": {
+      "ko": "한국 문화를 경험하고 싶어요.",
+      "uz": "Koreys madaniyatini sinab ko'rmoqchiman.",
+      "en": "I want to experience Korean culture.",
+      "ru": "Я хочу познакомиться с корейской культурой."
+    }
   }
 ]

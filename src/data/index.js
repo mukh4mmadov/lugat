@@ -121,3 +121,9 @@ export function acceptedMeanings(word) {
   const local = meaning(word);
   return local === word.uzbek ? local : `${local} / ${word.uzbek}`;
 }
+
+// An example sentence's translation in the interface language.
+export function exampleTranslation(example, language = i18n.language) {
+  if (!example) return "";
+  return example[String(language || "uz").slice(0, 2)] || example.uz;
+}
