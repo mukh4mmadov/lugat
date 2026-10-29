@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { waitUntil } from "@vercel/functions";
 import { SITE_KNOWLEDGE } from "./_lib/siteKnowledge.js";
 
 // Feedback assistant. After a learner opens a ticket or writes in it, the page
@@ -8,6 +9,7 @@ import { SITE_KNOWLEDGE } from "./_lib/siteKnowledge.js";
 // it suggests a priority and tags. Admins can turn it off (app_settings).
 //
 //   POST /api/feedback-ai { ticketId }   Authorization: Bearer <learner session>
+//   → 202 { action: "queued" } while it works, 200 { action: "skip" | "off" } otherwise
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -169,6 +171,38 @@ function triage(ticket, result) {
   return patch;
 }
 
+// Writes the assistant's answer or hand-off. Runs after the response is sent.
+async function answer(db, ticket, messages, user) {
+  try {
+    const [{ data: profile }, { data: savedReplies }] = await Promise.all([
+      db.from("profiles").select("first_name").eq("id", user.id).maybeSingle(),
+      db.from("feedback_saved_replies").select("title, body").order("title").limit(50),
+    ]);
+    const firstName = profile?.first_name?.trim() || "";
+    const result = await askGemini(buildSystemPrompt(savedReplies || [], firstName), buildTicketInput(ticket, messages, user, firstName));
+
+    const note = String(result.note || "").trim().slice(0, 2000);
+    const reply = String(result.reply || "").trim().slice(0, 4000);
+    const patch = { ...triage(ticket, result), ai_lock: null };
+
+    if (result.canAnswer === true && reply) {
+      const { error } = await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", ai: true, body: reply });
+      if (error) throw error;
+      // The team still sees the ticket as new, so they can check the answer.
+      await db.from("feedback_tickets").update({ ...patch, ai_state: "answered", admin_unread: true }).eq("id", ticket.id);
+      return;
+    }
+
+    if (note) await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", internal: true, ai: true, body: note });
+    // A reply the model wrote but wasn't sure about still makes a good draft.
+    const draft = String(result.draft || "").trim() || reply;
+    await db.from("feedback_tickets").update({ ...patch, ai_state: "handoff", ai_draft: draft.slice(0, 5000) }).eq("id", ticket.id);
+  } catch (error) {
+    console.error("Feedback assistant error:", error);
+    await db.from("feedback_tickets").update({ ai_lock: null }).eq("id", ticket.id);
+  }
+}
+
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   if (req.method !== "POST") {
@@ -214,34 +248,8 @@ export default async function handler(req, res) {
     .select("id");
   if (!claimed?.length) return res.status(200).json({ action: "skip" });
 
-  try {
-    const [{ data: profile }, { data: savedReplies }] = await Promise.all([
-      db.from("profiles").select("first_name").eq("id", user.id).maybeSingle(),
-      db.from("feedback_saved_replies").select("title, body").order("title").limit(50),
-    ]);
-    const firstName = profile?.first_name?.trim() || "";
-    const result = await askGemini(buildSystemPrompt(savedReplies || [], firstName), buildTicketInput(ticket, messages || [], user, firstName));
-
-    const note = String(result.note || "").trim().slice(0, 2000);
-    const reply = String(result.reply || "").trim().slice(0, 4000);
-    const patch = { ...triage(ticket, result), ai_lock: null };
-
-    if (result.canAnswer === true && reply) {
-      const { error } = await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", ai: true, body: reply });
-      if (error) throw error;
-      // The team still sees the ticket as new, so they can check the answer.
-      await db.from("feedback_tickets").update({ ...patch, ai_state: "answered", admin_unread: true }).eq("id", ticket.id);
-      return res.status(200).json({ action: "reply" });
-    }
-
-    if (note) await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", internal: true, ai: true, body: note });
-    // A reply the model wrote but wasn't sure about still makes a good draft.
-    const draft = String(result.draft || "").trim() || reply;
-    await db.from("feedback_tickets").update({ ...patch, ai_state: "handoff", ai_draft: draft.slice(0, 5000) }).eq("id", ticket.id);
-    return res.status(200).json({ action: "handoff" });
-  } catch (error) {
-    console.error("Feedback assistant error:", error);
-    await db.from("feedback_tickets").update({ ai_lock: null }).eq("id", ticket.id);
-    return res.status(200).json({ action: "error" });
-  }
+  // Answer after responding, so a learner closing the tab doesn't cancel it.
+  // The page watches the ticket for the result.
+  waitUntil(answer(db, ticket, messages || [], user));
+  return res.status(202).json({ action: "queued" });
 }

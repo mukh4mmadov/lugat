@@ -445,11 +445,20 @@ function TicketView({ ticketId }) {
   const askAssistant = useCallback(async () => {
     setThinking(true);
     try {
-      await fetch("/api/feedback-ai", {
+      const response = await fetch("/api/feedback-ai", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${session?.access_token || ""}` },
         body: JSON.stringify({ ticketId }),
       });
+      const data = await response.json().catch(() => ({}));
+      // The server works in the background and holds ai_lock until it's done.
+      if (data.action === "queued") {
+        for (let attempt = 0; attempt < 20; attempt += 1) {
+          await new Promise((resolve) => setTimeout(resolve, 2500));
+          const { data: row } = await supabase.from("feedback_tickets").select("ai_lock").eq("id", ticketId).maybeSingle();
+          if (!row?.ai_lock) break;
+        }
+      }
     } catch {
       // The ticket simply waits for the team.
     } finally {
@@ -458,11 +467,14 @@ function TicketView({ ticketId }) {
     }
   }, [ticketId, session?.access_token, load]);
 
+  // Ask once per visit while the learner is waiting, which also retries a
+  // ticket whose earlier attempt didn't finish.
   useEffect(() => {
-    if (!created || askedOnOpen.current || !session?.access_token) return;
+    if (!ticket || askedOnOpen.current || !session?.access_token) return;
+    if (ticket.ai_state === "handoff" || ticket.last_message_by !== "user" || !ACTIVE.has(ticket.status)) return;
     askedOnOpen.current = true;
     askAssistant();
-  }, [created, session?.access_token, askAssistant]);
+  }, [ticket, session?.access_token, askAssistant]);
 
   const thread = useMemo(() => {
     if (!ticket) return [];
@@ -486,6 +498,7 @@ function TicketView({ ticketId }) {
       return;
     }
     setReply("");
+    askedOnOpen.current = true;
     await load();
     askAssistant();
   }
