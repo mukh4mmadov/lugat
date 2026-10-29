@@ -87,7 +87,7 @@ export default function AdminPage() {
   if (access !== "allowed") {
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
-        <h1 className="text-xl font-black">{t("feedback.accessDenied")}</h1>
+        <h1 className="text-xl font-black">{access === "unauthenticated" ? t("admin.title") : t("feedback.accessDenied")}</h1>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
           {access === "unauthenticated" ? t("admin.needLogin") : access === "denied" ? t("admin.noAdminAccess") : error}
         </p>

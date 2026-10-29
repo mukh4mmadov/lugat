@@ -8,7 +8,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef } from "react";
+import { Suspense, useEffect, useState, useRef } from "react";
+import PageLoader from "./PageLoader";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
@@ -158,21 +159,6 @@ export default function Layout({ onShowIELTSModal }) {
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
 
-  useEffect(() => {
-    const langMap = {
-      uz: "uz",
-      en: "en",
-      ru: "ru",
-    };
-    document.documentElement.lang = langMap[i18n.language] || "uz";
-
-    const titleMap = {
-      uz: "Koreyscha Lug'at Studio",
-      en: "Korean Vocabulary Studio",
-      ru: "Студия корейского словаря",
-    };
-    document.title = titleMap[i18n.language] || "Korean Vocabulary Studio";
-  }, [i18n.language]);
 
   useEffect(() => {
     if (i18n.language !== displayLang) {
@@ -250,13 +236,9 @@ export default function Layout({ onShowIELTSModal }) {
               </motion.div>
               <div className="hidden sm:block">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
-                  KOREAN
+                  {t("header.brand")}
                 </p>
-                <span className="text-sm font-black tracking-tight">
-                  {t("header.brand", {
-                    defaultValue: "Korean Vocabulary Studio",
-                  })}
-                </span>
+                <span className="text-sm font-black tracking-tight">K-TALIM</span>
               </div>
             </NavLink>
 
@@ -643,7 +625,9 @@ export default function Layout({ onShowIELTSModal }) {
               transition={transitionConfig}
               className="min-h-[400px]"
             >
-              <Outlet />
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
             </motion.div>
           </AnimatePresence>
         </div>
