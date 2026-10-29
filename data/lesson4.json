@@ -8,7 +8,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 77
+    "sourceNumber": 77,
+    "english": "To be crowded / Complicated",
+    "russian": "Быть многолюдным / Сложным",
+    "example": {
+      "ko": "지하철이 복잡해요.",
+      "uz": "Metro gavjum.",
+      "en": "The subway is crowded.",
+      "ru": "В метро многолюдно."
+    }
   },
   {
     "id": 78,
@@ -19,7 +27,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 78
+    "sourceNumber": 78,
+    "english": "To be cool / Refreshing",
+    "russian": "Быть прохладным / Освежающим",
+    "example": {
+      "ko": "바람이 시원해요.",
+      "uz": "Shamol salqin.",
+      "en": "The wind is cool.",
+      "ru": "Ветер прохладный."
+    }
   },
   {
     "id": 79,
@@ -30,7 +46,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 79
+    "sourceNumber": 79,
+    "english": "To be clean",
+    "russian": "Быть чистым",
+    "example": {
+      "ko": "방이 깨끗해요.",
+      "uz": "Xona toza.",
+      "en": "The room is clean.",
+      "ru": "Комната чистая."
+    }
   },
   {
     "id": 80,
@@ -41,7 +65,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 80
+    "sourceNumber": 80,
+    "english": "To be comfortable",
+    "russian": "Быть удобным",
+    "example": {
+      "ko": "이 의자는 편해요.",
+      "uz": "Bu stul qulay.",
+      "en": "This chair is comfortable.",
+      "ru": "Этот стул удобный."
+    }
   },
   {
     "id": 81,
@@ -52,7 +84,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 81
+    "sourceNumber": 81,
+    "english": "To be uncomfortable",
+    "russian": "Быть неудобным",
+    "example": {
+      "ko": "구두가 불편해요.",
+      "uz": "Tufli noqulay.",
+      "en": "The shoes are uncomfortable.",
+      "ru": "Туфли неудобные."
+    }
   },
   {
     "id": 82,
@@ -63,7 +103,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 82
+    "sourceNumber": 82,
+    "english": "A little / Please",
+    "russian": "Немного / Пожалуйста",
+    "example": {
+      "ko": "좀 비싸요.",
+      "uz": "Biroz qimmat.",
+      "en": "It's a little expensive.",
+      "ru": "Немного дорого."
+    }
   },
   {
     "id": 83,
@@ -74,7 +122,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 83
+    "sourceNumber": 83,
+    "english": "To be few / Little",
+    "russian": "Быть малочисленным / Мало",
+    "example": {
+      "ko": "사람이 적어요.",
+      "uz": "Odam kam.",
+      "en": "There are few people.",
+      "ru": "Людей мало."
+    }
   },
   {
     "id": 84,
@@ -85,7 +141,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 84
+    "sourceNumber": 84,
+    "english": "To be small",
+    "russian": "Быть маленьким",
+    "example": {
+      "ko": "가방이 작아요.",
+      "uz": "Sumka kichik.",
+      "en": "The bag is small.",
+      "ru": "Сумка маленькая."
+    }
   },
   {
     "id": 85,
@@ -96,7 +160,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 85
+    "sourceNumber": 85,
+    "english": "To be cheap",
+    "russian": "Быть дешёвым",
+    "example": {
+      "ko": "시장 과일이 싸요.",
+      "uz": "Bozordagi mevalar arzon.",
+      "en": "Fruit at the market is cheap.",
+      "ru": "Фрукты на рынке дешёвые."
+    }
   },
   {
     "id": 86,
@@ -107,7 +179,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 86
+    "sourceNumber": 86,
+    "english": "To be many / Much",
+    "russian": "Быть многочисленным / Много",
+    "example": {
+      "ko": "숙제가 많아요.",
+      "uz": "Uy vazifasi ko'p.",
+      "en": "There is a lot of homework.",
+      "ru": "Много домашнего задания."
+    }
   },
   {
     "id": 87,
@@ -118,7 +198,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 87
+    "sourceNumber": 87,
+    "english": "To be expensive",
+    "russian": "Быть дорогим",
+    "example": {
+      "ko": "이 시계는 비싸요.",
+      "uz": "Bu soat qimmat.",
+      "en": "This watch is expensive.",
+      "ru": "Эти часы дорогие."
+    }
   },
   {
     "id": 88,
@@ -129,7 +217,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 88
+    "sourceNumber": 88,
+    "english": "To be good",
+    "russian": "Быть хорошим",
+    "example": {
+      "ko": "날씨가 좋아요.",
+      "uz": "Ob-havo yaxshi.",
+      "en": "The weather is good.",
+      "ru": "Погода хорошая."
+    }
   },
   {
     "id": 89,
@@ -140,7 +236,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 89
+    "sourceNumber": 89,
+    "english": "To be fun / Interesting",
+    "russian": "Быть интересным",
+    "example": {
+      "ko": "한국어 공부가 재미있어요.",
+      "uz": "Koreys tilini o'rganish qiziqarli.",
+      "en": "Studying Korean is fun.",
+      "ru": "Учить корейский интересно."
+    }
   },
   {
     "id": 90,
@@ -151,7 +255,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 90
+    "sourceNumber": 90,
+    "english": "To be delicious",
+    "russian": "Быть вкусным",
+    "example": {
+      "ko": "김치가 맛있어요.",
+      "uz": "Kimchi mazali.",
+      "en": "Kimchi is delicious.",
+      "ru": "Кимчи вкусное."
+    }
   },
   {
     "id": 91,
@@ -162,7 +274,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 91
+    "sourceNumber": 91,
+    "english": "To be boring",
+    "russian": "Быть скучным",
+    "example": {
+      "ko": "그 영화는 재미없어요.",
+      "uz": "U kino qiziqarsiz.",
+      "en": "That movie is boring.",
+      "ru": "Этот фильм скучный."
+    }
   },
   {
     "id": 92,
@@ -173,7 +293,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 92
+    "sourceNumber": 92,
+    "english": "To taste bad",
+    "russian": "Быть невкусным",
+    "example": {
+      "ko": "이 빵은 맛없어요.",
+      "uz": "Bu non mazasiz.",
+      "en": "This bread tastes bad.",
+      "ru": "Этот хлеб невкусный."
+    }
   },
   {
     "id": 93,
@@ -184,7 +312,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 93
+    "sourceNumber": 93,
+    "english": "Together",
+    "russian": "Вместе",
+    "example": {
+      "ko": "같이 가요.",
+      "uz": "Birga boraylik.",
+      "en": "Let's go together.",
+      "ru": "Пойдём вместе."
+    }
   },
   {
     "id": 94,
@@ -195,7 +331,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 94
+    "sourceNumber": 94,
+    "english": "Weather",
+    "russian": "Погода",
+    "example": {
+      "ko": "오늘 날씨가 어때요?",
+      "uz": "Bugun ob-havo qanday?",
+      "en": "How is the weather today?",
+      "ru": "Какая сегодня погода?"
+    }
   },
   {
     "id": 95,
@@ -206,7 +350,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 95
+    "sourceNumber": 95,
+    "english": "How is it?",
+    "russian": "Как? / Как вам?",
+    "example": {
+      "ko": "이 옷 어때요?",
+      "uz": "Bu kiyim qanday?",
+      "en": "How about these clothes?",
+      "ru": "Как вам эта одежда?"
+    }
   },
   {
     "id": 96,
@@ -217,7 +369,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 96
+    "sourceNumber": 96,
+    "english": "Taste",
+    "russian": "Вкус",
+    "example": {
+      "ko": "맛이 어때요?",
+      "uz": "Mazasi qanday?",
+      "en": "How does it taste?",
+      "ru": "Как на вкус?"
+    }
   },
   {
     "id": 97,
@@ -228,7 +388,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 97
+    "sourceNumber": 97,
+    "english": "Lemon tea",
+    "russian": "Лимонный чай",
+    "example": {
+      "ko": "레몬차 한 잔 주세요.",
+      "uz": "Bir piyola limonli choy bering.",
+      "en": "A cup of lemon tea, please.",
+      "ru": "Чашку лимонного чая, пожалуйста."
+    }
   },
   {
     "id": 98,
@@ -239,7 +407,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 98
+    "sourceNumber": 98,
+    "english": "Beer",
+    "russian": "Пиво",
+    "example": {
+      "ko": "맥주를 안 마셔요.",
+      "uz": "Pivo ichmayman.",
+      "en": "I don't drink beer.",
+      "ru": "Я не пью пиво."
+    }
   },
   {
     "id": 99,
@@ -250,7 +426,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 99
+    "sourceNumber": 99,
+    "english": "Water",
+    "russian": "Вода",
+    "example": {
+      "ko": "물 좀 주세요.",
+      "uz": "Iltimos, suv bering.",
+      "en": "Water, please.",
+      "ru": "Воды, пожалуйста."
+    }
   },
   {
     "id": 100,
@@ -261,7 +445,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 100
+    "sourceNumber": 100,
+    "english": "Orange juice",
+    "russian": "Апельсиновый сок",
+    "example": {
+      "ko": "오렌지주스를 좋아해요.",
+      "uz": "Apelsin sharbatini yaxshi ko'raman.",
+      "en": "I like orange juice.",
+      "ru": "Я люблю апельсиновый сок."
+    }
   },
   {
     "id": 101,
@@ -272,7 +464,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 101
+    "sourceNumber": 101,
+    "english": "Coffee",
+    "russian": "Кофе",
+    "example": {
+      "ko": "아침에 커피를 마셔요.",
+      "uz": "Ertalab kofe ichaman.",
+      "en": "I drink coffee in the morning.",
+      "ru": "Утром я пью кофе."
+    }
   },
   {
     "id": 102,
@@ -283,7 +483,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 102
+    "sourceNumber": 102,
+    "english": "Cola",
+    "russian": "Кола",
+    "example": {
+      "ko": "콜라 두 병 주세요.",
+      "uz": "Ikki shisha kola bering.",
+      "en": "Two bottles of cola, please.",
+      "ru": "Две бутылки колы, пожалуйста."
+    }
   },
   {
     "id": 103,
@@ -294,7 +502,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 103
+    "sourceNumber": 103,
+    "english": "Bread",
+    "russian": "Хлеб",
+    "example": {
+      "ko": "빵이 맛있어요.",
+      "uz": "Non mazali.",
+      "en": "The bread is delicious.",
+      "ru": "Хлеб вкусный."
+    }
   },
   {
     "id": 104,
@@ -305,7 +521,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 104
+    "sourceNumber": 104,
+    "english": "Very",
+    "russian": "Очень",
+    "example": {
+      "ko": "아주 좋아요.",
+      "uz": "Juda yaxshi.",
+      "en": "It's very good.",
+      "ru": "Очень хорошо."
+    }
   },
   {
     "id": 105,
@@ -316,7 +540,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 105
+    "sourceNumber": 105,
+    "english": "Price",
+    "russian": "Цена",
+    "example": {
+      "ko": "값이 비싸요.",
+      "uz": "Narxi qimmat.",
+      "en": "The price is high.",
+      "ru": "Цена высокая."
+    }
   },
   {
     "id": 106,
@@ -327,7 +559,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 106
+    "sourceNumber": 106,
+    "english": "Snacks / Cookies",
+    "russian": "Печенье / Сладости",
+    "example": {
+      "ko": "과자를 사요.",
+      "uz": "Pechenye sotib olaman.",
+      "en": "I buy snacks.",
+      "ru": "Я покупаю печенье."
+    }
   },
   {
     "id": 107,
@@ -338,7 +578,15 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 107
+    "sourceNumber": 107,
+    "english": "Then / In that case",
+    "russian": "Тогда / В таком случае",
+    "example": {
+      "ko": "그럼 같이 가요.",
+      "uz": "Unday bo'lsa, birga boraylik.",
+      "en": "Then let's go together.",
+      "ru": "Тогда пойдём вместе."
+    }
   },
   {
     "id": 108,
@@ -349,6 +597,14 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 108
+    "sourceNumber": 108,
+    "english": "To be sweet",
+    "russian": "Быть сладким",
+    "example": {
+      "ko": "케이크가 달아요.",
+      "uz": "Tort shirin.",
+      "en": "The cake is sweet.",
+      "ru": "Торт сладкий."
+    }
   }
 ]

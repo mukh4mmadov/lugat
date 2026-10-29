@@ -8,7 +8,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 290
+    "sourceNumber": 290,
+    "english": "Four seasons",
+    "russian": "Четыре времени года",
+    "example": {
+      "ko": "한국은 사계절이 있어요.",
+      "uz": "Koreyada to'rt fasl bor.",
+      "en": "Korea has four seasons.",
+      "ru": "В Корее четыре времени года."
+    }
   },
   {
     "id": 291,
@@ -19,7 +27,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 291
+    "sourceNumber": 291,
+    "english": "Spring",
+    "russian": "Весна",
+    "example": {
+      "ko": "봄에 꽃이 피어요.",
+      "uz": "Bahorda gullar ochiladi.",
+      "en": "Flowers bloom in spring.",
+      "ru": "Весной цветут цветы."
+    }
   },
   {
     "id": 292,
@@ -30,7 +46,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 292
+    "sourceNumber": 292,
+    "english": "Summer",
+    "russian": "Лето",
+    "example": {
+      "ko": "여름에 바다에 가요.",
+      "uz": "Yozda dengizga boraman.",
+      "en": "I go to the sea in summer.",
+      "ru": "Летом я езжу на море."
+    }
   },
   {
     "id": 293,
@@ -41,7 +65,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 293
+    "sourceNumber": 293,
+    "english": "Autumn",
+    "russian": "Осень",
+    "example": {
+      "ko": "가을에는 날씨가 시원해요.",
+      "uz": "Kuzda havo salqin.",
+      "en": "The weather is cool in autumn.",
+      "ru": "Осенью прохладно."
+    }
   },
   {
     "id": 294,
@@ -52,7 +84,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 294
+    "sourceNumber": 294,
+    "english": "Winter",
+    "russian": "Зима",
+    "example": {
+      "ko": "겨울에 눈이 와요.",
+      "uz": "Qishda qor yog'adi.",
+      "en": "It snows in winter.",
+      "ru": "Зимой идёт снег."
+    }
   },
   {
     "id": 295,
@@ -63,18 +103,34 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 295
+    "sourceNumber": 295,
+    "english": "To be cold (weather)",
+    "russian": "Быть холодным (о погоде)",
+    "example": {
+      "ko": "오늘은 너무 추워요.",
+      "uz": "Bugun juda sovuq.",
+      "en": "It's very cold today.",
+      "ru": "Сегодня очень холодно."
+    }
   },
   {
     "id": 296,
     "korean": "맵다",
-    "uzbek": "Achechiq bo'lmoq (qalampirdek)",
+    "uzbek": "Achchiq bo'lmoq (qalampirdek)",
     "romanization": "maepda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 296
+    "sourceNumber": 296,
+    "english": "To be spicy",
+    "russian": "Быть острым",
+    "example": {
+      "ko": "김치가 매워요.",
+      "uz": "Kimchi achchiq.",
+      "en": "Kimchi is spicy.",
+      "ru": "Кимчи острое."
+    }
   },
   {
     "id": 297,
@@ -85,7 +141,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 297
+    "sourceNumber": 297,
+    "english": "To help",
+    "russian": "Помогать",
+    "example": {
+      "ko": "친구를 도와요.",
+      "uz": "Do'stimga yordam beraman.",
+      "en": "I help my friend.",
+      "ru": "Я помогаю другу."
+    }
   },
   {
     "id": 298,
@@ -96,7 +160,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 298
+    "sourceNumber": 298,
+    "english": "To be heavy",
+    "russian": "Быть тяжёлым",
+    "example": {
+      "ko": "가방이 무거워요.",
+      "uz": "Sumka og'ir.",
+      "en": "The bag is heavy.",
+      "ru": "Сумка тяжёлая."
+    }
   },
   {
     "id": 299,
@@ -107,7 +179,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 299
+    "sourceNumber": 299,
+    "english": "To be light",
+    "russian": "Быть лёгким",
+    "example": {
+      "ko": "이 노트북은 가벼워요.",
+      "uz": "Bu noutbuk yengil.",
+      "en": "This laptop is light.",
+      "ru": "Этот ноутбук лёгкий."
+    }
   },
   {
     "id": 300,
@@ -118,7 +198,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 300
+    "sourceNumber": 300,
+    "english": "To be hot (weather)",
+    "russian": "Быть жарким (о погоде)",
+    "example": {
+      "ko": "여름에는 더워요.",
+      "uz": "Yozda issiq bo'ladi.",
+      "en": "It's hot in summer.",
+      "ru": "Летом жарко."
+    }
   },
   {
     "id": 301,
@@ -129,7 +217,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 301
+    "sourceNumber": 301,
+    "english": "To be dirty",
+    "russian": "Быть грязным",
+    "example": {
+      "ko": "신발이 더러워요.",
+      "uz": "Oyoq kiyim kir.",
+      "en": "The shoes are dirty.",
+      "ru": "Обувь грязная."
+    }
   },
   {
     "id": 302,
@@ -140,7 +236,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 302
+    "sourceNumber": 302,
+    "english": "To be easy",
+    "russian": "Быть лёгким (простым)",
+    "example": {
+      "ko": "이 문제는 쉬워요.",
+      "uz": "Bu masala oson.",
+      "en": "This problem is easy.",
+      "ru": "Эта задача лёгкая."
+    }
   },
   {
     "id": 303,
@@ -151,7 +255,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 303
+    "sourceNumber": 303,
+    "english": "To be difficult",
+    "russian": "Быть трудным",
+    "example": {
+      "ko": "한국어 문법이 어려워요.",
+      "uz": "Koreys tili grammatikasi qiyin.",
+      "en": "Korean grammar is difficult.",
+      "ru": "Корейская грамматика трудная."
+    }
   },
   {
     "id": 304,
@@ -162,7 +274,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 304
+    "sourceNumber": 304,
+    "english": "To be beautiful",
+    "russian": "Быть красивым",
+    "example": {
+      "ko": "가을 산이 아름다워요.",
+      "uz": "Kuzgi tog'lar go'zal.",
+      "en": "The mountains in autumn are beautiful.",
+      "ru": "Осенние горы прекрасны."
+    }
   },
   {
     "id": 305,
@@ -173,7 +293,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 305
+    "sourceNumber": 305,
+    "english": "To be close / Near",
+    "russian": "Быть близким",
+    "example": {
+      "ko": "학교가 집에서 가까워요.",
+      "uz": "Maktab uyga yaqin.",
+      "en": "The school is close to home.",
+      "ru": "Школа близко от дома."
+    }
   },
   {
     "id": 306,
@@ -184,7 +312,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 306
+    "sourceNumber": 306,
+    "english": "To be narrow",
+    "russian": "Быть узким",
+    "example": {
+      "ko": "방이 좁아요.",
+      "uz": "Xona tor.",
+      "en": "The room is narrow.",
+      "ru": "Комната тесная."
+    }
   },
   {
     "id": 307,
@@ -195,7 +331,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 307
+    "sourceNumber": 307,
+    "english": "To wear",
+    "russian": "Надевать",
+    "example": {
+      "ko": "코트를 입어요.",
+      "uz": "Palto kiyaman.",
+      "en": "I put on a coat.",
+      "ru": "Я надеваю пальто."
+    }
   },
   {
     "id": 308,
@@ -206,7 +350,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 308
+    "sourceNumber": 308,
+    "english": "To catch / To hold",
+    "russian": "Ловить / Держать",
+    "example": {
+      "ko": "손을 잡아요.",
+      "uz": "Qo'lni ushlayman.",
+      "en": "I hold hands.",
+      "ru": "Я держу за руку."
+    }
   },
   {
     "id": 309,
@@ -217,7 +369,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 309
+    "sourceNumber": 309,
+    "english": "To chew",
+    "russian": "Жевать",
+    "example": {
+      "ko": "껌을 씹어요.",
+      "uz": "Saqich chaynayman.",
+      "en": "I chew gum.",
+      "ru": "Я жую жвачку."
+    }
   },
   {
     "id": 310,
@@ -228,29 +388,53 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 310
+    "sourceNumber": 310,
+    "english": "To be wide / Spacious",
+    "russian": "Быть широким / Просторным",
+    "example": {
+      "ko": "거실이 넓어요.",
+      "uz": "Mehmonxona keng.",
+      "en": "The living room is spacious.",
+      "ru": "Гостиная просторная."
+    }
   },
   {
     "id": 311,
     "korean": "업다",
-    "uzbek": "yelkasiga ortmoq,opchimoq",
+    "uzbek": "Yelkasiga ortmoq / Opichmoq",
     "romanization": "eopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 311
+    "sourceNumber": 311,
+    "english": "To carry on one's back",
+    "russian": "Нести на спине",
+    "example": {
+      "ko": "엄마가 아기를 업어요.",
+      "uz": "Onam chaqaloqni opichlab ko'taradi.",
+      "en": "The mother carries the baby on her back.",
+      "ru": "Мама несёт малыша на спине."
+    }
   },
   {
     "id": 312,
     "korean": "접다",
-    "uzbek": "buklamoq,taxlamoq",
+    "uzbek": "Buklamoq / Taxlamoq",
     "romanization": "jeopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 312
+    "sourceNumber": 312,
+    "english": "To fold",
+    "russian": "Складывать",
+    "example": {
+      "ko": "종이를 접어요.",
+      "uz": "Qog'ozni buklayman.",
+      "en": "I fold the paper.",
+      "ru": "Я складываю бумагу."
+    }
   },
   {
     "id": 313,
@@ -261,7 +445,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 313
+    "sourceNumber": 313,
+    "english": "To pick up (with fingers)",
+    "russian": "Брать (пальцами) / Поднимать",
+    "example": {
+      "ko": "동전을 집어요.",
+      "uz": "Tangani olaman.",
+      "en": "I pick up a coin.",
+      "ru": "Я поднимаю монету."
+    }
   },
   {
     "id": 314,
@@ -272,7 +464,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 314
+    "sourceNumber": 314,
+    "english": "Scenery",
+    "russian": "Пейзаж",
+    "example": {
+      "ko": "여기 경치가 아름다워요.",
+      "uz": "Bu yerning manzarasi go'zal.",
+      "en": "The scenery here is beautiful.",
+      "ru": "Здесь красивый пейзаж."
+    }
   },
   {
     "id": 315,
@@ -283,7 +483,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 315
+    "sourceNumber": 315,
+    "english": "Tree / Wood",
+    "russian": "Дерево",
+    "example": {
+      "ko": "공원에 나무가 많아요.",
+      "uz": "Parkda daraxtlar ko'p.",
+      "en": "There are many trees in the park.",
+      "ru": "В парке много деревьев."
+    }
   },
   {
     "id": 316,
@@ -294,7 +502,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 316
+    "sourceNumber": 316,
+    "english": "Kimchi",
+    "russian": "Кимчи",
+    "example": {
+      "ko": "김치를 좋아해요.",
+      "uz": "Kimchini yaxshi ko'raman.",
+      "en": "I like kimchi.",
+      "ru": "Я люблю кимчи."
+    }
   },
   {
     "id": 317,
@@ -305,7 +521,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 317
+    "sourceNumber": 317,
+    "english": "Apple",
+    "russian": "Яблоко",
+    "example": {
+      "ko": "사과가 맛있어요.",
+      "uz": "Olma mazali.",
+      "en": "The apple is delicious.",
+      "ru": "Яблоко вкусное."
+    }
   },
   {
     "id": 318,
@@ -316,7 +540,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 318
+    "sourceNumber": 318,
+    "english": "Lounge / Break room",
+    "russian": "Комната отдыха",
+    "example": {
+      "ko": "휴게실에서 쉬어요.",
+      "uz": "Dam olish xonasida dam olaman.",
+      "en": "I rest in the lounge.",
+      "ru": "Я отдыхаю в комнате отдыха."
+    }
   },
   {
     "id": 319,
@@ -327,7 +559,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 319
+    "sourceNumber": 319,
+    "english": "Chewing gum",
+    "russian": "Жвачка",
+    "example": {
+      "ko": "수업 시간에 껌을 씹지 마세요.",
+      "uz": "Dars paytida saqich chaynamang.",
+      "en": "Don't chew gum during class.",
+      "ru": "Не жуйте жвачку на уроке."
+    }
   },
   {
     "id": 320,
@@ -338,7 +578,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 320
+    "sourceNumber": 320,
+    "english": "To be warm",
+    "russian": "Быть тёплым",
+    "example": {
+      "ko": "봄 날씨가 따뜻해요.",
+      "uz": "Bahor havosi iliq.",
+      "en": "Spring weather is warm.",
+      "ru": "Весенняя погода тёплая."
+    }
   },
   {
     "id": 321,
@@ -349,7 +597,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 321
+    "sourceNumber": 321,
+    "english": "To rain",
+    "russian": "Идёт дождь",
+    "example": {
+      "ko": "오늘 비가 와요.",
+      "uz": "Bugun yomg'ir yog'yapti.",
+      "en": "It's raining today.",
+      "ru": "Сегодня идёт дождь."
+    }
   },
   {
     "id": 322,
@@ -360,7 +616,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 322
+    "sourceNumber": 322,
+    "english": "To snow",
+    "russian": "Идёт снег",
+    "example": {
+      "ko": "밖에 눈이 와요.",
+      "uz": "Tashqarida qor yog'yapti.",
+      "en": "It's snowing outside.",
+      "ru": "На улице идёт снег."
+    }
   },
   {
     "id": 323,
@@ -371,7 +635,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 323
+    "sourceNumber": 323,
+    "english": "The wind blows",
+    "russian": "Дует ветер",
+    "example": {
+      "ko": "바람이 많이 불어요.",
+      "uz": "Shamol kuchli esyapti.",
+      "en": "The wind is blowing hard.",
+      "ru": "Дует сильный ветер."
+    }
   },
   {
     "id": 324,
@@ -382,7 +654,15 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 324
+    "sourceNumber": 324,
+    "english": "To be clear (weather)",
+    "russian": "Быть ясным (о погоде)",
+    "example": {
+      "ko": "하늘이 맑아요.",
+      "uz": "Osmon musaffo.",
+      "en": "The sky is clear.",
+      "ru": "Небо ясное."
+    }
   },
   {
     "id": 325,
@@ -393,6 +673,14 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 325
+    "sourceNumber": 325,
+    "english": "To be cloudy",
+    "russian": "Быть пасмурным",
+    "example": {
+      "ko": "오늘은 날씨가 흐려요.",
+      "uz": "Bugun havo bulutli.",
+      "en": "It's cloudy today.",
+      "ru": "Сегодня пасмурно."
+    }
   }
 ]

@@ -8,7 +8,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 552,
-    "romanization": "yeonseuphada"
+    "romanization": "yeonseuphada",
+    "english": "To practice",
+    "russian": "Тренироваться / Практиковаться",
+    "example": {
+      "ko": "매일 한국어 말하기를 연습해요.",
+      "uz": "Har kuni koreys tilida gapirishni mashq qilaman.",
+      "en": "I practice speaking Korean every day.",
+      "ru": "Я каждый день практикую корейскую речь."
+    }
   },
   {
     "id": 553,
@@ -19,7 +27,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 553,
-    "romanization": "yaksogeul jikida"
+    "romanization": "yaksogeul jikida",
+    "english": "To keep a promise",
+    "russian": "Сдержать обещание",
+    "example": {
+      "ko": "약속을 지키세요.",
+      "uz": "Va'dangizda turing.",
+      "en": "Please keep your promise.",
+      "ru": "Сдержите обещание."
+    }
   },
   {
     "id": 554,
@@ -30,7 +46,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 554,
-    "romanization": "jeone"
+    "romanization": "jeone",
+    "english": "Before",
+    "russian": "Раньше / Прежде",
+    "example": {
+      "ko": "밥을 먹기 전에 손을 씻어요.",
+      "uz": "Ovqatdan oldin qo'limni yuvaman.",
+      "en": "I wash my hands before eating.",
+      "ru": "Я мою руки перед едой."
+    }
   },
   {
     "id": 555,
@@ -41,7 +65,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 555,
-    "romanization": "chamgahada"
+    "romanization": "chamgahada",
+    "english": "To participate",
+    "russian": "Участвовать",
+    "example": {
+      "ko": "대회에 참가해요.",
+      "uz": "Musobaqada qatnashaman.",
+      "en": "I take part in the competition.",
+      "ru": "Я участвую в соревновании."
+    }
   },
   {
     "id": 556,
@@ -52,7 +84,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 556,
-    "romanization": "gieokhada"
+    "romanization": "gieokhada",
+    "english": "To remember",
+    "russian": "Помнить / Вспоминать",
+    "example": {
+      "ko": "그 이름을 기억해요.",
+      "uz": "U ismni eslayman.",
+      "en": "I remember that name.",
+      "ru": "Я помню это имя."
+    }
   },
   {
     "id": 557,
@@ -63,7 +103,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 557,
-    "romanization": "sangdaetim"
+    "romanization": "sangdaetim",
+    "english": "Opposing team",
+    "russian": "Команда соперника",
+    "example": {
+      "ko": "상대팀이 강해요.",
+      "uz": "Raqib jamoa kuchli.",
+      "en": "The opposing team is strong.",
+      "ru": "Команда соперника сильная."
+    }
   },
   {
     "id": 558,
@@ -74,7 +122,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 558,
-    "romanization": "kkeunnada"
+    "romanization": "kkeunnada",
+    "english": "To end",
+    "russian": "Заканчиваться",
+    "example": {
+      "ko": "경기가 끝났어요.",
+      "uz": "Musobaqa tugadi.",
+      "en": "The game is over.",
+      "ru": "Матч закончился."
+    }
   },
   {
     "id": 559,
@@ -85,7 +141,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 559,
-    "romanization": "geummedal"
+    "romanization": "geummedal",
+    "english": "Gold medal",
+    "russian": "Золотая медаль",
+    "example": {
+      "ko": "금메달을 받았어요.",
+      "uz": "Oltin medal oldi.",
+      "en": "He won a gold medal.",
+      "ru": "Он получил золотую медаль."
+    }
   },
   {
     "id": 560,
@@ -96,7 +160,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 560,
-    "romanization": "nonggu"
+    "romanization": "nonggu",
+    "english": "Basketball",
+    "russian": "Баскетбол",
+    "example": {
+      "ko": "농구를 잘해요.",
+      "uz": "Basketbolni yaxshi o'ynayman.",
+      "en": "I'm good at basketball.",
+      "ru": "Я хорошо играю в баскетбол."
+    }
   },
   {
     "id": 561,
@@ -107,7 +179,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 561,
-    "romanization": "seonsu"
+    "romanization": "seonsu",
+    "english": "Athlete / Player",
+    "russian": "Спортсмен / Игрок",
+    "example": {
+      "ko": "그는 축구 선수예요.",
+      "uz": "U futbolchi.",
+      "en": "He is a soccer player.",
+      "ru": "Он футболист."
+    }
   },
   {
     "id": 562,
@@ -118,7 +198,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 562,
-    "romanization": "eunmedal"
+    "romanization": "eunmedal",
+    "english": "Silver medal",
+    "russian": "Серебряная медаль",
+    "example": {
+      "ko": "은메달을 땄어요.",
+      "uz": "Kumush medal yutdi.",
+      "en": "She won a silver medal.",
+      "ru": "Она завоевала серебряную медаль."
+    }
   },
   {
     "id": 563,
@@ -129,7 +217,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 563,
-    "romanization": "pyo"
+    "romanization": "pyo",
+    "english": "Ticket / Table (chart)",
+    "russian": "Билет / Таблица",
+    "example": {
+      "ko": "영화 표를 두 장 샀어요.",
+      "uz": "Ikkita kino chiptasi sotib oldim.",
+      "en": "I bought two movie tickets.",
+      "ru": "Я купил два билета в кино."
+    }
   },
   {
     "id": 564,
@@ -140,7 +236,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 564,
-    "romanization": "cheot beonjjaero"
+    "romanization": "cheot beonjjaero",
+    "english": "First (in order)",
+    "russian": "Первым",
+    "example": {
+      "ko": "첫 번째로 도착했어요.",
+      "uz": "Birinchi bo'lib yetib keldim.",
+      "en": "I arrived first.",
+      "ru": "Я пришёл первым."
+    }
   },
   {
     "id": 565,
@@ -151,7 +255,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 565,
-    "romanization": "gyeonggihada"
+    "romanization": "gyeonggihada",
+    "english": "To play a match",
+    "russian": "Играть матч / Соревноваться",
+    "example": {
+      "ko": "오늘 저녁에 경기해요.",
+      "uz": "Bugun kechqurun o'ynaymiz.",
+      "en": "We play a match this evening.",
+      "ru": "Сегодня вечером у нас матч."
+    }
   },
   {
     "id": 566,
@@ -162,7 +274,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 566,
-    "romanization": "jilmunhada"
+    "romanization": "jilmunhada",
+    "english": "To ask a question",
+    "russian": "Задавать вопрос",
+    "example": {
+      "ko": "모르면 질문하세요.",
+      "uz": "Bilmasangiz, savol bering.",
+      "en": "If you don't know, ask a question.",
+      "ru": "Если не знаете, задайте вопрос."
+    }
   },
   {
     "id": 567,
@@ -173,7 +293,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 567,
-    "romanization": "moreuda"
+    "romanization": "moreuda",
+    "english": "Not to know",
+    "russian": "Не знать",
+    "example": {
+      "ko": "그 사람을 몰라요.",
+      "uz": "U odamni bilmayman.",
+      "en": "I don't know that person.",
+      "ru": "Я не знаю этого человека."
+    }
   },
   {
     "id": 568,
@@ -184,7 +312,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 568,
-    "romanization": "gyobok"
+    "romanization": "gyobok",
+    "english": "School uniform",
+    "russian": "Школьная форма",
+    "example": {
+      "ko": "학생들이 교복을 입어요.",
+      "uz": "O'quvchilar maktab formasini kiyadi.",
+      "en": "The students wear school uniforms.",
+      "ru": "Ученики носят школьную форму."
+    }
   },
   {
     "id": 569,
@@ -195,7 +331,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 569,
-    "romanization": "gachi"
+    "romanization": "gachi",
+    "english": "Together",
+    "russian": "Вместе",
+    "example": {
+      "ko": "같이 운동해요.",
+      "uz": "Birga sport bilan shug'ullanaylik.",
+      "en": "Let's exercise together.",
+      "ru": "Давай позанимаемся спортом вместе."
+    }
   },
   {
     "id": 570,
@@ -206,7 +350,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 570,
-    "romanization": "jaju"
+    "romanization": "jaju",
+    "english": "Often",
+    "russian": "Часто",
+    "example": {
+      "ko": "자주 만나요.",
+      "uz": "Tez-tez uchrashamiz.",
+      "en": "We meet often.",
+      "ru": "Мы часто встречаемся."
+    }
   },
   {
     "id": 571,
@@ -217,7 +369,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 571,
-    "romanization": "dalligi"
+    "romanization": "dalligi",
+    "english": "Running",
+    "russian": "Бег",
+    "example": {
+      "ko": "달리기를 잘해요.",
+      "uz": "Yugurishda yaxshiman.",
+      "en": "I'm good at running.",
+      "ru": "Я хорошо бегаю."
+    }
   },
   {
     "id": 572,
@@ -228,7 +388,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 572,
-    "romanization": "cheyukgwan"
+    "romanization": "cheyukgwan",
+    "english": "Gymnasium",
+    "russian": "Спортзал",
+    "example": {
+      "ko": "체육관에서 농구를 해요.",
+      "uz": "Sport zalida basketbol o'ynayman.",
+      "en": "I play basketball in the gym.",
+      "ru": "Я играю в баскетбол в спортзале."
+    }
   },
   {
     "id": 573,
@@ -239,7 +407,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 573,
-    "romanization": "gong"
+    "romanization": "gong",
+    "english": "Ball",
+    "russian": "Мяч",
+    "example": {
+      "ko": "공을 차요.",
+      "uz": "To'pni tepaman.",
+      "en": "I kick the ball.",
+      "ru": "Я пинаю мяч."
+    }
   },
   {
     "id": 574,
@@ -250,7 +426,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 574,
-    "romanization": "daehoe"
+    "romanization": "daehoe",
+    "english": "Competition / Contest",
+    "russian": "Соревнование",
+    "example": {
+      "ko": "수영 대회에서 이겼어요.",
+      "uz": "Suzish musobaqasida g'alaba qozondim.",
+      "en": "I won the swimming competition.",
+      "ru": "Я победил в соревнованиях по плаванию."
+    }
   },
   {
     "id": 575,
@@ -261,7 +445,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 575,
-    "romanization": "igida"
+    "romanization": "igida",
+    "english": "To win",
+    "russian": "Побеждать / Выигрывать",
+    "example": {
+      "ko": "우리 팀이 이겼어요.",
+      "uz": "Jamoamiz yutdi.",
+      "en": "Our team won.",
+      "ru": "Наша команда победила."
+    }
   },
   {
     "id": 576,
@@ -272,7 +464,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 576,
-    "romanization": "jida"
+    "romanization": "jida",
+    "english": "To lose",
+    "russian": "Проигрывать",
+    "example": {
+      "ko": "어제 경기에서 졌어요.",
+      "uz": "Kechagi o'yinda yutqazdik.",
+      "en": "We lost yesterday's game.",
+      "ru": "Мы проиграли вчерашний матч."
+    }
   },
   {
     "id": 577,
@@ -284,6 +484,14 @@
     "needsReview": false,
     "sourceNumber": 577,
     "note": "tashlamoq",
-    "romanization": "gongeul deonjida"
+    "romanization": "gongeul deonjida",
+    "english": "To throw a ball",
+    "russian": "Бросать мяч",
+    "example": {
+      "ko": "공을 던지세요.",
+      "uz": "To'pni oting.",
+      "en": "Throw the ball.",
+      "ru": "Бросайте мяч."
+    }
   }
 ]

@@ -6,12 +6,13 @@ import GlassCard from "../components/GlassCard";
 import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { getLessonWords, getWordKey } from "../data";
+import { allWords, exampleTranslation, getLessonWords, getWordKey, acceptedMeanings, meaning } from "../data";
 import { markDifficult, markKnown, toggleFavorite } from "../store";
-import { isAnswerCorrect, shuffle } from "../lib/study";
+import { isAnswerCorrect, pickDistractors, shuffle } from "../lib/study";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
 import { ModeHeader } from "./FlashcardsPage";
+import ShareResult from "../components/ShareResult";
 
 // A practice round walks through the lesson once, records each answer a single
 // time, and ends with a summary from which the missed words can be retried.
@@ -71,10 +72,11 @@ function usePracticeRound(exerciseType) {
   };
 }
 
-function RoundSummary({ session }) {
+function RoundSummary({ session, title }) {
   const { t } = useTranslation();
   const total = session.round.length;
   const percent = total ? Math.round((session.correctCount / total) * 100) : 0;
+  const eyebrow = `${t("card.lesson", { lesson: session.lesson })} · ${title}`;
   return (
     <GlassCard className="mx-auto max-w-2xl p-6 text-center md:p-8">
       <p className="text-5xl">{percent >= 80 ? "🎉" : percent >= 50 ? "👍" : "💪"}</p>
@@ -89,7 +91,7 @@ function RoundSummary({ session }) {
             {session.missed.map((item) => (
               <li key={getWordKey(item)} className="flex items-center justify-between gap-3 px-4 py-2.5">
                 <span className="text-lg font-black">{item.korean}</span>
-                <span className="text-sm text-slate-600 dark:text-slate-300">{item.uzbek}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{meaning(item)}</span>
               </li>
             ))}
           </ul>
@@ -104,6 +106,18 @@ function RoundSummary({ session }) {
         <button type="button" onClick={session.restartAll} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">
           {t("practice.again")}
         </button>
+        <ShareResult
+          fileName={`k-talim-lesson-${session.lesson}`}
+          text={t("shareResult.lessonText", { eyebrow, correct: session.correctCount, total, percent })}
+          card={{
+            eyebrow,
+            score: session.correctCount,
+            outOf: total,
+            percent,
+            badge: percent === 100 ? t("shareResult.perfect") : percent >= 80 ? t("shareResult.great") : null,
+            chips: [t("shareResult.words", { count: total })],
+          }}
+        />
       </div>
     </GlassCard>
   );
@@ -125,7 +139,9 @@ function RoundProgress({ session }) {
   );
 }
 
-function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected, prompt }) {
+// `speak` reads a text aloud when each item appears; `isCorrect`, `revealText`
+// and `feedback` let a mode replace the default answer check and reveal.
+function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected, prompt, speak, isCorrect, revealText, feedback }) {
   const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const session = usePracticeRound(exerciseType);
@@ -138,7 +154,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
     setAnswer("");
     setBlankError(false);
     inputRef.current?.focus();
-    if (word && exerciseType === "listening") speakKorean(word.korean, progress.settings.speechRate);
+    if (word && speak) speakKorean(speak(word), progress.settings.speechRate);
     // Speak once per new word, not on every rate change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word, exerciseType]);
@@ -147,7 +163,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
     return (
       <div className="space-y-6">
         <ModeHeader lesson={session.lesson} active={exerciseType} />
-        <RoundSummary session={session} />
+        <RoundSummary session={session} title={title} />
       </div>
     );
   }
@@ -158,12 +174,12 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
       setBlankError(true);
       return;
     }
-    session.record(isAnswerCorrect(answer, expected(word)));
+    session.record(isCorrect ? isCorrect(answer, word) : isAnswerCorrect(answer, expected(word)));
   };
 
   const submit = () => (answered === undefined ? check() : session.next());
   const mastery = getWordMastery(getWordKey(word), progress.words);
-  const reveal = [word.korean, word.romanization, word.uzbek].filter(Boolean).join(" · ");
+  const reveal = revealText ? revealText(word) : [word.korean, word.romanization, meaning(word)].filter(Boolean).join(" · ");
 
   return (
     <div className="space-y-6">
@@ -194,6 +210,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
           className={`premium-input mt-6 ${answered === true ? "rounded-3xl border border-emerald-400 bg-emerald-50 text-emerald-800 dark:border-emerald-500/40 dark:bg-emerald-500/15 dark:text-emerald-200" : answered === false ? "rounded-3xl border border-rose-400 bg-rose-50 text-rose-800 dark:border-rose-500/40 dark:bg-rose-500/15 dark:text-rose-200" : ""}`}
         />
         {blankError && <p className="mt-2 text-center text-sm font-bold text-rose-600 dark:text-rose-400">{t("practice.enterAnswer")}</p>}
+        {answered !== undefined && feedback?.(answer, word)}
         <AnswerFooter
           answered={answered}
           reveal={reveal}
@@ -216,6 +233,7 @@ export function ListeningPage() {
       badge={t("practice.audioFirst")}
       placeholder={t("practice.typeKorean")}
       expected={(word) => word.korean}
+      speak={(word) => word.korean}
       prompt={(word, rate) => (
         <button
           type="button"
@@ -230,6 +248,100 @@ export function ListeningPage() {
   );
 }
 
+// Sentence dictation compares Hangul only: spacing and punctuation are ignored.
+const compactSentence = (value) => value.replace(/[\s.,!?~'"“”‘’·…-]/g, "");
+
+// Longest common subsequence, marking which expected characters were typed.
+function matchedCharacters(expected, typed) {
+  const rows = expected.length;
+  const cols = typed.length;
+  const table = Array.from({ length: rows + 1 }, () => new Array(cols + 1).fill(0));
+  for (let i = rows - 1; i >= 0; i -= 1) {
+    for (let j = cols - 1; j >= 0; j -= 1) {
+      table[i][j] = expected[i] === typed[j] ? table[i + 1][j + 1] + 1 : Math.max(table[i + 1][j], table[i][j + 1]);
+    }
+  }
+  const matched = new Array(rows).fill(false);
+  let i = 0;
+  let j = 0;
+  while (i < rows && j < cols) {
+    if (expected[i] === typed[j]) {
+      matched[i] = true;
+      i += 1;
+      j += 1;
+    } else if (table[i + 1][j] >= table[i][j + 1]) i += 1;
+    else j += 1;
+  }
+  return matched;
+}
+
+function SentenceDiff({ expected, typed }) {
+  const { t } = useTranslation();
+  const chars = [...expected];
+  const hangul = chars.filter((char) => compactSentence(char));
+  const matched = matchedCharacters(hangul, [...compactSentence(typed)]);
+  let index = -1;
+  const correct = matched.filter(Boolean).length;
+  return (
+    <div className="mt-4 rounded-2xl bg-slate-950/5 p-4 text-center dark:bg-white/10">
+      <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{t("dictation.score", { correct, total: hangul.length })}</p>
+      <p className="mt-1 text-2xl font-black leading-relaxed">
+        {chars.map((char, position) => {
+          if (!compactSentence(char)) return <span key={position}>{char}</span>;
+          index += 1;
+          return (
+            <span key={position} className={matched[index] ? "text-emerald-600 dark:text-emerald-300" : "rounded bg-rose-100 text-rose-600 underline decoration-2 dark:bg-rose-500/20 dark:text-rose-300"}>
+              {char}
+            </span>
+          );
+        })}
+      </p>
+    </div>
+  );
+}
+
+export function DictationPage() {
+  const { t } = useTranslation();
+  const sentence = (word) => word.example?.ko || word.korean;
+  return (
+    <TypedAnswerPractice
+      exerciseType="dictation"
+      title={t("dictation.title")}
+      badge={t("dictation.badge")}
+      placeholder={t("dictation.placeholder")}
+      expected={sentence}
+      speak={sentence}
+      isCorrect={(answer, word) => compactSentence(answer) === compactSentence(sentence(word))}
+      revealText={(word) => `${sentence(word)} — ${word.example ? exampleTranslation(word.example) : meaning(word)}`}
+      feedback={(answer, word) => <SentenceDiff expected={sentence(word)} typed={answer} />}
+      prompt={(word, rate) => (
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => speakKorean(sentence(word), rate)}
+              aria-label={t("practice.replayAudio")}
+              className="grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-4xl text-white shadow-2xl shadow-sky-500/30 transition hover:scale-105"
+            >
+              🔊
+            </button>
+            <button
+              type="button"
+              onClick={() => speakKorean(sentence(word), Math.max(0.5, rate - 0.3))}
+              className="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-black dark:border-white/15"
+            >
+              🐢 {t("dictation.slow")}
+            </button>
+          </div>
+          <p className="mt-4 text-sm font-semibold text-slate-600 dark:text-slate-300">
+            {t("dictation.hint")}: {word.example ? exampleTranslation(word.example) : meaning(word)}
+          </p>
+        </div>
+      )}
+    />
+  );
+}
+
 export function WritingPage() {
   const { t } = useTranslation();
   return (
@@ -238,7 +350,7 @@ export function WritingPage() {
       title={t("practice.writing")}
       badge={t("practice.typeTranslation")}
       placeholder={t("practice.typeTranslation")}
-      expected={(word) => word.uzbek}
+      expected={acceptedMeanings}
       prompt={(word, rate) => (
         <button type="button" onClick={() => speakKorean(word.korean, rate)} className="mx-auto block text-center">
           <span className="block text-4xl font-black md:text-7xl">{word.korean}</span>
@@ -258,14 +370,7 @@ export function QuizPage() {
 
   const options = useMemo(() => {
     if (!word) return [];
-    // Distractors never repeat the correct meaning, so only one option can be right.
-    const seen = new Set([word.uzbek]);
-    const distractors = shuffle(lessonWords).filter((item) => {
-      if (seen.has(item.uzbek)) return false;
-      seen.add(item.uzbek);
-      return true;
-    });
-    return shuffle([word, ...distractors.slice(0, 3)]);
+    return shuffle([word, ...pickDistractors(word, lessonWords, allWords, 3)]);
   }, [word, lessonWords]);
 
   useEffect(() => {
@@ -294,7 +399,7 @@ export function QuizPage() {
     return (
       <div className="space-y-6">
         <ModeHeader lesson={session.lesson} active="quiz" />
-        <RoundSummary session={session} />
+        <RoundSummary session={session} title={t("practice.quiz")} />
       </div>
     );
   }
@@ -333,7 +438,7 @@ export function QuizPage() {
                 className={`flex items-center gap-3 rounded-3xl border p-5 text-left text-lg font-black shadow-sm transition ${tone}`}
               >
                 <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-slate-950/5 text-xs dark:bg-white/10">{index + 1}</span>
-                {option.uzbek}
+                {meaning(option)}
               </button>
             );
           })}

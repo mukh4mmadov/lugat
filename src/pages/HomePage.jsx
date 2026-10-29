@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
+import TodayCard from "../components/TodayCard";
 import { lessonInfo } from "../data";
 import {
   selectLessonProgress,
@@ -56,30 +57,7 @@ export default function HomePage() {
               </div>
             </div>
           ) : (
-            <>
-              <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-sky-300/25 blur-3xl md:block" />
-              <WordBadge>{t("home.officialSource")}</WordBadge>
-              <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-6xl">
-                {t("home.title")}
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
-                {t("home.subtitle")}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  to={`/study/${dailyLesson}`}
-                  className="rounded-2xl bg-slate-950 px-5 py-2.5 font-black text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-1 dark:bg-white dark:text-slate-950"
-                >
-                  {t("home.continueLesson")}
-                </Link>
-                <Link
-                  to="/review"
-                  className="rounded-2xl border border-slate-200 bg-white/75 px-5 py-2.5 font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white"
-                >
-                  {t("home.reviewMode")}
-                </Link>
-              </div>
-            </>
+            <TodayCard fallbackLesson={dailyLesson} />
           )}
         </GlassCard>
 

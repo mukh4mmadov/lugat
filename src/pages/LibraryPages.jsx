@@ -8,7 +8,8 @@ import {
 } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { allWords, getWordKey, lessonInfo } from "../data";
+import { allWords, getWordKey, lessonInfo, meaning } from "../data";
+import { searchWords } from "../lib/search";
 import {
   resetProgress,
   selectDifficultWords,
@@ -25,9 +26,11 @@ import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
+import { VoiceHelp } from "../components/VoiceNotice";
+import { koreanVoiceStatus, speakKorean } from "../lib/speech";
 
 export function SearchPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const [query, setQuery] = useState("");
   const [masteryFilter, setMasteryFilter] = useState("all");
@@ -45,14 +48,7 @@ export function SearchPage() {
 
   const normalized = normalizeAnswer(debouncedQuery);
   const results = useMemo(() => {
-    let filtered = allWords;
-    if (normalized) {
-      filtered = allWords.filter((word) =>
-        [word.korean, word.uzbek, word.romanization]
-          .filter(Boolean)
-          .some((value) => normalizeAnswer(value).includes(normalized)),
-      );
-    }
+    let filtered = normalized ? searchWords(allWords, normalized, meaning) : allWords;
     if (masteryFilter !== "all") {
       filtered = filtered.filter(
         (word) =>
@@ -61,7 +57,9 @@ export function SearchPage() {
       );
     }
     return filtered;
-  }, [normalized, masteryFilter, progress.words]);
+    // meaning() follows the interface language.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [normalized, masteryFilter, progress.words, i18n.language]);
 
   const globalCounts = useMemo(() => {
     const counts = { all: allWords.length };
@@ -263,7 +261,7 @@ export function StatsPage() {
           <button
             type="button"
             onClick={() => setIsShareModalOpen(true)}
-            className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+            className="action-btn inline-flex shrink-0 items-center whitespace-nowrap bg-slate-950 text-white dark:bg-white dark:text-slate-950"
           >
             <span className="mr-2">{t("common.share")}</span>
             <svg
@@ -281,7 +279,7 @@ export function StatsPage() {
             </svg>
           </button>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3">
           <Metric
             label={t("stats.dailyStreak")}
             value={progressSummary.streak}
@@ -660,6 +658,7 @@ export function SettingsPage() {
         <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
           <h3 className="text-xl font-black">{t("settings.audioSection")}</h3>
           <div className="mt-4 space-y-4">
+            <VoiceCheck rate={progress.settings.speechRate} />
             <div>
               <label
                 htmlFor="settings-speech-rate"
@@ -807,7 +806,7 @@ function WordGrid({
                   </p>
                 )}
                 <p className="mt-1 text-slate-600 dark:text-slate-300">
-                  {word.uzbek}
+                  {meaning(word)}
                 </p>
               </div>
               <WordBadge tone={word.needsReview ? "amber" : "green"}>
@@ -842,6 +841,26 @@ function Metric({ label, value, tone }) {
       <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-300">
         {label}
       </p>
+    </div>
+  );
+}
+
+// Whether this device can pronounce Korean, with a test button.
+function VoiceCheck({ rate }) {
+  const { t } = useTranslation();
+  const [status, setStatus] = useState("checking");
+  useEffect(() => {
+    koreanVoiceStatus(2500).then(setStatus);
+  }, []);
+  return (
+    <div className={`rounded-2xl p-3 ${status === "ok" ? "bg-emerald-50 dark:bg-emerald-500/10" : status === "checking" ? "bg-slate-50 dark:bg-white/5" : "bg-amber-50 text-amber-950 dark:bg-amber-500/10 dark:text-amber-100"}`}>
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-sm font-bold">{status === "ok" ? `✓ ${t("voice.ok")}` : status === "checking" ? t("common.loading") : "🔇"}</span>
+        <button type="button" onClick={() => speakKorean("안녕하세요", rate)} className="ml-auto rounded-xl bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">
+          🔊 {t("voice.test")}
+        </button>
+      </div>
+      {(status === "missing" || status === "unsupported") && <div className="mt-2"><VoiceHelp status={status} /></div>}
     </div>
   );
 }

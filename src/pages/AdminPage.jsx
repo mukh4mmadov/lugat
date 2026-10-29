@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
-import { allWords, getWordKey, lessonInfo } from "../data";
+import { allWords, getWordKey, lessonInfo, meaning } from "../data";
 import { TOPIK_EXAMS } from "../data/topik/exams";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
@@ -87,7 +87,7 @@ export default function AdminPage() {
   if (access !== "allowed") {
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
-        <h1 className="text-xl font-black">{t("feedback.accessDenied")}</h1>
+        <h1 className="text-xl font-black">{access === "unauthenticated" ? t("admin.title") : t("feedback.accessDenied")}</h1>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
           {access === "unauthenticated" ? t("admin.needLogin") : access === "denied" ? t("admin.noAdminAccess") : error}
         </p>
@@ -114,6 +114,7 @@ export default function AdminPage() {
     ["/admin", t("admin.tab.overview"), true],
     ["/admin/users", t("admin.tab.users")],
     ["/admin/feedback", t("admin.tab.feedback")],
+    ["/admin/words", t("adminWords.tab")],
     ["/admin/content", t("admin.tab.content")],
   ];
 
@@ -341,7 +342,7 @@ export function AdminOverview() {
                         <span className="w-5 text-xs font-black text-slate-400">{index + 1}</span>
                         <span className="min-w-0 flex-1 truncate">
                           <span className="font-black">{word?.korean || entry.key}</span>
-                          <span className="ml-2 text-slate-500 dark:text-slate-400">{word?.uzbek}</span>
+                          <span className="ml-2 text-slate-500 dark:text-slate-400">{meaning(word)}</span>
                         </span>
                         <span className="shrink-0 text-xs font-bold tabular-nums text-rose-600 dark:text-rose-300">{t("admin.mistakes", { count: entry.wrong })}</span>
                         <span className="w-16 shrink-0 text-right text-xs font-bold tabular-nums text-slate-500">{t("admin.learnersShort", { count: entry.learners })}</span>

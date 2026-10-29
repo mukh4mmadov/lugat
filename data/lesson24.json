@@ -8,7 +8,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 691,
-    "romanization": "dareuda"
+    "romanization": "dareuda",
+    "english": "To be different",
+    "russian": "Отличаться",
+    "example": {
+      "ko": "제 생각은 달라요.",
+      "uz": "Mening fikrim boshqacha.",
+      "en": "My opinion is different.",
+      "ru": "Моё мнение другое."
+    }
   },
   {
     "id": 692,
@@ -19,7 +27,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 692,
-    "romanization": "meositda"
+    "romanization": "meositda",
+    "english": "To be cool / Stylish",
+    "russian": "Быть классным / Стильным",
+    "example": {
+      "ko": "그 배우는 정말 멋있어요.",
+      "uz": "U aktyor juda kelishgan.",
+      "en": "That actor is really cool.",
+      "ru": "Этот актёр очень классный."
+    }
   },
   {
     "id": 693,
@@ -30,7 +46,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 693,
-    "romanization": "jjalda"
+    "romanization": "jjalda",
+    "english": "To be short",
+    "russian": "Быть коротким",
+    "example": {
+      "ko": "방학이 짧아요.",
+      "uz": "Ta'til qisqa.",
+      "en": "The vacation is short.",
+      "ru": "Каникулы короткие."
+    }
   },
   {
     "id": 694,
@@ -41,7 +65,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 694,
-    "romanization": "dalda"
+    "romanization": "dalda",
+    "english": "To be sweet",
+    "russian": "Быть сладким",
+    "example": {
+      "ko": "이 사과는 달아요.",
+      "uz": "Bu olma shirin.",
+      "en": "This apple is sweet.",
+      "ru": "Это яблоко сладкое."
+    }
   },
   {
     "id": 695,
@@ -52,7 +84,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 695,
-    "romanization": "pyeollihada"
+    "romanization": "pyeollihada",
+    "english": "To be convenient",
+    "russian": "Быть удобным",
+    "example": {
+      "ko": "지하철은 편리해요.",
+      "uz": "Metro qulay.",
+      "en": "The subway is convenient.",
+      "ru": "Метро удобное."
+    }
   },
   {
     "id": 696,
@@ -63,7 +103,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 696,
-    "romanization": "eotteota"
+    "romanization": "eotteota",
+    "english": "How (is it)",
+    "russian": "Какой / Каков",
+    "example": {
+      "ko": "한국 생활은 어때요?",
+      "uz": "Koreyadagi hayot qanday?",
+      "en": "How is life in Korea?",
+      "ru": "Как вам жизнь в Корее?"
+    }
   },
   {
     "id": 697,
@@ -74,7 +122,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 697,
-    "romanization": "yumyeonghada"
+    "romanization": "yumyeonghada",
+    "english": "To be famous",
+    "russian": "Быть знаменитым",
+    "example": {
+      "ko": "이 식당은 유명해요.",
+      "uz": "Bu restoran mashhur.",
+      "en": "This restaurant is famous.",
+      "ru": "Этот ресторан известный."
+    }
   },
   {
     "id": 698,
@@ -85,7 +141,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 698,
-    "romanization": "rummeiteu"
+    "romanization": "rummeiteu",
+    "english": "Roommate",
+    "russian": "Сосед по комнате",
+    "example": {
+      "ko": "룸메이트와 같이 살아요.",
+      "uz": "Xonadoshim bilan birga yashayman.",
+      "en": "I live with my roommate.",
+      "ru": "Я живу с соседом по комнате."
+    }
   },
   {
     "id": 699,
@@ -96,7 +160,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 699,
-    "romanization": "maeume deulda"
+    "romanization": "maeume deulda",
+    "english": "To like / To be pleased with",
+    "russian": "Нравиться",
+    "example": {
+      "ko": "이 옷이 마음에 들어요.",
+      "uz": "Bu kiyim menga yoqdi.",
+      "en": "I like these clothes.",
+      "ru": "Мне нравится эта одежда."
+    }
   },
   {
     "id": 700,
@@ -107,7 +179,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 700,
-    "romanization": "maeume an deulda"
+    "romanization": "maeume an deulda",
+    "english": "Not to like",
+    "russian": "Не нравиться",
+    "example": {
+      "ko": "색깔이 마음에 안 들어요.",
+      "uz": "Rangi menga yoqmadi.",
+      "en": "I don't like the color.",
+      "ru": "Мне не нравится цвет."
+    }
   },
   {
     "id": 701,
@@ -118,7 +198,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 701,
-    "romanization": "gang"
+    "romanization": "gang",
+    "english": "River",
+    "russian": "Река",
+    "example": {
+      "ko": "강에서 수영해요.",
+      "uz": "Daryoda suzaman.",
+      "en": "I swim in the river.",
+      "ru": "Я плаваю в реке."
+    }
   },
   {
     "id": 702,
@@ -129,7 +217,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 702,
-    "romanization": "pokpo"
+    "romanization": "pokpo",
+    "english": "Waterfall",
+    "russian": "Водопад",
+    "example": {
+      "ko": "폭포가 아주 높아요.",
+      "uz": "Sharshara juda baland.",
+      "en": "The waterfall is very high.",
+      "ru": "Водопад очень высокий."
+    }
   },
   {
     "id": 703,
@@ -140,7 +236,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 703,
-    "romanization": "seom"
+    "romanization": "seom",
+    "english": "Island",
+    "russian": "Остров",
+    "example": {
+      "ko": "제주도는 큰 섬이에요.",
+      "uz": "Jeju — katta orol.",
+      "en": "Jeju is a big island.",
+      "ru": "Чеджу — большой остров."
+    }
   },
   {
     "id": 704,
@@ -151,7 +255,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 704,
-    "romanization": "sup"
+    "romanization": "sup",
+    "english": "Forest",
+    "russian": "Лес",
+    "example": {
+      "ko": "숲에서 산책해요.",
+      "uz": "O'rmonda sayr qilaman.",
+      "en": "I walk in the forest.",
+      "ru": "Я гуляю в лесу."
+    }
   },
   {
     "id": 705,
@@ -162,7 +274,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 705,
-    "romanization": "daeyang"
+    "romanization": "daeyang",
+    "english": "Ocean",
+    "russian": "Океан",
+    "example": {
+      "ko": "태평양은 큰 대양이에요.",
+      "uz": "Tinch okeani — katta okean.",
+      "en": "The Pacific is a big ocean.",
+      "ru": "Тихий океан — большой океан."
+    }
   },
   {
     "id": 706,
@@ -173,7 +293,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 706,
-    "romanization": "namiseom"
+    "romanization": "namiseom",
+    "english": "Nami Island",
+    "russian": "Остров Нами",
+    "example": {
+      "ko": "남이섬에 가 봤어요?",
+      "uz": "Nami oroliga borganmisiz?",
+      "en": "Have you been to Nami Island?",
+      "ru": "Вы были на острове Нами?"
+    }
   },
   {
     "id": 707,
@@ -184,7 +312,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 707,
-    "romanization": "konseoteu"
+    "romanization": "konseoteu",
+    "english": "Concert",
+    "russian": "Концерт",
+    "example": {
+      "ko": "콘서트 표를 샀어요.",
+      "uz": "Konsert chiptasini oldim.",
+      "en": "I bought a concert ticket.",
+      "ru": "Я купил билет на концерт."
+    }
   },
   {
     "id": 708,
@@ -195,7 +331,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 708,
-    "romanization": "iljjik"
+    "romanization": "iljjik",
+    "english": "Early",
+    "russian": "Рано",
+    "example": {
+      "ko": "내일 일찍 오세요.",
+      "uz": "Ertaga erta keling.",
+      "en": "Please come early tomorrow.",
+      "ru": "Приходите завтра пораньше."
+    }
   },
   {
     "id": 709,
@@ -206,7 +350,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 709,
-    "romanization": "kkochi pida"
+    "romanization": "kkochi pida",
+    "english": "Flowers bloom",
+    "russian": "Цветы распускаются",
+    "example": {
+      "ko": "봄에 꽃이 피어요.",
+      "uz": "Bahorda gullar ochiladi.",
+      "en": "Flowers bloom in spring.",
+      "ru": "Весной распускаются цветы."
+    }
   },
   {
     "id": 710,
@@ -217,7 +369,15 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 710,
-    "romanization": "geuncheo"
+    "romanization": "geuncheo",
+    "english": "Nearby / Vicinity",
+    "russian": "Окрестности / Поблизости",
+    "example": {
+      "ko": "학교 근처에 카페가 많아요.",
+      "uz": "Maktab atrofida kafelar ko'p.",
+      "en": "There are many cafés near the school.",
+      "ru": "Рядом со школой много кафе."
+    }
   },
   {
     "id": 711,
@@ -228,6 +388,14 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 711,
-    "romanization": "moraenori"
+    "romanization": "moraenori",
+    "english": "Sand play",
+    "russian": "Игра в песке",
+    "example": {
+      "ko": "아이들이 모래놀이를 해요.",
+      "uz": "Bolalar qum o'yinini o'ynashyapti.",
+      "en": "The children are playing in the sand.",
+      "ru": "Дети играют в песке."
+    }
   }
 ]

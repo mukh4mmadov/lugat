@@ -1,40 +1,60 @@
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { lessonInfo } from "./data";
 import Layout from "./components/Layout";
 import IELTSRecommendationModal from "./components/IELTSRecommendationModal";
 import ProgressImportModal from "./components/ProgressImportModal";
-import HomePage from "./pages/HomePage";
-import { StudyHomePage, StudyModePage } from "./pages/StudyPage";
-import FlashcardsPage from "./pages/FlashcardsPage";
-import { ListeningPage, QuizPage, WritingPage } from "./pages/PracticePages";
-import {
-  DifficultPage,
-  FavoritesPage,
-  SearchPage,
-  SettingsPage,
-  StatsPage,
-} from "./pages/LibraryPages";
-import CoursesPage from "./pages/CoursesPage";
-import FutureUpdatesPage from "./pages/FutureUpdatesPage";
-import PremiumPage from "./pages/PremiumPage";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
-import AuthCallbackPage from "./pages/AuthCallbackPage";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
-import CompleteProfilePage from "./pages/CompleteProfilePage";
 import RequireProfileComplete from "./components/RequireProfileComplete";
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import TermsOfServicePage from "./pages/TermsOfServicePage";
-import NotFoundPage from "./pages/NotFoundPage";
-import FeedbackPage from "./pages/FeedbackPage";
-import AdminFeedbackPage from "./pages/AdminFeedbackPage";
-import AdminPage, { AdminContent, AdminOverview } from "./pages/AdminPage";
-import AdminUsersPage from "./pages/AdminUsersPage";
-import { TopikAttemptPage, TopikHomePage, TopikResultPage } from "./pages/TopikPages";
+import PageLoader from "./components/PageLoader";
+import PageTitle from "./components/PageTitle";
+
+// Each page is its own chunk, so the first visit only downloads what it shows.
+const page = (load, name = "default") => lazy(() => load().then((module) => ({ default: module[name] })));
+const study = () => import("./pages/StudyPage");
+const practice = () => import("./pages/PracticePages");
+const library = () => import("./pages/LibraryPages");
+const admin = () => import("./pages/AdminPage");
+const topik = () => import("./pages/TopikPages");
+
+const HomePage = page(() => import("./pages/HomePage"));
+const StudyHomePage = page(study, "StudyHomePage");
+const StudyModePage = page(study, "StudyModePage");
+const FlashcardsPage = page(() => import("./pages/FlashcardsPage"));
+const ListeningPage = page(practice, "ListeningPage");
+const QuizPage = page(practice, "QuizPage");
+const WritingPage = page(practice, "WritingPage");
+const DictationPage = page(practice, "DictationPage");
+const DifficultPage = page(library, "DifficultPage");
+const FavoritesPage = page(library, "FavoritesPage");
+const SearchPage = page(library, "SearchPage");
+const SettingsPage = page(library, "SettingsPage");
+const StatsPage = page(library, "StatsPage");
+const CoursesPage = page(() => import("./pages/CoursesPage"));
+const FutureUpdatesPage = page(() => import("./pages/FutureUpdatesPage"));
+const PremiumPage = page(() => import("./pages/PremiumPage"));
+const RegisterPage = page(() => import("./pages/RegisterPage"));
+const LoginPage = page(() => import("./pages/LoginPage"));
+const ForgotPasswordPage = page(() => import("./pages/ForgotPasswordPage"));
+const ResetPasswordPage = page(() => import("./pages/ResetPasswordPage"));
+const AuthCallbackPage = page(() => import("./pages/AuthCallbackPage"));
+const CompleteProfilePage = page(() => import("./pages/CompleteProfilePage"));
+const PrivacyPolicyPage = page(() => import("./pages/PrivacyPolicyPage"));
+const TermsOfServicePage = page(() => import("./pages/TermsOfServicePage"));
+const NotFoundPage = page(() => import("./pages/NotFoundPage"));
+const FeedbackPage = page(() => import("./pages/FeedbackPage"));
+const LeaderboardPage = page(() => import("./pages/LeaderboardPage"));
+const AdminFeedbackPage = page(() => import("./pages/AdminFeedbackPage"));
+const AdminPage = page(admin);
+const AdminContent = page(admin, "AdminContent");
+const AdminOverview = page(admin, "AdminOverview");
+const AdminUsersPage = page(() => import("./pages/AdminUsersPage"));
+const AdminWordsPage = page(() => import("./pages/AdminWordsPage"));
+const TopikAttemptPage = page(topik, "TopikAttemptPage");
+const TopikHomePage = page(topik, "TopikHomePage");
+const TopikResultPage = page(topik, "TopikResultPage");
+const TopikWordsPage = page(() => import("./pages/TopikWordsPage"));
 
 function LessonRouteGuard({ children }) {
   const { lessonId } = useParams();
@@ -54,11 +74,13 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <>
+      <PageTitle />
+      <Suspense fallback={<PageLoader fullScreen />}>
         <Routes>
           <Route element={<Layout onShowIELTSModal={handleShowIELTSModal} />}>
             <Route path="topik" element={<TopikHomePage />} />
             <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
+            <Route path="topik/words/:examId" element={<TopikWordsPage />} />
             <Route path="topik/:variantId" element={<TopikAttemptPage />} />
           </Route>
           <Route
@@ -116,6 +138,14 @@ export default function App() {
                 </LessonRouteGuard>
               }
             />
+            <Route
+              path="lesson/:lessonId/dictation"
+              element={
+                <LessonRouteGuard>
+                  <DictationPage />
+                </LessonRouteGuard>
+              }
+            />
             <Route path="review" element={<FlashcardsPage review />} />
             <Route path="weak-words" element={<FlashcardsPage weak />} />
             <Route path="search" element={<SearchPage />} />
@@ -126,11 +156,13 @@ export default function App() {
             <Route path="premium" element={<PremiumPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
+            <Route path="leaderboard" element={<LeaderboardPage />} />
             <Route path="feedback/:ticketId" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminOverview />} />
               <Route path="users" element={<AdminUsersPage />} />
               <Route path="feedback" element={<AdminFeedbackPage />} />
+              <Route path="words" element={<AdminWordsPage />} />
               <Route path="content" element={<AdminContent />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
@@ -165,7 +197,7 @@ export default function App() {
           onClose={() => setShowIELTSModal(false)}
         />
         <ProgressImportModal />
-      </>
+      </Suspense>
     </AuthProvider>
   );
 }

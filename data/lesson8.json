@@ -8,7 +8,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 232
+    "sourceNumber": 232,
+    "english": "Yesterday",
+    "russian": "Вчера",
+    "example": {
+      "ko": "어제 친구를 만났어요.",
+      "uz": "Kecha do'stim bilan uchrashdim.",
+      "en": "I met my friend yesterday.",
+      "ru": "Вчера я встретился с другом."
+    }
   },
   {
     "id": 233,
@@ -19,7 +27,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 233
+    "sourceNumber": 233,
+    "english": "Last week",
+    "russian": "На прошлой неделе",
+    "example": {
+      "ko": "지난 주에 부산에 갔어요.",
+      "uz": "O'tgan hafta Pusanga bordim.",
+      "en": "I went to Busan last week.",
+      "ru": "На прошлой неделе я ездил в Пусан."
+    }
   },
   {
     "id": 234,
@@ -30,7 +46,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 234
+    "sourceNumber": 234,
+    "english": "Last month",
+    "russian": "В прошлом месяце",
+    "example": {
+      "ko": "지난 달에 이사했어요.",
+      "uz": "O'tgan oy ko'chdim.",
+      "en": "I moved last month.",
+      "ru": "В прошлом месяце я переехал."
+    }
   },
   {
     "id": 235,
@@ -41,7 +65,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 235
+    "sourceNumber": 235,
+    "english": "Last year",
+    "russian": "В прошлом году",
+    "example": {
+      "ko": "작년에 한국에 왔어요.",
+      "uz": "O'tgan yili Koreyaga keldim.",
+      "en": "I came to Korea last year.",
+      "ru": "Я приехал в Корею в прошлом году."
+    }
   },
   {
     "id": 236,
@@ -52,7 +84,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 236
+    "sourceNumber": 236,
+    "english": "To invite",
+    "russian": "Приглашать",
+    "example": {
+      "ko": "친구를 생일 파티에 초대했어요.",
+      "uz": "Do'stimni tug'ilgan kun bazmiga taklif qildim.",
+      "en": "I invited my friend to my birthday party.",
+      "ru": "Я пригласил друга на день рождения."
+    }
   },
   {
     "id": 237,
@@ -63,7 +103,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 237
+    "sourceNumber": 237,
+    "english": "To prepare",
+    "russian": "Готовить(ся)",
+    "example": {
+      "ko": "시험을 준비해요.",
+      "uz": "Imtihonga tayyorlanyapman.",
+      "en": "I'm preparing for the exam.",
+      "ru": "Я готовлюсь к экзамену."
+    }
   },
   {
     "id": 238,
@@ -74,7 +122,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 238
+    "sourceNumber": 238,
+    "english": "Making",
+    "russian": "Изготовление",
+    "example": {
+      "ko": "쿠키 만들기는 재미있어요.",
+      "uz": "Pechenye tayyorlash qiziqarli.",
+      "en": "Making cookies is fun.",
+      "ru": "Печь печенье интересно."
+    }
   },
   {
     "id": 239,
@@ -85,7 +141,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 239
+    "sourceNumber": 239,
+    "english": "Party",
+    "russian": "Вечеринка",
+    "example": {
+      "ko": "어제 파티가 있었어요.",
+      "uz": "Kecha bazm bo'ldi.",
+      "en": "There was a party yesterday.",
+      "ru": "Вчера была вечеринка."
+    }
   },
   {
     "id": 240,
@@ -96,7 +160,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 240
+    "sourceNumber": 240,
+    "english": "So / Therefore",
+    "russian": "Поэтому",
+    "example": {
+      "ko": "비가 와요. 그래서 집에 있어요.",
+      "uz": "Yomg'ir yog'yapti. Shuning uchun uydaman.",
+      "en": "It's raining. So I'm at home.",
+      "ru": "Идёт дождь. Поэтому я дома."
+    }
   },
   {
     "id": 241,
@@ -107,7 +179,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 241
+    "sourceNumber": 241,
+    "english": "To be tired",
+    "russian": "Устать / Быть уставшим",
+    "example": {
+      "ko": "오늘 너무 피곤해요.",
+      "uz": "Bugun juda charchadim.",
+      "en": "I'm very tired today.",
+      "ru": "Сегодня я очень устал."
+    }
   },
   {
     "id": 242,
@@ -118,7 +198,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 242
+    "sourceNumber": 242,
+    "english": "To get married",
+    "russian": "Жениться / Выходить замуж",
+    "example": {
+      "ko": "언니가 작년에 결혼했어요.",
+      "uz": "Opam o'tgan yili turmushga chiqdi.",
+      "en": "My older sister got married last year.",
+      "ru": "Моя старшая сестра вышла замуж в прошлом году."
+    }
   },
   {
     "id": 243,
@@ -129,7 +217,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 243
+    "sourceNumber": 243,
+    "english": "To do laundry",
+    "russian": "Стирать бельё",
+    "example": {
+      "ko": "주말에 빨래해요.",
+      "uz": "Dam olish kunlari kir yuvaman.",
+      "en": "I do laundry on weekends.",
+      "ru": "По выходным я стираю."
+    }
   },
   {
     "id": 244,
@@ -140,7 +236,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 244
+    "sourceNumber": 244,
+    "english": "To cook",
+    "russian": "Готовить еду",
+    "example": {
+      "ko": "어머니가 요리해요.",
+      "uz": "Onam ovqat pishiradi.",
+      "en": "My mother cooks.",
+      "ru": "Мама готовит еду."
+    }
   },
   {
     "id": 245,
@@ -151,7 +255,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 245
+    "sourceNumber": 245,
+    "english": "To move (house)",
+    "russian": "Переезжать",
+    "example": {
+      "ko": "다음 주에 이사해요.",
+      "uz": "Kelgusi hafta ko'chaman.",
+      "en": "I'm moving next week.",
+      "ru": "На следующей неделе я переезжаю."
+    }
   },
   {
     "id": 246,
@@ -162,18 +274,34 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 246
+    "sourceNumber": 246,
+    "english": "To clean",
+    "russian": "Убирать(ся)",
+    "example": {
+      "ko": "토요일에 방을 청소해요.",
+      "uz": "Shanba kuni xonani tozalayman.",
+      "en": "I clean my room on Saturday.",
+      "ru": "В субботу я убираю комнату."
+    }
   },
   {
     "id": 247,
     "korean": "컴퓨터 게임을 하다",
-    "uzbek": "Kompyuter o'yini o'ynamoq (Aslida 게임)",
+    "uzbek": "Kompyuter o'yini o'ynamoq",
     "romanization": "keompyuteo geimeul hada",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 247
+    "sourceNumber": 247,
+    "english": "To play computer games",
+    "russian": "Играть в компьютерные игры",
+    "example": {
+      "ko": "저녁에 컴퓨터 게임을 해요.",
+      "uz": "Kechqurun kompyuter o'yini o'ynayman.",
+      "en": "I play computer games in the evening.",
+      "ru": "Вечером я играю в компьютерные игры."
+    }
   },
   {
     "id": 248,
@@ -184,7 +312,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 248
+    "sourceNumber": 248,
+    "english": "Apartment",
+    "russian": "Квартира / Многоэтажный дом",
+    "example": {
+      "ko": "저는 아파트에 살아요.",
+      "uz": "Men kvartirada yashayman.",
+      "en": "I live in an apartment.",
+      "ru": "Я живу в квартире."
+    }
   },
   {
     "id": 249,
@@ -195,7 +331,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 249
+    "sourceNumber": 249,
+    "english": "Food",
+    "russian": "Еда",
+    "example": {
+      "ko": "한국 음식이 맛있어요.",
+      "uz": "Koreys taomlari mazali.",
+      "en": "Korean food is delicious.",
+      "ru": "Корейская еда вкусная."
+    }
   },
   {
     "id": 250,
@@ -206,7 +350,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 250
+    "sourceNumber": 250,
+    "english": "To graduate from school",
+    "russian": "Окончить школу / учёбу",
+    "example": {
+      "ko": "작년에 학교를 졸업했어요.",
+      "uz": "O'tgan yili maktabni bitirdim.",
+      "en": "I graduated from school last year.",
+      "ru": "В прошлом году я окончил школу."
+    }
   },
   {
     "id": 251,
@@ -217,7 +369,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 251
+    "sourceNumber": 251,
+    "english": "Before / Ago",
+    "russian": "Раньше / До",
+    "example": {
+      "ko": "삼 년 전에 한국에 왔어요.",
+      "uz": "Uch yil oldin Koreyaga keldim.",
+      "en": "I came to Korea three years ago.",
+      "ru": "Я приехал в Корею три года назад."
+    }
   },
   {
     "id": 252,
@@ -228,7 +388,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 252
+    "sourceNumber": 252,
+    "english": "To get up / Wake up",
+    "russian": "Вставать / Просыпаться",
+    "example": {
+      "ko": "아침 일곱 시에 일어나요.",
+      "uz": "Ertalab soat yettida turaman.",
+      "en": "I get up at seven in the morning.",
+      "ru": "Я встаю в семь утра."
+    }
   },
   {
     "id": 253,
@@ -239,7 +407,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 253
+    "sourceNumber": 253,
+    "english": "To eat breakfast",
+    "russian": "Завтракать",
+    "example": {
+      "ko": "집에서 아침을 먹어요.",
+      "uz": "Uyda nonushta qilaman.",
+      "en": "I eat breakfast at home.",
+      "ru": "Я завтракаю дома."
+    }
   },
   {
     "id": 254,
@@ -250,7 +426,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 254
+    "sourceNumber": 254,
+    "english": "Television",
+    "russian": "Телевизор",
+    "example": {
+      "ko": "저녁에 텔레비전을 봐요.",
+      "uz": "Kechqurun televizor ko'raman.",
+      "en": "I watch TV in the evening.",
+      "ru": "Вечером я смотрю телевизор."
+    }
   },
   {
     "id": 255,
@@ -261,7 +445,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 255
+    "sourceNumber": 255,
+    "english": "Weekend",
+    "russian": "Выходные",
+    "example": {
+      "ko": "주말에 뭐 했어요?",
+      "uz": "Dam olish kunlari nima qildingiz?",
+      "en": "What did you do on the weekend?",
+      "ru": "Что вы делали в выходные?"
+    }
   },
   {
     "id": 256,
@@ -272,7 +464,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 256
+    "sourceNumber": 256,
+    "english": "Coffee shop",
+    "russian": "Кофейня",
+    "example": {
+      "ko": "커피숍에서 친구를 만나요.",
+      "uz": "Qahvaxonada do'stim bilan uchrashaman.",
+      "en": "I meet my friend at a coffee shop.",
+      "ru": "Я встречаюсь с другом в кофейне."
+    }
   },
   {
     "id": 257,
@@ -283,7 +483,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 257
+    "sourceNumber": 257,
+    "english": "Tea house",
+    "russian": "Чайная",
+    "example": {
+      "ko": "찻집에서 차를 마셔요.",
+      "uz": "Choyxonada choy ichaman.",
+      "en": "I drink tea at a tea house.",
+      "ru": "Я пью чай в чайной."
+    }
   },
   {
     "id": 258,
@@ -294,7 +502,15 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 258
+    "sourceNumber": 258,
+    "english": "Green tea",
+    "russian": "Зелёный чай",
+    "example": {
+      "ko": "녹차를 좋아해요.",
+      "uz": "Ko'k choyni yaxshi ko'raman.",
+      "en": "I like green tea.",
+      "ru": "Я люблю зелёный чай."
+    }
   },
   {
     "id": 259,
@@ -305,6 +521,14 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 259
+    "sourceNumber": 259,
+    "english": "Too / Very",
+    "russian": "Слишком / Очень",
+    "example": {
+      "ko": "너무 비싸요.",
+      "uz": "Juda qimmat.",
+      "en": "It's too expensive.",
+      "ru": "Слишком дорого."
+    }
   }
 ]

@@ -8,7 +8,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 186
+    "sourceNumber": 186,
+    "english": "One (native Korean)",
+    "russian": "Один (исконно корейское)",
+    "example": {
+      "ko": "사과 하나 주세요.",
+      "uz": "Bitta olma bering.",
+      "en": "One apple, please.",
+      "ru": "Одно яблоко, пожалуйста."
+    }
   },
   {
     "id": 187,
@@ -19,7 +27,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 187
+    "sourceNumber": 187,
+    "english": "Two",
+    "russian": "Два",
+    "example": {
+      "ko": "커피 둘 주세요.",
+      "uz": "Ikkita kofe bering.",
+      "en": "Two coffees, please.",
+      "ru": "Два кофе, пожалуйста."
+    }
   },
   {
     "id": 188,
@@ -30,7 +46,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 188
+    "sourceNumber": 188,
+    "english": "Three",
+    "russian": "Три",
+    "example": {
+      "ko": "아이가 셋 있어요.",
+      "uz": "Uchta farzandim bor.",
+      "en": "I have three children.",
+      "ru": "У меня трое детей."
+    }
   },
   {
     "id": 189,
@@ -41,7 +65,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 189
+    "sourceNumber": 189,
+    "english": "Four",
+    "russian": "Четыре",
+    "example": {
+      "ko": "의자가 넷 있어요.",
+      "uz": "To'rtta stul bor.",
+      "en": "There are four chairs.",
+      "ru": "Есть четыре стула."
+    }
   },
   {
     "id": 190,
@@ -52,7 +84,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 190
+    "sourceNumber": 190,
+    "english": "Five",
+    "russian": "Пять",
+    "example": {
+      "ko": "다섯 시에 만나요.",
+      "uz": "Soat beshda uchrashamiz.",
+      "en": "Let's meet at five o'clock.",
+      "ru": "Встретимся в пять часов."
+    }
   },
   {
     "id": 191,
@@ -63,7 +103,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 191
+    "sourceNumber": 191,
+    "english": "Six",
+    "russian": "Шесть",
+    "example": {
+      "ko": "여섯 시에 일어나요.",
+      "uz": "Soat oltida turaman.",
+      "en": "I get up at six o'clock.",
+      "ru": "Я встаю в шесть часов."
+    }
   },
   {
     "id": 192,
@@ -74,7 +122,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 192
+    "sourceNumber": 192,
+    "english": "Seven",
+    "russian": "Семь",
+    "example": {
+      "ko": "일곱 시에 아침을 먹어요.",
+      "uz": "Soat yettida nonushta qilaman.",
+      "en": "I eat breakfast at seven.",
+      "ru": "Я завтракаю в семь."
+    }
   },
   {
     "id": 193,
@@ -85,7 +141,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 193
+    "sourceNumber": 193,
+    "english": "Eight",
+    "russian": "Восемь",
+    "example": {
+      "ko": "여덟 시에 학교에 가요.",
+      "uz": "Soat sakkizda maktabga boraman.",
+      "en": "I go to school at eight.",
+      "ru": "В восемь я иду в школу."
+    }
   },
   {
     "id": 194,
@@ -96,7 +160,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 194
+    "sourceNumber": 194,
+    "english": "Nine",
+    "russian": "Девять",
+    "example": {
+      "ko": "아홉 시에 수업이 시작해요.",
+      "uz": "Dars soat to'qqizda boshlanadi.",
+      "en": "Class starts at nine.",
+      "ru": "Занятия начинаются в девять."
+    }
   },
   {
     "id": 195,
@@ -107,7 +179,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 195
+    "sourceNumber": 195,
+    "english": "Ten",
+    "russian": "Десять",
+    "example": {
+      "ko": "열 시에 자요.",
+      "uz": "Soat o'nda uxlayman.",
+      "en": "I sleep at ten.",
+      "ru": "Я ложусь спать в десять."
+    }
   },
   {
     "id": 196,
@@ -118,7 +198,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 196
+    "sourceNumber": 196,
+    "english": "Twenty",
+    "russian": "Двадцать",
+    "example": {
+      "ko": "저는 스물 살이에요.",
+      "uz": "Men yigirma yoshdaman.",
+      "en": "I am twenty years old.",
+      "ru": "Мне двадцать лет."
+    }
   },
   {
     "id": 197,
@@ -129,7 +217,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 197
+    "sourceNumber": 197,
+    "english": "Thirty",
+    "russian": "Тридцать",
+    "example": {
+      "ko": "언니는 서른 살이에요.",
+      "uz": "Opam o'ttiz yoshda.",
+      "en": "My older sister is thirty.",
+      "ru": "Моей старшей сестре тридцать лет."
+    }
   },
   {
     "id": 198,
@@ -140,7 +236,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 198
+    "sourceNumber": 198,
+    "english": "Forty",
+    "russian": "Сорок",
+    "example": {
+      "ko": "아버지는 마흔 살이에요.",
+      "uz": "Otam qirq yoshda.",
+      "en": "My father is forty.",
+      "ru": "Моему отцу сорок лет."
+    }
   },
   {
     "id": 199,
@@ -151,7 +255,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 199
+    "sourceNumber": 199,
+    "english": "Fifty",
+    "russian": "Пятьдесят",
+    "example": {
+      "ko": "선생님은 쉰 살이에요.",
+      "uz": "O'qituvchi ellik yoshda.",
+      "en": "The teacher is fifty.",
+      "ru": "Учителю пятьдесят лет."
+    }
   },
   {
     "id": 200,
@@ -162,7 +274,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 200
+    "sourceNumber": 200,
+    "english": "Sixty",
+    "russian": "Шестьдесят",
+    "example": {
+      "ko": "할머니는 예순 살이에요.",
+      "uz": "Buvim oltmish yoshda.",
+      "en": "My grandmother is sixty.",
+      "ru": "Моей бабушке шестьдесят лет."
+    }
   },
   {
     "id": 201,
@@ -173,7 +293,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 201
+    "sourceNumber": 201,
+    "english": "Seventy",
+    "russian": "Семьдесят",
+    "example": {
+      "ko": "할아버지는 일흔 살이에요.",
+      "uz": "Bobom yetmish yoshda.",
+      "en": "My grandfather is seventy.",
+      "ru": "Моему дедушке семьдесят лет."
+    }
   },
   {
     "id": 202,
@@ -184,7 +312,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 202
+    "sourceNumber": 202,
+    "english": "Eighty",
+    "russian": "Восемьдесят",
+    "example": {
+      "ko": "증조할머니는 여든 살이에요.",
+      "uz": "Katta buvim sakson yoshda.",
+      "en": "My great-grandmother is eighty.",
+      "ru": "Моей прабабушке восемьдесят лет."
+    }
   },
   {
     "id": 203,
@@ -195,7 +331,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 203
+    "sourceNumber": 203,
+    "english": "Ninety",
+    "russian": "Девяносто",
+    "example": {
+      "ko": "할아버지는 아흔 살이에요.",
+      "uz": "Bobom to'qson yoshda.",
+      "en": "My grandfather is ninety.",
+      "ru": "Моему дедушке девяносто лет."
+    }
   },
   {
     "id": 204,
@@ -206,7 +350,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 204
+    "sourceNumber": 204,
+    "english": "Family",
+    "russian": "Семья",
+    "example": {
+      "ko": "우리 가족은 다섯 명이에요.",
+      "uz": "Oilamiz besh kishidan iborat.",
+      "en": "There are five people in my family.",
+      "ru": "В нашей семье пять человек."
+    }
   },
   {
     "id": 205,
@@ -217,7 +369,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 205
+    "sourceNumber": 205,
+    "english": "Person (counter for people)",
+    "russian": "Человек (счётное слово для людей)",
+    "example": {
+      "ko": "학생이 열 명 있어요.",
+      "uz": "O'nta o'quvchi bor.",
+      "en": "There are ten students.",
+      "ru": "Есть десять учеников."
+    }
   },
   {
     "id": 206,
@@ -228,7 +388,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 206
+    "sourceNumber": 206,
+    "english": "Piece (counter for things)",
+    "russian": "Штука (счётное слово для предметов)",
+    "example": {
+      "ko": "사과 두 개 주세요.",
+      "uz": "Ikkita olma bering.",
+      "en": "Two apples, please.",
+      "ru": "Два яблока, пожалуйста."
+    }
   },
   {
     "id": 207,
@@ -239,7 +407,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 207
+    "sourceNumber": 207,
+    "english": "Bottle (counter)",
+    "russian": "Бутылка (счётное слово)",
+    "example": {
+      "ko": "물 한 병 주세요.",
+      "uz": "Bir shisha suv bering.",
+      "en": "A bottle of water, please.",
+      "ru": "Бутылку воды, пожалуйста."
+    }
   },
   {
     "id": 208,
@@ -250,7 +426,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 208
+    "sourceNumber": 208,
+    "english": "Bowl (counter)",
+    "russian": "Миска / Тарелка (счётное слово)",
+    "example": {
+      "ko": "밥 한 그릇 주세요.",
+      "uz": "Bir kosa guruch bering.",
+      "en": "A bowl of rice, please.",
+      "ru": "Миску риса, пожалуйста."
+    }
   },
   {
     "id": 209,
@@ -261,7 +445,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 209
+    "sourceNumber": 209,
+    "english": "Cup / Glass (counter)",
+    "russian": "Чашка / Стакан (счётное слово)",
+    "example": {
+      "ko": "커피 한 잔 주세요.",
+      "uz": "Bir finjon kofe bering.",
+      "en": "A cup of coffee, please.",
+      "ru": "Чашку кофе, пожалуйста."
+    }
   },
   {
     "id": 210,
@@ -272,7 +464,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 210
+    "sourceNumber": 210,
+    "english": "Person (polite counter)",
+    "russian": "Человек (вежливое счётное слово)",
+    "example": {
+      "ko": "손님 세 분이 오셨어요.",
+      "uz": "Uch kishi mehmon keldi.",
+      "en": "Three guests have arrived.",
+      "ru": "Пришли три гостя."
+    }
   },
   {
     "id": 211,
@@ -283,7 +483,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 211
+    "sourceNumber": 211,
+    "english": "Years old (age counter)",
+    "russian": "Лет (счётное слово для возраста)",
+    "example": {
+      "ko": "동생은 열 살이에요.",
+      "uz": "Ukam o'n yoshda.",
+      "en": "My younger sibling is ten years old.",
+      "ru": "Моему младшему брату десять лет."
+    }
   },
   {
     "id": 212,
@@ -294,7 +502,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 212
+    "sourceNumber": 212,
+    "english": "Volume / Copy (counter for books)",
+    "russian": "Том / Экземпляр (счётное слово для книг)",
+    "example": {
+      "ko": "책 두 권을 샀어요.",
+      "uz": "Ikkita kitob sotib oldim.",
+      "en": "I bought two books.",
+      "ru": "Я купил две книги."
+    }
   },
   {
     "id": 213,
@@ -305,7 +521,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 213
+    "sourceNumber": 213,
+    "english": "Animal (counter for animals)",
+    "russian": "Голова / Штука (счётное слово для животных)",
+    "example": {
+      "ko": "고양이 한 마리가 있어요.",
+      "uz": "Bitta mushugim bor.",
+      "en": "I have one cat.",
+      "ru": "У меня одна кошка."
+    }
   },
   {
     "id": 214,
@@ -316,7 +540,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 214
+    "sourceNumber": 214,
+    "english": "Cat",
+    "russian": "Кошка",
+    "example": {
+      "ko": "고양이가 귀여워요.",
+      "uz": "Mushuk shirintoy.",
+      "en": "The cat is cute.",
+      "ru": "Кошка милая."
+    }
   },
   {
     "id": 215,
@@ -327,7 +559,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 215
+    "sourceNumber": 215,
+    "english": "Puppy",
+    "russian": "Щенок",
+    "example": {
+      "ko": "강아지를 좋아해요.",
+      "uz": "Kuchukchalarni yaxshi ko'raman.",
+      "en": "I like puppies.",
+      "ru": "Я люблю щенков."
+    }
   },
   {
     "id": 216,
@@ -338,7 +578,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 216
+    "sourceNumber": 216,
+    "english": "Please give me",
+    "russian": "Дайте, пожалуйста",
+    "example": {
+      "ko": "물 좀 주세요.",
+      "uz": "Iltimos, suv bering.",
+      "en": "Some water, please.",
+      "ru": "Дайте, пожалуйста, воды."
+    }
   },
   {
     "id": 217,
@@ -349,7 +597,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 217
+    "sourceNumber": 217,
+    "english": "This week",
+    "russian": "На этой неделе",
+    "example": {
+      "ko": "이번주에 시험이 있어요.",
+      "uz": "Shu hafta imtihon bor.",
+      "en": "There is an exam this week.",
+      "ru": "На этой неделе экзамен."
+    }
   },
   {
     "id": 218,
@@ -360,7 +616,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 218
+    "sourceNumber": 218,
+    "english": "Next week",
+    "russian": "На следующей неделе",
+    "example": {
+      "ko": "다음주에 여행을 가요.",
+      "uz": "Kelgusi hafta sayohatga boraman.",
+      "en": "I'm going on a trip next week.",
+      "ru": "На следующей неделе я еду в путешествие."
+    }
   },
   {
     "id": 219,
@@ -371,7 +635,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 219
+    "sourceNumber": 219,
+    "english": "Month",
+    "russian": "Месяц",
+    "example": {
+      "ko": "한 달 동안 한국에 있어요.",
+      "uz": "Bir oy Koreyada bo'laman.",
+      "en": "I'll be in Korea for a month.",
+      "ru": "Я пробуду в Корее месяц."
+    }
   },
   {
     "id": 220,
@@ -382,7 +654,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 220
+    "sourceNumber": 220,
+    "english": "This year",
+    "russian": "В этом году",
+    "example": {
+      "ko": "올해 대학교에 들어가요.",
+      "uz": "Bu yil universitetga kiraman.",
+      "en": "I'm entering university this year.",
+      "ru": "В этом году я поступаю в университет."
+    }
   },
   {
     "id": 221,
@@ -393,7 +673,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 221
+    "sourceNumber": 221,
+    "english": "Next year",
+    "russian": "В следующем году",
+    "example": {
+      "ko": "내년에 한국에 가요.",
+      "uz": "Kelgusi yil Koreyaga boraman.",
+      "en": "I'm going to Korea next year.",
+      "ru": "В следующем году я поеду в Корею."
+    }
   },
   {
     "id": 222,
@@ -404,7 +692,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 222
+    "sourceNumber": 222,
+    "english": "This month",
+    "russian": "В этом месяце",
+    "example": {
+      "ko": "이번달은 바빠요.",
+      "uz": "Shu oy bandman.",
+      "en": "I'm busy this month.",
+      "ru": "В этом месяце я занят."
+    }
   },
   {
     "id": 223,
@@ -415,7 +711,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 223
+    "sourceNumber": 223,
+    "english": "Next month",
+    "russian": "В следующем месяце",
+    "example": {
+      "ko": "다음달에 이사해요.",
+      "uz": "Kelgusi oy ko'chaman.",
+      "en": "I'm moving next month.",
+      "ru": "В следующем месяце я переезжаю."
+    }
   },
   {
     "id": 224,
@@ -426,7 +730,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 224
+    "sourceNumber": 224,
+    "english": "When",
+    "russian": "Когда",
+    "example": {
+      "ko": "언제 한국에 와요?",
+      "uz": "Koreyaga qachon kelasiz?",
+      "en": "When are you coming to Korea?",
+      "ru": "Когда вы приедете в Корею?"
+    }
   },
   {
     "id": 225,
@@ -437,7 +749,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 225
+    "sourceNumber": 225,
+    "english": "Bakery",
+    "russian": "Пекарня",
+    "example": {
+      "ko": "빵집에서 빵을 사요.",
+      "uz": "Nonvoyxonadan non sotib olaman.",
+      "en": "I buy bread at the bakery.",
+      "ru": "Я покупаю хлеб в пекарне."
+    }
   },
   {
     "id": 226,
@@ -448,7 +768,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 226
+    "sourceNumber": 226,
+    "english": "Seoul Tower",
+    "russian": "Сеульская башня",
+    "example": {
+      "ko": "서울타워에 가고 싶어요.",
+      "uz": "Seul minorasiga borgim keladi.",
+      "en": "I want to go to Seoul Tower.",
+      "ru": "Я хочу пойти на Сеульскую башню."
+    }
   },
   {
     "id": 227,
@@ -459,7 +787,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 227
+    "sourceNumber": 227,
+    "english": "Soccer field",
+    "russian": "Футбольное поле",
+    "example": {
+      "ko": "축구장에서 축구를 해요.",
+      "uz": "Futbol maydonida futbol o'ynayman.",
+      "en": "I play soccer on the soccer field.",
+      "ru": "Я играю в футбол на футбольном поле."
+    }
   },
   {
     "id": 228,
@@ -470,7 +806,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 228
+    "sourceNumber": 228,
+    "english": "Baseball stadium",
+    "russian": "Бейсбольный стадион",
+    "example": {
+      "ko": "야구장에 사람이 많아요.",
+      "uz": "Beysbol maydonida odam ko'p.",
+      "en": "There are many people at the baseball stadium.",
+      "ru": "На бейсбольном стадионе много людей."
+    }
   },
   {
     "id": 229,
@@ -481,7 +825,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 229
+    "sourceNumber": 229,
+    "english": "Convenience store",
+    "russian": "Круглосуточный магазин",
+    "example": {
+      "ko": "편의점에서 물을 사요.",
+      "uz": "Mini-marketdan suv sotib olaman.",
+      "en": "I buy water at the convenience store.",
+      "ru": "Я покупаю воду в круглосуточном магазине."
+    }
   },
   {
     "id": 230,
@@ -492,7 +844,15 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 230
+    "sourceNumber": 230,
+    "english": "To play soccer",
+    "russian": "Играть в футбол",
+    "example": {
+      "ko": "친구들과 축구를 해요.",
+      "uz": "Do'stlarim bilan futbol o'ynayman.",
+      "en": "I play soccer with my friends.",
+      "ru": "Я играю в футбол с друзьями."
+    }
   },
   {
     "id": 231,
@@ -503,6 +863,14 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 231
+    "sourceNumber": 231,
+    "english": "To play baseball",
+    "russian": "Играть в бейсбол",
+    "example": {
+      "ko": "주말에 야구를 해요.",
+      "uz": "Dam olish kunlari beysbol o'ynayman.",
+      "en": "I play baseball on weekends.",
+      "ru": "По выходным я играю в бейсбол."
+    }
   }
 ]
