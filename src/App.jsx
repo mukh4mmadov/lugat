@@ -126,6 +126,7 @@ export default function App() {
             <Route path="premium" element={<PremiumPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
+            <Route path="feedback/:ticketId" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminOverview />} />
               <Route path="users" element={<AdminUsersPage />} />

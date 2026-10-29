@@ -35,7 +35,10 @@ insert into public.feedback_admins (user_id)
 select id from auth.users where email = 'you@example.com';
 ```
 
-Further admins can be added from the dashboard's Users tab. Premium access is
+Further admins can be added from the dashboard's Users tab. Run the SQL files in
+`supabase/migrations` in order; `202610290001_feedback_conversations.sql` turns
+feedback into conversations (replies, internal notes, saved replies, ratings,
+unread badges) and must be applied before deploying the new feedback pages. Premium access is
 stored as `premium_until` in each user's `app_metadata`, which only the server
 can change.
 
