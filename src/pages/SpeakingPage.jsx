@@ -288,7 +288,8 @@ export default function SpeakingPage() {
             onClick={() => selectTab(key)}
             className={`rounded-xl px-2 py-2.5 text-xs font-black transition sm:text-sm ${tab === key ? "bg-orange-500 text-white shadow" : "text-slate-600 dark:text-slate-300"}`}
           >
-            <span aria-hidden="true">{TAB_ICONS[key]}</span> {t(`speaking.tab.${key}`)}
+            <span aria-hidden="true" className="hidden sm:inline">{TAB_ICONS[key]} </span>
+            {t(`speaking.tab.${key}`)}
           </button>
         ))}
       </div>
