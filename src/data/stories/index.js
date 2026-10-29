@@ -1,8 +1,9 @@
 import lessons01to07 from "./lessons01-07.js";
+import lessons08to14 from "./lessons08-14.js";
 
 // Two short stories per lesson, written with that lesson's words and the
 // grammar learned so far. The first of each lesson is free.
-export const STORIES = [...lessons01to07];
+export const STORIES = [...lessons01to07, ...lessons08to14];
 
 export const getStory = (id) => STORIES.find((story) => story.id === id) || null;
 export const storiesForLesson = (lesson) => STORIES.filter((story) => story.lesson === Number(lesson));
