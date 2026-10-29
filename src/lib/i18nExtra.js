@@ -637,6 +637,24 @@ const en = {
   // Phone tab bar
   "nav.menu": "Menu",
   "nav.mainNavigation": "Main navigation",
+  // Home: today card
+  "today.title": "Today",
+  "today.goal": "Daily goal",
+  "today.answers_one": "{{count}} answer",
+  "today.answers_other": "{{count}} answers",
+  "today.goalReached": "Daily goal reached!",
+  "today.left_one": "{{count}} more answer to reach your goal",
+  "today.left_other": "{{count}} more answers to reach your goal",
+  "today.streakRisk_one": "Practise today to keep your {{count}}-day streak",
+  "today.streakRisk_other": "Practise today to keep your {{count}}-day streak",
+  "today.streak_one": "{{count}}-day streak",
+  "today.streak_other": "{{count}}-day streak",
+  "today.startStreak": "Answer one question to start a streak",
+  "today.week": "Last 7 days",
+  "today.continue": "Continue",
+  "today.start": "Start",
+  "today.review_one": "Review {{count}} word",
+  "today.review_other": "Review {{count}} words",
 };
 
 const uz = {
@@ -1278,6 +1296,24 @@ const uz = {
   // Phone tab bar
   "nav.menu": "Menyu",
   "nav.mainNavigation": "Asosiy menyu",
+  // Home: today card
+  "today.title": "Bugun",
+  "today.goal": "Kunlik maqsad",
+  "today.answers_one": "{{count}} ta javob",
+  "today.answers_other": "{{count}} ta javob",
+  "today.goalReached": "Kunlik maqsad bajarildi!",
+  "today.left_one": "Maqsadgacha yana {{count}} ta javob",
+  "today.left_other": "Maqsadgacha yana {{count}} ta javob",
+  "today.streakRisk_one": "{{count}} kunlik ketma-ketlikni saqlash uchun bugun mashq qiling",
+  "today.streakRisk_other": "{{count}} kunlik ketma-ketlikni saqlash uchun bugun mashq qiling",
+  "today.streak_one": "{{count}} kunlik ketma-ketlik",
+  "today.streak_other": "{{count}} kunlik ketma-ketlik",
+  "today.startStreak": "Ketma-ketlikni boshlash uchun bitta savolga javob bering",
+  "today.week": "Oxirgi 7 kun",
+  "today.continue": "Davom etish",
+  "today.start": "Boshlash",
+  "today.review_one": "{{count}} ta so'zni takrorlash",
+  "today.review_other": "{{count}} ta so'zni takrorlash",
 };
 
 const ru = {
@@ -2009,6 +2045,34 @@ const ru = {
   // Phone tab bar
   "nav.menu": "Меню",
   "nav.mainNavigation": "Основное меню",
+  // Home: today card
+  "today.title": "Сегодня",
+  "today.goal": "Цель на день",
+  "today.answers_one": "{{count}} ответ",
+  "today.answers_few": "{{count}} ответа",
+  "today.answers_many": "{{count}} ответов",
+  "today.answers_other": "{{count}} ответа",
+  "today.goalReached": "Цель на день выполнена!",
+  "today.left_one": "До цели остался {{count}} ответ",
+  "today.left_few": "До цели осталось {{count}} ответа",
+  "today.left_many": "До цели осталось {{count}} ответов",
+  "today.left_other": "До цели осталось {{count}} ответа",
+  "today.streakRisk_one": "Позанимайтесь сегодня, чтобы сохранить серию в {{count}} день",
+  "today.streakRisk_few": "Позанимайтесь сегодня, чтобы сохранить серию в {{count}} дня",
+  "today.streakRisk_many": "Позанимайтесь сегодня, чтобы сохранить серию в {{count}} дней",
+  "today.streakRisk_other": "Позанимайтесь сегодня, чтобы сохранить серию в {{count}} дня",
+  "today.streak_one": "Серия: {{count}} день",
+  "today.streak_few": "Серия: {{count}} дня",
+  "today.streak_many": "Серия: {{count}} дней",
+  "today.streak_other": "Серия: {{count}} дня",
+  "today.startStreak": "Ответьте на один вопрос, чтобы начать серию",
+  "today.week": "Последние 7 дней",
+  "today.continue": "Продолжить",
+  "today.start": "Начать",
+  "today.review_one": "Повторить {{count}} слово",
+  "today.review_few": "Повторить {{count}} слова",
+  "today.review_many": "Повторить {{count}} слов",
+  "today.review_other": "Повторить {{count}} слова",
 };
 
 export default { en, uz, ru };

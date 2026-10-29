@@ -12,7 +12,7 @@ import { Suspense, useEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
 import BottomNav from "./BottomNav";
-import { setTheme } from "../store";
+import { setLastPlace, setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
 import { TopikExamProvider } from "../context/TopikExamContext";
@@ -87,6 +87,15 @@ export default function Layout({ onShowIELTSModal }) {
       window.removeEventListener("focus", refresh);
     };
   }, [user, isAdmin]);
+
+  // Remember the last lesson, study session or TOPIK paper for "Continue".
+  const lastPlace = useSelector((state) => state.progress.lastPlace);
+  useEffect(() => {
+    const path = location.pathname;
+    if (!/^\/(study\/\d+|lesson\/\d+\/\w+|topik\/(?!result)[^/]+)$/.test(path)) return;
+    if (lastPlace?.path === path) return;
+    dispatch(setLastPlace({ path, at: Date.now() }));
+  }, [location.pathname, lastPlace?.path, dispatch]);
 
   // Remember where the learner was so a feedback report can say so.
   useEffect(() => {

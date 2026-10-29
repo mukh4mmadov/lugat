@@ -40,11 +40,26 @@ const defaultState = {
   settings: {
     speechRate: 0.82,
     autoSpeak: true,
+    dailyGoal: 20,
   },
+  lastPlace: null,
   shareMilestones: {},
 };
 
+const DAILY_HISTORY_DAYS = 60;
+export const DAILY_GOALS = [10, 20, 40, 60];
+
+// Counts one answer towards today's goal and keeps the last 60 days.
+function countAnswer(stats) {
+  const today = dailyKey();
+  const daily = { ...(stats.daily || {}) };
+  daily[today] = (daily[today] || 0) + 1;
+  const keep = Object.keys(daily).sort().slice(-DAILY_HISTORY_DAYS);
+  stats.daily = Object.fromEntries(keep.map((day) => [day, daily[day]]));
+}
+
 function updateStreak(stats) {
+  countAnswer(stats);
   const today = dailyKey();
   if (stats.lastStudyDate === today) return;
   const yesterday = new Date();
@@ -156,6 +171,13 @@ const progressSlice = createSlice({
     },
     setSpeechRate(state, action) {
       state.settings.speechRate = Math.min(1.5, Math.max(0.5, action.payload));
+    },
+    setDailyGoal(state, action) {
+      state.settings.dailyGoal = action.payload;
+    },
+    // Where the learner was, for "Continue where you left off".
+    setLastPlace(state, action) {
+      state.lastPlace = action.payload;
     },
     setAutoSpeak(state, action) {
       state.settings.autoSpeak = action.payload;
@@ -282,6 +304,8 @@ export const {
   hydrateProgress,
   setSpeechRate,
   setAutoSpeak,
+  setDailyGoal,
+  setLastPlace,
 } = progressSlice.actions;
 
 export const store = configureStore({
