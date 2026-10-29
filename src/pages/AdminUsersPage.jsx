@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
 import { lookupWord, Panel, ServerNotice, StatTile, useAdminContext } from "./AdminPage";
+import { ticketTitle } from "../lib/feedback";
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE_SIZE = 25;
@@ -236,9 +237,14 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
                   {detail.tickets.map((ticket) => (
                     <Link key={ticket.id} to={`/admin/feedback?ticket=${ticket.id}`} className="mb-2 block rounded-xl border border-slate-100 p-2.5 text-sm hover:border-sky-300 dark:border-white/5">
                       <span className="text-xs font-bold text-slate-500">{t(`feedback.category.${ticket.category}`)} · {t(`feedback.status.${ticket.status}`)} · {formatDate(ticket.created_at, i18n.language)}</span>
-                      <span className="mt-1 line-clamp-2 block">{ticket.message}</span>
+                      <span className="mt-1 line-clamp-2 block">{ticketTitle(ticket)}</span>
                     </Link>
                   ))}
+                  {detail.tickets.length > 0 && (
+                    <Link to={`/admin/feedback?reporter=${detail.id}`} className="text-xs font-bold text-sky-600 dark:text-sky-300">
+                      {t("admin.feedback.allFromUser")} →
+                    </Link>
+                  )}
                   {detail.aiSessions.length > 0 && (
                     <p className="mt-2 text-xs font-bold text-slate-500">
                       {t("admin.user.aiSessions", { count: detail.aiSessions.length })} · {timeAgo(detail.aiSessions[0].updated_at, i18n.language)}

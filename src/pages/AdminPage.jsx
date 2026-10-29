@@ -236,7 +236,7 @@ export function AdminOverview() {
     // Ticket counts come straight from Supabase so they work without the admin API.
     supabase
       .from("feedback_tickets")
-      .select("status")
+      .select("status, last_message_by")
       .then(({ data: rows }) => setTickets(rows || []));
     try {
       setData(await adminRequest({ action: "overview" }));
@@ -251,8 +251,8 @@ export function AdminOverview() {
     load();
   }, [load]);
 
-  const openTickets = tickets?.filter((ticket) => ticket.status === "open").length;
-  const activeTickets = tickets?.filter((ticket) => ticket.status === "in_progress").length;
+  const needsReplyTickets = tickets?.filter((ticket) => ["open", "in_progress"].includes(ticket.status) && ticket.last_message_by !== "admin").length;
+  const activeTickets = tickets?.filter((ticket) => ["open", "in_progress"].includes(ticket.status)).length;
   const lessonMax = Math.max(1, ...(data?.learning.lessons || []).map((lesson) => lesson.learners));
 
   return (
@@ -272,7 +272,9 @@ export function AdminOverview() {
         <StatTile label={t("admin.kpi.users")} value={data?.users.total} hint={data && t("admin.kpi.newWeek", { count: data.users.new7 })} />
         <StatTile tone="emerald" label={t("admin.kpi.active7")} value={data?.learning.active7} hint={data && t("admin.kpi.activeToday", { count: data.learning.active1 })} />
         <StatTile tone="violet" label={t("admin.kpi.ai7")} value={data?.ai.messagesWeek} hint={data && t("admin.kpi.aiToday", { count: data.ai.messagesDay ?? 0 })} />
-        <StatTile tone="amber" label={t("admin.kpi.openTickets")} value={openTickets} hint={tickets && t("admin.kpi.inProgress", { count: activeTickets })} />
+        <Link to="/admin/feedback" className="block">
+          <StatTile tone="amber" label={t("admin.kpi.needsReply")} value={needsReplyTickets} hint={tickets && t("admin.kpi.activeTickets", { count: activeTickets })} />
+        </Link>
         <StatTile tone="violet" label={t("admin.kpi.premium")} value={data?.users.premium} hint={data && t("admin.kpi.admins", { count: data.users.admins })} />
         <StatTile tone="emerald" label={t("admin.kpi.known")} value={data?.learning.totalKnown} hint={data && t("admin.kpi.minutes", { count: data.learning.totalMinutes })} />
       </section>

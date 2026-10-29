@@ -19,6 +19,7 @@ import InstallAppButton from "./InstallAppButton";
 import { useStudyTimer } from "../hooks/useStudyTimer";
 import { formatDate } from "../lib/dates";
 import { premiumUntil } from "../lib/premium";
+import { LAST_ROUTE_KEY, UNREAD_EVENT } from "../lib/feedback";
 
 const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
 
@@ -58,6 +59,41 @@ export default function Layout({ onShowIELTSModal }) {
       cancelled = true;
     };
   }, [user]);
+
+  // Unread feedback: replies for the learner, new messages for admins.
+  const [unread, setUnread] = useState({ user: 0, admin: 0 });
+
+  useEffect(() => {
+    let cancelled = false;
+    setUnread({ user: 0, admin: 0 });
+    if (!user) return undefined;
+    const count = (query) => query.then(({ count: total }) => total || 0, () => 0);
+    const refresh = async () => {
+      const [mine, team] = await Promise.all([
+        count(supabase.from("feedback_tickets").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("user_unread", true)),
+        isAdmin ? count(supabase.from("feedback_tickets").select("id", { count: "exact", head: true }).eq("admin_unread", true)) : 0,
+      ]);
+      if (!cancelled) setUnread({ user: mine, admin: team });
+    };
+    refresh();
+    window.addEventListener(UNREAD_EVENT, refresh);
+    window.addEventListener("focus", refresh);
+    return () => {
+      cancelled = true;
+      window.removeEventListener(UNREAD_EVENT, refresh);
+      window.removeEventListener("focus", refresh);
+    };
+  }, [user, isAdmin]);
+
+  // Remember where the learner was so a feedback report can say so.
+  useEffect(() => {
+    if (/^\/(feedback|admin|login|register|auth)/.test(location.pathname)) return;
+    try {
+      window.sessionStorage.setItem(LAST_ROUTE_KEY, location.pathname);
+    } catch {
+      // Reports fall back to "/" without storage.
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const updateOnlineStatus = () => setIsOnline(navigator.onLine);
@@ -105,9 +141,17 @@ export default function Layout({ onShowIELTSModal }) {
     ["/stats", t("nav.stats")],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
-    ["/feedback", t("nav.feedback")],
-    ...(isAdmin ? [["/admin", t("admin.title")]] : []),
+    ["/feedback", t("nav.feedback"), unread.user],
+    ...(isAdmin ? [["/admin", t("admin.title"), unread.admin]] : []),
   ];
+
+  const unreadTotal = unread.user + unread.admin;
+  const badge = (count) =>
+    count > 0 ? (
+      <span className="ml-2 inline-grid min-w-5 place-items-center rounded-full bg-rose-500 px-1.5 text-[11px] font-black leading-5 text-white">
+        {count > 99 ? "99+" : count}
+      </span>
+    ) : null;
 
   const prefersReducedMotion =
     typeof window !== "undefined"
@@ -236,6 +280,7 @@ export default function Layout({ onShowIELTSModal }) {
                   className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/60 px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:bg-white transition lg:px-3 lg:py-2 dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
                 >
                   <span>{t("nav.more")}</span>
+                  {unreadTotal > 0 && <span aria-hidden="true" className="h-2 w-2 rounded-full bg-rose-500" />}
                   <motion.span
                     animate={{ rotate: moreMenuOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
@@ -255,7 +300,7 @@ export default function Layout({ onShowIELTSModal }) {
                       className="absolute left-0 top-full mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
                     >
                       <div className="p-2 space-y-1">
-                        {secondaryNavItems.map(([to, label]) => (
+                        {secondaryNavItems.map(([to, label, count]) => (
                           <NavLink
                             key={to}
                             to={to}
@@ -269,6 +314,7 @@ export default function Layout({ onShowIELTSModal }) {
                             }
                           >
                             {label}
+                            {badge(count)}
                           </NavLink>
                         ))}
                       </div>
@@ -384,8 +430,9 @@ export default function Layout({ onShowIELTSModal }) {
                   mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")
                 }
                 aria-expanded={mobileMenuOpen}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
+                className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
               >
+                {unreadTotal > 0 && <span aria-hidden="true" className="absolute right-1.5 top-1.5 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900" />}
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -501,7 +548,7 @@ export default function Layout({ onShowIELTSModal }) {
                 </div>
                 <nav className="p-4 space-y-2">
                   {[...primaryNavItems, ...secondaryNavItems].map(
-                    ([to, label]) => (
+                    ([to, label, count]) => (
                       <NavLink
                         key={to}
                         to={to}
@@ -520,6 +567,7 @@ export default function Layout({ onShowIELTSModal }) {
                         }
                       >
                         {label}
+                        {badge(count)}
                       </NavLink>
                     ),
                   )}
