@@ -267,7 +267,7 @@ export default function Layout({ onShowIELTSModal }) {
                   key={to}
                   to={to}
                   className={({ isActive }) =>
-                    `rounded-full px-2.5 py-1.5 transition lg:px-3 lg:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
+                    `whitespace-nowrap rounded-full px-2.5 py-1.5 transition lg:px-3 lg:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
                   }
                 >
                   {label}
@@ -328,7 +328,7 @@ export default function Layout({ onShowIELTSModal }) {
             <div className="ml-auto flex min-w-0 items-center gap-1.5">
               <LevelChip />
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} className="hidden sm:block" />
-              <InstallAppButton className="hidden sm:block" />
+              <InstallAppButton className="hidden xl:block" />
 
               {!user ? (
                 <NavLink

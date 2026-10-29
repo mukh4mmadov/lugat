@@ -16,7 +16,7 @@ export default function LevelChip() {
     >
       <span aria-hidden="true">⚡</span>
       <span>{t("xp.levelShort", { level })}</span>
-      <span className="hidden h-1.5 w-10 overflow-hidden rounded-full bg-amber-200 dark:bg-amber-500/20 sm:block" aria-hidden="true">
+      <span className="hidden h-1.5 w-10 overflow-hidden rounded-full bg-amber-200 dark:bg-amber-500/20 xl:block" aria-hidden="true">
         <span className="block h-full rounded-full bg-amber-500" style={{ width: `${percent}%` }} />
       </span>
     </Link>
