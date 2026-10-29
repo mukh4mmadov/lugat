@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { Suspense, useEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
+import BottomNav from "./BottomNav";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
@@ -633,7 +634,7 @@ export default function Layout({ onShowIELTSModal }) {
           </AnimatePresence>
         </div>
 
-        <footer className="relative z-10 mt-16 border-t border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+        <footer className="relative z-10 mt-16 border-t pb-24 md:pb-8 border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
           <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
             <div>
               <p className="font-black text-slate-900 dark:text-white">
@@ -670,6 +671,9 @@ export default function Layout({ onShowIELTSModal }) {
       {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
       <div id="overlay-root" />
       <VoiceNotice />
+      {!/^\/topik\/(?!result)[^/]+/.test(location.pathname) && (
+        <BottomNav onMenu={() => setMobileMenuOpen(true)} badge={unreadTotal} />
+      )}
       <AIChatWidget />
     </div>
     </TopikExamProvider>

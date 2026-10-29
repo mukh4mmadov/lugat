@@ -261,7 +261,7 @@ export function StatsPage() {
           <button
             type="button"
             onClick={() => setIsShareModalOpen(true)}
-            className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+            className="action-btn inline-flex shrink-0 items-center whitespace-nowrap bg-slate-950 text-white dark:bg-white dark:text-slate-950"
           >
             <span className="mr-2">{t("common.share")}</span>
             <svg
@@ -279,7 +279,7 @@ export function StatsPage() {
             </svg>
           </button>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3">
           <Metric
             label={t("stats.dailyStreak")}
             value={progressSummary.streak}

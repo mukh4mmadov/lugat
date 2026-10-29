@@ -634,6 +634,9 @@ const en = {
   "voice.steps.windows": "Install one: Settings → Time & language → Speech → Add voices → Korean. Then restart the browser.",
   "voice.steps.mac": "Install one: System Settings → Accessibility → Spoken Content → System voice → Manage voices → Korean. Then restart the browser.",
   "voice.steps.other": "Install a Korean text-to-speech voice in your device settings, or open the site in Chrome.",
+  // Phone tab bar
+  "nav.menu": "Menu",
+  "nav.mainNavigation": "Main navigation",
 };
 
 const uz = {
@@ -1272,6 +1275,9 @@ const uz = {
   "voice.steps.windows": "O'rnatish: Sozlamalar → Vaqt va til → Nutq → Ovoz qo'shish → Koreys tili. So'ng brauzerni qayta oching.",
   "voice.steps.mac": "O'rnatish: Tizim sozlamalari → Universal kirish → Nutq → Tizim ovozi → Ovozlarni boshqarish → Koreys tili. So'ng brauzerni qayta oching.",
   "voice.steps.other": "Qurilma sozlamalarida koreyscha nutq ovozini o'rnating yoki saytni Chrome'da oching.",
+  // Phone tab bar
+  "nav.menu": "Menyu",
+  "nav.mainNavigation": "Asosiy menyu",
 };
 
 const ru = {
@@ -2000,6 +2006,9 @@ const ru = {
   "voice.steps.windows": "Установите: Параметры → Время и язык → Речь → Добавить голоса → Корейский. Затем перезапустите браузер.",
   "voice.steps.mac": "Установите: Системные настройки → Универсальный доступ → Устный контент → Системный голос → Управлять голосами → Корейский. Затем перезапустите браузер.",
   "voice.steps.other": "Установите корейский голос синтеза речи в настройках устройства или откройте сайт в Chrome.",
+  // Phone tab bar
+  "nav.menu": "Меню",
+  "nav.mainNavigation": "Основное меню",
 };
 
 export default { en, uz, ru };
