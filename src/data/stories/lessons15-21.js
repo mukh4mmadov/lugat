@@ -69,7 +69,7 @@ export default [
   },
   {
     id: "l17-b", lesson: 17, emoji: "🏖️", title: title("부산 여행", "Pusanga sayohat", "A trip to Busan", "Поездка в Пусан"),
-    words: ["기차", "바다", "-(으)면", "-(으)ㄹ까요", "해운대"],
+    words: ["기차", "바다", "수영하다", "주말", "부산"],
     lines: [
       ["“주말에 시간이 있으면 부산에 갈까요?”", "“Dam olish kuni vaqting bo'lsa, Pusanga boraylikmi?”", "“If you're free at the weekend, shall we go to Busan?”", "«Если будешь свободен на выходных, поедем в Пусан?»"],
       ["“좋아요! 기차로 갈까요?”", "“Yaxshi! Poyezdda boraylikmi?”", "“Great! Shall we take the train?”", "«Отлично! Поедем на поезде?»"],
@@ -82,7 +82,7 @@ export default [
   },
   {
     id: "l18-a", lesson: 18, emoji: "🏥", title: title("치과", "Tish shifokorida", "At the dentist", "У стоматолога"),
-    words: ["이", "치과", "아프다", "아야 하다", "니까"],
+    words: ["이", "치과", "아프다", "음식", "닦다"],
     lines: [
       ["며칠 전부터 이가 아팠어요.", "Bir necha kundan beri tishim og'riyapti.", "My tooth has hurt for a few days.", "Несколько дней болит зуб."],
       ["어머니가 “아프니까 치과에 가야 해요” 하셨어요.", "Oyim: “Og'riyapti, tish shifokoriga borishing kerak”, dedilar.", "Mum said, “It hurts, so you have to see a dentist.”", "Мама сказала: «Болит — надо к стоматологу»."],
@@ -108,7 +108,7 @@ export default [
   },
   {
     id: "l19-a", lesson: 19, emoji: "⚽", title: title("축구 경기", "Futbol o'yini", "The football match", "Футбольный матч"),
-    words: ["경기", "고 있다", "이기다", "응원하다", "때"],
+    words: ["경기", "축구", "이기다", "응원하다", "운동장"],
     lines: [
       ["지금 학교 운동장에서 축구 경기를 하고 있어요.", "Hozir maktab maydonida futbol o'yini bo'lyapti.", "A football match is going on at the school ground.", "Сейчас на школьном стадионе идёт футбольный матч."],
       ["우리 반 친구들이 응원하고 있어요.", "Sinfdoshlarimiz qo'llab-quvvatlayapti.", "Our classmates are cheering.", "Наши одноклассники болеют."],
@@ -132,7 +132,7 @@ export default [
   },
   {
     id: "l20-a", lesson: 20, emoji: "👘", title: title("한복을 입어 봤어요", "Hanbok kiyib ko'rdim", "I tried on a hanbok", "Я примерил ханбок"),
-    words: ["한복", "입어 보다", "궁", "전통", "예쁘다"],
+    words: ["한복", "입다", "궁", "전통", "사진"],
     lines: [
       ["서울에서 한복을 처음 입어 봤어요.", "Seulda birinchi marta hanbok kiyib ko'rdim.", "In Seoul I tried on a hanbok for the first time.", "В Сеуле я впервые примерил ханбок."],
       ["한복을 입으면 궁에 무료로 들어갈 수 있어요.", "Hanbok kiysangiz, saroyga bepul kirish mumkin.", "If you wear a hanbok, you can enter the palace for free.", "В ханбоке можно бесплатно пройти во дворец."],
@@ -168,7 +168,7 @@ export default [
   },
   {
     id: "l21-b", lesson: 21, emoji: "🚏", title: title("버스 정류장", "Avtobus bekati", "The bus stop", "Автобусная остановка"),
-    words: ["정류장", "번", "갈아타다", "면 되다", "기다리다"],
+    words: ["정류장", "버스", "갈아타다", "내리다", "기다리다"],
     lines: [
       ["“명동에 가고 싶어요. 몇 번 버스를 타면 돼요?”", "“Myeongdongga bormoqchiman. Nechanchi avtobusga chiqsam bo'ladi?”", "“I want to go to Myeongdong. Which bus do I take?”", "«Хочу в Мёндон. На какой автобус сесть?»"],
       ["“여기에서 401번을 타면 돼요.”", "“Bu yerdan 401-ga chiqsangiz bo'ldi.”", "“Just take the 401 from here.”", "«Отсюда садитесь на 401-й»."],
