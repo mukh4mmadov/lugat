@@ -25,6 +25,7 @@ const FlashcardsPage = page(() => import("./pages/FlashcardsPage"));
 const ListeningPage = page(practice, "ListeningPage");
 const QuizPage = page(practice, "QuizPage");
 const WritingPage = page(practice, "WritingPage");
+const DictationPage = page(practice, "DictationPage");
 const DifficultPage = page(library, "DifficultPage");
 const FavoritesPage = page(library, "FavoritesPage");
 const SearchPage = page(library, "SearchPage");
@@ -130,6 +131,14 @@ export default function App() {
               element={
                 <LessonRouteGuard>
                   <WritingPage />
+                </LessonRouteGuard>
+              }
+            />
+            <Route
+              path="lesson/:lessonId/dictation"
+              element={
+                <LessonRouteGuard>
+                  <DictationPage />
                 </LessonRouteGuard>
               }
             />

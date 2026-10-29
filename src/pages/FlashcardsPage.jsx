@@ -514,6 +514,7 @@ export function ModeHeader({ lesson, review = false, weak = false }) {
           [`/lesson/${lesson}/listening`, t("practice.listening")],
           [`/lesson/${lesson}/quiz`, t("practice.quiz")],
           [`/lesson/${lesson}/writing`, t("practice.writing")],
+          [`/lesson/${lesson}/dictation`, t("dictation.title")],
         ];
 
   return (

@@ -655,6 +655,13 @@ const en = {
   "today.start": "Start",
   "today.review_one": "Review {{count}} word",
   "today.review_other": "Review {{count}} words",
+  // Sentence dictation
+  "dictation.title": "Dictation",
+  "dictation.badge": "Hear a sentence, type it",
+  "dictation.placeholder": "Type the sentence in Korean",
+  "dictation.slow": "Slower",
+  "dictation.hint": "Meaning",
+  "dictation.score": "{{correct}} of {{total}} letters right",
 };
 
 const uz = {
@@ -1314,6 +1321,13 @@ const uz = {
   "today.start": "Boshlash",
   "today.review_one": "{{count}} ta so'zni takrorlash",
   "today.review_other": "{{count}} ta so'zni takrorlash",
+  // Sentence dictation
+  "dictation.title": "Diktant",
+  "dictation.badge": "Gapni eshiting va yozing",
+  "dictation.placeholder": "Gapni koreys tilida yozing",
+  "dictation.slow": "Sekinroq",
+  "dictation.hint": "Ma'nosi",
+  "dictation.score": "{{total}} ta harfdan {{correct}} tasi to'g'ri",
 };
 
 const ru = {
@@ -2073,6 +2087,13 @@ const ru = {
   "today.review_few": "Повторить {{count}} слова",
   "today.review_many": "Повторить {{count}} слов",
   "today.review_other": "Повторить {{count}} слова",
+  // Sentence dictation
+  "dictation.title": "Диктант",
+  "dictation.badge": "Послушайте предложение и напишите его",
+  "dictation.placeholder": "Напишите предложение по-корейски",
+  "dictation.slow": "Медленнее",
+  "dictation.hint": "Значение",
+  "dictation.score": "Верно {{correct}} из {{total}} букв",
 };
 
 export default { en, uz, ru };

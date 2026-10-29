@@ -6,7 +6,7 @@ import GlassCard from "../components/GlassCard";
 import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { allWords, getLessonWords, getWordKey, acceptedMeanings, meaning } from "../data";
+import { allWords, exampleTranslation, getLessonWords, getWordKey, acceptedMeanings, meaning } from "../data";
 import { markDifficult, markKnown, toggleFavorite } from "../store";
 import { isAnswerCorrect, pickDistractors, shuffle } from "../lib/study";
 import { speakKorean } from "../lib/speech";
@@ -125,7 +125,9 @@ function RoundProgress({ session }) {
   );
 }
 
-function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected, prompt }) {
+// `speak` reads a text aloud when each item appears; `isCorrect`, `revealText`
+// and `feedback` let a mode replace the default answer check and reveal.
+function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected, prompt, speak, isCorrect, revealText, feedback }) {
   const { t } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const session = usePracticeRound(exerciseType);
@@ -138,7 +140,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
     setAnswer("");
     setBlankError(false);
     inputRef.current?.focus();
-    if (word && exerciseType === "listening") speakKorean(word.korean, progress.settings.speechRate);
+    if (word && speak) speakKorean(speak(word), progress.settings.speechRate);
     // Speak once per new word, not on every rate change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word, exerciseType]);
@@ -158,12 +160,12 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
       setBlankError(true);
       return;
     }
-    session.record(isAnswerCorrect(answer, expected(word)));
+    session.record(isCorrect ? isCorrect(answer, word) : isAnswerCorrect(answer, expected(word)));
   };
 
   const submit = () => (answered === undefined ? check() : session.next());
   const mastery = getWordMastery(getWordKey(word), progress.words);
-  const reveal = [word.korean, word.romanization, meaning(word)].filter(Boolean).join(" · ");
+  const reveal = revealText ? revealText(word) : [word.korean, word.romanization, meaning(word)].filter(Boolean).join(" · ");
 
   return (
     <div className="space-y-6">
@@ -194,6 +196,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
           className={`premium-input mt-6 ${answered === true ? "rounded-3xl border border-emerald-400 bg-emerald-50 text-emerald-800 dark:border-emerald-500/40 dark:bg-emerald-500/15 dark:text-emerald-200" : answered === false ? "rounded-3xl border border-rose-400 bg-rose-50 text-rose-800 dark:border-rose-500/40 dark:bg-rose-500/15 dark:text-rose-200" : ""}`}
         />
         {blankError && <p className="mt-2 text-center text-sm font-bold text-rose-600 dark:text-rose-400">{t("practice.enterAnswer")}</p>}
+        {answered !== undefined && feedback?.(answer, word)}
         <AnswerFooter
           answered={answered}
           reveal={reveal}
@@ -216,6 +219,7 @@ export function ListeningPage() {
       badge={t("practice.audioFirst")}
       placeholder={t("practice.typeKorean")}
       expected={(word) => word.korean}
+      speak={(word) => word.korean}
       prompt={(word, rate) => (
         <button
           type="button"
@@ -225,6 +229,100 @@ export function ListeningPage() {
         >
           🔊
         </button>
+      )}
+    />
+  );
+}
+
+// Sentence dictation compares Hangul only: spacing and punctuation are ignored.
+const compactSentence = (value) => value.replace(/[\s.,!?~'"“”‘’·…-]/g, "");
+
+// Longest common subsequence, marking which expected characters were typed.
+function matchedCharacters(expected, typed) {
+  const rows = expected.length;
+  const cols = typed.length;
+  const table = Array.from({ length: rows + 1 }, () => new Array(cols + 1).fill(0));
+  for (let i = rows - 1; i >= 0; i -= 1) {
+    for (let j = cols - 1; j >= 0; j -= 1) {
+      table[i][j] = expected[i] === typed[j] ? table[i + 1][j + 1] + 1 : Math.max(table[i + 1][j], table[i][j + 1]);
+    }
+  }
+  const matched = new Array(rows).fill(false);
+  let i = 0;
+  let j = 0;
+  while (i < rows && j < cols) {
+    if (expected[i] === typed[j]) {
+      matched[i] = true;
+      i += 1;
+      j += 1;
+    } else if (table[i + 1][j] >= table[i][j + 1]) i += 1;
+    else j += 1;
+  }
+  return matched;
+}
+
+function SentenceDiff({ expected, typed }) {
+  const { t } = useTranslation();
+  const chars = [...expected];
+  const hangul = chars.filter((char) => compactSentence(char));
+  const matched = matchedCharacters(hangul, [...compactSentence(typed)]);
+  let index = -1;
+  const correct = matched.filter(Boolean).length;
+  return (
+    <div className="mt-4 rounded-2xl bg-slate-950/5 p-4 text-center dark:bg-white/10">
+      <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{t("dictation.score", { correct, total: hangul.length })}</p>
+      <p className="mt-1 text-2xl font-black leading-relaxed">
+        {chars.map((char, position) => {
+          if (!compactSentence(char)) return <span key={position}>{char}</span>;
+          index += 1;
+          return (
+            <span key={position} className={matched[index] ? "text-emerald-600 dark:text-emerald-300" : "rounded bg-rose-100 text-rose-600 underline decoration-2 dark:bg-rose-500/20 dark:text-rose-300"}>
+              {char}
+            </span>
+          );
+        })}
+      </p>
+    </div>
+  );
+}
+
+export function DictationPage() {
+  const { t } = useTranslation();
+  const sentence = (word) => word.example?.ko || word.korean;
+  return (
+    <TypedAnswerPractice
+      exerciseType="dictation"
+      title={t("dictation.title")}
+      badge={t("dictation.badge")}
+      placeholder={t("dictation.placeholder")}
+      expected={sentence}
+      speak={sentence}
+      isCorrect={(answer, word) => compactSentence(answer) === compactSentence(sentence(word))}
+      revealText={(word) => `${sentence(word)} — ${word.example ? exampleTranslation(word.example) : meaning(word)}`}
+      feedback={(answer, word) => <SentenceDiff expected={sentence(word)} typed={answer} />}
+      prompt={(word, rate) => (
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => speakKorean(sentence(word), rate)}
+              aria-label={t("practice.replayAudio")}
+              className="grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-violet-500 text-4xl text-white shadow-2xl shadow-sky-500/30 transition hover:scale-105"
+            >
+              🔊
+            </button>
+            <button
+              type="button"
+              onClick={() => speakKorean(sentence(word), Math.max(0.5, rate - 0.3))}
+              className="rounded-2xl border border-slate-200 px-3 py-2 text-sm font-black dark:border-white/15"
+            >
+              🐢 {t("dictation.slow")}
+            </button>
+          </div>
+          <p className="mt-4 text-sm font-semibold text-slate-600 dark:text-slate-300">
+            {t("dictation.hint")}: {word.example ? exampleTranslation(word.example) : meaning(word)}
+          </p>
+        </div>
       )}
     />
   );
