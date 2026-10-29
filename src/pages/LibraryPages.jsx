@@ -28,6 +28,8 @@ import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
 import { VoiceHelp } from "../components/VoiceNotice";
 import { koreanVoiceStatus, speakKorean } from "../lib/speech";
+import { Link } from "react-router-dom";
+import { BADGES, levelProgress, levelTitle } from "../lib/gamification";
 
 export function SearchPage() {
   const { t, i18n } = useTranslation();
@@ -237,16 +239,9 @@ export function StatsPage() {
     }
   }, [currentMilestone, progress.shareMilestones, dispatch]);
 
-  const achievements = [
-    [t("achievement.firstStep"), studiedUnique > 0],
-    [t("achievement.hundredReviews"), progressSummary.totalReviews >= 100],
-    [t("achievement.sevenDayStreak"), progressSummary.streak >= 7],
-    [
-      t("achievement.halfWay"),
-      studiedUnique >= Math.round(allWords.length / 2),
-    ],
-    [t("achievement.master"), studiedUnique === allWords.length],
-  ];
+  const xpLevel = levelProgress(progress.xp || 0);
+  const xpTitle = levelTitle(xpLevel.level);
+  const earnedBadges = BADGES.filter((badge) => progress.badges?.[badge.id]);
 
   return (
     <div className="space-y-6">
@@ -358,16 +353,19 @@ export function StatsPage() {
             title={t("stats.achievements")}
             badge={t("stats.milestones")}
           />
-          <div className="grid gap-3">
-            {achievements.map(([name, unlocked]) => (
-              <div
-                key={name}
-                className={`rounded-3xl p-4 font-black ${unlocked ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-200" : "bg-slate-100 text-slate-500 dark:bg-white/10 dark:text-slate-300"}`}
-              >
-                {name}
-              </div>
-            ))}
-          </div>
+          <Link to="/achievements" className="block rounded-3xl bg-amber-50 p-4 transition hover:-translate-y-0.5 dark:bg-amber-500/10">
+            <p className="text-lg font-black">
+              ⚡ {t("xp.level", { level: xpLevel.level })} · {xpTitle.icon} {t(`xp.title.${xpTitle.id}`)}
+            </p>
+            <div className="mt-2 h-2 overflow-hidden rounded-full bg-amber-200 dark:bg-amber-500/20">
+              <div className="h-full rounded-full bg-amber-500" style={{ width: `${xpLevel.percent}%` }} />
+            </div>
+            <p className="mt-3 text-sm font-bold text-slate-600 dark:text-slate-300">
+              🏆 {t("xp.badgesEarned", { count: earnedBadges.length, total: BADGES.length })}
+            </p>
+            <p className="mt-1 text-2xl tracking-wider">{earnedBadges.slice(-8).map((badge) => badge.icon).join(" ") || "🔒"}</p>
+            <p className="mt-2 text-sm font-black text-sky-600 dark:text-sky-300">{t("xp.seeAchievements")} →</p>
+          </Link>
         </GlassCard>
         <GlassCard>
           <Header

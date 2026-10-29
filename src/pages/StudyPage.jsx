@@ -7,7 +7,7 @@ import ReportWordLink from "../components/ReportWordLink";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { exampleTranslation, getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
-import { markKnown, markDifficult, selectStudyProgress } from "../store";
+import { markKnown, markDifficult, recordStudySession, selectStudyProgress } from "../store";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
 import { speakKorean } from "../lib/speech";
@@ -675,6 +675,13 @@ function ReinforcementCard({ word, settings, onContinue }) {
 
 function StudyComplete({ session, total, onAgain, onFlashcards, onNext }) {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const rewarded = useRef(false);
+  useEffect(() => {
+    if (rewarded.current) return;
+    rewarded.current = true;
+    dispatch(recordStudySession());
+  }, [dispatch]);
   const answers = session.stats.correct + session.stats.incorrect;
   const accuracy = answers ? Math.round((session.stats.correct / answers) * 100) : 0;
   const minutes = Math.max(1, Math.round(((session.finishedAt || Date.now()) - session.startedAt) / 60000));

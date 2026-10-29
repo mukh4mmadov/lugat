@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 
 // Admin dashboard data and user management. Every request must carry the
 // session of a user listed in public.feedback_admins; the work itself runs with
@@ -44,8 +45,6 @@ async function selectAll(db, table, columns) {
   return rows;
 }
 
-const premiumUntil = (user) => user.app_metadata?.premium_until || null;
-const isPremium = (user) => Boolean(premiumUntil(user)) && new Date(premiumUntil(user)).getTime() > Date.now();
 const isBanned = (user) => Boolean(user.banned_until) && new Date(user.banned_until).getTime() > Date.now();
 
 // A compact summary of one learner's saved progress (the Redux progress state).
@@ -261,16 +260,11 @@ async function act(db, actor, body) {
   if (action === "premium") {
     const days = Number(body.days);
     if (!Number.isFinite(days) || days < 0 || days > 3660) return [400, { error: "Invalid duration" }];
-    const { data, error } = await db.auth.admin.getUserById(userId);
-    if (error || !data.user) return [404, { error: "User not found" }];
-    // Extending starts from the current expiry when premium is still active.
-    const base = isPremium(data.user) ? new Date(premiumUntil(data.user)).getTime() : Date.now();
-    const until = days === 0 ? null : new Date(base + days * DAY).toISOString();
-    const { error: updateError } = await db.auth.admin.updateUserById(userId, {
-      app_metadata: { ...data.user.app_metadata, premium_until: until },
-    });
-    if (updateError) return [500, { error: "Update failed" }];
-    return [200, { premiumUntil: until }];
+    try {
+      return [200, { premiumUntil: await extendPremium(db, userId, days) }];
+    } catch (error) {
+      return [error.status || 500, { error: error.message }];
+    }
   }
 
   if (action === "admin") {

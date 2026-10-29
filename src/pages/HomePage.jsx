@@ -6,6 +6,7 @@ import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import TodayCard from "../components/TodayCard";
+import SeoulMap from "../components/SeoulMap";
 import { lessonInfo } from "../data";
 import {
   selectLessonProgress,
@@ -74,6 +75,10 @@ export default function HomePage() {
           </div>
         </GlassCard>
       </section>
+
+      <GlassCard className="p-5 md:p-8">
+        <SeoulMap compact />
+      </GlassCard>
 
       {(() => {
         const overview = progressSummary;

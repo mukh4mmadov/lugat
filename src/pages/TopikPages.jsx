@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { recordTopik } from "../store";
 import GlassCard from "../components/GlassCard";
 import { useAuth } from "../context/AuthContext";
 import PdfPageViewer from "../components/PdfPageViewer";
@@ -530,6 +532,7 @@ function AllQuestions({ questions, answers, flagged, cursor, onJump, onClose, on
 }
 
 function TopikExam({ variant, initialAttempt, onSubmitted }) {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const { setContext } = useTopikExamContext();
   const candidate = useCandidate();
@@ -577,9 +580,13 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     submittedRef.current = true;
     updateTopikAttempt(attempt.id, { timeSpent: timeSpentRef.current });
     const submitted = submitTopikAttempt(attempt.id);
-    if (submitted) onSubmitted(submitted);
-    else submittedRef.current = false;
-  }, [attempt.id, onSubmitted]);
+    if (submitted) {
+      dispatch(recordTopik({ score: submitted.result?.total }));
+      onSubmitted(submitted);
+    } else {
+      submittedRef.current = false;
+    }
+  }, [attempt.id, onSubmitted, dispatch]);
 
   const questionRef = useRef(question);
   questionRef.current = question;

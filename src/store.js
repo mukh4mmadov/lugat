@@ -10,6 +10,7 @@ import {
   SRS_RATINGS,
 } from "./lib/srs";
 import { getWordMastery, getMasteryOverview } from "./lib/mastery";
+import { XP, canFreeze, grantXp, noteAnswerTime, refreshBadges, seedGamification, spendFreeze } from "./lib/gamification";
 
 const STORAGE_KEY = "ktalim-1a-progress-v1";
 
@@ -44,35 +45,76 @@ const defaultState = {
   },
   lastPlace: null,
   shareMilestones: {},
+  xp: 0,
+  badges: {},
 };
 
 const DAILY_HISTORY_DAYS = 60;
 export const DAILY_GOALS = [10, 20, 40, 60];
 
 // Counts one answer towards today's goal and keeps the last 60 days.
-function countAnswer(stats) {
+// Reaching the goal gives a one-off bonus for the day.
+function countAnswer(state) {
+  const { stats } = state;
   const today = dailyKey();
   const daily = { ...(stats.daily || {}) };
   daily[today] = (daily[today] || 0) + 1;
   const keep = Object.keys(daily).sort().slice(-DAILY_HISTORY_DAYS);
   stats.daily = Object.fromEntries(keep.map((day) => [day, daily[day]]));
+  if (daily[today] === (state.settings.dailyGoal || 20)) {
+    stats.goalDays = (stats.goalDays || 0) + 1;
+    grantXp(state, XP.goal);
+  }
 }
 
-function updateStreak(stats) {
-  countAnswer(stats);
+const daysAgo = (days) => {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  return dailyKey(date);
+};
+
+function updateStreak(state) {
+  const { stats } = state;
+  countAnswer(state);
   const today = dailyKey();
   if (stats.lastStudyDate === today) return;
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  stats.streak =
-    stats.lastStudyDate === dailyKey(yesterday) ? stats.streak + 1 : 1;
+  if (stats.lastStudyDate === daysAgo(1)) {
+    stats.streak += 1;
+  } else if (stats.streak > 0 && stats.lastStudyDate === daysAgo(2) && canFreeze(state)) {
+    // One missed day is forgiven with a premium streak freeze.
+    spendFreeze(state);
+    stats.streak += 1;
+  } else {
+    stats.streak = 1;
+  }
   stats.lastStudyDate = today;
 }
 
+// Everything an answer earns: streak, daily count, XP and badges.
+function recordAnswer(state, correct, exerciseType) {
+  updateStreak(state);
+  noteAnswerTime(state.stats);
+  if (correct && exerciseType) {
+    state.stats.typeCorrect = { ...(state.stats.typeCorrect || {}) };
+    state.stats.typeCorrect[exerciseType] = (state.stats.typeCorrect[exerciseType] || 0) + 1;
+  }
+  grantXp(state, correct ? (exerciseType === "dictation" ? XP.dictation : XP.correct) : XP.wrong);
+  refreshBadges(state);
+}
+
+// UI events are not saved: a reload must not replay a level-up.
+function withoutFx(progress) {
+  const rest = { ...progress };
+  delete rest.fx;
+  return rest;
+}
+
 const savedState = loadState();
-const initialState = savedState
-  ? { ...defaultState, ...savedState, studied: savedState.studied || {} }
-  : defaultState;
+const initialState = seedGamification(
+  savedState
+    ? { ...defaultState, ...withoutFx(savedState), studied: savedState.studied || {} }
+    : { ...defaultState, xpSeeded: true },
+);
 
 const progressSlice = createSlice({
   name: "progress",
@@ -128,7 +170,7 @@ const progressSlice = createSlice({
       state.words[key] = record;
       state.stats.correct += 1;
       state.stats.studiedWords += 1;
-      updateStreak(state.stats);
+      recordAnswer(state, true, exerciseType);
     },
     markDifficult(state, action) {
       const payload =
@@ -164,7 +206,7 @@ const progressSlice = createSlice({
       state.words[key] = record;
       state.stats.wrong += 1;
       state.stats.studiedWords += 1;
-      updateStreak(state.stats);
+      recordAnswer(state, false, exerciseType);
     },
     addStudyMinutes(state, action) {
       state.stats.studyMinutes += action.payload;
@@ -235,7 +277,7 @@ const progressSlice = createSlice({
       ];
       state.words[key] = record;
       state.stats.studiedWords += 1;
-      updateStreak(state.stats);
+      recordAnswer(state, recalled, "flashcard");
     },
     updateSRSFromExercise(state, action) {
       const { key, correct } = action.payload;
@@ -270,6 +312,37 @@ const progressSlice = createSlice({
         theme: state.theme,
       };
     },
+    // XP for things other than single answers (finished study session, ...).
+    awardXp(state, action) {
+      grantXp(state, action.payload);
+      refreshBadges(state);
+    },
+    recordStudySession(state) {
+      state.stats.sessionsDone = (state.stats.sessionsDone || 0) + 1;
+      grantXp(state, XP.session);
+      refreshBadges(state);
+    },
+    recordTopik(state, action) {
+      const score = Number(action.payload?.score) || 0;
+      state.stats.topikAttempts = (state.stats.topikAttempts || 0) + 1;
+      state.stats.topikBest = Math.max(state.stats.topikBest || 0, score);
+      grantXp(state, XP.topik + Math.round(score / 2));
+      refreshBadges(state);
+    },
+    recordSpeaking(state, action) {
+      const seconds = Math.max(0, Number(action.payload?.seconds) || 0);
+      state.stats.speakingSeconds = (state.stats.speakingSeconds || 0) + seconds;
+      state.stats.speakingSessions = (state.stats.speakingSessions || 0) + 1;
+      grantXp(state, Math.max(1, Math.round(seconds / 60)) * XP.speakingMinute);
+      refreshBadges(state);
+    },
+    clearFx(state) {
+      delete state.fx;
+    },
+    // Mirrors app_metadata.premium_until so reducers can apply premium perks.
+    setPremiumUntil(state, action) {
+      state.premiumUntil = action.payload || null;
+    },
     markShareMilestoneShown(state, action) {
       const milestone = action.payload;
       state.shareMilestones[milestone] = true;
@@ -281,10 +354,12 @@ const progressSlice = createSlice({
         ...state.settings,
         ...(serverData.settings || {}),
       };
-      return {
-        ...serverData,
+      return seedGamification({
+        ...withoutFx(serverData),
+        stats: { ...defaultState.stats, ...(serverData.stats || {}) },
         settings: mergedSettings,
-      };
+        premiumUntil: state.premiumUntil,
+      });
     },
   },
 });
@@ -310,6 +385,12 @@ export const {
   setDailyGoal,
   setLastPlace,
   setHideFromLeaderboard,
+  awardXp,
+  recordStudySession,
+  recordTopik,
+  recordSpeaking,
+  clearFx,
+  setPremiumUntil,
 } = progressSlice.actions;
 
 export const store = configureStore({
@@ -321,7 +402,7 @@ export const store = configureStore({
 let saveTimer = null;
 
 store.subscribe(() => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(store.getState().progress));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(withoutFx(store.getState().progress)));
 
   const userId = getCurrentSyncUserId();
   if (!userId) return;
@@ -331,7 +412,7 @@ store.subscribe(() => {
   saveTimer = setTimeout(async () => {
     const currentUserId = getCurrentSyncUserId();
     if (currentUserId !== capturedUserId) return;
-    const progressData = store.getState().progress;
+    const progressData = withoutFx(store.getState().progress);
     await saveServerProgress(capturedUserId, progressData);
     saveTimer = null;
   }, 3000);

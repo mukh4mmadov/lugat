@@ -12,7 +12,9 @@ import { Suspense, useEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
 import BottomNav from "./BottomNav";
-import { setLastPlace, setTheme } from "../store";
+import { setLastPlace, setPremiumUntil, setTheme } from "../store";
+import LevelChip from "./LevelChip";
+import XpCelebrations from "./XpCelebrations";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
 import { TopikExamProvider } from "../context/TopikExamContext";
@@ -45,6 +47,9 @@ export default function Layout({ onShowIELTSModal }) {
 
   const { user, profile, signOut } = useAuth();
   const premiumDate = premiumUntil(user);
+  useEffect(() => {
+    dispatch(setPremiumUntil(premiumDate));
+  }, [dispatch, premiumDate]);
   useStudyTimer(location.pathname);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -153,6 +158,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/premium", "⭐ Premium"],
     ["/stats", t("nav.stats")],
     ["/leaderboard", `🏆 ${t("leaderboard.title")}`],
+    ["/achievements", `🏅 ${t("nav.achievements")}`],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
     ["/feedback", t("nav.feedback"), unread.user],
@@ -320,6 +326,7 @@ export default function Layout({ onShowIELTSModal }) {
             </nav>
 
             <div className="ml-auto flex min-w-0 items-center gap-1.5">
+              <LevelChip />
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} className="hidden sm:block" />
               <InstallAppButton className="hidden sm:block" />
 
@@ -682,6 +689,7 @@ export default function Layout({ onShowIELTSModal }) {
       {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
       <div id="overlay-root" />
       <VoiceNotice />
+      <XpCelebrations />
       {!/^\/topik\/(?!result|words)[^/]+/.test(location.pathname) && (
         <BottomNav onMenu={() => setMobileMenuOpen(true)} badge={unreadTotal} />
       )}

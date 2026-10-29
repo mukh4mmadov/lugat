@@ -7,7 +7,7 @@ import { localized } from "../../data/speakingTopics";
 import { formatMinutes, speakingRequest } from "../../lib/speakingApi";
 import { speakKorean, stopSpeaking } from "../../lib/speech";
 import { microphoneSupported, startRecording } from "../../lib/wavRecorder";
-import { toggleFavorite } from "../../store";
+import { recordSpeaking, toggleFavorite } from "../../store";
 
 const MAX_SECONDS = 30;
 const LANGUAGES = ["uz", "en", "ru"];
@@ -135,6 +135,7 @@ function Summary({ session, onClose }) {
 // A voice conversation with Hana, the AI partner, about one topic.
 export default function AiConversation({ topic, level, premium, onClose }) {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
   const rate = useSelector((state) => state.progress.settings.speechRate);
   const language = LANGUAGES.includes(i18n.language) ? i18n.language : "uz";
   const [sessionId, setSessionId] = useState(null);
@@ -256,6 +257,7 @@ export default function AiConversation({ topic, level, premium, onClose }) {
         onClose();
         return;
       }
+      dispatch(recordSpeaking({ seconds: data.session.seconds }));
       setSummary(data.session);
       setPhase("ended");
     } catch {
