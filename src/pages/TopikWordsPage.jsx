@@ -38,7 +38,8 @@ function lessonWordsInPaper(text) {
           if ([...stem].length < 2) {
             if (!verb || !stem) return sum;
             // Must start a word: 여자는 is "woman", not 자다 + 는.
-            return sum + (text.match(new RegExp(`(?<![가-힣])${stem}${ENDINGS}`, "g")) || []).length;
+            // (No lookbehind: older iPhones don't support it.)
+            return sum + (text.match(new RegExp(`(?:^|[^가-힣])${stem}${ENDINGS}`, "g")) || []).length;
           }
           return sum + (text.split(stem).length - 1);
         }, 0);

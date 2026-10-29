@@ -332,6 +332,7 @@ export default function RegisterPage() {
                   <div>
                     <input
                       id="register-birth-month"
+                      aria-label={t("register.month")}
                       name="birthMonth"
                       type="number"
                       value={form.birthMonth}
@@ -352,6 +353,7 @@ export default function RegisterPage() {
                   <div>
                     <input
                       id="register-birth-year"
+                      aria-label={t("register.year")}
                       name="birthYear"
                       type="number"
                       value={form.birthYear}
