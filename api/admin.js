@@ -97,7 +97,7 @@ async function overview(db) {
     selectAll(db, "profiles", "id"),
     selectAll(db, "user_progress", "user_id, data, updated_at"),
     selectAll(db, "feedback_admins", "user_id"),
-    selectAll(db, "feedback_tickets", "status, created_at"),
+    selectAll(db, "feedback_tickets", "status, created_at, last_message_by"),
   ]);
   const weekAgo = new Date(now - 7 * DAY).toISOString();
   const dayAgo = new Date(now - DAY).toISOString();
@@ -192,7 +192,11 @@ async function overview(db) {
       topLearners,
     },
     ai: { messagesDay: aiMessagesDay, messagesWeek: aiMessagesWeek, sessionsWeek: aiSessionsWeek },
-    feedback: { total: tickets.length, ...ticketCounts },
+    feedback: {
+      total: tickets.length,
+      ...ticketCounts,
+      needsReply: tickets.filter((ticket) => ["open", "in_progress"].includes(ticket.status) && ticket.last_message_by !== "admin").length,
+    },
     signups,
   };
 }
@@ -222,7 +226,7 @@ async function userDetail(db, id) {
     db.from("user_progress").select("user_id, data, updated_at").eq("user_id", id).maybeSingle(),
     db.from("feedback_admins").select("user_id").eq("user_id", id).maybeSingle(),
     db.from("ai_chat_sessions").select("id, title, updated_at").eq("user_id", id).order("updated_at", { ascending: false }).limit(20),
-    db.from("feedback_tickets").select("id, category, message, status, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("feedback_tickets").select("id, category, subject, message, status, rating, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
   const row = userRow(data.user, profile.data, progress.data, new Set(admin.data ? [id] : []));
   const words = progress.data?.data?.words || {};
