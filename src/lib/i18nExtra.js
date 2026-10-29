@@ -624,6 +624,16 @@ const en = {
   "share.tagline": "K-TALIM · Korean vocabulary",
   "topik.listeningFull": "35th Listening",
   "topik.readingFull": "35th Reading",
+  // Korean voice check
+  "voice.ok": "Korean voice is available on this device",
+  "voice.test": "Test voice",
+  "voice.missing": "This device has no Korean voice, so words can't be read aloud.",
+  "voice.unsupported": "This browser can't read words aloud. Try Chrome, Safari or Edge.",
+  "voice.steps.android": "Install one: Settings → System → Languages → Text-to-speech → Speech Services by Google → ⚙ → Install voice data → Korean. Then reload this page.",
+  "voice.steps.ios": "Install one: Settings → Accessibility → Spoken Content → Voices → Korean → download a voice. Then reload this page.",
+  "voice.steps.windows": "Install one: Settings → Time & language → Speech → Add voices → Korean. Then restart the browser.",
+  "voice.steps.mac": "Install one: System Settings → Accessibility → Spoken Content → System voice → Manage voices → Korean. Then restart the browser.",
+  "voice.steps.other": "Install a Korean text-to-speech voice in your device settings, or open the site in Chrome.",
 };
 
 const uz = {
@@ -1252,6 +1262,16 @@ const uz = {
   "share.tagline": "K-TALIM · Koreys tili lug'ati",
   "share.footer": "Koreys tilini o'rganing · Har kuni bir so'zdan",
   "admin.users.col.streak": "Ketma-ketlik",
+  // Korean voice check
+  "voice.ok": "Bu qurilmada koreyscha ovoz bor",
+  "voice.test": "Ovozni sinash",
+  "voice.missing": "Bu qurilmada koreyscha ovoz yo'q, shuning uchun so'zlar o'qib berilmaydi.",
+  "voice.unsupported": "Bu brauzer so'zlarni ovoz chiqarib o'qiy olmaydi. Chrome, Safari yoki Edge'dan foydalaning.",
+  "voice.steps.android": "O'rnatish: Sozlamalar → Tizim → Tillar → Matnni nutqqa aylantirish → Google nutq xizmatlari → ⚙ → Ovoz ma'lumotlarini o'rnatish → Koreys tili. So'ng sahifani yangilang.",
+  "voice.steps.ios": "O'rnatish: Sozlamalar → Universal kirish → Nutq → Ovozlar → Koreys tili → ovozni yuklab oling. So'ng sahifani yangilang.",
+  "voice.steps.windows": "O'rnatish: Sozlamalar → Vaqt va til → Nutq → Ovoz qo'shish → Koreys tili. So'ng brauzerni qayta oching.",
+  "voice.steps.mac": "O'rnatish: Tizim sozlamalari → Universal kirish → Nutq → Tizim ovozi → Ovozlarni boshqarish → Koreys tili. So'ng brauzerni qayta oching.",
+  "voice.steps.other": "Qurilma sozlamalarida koreyscha nutq ovozini o'rnating yoki saytni Chrome'da oching.",
 };
 
 const ru = {
@@ -1970,6 +1990,16 @@ const ru = {
   "share.tagline": "K-TALIM · Корейский словарь",
   "topik.listeningFull": "35-й экзамен: аудирование",
   "topik.readingFull": "35-й экзамен: чтение",
+  // Korean voice check
+  "voice.ok": "На этом устройстве есть корейский голос",
+  "voice.test": "Проверить голос",
+  "voice.missing": "На этом устройстве нет корейского голоса, поэтому слова не озвучиваются.",
+  "voice.unsupported": "Этот браузер не умеет озвучивать слова. Попробуйте Chrome, Safari или Edge.",
+  "voice.steps.android": "Установите: Настройки → Система → Языки → Синтез речи → Синтезатор речи Google → ⚙ → Установка голосовых данных → Корейский. Затем обновите страницу.",
+  "voice.steps.ios": "Установите: Настройки → Универсальный доступ → Устный контент → Голоса → Корейский → скачайте голос. Затем обновите страницу.",
+  "voice.steps.windows": "Установите: Параметры → Время и язык → Речь → Добавить голоса → Корейский. Затем перезапустите браузер.",
+  "voice.steps.mac": "Установите: Системные настройки → Универсальный доступ → Устный контент → Системный голос → Управлять голосами → Корейский. Затем перезапустите браузер.",
+  "voice.steps.other": "Установите корейский голос синтеза речи в настройках устройства или откройте сайт в Chrome.",
 };
 
 export default { en, uz, ru };

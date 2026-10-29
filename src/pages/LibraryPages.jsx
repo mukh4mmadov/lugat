@@ -26,6 +26,8 @@ import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
+import { VoiceHelp } from "../components/VoiceNotice";
+import { koreanVoiceStatus, speakKorean } from "../lib/speech";
 
 export function SearchPage() {
   const { t, i18n } = useTranslation();
@@ -656,6 +658,7 @@ export function SettingsPage() {
         <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
           <h3 className="text-xl font-black">{t("settings.audioSection")}</h3>
           <div className="mt-4 space-y-4">
+            <VoiceCheck rate={progress.settings.speechRate} />
             <div>
               <label
                 htmlFor="settings-speech-rate"
@@ -838,6 +841,26 @@ function Metric({ label, value, tone }) {
       <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-300">
         {label}
       </p>
+    </div>
+  );
+}
+
+// Whether this device can pronounce Korean, with a test button.
+function VoiceCheck({ rate }) {
+  const { t } = useTranslation();
+  const [status, setStatus] = useState("checking");
+  useEffect(() => {
+    koreanVoiceStatus(2500).then(setStatus);
+  }, []);
+  return (
+    <div className={`rounded-2xl p-3 ${status === "ok" ? "bg-emerald-50 dark:bg-emerald-500/10" : status === "checking" ? "bg-slate-50 dark:bg-white/5" : "bg-amber-50 text-amber-950 dark:bg-amber-500/10 dark:text-amber-100"}`}>
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-sm font-bold">{status === "ok" ? `✓ ${t("voice.ok")}` : status === "checking" ? t("common.loading") : "🔇"}</span>
+        <button type="button" onClick={() => speakKorean("안녕하세요", rate)} className="ml-auto rounded-xl bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">
+          🔊 {t("voice.test")}
+        </button>
+      </div>
+      {(status === "missing" || status === "unsupported") && <div className="mt-2"><VoiceHelp status={status} /></div>}
     </div>
   );
 }

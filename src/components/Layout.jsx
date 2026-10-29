@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Suspense, useEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
+import VoiceNotice from "./VoiceNotice";
 import { setTheme } from "../store";
 import LanguageSelector from "./LanguageSelector";
 import AIChatWidget from "./AIChatWidget";
@@ -668,6 +669,7 @@ export default function Layout({ onShowIELTSModal }) {
       </main>
       {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
       <div id="overlay-root" />
+      <VoiceNotice />
       <AIChatWidget />
     </div>
     </TopikExamProvider>
