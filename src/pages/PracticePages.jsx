@@ -12,6 +12,7 @@ import { isAnswerCorrect, pickDistractors, shuffle } from "../lib/study";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
 import { ModeHeader } from "./FlashcardsPage";
+import ShareResult from "../components/ShareResult";
 
 // A practice round walks through the lesson once, records each answer a single
 // time, and ends with a summary from which the missed words can be retried.
@@ -71,10 +72,11 @@ function usePracticeRound(exerciseType) {
   };
 }
 
-function RoundSummary({ session }) {
+function RoundSummary({ session, title }) {
   const { t } = useTranslation();
   const total = session.round.length;
   const percent = total ? Math.round((session.correctCount / total) * 100) : 0;
+  const eyebrow = `${t("card.lesson", { lesson: session.lesson })} · ${title}`;
   return (
     <GlassCard className="mx-auto max-w-2xl p-6 text-center md:p-8">
       <p className="text-5xl">{percent >= 80 ? "🎉" : percent >= 50 ? "👍" : "💪"}</p>
@@ -104,6 +106,18 @@ function RoundSummary({ session }) {
         <button type="button" onClick={session.restartAll} className="action-btn bg-slate-950 text-white dark:bg-white dark:text-slate-950">
           {t("practice.again")}
         </button>
+        <ShareResult
+          fileName={`k-talim-lesson-${session.lesson}`}
+          text={t("shareResult.lessonText", { eyebrow, correct: session.correctCount, total, percent })}
+          card={{
+            eyebrow,
+            score: session.correctCount,
+            outOf: total,
+            percent,
+            badge: percent === 100 ? t("shareResult.perfect") : percent >= 80 ? t("shareResult.great") : null,
+            chips: [t("shareResult.words", { count: total })],
+          }}
+        />
       </div>
     </GlassCard>
   );
@@ -149,7 +163,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
     return (
       <div className="space-y-6">
         <ModeHeader lesson={session.lesson} active={exerciseType} />
-        <RoundSummary session={session} />
+        <RoundSummary session={session} title={title} />
       </div>
     );
   }
@@ -385,7 +399,7 @@ export function QuizPage() {
     return (
       <div className="space-y-6">
         <ModeHeader lesson={session.lesson} active="quiz" />
-        <RoundSummary session={session} />
+        <RoundSummary session={session} title={t("practice.quiz")} />
       </div>
     );
   }

@@ -662,6 +662,17 @@ const en = {
   "dictation.slow": "Slower",
   "dictation.hint": "Meaning",
   "dictation.score": "{{correct}} of {{total}} letters right",
+  // Share result cards
+  "shareResult.button": "Share result",
+  "shareResult.download": "Download image",
+  "shareResult.telegram": "Share to Telegram",
+  "shareResult.footer": "Learning Korean with K-TALIM",
+  "shareResult.perfect": "Perfect score!",
+  "shareResult.great": "Great job!",
+  "shareResult.words_one": "{{count}} word",
+  "shareResult.words_other": "{{count}} words",
+  "shareResult.lessonText": "I scored {{correct}}/{{total}} ({{percent}}%) in {{eyebrow}} on K-TALIM! 🇰🇷",
+  "shareResult.topikText": "I scored {{total}}/{{max}} on the {{title}} on K-TALIM! 🇰🇷",
 };
 
 const uz = {
@@ -1328,6 +1339,17 @@ const uz = {
   "dictation.slow": "Sekinroq",
   "dictation.hint": "Ma'nosi",
   "dictation.score": "{{total}} ta harfdan {{correct}} tasi to'g'ri",
+  // Share result cards
+  "shareResult.button": "Natijani ulashish",
+  "shareResult.download": "Rasmni yuklab olish",
+  "shareResult.telegram": "Telegramda ulashish",
+  "shareResult.footer": "K-TALIM bilan koreys tilini o'rganyapman",
+  "shareResult.perfect": "Mukammal natija!",
+  "shareResult.great": "Zo'r natija!",
+  "shareResult.words_one": "{{count}} ta so'z",
+  "shareResult.words_other": "{{count}} ta so'z",
+  "shareResult.lessonText": "K-TALIM'da {{eyebrow}}: {{correct}}/{{total}} ({{percent}}%) natija oldim! 🇰🇷",
+  "shareResult.topikText": "K-TALIM'da {{title}}: {{total}}/{{max}} ball to'pladim! 🇰🇷",
 };
 
 const ru = {
@@ -2094,6 +2116,19 @@ const ru = {
   "dictation.slow": "Медленнее",
   "dictation.hint": "Значение",
   "dictation.score": "Верно {{correct}} из {{total}} букв",
+  // Share result cards
+  "shareResult.button": "Поделиться результатом",
+  "shareResult.download": "Скачать картинку",
+  "shareResult.telegram": "Поделиться в Telegram",
+  "shareResult.footer": "Учу корейский с K-TALIM",
+  "shareResult.perfect": "Идеальный результат!",
+  "shareResult.great": "Отличная работа!",
+  "shareResult.words_one": "{{count}} слово",
+  "shareResult.words_few": "{{count}} слова",
+  "shareResult.words_many": "{{count}} слов",
+  "shareResult.words_other": "{{count}} слова",
+  "shareResult.lessonText": "Мой результат в K-TALIM — {{eyebrow}}: {{correct}}/{{total}} ({{percent}}%)! 🇰🇷",
+  "shareResult.topikText": "Мой результат в K-TALIM — {{title}}: {{total}}/{{max}}! 🇰🇷",
 };
 
 export default { en, uz, ru };
