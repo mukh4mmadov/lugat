@@ -1,5 +1,5 @@
 import { getWordKey } from "../data";
-import { shuffle } from "./study";
+import { pickDistractors, shuffle } from "./study";
 
 // Study mode introduces a lesson a few words at a time and drills them until
 // each is mastered: answered correctly MASTERY_CORRECT times, including at
@@ -69,14 +69,8 @@ function makeExercise(session, key, words) {
   let stage = Math.min(state.correct, 2);
   if (state.correct >= 2 && state.recall) stage = pick([1, 2]);
 
-  const seenMeanings = new Set([word.uzbek]);
-  const seenKorean = new Set([word.korean]);
-  const distractors = shuffle(words).filter((item) => {
-    if (seenMeanings.has(item.uzbek) || seenKorean.has(item.korean)) return false;
-    seenMeanings.add(item.uzbek);
-    seenKorean.add(item.korean);
-    return true;
-  });
+  // Options are stored as keys of this lesson's words, so distractors stay in the lesson.
+  const distractors = pickDistractors(word, words, words, 3);
   const wordSyllables = new Set([...word.korean].filter(isHangul));
   const otherSyllables = [...new Set(words.flatMap((item) => [...item.korean].filter(isHangul)))].filter(
     (syllable) => !wordSyllables.has(syllable),

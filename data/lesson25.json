@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 712,
-    "romanization": "jal an boida"
+    "romanization": "jal an boida",
+    "english": "Can't see well",
+    "russian": "Плохо видно"
   },
   {
     "id": 713,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 713,
-    "romanization": "geomsareul hada"
+    "romanization": "geomsareul hada",
+    "english": "To have a checkup / test",
+    "russian": "Проходить обследование"
   },
   {
     "id": 714,
@@ -31,7 +35,9 @@
     "needsReview": false,
     "sourceNumber": 714,
     "note": "bolalar bo'limi",
-    "romanization": "soagwa"
+    "romanization": "soagwa",
+    "english": "Pediatrics",
+    "russian": "Педиатрия"
   },
   {
     "id": 715,
@@ -43,7 +49,9 @@
     "needsReview": false,
     "sourceNumber": 715,
     "note": "markazi",
-    "romanization": "sangdam(senteo)"
+    "romanization": "sangdam(senteo)",
+    "english": "Counseling (center)",
+    "russian": "Консультация (центр)"
   },
   {
     "id": 716,
@@ -54,7 +62,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 716,
-    "romanization": "cheoneul hwaginhada"
+    "romanization": "cheoneul hwaginhada",
+    "english": "To check body temperature",
+    "russian": "Измерять температуру"
   },
   {
     "id": 717,
@@ -65,7 +75,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 717,
-    "romanization": "jakku"
+    "romanization": "jakku",
+    "english": "Repeatedly / Keep (doing)",
+    "russian": "Постоянно / Снова и снова"
   },
   {
     "id": 718,
@@ -76,7 +88,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 718,
-    "romanization": "koga makhida"
+    "romanization": "koga makhida",
+    "english": "To have a stuffy nose",
+    "russian": "Нос заложен"
   },
   {
     "id": 719,
@@ -87,7 +101,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 719,
-    "romanization": "jaechaegireul hada"
+    "romanization": "jaechaegireul hada",
+    "english": "To sneeze",
+    "russian": "Чихать"
   },
   {
     "id": 720,
@@ -98,7 +114,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 720,
-    "romanization": "angyeongeul sseuda"
+    "romanization": "angyeongeul sseuda",
+    "english": "To wear glasses",
+    "russian": "Носить очки"
   },
   {
     "id": 721,
@@ -109,7 +127,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 721,
-    "romanization": "nunmuri nada"
+    "romanization": "nunmuri nada",
+    "english": "Tears come out",
+    "russian": "Текут слёзы"
   },
   {
     "id": 722,
@@ -121,7 +141,9 @@
     "needsReview": false,
     "sourceNumber": 722,
     "note": "ko'z kasalliklari bo'limi",
-    "romanization": "angwa"
+    "romanization": "angwa",
+    "english": "Ophthalmology (eye clinic)",
+    "russian": "Офтальмология (глазной врач)"
   },
   {
     "id": 723,
@@ -133,7 +155,9 @@
     "needsReview": false,
     "sourceNumber": 723,
     "note": "tish kasalliklari bo'limi",
-    "romanization": "chigwa"
+    "romanization": "chigwa",
+    "english": "Dentistry (dental clinic)",
+    "russian": "Стоматология"
   },
   {
     "id": 724,
@@ -144,18 +168,22 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 724,
-    "romanization": "chokollit"
+    "romanization": "chokollit",
+    "english": "Chocolate",
+    "russian": "Шоколад"
   },
   {
     "id": 725,
     "korean": "붓다",
-    "uzbek": "Ishmoq, shishmoq / Quymoq",
+    "uzbek": "Shishmoq / Quymoq",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 725,
-    "romanization": "butda"
+    "romanization": "butda",
+    "english": "To swell / To pour",
+    "russian": "Опухать / Наливать"
   },
   {
     "id": 726,
@@ -166,7 +194,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 726,
-    "romanization": "piga nada"
+    "romanization": "piga nada",
+    "english": "To bleed",
+    "russian": "Кровоточить"
   },
   {
     "id": 727,
@@ -177,7 +207,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 727,
-    "romanization": "sangcheoreul dakda"
+    "romanization": "sangcheoreul dakda",
+    "english": "To clean a wound",
+    "russian": "Обрабатывать рану"
   },
   {
     "id": 728,
@@ -188,7 +220,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 728,
-    "romanization": "gomini manta"
+    "romanization": "gomini manta",
+    "english": "To have many worries",
+    "russian": "Иметь много забот"
   },
   {
     "id": 729,
@@ -199,7 +233,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 729,
-    "romanization": "derida"
+    "romanization": "derida",
+    "english": "To take (someone) along",
+    "russian": "Брать с собой (кого-то)"
   },
   {
     "id": 730,
@@ -210,7 +246,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 730,
-    "romanization": "maseukeu"
+    "romanization": "maseukeu",
+    "english": "Face mask",
+    "russian": "Маска"
   },
   {
     "id": 731,
@@ -221,7 +259,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 731,
-    "romanization": "siryeok"
+    "romanization": "siryeok",
+    "english": "Eyesight",
+    "russian": "Зрение"
   },
   {
     "id": 732,
@@ -232,7 +272,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 732,
-    "romanization": "dutongyak"
+    "romanization": "dutongyak",
+    "english": "Headache medicine",
+    "russian": "Лекарство от головной боли"
   },
   {
     "id": 733,
@@ -243,6 +285,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 733,
-    "romanization": "jillyoreul batda"
+    "romanization": "jillyoreul batda",
+    "english": "To see a doctor",
+    "russian": "Получать медицинскую помощь"
   }
 ]

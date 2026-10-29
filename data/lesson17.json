@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 506,
-    "romanization": "chulbalhada"
+    "romanization": "chulbalhada",
+    "english": "To depart",
+    "russian": "Отправляться"
   },
   {
     "id": 507,
@@ -20,7 +22,9 @@
     "needsReview": false,
     "sourceNumber": 507,
     "note": "bormoq",
-    "romanization": "dochakhada"
+    "romanization": "dochakhada",
+    "english": "To arrive",
+    "russian": "Прибывать"
   },
   {
     "id": 508,
@@ -31,7 +35,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 508,
-    "romanization": "doragada"
+    "romanization": "doragada",
+    "english": "To go back",
+    "russian": "Возвращаться (туда)"
   },
   {
     "id": 509,
@@ -42,7 +48,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 509,
-    "romanization": "doraoda"
+    "romanization": "doraoda",
+    "english": "To come back",
+    "russian": "Возвращаться (сюда)"
   },
   {
     "id": 510,
@@ -53,7 +61,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 510,
-    "romanization": "gohyange gada"
+    "romanization": "gohyange gada",
+    "english": "To go to one's hometown",
+    "russian": "Ехать на родину"
   },
   {
     "id": 511,
@@ -64,7 +74,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 511,
-    "romanization": "ginyeomhada"
+    "romanization": "ginyeomhada",
+    "english": "To commemorate / Celebrate",
+    "russian": "Отмечать / Праздновать"
   },
   {
     "id": 512,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 512,
-    "romanization": "moida"
+    "romanization": "moida",
+    "english": "To gather",
+    "russian": "Собираться"
   },
   {
     "id": 513,
@@ -86,7 +100,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 513,
-    "romanization": "sijakdoeda"
+    "romanization": "sijakdoeda",
+    "english": "To begin",
+    "russian": "Начинаться"
   },
   {
     "id": 514,
@@ -97,7 +113,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 514,
-    "romanization": "kkeunnada"
+    "romanization": "kkeunnada",
+    "english": "To end",
+    "russian": "Заканчиваться"
   },
   {
     "id": 515,
@@ -108,7 +126,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 515,
-    "romanization": "eorininal"
+    "romanization": "eorininal",
+    "english": "Children's Day",
+    "russian": "День защиты детей"
   },
   {
     "id": 516,
@@ -119,7 +139,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 516,
-    "romanization": "gohyang"
+    "romanization": "gohyang",
+    "english": "Hometown",
+    "russian": "Родной город"
   },
   {
     "id": 517,
@@ -130,7 +152,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 517,
-    "romanization": "georeoseo gada"
+    "romanization": "georeoseo gada",
+    "english": "To go on foot",
+    "russian": "Идти пешком"
   },
   {
     "id": 518,
@@ -141,7 +165,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 518,
-    "romanization": "beoseureul tago gada"
+    "romanization": "beoseureul tago gada",
+    "english": "To go by bus",
+    "russian": "Ехать на автобусе"
   },
   {
     "id": 519,
@@ -152,7 +178,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 519,
-    "romanization": "sigani geollida"
+    "romanization": "sigani geollida",
+    "english": "To take (time)",
+    "russian": "Занимать (время)"
   },
   {
     "id": 520,
@@ -163,6 +191,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 520,
-    "romanization": "eolmana"
+    "romanization": "eolmana",
+    "english": "How much / How long",
+    "russian": "Сколько / Насколько"
   }
 ]

@@ -8,7 +8,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 260
+    "sourceNumber": 260,
+    "english": "To sit",
+    "russian": "Сидеть / Садиться"
   },
   {
     "id": 261,
@@ -19,7 +21,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 261
+    "sourceNumber": 261,
+    "english": "Welcome",
+    "russian": "Добро пожаловать"
   },
   {
     "id": 262,
@@ -30,7 +34,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 262
+    "sourceNumber": 262,
+    "english": "To wear (clothes)",
+    "russian": "Надевать (одежду)"
   },
   {
     "id": 263,
@@ -41,7 +47,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 263
+    "sourceNumber": 263,
+    "english": "Quickly",
+    "russian": "Быстро"
   },
   {
     "id": 264,
@@ -52,7 +60,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 264
+    "sourceNumber": 264,
+    "english": "To have no time",
+    "russian": "Не иметь времени"
   },
   {
     "id": 265,
@@ -63,7 +73,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 265
+    "sourceNumber": 265,
+    "english": "To have a good time",
+    "russian": "Хорошо провести время"
   },
   {
     "id": 266,
@@ -74,7 +86,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 266
+    "sourceNumber": 266,
+    "english": "Museum",
+    "russian": "Музей"
   },
   {
     "id": 267,
@@ -85,7 +99,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 267
+    "sourceNumber": 267,
+    "english": "To be happy",
+    "russian": "Быть счастливым"
   },
   {
     "id": 268,
@@ -96,7 +112,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 268
+    "sourceNumber": 268,
+    "english": "To come in",
+    "russian": "Входить"
   },
   {
     "id": 269,
@@ -107,7 +125,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 269
+    "sourceNumber": 269,
+    "english": "To congratulate",
+    "russian": "Поздравлять"
   },
   {
     "id": 270,
@@ -118,7 +138,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 270
+    "sourceNumber": 270,
+    "english": "To be healthy",
+    "russian": "Быть здоровым"
   },
   {
     "id": 271,
@@ -129,7 +151,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 271
+    "sourceNumber": 271,
+    "english": "To be careful",
+    "russian": "Быть осторожным"
   },
   {
     "id": 272,
@@ -140,7 +164,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 272
+    "sourceNumber": 272,
+    "english": "Hard / Diligently",
+    "russian": "Усердно / Старательно"
   },
   {
     "id": 273,
@@ -151,7 +177,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 273
+    "sourceNumber": 273,
+    "english": "A little later",
+    "russian": "Чуть позже"
   },
   {
     "id": 274,
@@ -162,7 +190,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 274
+    "sourceNumber": 274,
+    "english": "To write",
+    "russian": "Писать"
   },
   {
     "id": 275,
@@ -173,7 +203,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 275
+    "sourceNumber": 275,
+    "english": "To close",
+    "russian": "Закрывать"
   },
   {
     "id": 276,
@@ -184,7 +216,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 276
+    "sourceNumber": 276,
+    "english": "Door",
+    "russian": "Дверь"
   },
   {
     "id": 277,
@@ -195,7 +229,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 277
+    "sourceNumber": 277,
+    "english": "Window",
+    "russian": "Окно"
   },
   {
     "id": 278,
@@ -206,7 +242,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 278
+    "sourceNumber": 278,
+    "english": "To make a phone call",
+    "russian": "Звонить по телефону"
   },
   {
     "id": 279,
@@ -217,7 +255,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 279
+    "sourceNumber": 279,
+    "english": "To put on (shoes, socks)",
+    "russian": "Надевать (обувь, носки)"
   },
   {
     "id": 280,
@@ -228,7 +268,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 280
+    "sourceNumber": 280,
+    "english": "To go hiking",
+    "russian": "Ходить в горы"
   },
   {
     "id": 281,
@@ -239,7 +281,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 281
+    "sourceNumber": 281,
+    "english": "Hiking boots",
+    "russian": "Туристические ботинки"
   },
   {
     "id": 282,
@@ -250,7 +294,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 282
+    "sourceNumber": 282,
+    "english": "To bring",
+    "russian": "Приносить"
   },
   {
     "id": 283,
@@ -261,7 +307,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 283
+    "sourceNumber": 283,
+    "english": "To rest",
+    "russian": "Отдыхать"
   },
   {
     "id": 284,
@@ -272,7 +320,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 284
+    "sourceNumber": 284,
+    "english": "Older brother (said by a female)",
+    "russian": "Старший брат (для девушки)"
   },
   {
     "id": 285,
@@ -283,7 +333,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 285
+    "sourceNumber": 285,
+    "english": "Older brother (said by a male)",
+    "russian": "Старший брат (для парня)"
   },
   {
     "id": 286,
@@ -294,7 +346,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 286
+    "sourceNumber": 286,
+    "english": "Older sister (said by a male)",
+    "russian": "Старшая сестра (для парня)"
   },
   {
     "id": 287,
@@ -305,7 +359,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 287
+    "sourceNumber": 287,
+    "english": "Older sister (said by a female)",
+    "russian": "Старшая сестра (для девушки)"
   },
   {
     "id": 288,
@@ -316,7 +372,9 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 288
+    "sourceNumber": 288,
+    "english": "To help",
+    "russian": "Помогать"
   },
   {
     "id": 289,
@@ -327,6 +385,8 @@
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 289
+    "sourceNumber": 289,
+    "english": "Surely / Without fail",
+    "russian": "Обязательно"
   }
 ]

@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 663,
-    "romanization": "donghwachaek"
+    "romanization": "donghwachaek",
+    "english": "Storybook",
+    "russian": "Книга сказок"
   },
   {
     "id": 664,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 664,
-    "romanization": "imeil"
+    "romanization": "imeil",
+    "english": "Email",
+    "russian": "Электронная почта"
   },
   {
     "id": 665,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 665,
-    "romanization": "jangnangam"
+    "romanization": "jangnangam",
+    "english": "Toy",
+    "russian": "Игрушка"
   },
   {
     "id": 666,
@@ -41,7 +47,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 666,
-    "romanization": "juso"
+    "romanization": "juso",
+    "english": "Address",
+    "russian": "Адрес"
   },
   {
     "id": 667,
@@ -52,7 +60,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 667,
-    "romanization": "yongdon"
+    "romanization": "yongdon",
+    "english": "Pocket money",
+    "russian": "Карманные деньги"
   },
   {
     "id": 668,
@@ -64,7 +74,9 @@
     "needsReview": false,
     "sourceNumber": 668,
     "note": "husnixat",
-    "romanization": "geulssi"
+    "romanization": "geulssi",
+    "english": "Handwriting",
+    "russian": "Почерк / Надпись"
   },
   {
     "id": 669,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 669,
-    "romanization": "silsu"
+    "romanization": "silsu",
+    "english": "Mistake",
+    "russian": "Ошибка"
   },
   {
     "id": 670,
@@ -86,7 +100,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 670,
-    "romanization": "uimi"
+    "romanization": "uimi",
+    "english": "Meaning",
+    "russian": "Значение"
   },
   {
     "id": 671,
@@ -97,7 +113,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 671,
-    "romanization": "eumnyosu"
+    "romanization": "eumnyosu",
+    "english": "Beverage / Drink",
+    "russian": "Напиток"
   },
   {
     "id": 672,
@@ -109,7 +127,9 @@
     "needsReview": false,
     "sourceNumber": 672,
     "note": "gap",
-    "romanization": "yemun"
+    "romanization": "yemun",
+    "english": "Example sentence",
+    "russian": "Пример (предложение)"
   },
   {
     "id": 673,
@@ -120,7 +140,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 673,
-    "romanization": "dongnyo"
+    "romanization": "dongnyo",
+    "english": "Colleague",
+    "russian": "Коллега"
   },
   {
     "id": 674,
@@ -132,7 +154,9 @@
     "needsReview": false,
     "sourceNumber": 674,
     "note": "tajribaliroq shaxs",
-    "romanization": "seonbae"
+    "romanization": "seonbae",
+    "english": "Senior (at school or work)",
+    "russian": "Старший (по учёбе или работе)"
   },
   {
     "id": 675,
@@ -143,7 +167,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 675,
-    "romanization": "hubae"
+    "romanization": "hubae",
+    "english": "Junior (at school or work)",
+    "russian": "Младший (по учёбе или работе)"
   },
   {
     "id": 676,
@@ -154,7 +180,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 676,
-    "romanization": "museun irieyo?"
+    "romanization": "museun irieyo?",
+    "english": "What's the matter?",
+    "russian": "Что случилось?"
   },
   {
     "id": 677,
@@ -165,7 +193,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 677,
-    "romanization": "jeonhada"
+    "romanization": "jeonhada",
+    "english": "To pass on / Deliver",
+    "russian": "Передавать"
   },
   {
     "id": 678,
@@ -177,7 +207,9 @@
     "needsReview": false,
     "sourceNumber": 678,
     "note": "hurmatli shakli",
-    "romanization": "saengsin"
+    "romanization": "saengsin",
+    "english": "Birthday (honorific)",
+    "russian": "День рождения (почтительно)"
   },
   {
     "id": 679,
@@ -189,7 +221,9 @@
     "needsReview": false,
     "sourceNumber": 679,
     "note": "yozma",
-    "romanization": "beonyeokhada"
+    "romanization": "beonyeokhada",
+    "english": "To translate (written)",
+    "russian": "Переводить (письменно)"
   },
   {
     "id": 680,
@@ -200,19 +234,23 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 680,
-    "romanization": "seoryu"
+    "romanization": "seoryu",
+    "english": "Documents",
+    "russian": "Документы"
   },
   {
     "id": 681,
     "korean": "통역하다",
-    "uzbek": "Tarjima qilmoq",
+    "uzbek": "Og'zaki tarjima qilmoq",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 681,
     "note": "og'zaki",
-    "romanization": "tongyeokhada"
+    "romanization": "tongyeokhada",
+    "english": "To interpret (spoken)",
+    "russian": "Переводить (устно)"
   },
   {
     "id": 682,
@@ -223,19 +261,23 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 682,
-    "romanization": "tongyeokga"
+    "romanization": "tongyeokga",
+    "english": "Interpreter",
+    "russian": "Переводчик (устный)"
   },
   {
     "id": 683,
     "korean": "깎다 (깍다)",
-    "uzbek": "Artmoq, archmoq",
+    "uzbek": "Archmoq / Narxni tushirmoq",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 683,
     "note": "mevani) / Arzonlashtirmoq (narxni",
-    "romanization": "kkakda (kkakda)"
+    "romanization": "kkakda (kkakda)",
+    "english": "To peel / To give a discount",
+    "russian": "Чистить (кожуру) / Делать скидку"
   },
   {
     "id": 684,
@@ -246,7 +288,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 684,
-    "romanization": "panmaewon"
+    "romanization": "panmaewon",
+    "english": "Salesperson",
+    "russian": "Продавец"
   },
   {
     "id": 685,
@@ -258,7 +302,9 @@
     "needsReview": false,
     "sourceNumber": 685,
     "note": "Iltimos, tinchlik saqlang",
-    "romanization": "joyonghi hada (joyonghi hae juseyo)"
+    "romanization": "joyonghi hada (joyonghi hae juseyo)",
+    "english": "To be quiet",
+    "russian": "Вести себя тихо"
   },
   {
     "id": 686,
@@ -269,7 +315,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 686,
-    "romanization": "annaehada"
+    "romanization": "annaehada",
+    "english": "To guide / To inform",
+    "russian": "Показывать дорогу / Информировать"
   },
   {
     "id": 687,
@@ -281,7 +329,9 @@
     "needsReview": false,
     "sourceNumber": 687,
     "note": "tekin",
-    "romanization": "muryo"
+    "romanization": "muryo",
+    "english": "Free (of charge)",
+    "russian": "Бесплатно"
   },
   {
     "id": 688,
@@ -292,7 +342,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 688,
-    "romanization": "yuryo"
+    "romanization": "yuryo",
+    "english": "Paid (requires payment)",
+    "russian": "Платно"
   },
   {
     "id": 689,
@@ -303,7 +355,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 689,
-    "romanization": "tongjang"
+    "romanization": "tongjang",
+    "english": "Bankbook",
+    "russian": "Сберкнижка"
   },
   {
     "id": 690,
@@ -314,6 +368,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 690,
-    "romanization": "jigwon"
+    "romanization": "jigwon",
+    "english": "Employee / Staff",
+    "russian": "Сотрудник"
   }
 ]

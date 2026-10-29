@@ -9,7 +9,9 @@
     "needsReview": false,
     "sourceNumber": 734,
     "note": "suvenir",
-    "romanization": "ginyeompum"
+    "romanization": "ginyeompum",
+    "english": "Souvenir",
+    "russian": "Сувенир"
   },
   {
     "id": 735,
@@ -20,7 +22,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 735,
-    "romanization": "gung"
+    "romanization": "gung",
+    "english": "Palace",
+    "russian": "Дворец"
   },
   {
     "id": 736,
@@ -32,7 +36,9 @@
     "needsReview": false,
     "sourceNumber": 736,
     "note": "park",
-    "romanization": "seoulsup"
+    "romanization": "seoulsup",
+    "english": "Seoul Forest",
+    "russian": "Сеульский лес (парк)"
   },
   {
     "id": 737,
@@ -43,7 +49,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 737,
-    "romanization": "hangang"
+    "romanization": "hangang",
+    "english": "Han River",
+    "russian": "Река Ханган"
   },
   {
     "id": 738,
@@ -54,7 +62,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 738,
-    "romanization": "kkonmokgeori (kkonmokgeori)"
+    "romanization": "kkonmokgeori (kkonmokgeori)",
+    "english": "Flower necklace",
+    "russian": "Цветочное ожерелье"
   },
   {
     "id": 739,
@@ -66,7 +76,9 @@
     "needsReview": false,
     "sourceNumber": 739,
     "note": "koreys milliy qo'shig'i",
-    "romanization": "arirang"
+    "romanization": "arirang",
+    "english": "Arirang (Korean folk song)",
+    "russian": "Ариран (корейская народная песня)"
   },
   {
     "id": 740,
@@ -77,7 +89,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 740,
-    "romanization": "deo"
+    "romanization": "deo",
+    "english": "More",
+    "russian": "Ещё / Больше"
   },
   {
     "id": 741,
@@ -88,7 +102,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 741,
-    "romanization": "haru"
+    "romanization": "haru",
+    "english": "One day",
+    "russian": "Один день"
   },
   {
     "id": 742,
@@ -99,7 +115,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 742,
-    "romanization": "danpung"
+    "romanization": "danpung",
+    "english": "Autumn leaves",
+    "russian": "Осенние листья"
   },
   {
     "id": 743,
@@ -110,7 +128,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 743,
-    "romanization": "kkeunnaeda"
+    "romanization": "kkeunnaeda",
+    "english": "To finish",
+    "russian": "Заканчивать"
   },
   {
     "id": 744,
@@ -121,7 +141,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 744,
-    "romanization": "doneul beolda"
+    "romanization": "doneul beolda",
+    "english": "To earn money",
+    "russian": "Зарабатывать деньги"
   },
   {
     "id": 745,
@@ -132,7 +154,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 745,
-    "romanization": "gamgie geollida"
+    "romanization": "gamgie geollida",
+    "english": "To catch a cold",
+    "russian": "Простудиться"
   },
   {
     "id": 746,
@@ -144,7 +168,9 @@
     "needsReview": false,
     "sourceNumber": 746,
     "note": "darsni",
-    "romanization": "bokseuphada"
+    "romanization": "bokseuphada",
+    "english": "To review",
+    "russian": "Повторять"
   },
   {
     "id": 747,
@@ -155,7 +181,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 747,
-    "romanization": "kkumeul kkuda"
+    "romanization": "kkumeul kkuda",
+    "english": "To dream",
+    "russian": "Видеть сон / Мечтать"
   },
   {
     "id": 748,
@@ -166,7 +194,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 748,
-    "romanization": "keunil nada"
+    "romanization": "keunil nada",
+    "english": "Something terrible happens",
+    "russian": "Случается беда"
   },
   {
     "id": 749,
@@ -178,7 +208,9 @@
     "needsReview": false,
     "sourceNumber": 749,
     "note": "avariya",
-    "romanization": "gyotongsago"
+    "romanization": "gyotongsago",
+    "english": "Traffic accident",
+    "russian": "Дорожная авария"
   },
   {
     "id": 750,
@@ -189,7 +221,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 750,
-    "romanization": "eojetbam"
+    "romanization": "eojetbam",
+    "english": "Last night",
+    "russian": "Прошлой ночью"
   },
   {
     "id": 751,
@@ -200,7 +234,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 751,
-    "romanization": "dongan"
+    "romanization": "dongan",
+    "english": "During / For (a period)",
+    "russian": "В течение"
   },
   {
     "id": 752,
@@ -211,7 +247,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 752,
-    "romanization": "isanghada"
+    "romanization": "isanghada",
+    "english": "To be strange",
+    "russian": "Быть странным"
   },
   {
     "id": 753,
@@ -222,7 +260,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 753,
-    "romanization": "noryeokhada"
+    "romanization": "noryeokhada",
+    "english": "To try hard",
+    "russian": "Стараться"
   },
   {
     "id": 754,
@@ -233,7 +273,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 754,
-    "romanization": "mareul tada"
+    "romanization": "mareul tada",
+    "english": "To ride a horse",
+    "russian": "Ездить верхом"
   },
   {
     "id": 755,
@@ -244,7 +286,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 755,
-    "romanization": "saineul batda"
+    "romanization": "saineul batda",
+    "english": "To get an autograph",
+    "russian": "Получить автограф"
   },
   {
     "id": 756,
@@ -255,7 +299,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 756,
-    "romanization": "janggap"
+    "romanization": "janggap",
+    "english": "Gloves",
+    "russian": "Перчатки"
   },
   {
     "id": 757,
@@ -266,7 +312,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 757,
-    "romanization": "jigap"
+    "romanization": "jigap",
+    "english": "Wallet",
+    "russian": "Кошелёк"
   },
   {
     "id": 758,
@@ -277,7 +325,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 758,
-    "romanization": "ihaehada"
+    "romanization": "ihaehada",
+    "english": "To understand",
+    "russian": "Понимать"
   },
   {
     "id": 759,
@@ -288,7 +338,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 759,
-    "romanization": "nupda"
+    "romanization": "nupda",
+    "english": "To lie down",
+    "russian": "Ложиться"
   },
   {
     "id": 760,
@@ -299,7 +351,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 760,
-    "romanization": "geureochiman"
+    "romanization": "geureochiman",
+    "english": "However / But",
+    "russian": "Однако / Но"
   },
   {
     "id": 761,
@@ -310,7 +364,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 761,
-    "romanization": "gojang nada"
+    "romanization": "gojang nada",
+    "english": "To break down",
+    "russian": "Ломаться"
   },
   {
     "id": 762,
@@ -321,7 +377,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 762,
-    "romanization": "ireobeorida"
+    "romanization": "ireobeorida",
+    "english": "To lose (something)",
+    "russian": "Терять"
   },
   {
     "id": 763,
@@ -332,7 +390,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 763,
-    "romanization": "geulsseyo"
+    "romanization": "geulsseyo",
+    "english": "Well… / I'm not sure",
+    "russian": "Ну… / Не знаю"
   },
   {
     "id": 764,
@@ -343,7 +403,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 764,
-    "romanization": "jeulgida"
+    "romanization": "jeulgida",
+    "english": "To enjoy",
+    "russian": "Наслаждаться"
   },
   {
     "id": 765,
@@ -354,7 +416,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 765,
-    "romanization": "seontaekhada"
+    "romanization": "seontaekhada",
+    "english": "To choose",
+    "russian": "Выбирать"
   },
   {
     "id": 766,
@@ -365,7 +429,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 766,
-    "romanization": "eonjejjeum"
+    "romanization": "eonjejjeum",
+    "english": "About when",
+    "russian": "Примерно когда"
   },
   {
     "id": 767,
@@ -376,7 +442,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 767,
-    "romanization": "dongdaemunsijang"
+    "romanization": "dongdaemunsijang",
+    "english": "Dongdaemun Market",
+    "russian": "Рынок Тондэмун"
   },
   {
     "id": 768,
@@ -388,7 +456,9 @@
     "needsReview": false,
     "sourceNumber": 768,
     "note": "fanat",
-    "romanization": "paen"
+    "romanization": "paen",
+    "english": "Fan",
+    "russian": "Фанат / Поклонник"
   },
   {
     "id": 769,
@@ -399,7 +469,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 769,
-    "romanization": "danida"
+    "romanization": "danida",
+    "english": "To attend / To go regularly",
+    "russian": "Посещать / Ходить (регулярно)"
   },
   {
     "id": 770,
@@ -410,7 +482,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 770,
-    "romanization": "deiteuhada"
+    "romanization": "deiteuhada",
+    "english": "To go on a date",
+    "russian": "Ходить на свидание"
   },
   {
     "id": 771,
@@ -421,6 +495,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 771,
-    "romanization": "sajineul jjikda"
+    "romanization": "sajineul jjikda",
+    "english": "To take a photo",
+    "russian": "Фотографировать"
   }
 ]

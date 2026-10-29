@@ -6,9 +6,9 @@ import GlassCard from "../components/GlassCard";
 import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { getLessonWords, getWordKey } from "../data";
+import { allWords, getLessonWords, getWordKey, acceptedMeanings, meaning } from "../data";
 import { markDifficult, markKnown, toggleFavorite } from "../store";
-import { isAnswerCorrect, shuffle } from "../lib/study";
+import { isAnswerCorrect, pickDistractors, shuffle } from "../lib/study";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
 import { ModeHeader } from "./FlashcardsPage";
@@ -89,7 +89,7 @@ function RoundSummary({ session }) {
             {session.missed.map((item) => (
               <li key={getWordKey(item)} className="flex items-center justify-between gap-3 px-4 py-2.5">
                 <span className="text-lg font-black">{item.korean}</span>
-                <span className="text-sm text-slate-600 dark:text-slate-300">{item.uzbek}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{meaning(item)}</span>
               </li>
             ))}
           </ul>
@@ -163,7 +163,7 @@ function TypedAnswerPractice({ exerciseType, title, badge, placeholder, expected
 
   const submit = () => (answered === undefined ? check() : session.next());
   const mastery = getWordMastery(getWordKey(word), progress.words);
-  const reveal = [word.korean, word.romanization, word.uzbek].filter(Boolean).join(" · ");
+  const reveal = [word.korean, word.romanization, meaning(word)].filter(Boolean).join(" · ");
 
   return (
     <div className="space-y-6">
@@ -238,7 +238,7 @@ export function WritingPage() {
       title={t("practice.writing")}
       badge={t("practice.typeTranslation")}
       placeholder={t("practice.typeTranslation")}
-      expected={(word) => word.uzbek}
+      expected={acceptedMeanings}
       prompt={(word, rate) => (
         <button type="button" onClick={() => speakKorean(word.korean, rate)} className="mx-auto block text-center">
           <span className="block text-4xl font-black md:text-7xl">{word.korean}</span>
@@ -258,14 +258,7 @@ export function QuizPage() {
 
   const options = useMemo(() => {
     if (!word) return [];
-    // Distractors never repeat the correct meaning, so only one option can be right.
-    const seen = new Set([word.uzbek]);
-    const distractors = shuffle(lessonWords).filter((item) => {
-      if (seen.has(item.uzbek)) return false;
-      seen.add(item.uzbek);
-      return true;
-    });
-    return shuffle([word, ...distractors.slice(0, 3)]);
+    return shuffle([word, ...pickDistractors(word, lessonWords, allWords, 3)]);
   }, [word, lessonWords]);
 
   useEffect(() => {
@@ -333,7 +326,7 @@ export function QuizPage() {
                 className={`flex items-center gap-3 rounded-3xl border p-5 text-left text-lg font-black shadow-sm transition ${tone}`}
               >
                 <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-slate-950/5 text-xs dark:bg-white/10">{index + 1}</span>
-                {option.uzbek}
+                {meaning(option)}
               </button>
             );
           })}

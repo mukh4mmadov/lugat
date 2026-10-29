@@ -1,3 +1,5 @@
+import { meaning } from "../data";
+
 export const cardModes = [
   { value: "korean", label: "mode.korean" },
   { value: "uzbek", label: "mode.uzbek" },
@@ -30,12 +32,12 @@ export function pickRandomCardMode() {
 }
 
 export function getPrompt(word, mode) {
-  return mode === "uzbek" ? word.uzbek : word.korean;
+  return mode === "uzbek" ? meaning(word) : word.korean;
 }
 
 export function getAnswer(word, prompt, mode) {
-  if (mode === "random") return prompt === word.korean ? word.uzbek : word.korean;
-  return mode === "uzbek" ? word.korean : word.uzbek;
+  if (mode === "random") return prompt === word.korean ? meaning(word) : word.korean;
+  return mode === "uzbek" ? word.korean : meaning(word);
 }
 
 export function makeHint(answer) {
@@ -105,4 +107,48 @@ export function dailyKey(date = new Date()) {
 
 export function minutesBetween(start, end = Date.now()) {
   return Math.max(1, Math.round((end - start) / 60000));
+}
+
+const KIND_PATTERNS = [
+  ["counter", /\bcounter\b/i],
+  ["number", /^(zero|one|two|three|four|five|six|seven|eight|nine|ten|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)\b|\(\d+\)/i],
+  ["country", /^(germany|usa|england|japan|china|australia|korea|uzbekistan|pakistan|france|asia|europe)\b/i],
+  ["time", /\b(today|tomorrow|yesterday|week|month|year|monday|tuesday|wednesday|thursday|friday|saturday|sunday|morning|evening|night|noon|dawn|weekend|spring|summer|autumn|winter|a\.m\.|o'clock|minute)\b/i],
+  ["place", /\b(store|shop|station|office|school|bank|park|market|room|hospital|library|restaurant|cinema|gym|pool|court|field|stadium|embassy|pharmacy|bakery|house|home|company|museum|palace|island|river|sea|forest|clinic|factory|tower|beach|cafe|coffee shop|tea house|laundromat|ocean|waterfall)\b/i],
+];
+
+// A rough word kind so quiz distractors look alike: verbs with verbs, places
+// with places. Lesson categories are per lesson, so they can't do this.
+export function wordKind(word) {
+  if (/[?？]/.test(word.korean) || /[?]/.test(word.english || "")) return "phrase";
+  if (/다$/.test(word.korean.trim())) return "verb";
+  const english = word.english || "";
+  const match = KIND_PATTERNS.find(([, pattern]) => pattern.test(english));
+  return match ? match[0] : "noun";
+}
+
+// Up to `count` wrong options for `word`: same kind from the same lesson first,
+// then the same kind from nearby lessons, then anything from the lesson.
+// Meanings and Korean never repeat, so exactly one option is right.
+export function pickDistractors(word, lessonWords, allWords, count = 3, meaningOf = meaning) {
+  const kind = wordKind(word);
+  const near = allWords.filter((item) => Math.abs(item.lesson - word.lesson) <= 4 && item.lesson !== word.lesson);
+  const tiers = [
+    lessonWords.filter((item) => wordKind(item) === kind),
+    near.filter((item) => wordKind(item) === kind),
+    lessonWords,
+  ];
+  const seenMeanings = new Set([meaningOf(word)]);
+  const seenKorean = new Set([word.korean]);
+  const picked = [];
+  for (const tier of tiers) {
+    for (const item of shuffle(tier)) {
+      if (picked.length >= count) return picked;
+      if (seenMeanings.has(meaningOf(item)) || seenKorean.has(item.korean)) continue;
+      seenMeanings.add(meaningOf(item));
+      seenKorean.add(item.korean);
+      picked.push(item);
+    }
+  }
+  return picked;
 }

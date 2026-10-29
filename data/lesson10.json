@@ -8,7 +8,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 290
+    "sourceNumber": 290,
+    "english": "Four seasons",
+    "russian": "Четыре времени года"
   },
   {
     "id": 291,
@@ -19,7 +21,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 291
+    "sourceNumber": 291,
+    "english": "Spring",
+    "russian": "Весна"
   },
   {
     "id": 292,
@@ -30,7 +34,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 292
+    "sourceNumber": 292,
+    "english": "Summer",
+    "russian": "Лето"
   },
   {
     "id": 293,
@@ -41,7 +47,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 293
+    "sourceNumber": 293,
+    "english": "Autumn",
+    "russian": "Осень"
   },
   {
     "id": 294,
@@ -52,7 +60,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 294
+    "sourceNumber": 294,
+    "english": "Winter",
+    "russian": "Зима"
   },
   {
     "id": 295,
@@ -63,18 +73,22 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 295
+    "sourceNumber": 295,
+    "english": "To be cold (weather)",
+    "russian": "Быть холодным (о погоде)"
   },
   {
     "id": 296,
     "korean": "맵다",
-    "uzbek": "Achechiq bo'lmoq (qalampirdek)",
+    "uzbek": "Achchiq bo'lmoq (qalampirdek)",
     "romanization": "maepda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 296
+    "sourceNumber": 296,
+    "english": "To be spicy",
+    "russian": "Быть острым"
   },
   {
     "id": 297,
@@ -85,7 +99,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 297
+    "sourceNumber": 297,
+    "english": "To help",
+    "russian": "Помогать"
   },
   {
     "id": 298,
@@ -96,7 +112,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 298
+    "sourceNumber": 298,
+    "english": "To be heavy",
+    "russian": "Быть тяжёлым"
   },
   {
     "id": 299,
@@ -107,7 +125,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 299
+    "sourceNumber": 299,
+    "english": "To be light",
+    "russian": "Быть лёгким"
   },
   {
     "id": 300,
@@ -118,7 +138,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 300
+    "sourceNumber": 300,
+    "english": "To be hot (weather)",
+    "russian": "Быть жарким (о погоде)"
   },
   {
     "id": 301,
@@ -129,7 +151,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 301
+    "sourceNumber": 301,
+    "english": "To be dirty",
+    "russian": "Быть грязным"
   },
   {
     "id": 302,
@@ -140,7 +164,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 302
+    "sourceNumber": 302,
+    "english": "To be easy",
+    "russian": "Быть лёгким (простым)"
   },
   {
     "id": 303,
@@ -151,7 +177,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 303
+    "sourceNumber": 303,
+    "english": "To be difficult",
+    "russian": "Быть трудным"
   },
   {
     "id": 304,
@@ -162,7 +190,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 304
+    "sourceNumber": 304,
+    "english": "To be beautiful",
+    "russian": "Быть красивым"
   },
   {
     "id": 305,
@@ -173,7 +203,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 305
+    "sourceNumber": 305,
+    "english": "To be close / Near",
+    "russian": "Быть близким"
   },
   {
     "id": 306,
@@ -184,7 +216,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 306
+    "sourceNumber": 306,
+    "english": "To be narrow",
+    "russian": "Быть узким"
   },
   {
     "id": 307,
@@ -195,7 +229,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 307
+    "sourceNumber": 307,
+    "english": "To wear",
+    "russian": "Надевать"
   },
   {
     "id": 308,
@@ -206,7 +242,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 308
+    "sourceNumber": 308,
+    "english": "To catch / To hold",
+    "russian": "Ловить / Держать"
   },
   {
     "id": 309,
@@ -217,7 +255,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 309
+    "sourceNumber": 309,
+    "english": "To chew",
+    "russian": "Жевать"
   },
   {
     "id": 310,
@@ -228,29 +268,35 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 310
+    "sourceNumber": 310,
+    "english": "To be wide / Spacious",
+    "russian": "Быть широким / Просторным"
   },
   {
     "id": 311,
     "korean": "업다",
-    "uzbek": "yelkasiga ortmoq,opchimoq",
+    "uzbek": "Yelkasiga ortmoq / Opichmoq",
     "romanization": "eopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 311
+    "sourceNumber": 311,
+    "english": "To carry on one's back",
+    "russian": "Нести на спине"
   },
   {
     "id": 312,
     "korean": "접다",
-    "uzbek": "buklamoq,taxlamoq",
+    "uzbek": "Buklamoq / Taxlamoq",
     "romanization": "jeopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 312
+    "sourceNumber": 312,
+    "english": "To fold",
+    "russian": "Складывать"
   },
   {
     "id": 313,
@@ -261,7 +307,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 313
+    "sourceNumber": 313,
+    "english": "To pick up (with fingers)",
+    "russian": "Брать (пальцами) / Поднимать"
   },
   {
     "id": 314,
@@ -272,7 +320,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 314
+    "sourceNumber": 314,
+    "english": "Scenery",
+    "russian": "Пейзаж"
   },
   {
     "id": 315,
@@ -283,7 +333,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 315
+    "sourceNumber": 315,
+    "english": "Tree / Wood",
+    "russian": "Дерево"
   },
   {
     "id": 316,
@@ -294,7 +346,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 316
+    "sourceNumber": 316,
+    "english": "Kimchi",
+    "russian": "Кимчи"
   },
   {
     "id": 317,
@@ -305,7 +359,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 317
+    "sourceNumber": 317,
+    "english": "Apple",
+    "russian": "Яблоко"
   },
   {
     "id": 318,
@@ -316,7 +372,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 318
+    "sourceNumber": 318,
+    "english": "Lounge / Break room",
+    "russian": "Комната отдыха"
   },
   {
     "id": 319,
@@ -327,7 +385,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 319
+    "sourceNumber": 319,
+    "english": "Chewing gum",
+    "russian": "Жвачка"
   },
   {
     "id": 320,
@@ -338,7 +398,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 320
+    "sourceNumber": 320,
+    "english": "To be warm",
+    "russian": "Быть тёплым"
   },
   {
     "id": 321,
@@ -349,7 +411,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 321
+    "sourceNumber": 321,
+    "english": "To rain",
+    "russian": "Идёт дождь"
   },
   {
     "id": 322,
@@ -360,7 +424,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 322
+    "sourceNumber": 322,
+    "english": "To snow",
+    "russian": "Идёт снег"
   },
   {
     "id": 323,
@@ -371,7 +437,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 323
+    "sourceNumber": 323,
+    "english": "The wind blows",
+    "russian": "Дует ветер"
   },
   {
     "id": 324,
@@ -382,7 +450,9 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 324
+    "sourceNumber": 324,
+    "english": "To be clear (weather)",
+    "russian": "Быть ясным (о погоде)"
   },
   {
     "id": 325,
@@ -393,6 +463,8 @@
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 325
+    "sourceNumber": 325,
+    "english": "To be cloudy",
+    "russian": "Быть пасмурным"
   }
 ]

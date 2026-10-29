@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 521,
-    "romanization": "nun"
+    "romanization": "nun",
+    "english": "Eye / Snow",
+    "russian": "Глаз / Снег"
   },
   {
     "id": 522,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 522,
-    "romanization": "gwi"
+    "romanization": "gwi",
+    "english": "Ear",
+    "russian": "Ухо"
   },
   {
     "id": 523,
@@ -31,7 +35,9 @@
     "needsReview": false,
     "sourceNumber": 523,
     "note": "bilakdan yelkagacha",
-    "romanization": "pal"
+    "romanization": "pal",
+    "english": "Arm",
+    "russian": "Рука (от плеча)"
   },
   {
     "id": 524,
@@ -42,7 +48,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 524,
-    "romanization": "dari"
+    "romanization": "dari",
+    "english": "Leg / Bridge",
+    "russian": "Нога / Мост"
   },
   {
     "id": 525,
@@ -53,7 +61,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 525,
-    "romanization": "bal"
+    "romanization": "bal",
+    "english": "Foot",
+    "russian": "Ступня"
   },
   {
     "id": 526,
@@ -64,7 +74,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 526,
-    "romanization": "ip"
+    "romanization": "ip",
+    "english": "Mouth",
+    "russian": "Рот"
   },
   {
     "id": 527,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 527,
-    "romanization": "eokkae"
+    "romanization": "eokkae",
+    "english": "Shoulder",
+    "russian": "Плечо"
   },
   {
     "id": 528,
@@ -87,7 +101,9 @@
     "needsReview": false,
     "sourceNumber": 528,
     "note": "panja qismi",
-    "romanization": "son"
+    "romanization": "son",
+    "english": "Hand",
+    "russian": "Кисть руки"
   },
   {
     "id": 529,
@@ -98,7 +114,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 529,
-    "romanization": "bae"
+    "romanization": "bae",
+    "english": "Stomach / Ship / Pear",
+    "russian": "Живот / Корабль / Груша"
   },
   {
     "id": 530,
@@ -109,18 +127,22 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 530,
-    "romanization": "eolgul"
+    "romanization": "eolgul",
+    "english": "Face",
+    "russian": "Лицо"
   },
   {
     "id": 531,
     "korean": "손가락",
-    "uzbek": "Barmog'",
+    "uzbek": "Barmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 531,
-    "romanization": "songarak"
+    "romanization": "songarak",
+    "english": "Finger",
+    "russian": "Палец"
   },
   {
     "id": 532,
@@ -131,7 +153,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 532,
-    "romanization": "yeori nada"
+    "romanization": "yeori nada",
+    "english": "To have a fever",
+    "russian": "Иметь температуру"
   },
   {
     "id": 533,
@@ -142,7 +166,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 533,
-    "romanization": "mogi apeuda"
+    "romanization": "mogi apeuda",
+    "english": "To have a sore throat",
+    "russian": "Болит горло"
   },
   {
     "id": 534,
@@ -153,7 +179,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 534,
-    "romanization": "konmuri nada"
+    "romanization": "konmuri nada",
+    "english": "To have a runny nose",
+    "russian": "Насморк"
   },
   {
     "id": 535,
@@ -164,7 +192,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 535,
-    "romanization": "nappeuda"
+    "romanization": "nappeuda",
+    "english": "To be bad",
+    "russian": "Быть плохим"
   },
   {
     "id": 536,
@@ -175,7 +205,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 536,
-    "romanization": "bappeuda"
+    "romanization": "bappeuda",
+    "english": "To be busy",
+    "russian": "Быть занятым"
   },
   {
     "id": 537,
@@ -186,7 +218,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 537,
-    "romanization": "seulpeuda"
+    "romanization": "seulpeuda",
+    "english": "To be sad",
+    "russian": "Быть грустным"
   },
   {
     "id": 538,
@@ -197,7 +231,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 538,
-    "romanization": "baegopeuda"
+    "romanization": "baegopeuda",
+    "english": "To be hungry",
+    "russian": "Быть голодным"
   },
   {
     "id": 539,
@@ -208,7 +244,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 539,
-    "romanization": "keuda"
+    "romanization": "keuda",
+    "english": "To be big",
+    "russian": "Быть большим"
   },
   {
     "id": 540,
@@ -219,7 +257,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 540,
-    "romanization": "keun soriro iyagihada"
+    "romanization": "keun soriro iyagihada",
+    "english": "To speak loudly",
+    "russian": "Говорить громко"
   },
   {
     "id": 541,
@@ -230,7 +270,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 541,
-    "romanization": "gyeran"
+    "romanization": "gyeran",
+    "english": "Egg",
+    "russian": "Яйцо"
   },
   {
     "id": 542,
@@ -241,7 +283,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 542,
-    "romanization": "sureul masida"
+    "romanization": "sureul masida",
+    "english": "To drink alcohol",
+    "russian": "Пить алкоголь"
   },
   {
     "id": 543,
@@ -252,7 +296,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 543,
-    "romanization": "jameul jada"
+    "romanization": "jameul jada",
+    "english": "To sleep",
+    "russian": "Спать"
   },
   {
     "id": 544,
@@ -263,7 +309,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 544,
-    "romanization": "keuge deutda"
+    "romanization": "keuge deutda",
+    "english": "To listen loudly",
+    "russian": "Слушать громко"
   },
   {
     "id": 545,
@@ -274,7 +322,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 545,
-    "romanization": "wae"
+    "romanization": "wae",
+    "english": "Why",
+    "russian": "Почему"
   },
   {
     "id": 546,
@@ -285,7 +335,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 546,
-    "romanization": "yeodeureumi saenggida"
+    "romanization": "yeodeureumi saenggida",
+    "english": "To get pimples",
+    "russian": "Появляются прыщи"
   },
   {
     "id": 547,
@@ -296,7 +348,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 547,
-    "romanization": "sayonghada"
+    "romanization": "sayonghada",
+    "english": "To use",
+    "russian": "Использовать"
   },
   {
     "id": 548,
@@ -307,7 +361,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 548,
-    "romanization": "ellibeiteo"
+    "romanization": "ellibeiteo",
+    "english": "Elevator",
+    "russian": "Лифт"
   },
   {
     "id": 549,
@@ -318,7 +374,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 549,
-    "romanization": "gyedan"
+    "romanization": "gyedan",
+    "english": "Stairs",
+    "russian": "Лестница"
   },
   {
     "id": 550,
@@ -329,7 +387,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 550,
-    "romanization": "yalbeun ot"
+    "romanization": "yalbeun ot",
+    "english": "Light (thin) clothes",
+    "russian": "Лёгкая (тонкая) одежда"
   },
   {
     "id": 551,
@@ -340,6 +400,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 551,
-    "romanization": "ttatteuthan ot"
+    "romanization": "ttatteuthan ot",
+    "english": "Warm clothes",
+    "russian": "Тёплая одежда"
   }
 ]

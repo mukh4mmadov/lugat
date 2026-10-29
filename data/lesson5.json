@@ -8,7 +8,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 109
+    "sourceNumber": 109,
+    "english": "To play the guitar",
+    "russian": "Играть на гитаре"
   },
   {
     "id": 110,
@@ -19,7 +21,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 110
+    "sourceNumber": 110,
+    "english": "To exchange money",
+    "russian": "Обменивать деньги"
   },
   {
     "id": 111,
@@ -30,7 +34,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 111
+    "sourceNumber": 111,
+    "english": "To send a letter",
+    "russian": "Отправлять письмо"
   },
   {
     "id": 112,
@@ -41,7 +47,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 112
+    "sourceNumber": 112,
+    "english": "To play tennis",
+    "russian": "Играть в теннис"
   },
   {
     "id": 113,
@@ -52,7 +60,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 113
+    "sourceNumber": 113,
+    "english": "To send money",
+    "russian": "Отправлять деньги (перевод)"
   },
   {
     "id": 114,
@@ -63,7 +73,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 114
+    "sourceNumber": 114,
+    "english": "Bank",
+    "russian": "Банк"
   },
   {
     "id": 115,
@@ -74,7 +86,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 115
+    "sourceNumber": 115,
+    "english": "Post office",
+    "russian": "Почта"
   },
   {
     "id": 116,
@@ -85,7 +99,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 116
+    "sourceNumber": 116,
+    "english": "School",
+    "russian": "Школа"
   },
   {
     "id": 117,
@@ -96,7 +112,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 117
+    "sourceNumber": 117,
+    "english": "Tennis court",
+    "russian": "Теннисный корт"
   },
   {
     "id": 118,
@@ -107,7 +125,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 118
+    "sourceNumber": 118,
+    "english": "Gym",
+    "russian": "Тренажёрный зал"
   },
   {
     "id": 119,
@@ -118,7 +138,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 119
+    "sourceNumber": 119,
+    "english": "Swimming pool",
+    "russian": "Бассейн"
   },
   {
     "id": 120,
@@ -129,7 +151,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 120
+    "sourceNumber": 120,
+    "english": "Park",
+    "russian": "Парк"
   },
   {
     "id": 121,
@@ -140,7 +164,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 121
+    "sourceNumber": 121,
+    "english": "House / Home",
+    "russian": "Дом"
   },
   {
     "id": 122,
@@ -151,7 +177,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 122
+    "sourceNumber": 122,
+    "english": "Bicycle",
+    "russian": "Велосипед"
   },
   {
     "id": 123,
@@ -162,7 +190,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 123
+    "sourceNumber": 123,
+    "english": "Library",
+    "russian": "Библиотека"
   },
   {
     "id": 124,
@@ -173,7 +203,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 124
+    "sourceNumber": 124,
+    "english": "Restaurant",
+    "russian": "Ресторан / Столовая"
   },
   {
     "id": 125,
@@ -184,7 +216,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 125
+    "sourceNumber": 125,
+    "english": "Market",
+    "russian": "Рынок"
   },
   {
     "id": 126,
@@ -195,7 +229,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 126
+    "sourceNumber": 126,
+    "english": "Where",
+    "russian": "Где"
   },
   {
     "id": 127,
@@ -206,7 +242,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 127
+    "sourceNumber": 127,
+    "english": "To be sorry",
+    "russian": "Извиняться (Прости)"
   },
   {
     "id": 128,
@@ -217,7 +255,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 128
+    "sourceNumber": 128,
+    "english": "To be sorry (polite)",
+    "russian": "Извиняться (Извините — вежливо)"
   },
   {
     "id": 129,
@@ -228,7 +268,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 129
+    "sourceNumber": 129,
+    "english": "To play computer games",
+    "russian": "Играть в компьютерные игры"
   },
   {
     "id": 130,
@@ -239,7 +281,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 130
+    "sourceNumber": 130,
+    "english": "To take a walk",
+    "russian": "Гулять"
   },
   {
     "id": 131,
@@ -250,7 +294,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 131
+    "sourceNumber": 131,
+    "english": "Embassy",
+    "russian": "Посольство"
   },
   {
     "id": 132,
@@ -261,7 +307,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 132
+    "sourceNumber": 132,
+    "english": "Classroom",
+    "russian": "Класс (аудитория)"
   },
   {
     "id": 133,
@@ -272,7 +320,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 133
+    "sourceNumber": 133,
+    "english": "Cinema",
+    "russian": "Кинотеатр"
   },
   {
     "id": 134,
@@ -283,7 +333,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 134
+    "sourceNumber": 134,
+    "english": "Stationery store",
+    "russian": "Канцелярский магазин"
   },
   {
     "id": 135,
@@ -294,7 +346,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 135
+    "sourceNumber": 135,
+    "english": "Bookstore",
+    "russian": "Книжный магазин"
   },
   {
     "id": 136,
@@ -305,7 +359,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 136
+    "sourceNumber": 136,
+    "english": "Department store",
+    "russian": "Универмаг"
   },
   {
     "id": 137,
@@ -316,7 +372,9 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 137
+    "sourceNumber": 137,
+    "english": "Company",
+    "russian": "Компания / Фирма"
   },
   {
     "id": 138,
@@ -327,6 +385,8 @@
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 138
+    "sourceNumber": 138,
+    "english": "Pharmacy",
+    "russian": "Аптека"
   }
 ]

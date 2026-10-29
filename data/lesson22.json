@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 630,
-    "romanization": "bihaenggi"
+    "romanization": "bihaenggi",
+    "english": "Airplane",
+    "russian": "Самолёт"
   },
   {
     "id": 631,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 631,
-    "romanization": "gawi"
+    "romanization": "gawi",
+    "english": "Scissors",
+    "russian": "Ножницы"
   },
   {
     "id": 632,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 632,
-    "romanization": "hakgyobeoseu"
+    "romanization": "hakgyobeoseu",
+    "english": "School bus",
+    "russian": "Школьный автобус"
   },
   {
     "id": 633,
@@ -41,7 +47,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 633,
-    "romanization": "hyeongeum"
+    "romanization": "hyeongeum",
+    "english": "Cash",
+    "russian": "Наличные"
   },
   {
     "id": 634,
@@ -52,7 +60,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 634,
-    "romanization": "chitsol"
+    "romanization": "chitsol",
+    "english": "Toothbrush",
+    "russian": "Зубная щётка"
   },
   {
     "id": 635,
@@ -63,7 +73,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 635,
-    "romanization": "ireul dakda"
+    "romanization": "ireul dakda",
+    "english": "To brush one's teeth",
+    "russian": "Чистить зубы"
   },
   {
     "id": 636,
@@ -74,7 +86,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 636,
-    "romanization": "cheongsogi"
+    "romanization": "cheongsogi",
+    "english": "Vacuum cleaner",
+    "russian": "Пылесос"
   },
   {
     "id": 637,
@@ -85,7 +99,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 637,
-    "romanization": "bitjaru"
+    "romanization": "bitjaru",
+    "english": "Broom",
+    "russian": "Веник"
   },
   {
     "id": 638,
@@ -96,7 +112,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 638,
-    "romanization": "jareuda"
+    "romanization": "jareuda",
+    "english": "To cut",
+    "russian": "Резать"
   },
   {
     "id": 639,
@@ -107,7 +125,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 639,
-    "romanization": "kal"
+    "romanization": "kal",
+    "english": "Knife",
+    "russian": "Нож"
   },
   {
     "id": 640,
@@ -118,7 +138,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 640,
-    "romanization": "sutgarak"
+    "romanization": "sutgarak",
+    "english": "Spoon",
+    "russian": "Ложка"
   },
   {
     "id": 641,
@@ -130,7 +152,9 @@
     "needsReview": false,
     "sourceNumber": 641,
     "note": "xom",
-    "romanization": "ssal"
+    "romanization": "ssal",
+    "english": "Rice (uncooked)",
+    "russian": "Рис (крупа)"
   },
   {
     "id": 642,
@@ -141,7 +165,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 642,
-    "romanization": "mworo"
+    "romanization": "mworo",
+    "english": "With what / By what",
+    "russian": "Чем / На чём"
   },
   {
     "id": 643,
@@ -153,7 +179,9 @@
     "needsReview": false,
     "sourceNumber": 643,
     "note": "koreyscha quyuq sho'rva",
-    "romanization": "jjigae"
+    "romanization": "jjigae",
+    "english": "Stew (jjigae)",
+    "russian": "Рагу (чигэ)"
   },
   {
     "id": 644,
@@ -164,7 +192,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 644,
-    "romanization": "badatga"
+    "romanization": "badatga",
+    "english": "Beach / Seaside",
+    "russian": "Пляж / Побережье"
   },
   {
     "id": 645,
@@ -175,7 +205,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 645,
-    "romanization": "milgaru"
+    "romanization": "milgaru",
+    "english": "Flour",
+    "russian": "Мука"
   },
   {
     "id": 646,
@@ -186,7 +218,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 646,
-    "romanization": "gicha"
+    "romanization": "gicha",
+    "english": "Train",
+    "russian": "Поезд"
   },
   {
     "id": 647,
@@ -198,7 +232,9 @@
     "needsReview": false,
     "sourceNumber": 647,
     "note": "shahar",
-    "romanization": "busan"
+    "romanization": "busan",
+    "english": "Busan",
+    "russian": "Пусан"
   },
   {
     "id": 648,
@@ -209,7 +245,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 648,
-    "romanization": "jejudo"
+    "romanization": "jejudo",
+    "english": "Jeju Island",
+    "russian": "Остров Чеджу"
   },
   {
     "id": 649,
@@ -221,7 +259,9 @@
     "needsReview": false,
     "sourceNumber": 649,
     "note": "shahar",
-    "romanization": "incheon"
+    "romanization": "incheon",
+    "english": "Incheon",
+    "russian": "Инчхон"
   },
   {
     "id": 650,
@@ -232,7 +272,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 650,
-    "romanization": "otobai"
+    "romanization": "otobai",
+    "english": "Motorcycle",
+    "russian": "Мотоцикл"
   },
   {
     "id": 651,
@@ -244,7 +286,9 @@
     "needsReview": false,
     "sourceNumber": 651,
     "note": "shattl",
-    "romanization": "syeoteulbeoseu"
+    "romanization": "syeoteulbeoseu",
+    "english": "Shuttle bus",
+    "russian": "Шаттл-автобус"
   },
   {
     "id": 652,
@@ -255,7 +299,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 652,
-    "romanization": "eolmana"
+    "romanization": "eolmana",
+    "english": "How much / How long",
+    "russian": "Сколько"
   },
   {
     "id": 653,
@@ -266,7 +312,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 653,
-    "romanization": "geollida"
+    "romanization": "geollida",
+    "english": "To take (time) / To hang",
+    "russian": "Занимать (время) / Висеть"
   },
   {
     "id": 654,
@@ -277,7 +325,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 654,
-    "romanization": "meolda"
+    "romanization": "meolda",
+    "english": "To be far",
+    "russian": "Быть далёким"
   },
   {
     "id": 655,
@@ -289,7 +339,9 @@
     "needsReview": false,
     "sourceNumber": 655,
     "note": "suyuq",
-    "romanization": "guk"
+    "romanization": "guk",
+    "english": "Soup",
+    "russian": "Суп"
   },
   {
     "id": 656,
@@ -301,7 +353,9 @@
     "needsReview": false,
     "sourceNumber": 656,
     "note": "plyaj",
-    "romanization": "haeundae"
+    "romanization": "haeundae",
+    "english": "Haeundae (beach in Busan)",
+    "russian": "Хэундэ (пляж в Пусане)"
   },
   {
     "id": 657,
@@ -312,7 +366,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 657,
-    "romanization": "hotel"
+    "romanization": "hotel",
+    "english": "Hotel",
+    "russian": "Гостиница"
   },
   {
     "id": 658,
@@ -323,7 +379,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 658,
-    "romanization": "sseuda"
+    "romanization": "sseuda",
+    "english": "To write / Bitter / To wear / To use",
+    "russian": "Писать / Горький / Надевать / Использовать"
   },
   {
     "id": 659,
@@ -334,7 +392,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 659,
-    "romanization": "gyesanhada"
+    "romanization": "gyesanhada",
+    "english": "To calculate / To pay",
+    "russian": "Считать / Платить"
   },
   {
     "id": 660,
@@ -345,7 +405,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 660,
-    "romanization": "renteoka"
+    "romanization": "renteoka",
+    "english": "Rental car",
+    "russian": "Арендованная машина"
   },
   {
     "id": 661,
@@ -356,7 +418,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 661,
-    "romanization": "sagwida"
+    "romanization": "sagwida",
+    "english": "To make friends / To date",
+    "russian": "Дружить / Встречаться"
   },
   {
     "id": 662,
@@ -367,6 +431,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 662,
-    "romanization": "meonjeo"
+    "romanization": "meonjeo",
+    "english": "First / Before",
+    "russian": "Сначала / Первым"
   }
 ]

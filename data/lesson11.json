@@ -8,7 +8,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 326
+    "sourceNumber": 326,
+    "english": "To be fast",
+    "russian": "Быть быстрым"
   },
   {
     "id": 327,
@@ -19,7 +21,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 327
+    "sourceNumber": 327,
+    "english": "To be slow",
+    "russian": "Быть медленным"
   },
   {
     "id": 328,
@@ -30,7 +34,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 328
+    "sourceNumber": 328,
+    "english": "To be short",
+    "russian": "Быть коротким"
   },
   {
     "id": 329,
@@ -41,7 +47,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 329
+    "sourceNumber": 329,
+    "english": "Head / Hair",
+    "russian": "Голова / Волосы"
   },
   {
     "id": 330,
@@ -52,7 +60,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 330
+    "sourceNumber": 330,
+    "english": "To be tall",
+    "russian": "Быть высоким (о росте)"
   },
   {
     "id": 331,
@@ -63,7 +73,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 331
+    "sourceNumber": 331,
+    "english": "To be short (height)",
+    "russian": "Быть низким (о росте)"
   },
   {
     "id": 332,
@@ -74,7 +86,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 332
+    "sourceNumber": 332,
+    "english": "To be pretty",
+    "russian": "Быть красивым"
   },
   {
     "id": 333,
@@ -85,7 +99,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 333
+    "sourceNumber": 333,
+    "english": "To be deep",
+    "russian": "Быть глубоким"
   },
   {
     "id": 334,
@@ -96,7 +112,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 334
+    "sourceNumber": 334,
+    "english": "River",
+    "russian": "Река"
   },
   {
     "id": 335,
@@ -107,7 +125,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 335
+    "sourceNumber": 335,
+    "english": "Room",
+    "russian": "Комната"
   },
   {
     "id": 336,
@@ -118,7 +138,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 336
+    "sourceNumber": 336,
+    "english": "To be beautiful",
+    "russian": "Быть прекрасным"
   },
   {
     "id": 337,
@@ -129,7 +151,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 337
+    "sourceNumber": 337,
+    "english": "To be quiet",
+    "russian": "Быть тихим"
   },
   {
     "id": 338,
@@ -140,7 +164,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 338
+    "sourceNumber": 338,
+    "english": "Sea",
+    "russian": "Море"
   },
   {
     "id": 339,
@@ -151,7 +177,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 339
+    "sourceNumber": 339,
+    "english": "Asia",
+    "russian": "Азия"
   },
   {
     "id": 340,
@@ -162,7 +190,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 340
+    "sourceNumber": 340,
+    "english": "Europe",
+    "russian": "Европа"
   },
   {
     "id": 341,
@@ -173,7 +203,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 341
+    "sourceNumber": 341,
+    "english": "France",
+    "russian": "Франция"
   },
   {
     "id": 342,
@@ -184,7 +216,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 342
+    "sourceNumber": 342,
+    "english": "Bus",
+    "russian": "Автобус"
   },
   {
     "id": 343,
@@ -195,7 +229,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 343
+    "sourceNumber": 343,
+    "english": "Subway",
+    "russian": "Метро"
   },
   {
     "id": 344,
@@ -206,7 +242,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 344
+    "sourceNumber": 344,
+    "english": "To be smart",
+    "russian": "Быть умным"
   },
   {
     "id": 345,
@@ -217,7 +255,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 345
+    "sourceNumber": 345,
+    "english": "To be cute",
+    "russian": "Быть милым"
   },
   {
     "id": 346,
@@ -228,7 +268,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 346
+    "sourceNumber": 346,
+    "english": "Daughter",
+    "russian": "Дочь"
   },
   {
     "id": 347,
@@ -239,7 +281,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 347
+    "sourceNumber": 347,
+    "english": "Son",
+    "russian": "Сын"
   },
   {
     "id": 348,
@@ -250,7 +294,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 348
+    "sourceNumber": 348,
+    "english": "Younger brother",
+    "russian": "Младший брат"
   },
   {
     "id": 349,
@@ -261,7 +307,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 349
+    "sourceNumber": 349,
+    "english": "Younger sister",
+    "russian": "Младшая сестра"
   },
   {
     "id": 350,
@@ -272,7 +320,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 350
+    "sourceNumber": 350,
+    "english": "To wash the dishes",
+    "russian": "Мыть посуду"
   },
   {
     "id": 351,
@@ -283,7 +333,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 351
+    "sourceNumber": 351,
+    "english": "To dislike",
+    "russian": "Не любить"
   },
   {
     "id": 352,
@@ -294,7 +346,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 352
+    "sourceNumber": 352,
+    "english": "To ride / To take (transport)",
+    "russian": "Ехать / Кататься"
   },
   {
     "id": 353,
@@ -305,7 +359,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 353
+    "sourceNumber": 353,
+    "english": "Taxi",
+    "russian": "Такси"
   },
   {
     "id": 354,
@@ -316,7 +372,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 354
+    "sourceNumber": 354,
+    "english": "Skateboard",
+    "russian": "Скейтборд"
   },
   {
     "id": 355,
@@ -327,7 +385,9 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 355
+    "sourceNumber": 355,
+    "english": "Mobile phone",
+    "russian": "Мобильный телефон"
   },
   {
     "id": 356,
@@ -338,6 +398,8 @@
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 356
+    "sourceNumber": 356,
+    "english": "Understood / Okay",
+    "russian": "Понятно / Хорошо"
   }
 ]

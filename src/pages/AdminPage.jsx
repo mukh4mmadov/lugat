@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
-import { allWords, getWordKey, lessonInfo } from "../data";
+import { allWords, getWordKey, lessonInfo, meaning } from "../data";
 import { TOPIK_EXAMS } from "../data/topik/exams";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
@@ -341,7 +341,7 @@ export function AdminOverview() {
                         <span className="w-5 text-xs font-black text-slate-400">{index + 1}</span>
                         <span className="min-w-0 flex-1 truncate">
                           <span className="font-black">{word?.korean || entry.key}</span>
-                          <span className="ml-2 text-slate-500 dark:text-slate-400">{word?.uzbek}</span>
+                          <span className="ml-2 text-slate-500 dark:text-slate-400">{meaning(word)}</span>
                         </span>
                         <span className="shrink-0 text-xs font-bold tabular-nums text-rose-600 dark:text-rose-300">{t("admin.mistakes", { count: entry.wrong })}</span>
                         <span className="w-16 shrink-0 text-right text-xs font-bold tabular-nums text-slate-500">{t("admin.learnersShort", { count: entry.learners })}</span>

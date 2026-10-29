@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 552,
-    "romanization": "yeonseuphada"
+    "romanization": "yeonseuphada",
+    "english": "To practice",
+    "russian": "Тренироваться / Практиковаться"
   },
   {
     "id": 553,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 553,
-    "romanization": "yaksogeul jikida"
+    "romanization": "yaksogeul jikida",
+    "english": "To keep a promise",
+    "russian": "Сдержать обещание"
   },
   {
     "id": 554,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 554,
-    "romanization": "jeone"
+    "romanization": "jeone",
+    "english": "Before",
+    "russian": "Раньше / Прежде"
   },
   {
     "id": 555,
@@ -41,7 +47,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 555,
-    "romanization": "chamgahada"
+    "romanization": "chamgahada",
+    "english": "To participate",
+    "russian": "Участвовать"
   },
   {
     "id": 556,
@@ -52,7 +60,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 556,
-    "romanization": "gieokhada"
+    "romanization": "gieokhada",
+    "english": "To remember",
+    "russian": "Помнить / Вспоминать"
   },
   {
     "id": 557,
@@ -63,7 +73,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 557,
-    "romanization": "sangdaetim"
+    "romanization": "sangdaetim",
+    "english": "Opposing team",
+    "russian": "Команда соперника"
   },
   {
     "id": 558,
@@ -74,7 +86,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 558,
-    "romanization": "kkeunnada"
+    "romanization": "kkeunnada",
+    "english": "To end",
+    "russian": "Заканчиваться"
   },
   {
     "id": 559,
@@ -85,7 +99,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 559,
-    "romanization": "geummedal"
+    "romanization": "geummedal",
+    "english": "Gold medal",
+    "russian": "Золотая медаль"
   },
   {
     "id": 560,
@@ -96,7 +112,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 560,
-    "romanization": "nonggu"
+    "romanization": "nonggu",
+    "english": "Basketball",
+    "russian": "Баскетбол"
   },
   {
     "id": 561,
@@ -107,7 +125,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 561,
-    "romanization": "seonsu"
+    "romanization": "seonsu",
+    "english": "Athlete / Player",
+    "russian": "Спортсмен / Игрок"
   },
   {
     "id": 562,
@@ -118,7 +138,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 562,
-    "romanization": "eunmedal"
+    "romanization": "eunmedal",
+    "english": "Silver medal",
+    "russian": "Серебряная медаль"
   },
   {
     "id": 563,
@@ -129,7 +151,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 563,
-    "romanization": "pyo"
+    "romanization": "pyo",
+    "english": "Ticket / Table (chart)",
+    "russian": "Билет / Таблица"
   },
   {
     "id": 564,
@@ -140,7 +164,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 564,
-    "romanization": "cheot beonjjaero"
+    "romanization": "cheot beonjjaero",
+    "english": "First (in order)",
+    "russian": "Первым"
   },
   {
     "id": 565,
@@ -151,7 +177,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 565,
-    "romanization": "gyeonggihada"
+    "romanization": "gyeonggihada",
+    "english": "To play a match",
+    "russian": "Играть матч / Соревноваться"
   },
   {
     "id": 566,
@@ -162,7 +190,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 566,
-    "romanization": "jilmunhada"
+    "romanization": "jilmunhada",
+    "english": "To ask a question",
+    "russian": "Задавать вопрос"
   },
   {
     "id": 567,
@@ -173,7 +203,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 567,
-    "romanization": "moreuda"
+    "romanization": "moreuda",
+    "english": "Not to know",
+    "russian": "Не знать"
   },
   {
     "id": 568,
@@ -184,7 +216,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 568,
-    "romanization": "gyobok"
+    "romanization": "gyobok",
+    "english": "School uniform",
+    "russian": "Школьная форма"
   },
   {
     "id": 569,
@@ -195,7 +229,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 569,
-    "romanization": "gachi"
+    "romanization": "gachi",
+    "english": "Together",
+    "russian": "Вместе"
   },
   {
     "id": 570,
@@ -206,7 +242,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 570,
-    "romanization": "jaju"
+    "romanization": "jaju",
+    "english": "Often",
+    "russian": "Часто"
   },
   {
     "id": 571,
@@ -217,7 +255,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 571,
-    "romanization": "dalligi"
+    "romanization": "dalligi",
+    "english": "Running",
+    "russian": "Бег"
   },
   {
     "id": 572,
@@ -228,7 +268,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 572,
-    "romanization": "cheyukgwan"
+    "romanization": "cheyukgwan",
+    "english": "Gymnasium",
+    "russian": "Спортзал"
   },
   {
     "id": 573,
@@ -239,7 +281,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 573,
-    "romanization": "gong"
+    "romanization": "gong",
+    "english": "Ball",
+    "russian": "Мяч"
   },
   {
     "id": 574,
@@ -250,7 +294,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 574,
-    "romanization": "daehoe"
+    "romanization": "daehoe",
+    "english": "Competition / Contest",
+    "russian": "Соревнование"
   },
   {
     "id": 575,
@@ -261,7 +307,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 575,
-    "romanization": "igida"
+    "romanization": "igida",
+    "english": "To win",
+    "russian": "Побеждать / Выигрывать"
   },
   {
     "id": 576,
@@ -272,7 +320,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 576,
-    "romanization": "jida"
+    "romanization": "jida",
+    "english": "To lose",
+    "russian": "Проигрывать"
   },
   {
     "id": 577,
@@ -284,6 +334,8 @@
     "needsReview": false,
     "sourceNumber": 577,
     "note": "tashlamoq",
-    "romanization": "gongeul deonjida"
+    "romanization": "gongeul deonjida",
+    "english": "To throw a ball",
+    "russian": "Бросать мяч"
   }
 ]

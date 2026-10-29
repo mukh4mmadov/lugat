@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 478,
-    "romanization": "saebyeok"
+    "romanization": "saebyeok",
+    "english": "Dawn / Early morning",
+    "russian": "Рассвет / Раннее утро"
   },
   {
     "id": 479,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 479,
-    "romanization": "achim"
+    "romanization": "achim",
+    "english": "Morning / Breakfast",
+    "russian": "Утро / Завтрак"
   },
   {
     "id": 480,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 480,
-    "romanization": "jeomsim"
+    "romanization": "jeomsim",
+    "english": "Noon / Lunch",
+    "russian": "Полдень / Обед"
   },
   {
     "id": 481,
@@ -41,7 +47,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 481,
-    "romanization": "nat"
+    "romanization": "nat",
+    "english": "Daytime",
+    "russian": "День (дневное время)"
   },
   {
     "id": 482,
@@ -52,7 +60,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 482,
-    "romanization": "jeonyeok"
+    "romanization": "jeonyeok",
+    "english": "Evening / Dinner",
+    "russian": "Вечер / Ужин"
   },
   {
     "id": 483,
@@ -63,7 +73,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 483,
-    "romanization": "bam"
+    "romanization": "bam",
+    "english": "Night",
+    "russian": "Ночь"
   },
   {
     "id": 484,
@@ -74,7 +86,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 484,
-    "romanization": "ojeon / ohu"
+    "romanization": "ojeon / ohu",
+    "english": "A.M. / P.M.",
+    "russian": "До полудня / После полудня"
   },
   {
     "id": 485,
@@ -85,7 +99,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 485,
-    "romanization": "botong"
+    "romanization": "botong",
+    "english": "Usually",
+    "russian": "Обычно"
   },
   {
     "id": 486,
@@ -96,7 +112,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 486,
-    "romanization": "jogeum jeon / jogeum hu"
+    "romanization": "jogeum jeon / jogeum hu",
+    "english": "A little while ago / A little later",
+    "russian": "Недавно / Чуть позже"
   },
   {
     "id": 487,
@@ -107,7 +125,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 487,
-    "romanization": "ireonada"
+    "romanization": "ireonada",
+    "english": "To get up / Wake up",
+    "russian": "Вставать / Просыпаться"
   },
   {
     "id": 488,
@@ -118,7 +138,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 488,
-    "romanization": "sesuhada"
+    "romanization": "sesuhada",
+    "english": "To wash one's face",
+    "russian": "Умываться"
   },
   {
     "id": 489,
@@ -129,7 +151,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 489,
-    "romanization": "ppallaehada"
+    "romanization": "ppallaehada",
+    "english": "To do laundry",
+    "russian": "Стирать бельё"
   },
   {
     "id": 490,
@@ -140,7 +164,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 490,
-    "romanization": "jihacheoreul tada"
+    "romanization": "jihacheoreul tada",
+    "english": "To take the subway",
+    "russian": "Ехать на метро"
   },
   {
     "id": 491,
@@ -151,7 +177,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 491,
-    "romanization": "hoeuireul hada"
+    "romanization": "hoeuireul hada",
+    "english": "To have a meeting",
+    "russian": "Проводить совещание"
   },
   {
     "id": 492,
@@ -162,7 +190,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 492,
-    "romanization": "siheomeul boda"
+    "romanization": "siheomeul boda",
+    "english": "To take an exam",
+    "russian": "Сдавать экзамен"
   },
   {
     "id": 493,
@@ -173,7 +203,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 493,
-    "romanization": "chulgeunhada"
+    "romanization": "chulgeunhada",
+    "english": "To go to work",
+    "russian": "Идти на работу"
   },
   {
     "id": 494,
@@ -185,7 +217,9 @@
     "needsReview": false,
     "sourceNumber": 494,
     "note": "ishni tugatmoq",
-    "romanization": "toegeunhada"
+    "romanization": "toegeunhada",
+    "english": "To leave work",
+    "russian": "Уходить с работы"
   },
   {
     "id": 495,
@@ -196,7 +230,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 495,
-    "romanization": "chultoegeunhada"
+    "romanization": "chultoegeunhada",
+    "english": "To commute",
+    "russian": "Ездить на работу и обратно"
   },
   {
     "id": 496,
@@ -207,7 +243,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 496,
-    "romanization": "chultoegeun sigan"
+    "romanization": "chultoegeun sigan",
+    "english": "Rush hour",
+    "russian": "Час пик"
   },
   {
     "id": 497,
@@ -219,7 +257,9 @@
     "needsReview": false,
     "sourceNumber": 497,
     "note": "bankdan",
-    "romanization": "doneul chatda"
+    "romanization": "doneul chatda",
+    "english": "To withdraw money",
+    "russian": "Снимать деньги"
   },
   {
     "id": 498,
@@ -231,7 +271,9 @@
     "needsReview": false,
     "sourceNumber": 498,
     "note": "bankka",
-    "romanization": "doneul neota"
+    "romanization": "doneul neota",
+    "english": "To deposit money",
+    "russian": "Класть деньги (на счёт)"
   },
   {
     "id": 499,
@@ -242,7 +284,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 499,
-    "romanization": "sigani geollida"
+    "romanization": "sigani geollida",
+    "english": "To take (time)",
+    "russian": "Занимать (время)"
   },
   {
     "id": 500,
@@ -253,7 +297,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 500,
-    "romanization": "jjeum"
+    "romanization": "jjeum",
+    "english": "About / Around",
+    "russian": "Примерно / Около"
   },
   {
     "id": 501,
@@ -264,7 +310,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 501,
-    "romanization": "bun"
+    "romanization": "bun",
+    "english": "Minute",
+    "russian": "Минута"
   },
   {
     "id": 502,
@@ -275,7 +323,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 502,
-    "romanization": "si"
+    "romanization": "si",
+    "english": "O'clock / Hour",
+    "russian": "Час"
   },
   {
     "id": 503,
@@ -287,7 +337,9 @@
     "needsReview": false,
     "sourceNumber": 503,
     "note": "ko'rishmaganimizga ancha bo'ldi",
-    "romanization": "oraenmanida"
+    "romanization": "oraenmanida",
+    "english": "It's been a long time",
+    "russian": "Давно не виделись"
   },
   {
     "id": 504,
@@ -298,7 +350,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 504,
-    "romanization": "jal jinaeda"
+    "romanization": "jal jinaeda",
+    "english": "To be doing well",
+    "russian": "Хорошо поживать"
   },
   {
     "id": 505,
@@ -309,6 +363,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 505,
-    "romanization": "geudongan"
+    "romanization": "geudongan",
+    "english": "Meanwhile / All this time",
+    "russian": "За это время"
   }
 ]

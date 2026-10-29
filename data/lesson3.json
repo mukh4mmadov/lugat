@@ -8,7 +8,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 50
+    "sourceNumber": 50,
+    "english": "To travel",
+    "russian": "Путешествовать"
   },
   {
     "id": 51,
@@ -19,7 +21,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 51
+    "sourceNumber": 51,
+    "english": "To go shopping",
+    "russian": "Делать покупки"
   },
   {
     "id": 52,
@@ -30,7 +34,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 52
+    "sourceNumber": 52,
+    "english": "To learn Korean",
+    "russian": "Учить корейский язык"
   },
   {
     "id": 53,
@@ -41,7 +47,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 53
+    "sourceNumber": 53,
+    "english": "To talk / To chat",
+    "russian": "Разговаривать / Беседовать"
   },
   {
     "id": 54,
@@ -52,7 +60,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 54
+    "sourceNumber": 54,
+    "english": "To drive",
+    "russian": "Водить машину"
   },
   {
     "id": 55,
@@ -63,7 +73,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 55
+    "sourceNumber": 55,
+    "english": "To buy clothes",
+    "russian": "Покупать одежду"
   },
   {
     "id": 56,
@@ -74,7 +86,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 56
+    "sourceNumber": 56,
+    "english": "To exercise",
+    "russian": "Заниматься спортом"
   },
   {
     "id": 57,
@@ -85,7 +99,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 57
+    "sourceNumber": 57,
+    "english": "To watch a movie",
+    "russian": "Смотреть фильм"
   },
   {
     "id": 58,
@@ -96,7 +112,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 58
+    "sourceNumber": 58,
+    "english": "To sleep",
+    "russian": "Спать"
   },
   {
     "id": 59,
@@ -107,7 +125,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 59
+    "sourceNumber": 59,
+    "english": "To dance",
+    "russian": "Танцевать"
   },
   {
     "id": 60,
@@ -118,7 +138,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 60
+    "sourceNumber": 60,
+    "english": "To drink",
+    "russian": "Пить"
   },
   {
     "id": 61,
@@ -129,7 +151,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 61
+    "sourceNumber": 61,
+    "english": "To eat (a meal)",
+    "russian": "Есть / Кушать"
   },
   {
     "id": 62,
@@ -140,7 +164,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 62
+    "sourceNumber": 62,
+    "english": "To read a book",
+    "russian": "Читать книгу"
   },
   {
     "id": 63,
@@ -151,7 +177,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 63
+    "sourceNumber": 63,
+    "english": "To swim",
+    "russian": "Плавать"
   },
   {
     "id": 64,
@@ -162,7 +190,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 64
+    "sourceNumber": 64,
+    "english": "To play tennis",
+    "russian": "Играть в теннис"
   },
   {
     "id": 65,
@@ -173,7 +203,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 65
+    "sourceNumber": 65,
+    "english": "To do homework",
+    "russian": "Делать домашнее задание"
   },
   {
     "id": 66,
@@ -184,7 +216,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 66
+    "sourceNumber": 66,
+    "english": "Now",
+    "russian": "Сейчас"
   },
   {
     "id": 67,
@@ -195,7 +229,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 67
+    "sourceNumber": 67,
+    "english": "Today",
+    "russian": "Сегодня"
   },
   {
     "id": 68,
@@ -206,7 +242,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 68
+    "sourceNumber": 68,
+    "english": "And / Also",
+    "russian": "И / А также"
   },
   {
     "id": 69,
@@ -217,7 +255,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 69
+    "sourceNumber": 69,
+    "english": "To like",
+    "russian": "Любить / Нравиться"
   },
   {
     "id": 70,
@@ -228,7 +268,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 70
+    "sourceNumber": 70,
+    "english": "To meet a friend",
+    "russian": "Встречаться с другом"
   },
   {
     "id": 71,
@@ -239,7 +281,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 71
+    "sourceNumber": 71,
+    "english": "To teach Japanese",
+    "russian": "Преподавать японский"
   },
   {
     "id": 72,
@@ -250,7 +294,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 72
+    "sourceNumber": 72,
+    "english": "Really? / Is that so?",
+    "russian": "Правда? / Вот как?"
   },
   {
     "id": 73,
@@ -261,7 +307,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 73
+    "sourceNumber": 73,
+    "english": "To do",
+    "russian": "Делать"
   },
   {
     "id": 74,
@@ -272,7 +320,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 74
+    "sourceNumber": 74,
+    "english": "To study",
+    "russian": "Учиться / Заниматься"
   },
   {
     "id": 75,
@@ -283,7 +333,9 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 75
+    "sourceNumber": 75,
+    "english": "To know",
+    "russian": "Знать"
   },
   {
     "id": 76,
@@ -294,6 +346,8 @@
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 76
+    "sourceNumber": 76,
+    "english": "To wash one's face",
+    "russian": "Умываться"
   }
 ]

@@ -8,7 +8,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 232
+    "sourceNumber": 232,
+    "english": "Yesterday",
+    "russian": "Вчера"
   },
   {
     "id": 233,
@@ -19,7 +21,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 233
+    "sourceNumber": 233,
+    "english": "Last week",
+    "russian": "На прошлой неделе"
   },
   {
     "id": 234,
@@ -30,7 +34,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 234
+    "sourceNumber": 234,
+    "english": "Last month",
+    "russian": "В прошлом месяце"
   },
   {
     "id": 235,
@@ -41,7 +47,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 235
+    "sourceNumber": 235,
+    "english": "Last year",
+    "russian": "В прошлом году"
   },
   {
     "id": 236,
@@ -52,7 +60,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 236
+    "sourceNumber": 236,
+    "english": "To invite",
+    "russian": "Приглашать"
   },
   {
     "id": 237,
@@ -63,7 +73,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 237
+    "sourceNumber": 237,
+    "english": "To prepare",
+    "russian": "Готовить(ся)"
   },
   {
     "id": 238,
@@ -74,7 +86,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 238
+    "sourceNumber": 238,
+    "english": "Making",
+    "russian": "Изготовление"
   },
   {
     "id": 239,
@@ -85,7 +99,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 239
+    "sourceNumber": 239,
+    "english": "Party",
+    "russian": "Вечеринка"
   },
   {
     "id": 240,
@@ -96,7 +112,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 240
+    "sourceNumber": 240,
+    "english": "So / Therefore",
+    "russian": "Поэтому"
   },
   {
     "id": 241,
@@ -107,7 +125,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 241
+    "sourceNumber": 241,
+    "english": "To be tired",
+    "russian": "Устать / Быть уставшим"
   },
   {
     "id": 242,
@@ -118,7 +138,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 242
+    "sourceNumber": 242,
+    "english": "To get married",
+    "russian": "Жениться / Выходить замуж"
   },
   {
     "id": 243,
@@ -129,7 +151,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 243
+    "sourceNumber": 243,
+    "english": "To do laundry",
+    "russian": "Стирать бельё"
   },
   {
     "id": 244,
@@ -140,7 +164,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 244
+    "sourceNumber": 244,
+    "english": "To cook",
+    "russian": "Готовить еду"
   },
   {
     "id": 245,
@@ -151,7 +177,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 245
+    "sourceNumber": 245,
+    "english": "To move (house)",
+    "russian": "Переезжать"
   },
   {
     "id": 246,
@@ -162,18 +190,22 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 246
+    "sourceNumber": 246,
+    "english": "To clean",
+    "russian": "Убирать(ся)"
   },
   {
     "id": 247,
     "korean": "컴퓨터 게임을 하다",
-    "uzbek": "Kompyuter o'yini o'ynamoq (Aslida 게임)",
+    "uzbek": "Kompyuter o'yini o'ynamoq",
     "romanization": "keompyuteo geimeul hada",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 247
+    "sourceNumber": 247,
+    "english": "To play computer games",
+    "russian": "Играть в компьютерные игры"
   },
   {
     "id": 248,
@@ -184,7 +216,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 248
+    "sourceNumber": 248,
+    "english": "Apartment",
+    "russian": "Квартира / Многоэтажный дом"
   },
   {
     "id": 249,
@@ -195,7 +229,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 249
+    "sourceNumber": 249,
+    "english": "Food",
+    "russian": "Еда"
   },
   {
     "id": 250,
@@ -206,7 +242,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 250
+    "sourceNumber": 250,
+    "english": "To graduate from school",
+    "russian": "Окончить школу / учёбу"
   },
   {
     "id": 251,
@@ -217,7 +255,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 251
+    "sourceNumber": 251,
+    "english": "Before / Ago",
+    "russian": "Раньше / До"
   },
   {
     "id": 252,
@@ -228,7 +268,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 252
+    "sourceNumber": 252,
+    "english": "To get up / Wake up",
+    "russian": "Вставать / Просыпаться"
   },
   {
     "id": 253,
@@ -239,7 +281,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 253
+    "sourceNumber": 253,
+    "english": "To eat breakfast",
+    "russian": "Завтракать"
   },
   {
     "id": 254,
@@ -250,7 +294,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 254
+    "sourceNumber": 254,
+    "english": "Television",
+    "russian": "Телевизор"
   },
   {
     "id": 255,
@@ -261,7 +307,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 255
+    "sourceNumber": 255,
+    "english": "Weekend",
+    "russian": "Выходные"
   },
   {
     "id": 256,
@@ -272,7 +320,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 256
+    "sourceNumber": 256,
+    "english": "Coffee shop",
+    "russian": "Кофейня"
   },
   {
     "id": 257,
@@ -283,7 +333,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 257
+    "sourceNumber": 257,
+    "english": "Tea house",
+    "russian": "Чайная"
   },
   {
     "id": 258,
@@ -294,7 +346,9 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 258
+    "sourceNumber": 258,
+    "english": "Green tea",
+    "russian": "Зелёный чай"
   },
   {
     "id": 259,
@@ -305,6 +359,8 @@
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 259
+    "sourceNumber": 259,
+    "english": "Too / Very",
+    "russian": "Слишком / Очень"
   }
 ]

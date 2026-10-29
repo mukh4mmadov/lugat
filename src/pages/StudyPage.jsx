@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
-import { getLessonWords, getWordKey, lessonInfo } from "../data";
+import { getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
 import { markKnown, markDifficult, selectStudyProgress } from "../store";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
@@ -369,7 +369,7 @@ function LearningCard({ word, position, batchSize, settings, reduxMastery, onCon
         <div className={`mt-6 w-full rounded-2xl p-5 transition ${revealed ? "bg-emerald-50 dark:bg-emerald-500/10" : "bg-slate-100 dark:bg-white/5"}`}>
           {revealed ? (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <p className="text-2xl font-black text-emerald-800 dark:text-emerald-200">{word.uzbek}</p>
+              <p className="text-2xl font-black text-emerald-800 dark:text-emerald-200">{meaning(word)}</p>
               {example && (
                 <div className="mt-4 border-t border-emerald-200/70 pt-4 text-left dark:border-white/10">
                   <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("study.example")}</p>
@@ -421,7 +421,7 @@ function ExerciseCard({ exercise, word, byKey, result, progress, settings, onAns
           <p className={`text-lg font-black ${result.correct ? "text-emerald-700 dark:text-emerald-300" : "text-rose-700 dark:text-rose-300"}`}>
             {result.correct ? `✓ ${t("practice.correct")}` : `✗ ${t("topik.incorrect")}`}
           </p>
-          <p className="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-200">{word.korean} [{word.romanization}] = {word.uzbek}</p>
+          <p className="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-200">{word.korean} [{word.romanization}] = {meaning(word)}</p>
           <button type="button" onClick={onContinue} autoFocus className="mt-4 rounded-2xl bg-slate-950 px-8 py-3 font-black text-white dark:bg-white dark:text-slate-950">
             {t("study.continue")} →
           </button>
@@ -470,7 +470,7 @@ function ExerciseBody({ exercise, word, byKey, result, settings, onAnswer }) {
   const korean = (option) => (
     <span><span className="block text-2xl font-black">{option.korean}</span>{option.romanization && <span className="text-sm text-slate-500 dark:text-slate-400">{option.romanization}</span>}</span>
   );
-  const meaning = (option) => <span className="text-lg font-bold">{option.uzbek}</span>;
+  const meaning = (option) => <span className="text-lg font-bold">{meaning(option)}</span>;
 
   switch (exercise.type) {
     case "koreanToUzbek":
@@ -483,7 +483,7 @@ function ExerciseBody({ exercise, word, byKey, result, settings, onAnswer }) {
     case "uzbekToKorean":
       return (
         <>
-          <Prompt title={word.uzbek} hint={t("study.chooseKorean")} />
+          <Prompt title={meaning(word)} hint={t("study.chooseKorean")} />
           {optionList(korean)}
         </>
       );
@@ -543,7 +543,7 @@ function TrueFalseBody({ exercise, shown, result, onAnswer }) {
   };
   return (
     <>
-      <Prompt hint={t("study.isTranslationCorrect")} title={`${shown.korean} = ${shown.uzbek}`} sub={shown.romanization} />
+      <Prompt hint={t("study.isTranslationCorrect")} title={`${shown.korean} = ${meaning(shown)}`} sub={shown.romanization} />
       <div className="mt-6 grid grid-cols-2 gap-3">
         <button type="button" disabled={answered} onClick={() => pickAnswer(true)} className={`rounded-2xl border-2 p-4 text-lg font-black transition ${tone(true)}`}>✓ {t("study.yesCorrect")}</button>
         <button type="button" disabled={answered} onClick={() => pickAnswer(false)} className={`rounded-2xl border-2 p-4 text-lg font-black transition ${tone(false)}`}>✗ {t("study.noIncorrect")}</button>
@@ -568,7 +568,7 @@ function MissingSyllableBody({ exercise, word, result, onAnswer }) {
             </span>
           ))}
         </p>
-        <p className="mt-3 text-lg font-bold text-slate-600 dark:text-slate-300">{word.uzbek}</p>
+        <p className="mt-3 text-lg font-bold text-slate-600 dark:text-slate-300">{meaning(word)}</p>
       </div>
       <div className="mt-6 grid grid-cols-4 gap-3">
         {exercise.choices.map((choice) => {
@@ -603,7 +603,7 @@ function TypingBody({ word, result, onAnswer }) {
 
   return (
     <>
-      <Prompt hint={t("study.typeKoreanOrRoman")} title={word.uzbek} />
+      <Prompt hint={t("study.typeKoreanOrRoman")} title={meaning(word)} />
       <div className="mt-6 flex gap-2">
         <input
           ref={inputRef}
@@ -656,7 +656,7 @@ function ReinforcementCard({ word, settings, onContinue }) {
         <p className="mt-5 text-5xl font-black">{word.korean}</p>
         {word.romanization && <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">[{word.romanization}]</p>}
         <div className="mt-3 flex justify-center"><SpeakButton text={word.korean} settings={settings} /></div>
-        <p className="mt-5 rounded-2xl bg-amber-50 p-4 text-2xl font-black text-amber-900 dark:bg-amber-500/10 dark:text-amber-100">{word.uzbek}</p>
+        <p className="mt-5 rounded-2xl bg-amber-50 p-4 text-2xl font-black text-amber-900 dark:bg-amber-500/10 dark:text-amber-100">{meaning(word)}</p>
         {example && (
           <div className="mt-4 rounded-2xl bg-slate-100 p-4 text-left dark:bg-white/5">
             <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("study.example")}</p>

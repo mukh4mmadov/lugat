@@ -6,6 +6,7 @@ import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
 import { lookupWord, Panel, ServerNotice, StatTile, useAdminContext } from "./AdminPage";
 import { ticketTitle } from "../lib/feedback";
+import { meaning } from "../data";
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE_SIZE = 25;
@@ -223,7 +224,7 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
                       const word = lookupWord(entry.key);
                       return (
                         <li key={entry.key} className="flex items-center justify-between gap-3 py-1.5">
-                          <span className="truncate"><b>{word?.korean || entry.key}</b> <span className="text-slate-500">{word?.uzbek}</span></span>
+                          <span className="truncate"><b>{word?.korean || entry.key}</b> <span className="text-slate-500">{meaning(word)}</span></span>
                           <span className="shrink-0 text-xs font-bold text-rose-600">{t("admin.mistakes", { count: entry.wrong })}</span>
                         </li>
                       );

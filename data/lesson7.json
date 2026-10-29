@@ -8,7 +8,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 186
+    "sourceNumber": 186,
+    "english": "One (native Korean)",
+    "russian": "Один (исконно корейское)"
   },
   {
     "id": 187,
@@ -19,7 +21,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 187
+    "sourceNumber": 187,
+    "english": "Two",
+    "russian": "Два"
   },
   {
     "id": 188,
@@ -30,7 +34,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 188
+    "sourceNumber": 188,
+    "english": "Three",
+    "russian": "Три"
   },
   {
     "id": 189,
@@ -41,7 +47,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 189
+    "sourceNumber": 189,
+    "english": "Four",
+    "russian": "Четыре"
   },
   {
     "id": 190,
@@ -52,7 +60,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 190
+    "sourceNumber": 190,
+    "english": "Five",
+    "russian": "Пять"
   },
   {
     "id": 191,
@@ -63,7 +73,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 191
+    "sourceNumber": 191,
+    "english": "Six",
+    "russian": "Шесть"
   },
   {
     "id": 192,
@@ -74,7 +86,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 192
+    "sourceNumber": 192,
+    "english": "Seven",
+    "russian": "Семь"
   },
   {
     "id": 193,
@@ -85,7 +99,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 193
+    "sourceNumber": 193,
+    "english": "Eight",
+    "russian": "Восемь"
   },
   {
     "id": 194,
@@ -96,7 +112,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 194
+    "sourceNumber": 194,
+    "english": "Nine",
+    "russian": "Девять"
   },
   {
     "id": 195,
@@ -107,7 +125,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 195
+    "sourceNumber": 195,
+    "english": "Ten",
+    "russian": "Десять"
   },
   {
     "id": 196,
@@ -118,7 +138,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 196
+    "sourceNumber": 196,
+    "english": "Twenty",
+    "russian": "Двадцать"
   },
   {
     "id": 197,
@@ -129,7 +151,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 197
+    "sourceNumber": 197,
+    "english": "Thirty",
+    "russian": "Тридцать"
   },
   {
     "id": 198,
@@ -140,7 +164,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 198
+    "sourceNumber": 198,
+    "english": "Forty",
+    "russian": "Сорок"
   },
   {
     "id": 199,
@@ -151,7 +177,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 199
+    "sourceNumber": 199,
+    "english": "Fifty",
+    "russian": "Пятьдесят"
   },
   {
     "id": 200,
@@ -162,7 +190,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 200
+    "sourceNumber": 200,
+    "english": "Sixty",
+    "russian": "Шестьдесят"
   },
   {
     "id": 201,
@@ -173,7 +203,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 201
+    "sourceNumber": 201,
+    "english": "Seventy",
+    "russian": "Семьдесят"
   },
   {
     "id": 202,
@@ -184,7 +216,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 202
+    "sourceNumber": 202,
+    "english": "Eighty",
+    "russian": "Восемьдесят"
   },
   {
     "id": 203,
@@ -195,7 +229,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 203
+    "sourceNumber": 203,
+    "english": "Ninety",
+    "russian": "Девяносто"
   },
   {
     "id": 204,
@@ -206,7 +242,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 204
+    "sourceNumber": 204,
+    "english": "Family",
+    "russian": "Семья"
   },
   {
     "id": 205,
@@ -217,7 +255,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 205
+    "sourceNumber": 205,
+    "english": "Person (counter for people)",
+    "russian": "Человек (счётное слово для людей)"
   },
   {
     "id": 206,
@@ -228,7 +268,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 206
+    "sourceNumber": 206,
+    "english": "Piece (counter for things)",
+    "russian": "Штука (счётное слово для предметов)"
   },
   {
     "id": 207,
@@ -239,7 +281,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 207
+    "sourceNumber": 207,
+    "english": "Bottle (counter)",
+    "russian": "Бутылка (счётное слово)"
   },
   {
     "id": 208,
@@ -250,7 +294,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 208
+    "sourceNumber": 208,
+    "english": "Bowl (counter)",
+    "russian": "Миска / Тарелка (счётное слово)"
   },
   {
     "id": 209,
@@ -261,7 +307,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 209
+    "sourceNumber": 209,
+    "english": "Cup / Glass (counter)",
+    "russian": "Чашка / Стакан (счётное слово)"
   },
   {
     "id": 210,
@@ -272,7 +320,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 210
+    "sourceNumber": 210,
+    "english": "Person (polite counter)",
+    "russian": "Человек (вежливое счётное слово)"
   },
   {
     "id": 211,
@@ -283,7 +333,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 211
+    "sourceNumber": 211,
+    "english": "Years old (age counter)",
+    "russian": "Лет (счётное слово для возраста)"
   },
   {
     "id": 212,
@@ -294,7 +346,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 212
+    "sourceNumber": 212,
+    "english": "Volume / Copy (counter for books)",
+    "russian": "Том / Экземпляр (счётное слово для книг)"
   },
   {
     "id": 213,
@@ -305,7 +359,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 213
+    "sourceNumber": 213,
+    "english": "Animal (counter for animals)",
+    "russian": "Голова / Штука (счётное слово для животных)"
   },
   {
     "id": 214,
@@ -316,7 +372,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 214
+    "sourceNumber": 214,
+    "english": "Cat",
+    "russian": "Кошка"
   },
   {
     "id": 215,
@@ -327,7 +385,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 215
+    "sourceNumber": 215,
+    "english": "Puppy",
+    "russian": "Щенок"
   },
   {
     "id": 216,
@@ -338,7 +398,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 216
+    "sourceNumber": 216,
+    "english": "Please give me",
+    "russian": "Дайте, пожалуйста"
   },
   {
     "id": 217,
@@ -349,7 +411,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 217
+    "sourceNumber": 217,
+    "english": "This week",
+    "russian": "На этой неделе"
   },
   {
     "id": 218,
@@ -360,7 +424,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 218
+    "sourceNumber": 218,
+    "english": "Next week",
+    "russian": "На следующей неделе"
   },
   {
     "id": 219,
@@ -371,7 +437,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 219
+    "sourceNumber": 219,
+    "english": "Month",
+    "russian": "Месяц"
   },
   {
     "id": 220,
@@ -382,7 +450,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 220
+    "sourceNumber": 220,
+    "english": "This year",
+    "russian": "В этом году"
   },
   {
     "id": 221,
@@ -393,7 +463,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 221
+    "sourceNumber": 221,
+    "english": "Next year",
+    "russian": "В следующем году"
   },
   {
     "id": 222,
@@ -404,7 +476,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 222
+    "sourceNumber": 222,
+    "english": "This month",
+    "russian": "В этом месяце"
   },
   {
     "id": 223,
@@ -415,7 +489,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 223
+    "sourceNumber": 223,
+    "english": "Next month",
+    "russian": "В следующем месяце"
   },
   {
     "id": 224,
@@ -426,7 +502,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 224
+    "sourceNumber": 224,
+    "english": "When",
+    "russian": "Когда"
   },
   {
     "id": 225,
@@ -437,7 +515,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 225
+    "sourceNumber": 225,
+    "english": "Bakery",
+    "russian": "Пекарня"
   },
   {
     "id": 226,
@@ -448,7 +528,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 226
+    "sourceNumber": 226,
+    "english": "Seoul Tower",
+    "russian": "Сеульская башня"
   },
   {
     "id": 227,
@@ -459,7 +541,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 227
+    "sourceNumber": 227,
+    "english": "Soccer field",
+    "russian": "Футбольное поле"
   },
   {
     "id": 228,
@@ -470,7 +554,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 228
+    "sourceNumber": 228,
+    "english": "Baseball stadium",
+    "russian": "Бейсбольный стадион"
   },
   {
     "id": 229,
@@ -481,7 +567,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 229
+    "sourceNumber": 229,
+    "english": "Convenience store",
+    "russian": "Круглосуточный магазин"
   },
   {
     "id": 230,
@@ -492,7 +580,9 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 230
+    "sourceNumber": 230,
+    "english": "To play soccer",
+    "russian": "Играть в футбол"
   },
   {
     "id": 231,
@@ -503,6 +593,8 @@
     "category": "native numbers, counters and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 231
+    "sourceNumber": 231,
+    "english": "To play baseball",
+    "russian": "Играть в бейсбол"
   }
 ]

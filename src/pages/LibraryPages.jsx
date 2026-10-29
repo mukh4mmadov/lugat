@@ -8,7 +8,8 @@ import {
 } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { allWords, getWordKey, lessonInfo } from "../data";
+import { allWords, getWordKey, lessonInfo, meaning } from "../data";
+import { searchWords } from "../lib/search";
 import {
   resetProgress,
   selectDifficultWords,
@@ -27,7 +28,7 @@ import { supabase } from "../lib/supabase";
 import PasswordInput from "../components/PasswordInput";
 
 export function SearchPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const progress = useSelector((state) => state.progress);
   const [query, setQuery] = useState("");
   const [masteryFilter, setMasteryFilter] = useState("all");
@@ -45,14 +46,7 @@ export function SearchPage() {
 
   const normalized = normalizeAnswer(debouncedQuery);
   const results = useMemo(() => {
-    let filtered = allWords;
-    if (normalized) {
-      filtered = allWords.filter((word) =>
-        [word.korean, word.uzbek, word.romanization]
-          .filter(Boolean)
-          .some((value) => normalizeAnswer(value).includes(normalized)),
-      );
-    }
+    let filtered = normalized ? searchWords(allWords, normalized, meaning) : allWords;
     if (masteryFilter !== "all") {
       filtered = filtered.filter(
         (word) =>
@@ -61,7 +55,9 @@ export function SearchPage() {
       );
     }
     return filtered;
-  }, [normalized, masteryFilter, progress.words]);
+    // meaning() follows the interface language.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [normalized, masteryFilter, progress.words, i18n.language]);
 
   const globalCounts = useMemo(() => {
     const counts = { all: allWords.length };
@@ -807,7 +803,7 @@ function WordGrid({
                   </p>
                 )}
                 <p className="mt-1 text-slate-600 dark:text-slate-300">
-                  {word.uzbek}
+                  {meaning(word)}
                 </p>
               </div>
               <WordBadge tone={word.needsReview ? "amber" : "green"}>

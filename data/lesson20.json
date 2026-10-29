@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 578,
-    "romanization": "iri saenggida"
+    "romanization": "iri saenggida",
+    "english": "Something comes up",
+    "russian": "Возникают дела"
   },
   {
     "id": 579,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 579,
-    "romanization": "gapjagi"
+    "romanization": "gapjagi",
+    "english": "Suddenly",
+    "russian": "Вдруг / Внезапно"
   },
   {
     "id": 580,
@@ -31,7 +35,9 @@
     "needsReview": false,
     "sourceNumber": 580,
     "note": "maktab, universitetda",
-    "romanization": "banghak"
+    "romanization": "banghak",
+    "english": "School vacation",
+    "russian": "Каникулы"
   },
   {
     "id": 581,
@@ -43,7 +49,9 @@
     "needsReview": false,
     "sourceNumber": 581,
     "note": "pishiriq",
-    "romanization": "gyeranppang"
+    "romanization": "gyeranppang",
+    "english": "Egg bread",
+    "russian": "Яичный хлебец (керанппан)"
   },
   {
     "id": 582,
@@ -55,7 +63,9 @@
     "needsReview": false,
     "sourceNumber": 582,
     "note": "tayoqchadagi guruchli taom",
-    "romanization": "tteokkkochi"
+    "romanization": "tteokkkochi",
+    "english": "Rice cake skewer (tteokkochi)",
+    "russian": "Шашлычок из рисовых лепёшек (ттоккочхи)"
   },
   {
     "id": 583,
@@ -66,7 +76,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 583,
-    "romanization": "hansik"
+    "romanization": "hansik",
+    "english": "Korean food",
+    "russian": "Корейская кухня"
   },
   {
     "id": 584,
@@ -77,7 +89,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 584,
-    "romanization": "hanguksaenghwal"
+    "romanization": "hanguksaenghwal",
+    "english": "Life in Korea",
+    "russian": "Жизнь в Корее"
   },
   {
     "id": 585,
@@ -88,7 +102,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 585,
-    "romanization": "ibeo boda"
+    "romanization": "ibeo boda",
+    "english": "To try on (clothes)",
+    "russian": "Примерять (одежду)"
   },
   {
     "id": 586,
@@ -99,7 +115,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 586,
-    "romanization": "gugyeonghada"
+    "romanization": "gugyeonghada",
+    "english": "To look around / Sightsee",
+    "russian": "Осматривать / Глазеть"
   },
   {
     "id": 587,
@@ -110,7 +128,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 587,
-    "romanization": "sigan jal bonaeda"
+    "romanization": "sigan jal bonaeda",
+    "english": "To have a good time",
+    "russian": "Хорошо провести время"
   },
   {
     "id": 588,
@@ -121,7 +141,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 588,
-    "romanization": "hyuil"
+    "romanization": "hyuil",
+    "english": "Holiday / Day off",
+    "russian": "Выходной / Праздник"
   },
   {
     "id": 589,
@@ -132,7 +154,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 589,
-    "romanization": "akka"
+    "romanization": "akka",
+    "english": "A while ago",
+    "russian": "Недавно / Только что"
   },
   {
     "id": 590,
@@ -143,7 +167,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 590,
-    "romanization": "gimbap"
+    "romanization": "gimbap",
+    "english": "Kimbap",
+    "russian": "Кимбап"
   },
   {
     "id": 591,
@@ -155,7 +181,9 @@
     "needsReview": false,
     "sourceNumber": 591,
     "note": "baliq shaklidagi shirinlik",
-    "romanization": "bungeoppang"
+    "romanization": "bungeoppang",
+    "english": "Fish-shaped bread (bungeoppang)",
+    "russian": "Пирожок-рыбка (пуноппан)"
   },
   {
     "id": 592,
@@ -167,7 +195,9 @@
     "needsReview": false,
     "sourceNumber": 592,
     "note": "Seuldagi tog'",
-    "romanization": "namsan"
+    "romanization": "namsan",
+    "english": "Namsan (mountain in Seoul)",
+    "russian": "Намсан (гора в Сеуле)"
   },
   {
     "id": 593,
@@ -178,7 +208,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 593,
-    "romanization": "bamgyeongchi"
+    "romanization": "bamgyeongchi",
+    "english": "Night view",
+    "russian": "Ночной пейзаж"
   },
   {
     "id": 594,
@@ -189,7 +221,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 594,
-    "romanization": "jeontong"
+    "romanization": "jeontong",
+    "english": "Tradition",
+    "russian": "Традиция"
   },
   {
     "id": 595,
@@ -201,7 +235,9 @@
     "needsReview": false,
     "sourceNumber": 595,
     "note": "koreys milliy kiyimi",
-    "romanization": "hanbok"
+    "romanization": "hanbok",
+    "english": "Hanbok (traditional clothes)",
+    "russian": "Ханбок (традиционная одежда)"
   },
   {
     "id": 596,
@@ -212,7 +248,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 596,
-    "romanization": "deurama"
+    "romanization": "deurama",
+    "english": "TV drama / Series",
+    "russian": "Дорама / Сериал"
   },
   {
     "id": 597,
@@ -223,7 +261,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 597,
-    "romanization": "geuttae"
+    "romanization": "geuttae",
+    "english": "At that time",
+    "russian": "В то время"
   },
   {
     "id": 598,
@@ -234,7 +274,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 598,
-    "romanization": "yeoreo gaji"
+    "romanization": "yeoreo gaji",
+    "english": "Various",
+    "russian": "Разные / Различные"
   },
   {
     "id": 599,
@@ -245,7 +287,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 599,
-    "romanization": "gyehoek"
+    "romanization": "gyehoek",
+    "english": "Plan",
+    "russian": "План"
   },
   {
     "id": 600,
@@ -256,7 +300,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 600,
-    "romanization": "jeulgeopge"
+    "romanization": "jeulgeopge",
+    "english": "Joyfully / In a fun way",
+    "russian": "Весело / С удовольствием"
   },
   {
     "id": 601,
@@ -267,7 +313,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 601,
-    "romanization": "hansikjip"
+    "romanization": "hansikjip",
+    "english": "Korean restaurant",
+    "russian": "Корейский ресторан"
   },
   {
     "id": 602,
@@ -278,7 +326,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 602,
-    "romanization": "joeun chueogeul mandeulda"
+    "romanization": "joeun chueogeul mandeulda",
+    "english": "To make good memories",
+    "russian": "Создавать хорошие воспоминания"
   },
   {
     "id": 603,
@@ -289,6 +339,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 603,
-    "romanization": "gyeongheomhada"
+    "romanization": "gyeongheomhada",
+    "english": "To experience",
+    "russian": "Испытывать / Пробовать на опыте"
   }
 ]

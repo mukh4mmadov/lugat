@@ -8,7 +8,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 139
+    "sourceNumber": 139,
+    "english": "Hospital",
+    "russian": "Больница"
   },
   {
     "id": 140,
@@ -19,7 +21,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 140
+    "sourceNumber": 140,
+    "english": "Front / In front of",
+    "russian": "Перед / Впереди"
   },
   {
     "id": 141,
@@ -30,7 +34,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 141
+    "sourceNumber": 141,
+    "english": "Back / Behind",
+    "russian": "Сзади / За"
   },
   {
     "id": 142,
@@ -41,7 +47,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 142
+    "sourceNumber": 142,
+    "english": "Side / Next to",
+    "russian": "Сбоку / Рядом"
   },
   {
     "id": 143,
@@ -52,7 +60,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 143
+    "sourceNumber": 143,
+    "english": "Below / Under",
+    "russian": "Под / Внизу"
   },
   {
     "id": 144,
@@ -63,7 +73,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 144
+    "sourceNumber": 144,
+    "english": "Inside",
+    "russian": "Внутри"
   },
   {
     "id": 145,
@@ -74,7 +86,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 145
+    "sourceNumber": 145,
+    "english": "Top / On / Above",
+    "russian": "Сверху / На / Над"
   },
   {
     "id": 146,
@@ -85,7 +99,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 146
+    "sourceNumber": 146,
+    "english": "Between",
+    "russian": "Между"
   },
   {
     "id": 147,
@@ -96,7 +112,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 147
+    "sourceNumber": 147,
+    "english": "Left side",
+    "russian": "Левая сторона"
   },
   {
     "id": 148,
@@ -107,7 +125,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 148
+    "sourceNumber": 148,
+    "english": "Right side",
+    "russian": "Правая сторона"
   },
   {
     "id": 149,
@@ -118,7 +138,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 149
+    "sourceNumber": 149,
+    "english": "Nearby",
+    "russian": "Поблизости / Рядом"
   },
   {
     "id": 150,
@@ -129,7 +151,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 150
+    "sourceNumber": 150,
+    "english": "Here",
+    "russian": "Здесь"
   },
   {
     "id": 151,
@@ -140,7 +164,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 151
+    "sourceNumber": 151,
+    "english": "There (near you)",
+    "russian": "Там (рядом с вами)"
   },
   {
     "id": 152,
@@ -151,7 +177,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 152
+    "sourceNumber": 152,
+    "english": "Over there",
+    "russian": "Вон там"
   },
   {
     "id": 153,
@@ -162,7 +190,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 153
+    "sourceNumber": 153,
+    "english": "Zero (0)",
+    "russian": "Ноль (0)"
   },
   {
     "id": 154,
@@ -173,7 +203,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 154
+    "sourceNumber": 154,
+    "english": "One (1)",
+    "russian": "Один (1)"
   },
   {
     "id": 155,
@@ -184,7 +216,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 155
+    "sourceNumber": 155,
+    "english": "Two (2)",
+    "russian": "Два (2)"
   },
   {
     "id": 156,
@@ -195,7 +229,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 156
+    "sourceNumber": 156,
+    "english": "Three (3)",
+    "russian": "Три (3)"
   },
   {
     "id": 157,
@@ -206,7 +242,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 157
+    "sourceNumber": 157,
+    "english": "Four (4)",
+    "russian": "Четыре (4)"
   },
   {
     "id": 158,
@@ -217,7 +255,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 158
+    "sourceNumber": 158,
+    "english": "Five (5)",
+    "russian": "Пять (5)"
   },
   {
     "id": 159,
@@ -228,7 +268,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 159
+    "sourceNumber": 159,
+    "english": "Six (6)",
+    "russian": "Шесть (6)"
   },
   {
     "id": 160,
@@ -239,7 +281,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 160
+    "sourceNumber": 160,
+    "english": "Seven (7)",
+    "russian": "Семь (7)"
   },
   {
     "id": 161,
@@ -250,7 +294,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 161
+    "sourceNumber": 161,
+    "english": "Eight (8)",
+    "russian": "Восемь (8)"
   },
   {
     "id": 162,
@@ -261,7 +307,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 162
+    "sourceNumber": 162,
+    "english": "Nine (9)",
+    "russian": "Девять (9)"
   },
   {
     "id": 163,
@@ -272,7 +320,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 163
+    "sourceNumber": 163,
+    "english": "Ten (10)",
+    "russian": "Десять (10)"
   },
   {
     "id": 164,
@@ -283,7 +333,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 164
+    "sourceNumber": 164,
+    "english": "Hundred (100)",
+    "russian": "Сто (100)"
   },
   {
     "id": 165,
@@ -294,7 +346,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 165
+    "sourceNumber": 165,
+    "english": "Thousand (1000)",
+    "russian": "Тысяча (1000)"
   },
   {
     "id": 166,
@@ -305,7 +359,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 166
+    "sourceNumber": 166,
+    "english": "Ten thousand (10000)",
+    "russian": "Десять тысяч (10000)"
   },
   {
     "id": 167,
@@ -316,7 +372,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 167
+    "sourceNumber": 167,
+    "english": "Today",
+    "russian": "Сегодня"
   },
   {
     "id": 168,
@@ -327,7 +385,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 168
+    "sourceNumber": 168,
+    "english": "Tomorrow",
+    "russian": "Завтра"
   },
   {
     "id": 169,
@@ -338,7 +398,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 169
+    "sourceNumber": 169,
+    "english": "Monday",
+    "russian": "Понедельник"
   },
   {
     "id": 170,
@@ -349,7 +411,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 170
+    "sourceNumber": 170,
+    "english": "Tuesday",
+    "russian": "Вторник"
   },
   {
     "id": 171,
@@ -360,7 +424,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 171
+    "sourceNumber": 171,
+    "english": "Wednesday",
+    "russian": "Среда"
   },
   {
     "id": 172,
@@ -371,7 +437,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 172
+    "sourceNumber": 172,
+    "english": "Thursday",
+    "russian": "Четверг"
   },
   {
     "id": 173,
@@ -382,7 +450,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 173
+    "sourceNumber": 173,
+    "english": "Friday",
+    "russian": "Пятница"
   },
   {
     "id": 174,
@@ -393,7 +463,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 174
+    "sourceNumber": 174,
+    "english": "Saturday",
+    "russian": "Суббота"
   },
   {
     "id": 175,
@@ -404,7 +476,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 175
+    "sourceNumber": 175,
+    "english": "Sunday",
+    "russian": "Воскресенье"
   },
   {
     "id": 176,
@@ -415,7 +489,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 176
+    "sourceNumber": 176,
+    "english": "Date",
+    "russian": "Дата / Число"
   },
   {
     "id": 177,
@@ -426,7 +502,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 177
+    "sourceNumber": 177,
+    "english": "Day of the week",
+    "russian": "День недели"
   },
   {
     "id": 178,
@@ -437,7 +515,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 178
+    "sourceNumber": 178,
+    "english": "Month",
+    "russian": "Месяц"
   },
   {
     "id": 179,
@@ -448,7 +528,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 179
+    "sourceNumber": 179,
+    "english": "Day",
+    "russian": "День"
   },
   {
     "id": 180,
@@ -459,7 +541,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 180
+    "sourceNumber": 180,
+    "english": "Year",
+    "russian": "Год"
   },
   {
     "id": 181,
@@ -470,7 +554,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 181
+    "sourceNumber": 181,
+    "english": "Birthday",
+    "russian": "День рождения"
   },
   {
     "id": 182,
@@ -481,7 +567,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 182
+    "sourceNumber": 182,
+    "english": "What kind of / Which",
+    "russian": "Какой / Что за"
   },
   {
     "id": 183,
@@ -492,7 +580,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 183
+    "sourceNumber": 183,
+    "english": "Phone number",
+    "russian": "Номер телефона"
   },
   {
     "id": 184,
@@ -503,7 +593,9 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 184
+    "sourceNumber": 184,
+    "english": "How many",
+    "russian": "Сколько"
   },
   {
     "id": 185,
@@ -514,6 +606,8 @@
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 185
+    "sourceNumber": 185,
+    "english": "Number / Time (counter)",
+    "russian": "Номер / Раз"
   }
 ]

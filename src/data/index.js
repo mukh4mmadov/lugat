@@ -27,6 +27,7 @@ import lesson26 from "../../data/lesson26.json";
 import lesson27 from "../../data/lesson27.json";
 import lesson28 from "../../data/lesson28.json";
 import lessonMetadata from "../../data/lessons.json";
+import i18n from "../lib/i18n";
 
 export const lessons = [
   lesson1,
@@ -104,3 +105,19 @@ export function getWordCourse(word) {
   return word.course || '1A';
 }
 
+
+const MEANING_FIELD = { uz: "uzbek", en: "english", ru: "russian" };
+
+// The word's meaning in the interface language, falling back to Uzbek.
+// Components re-render on a language change through useTranslation().
+export function meaning(word, language = i18n.language) {
+  if (!word) return "";
+  const field = MEANING_FIELD[String(language || "uz").slice(0, 2)] || "uzbek";
+  return word[field] || word.uzbek;
+}
+
+// Typed answers accept the meaning in the interface language or in Uzbek.
+export function acceptedMeanings(word) {
+  const local = meaning(word);
+  return local === word.uzbek ? local : `${local} / ${word.uzbek}`;
+}

@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 795,
-    "romanization": "jamkkan"
+    "romanization": "jamkkan",
+    "english": "A moment",
+    "russian": "Минутку / Ненадолго"
   },
   {
     "id": 796,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 796,
-    "romanization": "naengjanggo"
+    "romanization": "naengjanggo",
+    "english": "Refrigerator",
+    "russian": "Холодильник"
   },
   {
     "id": 797,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 797,
-    "romanization": "gireul geonneoda"
+    "romanization": "gireul geonneoda",
+    "english": "To cross the road",
+    "russian": "Переходить дорогу"
   },
   {
     "id": 798,
@@ -42,7 +48,9 @@
     "needsReview": false,
     "sourceNumber": 798,
     "note": "ximchistka",
-    "romanization": "setakso"
+    "romanization": "setakso",
+    "english": "Laundromat / Dry cleaner",
+    "russian": "Прачечная / Химчистка"
   },
   {
     "id": 799,
@@ -53,7 +61,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 799,
-    "romanization": "gongjang"
+    "romanization": "gongjang",
+    "english": "Factory",
+    "russian": "Завод / Фабрика"
   },
   {
     "id": 800,
@@ -64,7 +74,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 800,
-    "romanization": "kkamppakhada"
+    "romanization": "kkamppakhada",
+    "english": "To forget for a moment",
+    "russian": "Забыть (вылетело из головы)"
   },
   {
     "id": 801,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 801,
-    "romanization": "jollida"
+    "romanization": "jollida",
+    "english": "To be sleepy",
+    "russian": "Хотеть спать"
   },
   {
     "id": 802,
@@ -86,7 +100,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 802,
-    "romanization": "piryohada"
+    "romanization": "piryohada",
+    "english": "To be necessary",
+    "russian": "Быть нужным"
   },
   {
     "id": 803,
@@ -97,7 +113,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 803,
-    "romanization": "piryoeopda"
+    "romanization": "piryoeopda",
+    "english": "Not needed",
+    "russian": "Не нужно"
   },
   {
     "id": 804,
@@ -108,7 +126,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 804,
-    "romanization": "chwimi"
+    "romanization": "chwimi",
+    "english": "Hobby",
+    "russian": "Хобби"
   },
   {
     "id": 805,
@@ -119,7 +139,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 805,
-    "romanization": "seonpunggi"
+    "romanization": "seonpunggi",
+    "english": "Electric fan",
+    "russian": "Вентилятор"
   },
   {
     "id": 806,
@@ -130,7 +152,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 806,
-    "romanization": "yorichaek"
+    "romanization": "yorichaek",
+    "english": "Cookbook",
+    "russian": "Кулинарная книга"
   },
   {
     "id": 807,
@@ -141,7 +165,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 807,
-    "romanization": "hoksi"
+    "romanization": "hoksi",
+    "english": "By any chance",
+    "russian": "Случайно / Может быть"
   },
   {
     "id": 808,
@@ -152,7 +178,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 808,
-    "romanization": "inhyeong"
+    "romanization": "inhyeong",
+    "english": "Doll",
+    "russian": "Кукла"
   },
   {
     "id": 809,
@@ -163,7 +191,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 809,
-    "romanization": "yeongeuk"
+    "romanization": "yeongeuk",
+    "english": "Play (theater)",
+    "russian": "Спектакль"
   },
   {
     "id": 810,
@@ -174,7 +204,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 810,
-    "romanization": "dambaereul piuda"
+    "romanization": "dambaereul piuda",
+    "english": "To smoke a cigarette",
+    "russian": "Курить сигарету"
   },
   {
     "id": 811,
@@ -185,7 +217,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 811,
-    "romanization": "himdeulda"
+    "romanization": "himdeulda",
+    "english": "To be hard / Tiring",
+    "russian": "Быть трудным / Утомительным"
   },
   {
     "id": 812,
@@ -196,7 +230,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 812,
-    "romanization": "oeguk saenghwal"
+    "romanization": "oeguk saenghwal",
+    "english": "Life abroad",
+    "russian": "Жизнь за границей"
   },
   {
     "id": 813,
@@ -207,7 +243,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 813,
-    "romanization": "ban"
+    "romanization": "ban",
+    "english": "Half / Class (group)",
+    "russian": "Половина / Класс (группа)"
   },
   {
     "id": 814,
@@ -218,7 +256,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 814,
-    "romanization": "chima"
+    "romanization": "chima",
+    "english": "Skirt",
+    "russian": "Юбка"
   },
   {
     "id": 815,
@@ -229,7 +269,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 815,
-    "romanization": "baji"
+    "romanization": "baji",
+    "english": "Pants / Trousers",
+    "russian": "Брюки"
   },
   {
     "id": 816,
@@ -240,7 +282,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 816,
-    "romanization": "honja"
+    "romanization": "honja",
+    "english": "Alone",
+    "russian": "Один / В одиночку"
   },
   {
     "id": 817,
@@ -251,7 +295,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 817,
-    "romanization": "sinmun"
+    "romanization": "sinmun",
+    "english": "Newspaper",
+    "russian": "Газета"
   },
   {
     "id": 818,
@@ -262,7 +308,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 818,
-    "romanization": "aiseukeurim"
+    "romanization": "aiseukeurim",
+    "english": "Ice cream",
+    "russian": "Мороженое"
   },
   {
     "id": 819,
@@ -273,7 +321,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 819,
-    "romanization": "saendeuwichi"
+    "romanization": "saendeuwichi",
+    "english": "Sandwich",
+    "russian": "Сэндвич"
   },
   {
     "id": 820,
@@ -284,7 +334,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 820,
-    "romanization": "keikeu"
+    "romanization": "keikeu",
+    "english": "Cake",
+    "russian": "Торт"
   },
   {
     "id": 821,
@@ -296,7 +348,9 @@
     "needsReview": false,
     "sourceNumber": 821,
     "note": "er-xotin murojaati",
-    "romanization": "yeobo"
+    "romanization": "yeobo",
+    "english": "Honey / Darling (spouse)",
+    "russian": "Дорогой / Дорогая (супругу)"
   },
   {
     "id": 822,
@@ -307,7 +361,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 822,
-    "romanization": "ilgiyebo"
+    "romanization": "ilgiyebo",
+    "english": "Weather forecast",
+    "russian": "Прогноз погоды"
   },
   {
     "id": 823,
@@ -318,7 +374,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 823,
-    "romanization": "mandeulda"
+    "romanization": "mandeulda",
+    "english": "To make",
+    "russian": "Делать / Готовить"
   },
   {
     "id": 824,
@@ -329,7 +387,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 824,
-    "romanization": "nolda"
+    "romanization": "nolda",
+    "english": "To play / To hang out",
+    "russian": "Играть / Отдыхать"
   },
   {
     "id": 825,
@@ -340,7 +400,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 825,
-    "romanization": "salda"
+    "romanization": "salda",
+    "english": "To live",
+    "russian": "Жить"
   },
   {
     "id": 826,
@@ -351,7 +413,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 826,
-    "romanization": "ulda"
+    "romanization": "ulda",
+    "english": "To cry",
+    "russian": "Плакать"
   },
   {
     "id": 827,
@@ -362,7 +426,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 827,
-    "romanization": "palda"
+    "romanization": "palda",
+    "english": "To sell",
+    "russian": "Продавать"
   },
   {
     "id": 828,
@@ -373,7 +439,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 828,
-    "romanization": "yeolda"
+    "romanization": "yeolda",
+    "english": "To open",
+    "russian": "Открывать"
   },
   {
     "id": 829,
@@ -384,7 +452,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 829,
-    "romanization": "meolda"
+    "romanization": "meolda",
+    "english": "To be far",
+    "russian": "Быть далёким"
   },
   {
     "id": 830,
@@ -395,7 +465,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 830,
-    "romanization": "soneul deulda"
+    "romanization": "soneul deulda",
+    "english": "To raise one's hand",
+    "russian": "Поднимать руку"
   },
   {
     "id": 831,
@@ -406,7 +478,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 831,
-    "romanization": "gilda"
+    "romanization": "gilda",
+    "english": "To be long",
+    "russian": "Быть длинным"
   },
   {
     "id": 832,
@@ -417,17 +491,21 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 832,
-    "romanization": "alda"
+    "romanization": "alda",
+    "english": "To know",
+    "russian": "Знать"
   },
   {
     "id": 833,
     "korean": "불다",
-    "uzbek": "Esmoq / Chalinmoq",
+    "uzbek": "Esmoq / Chalmoq (puflab)",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 833,
-    "romanization": "bulda"
+    "romanization": "bulda",
+    "english": "To blow / To play (wind instrument)",
+    "russian": "Дуть / Играть (на духовом)"
   }
 ]

@@ -8,7 +8,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 412
+    "sourceNumber": 412,
+    "english": "To play the piano",
+    "russian": "Играть на пианино"
   },
   {
     "id": 413,
@@ -19,7 +21,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 413
+    "sourceNumber": 413,
+    "english": "To ski",
+    "russian": "Кататься на лыжах"
   },
   {
     "id": 414,
@@ -30,7 +34,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 414
+    "sourceNumber": 414,
+    "english": "To play table tennis",
+    "russian": "Играть в настольный теннис"
   },
   {
     "id": 415,
@@ -41,7 +47,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 415
+    "sourceNumber": 415,
+    "english": "English (language)",
+    "russian": "Английский язык"
   },
   {
     "id": 416,
@@ -52,7 +60,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 416
+    "sourceNumber": 416,
+    "english": "Korean (language)",
+    "russian": "Корейский язык"
   },
   {
     "id": 417,
@@ -63,7 +73,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 417
+    "sourceNumber": 417,
+    "english": "To draw a picture",
+    "russian": "Рисовать"
   },
   {
     "id": 418,
@@ -74,7 +86,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 418
+    "sourceNumber": 418,
+    "english": "To use a computer",
+    "russian": "Работать на компьютере"
   },
   {
     "id": 419,
@@ -85,7 +99,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 419
+    "sourceNumber": 419,
+    "english": "To fish",
+    "russian": "Рыбачить"
   },
   {
     "id": 420,
@@ -96,7 +112,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 420
+    "sourceNumber": 420,
+    "english": "Really",
+    "russian": "Правда / Действительно"
   },
   {
     "id": 421,
@@ -107,7 +125,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 421
+    "sourceNumber": 421,
+    "english": "To sing",
+    "russian": "Петь"
   },
   {
     "id": 422,
@@ -118,7 +138,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 422
+    "sourceNumber": 422,
+    "english": "Personality",
+    "russian": "Характер"
   },
   {
     "id": 423,
@@ -129,7 +151,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 423
+    "sourceNumber": 423,
+    "english": "To be kind",
+    "russian": "Быть добрым / Вежливым"
   },
   {
     "id": 424,
@@ -140,7 +164,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 424
+    "sourceNumber": 424,
+    "english": "Word",
+    "russian": "Слово"
   },
   {
     "id": 425,
@@ -151,7 +177,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 425
+    "sourceNumber": 425,
+    "english": "To memorize",
+    "russian": "Запоминать / Заучивать"
   },
   {
     "id": 426,
@@ -162,7 +190,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 426
+    "sourceNumber": 426,
+    "english": "To answer",
+    "russian": "Отвечать"
   },
   {
     "id": 427,
@@ -173,7 +203,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 427
+    "sourceNumber": 427,
+    "english": "Price",
+    "russian": "Цена"
   },
   {
     "id": 428,
@@ -184,7 +216,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 428
+    "sourceNumber": 428,
+    "english": "To have a nice voice",
+    "russian": "Иметь приятный голос"
   },
   {
     "id": 429,
@@ -195,7 +229,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 429
+    "sourceNumber": 429,
+    "english": "Time passes quickly",
+    "russian": "Время летит быстро"
   },
   {
     "id": 430,
@@ -206,7 +242,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 430
+    "sourceNumber": 430,
+    "english": "Already",
+    "russian": "Уже"
   },
   {
     "id": 431,
@@ -217,7 +255,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 431
+    "sourceNumber": 431,
+    "english": "Than expected",
+    "russian": "Чем ожидалось"
   },
   {
     "id": 432,
@@ -228,7 +268,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 432
+    "sourceNumber": 432,
+    "english": "To rain a lot",
+    "russian": "Идёт сильный дождь"
   },
   {
     "id": 433,
@@ -239,7 +281,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 433
+    "sourceNumber": 433,
+    "english": "To have a loud voice",
+    "russian": "Иметь громкий голос"
   },
   {
     "id": 434,
@@ -250,7 +294,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 434
+    "sourceNumber": 434,
+    "english": "To be diverse",
+    "russian": "Быть разнообразным"
   },
   {
     "id": 435,
@@ -261,7 +307,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 435
+    "sourceNumber": 435,
+    "english": "Hanja (Chinese characters)",
+    "russian": "Ханча (китайские иероглифы)"
   },
   {
     "id": 436,
@@ -272,7 +320,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 436
+    "sourceNumber": 436,
+    "english": "To speak",
+    "russian": "Говорить"
   },
   {
     "id": 437,
@@ -283,7 +333,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 437
+    "sourceNumber": 437,
+    "english": "Baby",
+    "russian": "Малыш / Младенец"
   },
   {
     "id": 438,
@@ -294,7 +346,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 438
+    "sourceNumber": 438,
+    "english": "To pay / To calculate",
+    "russian": "Платить / Рассчитываться"
   },
   {
     "id": 439,
@@ -305,7 +359,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 439
+    "sourceNumber": 439,
+    "english": "Hangul (Korean alphabet)",
+    "russian": "Хангыль (корейский алфавит)"
   },
   {
     "id": 440,
@@ -316,7 +372,9 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 440
+    "sourceNumber": 440,
+    "english": "To wrap / To pack",
+    "russian": "Упаковывать"
   },
   {
     "id": 441,
@@ -327,6 +385,8 @@
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 441
+    "sourceNumber": 441,
+    "english": "How",
+    "russian": "Как / Каким образом"
   }
 ]

@@ -8,7 +8,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 357
+    "sourceNumber": 357,
+    "english": "Karaoke room (noraebang)",
+    "russian": "Караоке (норэбан)"
   },
   {
     "id": 358,
@@ -19,7 +21,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 358
+    "sourceNumber": 358,
+    "english": "To watch a performance",
+    "russian": "Смотреть выступление"
   },
   {
     "id": 359,
@@ -30,7 +34,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 359
+    "sourceNumber": 359,
+    "english": "To make cookies",
+    "russian": "Печь печенье"
   },
   {
     "id": 360,
@@ -41,7 +47,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 360
+    "sourceNumber": 360,
+    "english": "To take a photo",
+    "russian": "Фотографировать"
   },
   {
     "id": 361,
@@ -52,7 +60,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 361
+    "sourceNumber": 361,
+    "english": "Fried chicken",
+    "russian": "Жареная курица"
   },
   {
     "id": 362,
@@ -63,7 +73,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 362
+    "sourceNumber": 362,
+    "english": "To walk",
+    "russian": "Ходить пешком"
   },
   {
     "id": 363,
@@ -74,7 +86,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 363
+    "sourceNumber": 363,
+    "english": "To ask / To bury",
+    "russian": "Спрашивать / Закапывать"
   },
   {
     "id": 364,
@@ -85,7 +99,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 364
+    "sourceNumber": 364,
+    "english": "To listen / To hear",
+    "russian": "Слушать / Слышать"
   },
   {
     "id": 365,
@@ -96,7 +112,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 365
+    "sourceNumber": 365,
+    "english": "To load (into a vehicle)",
+    "russian": "Грузить"
   },
   {
     "id": 366,
@@ -107,7 +125,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 366
+    "sourceNumber": 366,
+    "english": "To spill",
+    "russian": "Проливать"
   },
   {
     "id": 367,
@@ -118,7 +138,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 367
+    "sourceNumber": 367,
+    "english": "To believe",
+    "russian": "Верить"
   },
   {
     "id": 368,
@@ -129,7 +151,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 368
+    "sourceNumber": 368,
+    "english": "To receive",
+    "russian": "Получать"
   },
   {
     "id": 369,
@@ -140,7 +164,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 369
+    "sourceNumber": 369,
+    "english": "To bury",
+    "russian": "Закапывать"
   },
   {
     "id": 370,
@@ -151,7 +177,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 370
+    "sourceNumber": 370,
+    "english": "To start",
+    "russian": "Начинать"
   },
   {
     "id": 371,
@@ -162,7 +190,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 371
+    "sourceNumber": 371,
+    "english": "Store / Shop",
+    "russian": "Магазин"
   },
   {
     "id": 372,
@@ -173,7 +203,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 372
+    "sourceNumber": 372,
+    "english": "Gift",
+    "russian": "Подарок"
   },
   {
     "id": 373,
@@ -184,7 +216,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 373
+    "sourceNumber": 373,
+    "english": "Kimbap",
+    "russian": "Кимбап"
   },
   {
     "id": 374,
@@ -195,7 +229,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 374
+    "sourceNumber": 374,
+    "english": "Tteokbokki",
+    "russian": "Ттокпокки"
   },
   {
     "id": 375,
@@ -206,7 +242,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 375
+    "sourceNumber": 375,
+    "english": "To eat lunch",
+    "russian": "Обедать"
   },
   {
     "id": 376,
@@ -217,7 +255,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 376
+    "sourceNumber": 376,
+    "english": "We / Our",
+    "russian": "Мы / Наш"
   },
   {
     "id": 377,
@@ -228,7 +268,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 377
+    "sourceNumber": 377,
+    "english": "Success",
+    "russian": "Успех"
   },
   {
     "id": 378,
@@ -239,7 +281,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 378
+    "sourceNumber": 378,
+    "english": "Basketball",
+    "russian": "Баскетбол"
   },
   {
     "id": 379,
@@ -250,7 +294,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 379
+    "sourceNumber": 379,
+    "english": "Baseball",
+    "russian": "Бейсбол"
   },
   {
     "id": 380,
@@ -261,7 +307,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 380
+    "sourceNumber": 380,
+    "english": "Baseball game",
+    "russian": "Бейсбольный матч"
   },
   {
     "id": 381,
@@ -272,7 +320,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 381
+    "sourceNumber": 381,
+    "english": "To put / To place",
+    "russian": "Класть / Ставить"
   },
   {
     "id": 382,
@@ -283,7 +333,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 382
+    "sourceNumber": 382,
+    "english": "Perfume",
+    "russian": "Духи"
   },
   {
     "id": 383,
@@ -294,7 +346,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 383
+    "sourceNumber": 383,
+    "english": "Foreign country",
+    "russian": "Заграница"
   },
   {
     "id": 384,
@@ -305,7 +359,9 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 384
+    "sourceNumber": 384,
+    "english": "Japchae (glass noodles)",
+    "russian": "Чапчхэ (корейская лапша)"
   },
   {
     "id": 385,
@@ -316,6 +372,8 @@
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 385
+    "sourceNumber": 385,
+    "english": "Promise / Appointment",
+    "russian": "Обещание / Встреча"
   }
 ]

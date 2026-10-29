@@ -610,6 +610,14 @@ const en = {
   "admin.feedback.ev.duplicate": "Marked duplicate of #{{id}}",
   "admin.feedback.ev.notDuplicate": "No longer a duplicate",
   "admin.feedback.ev.other": "Details updated",
+  // Meanings follow the interface language
+  "flashcards.uzbek": "English",
+  "library.searchBadge": "Korean · English · Uzbek · Romanization",
+  "study.hideUzbek": "Hide meaning",
+  "mode.korean": "Korean → English",
+  "mode.uzbek": "English → Korean",
+  "exercise.koreanToUzbek": "Korean → English",
+  "exercise.uzbekToKorean": "English → Korean",
 };
 
 const uz = {
@@ -1223,6 +1231,7 @@ const uz = {
   "admin.feedback.ev.duplicate": "#{{id}} takrori deb belgilandi",
   "admin.feedback.ev.notDuplicate": "Endi takror emas",
   "admin.feedback.ev.other": "Ma’lumotlar yangilandi",
+  // Meanings follow the interface language
 };
 
 const ru = {
@@ -1927,6 +1936,14 @@ const ru = {
   "admin.feedback.ev.duplicate": "Отмечено как дубликат #{{id}}",
   "admin.feedback.ev.notDuplicate": "Больше не дубликат",
   "admin.feedback.ev.other": "Данные обновлены",
+  // Meanings follow the interface language
+  "flashcards.uzbek": "Русский",
+  "library.searchBadge": "Корейский · Русский · Узбекский · Романизация",
+  "study.hideUzbek": "Скрыть перевод",
+  "mode.korean": "Корейский → Русский",
+  "mode.uzbek": "Русский → Корейский",
+  "exercise.koreanToUzbek": "Корейский → Русский",
+  "exercise.uzbekToKorean": "Русский → Корейский",
 };
 
 export default { en, uz, ru };

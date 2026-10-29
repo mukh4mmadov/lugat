@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 772,
-    "romanization": "geonganghada"
+    "romanization": "geonganghada",
+    "english": "To be healthy",
+    "russian": "Быть здоровым"
   },
   {
     "id": 773,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 773,
-    "romanization": "gyesokhada"
+    "romanization": "gyesokhada",
+    "english": "To continue",
+    "russian": "Продолжать"
   },
   {
     "id": 774,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 774,
-    "romanization": "dallida"
+    "romanization": "dallida",
+    "english": "To run / To hang",
+    "russian": "Бегать / Висеть"
   },
   {
     "id": 775,
@@ -42,7 +48,9 @@
     "needsReview": false,
     "sourceNumber": 775,
     "note": "piyoda",
-    "romanization": "geotda"
+    "romanization": "geotda",
+    "english": "To walk",
+    "russian": "Ходить"
   },
   {
     "id": 776,
@@ -53,7 +61,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 776,
-    "romanization": "seuteurechinghada"
+    "romanization": "seuteurechinghada",
+    "english": "To stretch",
+    "russian": "Делать растяжку"
   },
   {
     "id": 777,
@@ -64,7 +74,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 777,
-    "romanization": "ttameul heullida"
+    "romanization": "ttameul heullida",
+    "english": "To sweat",
+    "russian": "Потеть"
   },
   {
     "id": 778,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 778,
-    "romanization": "meomchuda"
+    "romanization": "meomchuda",
+    "english": "To stop",
+    "russian": "Останавливаться"
   },
   {
     "id": 779,
@@ -86,18 +100,22 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 779,
-    "romanization": "jeonche"
+    "romanization": "jeonche",
+    "english": "The whole / Entire",
+    "russian": "Весь / Целиком"
   },
   {
     "id": 780,
     "korean": "올라가다",
-    "uzbek": "Tepa chiqmoq, ko'tarilmoq",
+    "uzbek": "Tepaga chiqmoq / Ko'tarilmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 780,
-    "romanization": "ollagada"
+    "romanization": "ollagada",
+    "english": "To go up",
+    "russian": "Подниматься"
   },
   {
     "id": 781,
@@ -108,7 +126,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 781,
-    "romanization": "naeryeogada"
+    "romanization": "naeryeogada",
+    "english": "To go down",
+    "russian": "Спускаться"
   },
   {
     "id": 782,
@@ -119,7 +139,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 782,
-    "romanization": "ganghada"
+    "romanization": "ganghada",
+    "english": "To be strong",
+    "russian": "Быть сильным"
   },
   {
     "id": 783,
@@ -130,7 +152,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 783,
-    "romanization": "yakhada"
+    "romanization": "yakhada",
+    "english": "To be weak",
+    "russian": "Быть слабым"
   },
   {
     "id": 784,
@@ -141,7 +165,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 784,
-    "romanization": "ama"
+    "romanization": "ama",
+    "english": "Probably / Maybe",
+    "russian": "Наверное / Возможно"
   },
   {
     "id": 785,
@@ -152,7 +178,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 785,
-    "romanization": "ppareuda"
+    "romanization": "ppareuda",
+    "english": "To be fast",
+    "russian": "Быть быстрым"
   },
   {
     "id": 786,
@@ -163,7 +191,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 786,
-    "romanization": "moreuda"
+    "romanization": "moreuda",
+    "english": "Not to know",
+    "russian": "Не знать"
   },
   {
     "id": 787,
@@ -174,7 +204,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 787,
-    "romanization": "dareuda"
+    "romanization": "dareuda",
+    "english": "To be different",
+    "russian": "Отличаться"
   },
   {
     "id": 788,
@@ -185,7 +217,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 788,
-    "romanization": "goreuda"
+    "romanization": "goreuda",
+    "english": "To choose",
+    "russian": "Выбирать"
   },
   {
     "id": 789,
@@ -196,7 +230,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 789,
-    "romanization": "mareuda"
+    "romanization": "mareuda",
+    "english": "To dry / To be thin",
+    "russian": "Сохнуть / Быть худым"
   },
   {
     "id": 790,
@@ -207,7 +243,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 790,
-    "romanization": "gireuda"
+    "romanization": "gireuda",
+    "english": "To raise / To grow",
+    "russian": "Растить / Выращивать"
   },
   {
     "id": 791,
@@ -218,7 +256,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 791,
-    "romanization": "heureuda"
+    "romanization": "heureuda",
+    "english": "To flow",
+    "russian": "Течь"
   },
   {
     "id": 792,
@@ -229,7 +269,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 792,
-    "romanization": "bureuda"
+    "romanization": "bureuda",
+    "english": "To call / To sing / To be full",
+    "russian": "Звать / Петь / Быть сытым"
   },
   {
     "id": 793,
@@ -240,7 +282,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 793,
-    "romanization": "jareuda"
+    "romanization": "jareuda",
+    "english": "To cut",
+    "russian": "Резать"
   },
   {
     "id": 794,
@@ -251,6 +295,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 794,
-    "romanization": "nureuda"
+    "romanization": "nureuda",
+    "english": "To press",
+    "russian": "Нажимать"
   }
 ]

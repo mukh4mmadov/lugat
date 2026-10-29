@@ -8,7 +8,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 1
+    "sourceNumber": 1,
+    "english": "Germany",
+    "russian": "Германия"
   },
   {
     "id": 2,
@@ -19,7 +21,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 2
+    "sourceNumber": 2,
+    "english": "USA (America)",
+    "russian": "США (Америка)"
   },
   {
     "id": 3,
@@ -30,7 +34,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 3
+    "sourceNumber": 3,
+    "english": "England (UK)",
+    "russian": "Англия (Великобритания)"
   },
   {
     "id": 4,
@@ -41,7 +47,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 4
+    "sourceNumber": 4,
+    "english": "Japan",
+    "russian": "Япония"
   },
   {
     "id": 5,
@@ -52,7 +60,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 5
+    "sourceNumber": 5,
+    "english": "China",
+    "russian": "Китай"
   },
   {
     "id": 6,
@@ -63,7 +73,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 6
+    "sourceNumber": 6,
+    "english": "Australia",
+    "russian": "Австралия"
   },
   {
     "id": 7,
@@ -74,7 +86,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 7
+    "sourceNumber": 7,
+    "english": "Korea",
+    "russian": "Корея"
   },
   {
     "id": 8,
@@ -85,7 +99,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 8
+    "sourceNumber": 8,
+    "english": "Uzbekistan",
+    "russian": "Узбекистан"
   },
   {
     "id": 9,
@@ -96,7 +112,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 9
+    "sourceNumber": 9,
+    "english": "Pakistan",
+    "russian": "Пакистан"
   },
   {
     "id": 10,
@@ -107,7 +125,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 10
+    "sourceNumber": 10,
+    "english": "Police officer",
+    "russian": "Полицейский"
   },
   {
     "id": 11,
@@ -118,7 +138,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 11
+    "sourceNumber": 11,
+    "english": "Cook / Chef",
+    "russian": "Повар"
   },
   {
     "id": 12,
@@ -129,7 +151,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 12
+    "sourceNumber": 12,
+    "english": "Doctor",
+    "russian": "Врач"
   },
   {
     "id": 13,
@@ -140,7 +164,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 13
+    "sourceNumber": 13,
+    "english": "Student",
+    "russian": "Ученик / Студент"
   },
   {
     "id": 14,
@@ -151,7 +177,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 14
+    "sourceNumber": 14,
+    "english": "Office worker",
+    "russian": "Офисный работник"
   },
   {
     "id": 15,
@@ -162,7 +190,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 15
+    "sourceNumber": 15,
+    "english": "Teacher",
+    "russian": "Учитель"
   },
   {
     "id": 16,
@@ -173,7 +203,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 16
+    "sourceNumber": 16,
+    "english": "Which",
+    "russian": "Какой / Который"
   },
   {
     "id": 17,
@@ -184,7 +216,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 17
+    "sourceNumber": 17,
+    "english": "Job / Occupation",
+    "russian": "Профессия"
   },
   {
     "id": 18,
@@ -195,7 +229,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 18
+    "sourceNumber": 18,
+    "english": "I (humble)",
+    "russian": "Я (вежливая форма)"
   },
   {
     "id": 19,
@@ -206,7 +242,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 19
+    "sourceNumber": 19,
+    "english": "What is your name?",
+    "russian": "Как вас зовут?"
   },
   {
     "id": 20,
@@ -217,7 +255,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 20
+    "sourceNumber": 20,
+    "english": "Who",
+    "russian": "Кто"
   },
   {
     "id": 21,
@@ -228,7 +268,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 21
+    "sourceNumber": 21,
+    "english": "This",
+    "russian": "Этот"
   },
   {
     "id": 22,
@@ -239,7 +281,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 22
+    "sourceNumber": 22,
+    "english": "Thing",
+    "russian": "Вещь / Предмет"
   },
   {
     "id": 23,
@@ -250,7 +294,9 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 23
+    "sourceNumber": 23,
+    "english": "What",
+    "russian": "Что"
   },
   {
     "id": 24,
@@ -261,6 +307,8 @@
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 24
+    "sourceNumber": 24,
+    "english": "What (formal)",
+    "russian": "Что (официальная форма)"
   }
 ]

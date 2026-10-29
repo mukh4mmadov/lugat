@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 691,
-    "romanization": "dareuda"
+    "romanization": "dareuda",
+    "english": "To be different",
+    "russian": "Отличаться"
   },
   {
     "id": 692,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 692,
-    "romanization": "meositda"
+    "romanization": "meositda",
+    "english": "To be cool / Stylish",
+    "russian": "Быть классным / Стильным"
   },
   {
     "id": 693,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 693,
-    "romanization": "jjalda"
+    "romanization": "jjalda",
+    "english": "To be short",
+    "russian": "Быть коротким"
   },
   {
     "id": 694,
@@ -41,7 +47,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 694,
-    "romanization": "dalda"
+    "romanization": "dalda",
+    "english": "To be sweet",
+    "russian": "Быть сладким"
   },
   {
     "id": 695,
@@ -52,7 +60,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 695,
-    "romanization": "pyeollihada"
+    "romanization": "pyeollihada",
+    "english": "To be convenient",
+    "russian": "Быть удобным"
   },
   {
     "id": 696,
@@ -63,7 +73,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 696,
-    "romanization": "eotteota"
+    "romanization": "eotteota",
+    "english": "How (is it)",
+    "russian": "Какой / Каков"
   },
   {
     "id": 697,
@@ -74,7 +86,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 697,
-    "romanization": "yumyeonghada"
+    "romanization": "yumyeonghada",
+    "english": "To be famous",
+    "russian": "Быть знаменитым"
   },
   {
     "id": 698,
@@ -85,7 +99,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 698,
-    "romanization": "rummeiteu"
+    "romanization": "rummeiteu",
+    "english": "Roommate",
+    "russian": "Сосед по комнате"
   },
   {
     "id": 699,
@@ -96,7 +112,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 699,
-    "romanization": "maeume deulda"
+    "romanization": "maeume deulda",
+    "english": "To like / To be pleased with",
+    "russian": "Нравиться"
   },
   {
     "id": 700,
@@ -107,7 +125,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 700,
-    "romanization": "maeume an deulda"
+    "romanization": "maeume an deulda",
+    "english": "Not to like",
+    "russian": "Не нравиться"
   },
   {
     "id": 701,
@@ -118,7 +138,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 701,
-    "romanization": "gang"
+    "romanization": "gang",
+    "english": "River",
+    "russian": "Река"
   },
   {
     "id": 702,
@@ -129,7 +151,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 702,
-    "romanization": "pokpo"
+    "romanization": "pokpo",
+    "english": "Waterfall",
+    "russian": "Водопад"
   },
   {
     "id": 703,
@@ -140,7 +164,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 703,
-    "romanization": "seom"
+    "romanization": "seom",
+    "english": "Island",
+    "russian": "Остров"
   },
   {
     "id": 704,
@@ -151,7 +177,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 704,
-    "romanization": "sup"
+    "romanization": "sup",
+    "english": "Forest",
+    "russian": "Лес"
   },
   {
     "id": 705,
@@ -162,7 +190,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 705,
-    "romanization": "daeyang"
+    "romanization": "daeyang",
+    "english": "Ocean",
+    "russian": "Океан"
   },
   {
     "id": 706,
@@ -173,7 +203,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 706,
-    "romanization": "namiseom"
+    "romanization": "namiseom",
+    "english": "Nami Island",
+    "russian": "Остров Нами"
   },
   {
     "id": 707,
@@ -184,7 +216,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 707,
-    "romanization": "konseoteu"
+    "romanization": "konseoteu",
+    "english": "Concert",
+    "russian": "Концерт"
   },
   {
     "id": 708,
@@ -195,7 +229,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 708,
-    "romanization": "iljjik"
+    "romanization": "iljjik",
+    "english": "Early",
+    "russian": "Рано"
   },
   {
     "id": 709,
@@ -206,7 +242,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 709,
-    "romanization": "kkochi pida"
+    "romanization": "kkochi pida",
+    "english": "Flowers bloom",
+    "russian": "Цветы распускаются"
   },
   {
     "id": 710,
@@ -217,7 +255,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 710,
-    "romanization": "geuncheo"
+    "romanization": "geuncheo",
+    "english": "Nearby / Vicinity",
+    "russian": "Окрестности / Поблизости"
   },
   {
     "id": 711,
@@ -228,6 +268,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 711,
-    "romanization": "moraenori"
+    "romanization": "moraenori",
+    "english": "Sand play",
+    "russian": "Игра в песке"
   }
 ]

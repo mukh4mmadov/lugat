@@ -8,7 +8,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 25
+    "sourceNumber": 25,
+    "english": "Ballpoint pen",
+    "russian": "Шариковая ручка"
   },
   {
     "id": 26,
@@ -19,7 +21,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 26
+    "sourceNumber": 26,
+    "english": "Dictionary",
+    "russian": "Словарь"
   },
   {
     "id": 27,
@@ -30,7 +34,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 27
+    "sourceNumber": 27,
+    "english": "Eraser",
+    "russian": "Ластик"
   },
   {
     "id": 28,
@@ -41,7 +47,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 28
+    "sourceNumber": 28,
+    "english": "Pencil case",
+    "russian": "Пенал"
   },
   {
     "id": 29,
@@ -52,7 +60,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 29
+    "sourceNumber": 29,
+    "english": "Dress shoes",
+    "russian": "Туфли"
   },
   {
     "id": 30,
@@ -63,7 +73,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 30
+    "sourceNumber": 30,
+    "english": "Hat / Cap",
+    "russian": "Шапка / Кепка"
   },
   {
     "id": 31,
@@ -74,7 +86,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 31
+    "sourceNumber": 31,
+    "english": "Glasses",
+    "russian": "Очки"
   },
   {
     "id": 32,
@@ -85,7 +99,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 32
+    "sourceNumber": 32,
+    "english": "Clock / Watch",
+    "russian": "Часы"
   },
   {
     "id": 33,
@@ -96,7 +112,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 33
+    "sourceNumber": 33,
+    "english": "Photocopier",
+    "russian": "Ксерокс"
   },
   {
     "id": 34,
@@ -107,7 +125,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 34
+    "sourceNumber": 34,
+    "english": "Laptop",
+    "russian": "Ноутбук"
   },
   {
     "id": 35,
@@ -118,7 +138,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 35
+    "sourceNumber": 35,
+    "english": "Camera",
+    "russian": "Фотоаппарат / Камера"
   },
   {
     "id": 36,
@@ -129,7 +151,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 36
+    "sourceNumber": 36,
+    "english": "Computer",
+    "russian": "Компьютер"
   },
   {
     "id": 37,
@@ -140,7 +164,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 37
+    "sourceNumber": 37,
+    "english": "Mobile phone",
+    "russian": "Мобильный телефон"
   },
   {
     "id": 38,
@@ -151,7 +177,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 38
+    "sourceNumber": 38,
+    "english": "Earphones",
+    "russian": "Наушники"
   },
   {
     "id": 39,
@@ -162,7 +190,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 39
+    "sourceNumber": 39,
+    "english": "This thing",
+    "russian": "Эта вещь"
   },
   {
     "id": 40,
@@ -173,7 +203,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 40
+    "sourceNumber": 40,
+    "english": "That thing (near you)",
+    "russian": "Та вещь (рядом с вами)"
   },
   {
     "id": 41,
@@ -184,7 +216,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 41
+    "sourceNumber": 41,
+    "english": "That thing (over there)",
+    "russian": "Вон та вещь"
   },
   {
     "id": 42,
@@ -195,7 +229,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 42
+    "sourceNumber": 42,
+    "english": "Money",
+    "russian": "Деньги"
   },
   {
     "id": 43,
@@ -206,7 +242,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 43
+    "sourceNumber": 43,
+    "english": "Thank you",
+    "russian": "Спасибо"
   },
   {
     "id": 44,
@@ -217,7 +255,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 44
+    "sourceNumber": 44,
+    "english": "Mister (older man)",
+    "russian": "Дядя (мужчина постарше)"
   },
   {
     "id": 45,
@@ -228,7 +268,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 45
+    "sourceNumber": 45,
+    "english": "Customer / Guest",
+    "russian": "Клиент / Гость"
   },
   {
     "id": 46,
@@ -239,7 +281,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 46
+    "sourceNumber": 46,
+    "english": "Boyfriend",
+    "russian": "Парень (бойфренд)"
   },
   {
     "id": 47,
@@ -250,7 +294,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 47
+    "sourceNumber": 47,
+    "english": "Girlfriend",
+    "russian": "Девушка (подруга)"
   },
   {
     "id": 48,
@@ -261,7 +307,9 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 48
+    "sourceNumber": 48,
+    "english": "What",
+    "russian": "Что"
   },
   {
     "id": 49,
@@ -272,6 +320,8 @@
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 49
+    "sourceNumber": 49,
+    "english": "In Korean",
+    "russian": "По-корейски"
   }
 ]

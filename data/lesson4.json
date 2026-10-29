@@ -8,7 +8,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 77
+    "sourceNumber": 77,
+    "english": "To be crowded / Complicated",
+    "russian": "Быть многолюдным / Сложным"
   },
   {
     "id": 78,
@@ -19,7 +21,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 78
+    "sourceNumber": 78,
+    "english": "To be cool / Refreshing",
+    "russian": "Быть прохладным / Освежающим"
   },
   {
     "id": 79,
@@ -30,7 +34,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 79
+    "sourceNumber": 79,
+    "english": "To be clean",
+    "russian": "Быть чистым"
   },
   {
     "id": 80,
@@ -41,7 +47,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 80
+    "sourceNumber": 80,
+    "english": "To be comfortable",
+    "russian": "Быть удобным"
   },
   {
     "id": 81,
@@ -52,7 +60,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 81
+    "sourceNumber": 81,
+    "english": "To be uncomfortable",
+    "russian": "Быть неудобным"
   },
   {
     "id": 82,
@@ -63,7 +73,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 82
+    "sourceNumber": 82,
+    "english": "A little / Please",
+    "russian": "Немного / Пожалуйста"
   },
   {
     "id": 83,
@@ -74,7 +86,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 83
+    "sourceNumber": 83,
+    "english": "To be few / Little",
+    "russian": "Быть малочисленным / Мало"
   },
   {
     "id": 84,
@@ -85,7 +99,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 84
+    "sourceNumber": 84,
+    "english": "To be small",
+    "russian": "Быть маленьким"
   },
   {
     "id": 85,
@@ -96,7 +112,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 85
+    "sourceNumber": 85,
+    "english": "To be cheap",
+    "russian": "Быть дешёвым"
   },
   {
     "id": 86,
@@ -107,7 +125,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 86
+    "sourceNumber": 86,
+    "english": "To be many / Much",
+    "russian": "Быть многочисленным / Много"
   },
   {
     "id": 87,
@@ -118,7 +138,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 87
+    "sourceNumber": 87,
+    "english": "To be expensive",
+    "russian": "Быть дорогим"
   },
   {
     "id": 88,
@@ -129,7 +151,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 88
+    "sourceNumber": 88,
+    "english": "To be good",
+    "russian": "Быть хорошим"
   },
   {
     "id": 89,
@@ -140,7 +164,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 89
+    "sourceNumber": 89,
+    "english": "To be fun / Interesting",
+    "russian": "Быть интересным"
   },
   {
     "id": 90,
@@ -151,7 +177,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 90
+    "sourceNumber": 90,
+    "english": "To be delicious",
+    "russian": "Быть вкусным"
   },
   {
     "id": 91,
@@ -162,7 +190,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 91
+    "sourceNumber": 91,
+    "english": "To be boring",
+    "russian": "Быть скучным"
   },
   {
     "id": 92,
@@ -173,7 +203,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 92
+    "sourceNumber": 92,
+    "english": "To taste bad",
+    "russian": "Быть невкусным"
   },
   {
     "id": 93,
@@ -184,7 +216,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 93
+    "sourceNumber": 93,
+    "english": "Together",
+    "russian": "Вместе"
   },
   {
     "id": 94,
@@ -195,7 +229,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 94
+    "sourceNumber": 94,
+    "english": "Weather",
+    "russian": "Погода"
   },
   {
     "id": 95,
@@ -206,7 +242,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 95
+    "sourceNumber": 95,
+    "english": "How is it?",
+    "russian": "Как? / Как вам?"
   },
   {
     "id": 96,
@@ -217,7 +255,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 96
+    "sourceNumber": 96,
+    "english": "Taste",
+    "russian": "Вкус"
   },
   {
     "id": 97,
@@ -228,7 +268,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 97
+    "sourceNumber": 97,
+    "english": "Lemon tea",
+    "russian": "Лимонный чай"
   },
   {
     "id": 98,
@@ -239,7 +281,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 98
+    "sourceNumber": 98,
+    "english": "Beer",
+    "russian": "Пиво"
   },
   {
     "id": 99,
@@ -250,7 +294,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 99
+    "sourceNumber": 99,
+    "english": "Water",
+    "russian": "Вода"
   },
   {
     "id": 100,
@@ -261,7 +307,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 100
+    "sourceNumber": 100,
+    "english": "Orange juice",
+    "russian": "Апельсиновый сок"
   },
   {
     "id": 101,
@@ -272,7 +320,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 101
+    "sourceNumber": 101,
+    "english": "Coffee",
+    "russian": "Кофе"
   },
   {
     "id": 102,
@@ -283,7 +333,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 102
+    "sourceNumber": 102,
+    "english": "Cola",
+    "russian": "Кола"
   },
   {
     "id": 103,
@@ -294,7 +346,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 103
+    "sourceNumber": 103,
+    "english": "Bread",
+    "russian": "Хлеб"
   },
   {
     "id": 104,
@@ -305,7 +359,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 104
+    "sourceNumber": 104,
+    "english": "Very",
+    "russian": "Очень"
   },
   {
     "id": 105,
@@ -316,7 +372,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 105
+    "sourceNumber": 105,
+    "english": "Price",
+    "russian": "Цена"
   },
   {
     "id": 106,
@@ -327,7 +385,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 106
+    "sourceNumber": 106,
+    "english": "Snacks / Cookies",
+    "russian": "Печенье / Сладости"
   },
   {
     "id": 107,
@@ -338,7 +398,9 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 107
+    "sourceNumber": 107,
+    "english": "Then / In that case",
+    "russian": "Тогда / В таком случае"
   },
   {
     "id": 108,
@@ -349,6 +411,8 @@
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
-    "sourceNumber": 108
+    "sourceNumber": 108,
+    "english": "To be sweet",
+    "russian": "Быть сладким"
   }
 ]

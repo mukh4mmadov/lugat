@@ -8,7 +8,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 604,
-    "romanization": "SNS"
+    "romanization": "SNS",
+    "english": "Social media (SNS)",
+    "russian": "Соцсети"
   },
   {
     "id": 605,
@@ -19,7 +21,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 605,
-    "romanization": "bakke nagada"
+    "romanization": "bakke nagada",
+    "english": "To go outside",
+    "russian": "Выходить на улицу"
   },
   {
     "id": 606,
@@ -30,7 +34,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 606,
-    "romanization": "ppareuda"
+    "romanization": "ppareuda",
+    "english": "To be fast",
+    "russian": "Быть быстрым"
   },
   {
     "id": 607,
@@ -42,7 +48,9 @@
     "needsReview": false,
     "sourceNumber": 607,
     "note": "radio orqali ma'lumot berish",
-    "romanization": "annae bangsong"
+    "romanization": "annae bangsong",
+    "english": "Announcement",
+    "russian": "Объявление (по громкой связи)"
   },
   {
     "id": 608,
@@ -53,7 +61,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 608,
-    "romanization": "ilboneo"
+    "romanization": "ilboneo",
+    "english": "Japanese (language)",
+    "russian": "Японский язык"
   },
   {
     "id": 609,
@@ -64,7 +74,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 609,
-    "romanization": "oegugin"
+    "romanization": "oegugin",
+    "english": "Foreigner",
+    "russian": "Иностранец"
   },
   {
     "id": 610,
@@ -75,7 +87,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 610,
-    "romanization": "noyakjaseok (noyakjasok)"
+    "romanization": "noyakjaseok (noyakjasok)",
+    "english": "Seats for the elderly and disabled",
+    "russian": "Места для пожилых и инвалидов"
   },
   {
     "id": 611,
@@ -86,7 +100,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 611,
-    "romanization": "imsanbuseok"
+    "romanization": "imsanbuseok",
+    "english": "Seats for pregnant women",
+    "russian": "Места для беременных"
   },
   {
     "id": 612,
@@ -97,7 +113,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 612,
-    "romanization": "noin"
+    "romanization": "noin",
+    "english": "Elderly person",
+    "russian": "Пожилой человек"
   },
   {
     "id": 613,
@@ -108,7 +126,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 613,
-    "romanization": "mom"
+    "romanization": "mom",
+    "english": "Body",
+    "russian": "Тело"
   },
   {
     "id": 614,
@@ -119,7 +139,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 614,
-    "romanization": "imsanbu"
+    "romanization": "imsanbu",
+    "english": "Pregnant woman",
+    "russian": "Беременная женщина"
   },
   {
     "id": 615,
@@ -131,7 +153,9 @@
     "needsReview": false,
     "sourceNumber": 615,
     "note": "yoshi ulug' insonlar",
-    "romanization": "eoreun"
+    "romanization": "eoreun",
+    "english": "Adult / Elder",
+    "russian": "Взрослый / Старший"
   },
   {
     "id": 616,
@@ -142,7 +166,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 616,
-    "romanization": "eeokeon"
+    "romanization": "eeokeon",
+    "english": "Air conditioner",
+    "russian": "Кондиционер"
   },
   {
     "id": 617,
@@ -153,7 +179,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 617,
-    "romanization": "jihacheoryeok"
+    "romanization": "jihacheoryeok",
+    "english": "Subway station",
+    "russian": "Станция метро"
   },
   {
     "id": 618,
@@ -164,7 +192,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 618,
-    "romanization": "gyotongkadeu"
+    "romanization": "gyotongkadeu",
+    "english": "Transportation card",
+    "russian": "Транспортная карта"
   },
   {
     "id": 619,
@@ -175,7 +205,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 619,
-    "romanization": "chulgu"
+    "romanization": "chulgu",
+    "english": "Exit",
+    "russian": "Выход"
   },
   {
     "id": 620,
@@ -186,7 +218,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 620,
-    "romanization": "ipgu"
+    "romanization": "ipgu",
+    "english": "Entrance",
+    "russian": "Вход"
   },
   {
     "id": 621,
@@ -198,7 +232,9 @@
     "needsReview": false,
     "sourceNumber": 621,
     "note": "peresadka",
-    "romanization": "garatada"
+    "romanization": "garatada",
+    "english": "To transfer (transport)",
+    "russian": "Пересаживаться"
   },
   {
     "id": 622,
@@ -210,7 +246,9 @@
     "needsReview": false,
     "sourceNumber": 622,
     "note": "metroda",
-    "romanization": "hoseon"
+    "romanization": "hoseon",
+    "english": "Line (subway line number)",
+    "russian": "Линия (метро)"
   },
   {
     "id": 623,
@@ -222,7 +260,9 @@
     "needsReview": false,
     "sourceNumber": 623,
     "note": "transportdan) / Yog'moq (yomg'ir/qor",
-    "romanization": "naerida"
+    "romanization": "naerida",
+    "english": "To get off",
+    "russian": "Выходить (из транспорта)"
   },
   {
     "id": 624,
@@ -233,7 +273,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 624,
-    "romanization": "sikkeureopda"
+    "romanization": "sikkeureopda",
+    "english": "To be noisy",
+    "russian": "Быть шумным"
   },
   {
     "id": 625,
@@ -244,7 +286,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 625,
-    "romanization": "jari"
+    "romanization": "jari",
+    "english": "Seat / Place",
+    "russian": "Место"
   },
   {
     "id": 626,
@@ -255,7 +299,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 626,
-    "romanization": "oegugeoro"
+    "romanization": "oegugeoro",
+    "english": "In a foreign language",
+    "russian": "На иностранном языке"
   },
   {
     "id": 627,
@@ -266,7 +312,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 627,
-    "romanization": "yeok"
+    "romanization": "yeok",
+    "english": "Station",
+    "russian": "Станция"
   },
   {
     "id": 628,
@@ -277,7 +325,9 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 628,
-    "romanization": "bunhongsaek"
+    "romanization": "bunhongsaek",
+    "english": "Pink",
+    "russian": "Розовый цвет"
   },
   {
     "id": 629,
@@ -288,6 +338,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 629,
-    "romanization": "momi bulpyeonhan saram"
+    "romanization": "momi bulpyeonhan saram",
+    "english": "Person with a disability",
+    "russian": "Человек с ограниченными возможностями"
   }
 ]
