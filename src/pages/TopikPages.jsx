@@ -105,7 +105,12 @@ export function TopikHomePage() {
               <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
               <h2 className="text-2xl font-black">{t("topik.examTitle", { number: exam.number })}</h2>
             </div>
-            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+              <Link to={`/topik/words/${exam.id}`} className="rounded-xl bg-violet-100 px-3 py-1.5 text-sm font-black text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">
+                📚 {t("topikWords.link")}
+              </Link>
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {TOPIK_VARIANTS.filter((variant) => variant.examId === exam.id).map((variant) => (

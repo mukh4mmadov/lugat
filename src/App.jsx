@@ -53,6 +53,7 @@ const AdminUsersPage = page(() => import("./pages/AdminUsersPage"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
 const TopikResultPage = page(topik, "TopikResultPage");
+const TopikWordsPage = page(() => import("./pages/TopikWordsPage"));
 
 function LessonRouteGuard({ children }) {
   const { lessonId } = useParams();
@@ -78,6 +79,7 @@ export default function App() {
           <Route element={<Layout onShowIELTSModal={handleShowIELTSModal} />}>
             <Route path="topik" element={<TopikHomePage />} />
             <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
+            <Route path="topik/words/:examId" element={<TopikWordsPage />} />
             <Route path="topik/:variantId" element={<TopikAttemptPage />} />
           </Route>
           <Route

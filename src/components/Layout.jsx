@@ -681,7 +681,7 @@ export default function Layout({ onShowIELTSModal }) {
       {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
       <div id="overlay-root" />
       <VoiceNotice />
-      {!/^\/topik\/(?!result)[^/]+/.test(location.pathname) && (
+      {!/^\/topik\/(?!result|words)[^/]+/.test(location.pathname) && (
         <BottomNav onMenu={() => setMobileMenuOpen(true)} badge={unreadTotal} />
       )}
       <AIChatWidget />

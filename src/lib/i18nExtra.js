@@ -690,6 +690,19 @@ const en = {
   "leaderboard.showMe": "Show me on the leaderboard",
   "leaderboard.privacy": "Only your first name and the first letter of your last name are shown.",
   "leaderboard.joinHint": "Sign up to save your progress and appear here.",
+  // TOPIK paper vocabulary
+  "topikWords.link": "Words in this paper",
+  "topikWords.title": "Vocabulary of the {{number}}th TOPIK I",
+  "topikWords.subtitle": "Learn the words that actually appear in this exam before you take it.",
+  "topikWords.keyTitle": "Key exam words",
+  "topikWords.keyHint": "Common words in this paper that the lessons don't cover yet.",
+  "topikWords.lessonTitle_one": "{{count}} lesson word in the paper",
+  "topikWords.lessonTitle_other": "{{count}} lesson words in the paper",
+  "topikWords.lessonHint": "Words from your lessons that appear in the questions, answers and listening script. ×N shows how often.",
+  "topikWords.addAll_one": "Add {{count}} to Favorites",
+  "topikWords.addAll_other": "Add all {{count}} to Favorites",
+  "topikWords.practise": "Practise in Favorites",
+  "topikWords.favorite": "Favorite",
 };
 
 const uz = {
@@ -1384,6 +1397,19 @@ const uz = {
   "leaderboard.showMe": "Meni reytingda ko'rsatish",
   "leaderboard.privacy": "Faqat ismingiz va familiyangizning birinchi harfi ko'rinadi.",
   "leaderboard.joinHint": "Natijangiz saqlanishi va bu yerda ko'rinishi uchun ro'yxatdan o'ting.",
+  // TOPIK paper vocabulary
+  "topikWords.link": "Imtihondagi so'zlar",
+  "topikWords.title": "{{number}}-TOPIK I imtihoni lug'ati",
+  "topikWords.subtitle": "Imtihonni topshirishdan oldin unda haqiqatda uchraydigan so'zlarni o'rganing.",
+  "topikWords.keyTitle": "Imtihonning muhim so'zlari",
+  "topikWords.keyHint": "Bu imtihonda ko'p uchraydigan, lekin darslarda hali yo'q so'zlar.",
+  "topikWords.lessonTitle_one": "Imtihonda {{count}} ta dars so'zi bor",
+  "topikWords.lessonTitle_other": "Imtihonda {{count}} ta dars so'zi bor",
+  "topikWords.lessonHint": "Darslaringizdagi savollarda, javoblarda va tinglash matnida uchraydigan so'zlar. ×N — necha marta uchrashi.",
+  "topikWords.addAll_one": "{{count}} tasini sevimlilarga qo'shish",
+  "topikWords.addAll_other": "Hammasini ({{count}}) sevimlilarga qo'shish",
+  "topikWords.practise": "Sevimlilarda mashq qilish",
+  "topikWords.favorite": "Sevimli",
 };
 
 const ru = {
@@ -2184,6 +2210,23 @@ const ru = {
   "leaderboard.showMe": "Показывать меня в рейтинге",
   "leaderboard.privacy": "Видны только ваше имя и первая буква фамилии.",
   "leaderboard.joinHint": "Зарегистрируйтесь, чтобы сохранять прогресс и попасть в рейтинг.",
+  // TOPIK paper vocabulary
+  "topikWords.link": "Слова из экзамена",
+  "topikWords.title": "Лексика {{number}}-го TOPIK I",
+  "topikWords.subtitle": "Выучите слова, которые действительно встречаются в этом экзамене.",
+  "topikWords.keyTitle": "Ключевые слова экзамена",
+  "topikWords.keyHint": "Частые слова этого экзамена, которых пока нет в уроках.",
+  "topikWords.lessonTitle_one": "{{count}} слово из уроков в экзамене",
+  "topikWords.lessonTitle_few": "{{count}} слова из уроков в экзамене",
+  "topikWords.lessonTitle_many": "{{count}} слов из уроков в экзамене",
+  "topikWords.lessonTitle_other": "{{count}} слова из уроков в экзамене",
+  "topikWords.lessonHint": "Слова из ваших уроков, которые встречаются в вопросах, ответах и аудиотексте. ×N — сколько раз.",
+  "topikWords.addAll_one": "Добавить {{count}} в избранное",
+  "topikWords.addAll_few": "Добавить все {{count}} в избранное",
+  "topikWords.addAll_many": "Добавить все {{count}} в избранное",
+  "topikWords.addAll_other": "Добавить все {{count}} в избранное",
+  "topikWords.practise": "Тренировать в избранном",
+  "topikWords.favorite": "В избранное",
 };
 
 export default { en, uz, ru };
