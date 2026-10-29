@@ -127,3 +127,29 @@ export function exampleTranslation(example, language = i18n.language) {
   if (!example) return "";
   return example[String(language || "uz").slice(0, 2)] || example.uz;
 }
+
+// Admin corrections (public.word_overrides) applied over the built-in words.
+// Both the lesson arrays and allWords hold their own copies, so both change.
+const OVERRIDE_FIELDS = ["uzbek", "english", "russian", "romanization", "example"];
+const originals = new Map();
+
+export function applyWordOverrides(rows = []) {
+  const byKey = new Map(rows.map((row) => [row.word_key, row]));
+  const targets = [...lessons.flat(), ...allWords];
+  targets.forEach((word) => {
+    const key = getWordKey(word);
+    if (!originals.has(key)) {
+      originals.set(key, Object.fromEntries([...OVERRIDE_FIELDS, "needsReview"].map((field) => [field, word[field]])));
+    }
+    const original = originals.get(key);
+    const row = byKey.get(key);
+    OVERRIDE_FIELDS.forEach((field) => {
+      word[field] = row && row[field] != null && row[field] !== "" ? row[field] : original[field];
+    });
+    word.needsReview = row && row.needs_review != null ? row.needs_review : original.needsReview;
+  });
+}
+
+export function originalWord(key) {
+  return originals.get(key) || null;
+}

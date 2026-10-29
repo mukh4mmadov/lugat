@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import ReportWordLink from "../components/ReportWordLink";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { exampleTranslation, getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
@@ -377,6 +378,7 @@ function LearningCard({ word, position, batchSize, settings, reduxMastery, onCon
                   <p className="text-sm text-slate-600 dark:text-slate-300">{exampleTranslation(example)}</p>
                 </div>
               )}
+              <ReportWordLink word={word} className="mt-3" />
             </motion.div>
           ) : (
             <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t("study.guessFirst")}</p>

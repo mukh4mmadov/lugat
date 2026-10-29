@@ -50,6 +50,7 @@ const AdminPage = page(admin);
 const AdminContent = page(admin, "AdminContent");
 const AdminOverview = page(admin, "AdminOverview");
 const AdminUsersPage = page(() => import("./pages/AdminUsersPage"));
+const AdminWordsPage = page(() => import("./pages/AdminWordsPage"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
 const TopikResultPage = page(topik, "TopikResultPage");
@@ -161,6 +162,7 @@ export default function App() {
               <Route index element={<AdminOverview />} />
               <Route path="users" element={<AdminUsersPage />} />
               <Route path="feedback" element={<AdminFeedbackPage />} />
+              <Route path="words" element={<AdminWordsPage />} />
               <Route path="content" element={<AdminContent />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />

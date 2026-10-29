@@ -3,6 +3,7 @@ import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import ReportWordLink from "../components/ReportWordLink";
 import GlassCard from "../components/GlassCard";
 import { getWordMastery } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
@@ -423,6 +424,7 @@ export default function FlashcardsPage({ review = false, weak = false }) {
                   <div className="rounded-2xl bg-slate-950/5 px-3 py-2 text-center dark:bg-white/10">
                     <p className="text-sm font-bold">{word.example.ko}</p>
                     <p className="text-xs text-slate-500 dark:text-slate-300">{exampleTranslation(word.example)}</p>
+                    <ReportWordLink word={word} className="mt-1" />
                   </div>
                 ) : (
                   <p className="text-center text-xs font-bold text-slate-500 dark:text-slate-300">{t("card.lesson", { lesson: word.lesson })}</p>

@@ -114,6 +114,7 @@ export default function AdminPage() {
     ["/admin", t("admin.tab.overview"), true],
     ["/admin/users", t("admin.tab.users")],
     ["/admin/feedback", t("admin.tab.feedback")],
+    ["/admin/words", t("adminWords.tab")],
     ["/admin/content", t("admin.tab.content")],
   ];
 
