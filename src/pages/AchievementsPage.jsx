@@ -134,7 +134,7 @@ export default function AchievementsPage() {
         <details className="relative mt-4 text-sm">
           <summary className="cursor-pointer font-bold text-sky-600 dark:text-sky-300">{t("xp.howToEarn")}</summary>
           <ul className="mt-2 grid gap-1 text-slate-600 dark:text-slate-300 sm:grid-cols-2">
-            {["correct", "dictation", "goal", "session", "topik", "speaking"].map((key) => (
+            {["correct", "dictation", "goal", "session", "grammar", "topik", "speaking"].map((key) => (
               <li key={key}>• {t(`xp.rule.${key}`)}</li>
             ))}
           </ul>

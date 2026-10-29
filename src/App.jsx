@@ -47,6 +47,10 @@ const FeedbackPage = page(() => import("./pages/FeedbackPage"));
 const LeaderboardPage = page(() => import("./pages/LeaderboardPage"));
 const SpeakingPage = page(() => import("./pages/SpeakingPage"));
 const AchievementsPage = page(() => import("./pages/AchievementsPage"));
+const grammar = () => import("./pages/GrammarPage");
+const GrammarCatalogPage = page(grammar, "GrammarCatalogPage");
+const GrammarPointPage = page(grammar, "GrammarPointPage");
+const LessonGrammarPage = page(grammar, "LessonGrammarPage");
 const AdminFeedbackPage = page(() => import("./pages/AdminFeedbackPage"));
 const AdminPage = page(admin);
 const AdminContent = page(admin, "AdminContent");
@@ -161,6 +165,16 @@ export default function App() {
             <Route path="leaderboard" element={<LeaderboardPage />} />
             <Route path="speaking" element={<SpeakingPage />} />
             <Route path="achievements" element={<AchievementsPage />} />
+            <Route path="grammar" element={<GrammarCatalogPage />} />
+            <Route path="grammar/:pointId" element={<GrammarPointPage />} />
+            <Route
+              path="lesson/:lessonId/grammar"
+              element={
+                <LessonRouteGuard>
+                  <LessonGrammarPage />
+                </LessonRouteGuard>
+              }
+            />
             <Route path="feedback/:ticketId" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminOverview />} />

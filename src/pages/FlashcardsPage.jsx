@@ -517,6 +517,7 @@ export function ModeHeader({ lesson, review = false, weak = false }) {
           [`/lesson/${lesson}/quiz`, t("practice.quiz")],
           [`/lesson/${lesson}/writing`, t("practice.writing")],
           [`/lesson/${lesson}/dictation`, t("dictation.title")],
+          [`/lesson/${lesson}/grammar`, `📐 ${t("grammar.tab")}`],
         ];
 
   return (

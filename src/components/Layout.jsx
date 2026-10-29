@@ -151,6 +151,7 @@ export default function Layout({ onShowIELTSModal }) {
 
   const secondaryNavItems = [
     ["/study", t("nav.study")],
+    ["/grammar", `📐 ${t("grammar.title")}`],
     ["/review", t("nav.review")],
     ["/favorites", t("nav.favorites")],
     ["/difficult", t("nav.difficult")],

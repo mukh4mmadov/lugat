@@ -47,6 +47,7 @@ const defaultState = {
   shareMilestones: {},
   xp: 0,
   badges: {},
+  grammar: {},
 };
 
 const DAILY_HISTORY_DAYS = 60;
@@ -336,6 +337,15 @@ const progressSlice = createSlice({
       grantXp(state, Math.max(1, Math.round(seconds / 60)) * XP.speakingMinute);
       refreshBadges(state);
     },
+    // A grammar point's practice passed. Full XP the first time, a little after.
+    completeGrammar(state, action) {
+      const { id, score } = action.payload;
+      state.grammar = state.grammar || {};
+      const before = state.grammar[id];
+      state.grammar[id] = { done: true, best: Math.max(before?.best || 0, score), at: Date.now() };
+      grantXp(state, before?.done ? 5 : XP.grammar);
+      refreshBadges(state);
+    },
     clearFx(state) {
       delete state.fx;
     },
@@ -391,6 +401,7 @@ export const {
   recordSpeaking,
   clearFx,
   setPremiumUntil,
+  completeGrammar,
 } = progressSlice.actions;
 
 export const store = configureStore({
