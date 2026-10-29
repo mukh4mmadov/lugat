@@ -23,11 +23,12 @@ import { supabase } from "../lib/supabase";
 import { Panel, StatTile, useAdminContext } from "./AdminPage";
 
 const DAY = 24 * 60 * 60 * 1000;
-const VIEWS = ["needs_reply", "active", "open", "in_progress", "resolved", "closed", "all"];
+const VIEWS = ["needs_reply", "ai_answered", "active", "open", "in_progress", "resolved", "closed", "all"];
 const SORTS = ["activity", "newest", "oldest", "priority", "waiting"];
 
 const inViewFilter = {
   needs_reply: needsReply,
+  ai_answered: (ticket) => ticket.ai_state === "answered",
   active: (ticket) => ACTIVE.has(ticket.status),
   all: () => true,
 };
@@ -280,8 +281,9 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
       ...messages.map((message) => ({
         ...message,
         role: message.author_role,
-        author:
-          message.author_role === "admin"
+        author: message.ai
+          ? `🤖 ${t("admin.feedback.ai.author")}`
+          : message.author_role === "admin"
             ? personLabel(people, message.author_id, t("feedback.team"))
             : reporter?.name || reporter?.email || t("admin.feedback.learner"),
         canDelete: message.internal && message.author_id === currentUserId,
@@ -312,6 +314,8 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
       body: text.trim(),
     });
     if (!sendError && resolve) await onPatch([ticket.id], { status: "resolved" });
+    // A sent reply makes the assistant's draft obsolete.
+    if (!sendError && mode === "reply" && ticket.ai_draft) await supabase.from("feedback_tickets").update({ ai_draft: "" }).eq("id", ticket.id);
     setSending(false);
     if (sendError) {
       setError(t("feedback.adminSaveError"));
@@ -516,6 +520,17 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
           ))}
           <span className="ml-auto text-[11px] font-semibold text-slate-400">{mode === "reply" ? t("admin.feedback.replyHint") : t("admin.feedback.noteHint")}</span>
         </div>
+        {mode === "reply" && ticket.ai_draft && !text.trim() && (
+          <div className="rounded-xl border border-violet-200 bg-violet-50 p-3 text-sm dark:border-violet-400/20 dark:bg-violet-500/10">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-black uppercase tracking-wide text-violet-700 dark:text-violet-200">🤖 {t("admin.feedback.ai.draft")}</span>
+              <button type="button" onClick={() => insertSaved(ticket.ai_draft)} className="ml-auto rounded-lg bg-violet-600 px-3 py-1 text-xs font-black text-white">
+                {t("admin.feedback.ai.useDraft")}
+              </button>
+            </div>
+            <p className="mt-1 line-clamp-3 whitespace-pre-wrap text-slate-700 dark:text-slate-200">{ticket.ai_draft}</p>
+          </div>
+        )}
         <textarea
           ref={textRef}
           value={text}
@@ -546,6 +561,50 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
         </div>
       </form>
     </article>
+  );
+}
+
+// Turns the feedback assistant (api/feedback-ai.js) on or off for everyone.
+function AiSwitch() {
+  const { t } = useTranslation();
+  const [enabled, setEnabled] = useState(null);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    supabase
+      .from("app_settings")
+      .select("value")
+      .eq("key", "feedback_ai_enabled")
+      .maybeSingle()
+      .then(({ data }) => setEnabled(data ? data.value !== false : true));
+  }, []);
+
+  async function toggle() {
+    const next = !enabled;
+    setSaving(true);
+    const { error } = await supabase.from("app_settings").update({ value: next, updated_at: new Date().toISOString() }).eq("key", "feedback_ai_enabled");
+    setSaving(false);
+    if (!error) setEnabled(next);
+  }
+
+  if (enabled === null) return <span className="ml-auto" />;
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={enabled}
+      disabled={saving}
+      onClick={toggle}
+      title={t("admin.feedback.ai.switchHint")}
+      className={`ml-auto flex items-center gap-2 rounded-xl border px-3 py-1.5 text-xs font-bold disabled:opacity-50 ${
+        enabled ? "border-violet-300 bg-violet-50 text-violet-800 dark:border-violet-400/30 dark:bg-violet-500/10 dark:text-violet-100" : "border-slate-300 text-slate-500 dark:border-white/15"
+      }`}
+    >
+      <span aria-hidden="true" className={`relative h-4 w-7 rounded-full transition ${enabled ? "bg-violet-600" : "bg-slate-300 dark:bg-white/20"}`}>
+        <span className={`absolute top-0.5 h-3 w-3 rounded-full bg-white transition-all ${enabled ? "left-3.5" : "left-0.5"}`} />
+      </span>
+      🤖 {t("admin.feedback.ai.switch")}
+    </button>
   );
 }
 
@@ -737,7 +796,8 @@ export default function AdminFeedbackPage() {
         <button type="button" aria-expanded={showInsights} onClick={() => setShowInsights((value) => !value)} className="text-sm font-bold text-sky-600 dark:text-sky-300">
           {showInsights ? "▾" : "▸"} {t("admin.feedback.insights")}
         </button>
-        <button type="button" onClick={load} className="ml-auto rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-bold dark:border-white/15">
+        <AiSwitch />
+        <button type="button" onClick={load} className="rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-bold dark:border-white/15">
           ↻ {t("common.refresh")}
         </button>
       </div>
@@ -887,6 +947,7 @@ export default function AdminFeedbackPage() {
                       ) : ticket.last_message_by === "admin" && ACTIVE.has(ticket.status) ? (
                         <span className="text-emerald-600 dark:text-emerald-300">✓ {t("admin.feedback.replied")}</span>
                       ) : null}
+                      {ticket.ai_state && <span className="rounded-full bg-violet-100 px-2 py-0.5 text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">🤖 {t(`admin.feedback.ai.${ticket.ai_state}`)}</span>}
                       {ticket.assigned_to && <span className="rounded-full bg-violet-100 px-2 py-0.5 text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">👤 {ticket.assigned_to === currentUserId ? t("admin.feedback.me") : personLabel(people, ticket.assigned_to)}</span>}
                       {(ticket.tags || []).slice(0, 3).map((tag) => <span key={tag} className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600 dark:bg-white/10 dark:text-slate-300">#{tag}</span>)}
                       {ticket.rating && <span className="text-amber-500">★ {ticket.rating}</span>}

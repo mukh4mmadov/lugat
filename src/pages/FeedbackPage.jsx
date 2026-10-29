@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
@@ -413,6 +413,9 @@ function TicketView({ ticketId }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [created] = useState(Boolean(location.state?.created));
+  const { session } = useAuth();
+  const [thinking, setThinking] = useState(false);
+  const askedOnOpen = useRef(false);
 
   const load = useCallback(async () => {
     const [{ data, error: ticketError }, { data: messageData }] = await Promise.all([
@@ -437,6 +440,30 @@ function TicketView({ ticketId }) {
     return () => window.removeEventListener("focus", onFocus);
   }, [load]);
 
+  // The team's assistant answers common questions right away; anything else
+  // waits for a person. The server decides whether it should answer at all.
+  const askAssistant = useCallback(async () => {
+    setThinking(true);
+    try {
+      await fetch("/api/feedback-ai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${session?.access_token || ""}` },
+        body: JSON.stringify({ ticketId }),
+      });
+    } catch {
+      // The ticket simply waits for the team.
+    } finally {
+      setThinking(false);
+      load();
+    }
+  }, [ticketId, session?.access_token, load]);
+
+  useEffect(() => {
+    if (!created || askedOnOpen.current || !session?.access_token) return;
+    askedOnOpen.current = true;
+    askAssistant();
+  }, [created, session?.access_token, askAssistant]);
+
   const thread = useMemo(() => {
     if (!ticket) return [];
     const you = t("feedback.you");
@@ -459,7 +486,8 @@ function TicketView({ ticketId }) {
       return;
     }
     setReply("");
-    load();
+    await load();
+    askAssistant();
   }
 
   async function markSolved() {
@@ -515,6 +543,14 @@ function TicketView({ ticketId }) {
 
       <GlassCard className="!p-4 md:!p-6">
         <MessageThread messages={thread} viewer="user" />
+        {thinking && (
+          <p role="status" className="mt-3 flex items-center gap-2 px-1 text-xs font-bold text-violet-600 dark:text-violet-300">
+            <span className="flex gap-0.5" aria-hidden="true">
+              {[0, 150, 300].map((delay) => <span key={delay} className="h-1.5 w-1.5 animate-bounce rounded-full bg-current" style={{ animationDelay: `${delay}ms` }} />)}
+            </span>
+            {t("feedback.teamTyping")}
+          </p>
+        )}
 
         {finished && (
           <div className="mt-5">

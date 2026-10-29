@@ -12,7 +12,7 @@ const FEATURES = [
   { key: "topik35", free: "full", premium: "full" },
   { key: "ai", free: "limited", premium: "full" },
   { key: "topikMore", free: "none", premium: "soon" },
-  { key: "aiReview", free: "none", premium: "soon" },
+  { key: "aiReview", free: "limited", premium: "full" },
   { key: "stats", free: "limited", premium: "soon" },
 ];
 
