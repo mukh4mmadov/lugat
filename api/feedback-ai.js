@@ -66,11 +66,11 @@ export function buildSystemPrompt(savedReplies, firstName) {
     : "(none yet)";
   return `You are the support assistant of K-TALIM, writing in a learner's feedback conversation on behalf of the K-TALIM team.
 
-Decide between two actions:
-- "reply": the knowledge below (or a team-approved answer) fully answers the learner. Typical cases: how to use a feature, where something is, limits, prices, how to buy Premium, Korean voice setup, email confirmation, password reset. Also reply with the known fix when one exists (for example no sound → install a Korean voice).
-- "handoff": anything else. Bugs that need investigating, wrong words, translations or answers, payment or Premium not turned on, refunds, account changes, complaints, ideas and requests, or when you are not sure. The learner sees nothing from you; the team answers.
+Decide whether you can answer (canAnswer):
+- true: the knowledge below (or a team-approved answer) fully answers the learner. Typical cases: how to use a feature, where something is, limits, prices, how to buy Premium, Korean voice setup, email confirmation, password reset. Also answer with the known fix when one exists (for example no sound → install a Korean voice). Your reply goes to the learner.
+- false: anything else. Bugs that need investigating, wrong words, translations or answers, payment made but Premium not turned on, refunds, account changes, complaints, ideas and requests, or when you are not sure. The learner sees nothing from you; the team answers using your draft.
 
-Rules for "reply":
+Rules for the reply:
 - Write as the team ("we"), friendly and short: 2 to 6 sentences, plain text, no markdown headings. Use the language the learner wrote in (Uzbek in Latin script, English or Russian).
 - Use only the knowledge below. Never invent features, dates or prices. Never promise refunds, free Premium, fixes or deadlines, and never claim something was fixed.
 - Payment and Premium activation problems always go to Telegram @mukh4mmadov.
@@ -78,7 +78,8 @@ Rules for "reply":
 
 Always fill in:
 - note: for the admins, in Uzbek, 1 to 3 sentences: what the learner wants and what to check.
-- draft: when handing off, a reply the team could send, in the learner's language. Empty when replying.
+- reply: when canAnswer is true, the message to the learner. Empty otherwise.
+- draft: when canAnswer is false, a reply the team could send, in the learner's language. Empty otherwise.
 - priority: "urgent" if the learner can't use the site, lost progress, or paid without getting Premium; "high" if a feature is broken for them; "low" for ideas and simple questions; otherwise "normal".
 - tags: up to 3 short lowercase English tags, such as audio, premium, login, topik, translation, ui, idea.
 
@@ -137,15 +138,17 @@ async function askGemini(systemPrompt, input) {
         responseMimeType: "application/json",
         responseSchema: {
           type: "OBJECT",
+          // The note comes first so the decision follows from it.
           properties: {
-            action: { type: "STRING", enum: ["reply", "handoff"] },
-            reply: { type: "STRING" },
-            note: { type: "STRING" },
-            draft: { type: "STRING" },
+            note: { type: "STRING", description: "For the admins, in Uzbek: what the learner wants and what to check." },
+            canAnswer: { type: "BOOLEAN", description: "True only when the site knowledge fully answers the learner." },
+            reply: { type: "STRING", description: "Message to the learner when canAnswer is true, otherwise empty." },
+            draft: { type: "STRING", description: "Suggested team reply when canAnswer is false, otherwise empty." },
             priority: { type: "STRING", enum: PRIORITIES },
             tags: { type: "ARRAY", items: { type: "STRING" } },
           },
-          required: ["action", "note", "priority"],
+          propertyOrdering: ["note", "canAnswer", "reply", "draft", "priority", "tags"],
+          required: ["note", "canAnswer", "priority"],
         },
       },
     }),
@@ -206,7 +209,8 @@ export default async function handler(req, res) {
     .from("feedback_tickets")
     .update({ ai_lock: new Date().toISOString() })
     .eq("id", ticket.id)
-    .or(`ai_lock.is.null,ai_lock.lt.${staleLock}`)
+    // PostgREST needs values with ":" and "." in double quotes.
+    .or(`ai_lock.is.null,ai_lock.lt."${staleLock}"`)
     .select("id");
   if (!claimed?.length) return res.status(200).json({ action: "skip" });
 
@@ -222,7 +226,7 @@ export default async function handler(req, res) {
     const reply = String(result.reply || "").trim().slice(0, 4000);
     const patch = { ...triage(ticket, result), ai_lock: null };
 
-    if (result.action === "reply" && reply) {
+    if (result.canAnswer === true && reply) {
       const { error } = await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", ai: true, body: reply });
       if (error) throw error;
       // The team still sees the ticket as new, so they can check the answer.
@@ -231,7 +235,9 @@ export default async function handler(req, res) {
     }
 
     if (note) await db.from("feedback_messages").insert({ ticket_id: ticket.id, author_id: null, author_role: "admin", internal: true, ai: true, body: note });
-    await db.from("feedback_tickets").update({ ...patch, ai_state: "handoff", ai_draft: String(result.draft || "").trim().slice(0, 5000) }).eq("id", ticket.id);
+    // A reply the model wrote but wasn't sure about still makes a good draft.
+    const draft = String(result.draft || "").trim() || reply;
+    await db.from("feedback_tickets").update({ ...patch, ai_state: "handoff", ai_draft: draft.slice(0, 5000) }).eq("id", ticket.id);
     return res.status(200).json({ action: "handoff" });
   } catch (error) {
     console.error("Feedback assistant error:", error);
