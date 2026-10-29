@@ -105,7 +105,9 @@ export default async function handler(req, res) {
       return { rows, me, total: ranked.length };
     };
 
-    res.setHeader("Cache-Control", viewerId ? "private, no-store" : "public, s-maxage=300, stale-while-revalidate=600");
+    // Never shared-cached: the CDN ignores Authorization, so a cached copy would
+    // hide the signed-in learner's own rank.
+    res.setHeader("Cache-Control", "private, no-store");
     return res.status(200).json({ generatedAt: new Date(now).toISOString(), week: board("week"), all: board("all") });
   } catch (error) {
     console.error("Leaderboard error:", error);

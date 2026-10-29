@@ -725,6 +725,8 @@ const en = {
   "adminWords.noTable": "Corrections can't be saved yet: run supabase/migrations/202610300001_word_overrides.sql in the Supabase SQL editor.",
   "reportWord.link": "Report a problem with this word",
   "reportWord.template": "Word: {{korean}} ({{key}}) — {{meaning}}\nWhat's wrong: ",
+  // AI tutor busy
+  "aiChat.busy": "The AI tutor is busy right now. Please try again in a moment.",
 };
 
 const uz = {
@@ -1454,6 +1456,8 @@ const uz = {
   "adminWords.noTable": "Tuzatishlarni hali saqlab bo'lmaydi: Supabase SQL editorida supabase/migrations/202610300001_word_overrides.sql ni ishga tushiring.",
   "reportWord.link": "Bu so'zda xato bor",
   "reportWord.template": "So'z: {{korean}} ({{key}}) — {{meaning}}\nNima xato: ",
+  // AI tutor busy
+  "aiChat.busy": "AI ustoz hozir band. Birozdan keyin qayta urinib ko'ring.",
 };
 
 const ru = {
@@ -2293,6 +2297,8 @@ const ru = {
   "adminWords.noTable": "Исправления пока нельзя сохранить: выполните supabase/migrations/202610300001_word_overrides.sql в SQL-редакторе Supabase.",
   "reportWord.link": "Сообщить об ошибке в слове",
   "reportWord.template": "Слово: {{korean}} ({{key}}) — {{meaning}}\nЧто не так: ",
+  // AI tutor busy
+  "aiChat.busy": "ИИ-репетитор сейчас занят. Попробуйте ещё раз через минуту.",
 };
 
 export default { en, uz, ru };

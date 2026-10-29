@@ -56,6 +56,9 @@ ${examInstructions}`;
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+// Give up on a slow model reply well before Vercel kills the function, so the
+// learner gets a JSON error instead of Vercel's plain-text timeout page.
+const GEMINI_TIMEOUT_MS = 25000;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
@@ -411,6 +414,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
 
   try {
     const response = await fetch(GEMINI_URL, {
+      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -705,6 +709,7 @@ export default async function handler(req, res) {
       { role: "user", parts: [{ text: trimmed }] },
     ];
     const response = await fetch(GEMINI_URL, {
+      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
       method: "POST",
       headers: {
         "Content-Type": "application/json",
