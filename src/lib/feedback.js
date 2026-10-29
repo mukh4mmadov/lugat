@@ -115,7 +115,8 @@ export function waitingMs(ticket) {
 // Maps a Supabase error to a translation key.
 export function errorKey(error, fallback = "feedback.submitError") {
   const text = `${error?.message || ""} ${error?.details || ""}`;
-  if (text.includes("rate_limited")) return "feedback.rateLimited";
+  // "rate limit exceeded" comes from the older insert trigger in production.
+  if (/rate_limited|rate limit/i.test(text)) return "feedback.rateLimited";
   if (text.includes("ticket_not_found")) return "feedback.notFound";
   return fallback;
 }
