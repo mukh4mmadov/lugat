@@ -34,10 +34,12 @@ export function koreanVoiceStatus(timeout = 1500) {
   });
 }
 
+// Resolves when the text has been read (or reading failed), so callers can
+// wait for it, e.g. to highlight the next sentence.
 export function speakKorean(text, rate = 0.82) {
   if (!supported()) {
     window.dispatchEvent?.(new CustomEvent(NO_VOICE_EVENT, { detail: "unsupported" }));
-    return;
+    return Promise.resolve();
   }
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
@@ -46,6 +48,12 @@ export function speakKorean(text, rate = 0.82) {
   utterance.lang = "ko-KR";
   utterance.rate = rate;
   utterance.pitch = 1;
+  const finished = new Promise((resolve) => {
+    utterance.onend = resolve;
+    utterance.onerror = resolve;
+    // Some engines never fire "end"; give up after a generous estimate.
+    setTimeout(resolve, 2000 + (text.length * 400) / rate);
+  });
   window.speechSynthesis.speak(utterance);
   // Some browsers report no voices until the first speak() call.
   if (!cachedVoice) {
@@ -53,4 +61,9 @@ export function speakKorean(text, rate = 0.82) {
       if (status !== "ok") window.dispatchEvent(new CustomEvent(NO_VOICE_EVENT, { detail: status }));
     });
   }
+  return finished;
+}
+
+export function stopSpeaking() {
+  if (supported()) window.speechSynthesis.cancel();
 }

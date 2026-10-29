@@ -45,6 +45,7 @@ const TermsOfServicePage = page(() => import("./pages/TermsOfServicePage"));
 const NotFoundPage = page(() => import("./pages/NotFoundPage"));
 const FeedbackPage = page(() => import("./pages/FeedbackPage"));
 const LeaderboardPage = page(() => import("./pages/LeaderboardPage"));
+const SpeakingPage = page(() => import("./pages/SpeakingPage"));
 const AdminFeedbackPage = page(() => import("./pages/AdminFeedbackPage"));
 const AdminPage = page(admin);
 const AdminContent = page(admin, "AdminContent");
@@ -157,6 +158,7 @@ export default function App() {
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
             <Route path="leaderboard" element={<LeaderboardPage />} />
+            <Route path="speaking" element={<SpeakingPage />} />
             <Route path="feedback/:ticketId" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminOverview />} />

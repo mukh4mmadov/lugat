@@ -11,6 +11,7 @@ const FEATURES = [
   { key: "lessons", free: "full", premium: "full" },
   { key: "topik35", free: "full", premium: "full" },
   { key: "ai", free: "limited", premium: "full" },
+  { key: "speaking", free: "limited", premium: "full" },
   { key: "topikMore", free: "none", premium: "soon" },
   { key: "aiReview", free: "limited", premium: "full" },
   { key: "stats", free: "limited", premium: "soon" },

@@ -7,6 +7,7 @@ const ICONS = {
   home: "M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z",
   study: "M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5",
   review: "M4 12a8 8 0 0 1 14-5.3M20 4v5h-5M20 12a8 8 0 0 1-14 5.3M4 20v-5h5",
+  speaking: "M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3",
   topik: "M9 3h6l1 2h3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3zM8 11h8M8 15h5",
   menu: "M4 6h16M4 12h16M4 18h16",
 };
@@ -33,6 +34,7 @@ export default function BottomNav({ onMenu, badge = 0 }) {
   const items = [
     ["/", "home", t("nav.home"), (path) => path === "/"],
     ["/study", "study", t("nav.study"), (path) => /^\/(study|lesson|courses)/.test(path)],
+    ["/speaking", "speaking", t("nav.speaking"), (path) => path.startsWith("/speaking")],
     ["/review", "review", t("nav.review"), (path) => path.startsWith("/review")],
     ["/topik", "topik", "TOPIK", (path) => path.startsWith("/topik")],
   ];

@@ -140,6 +140,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/", t("nav.home")],
     ["/courses", t("nav.courses")],
     ["/topik", t("nav.topik")],
+    ["/speaking", `🎙 ${t("nav.speaking")}`],
     ["/search", t("nav.search")],
   ];
 

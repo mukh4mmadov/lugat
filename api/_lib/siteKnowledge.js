@@ -31,12 +31,19 @@ TOPIK I
 - AI explanation of TOPIK mistakes on the result page: free accounts get 1 explanation per result (up to 3 a day), Premium explains 10 at a time.
 - More TOPIK papers will be added; we can't promise dates.
 
+SPEAKING (/speaking, "Gaplashish" in the menu and the phone tab bar)
+- Voice conversation in Korean with Hana, the AI partner: tap the microphone, say something in Korean, tap again to send. Hana answers in Korean (with a translation), corrects mistakes and asks the next question. Needs an account and microphone permission (allow it from the 🔒 icon in the address bar if it was blocked).
+- Topics tab: a wheel of 45 conversation topics in three levels (beginner, intermediate, advanced), each with 3 questions and useful words.
+- Free accounts get 10 minutes of speaking a day (resets at midnight Tashkent time). Premium is unlimited and adds pronunciation feedback.
+- Before the first conversation the learner picks gender and level; both can be changed in the Profile tab.
+- Talking with real people and invite rewards are coming soon (not available yet).
+
 AI TUTOR (chat button in the corner)
 - Guests: 2 questions a day. Free accounts: 10 questions a day (counted per account and per device). Premium: practically unlimited. The limit resets 24 hours later.
 
 PREMIUM (/premium)
 - Prices: 1 month 29 000 UZS, 3 months 69 000 UZS, 12 months 199 000 UZS.
-- Gives now: practically unlimited AI tutor and AI explanation of every TOPIK mistake. Coming soon to Premium: more TOPIK papers and advanced statistics. All lessons and the 35th TOPIK paper stay free.
+- Gives now: practically unlimited AI tutor, unlimited speaking with pronunciation feedback, and AI explanation of every TOPIK mistake. Coming soon to Premium: more TOPIK papers and advanced statistics. All lessons and the 35th TOPIK paper stay free.
 - How to buy: open /premium, pick a plan, press the Telegram button. It opens a chat with @mukh4mmadov with the order and account email filled in. Payment details are given there. Premium is usually turned on within an hour; a ⭐ appears next to the name. If it doesn't appear: sign out and back in, or reload.
 - Payment, refunds and premium activation problems are handled only by the owner in Telegram: @mukh4mmadov.
 
