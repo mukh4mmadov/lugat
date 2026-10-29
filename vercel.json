@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "api/ai-chat.js": { "maxDuration": 60 }
+  },
   "rewrites": [
     { "source": "/sw.js", "destination": "/sw.js" },
     { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },

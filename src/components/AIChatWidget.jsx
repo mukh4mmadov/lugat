@@ -273,7 +273,8 @@ export default function AIChatWidget() {
         body: JSON.stringify(body),
       });
 
-      const data = await response.json();
+      // A platform timeout returns plain text, not JSON.
+      const data = await response.json().catch(() => ({}));
 
       if (response.status === 429) {
         const serverResetAt = typeof data.resetAt === "number" ? data.resetAt : Date.now() + 60 * 1000;
@@ -292,7 +293,7 @@ export default function AIChatWidget() {
       }
 
       if (!response.ok) {
-        throw new Error(data.error || t("aiChat.failedToGetResponse"));
+        throw new Error(response.status >= 500 ? t("aiChat.busy") : data.error || t("aiChat.failedToGetResponse"));
       }
 
       if (typeof data.remaining === "number" && data.limit) {
