@@ -182,6 +182,9 @@ const progressSlice = createSlice({
     setAutoSpeak(state, action) {
       state.settings.autoSpeak = action.payload;
     },
+    setHideFromLeaderboard(state, action) {
+      state.settings.hideFromLeaderboard = action.payload;
+    },
     markWordStudied(state, action) {
       state.studied[action.payload] = true;
     },
@@ -306,6 +309,7 @@ export const {
   setAutoSpeak,
   setDailyGoal,
   setLastPlace,
+  setHideFromLeaderboard,
 } = progressSlice.actions;
 
 export const store = configureStore({

@@ -673,6 +673,23 @@ const en = {
   "shareResult.words_other": "{{count}} words",
   "shareResult.lessonText": "I scored {{correct}}/{{total}} ({{percent}}%) in {{eyebrow}} on K-TALIM! 🇰🇷",
   "shareResult.topikText": "I scored {{total}}/{{max}} on the {{title}} on K-TALIM! 🇰🇷",
+  // Leaderboard
+  "leaderboard.title": "Leaderboard",
+  "leaderboard.tab.week": "This week",
+  "leaderboard.tab.all": "All time",
+  "leaderboard.weekHint": "Who answered the most questions in the last 7 days.",
+  "leaderboard.allHint": "Who has mastered the most words.",
+  "leaderboard.answers_one": "{{count}} answer",
+  "leaderboard.answers_other": "{{count}} answers",
+  "leaderboard.words_one": "{{count}} word",
+  "leaderboard.words_other": "{{count}} words",
+  "leaderboard.yourRank": "Your place",
+  "leaderboard.you": "you",
+  "leaderboard.empty": "No one here yet — answer a few questions to be first!",
+  "leaderboard.error": "Couldn't load the leaderboard.",
+  "leaderboard.showMe": "Show me on the leaderboard",
+  "leaderboard.privacy": "Only your first name and the first letter of your last name are shown.",
+  "leaderboard.joinHint": "Sign up to save your progress and appear here.",
 };
 
 const uz = {
@@ -1350,6 +1367,23 @@ const uz = {
   "shareResult.words_other": "{{count}} ta so'z",
   "shareResult.lessonText": "K-TALIM'da {{eyebrow}}: {{correct}}/{{total}} ({{percent}}%) natija oldim! 🇰🇷",
   "shareResult.topikText": "K-TALIM'da {{title}}: {{total}}/{{max}} ball to'pladim! 🇰🇷",
+  // Leaderboard
+  "leaderboard.title": "Reyting",
+  "leaderboard.tab.week": "Shu hafta",
+  "leaderboard.tab.all": "Umumiy",
+  "leaderboard.weekHint": "Oxirgi 7 kunda eng ko'p savolga javob berganlar.",
+  "leaderboard.allHint": "Eng ko'p so'zni o'zlashtirganlar.",
+  "leaderboard.answers_one": "{{count}} ta javob",
+  "leaderboard.answers_other": "{{count}} ta javob",
+  "leaderboard.words_one": "{{count}} ta so'z",
+  "leaderboard.words_other": "{{count}} ta so'z",
+  "leaderboard.yourRank": "Sizning o'rningiz",
+  "leaderboard.you": "siz",
+  "leaderboard.empty": "Hozircha hech kim yo'q — birinchi bo'lish uchun bir nechta savolga javob bering!",
+  "leaderboard.error": "Reytingni yuklab bo'lmadi.",
+  "leaderboard.showMe": "Meni reytingda ko'rsatish",
+  "leaderboard.privacy": "Faqat ismingiz va familiyangizning birinchi harfi ko'rinadi.",
+  "leaderboard.joinHint": "Natijangiz saqlanishi va bu yerda ko'rinishi uchun ro'yxatdan o'ting.",
 };
 
 const ru = {
@@ -2129,6 +2163,27 @@ const ru = {
   "shareResult.words_other": "{{count}} слова",
   "shareResult.lessonText": "Мой результат в K-TALIM — {{eyebrow}}: {{correct}}/{{total}} ({{percent}}%)! 🇰🇷",
   "shareResult.topikText": "Мой результат в K-TALIM — {{title}}: {{total}}/{{max}}! 🇰🇷",
+  // Leaderboard
+  "leaderboard.title": "Рейтинг",
+  "leaderboard.tab.week": "Эта неделя",
+  "leaderboard.tab.all": "За всё время",
+  "leaderboard.weekHint": "Кто ответил на больше всего вопросов за последние 7 дней.",
+  "leaderboard.allHint": "Кто освоил больше всего слов.",
+  "leaderboard.answers_one": "{{count}} ответ",
+  "leaderboard.answers_few": "{{count}} ответа",
+  "leaderboard.answers_many": "{{count}} ответов",
+  "leaderboard.answers_other": "{{count}} ответа",
+  "leaderboard.words_one": "{{count}} слово",
+  "leaderboard.words_few": "{{count}} слова",
+  "leaderboard.words_many": "{{count}} слов",
+  "leaderboard.words_other": "{{count}} слова",
+  "leaderboard.yourRank": "Ваше место",
+  "leaderboard.you": "вы",
+  "leaderboard.empty": "Пока никого нет — ответьте на пару вопросов и станьте первым!",
+  "leaderboard.error": "Не удалось загрузить рейтинг.",
+  "leaderboard.showMe": "Показывать меня в рейтинге",
+  "leaderboard.privacy": "Видны только ваше имя и первая буква фамилии.",
+  "leaderboard.joinHint": "Зарегистрируйтесь, чтобы сохранять прогресс и попасть в рейтинг.",
 };
 
 export default { en, uz, ru };

@@ -151,6 +151,7 @@ export default function Layout({ onShowIELTSModal }) {
     ["/weak-words", t("library.weakWords")],
     ["/premium", "⭐ Premium"],
     ["/stats", t("nav.stats")],
+    ["/leaderboard", `🏆 ${t("leaderboard.title")}`],
     ["/future-updates", t("nav.futureUpdates")],
     ["/settings", t("nav.settings")],
     ["/feedback", t("nav.feedback"), unread.user],
