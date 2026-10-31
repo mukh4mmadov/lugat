@@ -145,7 +145,19 @@ export default function UserPowers({ detail, busy, run }) {
           )}
           <button type="button" disabled={Boolean(busy)} onClick={() => run("resetPassword", {}, t("admin.powers.resetSent"))} className={`${button} border border-slate-300 dark:border-white/15`}>🔑 {t("admin.powers.resetPassword")}</button>
           <button type="button" disabled={Boolean(busy)} onClick={() => run("resetSpeaking", {}, t("admin.powers.speakingReset"))} className={`${button} border border-slate-300 dark:border-white/15`}>🎙 {t("admin.powers.resetSpeaking")}</button>
+          {detail.speakingBan ? (
+            <button type="button" disabled={Boolean(busy)} onClick={() => run("speakingBan", { hours: 0 }, t("admin.live.unbanned"))} className={`${button} border border-rose-300 text-rose-600`}>⛔ {t("admin.live.bannedUntil", { date: formatDate(detail.speakingBan.until, i18n.language) })} · {t("admin.live.unban")}</button>
+          ) : (
+            <button type="button" disabled={Boolean(busy)} onClick={() => run("speakingBan", { hours: 24 * 7, reason: "admin" }, t("admin.live.bannedDone"))} className={`${button} border border-rose-300 text-rose-600`}>⛔ {t("admin.live.banWeek")}</button>
+          )}
         </div>
+        {detail.reportsAgainst?.length > 0 && (
+          <ul className="mt-3 space-y-1 text-xs text-rose-700 dark:text-rose-200">
+            {detail.reportsAgainst.map((report) => (
+              <li key={report.created_at}>⚠️ {t(`live.reason.${report.reason}`)} · {formatDate(report.created_at, i18n.language)}{report.note ? ` · “${report.note}”` : ""}</li>
+            ))}
+          </ul>
+        )}
       </Panel>
 
       <Panel title={t("admin.powers.sellPremium")}>

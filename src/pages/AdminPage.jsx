@@ -118,6 +118,7 @@ export default function AdminPage() {
     ["/admin/feedback", t("admin.tab.feedback")],
     ["/admin/words", t("adminWords.tab")],
     ["/admin/content", t("admin.tab.content")],
+    ["/admin/speaking", t("admin.tab.speaking")],
     ["/admin/settings", t("admin.tab.settings")],
     ["/admin/journal", t("admin.tab.journal")],
   ];

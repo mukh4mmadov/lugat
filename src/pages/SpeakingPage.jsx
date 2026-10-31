@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import AiConversation from "../components/speaking/AiConversation";
+import LiveCall from "../components/speaking/LiveCall";
 import SpeakingSetup from "../components/speaking/SpeakingSetup";
 import TopicWheel from "../components/speaking/TopicWheel";
 import { allWords, meaning } from "../data";
@@ -13,6 +14,7 @@ import { useAuth } from "../hooks/useAuth";
 import { timeAgo } from "../lib/dates";
 import { formatMinutes, speakingRequest } from "../lib/speakingApi";
 import { speakKorean } from "../lib/speech";
+import { supabase } from "../lib/supabase";
 import { dailyKey } from "../lib/study";
 
 const TABS = ["talk", "topics", "invite", "me"];
@@ -101,23 +103,37 @@ function TopicCard({ topic, onTalk }) {
   );
 }
 
-function StartSheet({ status, level, onLevel, onStart, onClose }) {
+function StartSheet({ status, level, onLevel, partner, onPartner, want, onWant, liveStatus, onStart, onClose }) {
   const { t } = useTranslation();
+  const choice = (active) => `flex flex-col items-center gap-1 rounded-2xl border-2 p-3 text-sm font-black ${active ? "border-orange-500 bg-orange-50 dark:bg-orange-500/10" : "border-slate-200 dark:border-white/10"}`;
+  const liveBlocked = liveStatus && liveStatus.status !== "ok";
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/50 p-3 backdrop-blur-sm sm:items-center" role="dialog" aria-modal="true" aria-labelledby="speaking-start-title" onClick={onClose}>
       <div className="w-full max-w-md space-y-5 rounded-[2rem] bg-white p-6 shadow-2xl dark:bg-slate-900" onClick={(event) => event.stopPropagation()}>
         <h2 id="speaking-start-title" className="text-center text-xl font-black">{t("speaking.whoWith")}</h2>
         <div className="grid grid-cols-2 gap-2">
-          <div className="flex flex-col items-center gap-1 rounded-2xl border-2 border-orange-500 bg-orange-50 p-3 text-sm font-black dark:bg-orange-500/10">
+          <button type="button" aria-pressed={partner === "ai"} onClick={() => onPartner("ai")} className={choice(partner === "ai")}>
             <span className="text-2xl">🤖</span>
             {t("speaking.partner.ai")}
-          </div>
-          <div className="flex flex-col items-center gap-1 rounded-2xl border-2 border-dashed border-slate-200 p-3 text-sm font-black text-slate-400 dark:border-white/10">
-            <span className="text-2xl grayscale">👥</span>
+          </button>
+          <button type="button" aria-pressed={partner === "people"} onClick={() => onPartner("people")} className={choice(partner === "people")}>
+            <span className="text-2xl">👥</span>
             {t("speaking.partner.people")}
-            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] dark:bg-white/10">{t("speaking.soon")}</span>
-          </div>
+          </button>
         </div>
+        {partner === "people" && (
+          <div>
+            <p className="text-sm font-black">{t("live.partnerGender")}</p>
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {[["any", "🌐"], ["male", "👨"], ["female", "👩"]].map(([value, icon]) => (
+                <button key={value} type="button" aria-pressed={want === value} onClick={() => onWant(value)} className={`rounded-2xl border-2 px-2 py-2.5 text-sm font-black ${want === value ? "border-orange-500 bg-orange-50 dark:bg-orange-500/10" : "border-slate-200 dark:border-white/10"}`}>
+                  {icon} {t(`live.want.${value}`)}
+                </button>
+              ))}
+            </div>
+            {liveBlocked && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800 dark:bg-amber-500/10 dark:text-amber-200">{t(`live.problem.${liveStatus.status}`, { defaultValue: t("live.problem.connect") })}</p>}
+          </div>
+        )}
         <div>
           <p className="text-sm font-black">{t("speaking.setup.level")}</p>
           <div className="mt-2 grid grid-cols-3 gap-2">
@@ -135,8 +151,8 @@ function StartSheet({ status, level, onLevel, onStart, onClose }) {
           </div>
         </div>
         <UsageBar status={status} />
-        <button type="button" onClick={onStart} className="w-full rounded-2xl bg-orange-500 px-5 py-3.5 font-black text-white hover:bg-orange-600">
-          🎲 {t("speaking.startRandom")}
+        <button type="button" onClick={onStart} disabled={partner === "people" && liveBlocked} className="w-full rounded-2xl bg-orange-500 px-5 py-3.5 font-black text-white hover:bg-orange-600 disabled:opacity-50">
+          {partner === "people" ? `👥 ${t("live.findPartner")}` : `🎲 ${t("speaking.startRandom")}`}
         </button>
         <button type="button" onClick={onClose} className="w-full text-sm font-bold text-slate-500">{t("common.cancel")}</button>
       </div>
@@ -179,6 +195,10 @@ export default function SpeakingPage() {
   const [wheelLevel, setWheelLevel] = useState(null);
   const [picked, setPicked] = useState(null);
   const [conversation, setConversation] = useState(null);
+  const [partnerKind, setPartnerKind] = useState("ai");
+  const [want, setWant] = useState("any");
+  const [live, setLive] = useState(null);
+  const [liveStatus, setLiveStatus] = useState(null);
   const streak = useStreak();
   const suggestedLevel = useSuggestedLevel();
 
@@ -198,6 +218,10 @@ export default function SpeakingPage() {
     if (user) load();
   }, [user, load]);
 
+  useEffect(() => {
+    if (sheet && partnerKind === "people") supabase.rpc("speaking_live_status").then(({ data }) => setLiveStatus(data));
+  }, [sheet, partnerKind]);
+
   const wheelTopics = useMemo(() => topicsForLevel(wheelLevel || "beginner"), [wheelLevel]);
   const selectTab = (next) => setParams(next === "talk" ? {} : { tab: next }, { replace: true });
   const profile = status?.profile || {};
@@ -212,7 +236,14 @@ export default function SpeakingPage() {
 
   function startRandom() {
     const options = topicsForLevel(currentLevel);
-    startConversation(options[Math.floor(Math.random() * options.length)], currentLevel);
+    const topic = options[Math.floor(Math.random() * options.length)];
+    if (partnerKind === "people") {
+      setSheet(false);
+      setLive({ topic, level: currentLevel, want });
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    startConversation(topic, currentLevel);
   }
 
   if (!authLoading && !user) {
@@ -225,6 +256,25 @@ export default function SpeakingPage() {
           <Link to="/login" state={{ from: { pathname: "/speaking" } }} className="mt-5 inline-block rounded-2xl bg-orange-500 px-6 py-3 font-black text-white">{t("speaking.signIn")}</Link>
         </GlassCard>
       </div>
+    );
+  }
+
+  if (live) {
+    return (
+      <LiveCall
+        level={live.level}
+        want={live.want}
+        topic={live.topic}
+        status={status}
+        onClose={() => {
+          setLive(null);
+          load();
+        }}
+        onTalkToAi={() => {
+          setLive(null);
+          startConversation(live.topic, live.level);
+        }}
+      />
     );
   }
 
@@ -440,7 +490,18 @@ export default function SpeakingPage() {
       )}
 
       {sheet && (
-        <StartSheet status={status} level={currentLevel} onLevel={setLevel} onStart={startRandom} onClose={() => setSheet(false)} />
+        <StartSheet
+          status={status}
+          level={currentLevel}
+          onLevel={setLevel}
+          partner={partnerKind}
+          onPartner={setPartnerKind}
+          want={want}
+          onWant={setWant}
+          liveStatus={liveStatus}
+          onStart={startRandom}
+          onClose={() => setSheet(false)}
+        />
       )}
     </div>
   );

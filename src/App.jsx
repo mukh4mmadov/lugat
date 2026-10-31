@@ -64,6 +64,7 @@ const AdminWordsPage = page(() => import("./pages/AdminWordsPage"));
 const adminTools = () => import("./pages/AdminToolsPage");
 const AdminSettings = page(adminTools, "AdminSettings");
 const AdminJournal = page(adminTools, "AdminJournal");
+const AdminSpeaking = page(() => import("./components/admin/AdminSpeaking"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
 const TopikResultPage = page(topik, "TopikResultPage");
@@ -201,6 +202,7 @@ export default function App() {
               <Route path="content" element={<AdminContent />} />
               <Route path="settings" element={<AdminSettings />} />
               <Route path="journal" element={<AdminJournal />} />
+              <Route path="speaking" element={<AdminSpeaking />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>

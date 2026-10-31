@@ -8,7 +8,7 @@ import { Panel, ServerNotice, StatTile } from "./AdminPage";
 
 const input = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
 
-const TOGGLES = ["ai_chat_enabled", "speaking_enabled", "feedback_ai_enabled"];
+const TOGGLES = ["ai_chat_enabled", "speaking_enabled", "live_speaking_enabled", "feedback_ai_enabled"];
 // Limits, with the unit shown to admins; speaking time is stored in seconds.
 const LIMITS = [
   ["ai_free_daily", 10, 1],

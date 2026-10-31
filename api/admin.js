@@ -17,6 +17,9 @@ import { levelForXp } from "../src/lib/gamification.js";
 //   GET  /api/admin?action=settings | journal   (journal: audit log, premium sales)
 //   POST /api/admin { action: "setting", key, value }
 //   POST /api/admin { action: "content", kind, itemId, data, hidden } | { ..., revert: true }
+//   GET  /api/admin?action=speaking   live calls: queue, active and recent calls, reports, bans
+//   POST /api/admin { action: "speakingBan", userId, hours }   (hours 0 = lift the ban)
+//   POST /api/admin { action: "reportStatus", reportId, status } | { action: "endCall", callId }
 //   POST /api/admin { action: "profile", userId, firstName, lastName, birthYear, gender, koreanLevel }
 //   POST /api/admin { action: "confirmEmail" | "resetPassword" | "resetSpeaking", userId }
 //   POST /api/admin { action: "progress", userId, xpDelta?, streak?, badge?, badgeValue?, reset? }
@@ -261,6 +264,10 @@ async function userDetail(db, id) {
     db.from("reward_claims").select("kind, days, claimed_at").eq("user_id", id).order("claimed_at", { ascending: false }).limit(20),
     db.from("premium_log").select("days, amount, note, premium_until, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
+  const [ban, reportsAgainst] = await Promise.all([
+    db.from("speaking_bans").select("until, reason").eq("user_id", id).gt("until", new Date().toISOString()).maybeSingle(),
+    db.from("speaking_reports").select("reason, note, status, created_at").eq("reported", id).order("created_at", { ascending: false }).limit(20),
+  ]);
   const row = userRow(data.user, profile.data, progress.data, new Set(admin.data ? [id] : []));
   const words = progress.data?.data?.words || {};
   const lessons = new Map();
@@ -286,6 +293,8 @@ async function userDetail(db, id) {
     speakingSessions: speaking.data || [],
     rewards: rewards.data || [],
     premiumLog: premiumLog.data || [],
+    speakingBan: ban.data || null,
+    reportsAgainst: reportsAgainst.data || [],
     profile: {
       firstName: profile.data?.first_name || "",
       lastName: profile.data?.last_name || "",
@@ -297,10 +306,35 @@ async function userDetail(db, id) {
   };
 }
 
+// Live calls for the admin "Speaking" tab.
+async function speakingOverview(db) {
+  const since = new Date(Date.now() - DAY).toISOString();
+  const [queue, active, recent, reports, bans, users] = await Promise.all([
+    db.from("speaking_queue").select("user_id, level, want, age_group, seen_at, call_id").gt("seen_at", new Date(Date.now() - 15000).toISOString()),
+    db.from("speaking_calls").select("*").is("ended_at", null).gt("created_at", new Date(Date.now() - 2 * 3600000).toISOString()).order("created_at", { ascending: false }),
+    db.from("speaking_calls").select("*").not("ended_at", "is", null).order("created_at", { ascending: false }).limit(50),
+    db.from("speaking_reports").select("*").order("created_at", { ascending: false }).limit(100),
+    db.from("speaking_bans").select("*").gt("until", new Date().toISOString()).order("until", { ascending: false }),
+    listAllUsers(db),
+  ]);
+  const emails = Object.fromEntries(users.map((user) => [user.id, user.email || user.id]));
+  const today = (recent.data || []).filter((call) => call.created_at >= since);
+  return {
+    queue: queue.data || [],
+    active: active.data || [],
+    recent: recent.data || [],
+    reports: reports.data || [],
+    bans: bans.data || [],
+    stats: { callsToday: today.length, minutesToday: Math.round(today.reduce((sum, call) => sum + call.seconds, 0) / 60), openReports: (reports.data || []).filter((report) => report.status === "open").length },
+    emails,
+  };
+}
+
 // Settings admins may change, with how each value is checked.
 const SETTINGS = {
   ai_chat_enabled: (value) => typeof value === "boolean",
   speaking_enabled: (value) => typeof value === "boolean",
+  live_speaking_enabled: (value) => typeof value === "boolean",
   feedback_ai_enabled: (value) => typeof value === "boolean",
   speaking_free_seconds: (value) => Number.isInteger(value) && value >= 0 && value <= 86400,
   speaking_premium_seconds: (value) => Number.isInteger(value) && value >= 0 && value <= 86400,
@@ -392,6 +426,18 @@ async function act(db, actor, body) {
     if (error) return [500, { error: "Update failed" }];
     return [200, { saved: true }];
   }
+  if (action === "reportStatus") {
+    if (!["open", "resolved", "dismissed"].includes(body.status)) return [400, { error: "Invalid status" }];
+    const { error } = await db.from("speaking_reports").update({ status: body.status }).eq("id", Number(body.reportId));
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { status: body.status }];
+  }
+  if (action === "endCall") {
+    if (!UUID.test(String(body.callId || ""))) return [400, { error: "Invalid call" }];
+    const { error } = await db.rpc("finish_speaking_call", { p_call: body.callId, p_by: actor.id });
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { ended: true }];
+  }
   if (!UUID.test(String(userId || ""))) return [400, { error: "Invalid user" }];
   const selfChange = userId === actor.id;
 
@@ -443,6 +489,16 @@ async function act(db, actor, body) {
     const { error: sendError } = await db.auth.resetPasswordForEmail(data.user.email, { redirectTo: site + "/reset-password" });
     if (sendError) return [500, { error: "Could not send the email" }];
     return [200, { sent: true }];
+  }
+
+  if (action === "speakingBan") {
+    const hours = Number(body.hours);
+    if (!Number.isFinite(hours) || hours < 0 || hours > 24 * 3650) return [400, { error: "Invalid duration" }];
+    const { error } = hours
+      ? await db.from("speaking_bans").upsert({ user_id: userId, until: new Date(Date.now() + hours * 3600000).toISOString(), reason: String(body.reason || "admin").slice(0, 200) })
+      : await db.from("speaking_bans").delete().eq("user_id", userId);
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { hours }];
   }
 
   if (action === "resetSpeaking") {
@@ -547,6 +603,7 @@ export default async function handler(req, res) {
       const { data: settings } = await db.from("app_settings").select("key, value");
       return res.status(200).json({ settings: Object.fromEntries((settings || []).map((row) => [row.key, row.value])) });
     }
+    if (action === "speaking") return res.status(200).json(await speakingOverview(db));
     if (action === "journal") {
       const [{ data: entries }, { data: sales }, users] = await Promise.all([
         db.from("admin_audit").select("*").order("created_at", { ascending: false }).limit(300),
