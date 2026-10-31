@@ -131,6 +131,7 @@ function StartSheet({ status, level, onLevel, partner, onPartner, want, onWant, 
                 </button>
               ))}
             </div>
+            <p className="mt-2 text-xs text-slate-500">🔴 {t("live.recorded")}</p>
             {liveBlocked && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800 dark:bg-amber-500/10 dark:text-amber-200">{t(`live.problem.${liveStatus.status}`, { defaultValue: t("live.problem.connect") })}</p>}
           </div>
         )}

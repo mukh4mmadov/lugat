@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../GlassCard";
 import { LEVEL_ICONS, getSpeakingTopic, localized } from "../../data/speakingTopics";
+import { startCallRecording, uploadCallRecording } from "../../lib/callRecorder";
 import { createPeerCall, liveCallsSupported } from "../../lib/peerCall";
 import { speakKorean } from "../../lib/speech";
 import { supabase } from "../../lib/supabase";
@@ -87,6 +88,8 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
   const connectedAt = useRef(null);
   const endingRef = useRef(false);
   const pollRef = useRef(null);
+  const remoteRef = useRef(null);
+  const recorderRef = useRef(null);
 
   const remaining = status ? Math.max(0, status.limitSeconds - status.usedSeconds) : Infinity;
   const left = remaining - elapsed;
@@ -96,9 +99,13 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     async (reason) => {
       if (endingRef.current || !callRef.current) return;
       endingRef.current = true;
+      const recording = recorderRef.current?.stop();
+      recorderRef.current = null;
       peer.current?.close({ notify: reason !== "partner" });
       peer.current = null;
-      const { data: seconds } = await supabase.rpc("end_speaking_call", { p_call: callRef.current });
+      const callId = callRef.current;
+      const { data: seconds } = await supabase.rpc("end_speaking_call", { p_call: callId });
+      if (recording) recording.then((blob) => uploadCallRecording(callId, blob));
       if (seconds > 0) dispatch(recordSpeaking({ seconds }));
       setEnded({ reason, seconds: seconds || 0 });
       setPhase("ended");
@@ -174,11 +181,17 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
         callId,
         role: info.role,
         onRemoteStream: (stream) => {
+          remoteRef.current = stream;
           if (audio.current) audio.current.srcObject = stream;
         },
         onState: (state) => {
           if (state === "connected" && !connectedAt.current) {
             connectedAt.current = Date.now();
+            try {
+              recorderRef.current = startCallRecording(call.localStream(), remoteRef.current);
+            } catch (error) {
+              console.error("Could not start the call recording:", error);
+            }
             supabase.rpc("mark_speaking_connected", { p_call: callId });
             setPhase("live");
           }
@@ -216,6 +229,8 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
   // Hang up if the page closes mid-call.
   useEffect(() => () => {
     if (callRef.current && !endingRef.current) {
+      const callId = callRef.current;
+      recorderRef.current?.stop().then((blob) => uploadCallRecording(callId, blob));
       peer.current?.close();
       supabase.rpc("end_speaking_call", { p_call: callRef.current });
     }
@@ -357,7 +372,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
         </button>
         <button type="button" onClick={() => finish("self")} className="rounded-2xl bg-rose-600 px-4 py-4 font-black text-white">📞 {t("live.hangUp")}</button>
       </div>
-      <p className="text-center text-xs text-slate-500">{t("live.notRecorded")}</p>
+      <p className="text-center text-xs text-slate-500">🔴 {t("live.recorded")}</p>
     </div>
   );
 }

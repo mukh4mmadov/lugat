@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSpeakingTopic } from "../src/data/speakingTopics.js";
 
-// Speaking practice with the AI partner, Hana. The learner records a turn in
+// Speaking practice with the AI partner, Friday. The learner records a turn in
 // Korean (16 kHz WAV), Gemini listens to it and answers in Korean with a
 // translation, corrections and new words. Speaking time is counted per Tashkent
 // day: the free allowance is shared with live calls; premium is a fair-use cap.
@@ -68,14 +68,14 @@ async function usedToday(db, userId) {
 }
 
 const OPENERS = {
-  beginner: "안녕하세요! 저는 AI 친구 하나예요. 오늘은 '{topic}'에 대해 이야기해요.",
-  intermediate: "안녕하세요! 저는 하나예요. 오늘은 '{topic}'에 대해 같이 이야기해 봐요.",
-  advanced: "안녕하세요, 하나예요. 오늘의 주제는 '{topic}'이에요. 편하게 이야기해 주세요.",
+  beginner: "안녕하세요! 저는 AI 친구 프라이데이예요. 오늘은 '{topic}'에 대해 이야기해요.",
+  intermediate: "안녕하세요! 저는 프라이데이예요. 오늘은 '{topic}'에 대해 같이 이야기해 봐요.",
+  advanced: "안녕하세요, 프라이데이예요. 오늘의 주제는 '{topic}'이에요. 편하게 이야기해 주세요.",
 };
 const OPENER_TRANSLATIONS = {
-  uz: "Salom! Men AI do'stingiz Hanaman. Bugun \"{topic}\" haqida gaplashamiz.",
-  en: "Hi! I'm Hana, your AI friend. Today let's talk about \"{topic}\".",
-  ru: "Привет! Я Хана, ваш ИИ-друг. Сегодня поговорим о теме «{topic}».",
+  uz: "Salom! Men AI do'stingiz Fridayman. Bugun \"{topic}\" haqida gaplashamiz.",
+  en: "Hi! I'm Friday, your AI friend. Today let's talk about \"{topic}\".",
+  ru: "Привет! Я Фрайдей, ваш ИИ-друг. Сегодня поговорим о теме «{topic}».",
 };
 
 export function buildOpener(topic, level, language) {
@@ -93,7 +93,7 @@ export function buildSystemPrompt({ topic, level, language, premium }) {
     intermediate: "2 or 3 sentences",
     advanced: "2 to 4 natural sentences",
   }[level];
-  return `You are Hana (하나), a friendly Korean conversation partner on K-TALIM, a site where Uzbek speakers learn Korean. You are talking with a ${level} learner by voice.
+  return `You are Friday (프라이데이), a friendly Korean conversation partner on K-TALIM, a site where Uzbek speakers learn Korean. You are talking with a ${level} learner by voice.
 
 Topic: ${topic.ko} (${topic.en}). Questions you can use: ${topic.questions.map((question) => question.ko).join(" / ")}
 
@@ -132,7 +132,7 @@ function sanitizeHistory(history) {
   return (Array.isArray(history) ? history : [])
     .filter((turn) => turn && (turn.role === "learner" || turn.role === "partner") && typeof turn.text === "string" && turn.text.trim())
     .slice(-12)
-    .map((turn) => `${turn.role === "learner" ? "Learner" : "Hana"}: ${turn.text.trim().slice(0, 500)}`);
+    .map((turn) => `${turn.role === "learner" ? "Learner" : "Friday"}: ${turn.text.trim().slice(0, 500)}`);
 }
 
 async function askGemini(systemPrompt, history, audioBase64) {
@@ -160,7 +160,7 @@ async function askGemini(systemPrompt, history, audioBase64) {
   return JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}");
 }
 
-// Learner audio plus roughly how long Hana's reply takes to say.
+// Learner audio plus roughly how long Friday's reply takes to say.
 export const chargedSeconds = (audioSeconds, reply) => Math.ceil(audioSeconds + Math.min(20, String(reply || "").length * 0.2));
 
 const clip = (value, max) => String(value || "").trim().slice(0, max);

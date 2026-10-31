@@ -132,7 +132,7 @@ function Summary({ session, onClose }) {
   );
 }
 
-// A voice conversation with Hana, the AI partner, about one topic.
+// A voice conversation with Friday, the AI partner, about one topic.
 export default function AiConversation({ topic, level, premium, onClose }) {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();

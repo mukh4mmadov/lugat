@@ -13,6 +13,7 @@ const sections = [
   { key: "section6", titleKey: "terms.section6.title" },
   { key: "section7", titleKey: "terms.section7.title" },
   { key: "section8", titleKey: "terms.section8.title" },
+  { key: "sectionCalls", titleKey: "terms.sectionCalls.title" },
   { key: "section9", titleKey: "terms.section9.title" },
 ];
 

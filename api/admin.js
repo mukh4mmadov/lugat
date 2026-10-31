@@ -18,6 +18,7 @@ import { levelForXp } from "../src/lib/gamification.js";
 //   POST /api/admin { action: "setting", key, value }
 //   POST /api/admin { action: "content", kind, itemId, data, hidden } | { ..., revert: true }
 //   GET  /api/admin?action=speaking   live calls: queue, active and recent calls, reports, bans
+//   GET  /api/admin?action=recording&callId=<uuid>   signed links to the call's recordings
 //   POST /api/admin { action: "speakingBan", userId, hours }   (hours 0 = lift the ban)
 //   POST /api/admin { action: "reportStatus", reportId, status } | { action: "endCall", callId }
 //   POST /api/admin { action: "profile", userId, firstName, lastName, birthYear, gender, koreanLevel }
@@ -306,8 +307,38 @@ async function userDetail(db, id) {
   };
 }
 
+const RECORDINGS = "call-recordings";
+const RECORDING_DAYS = 30;
+
+// Deletes recordings older than 30 days, a few calls at a time.
+async function purgeOldRecordings(db) {
+  const { data: calls } = await db
+    .from("speaking_calls")
+    .select("id")
+    .eq("recordings_deleted", false)
+    .lt("created_at", new Date(Date.now() - RECORDING_DAYS * DAY).toISOString())
+    .limit(30);
+  for (const call of calls || []) {
+    const { data: files } = await db.storage.from(RECORDINGS).list(call.id);
+    if (files?.length) await db.storage.from(RECORDINGS).remove(files.map((file) => `${call.id}/${file.name}`));
+    await db.from("speaking_calls").update({ recordings_deleted: true }).eq("id", call.id);
+  }
+}
+
+async function callRecordings(db, callId) {
+  const { data: files, error } = await db.storage.from(RECORDINGS).list(callId);
+  if (error) throw error;
+  const recordings = [];
+  for (const file of files || []) {
+    const { data } = await db.storage.from(RECORDINGS).createSignedUrl(`${callId}/${file.name}`, 3600);
+    if (data?.signedUrl) recordings.push({ userId: file.name.split(".")[0], url: data.signedUrl, size: file.metadata?.size || 0 });
+  }
+  return { recordings };
+}
+
 // Live calls for the admin "Speaking" tab.
 async function speakingOverview(db) {
+  await purgeOldRecordings(db).catch((error) => console.error("Recording cleanup failed:", error));
   const since = new Date(Date.now() - DAY).toISOString();
   const [queue, active, recent, reports, bans, users] = await Promise.all([
     db.from("speaking_queue").select("user_id, level, want, age_group, seen_at, call_id").gt("seen_at", new Date(Date.now() - 15000).toISOString()),
@@ -319,6 +350,14 @@ async function speakingOverview(db) {
   ]);
   const emails = Object.fromEntries(users.map((user) => [user.id, user.email || user.id]));
   const today = (recent.data || []).filter((call) => call.created_at >= since);
+  // Ages, so admins can spot adults talking with children.
+  const people = new Set();
+  [...(active.data || []), ...(recent.data || [])].forEach((call) => people.add(call.caller).add(call.callee));
+  (reports.data || []).forEach((report) => people.add(report.reported).add(report.reporter));
+  people.delete(null);
+  const { data: births } = people.size ? await db.from("profiles").select("id, birth_year").in("id", [...people]) : { data: [] };
+  const year = new Date().getFullYear();
+  const ages = Object.fromEntries((births || []).filter((row) => row.birth_year).map((row) => [row.id, year - row.birth_year]));
   return {
     queue: queue.data || [],
     active: active.data || [],
@@ -327,6 +366,7 @@ async function speakingOverview(db) {
     bans: bans.data || [],
     stats: { callsToday: today.length, minutesToday: Math.round(today.reduce((sum, call) => sum + call.seconds, 0) / 60), openReports: (reports.data || []).filter((report) => report.status === "open").length },
     emails,
+    ages,
   };
 }
 
@@ -604,6 +644,10 @@ export default async function handler(req, res) {
       return res.status(200).json({ settings: Object.fromEntries((settings || []).map((row) => [row.key, row.value])) });
     }
     if (action === "speaking") return res.status(200).json(await speakingOverview(db));
+    if (action === "recording") {
+      if (!UUID.test(String(req.query.callId || ""))) return res.status(400).json({ error: "Invalid call" });
+      return res.status(200).json(await callRecordings(db, req.query.callId));
+    }
     if (action === "journal") {
       const [{ data: entries }, { data: sales }, users] = await Promise.all([
         db.from("admin_audit").select("*").order("created_at", { ascending: false }).limit(300),

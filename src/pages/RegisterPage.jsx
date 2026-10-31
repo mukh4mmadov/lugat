@@ -527,6 +527,8 @@ export default function RegisterPage() {
                 >
                   {t("register.privacy")}
                 </Link>
+                {t("register.agreementEnd", { defaultValue: "" })}
+                <span className="mt-1 block">{t("register.recordingNotice")}</span>
               </span>
             </label>
 

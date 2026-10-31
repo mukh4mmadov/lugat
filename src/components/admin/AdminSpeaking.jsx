@@ -7,6 +7,39 @@ import { Panel, ServerNotice, StatTile } from "../../pages/AdminPage";
 
 const BAN_OPTIONS = [24, 24 * 7, 24 * 3650];
 
+// Both sides' recordings of one call, loaded on demand through signed links.
+function Recordings({ callId, who }) {
+  const { t } = useTranslation();
+  const [state, setState] = useState(null);
+  async function load() {
+    setState("loading");
+    try {
+      setState((await adminRequest({ action: "recording", callId })).recordings);
+    } catch {
+      setState([]);
+    }
+  }
+  if (!state) {
+    return (
+      <button type="button" onClick={load} className="rounded-lg bg-sky-100 px-2.5 py-1 text-xs font-black text-sky-800 dark:bg-sky-500/20 dark:text-sky-100">
+        🎧 {t("admin.live.listen")}
+      </button>
+    );
+  }
+  if (state === "loading") return <span className="text-xs text-slate-500">{t("common.loading")}</span>;
+  if (!state.length) return <span className="text-xs text-slate-500">{t("admin.live.noRecording")}</span>;
+  return (
+    <div className="w-full space-y-1.5">
+      {state.map((recording) => (
+        <div key={recording.userId} className="flex flex-wrap items-center gap-2">
+          <span className="text-xs text-slate-500">{t("admin.live.recordedBy", { name: who(recording.userId) })}</span>
+          <audio controls preload="none" src={recording.url} className="h-8 w-full max-w-md" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // Live calls: who is waiting or talking now, reports to review, and bans.
 export default function AdminSpeaking() {
   const { t, i18n } = useTranslation();
@@ -43,7 +76,13 @@ export default function AdminSpeaking() {
   }
 
   const who = (id) => (id ? data.emails[id] || id.slice(0, 8) : "—");
-  const userLink = (id) => <Link to={`/admin/users?user=${id}`} className="font-bold hover:underline">{who(id)}</Link>;
+  const age = (id) => (data.ages?.[id] ? ` (${data.ages[id]})` : "");
+  const userLink = (id) => (
+    <Link to={`/admin/users?user=${id}`} className="font-bold hover:underline">
+      {who(id)}
+      <span className="font-normal text-slate-500">{age(id)}</span>
+    </Link>
+  );
   const reports = data?.reports.filter((report) => filter === "all" || report.status === filter) || [];
   const bannedIds = new Set((data?.bans || []).map((ban) => ban.user_id));
   const empty = <p className="text-sm text-slate-500">{t("admin.noData")}</p>;
@@ -89,6 +128,7 @@ export default function AdminSpeaking() {
                           ⛔ {t(`admin.live.ban.${hours}`)}
                         </button>
                       ))}
+                      {report.call_id && <Recordings callId={report.call_id} who={who} />}
                       {report.status === "open" ? (
                         <button type="button" disabled={busy} onClick={() => run({ action: "reportStatus", reportId: report.id, status: "dismissed" })} className="rounded-lg border border-slate-300 px-2.5 py-1 text-xs font-bold disabled:opacity-50 dark:border-white/15">{t("admin.live.dismiss")}</button>
                       ) : (
@@ -144,6 +184,7 @@ export default function AdminSpeaking() {
                       {userLink(call.caller)}{bannedIds.has(call.caller) ? " ⛔" : ""} ↔ {userLink(call.callee)}{bannedIds.has(call.callee) ? " ⛔" : ""}
                     </span>
                     <span className="text-xs text-slate-500">{t("speaking.minutesShort", { count: Math.round(call.seconds / 60) })} · {timeAgo(call.created_at, i18n.language)}</span>
+                    {call.seconds > 0 && !call.recordings_deleted && <Recordings callId={call.id} who={who} />}
                   </li>
                 ))}
               </ul>

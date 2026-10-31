@@ -5,7 +5,9 @@
 export const NO_VOICE_EVENT = "k-talim:no-korean-voice";
 
 // Better-sounding voices first when a device offers several.
+// Female voices are preferred: the AI partner, Friday, speaks with them.
 const PREFERRED = [/google/i, /yuna/i, /sora/i, /heami/i, /microsoft/i, /samsung/i];
+const MALE = /injoon|minsu|jian|\bmale\b/i;
 
 let cachedVoice = null;
 
@@ -15,8 +17,10 @@ function supported() {
 
 function findKoreanVoice() {
   const voices = window.speechSynthesis.getVoices();
-  const korean = voices.filter((voice) => /^ko([-_]|$)/i.test(voice.lang));
-  if (!korean.length) return null;
+  const all = voices.filter((voice) => /^ko([-_]|$)/i.test(voice.lang));
+  if (!all.length) return null;
+  const female = all.filter((voice) => !MALE.test(voice.name));
+  const korean = female.length ? female : all;
   return PREFERRED.map((pattern) => korean.find((voice) => pattern.test(voice.name))).find(Boolean) || korean[0];
 }
 

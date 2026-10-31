@@ -128,6 +128,7 @@ export function createPeerCall({ callId, role, video = false, onRemoteStream, on
     start,
     close,
     sendApp: (payload) => send("app", payload),
+    localStream: () => local,
     setMuted: (muted) => local?.getAudioTracks().forEach((track) => (track.enabled = !muted)),
     // "relay" means the call goes through TURN; "host"/"srflx" are direct.
     async connectionType() {

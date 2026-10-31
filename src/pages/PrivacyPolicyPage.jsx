@@ -12,6 +12,7 @@ const sections = [
   { key: "section5", titleKey: "privacy.section5.title" },
   { key: "section6", titleKey: "privacy.section6.title" },
   { key: "section7", titleKey: "privacy.section7.title" },
+  { key: "sectionCalls", titleKey: "privacy.sectionCalls.title" },
   { key: "section8", titleKey: "privacy.section8.title" },
 ];
 
