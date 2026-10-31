@@ -155,23 +155,41 @@ export default function Layout({ onShowIELTSModal }) {
     ["/search", t("nav.search")],
   ];
 
-  const secondaryNavItems = [
-    ["/study", t("nav.study")],
-    ["/grammar", `📐 ${t("grammar.title")}`],
-    ["/stories", `📖 ${t("stories.title")}`],
-    ["/review", t("nav.review")],
-    ["/favorites", t("nav.favorites")],
-    ["/difficult", t("nav.difficult")],
-    ["/weak-words", t("library.weakWords")],
-    ["/premium", "⭐ Premium"],
-    ["/stats", t("nav.stats")],
-    ["/leaderboard", `🏆 ${t("leaderboard.title")}`],
-    ["/achievements", `🏅 ${t("nav.achievements")}`],
-    ["/future-updates", t("nav.futureUpdates")],
-    ["/settings", t("nav.settings")],
-    ["/feedback", t("nav.feedback"), unread.user],
-    ...(isAdmin ? [["/admin", t("admin.title"), unread.admin]] : []),
+  // Everything else, in groups: a compact panel on desktop, tiles on phones.
+  // Items are [path, label, icon, unread count].
+  const navGroups = [
+    {
+      key: "learn",
+      items: [
+        ["/study", t("nav.study"), "🃏"],
+        ["/grammar", t("grammar.title"), "📐"],
+        ["/stories", t("stories.title"), "📖"],
+        ["/review", t("nav.review"), "🔁"],
+        ["/favorites", t("nav.favorites"), "⭐"],
+        ["/difficult", t("nav.difficult"), "🧩"],
+        ["/weak-words", t("library.weakWords"), "🎯"],
+      ],
+    },
+    {
+      key: "progress",
+      items: [
+        ["/stats", t("nav.stats"), "📊"],
+        ["/leaderboard", t("leaderboard.title"), "🏆"],
+        ["/achievements", t("nav.achievements"), "🏅"],
+      ],
+    },
+    {
+      key: "other",
+      items: [
+        ["/premium", "Premium", "💎"],
+        ["/feedback", t("nav.feedback"), "✉️", unread.user],
+        ["/settings", t("nav.settings"), "⚙️"],
+        ["/future-updates", t("nav.futureUpdates"), "🚀"],
+        ...(isAdmin ? [["/admin", t("admin.title"), "🛠", unread.admin]] : []),
+      ],
+    },
   ];
+  const primaryIcons = { "/": "🏠", "/courses": "📚", "/topik": "📝", "/speaking": "🎙", "/search": "🔎" };
 
   const unreadTotal = unread.user + unread.admin;
   const badge = (count) =>
@@ -205,6 +223,15 @@ export default function Layout({ onShowIELTSModal }) {
         duration: 0.5,
         ease: [0.25, 0.1, 0.25, 1],
       };
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -283,7 +310,7 @@ export default function Layout({ onShowIELTSModal }) {
                 </NavLink>
               ))}
 
-              <div className="relative" ref={moreMenuRef}>
+              <div ref={moreMenuRef}>
                 <button
                   type="button"
                   onClick={() => setMoreMenuOpen(!moreMenuOpen)}
@@ -302,33 +329,42 @@ export default function Layout({ onShowIELTSModal }) {
 
                 <AnimatePresence>
                   {moreMenuOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute left-0 top-full mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
-                    >
-                      <div className="p-2 space-y-1">
-                        {secondaryNavItems.map(([to, label, count]) => (
-                          <NavLink
-                            key={to}
-                            to={to}
-                            onClick={() => setMoreMenuOpen(false)}
-                            className={({ isActive }) =>
-                              `block rounded-xl px-4 py-3 text-sm font-semibold transition ${
-                                isActive
-                                  ? "bg-slate-950 text-white shadow-lg shadow-slate-950/25 dark:bg-white dark:text-slate-950"
-                                  : "text-slate-700 hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10"
-                              }`
-                            }
-                          >
-                            {label}
-                            {badge(count)}
-                          </NavLink>
+                    <div className="pointer-events-none absolute inset-x-0 top-full z-50 flex justify-center px-4 pt-2">
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.18 }}
+                        className="pointer-events-auto grid max-h-[calc(100vh-6rem)] w-full max-w-3xl grid-cols-3 gap-4 overflow-y-auto overscroll-contain rounded-3xl border border-slate-200/60 bg-white/95 p-4 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95"
+                      >
+                        {navGroups.map((group) => (
+                          <div key={group.key}>
+                            <p className="px-3 pb-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">{t(`nav.group.${group.key}`)}</p>
+                            <div className="space-y-0.5">
+                              {group.items.map(([to, label, icon, count]) => (
+                                <NavLink
+                                  key={to}
+                                  to={to}
+                                  state={to === "/feedback" ? { from: location.pathname } : undefined}
+                                  onClick={() => setMoreMenuOpen(false)}
+                                  className={({ isActive }) =>
+                                    `flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition ${
+                                      isActive
+                                        ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                                        : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/10"
+                                    }`
+                                  }
+                                >
+                                  <span aria-hidden="true" className="w-5 text-center">{icon}</span>
+                                  <span className="min-w-0 flex-1 truncate">{label}</span>
+                                  {badge(count)}
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
                         ))}
-                      </div>
-                    </motion.div>
+                      </motion.div>
+                    </div>
                   )}
                 </AnimatePresence>
               </div>
@@ -522,7 +558,7 @@ export default function Layout({ onShowIELTSModal }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[66] bg-black/50 backdrop-blur-sm md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             >
               <motion.div
@@ -530,7 +566,7 @@ export default function Layout({ onShowIELTSModal }) {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="absolute right-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto bg-white/95 shadow-2xl backdrop-blur-xl dark:bg-slate-900/95"
+                className="absolute right-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto overscroll-contain bg-white/95 shadow-2xl backdrop-blur-xl dark:bg-slate-900/95"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-white/10">
@@ -557,31 +593,37 @@ export default function Layout({ onShowIELTSModal }) {
                     </svg>
                   </button>
                 </div>
-                <nav className="p-4 space-y-2">
-                  {[...primaryNavItems, ...secondaryNavItems].map(
-                    ([to, label, count]) => (
-                      <NavLink
-                        key={to}
-                        to={to}
-                        state={
-                          to === "/feedback"
-                            ? { from: location.pathname }
-                            : undefined
-                        }
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={({ isActive }) =>
-                          `block rounded-2xl px-4 py-3 text-base font-bold transition ${
-                            isActive
-                              ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
-                              : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
-                          }`
-                        }
-                      >
-                        {label}
-                        {badge(count)}
-                      </NavLink>
-                    ),
-                  )}
+                <nav className="space-y-4 p-4">
+                  {[
+                    { key: "main", items: primaryNavItems.map(([to, label]) => [to, label.replace(/^🎙 /, ""), primaryIcons[to]]) },
+                    ...navGroups,
+                  ].map((group) => (
+                    <div key={group.key}>
+                      <p className="px-1 pb-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">{t(`nav.group.${group.key}`)}</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {group.items.map(([to, label, icon, count]) => (
+                          <NavLink
+                            key={to}
+                            to={to}
+                            end={to === "/"}
+                            state={to === "/feedback" ? { from: location.pathname } : undefined}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `relative flex min-h-[3.25rem] items-center gap-2 rounded-2xl px-3 py-2.5 text-sm font-bold leading-tight transition ${
+                                isActive
+                                  ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                                  : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
+                              }`
+                            }
+                          >
+                            <span aria-hidden="true" className="text-lg">{icon}</span>
+                            <span className="min-w-0 flex-1">{label}</span>
+                            {count > 0 && <span className="absolute right-2 top-2 h-2.5 w-2.5 rounded-full bg-rose-500" aria-label={String(count)} />}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
 
                   <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4 space-y-3">
                     <div className="flex items-center justify-between">

@@ -1257,6 +1257,11 @@ const en = {
   "admin.growth.restore": "Restore",
   "admin.journal.action.leagueExclude": "League exclusion",
   "admin.journal.action.referralRevoke": "Invite cancelled",
+  // Menu groups
+  "nav.group.main": "Main",
+  "nav.group.learn": "Learn",
+  "nav.group.progress": "Progress",
+  "nav.group.other": "More",
 };
 
 const uz = {
@@ -2518,6 +2523,11 @@ const uz = {
   "admin.growth.restore": "Tiklash",
   "admin.journal.action.leagueExclude": "Ligadan chiqarish",
   "admin.journal.action.referralRevoke": "Taklif bekor qilindi",
+  // Menu groups
+  "nav.group.main": "Asosiy",
+  "nav.group.learn": "O'rganish",
+  "nav.group.progress": "Natijalar",
+  "nav.group.other": "Boshqa",
 };
 
 const ru = {
@@ -3915,6 +3925,11 @@ const ru = {
   "admin.growth.restore": "Восстановить",
   "admin.journal.action.leagueExclude": "Исключение из лиги",
   "admin.journal.action.referralRevoke": "Приглашение отменено",
+  // Menu groups
+  "nav.group.main": "Главное",
+  "nav.group.learn": "Учёба",
+  "nav.group.progress": "Прогресс",
+  "nav.group.other": "Ещё",
 };
 
 export default { en, uz, ru };
