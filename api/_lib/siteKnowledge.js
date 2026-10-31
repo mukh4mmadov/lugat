@@ -16,7 +16,10 @@ LEARNING
 - Per lesson: Study, Flashcards, Listening, Quiz, Writing and Dictation (hear the example sentence, type it; a slower replay button exists).
 - Review (/review) brings back words that are due (spaced repetition). Also Difficult words, Weak words, Favorites (★), Search (searches all three languages and romanization, tolerates small typos), Stats.
 - Home has a Today card: daily goal (10/20/40/60 answers, changeable), last 7 days, a warning when the streak would end tonight, and a Continue button.
-- Leaderboard (/leaderboard): weekly answers and all-time mastered words. Learners can hide themselves from it there.
+- Leaderboard (/leaderboard): tabs League, Week (answers in 7 days), Speaking (minutes spoken in 7 days) and All time (mastered words). Learners can hide their name there.
+- Weekly leagues: Bronze → Silver → Gold → Sapphire → Diamond. The first XP of the week puts a learner in a group of up to 30 learners in their league; the week starts on Monday at 00:00 Tashkent time. The top 5 of a group move up a league, the bottom 5 move down.
+- Invite friends (Speaking → Invite tab): each learner has a 6-letter code and a link (lugat-six.vercel.app/?ref=CODE). Rewards: 2 friends → 1 day of Premium, 5 → 7 days, 10 → 30 days, 20 → 90 days, each once, claimed with the button in that tab. A friend counts after signing up with the link on their own device, confirming their email, and talking once in Speaking or studying on 3 different days.
+- Reminders: in Settings (and Speaking → Profile) learners can turn on push notifications: "a partner is waiting" and "keep your streak", at most 2 a day. On iPhone the site must be added to the Home Screen first.
 - Phones have a bottom tab bar (Home, Study, Review, TOPIK, Menu). The site can be installed as an app from the browser menu ("Install app" / "Add to Home Screen").
 - Pronunciation uses the device's Korean voice. No sound means the device has no Korean voice. Settings shows the voice status and a test button. To install one:
   Android: Settings → System → Languages → Text-to-speech → Speech Services by Google → ⚙ → Install voice data → Korean, then reload.

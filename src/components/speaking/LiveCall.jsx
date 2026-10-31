@@ -6,6 +6,7 @@ import GlassCard from "../GlassCard";
 import { LEVEL_ICONS, getSpeakingTopic, localized } from "../../data/speakingTopics";
 import { startCallRecording, uploadCallRecording } from "../../lib/callRecorder";
 import { createPeerCall, liveCallsSupported } from "../../lib/peerCall";
+import { notifyPartnerWaiting } from "../../lib/growth";
 import { speakKorean } from "../../lib/speech";
 import { supabase } from "../../lib/supabase";
 import { recordSpeaking } from "../../store";
@@ -122,6 +123,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     }
     let cancelled = false;
     let timer = null;
+    let asked = false;
     const started = Date.now();
     const tick = setInterval(() => setWaited(Math.floor((Date.now() - started) / 1000)), 1000);
     supabase.rpc("speaking_online").then(({ data }) => !cancelled && setOnline(data));
@@ -141,6 +143,11 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
       }
       if (data.status === "waiting") {
         setWaiting(Math.max(0, data.waiting - 1));
+        // Nobody free after a few polls: ping learners who turned on reminders.
+        if (data.waiting <= 1 && Date.now() - started > 9000 && !asked) {
+          asked = true;
+          notifyPartnerWaiting();
+        }
         timer = setTimeout(poll, POLL_MS);
         return;
       }

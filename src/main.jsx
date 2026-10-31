@@ -8,8 +8,10 @@ import "./index.css";
 import { store } from "./store";
 import "./lib/i18n";
 import { initWordOverrides } from "./lib/wordOverrides";
+import { captureReferral } from "./lib/growth";
 
 initWordOverrides();
+captureReferral();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

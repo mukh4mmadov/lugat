@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import LeagueBoard from "../components/LeagueBoard";
 import { useAuth } from "../hooks/useAuth";
 import { supabase } from "../lib/supabase";
 import { timeAgo } from "../lib/dates";
@@ -15,7 +16,8 @@ export default function LeaderboardPage() {
   const dispatch = useDispatch();
   const { user } = useAuth();
   const hidden = useSelector((state) => Boolean(state.progress.settings.hideFromLeaderboard));
-  const [tab, setTab] = useState("week");
+  const [tab, setTab] = useState(() => (user ? "league" : "week"));
+  const tabs = user ? ["league", "week", "speaking", "all"] : ["week", "speaking", "all"];
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
 
@@ -36,32 +38,40 @@ export default function LeaderboardPage() {
     load();
   }, [load, user?.id, hidden]);
 
+  // Signed-in learners start on their league once the session has loaded.
+  const signedIn = Boolean(user);
+  useEffect(() => {
+    if (signedIn) setTab((current) => (current === "week" ? "league" : current));
+  }, [signedIn]);
+
   const board = data?.[tab];
-  const unit = tab === "week" ? "leaderboard.answers" : "leaderboard.words";
+  const unit = { week: "leaderboard.answers", all: "leaderboard.words", speaking: "leaderboard.minutes" }[tab];
 
   return (
     <div className="mx-auto max-w-2xl space-y-5">
       <header className="px-1">
         <h1 className="text-2xl font-black md:text-3xl">🏆 {t("leaderboard.title")}</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t(tab === "week" ? "leaderboard.weekHint" : "leaderboard.allHint")}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t(`leaderboard.${tab}Hint`)}</p>
       </header>
 
-      <div role="tablist" className="grid grid-cols-2 gap-1 rounded-2xl bg-white/70 p-1 dark:bg-white/5">
-        {["week", "all"].map((key) => (
+      <div role="tablist" className={`grid gap-1 rounded-2xl bg-white/70 p-1 dark:bg-white/5 ${tabs.length === 4 ? "grid-cols-4" : "grid-cols-3"}`}>
+        {tabs.map((key) => (
           <button
             key={key}
             type="button"
             role="tab"
             aria-selected={tab === key}
             onClick={() => setTab(key)}
-            className={`rounded-xl px-3 py-2.5 text-sm font-black transition ${tab === key ? "bg-slate-950 text-white shadow dark:bg-white dark:text-slate-950" : "text-slate-600 dark:text-slate-300"}`}
+            className={`rounded-xl px-2 py-2.5 text-xs font-black transition sm:text-sm ${tab === key ? "bg-slate-950 text-white shadow dark:bg-white dark:text-slate-950" : "text-slate-600 dark:text-slate-300"}`}
           >
             {t(`leaderboard.tab.${key}`)}
           </button>
         ))}
       </div>
 
-      {board?.me && (
+      {tab === "league" && <LeagueBoard />}
+
+      {tab !== "league" && board?.me && (
         <GlassCard className="!p-4">
           <p className="text-sm font-bold text-slate-500 dark:text-slate-400">{t("leaderboard.yourRank")}</p>
           <p className="mt-1 text-2xl font-black">
@@ -71,7 +81,7 @@ export default function LeaderboardPage() {
         </GlassCard>
       )}
 
-      <GlassCard className="!p-3 md:!p-4">
+      {tab !== "league" && <GlassCard className="!p-3 md:!p-4">
         {error && (
           <p role="alert" className="p-4 text-center text-sm font-bold text-rose-600">
             {error}{" "}
@@ -96,7 +106,7 @@ export default function LeaderboardPage() {
           </ol>
         )}
         {data && <p className="mt-2 px-3 text-right text-[11px] font-semibold text-slate-400">{t("admin.updated", { time: timeAgo(data.generatedAt, i18n.language) })}</p>}
-      </GlassCard>
+      </GlassCard>}
 
       {user ? (
         <label className="flex items-center gap-3 rounded-2xl bg-white/70 p-4 text-sm font-semibold dark:bg-white/5">

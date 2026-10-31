@@ -67,6 +67,8 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // Push reminders (public/push-sw.js).
+        importScripts: ["/push-sw.js"],
         globPatterns: ["**/*.{js,mjs,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
         navigateFallbackDenylist: [/\.(?:pdf|mp3)(?:$|[?#])/i],
         runtimeCaching: [

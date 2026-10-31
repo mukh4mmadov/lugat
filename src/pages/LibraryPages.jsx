@@ -30,6 +30,7 @@ import { VoiceHelp } from "../components/VoiceNotice";
 import { koreanVoiceStatus, speakKorean } from "../lib/speech";
 import { Link } from "react-router-dom";
 import { BADGES, levelProgress, levelTitle } from "../lib/gamification";
+import { PushToggle } from "../components/GrowthPanels";
 
 export function SearchPage() {
   const { t, i18n } = useTranslation();
@@ -531,6 +532,11 @@ export function SettingsPage() {
         badge={t("library.personalization")}
       />
       <div className="space-y-4">
+        {user && (
+          <section className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+            <PushToggle />
+          </section>
+        )}
         <section className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
           <h3 className="text-xl font-black">
             {t("settings.accountTitle", { defaultValue: "Account" })}

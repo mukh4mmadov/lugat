@@ -5,14 +5,24 @@ import { extendPremium } from "./_lib/premium.js";
 // Premium, at most once every 30 days. The streak is read from the learner's
 // synced progress, not from the request.
 //
+// Invites: Premium days at 2, 5, 10 and 20 friends who count (see
+// supabase/migrations/202611060001_growth.sql), each tier once.
+//
 //   GET  /api/rewards                       what can be claimed now
 //   POST /api/rewards { kind: "streak7" }   claim it
+//   POST /api/rewards { kind: "invite" }    claim every invite tier reached
 //   Authorization: Bearer <session>
 
 const DAY = 24 * 60 * 60 * 1000;
 const STREAK_DAYS = 7;
 const STREAK_REWARD_DAYS = 1;
 const STREAK_COOLDOWN_DAYS = 30;
+export const INVITE_TIERS = [
+  [2, 1],
+  [5, 7],
+  [10, 30],
+  [20, 90],
+];
 const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
@@ -51,6 +61,17 @@ async function streakStatus(db, userId) {
   };
 }
 
+async function inviteStatus(db, userId) {
+  const [{ count }, { data: claims }] = await Promise.all([
+    db.from("referrals").select("referred", { count: "exact", head: true }).eq("referrer", userId).eq("revoked", false).not("qualified_at", "is", null),
+    db.from("reward_claims").select("kind").eq("user_id", userId).like("kind", "invite%"),
+  ]);
+  const claimed = new Set((claims || []).map((claim) => claim.kind));
+  const qualified = count || 0;
+  const tiers = INVITE_TIERS.map(([friends, days]) => ({ friends, days, claimed: claimed.has(`invite${friends}`), reached: qualified >= friends }));
+  return { qualified, tiers, available: tiers.filter((tier) => tier.reached && !tier.claimed).reduce((sum, tier) => sum + tier.days, 0) };
+}
+
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   if (!["GET", "POST"].includes(req.method)) {
@@ -67,9 +88,18 @@ export default async function handler(req, res) {
 
   try {
     const status = await streakStatus(db, user.id);
-    if (req.method === "GET") return res.status(200).json({ streak7: status });
-
+    if (req.method === "GET") return res.status(200).json({ streak7: status, invite: await inviteStatus(db, user.id) });
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+    if (body.kind === "invite") {
+      const invite = await inviteStatus(db, user.id);
+      const due = invite.tiers.filter((tier) => tier.reached && !tier.claimed);
+      if (!due.length) return res.status(409).json({ error: "Nothing to claim yet.", invite });
+      // Record the tiers first so a retry can't claim them twice.
+      const { error } = await db.from("reward_claims").insert(due.map((tier) => ({ user_id: user.id, kind: `invite${tier.friends}`, days: tier.days })));
+      if (error) throw error;
+      const premiumUntil = await extendPremium(db, user.id, due.reduce((sum, tier) => sum + tier.days, 0));
+      return res.status(200).json({ premiumUntil, invite: await inviteStatus(db, user.id) });
+    }
     if (body.kind !== "streak7") return res.status(400).json({ error: "Unknown reward" });
     if (status.nextAt) return res.status(409).json({ error: "Already claimed this month.", streak7: status });
     if (!status.available) return res.status(409).json({ error: "Keep your streak for 7 days first.", streak7: status });

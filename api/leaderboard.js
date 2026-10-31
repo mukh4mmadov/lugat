@@ -8,7 +8,8 @@ import { createClient } from "@supabase/supabase-js";
 // "week" ranks answers in the last 7 days: the per-day counts when the learner
 // has them, otherwise the timestamps of each word's recent answers (older
 // saves). "all" ranks words mastered (answered right 3+ times). Learners who
-// turned on settings.hideFromLeaderboard are left out.
+// turned on settings.hideFromLeaderboard are left out. "speaking" ranks minutes
+// of speaking practice (AI and live calls) in the last 7 days, counted on the server.
 
 const DAY = 24 * 60 * 60 * 1000;
 const LIMIT = 50;
@@ -75,10 +76,14 @@ export default async function handler(req, res) {
 
   try {
     const now = Date.now();
-    const [progress, profiles] = await Promise.all([
+    const sinceDay = new Date(now - 7 * DAY).toISOString().slice(0, 10);
+    const [progress, profiles, speaking] = await Promise.all([
       selectAll(db, "user_progress", "user_id, data"),
       selectAll(db, "profiles", "id, first_name, last_name"),
+      db.from("speaking_usage").select("user_id, seconds").gte("day", sinceDay).then(({ data }) => data || []),
     ]);
+    const speakingSeconds = new Map();
+    speaking.forEach((row) => speakingSeconds.set(row.user_id, (speakingSeconds.get(row.user_id) || 0) + row.seconds));
     const profileById = new Map(profiles.map((row) => [row.id, row]));
     const entries = progress
       .filter((row) => !row.data?.settings?.hideFromLeaderboard)
@@ -87,6 +92,7 @@ export default async function handler(req, res) {
         name: shortName(profileById.get(row.user_id)),
         week: weeklyAnswers(row.data, now),
         all: wordsMastered(row.data),
+        speaking: Math.floor((speakingSeconds.get(row.user_id) || 0) / 60),
         streak: row.data?.stats?.streak || 0,
       }))
       .filter((entry) => entry.name);
@@ -108,7 +114,7 @@ export default async function handler(req, res) {
     // Never shared-cached: the CDN ignores Authorization, so a cached copy would
     // hide the signed-in learner's own rank.
     res.setHeader("Cache-Control", "private, no-store");
-    return res.status(200).json({ generatedAt: new Date(now).toISOString(), week: board("week"), all: board("all") });
+    return res.status(200).json({ generatedAt: new Date(now).toISOString(), week: board("week"), all: board("all"), speaking: board("speaking") });
   } catch (error) {
     console.error("Leaderboard error:", error);
     return res.status(500).json({ error: "Leaderboard failed" });

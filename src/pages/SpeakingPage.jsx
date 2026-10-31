@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import AiConversation from "../components/speaking/AiConversation";
 import LiveCall from "../components/speaking/LiveCall";
+import { InvitePanel, PushToggle } from "../components/GrowthPanels";
 import SpeakingSetup from "../components/speaking/SpeakingSetup";
 import TopicWheel from "../components/speaking/TopicWheel";
 import { allWords, meaning } from "../data";
@@ -19,12 +20,6 @@ import { dailyKey } from "../lib/study";
 
 const TABS = ["talk", "topics", "invite", "me"];
 const TAB_ICONS = { talk: "🎙", topics: "🎡", invite: "🎁", me: "👤" };
-const INVITE_REWARDS = [
-  [2, 1],
-  [5, 7],
-  [10, 30],
-  [20, 90],
-];
 
 function useStreak() {
   const stats = useSelector((state) => state.progress.stats);
@@ -435,16 +430,9 @@ export default function SpeakingPage() {
           <p className="text-4xl">🎁</p>
           <h2 className="mt-2 text-xl font-black">{t("speaking.inviteTitle")}</h2>
           <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("speaking.inviteText")}</p>
-          <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {INVITE_REWARDS.map(([friends, days]) => (
-              <li key={friends} className="rounded-2xl border border-orange-200 bg-orange-50 p-3 text-center dark:border-orange-400/20 dark:bg-orange-500/10">
-                <p className="text-2xl font-black">{friends}</p>
-                <p className="text-xs font-bold text-slate-500">{t("speaking.friends", { count: friends })}</p>
-                <p className="mt-1 text-sm font-black text-orange-700 dark:text-orange-200">⭐ {t("speaking.premiumDays", { count: days })}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-5 rounded-2xl bg-slate-100 px-4 py-3 text-center text-sm font-bold dark:bg-white/10">🚧 {t("speaking.inviteSoon")}</p>
+          <div className="mt-5">
+            <InvitePanel />
+          </div>
         </GlassCard>
       )}
 
@@ -478,6 +466,9 @@ export default function SpeakingPage() {
               </div>
               <button type="button" onClick={() => setEditing(true)} className="rounded-xl border border-slate-300 px-3 py-2 text-xs font-black dark:border-white/15">✏️ {t("speaking.editProfile")}</button>
             </div>
+          </GlassCard>
+          <GlassCard className="!p-5">
+            <PushToggle />
           </GlassCard>
           <GlassCard className="!p-5">
             <h2 className="font-black">📜 {t("speaking.history")}</h2>

@@ -19,6 +19,8 @@ import { levelForXp } from "../src/lib/gamification.js";
 //   POST /api/admin { action: "content", kind, itemId, data, hidden } | { ..., revert: true }
 //   GET  /api/admin?action=speaking   live calls: queue, active and recent calls, reports, bans
 //   GET  /api/admin?action=recording&callId=<uuid>   signed links to the call's recordings
+//   GET  /api/admin?action=growth     this week's leagues (biggest XP gains first), invites, push subscribers
+//   POST /api/admin { action: "leagueExclude", userId, value } | { action: "referralRevoke", userId, value }
 //   POST /api/admin { action: "speakingBan", userId, hours }   (hours 0 = lift the ban)
 //   POST /api/admin { action: "reportStatus", reportId, status } | { action: "endCall", callId }
 //   POST /api/admin { action: "profile", userId, firstName, lastName, birthYear, gender, koreanLevel }
@@ -336,6 +338,38 @@ async function callRecordings(db, callId) {
   return { recordings };
 }
 
+// Leagues, invites and push for the admin "Growth" tab.
+async function growthOverview(db) {
+  const week = new Date(Date.now() + 5 * 3600000);
+  week.setUTCDate(week.getUTCDate() - ((week.getUTCDay() + 6) % 7));
+  const weekStart = week.toISOString().slice(0, 10);
+  const [members, referrals, subscribers, users] = await Promise.all([
+    db.from("league_members").select("*").eq("week", weekStart),
+    db.from("referrals").select("*").order("created_at", { ascending: false }).limit(300),
+    db.from("push_subscriptions").select("user_id"),
+    listAllUsers(db),
+  ]);
+  const emails = Object.fromEntries(users.map((user) => [user.id, user.email || user.id]));
+  const confirmed = new Set(users.filter((user) => user.email_confirmed_at).map((user) => user.id));
+  const rows = (members.data || []).map((row) => ({ ...row, gain: row.xp_now - row.xp_start })).sort((a, b) => b.gain - a.gain);
+  const leagues = [1, 2, 3, 4, 5].map((league) => ({
+    league,
+    members: rows.filter((row) => row.league === league).length,
+    groups: new Set(rows.filter((row) => row.league === league).map((row) => row.group_no)).size,
+  }));
+  // Several invites from one device, or friends who never confirmed, look suspicious.
+  const devices = new Map();
+  (referrals.data || []).forEach((row) => row.device_id && devices.set(row.device_id, (devices.get(row.device_id) || 0) + 1));
+  return {
+    week: weekStart,
+    leagues,
+    top: rows.slice(0, 50),
+    referrals: (referrals.data || []).map((row) => ({ ...row, confirmed: confirmed.has(row.referred), sharedDevice: (devices.get(row.device_id) || 0) > 1 })),
+    pushUsers: new Set((subscribers.data || []).map((row) => row.user_id)).size,
+    emails,
+  };
+}
+
 // Live calls for the admin "Speaking" tab.
 async function speakingOverview(db) {
   await purgeOldRecordings(db).catch((error) => console.error("Recording cleanup failed:", error));
@@ -531,6 +565,18 @@ async function act(db, actor, body) {
     return [200, { sent: true }];
   }
 
+  if (action === "leagueExclude") {
+    const { error } = await db.from("league_members").update({ excluded: Boolean(body.value) }).eq("user_id", userId).eq("week", String(body.week || ""));
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { excluded: Boolean(body.value) }];
+  }
+
+  if (action === "referralRevoke") {
+    const { error } = await db.from("referrals").update({ revoked: Boolean(body.value) }).eq("referred", userId);
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { revoked: Boolean(body.value) }];
+  }
+
   if (action === "speakingBan") {
     const hours = Number(body.hours);
     if (!Number.isFinite(hours) || hours < 0 || hours > 24 * 3650) return [400, { error: "Invalid duration" }];
@@ -644,6 +690,7 @@ export default async function handler(req, res) {
       return res.status(200).json({ settings: Object.fromEntries((settings || []).map((row) => [row.key, row.value])) });
     }
     if (action === "speaking") return res.status(200).json(await speakingOverview(db));
+    if (action === "growth") return res.status(200).json(await growthOverview(db));
     if (action === "recording") {
       if (!UUID.test(String(req.query.callId || ""))) return res.status(400).json({ error: "Invalid call" });
       return res.status(200).json(await callRecordings(db, req.query.callId));

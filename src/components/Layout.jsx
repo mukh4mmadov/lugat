@@ -25,6 +25,7 @@ import InstallAppButton from "./InstallAppButton";
 import { useStudyTimer } from "../hooks/useStudyTimer";
 import { formatDate } from "../lib/dates";
 import { premiumUntil } from "../lib/premium";
+import { syncReferral } from "../lib/growth";
 import { LAST_ROUTE_KEY, UNREAD_EVENT } from "../lib/feedback";
 
 const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
@@ -53,6 +54,10 @@ export default function Layout({ onShowIELTSModal }) {
   }, [dispatch, premiumDate]);
   useStudyTimer(location.pathname);
   const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (user?.id) syncReferral(user.id);
+  }, [user?.id]);
 
   useEffect(() => {
     let cancelled = false;
