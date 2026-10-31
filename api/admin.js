@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
+import { levelForXp } from "../src/lib/gamification.js";
 
 // Admin dashboard data and user management. Every request must carry the
 // session of a user listed in public.feedback_admins; the work itself runs with
@@ -12,6 +13,14 @@ import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 //   POST /api/admin { action: "admin", userId, value }
 //   POST /api/admin { action: "ban", userId, value }
 //   POST /api/admin { action: "delete", userId }
+//   GET  /api/admin?action=messages&sessionId=<uuid>   an AI tutor conversation
+//   GET  /api/admin?action=settings | journal   (journal: audit log, premium sales)
+//   POST /api/admin { action: "setting", key, value }
+//   POST /api/admin { action: "content", kind, itemId, data, hidden } | { ..., revert: true }
+//   POST /api/admin { action: "profile", userId, firstName, lastName, birthYear, gender, koreanLevel }
+//   POST /api/admin { action: "confirmEmail" | "resetPassword" | "resetSpeaking", userId }
+//   POST /api/admin { action: "progress", userId, xpDelta?, streak?, badge?, badgeValue?, reset? }
+//   Every successful POST is written to admin_audit.
 
 const DAY = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -60,6 +69,12 @@ function progressSummary(data) {
     streak: stats.streak || 0,
     lastStudyDate: stats.lastStudyDate || null,
     favorites: Object.values(data?.favorites || {}).filter(Boolean).length,
+    xp: data?.xp || 0,
+    level: levelForXp(data?.xp || 0),
+    badges: Object.keys(data?.badges || {}).length,
+    grammarDone: Object.values(data?.grammar || {}).filter((item) => item?.done).length,
+    storiesRead: Object.values(data?.stories || {}).filter((item) => item?.read).length,
+    speakingMinutes: Math.round((stats.speakingSeconds || 0) / 60),
   };
 }
 
@@ -100,11 +115,16 @@ async function overview(db) {
   ]);
   const weekAgo = new Date(now - 7 * DAY).toISOString();
   const dayAgo = new Date(now - DAY).toISOString();
-  const [aiMessagesWeek, aiMessagesDay, aiSessionsWeek] = await Promise.all([
+  const [aiMessagesWeek, aiMessagesDay, aiSessionsWeek, sales, speakingDays] = await Promise.all([
     countSince(db, "ai_chat_messages", "created_at", weekAgo, (query) => query.eq("role", "user")),
     countSince(db, "ai_chat_messages", "created_at", dayAgo, (query) => query.eq("role", "user")),
     countSince(db, "ai_chat_sessions", "updated_at", weekAgo),
+    // Missing tables (migrations not run yet) just leave these empty.
+    selectAll(db, "premium_log", "amount, created_at").catch(() => []),
+    db.from("speaking_usage").select("day, seconds").gte("day", new Date(now - 6 * DAY + 5 * 60 * 60 * 1000).toISOString().slice(0, 10)).then(({ data }) => data || []),
   ]);
+  const today = tashkentDay();
+  const revenueSince = (days) => sales.filter((sale) => now - new Date(sale.created_at).getTime() <= days * DAY).reduce((sum, sale) => sum + sale.amount, 0);
 
   // Sign-ups per day for the last 30 days, oldest first.
   const signups = Array.from({ length: 30 }, (_, index) => {
@@ -191,6 +211,17 @@ async function overview(db) {
       topLearners,
     },
     ai: { messagesDay: aiMessagesDay, messagesWeek: aiMessagesWeek, sessionsWeek: aiSessionsWeek },
+    revenue: {
+      month: revenueSince(30),
+      week: revenueSince(7),
+      total: sales.reduce((sum, sale) => sum + sale.amount, 0),
+      sales30: sales.filter((sale) => now - new Date(sale.created_at).getTime() <= 30 * DAY).length,
+    },
+    speaking: {
+      minutesToday: Math.round(speakingDays.filter((row) => row.day === today).reduce((sum, row) => sum + row.seconds, 0) / 60),
+      minutesWeek: Math.round(speakingDays.reduce((sum, row) => sum + row.seconds, 0) / 60),
+      speakersToday: speakingDays.filter((row) => row.day === today && row.seconds > 0).length,
+    },
     feedback: {
       total: tickets.length,
       ...ticketCounts,
@@ -203,7 +234,7 @@ async function overview(db) {
 async function userList(db) {
   const [users, profiles, progress, admins] = await Promise.all([
     listAllUsers(db),
-    selectAll(db, "profiles", "id, first_name, last_name, birth_year"),
+    selectAll(db, "profiles", "id, first_name, last_name, birth_year, gender, korean_level"),
     selectAll(db, "user_progress", "user_id, data, updated_at"),
     selectAll(db, "feedback_admins", "user_id"),
   ]);
@@ -220,12 +251,15 @@ async function userList(db) {
 async function userDetail(db, id) {
   const { data, error } = await db.auth.admin.getUserById(id);
   if (error || !data.user) return null;
-  const [profile, progress, admin, sessions, tickets] = await Promise.all([
-    db.from("profiles").select("id, first_name, last_name, birth_year").eq("id", id).maybeSingle(),
+  const [profile, progress, admin, sessions, tickets, speaking, rewards, premiumLog] = await Promise.all([
+    db.from("profiles").select("id, first_name, last_name, birth_year, gender, korean_level").eq("id", id).maybeSingle(),
     db.from("user_progress").select("user_id, data, updated_at").eq("user_id", id).maybeSingle(),
     db.from("feedback_admins").select("user_id").eq("user_id", id).maybeSingle(),
     db.from("ai_chat_sessions").select("id, title, updated_at").eq("user_id", id).order("updated_at", { ascending: false }).limit(20),
     db.from("feedback_tickets").select("id, category, subject, message, status, rating, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("speaking_sessions").select("id, kind, topic_id, level, started_at, seconds, turns").eq("user_id", id).order("started_at", { ascending: false }).limit(20),
+    db.from("reward_claims").select("kind, days, claimed_at").eq("user_id", id).order("claimed_at", { ascending: false }).limit(20),
+    db.from("premium_log").select("days, amount, note, premium_until, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
   const row = userRow(data.user, profile.data, progress.data, new Set(admin.data ? [id] : []));
   const words = progress.data?.data?.words || {};
@@ -249,22 +283,188 @@ async function userDetail(db, id) {
     activity: (progress.data?.data?.stats?.activity || []).slice(-10).reverse(),
     aiSessions: sessions.data || [],
     tickets: tickets.data || [],
+    speakingSessions: speaking.data || [],
+    rewards: rewards.data || [],
+    premiumLog: premiumLog.data || [],
+    profile: {
+      firstName: profile.data?.first_name || "",
+      lastName: profile.data?.last_name || "",
+      birthYear: profile.data?.birth_year || null,
+      gender: profile.data?.gender || null,
+      koreanLevel: profile.data?.korean_level || null,
+    },
+    badgeIds: Object.keys(progress.data?.data?.badges || {}),
   };
+}
+
+// Settings admins may change, with how each value is checked.
+const SETTINGS = {
+  ai_chat_enabled: (value) => typeof value === "boolean",
+  speaking_enabled: (value) => typeof value === "boolean",
+  feedback_ai_enabled: (value) => typeof value === "boolean",
+  speaking_free_seconds: (value) => Number.isInteger(value) && value >= 0 && value <= 86400,
+  speaking_premium_seconds: (value) => Number.isInteger(value) && value >= 0 && value <= 86400,
+  ai_free_daily: (value) => Number.isInteger(value) && value >= 0 && value <= 1000,
+  ai_premium_daily: (value) => Number.isInteger(value) && value >= 0 && value <= 5000,
+  grammar_free_daily: (value) => Number.isInteger(value) && value >= 0 && value <= 1000,
+  announcement: (value) =>
+    Boolean(value) && typeof value === "object" && typeof value.text === "string" && value.text.length <= 300 && (!value.link || /^(https:\/\/|\/)/.test(value.link)),
+};
+
+// Content fields admins may override, with the JSON type each must have.
+// Mirrors EDITABLE_FIELDS in src/lib/contentOverrides.js.
+const CONTENT_FIELDS = {
+  story: { emoji: "string", title: "object", words: "array", lines: "array", questions: "array" },
+  grammar: { pattern: "string", title: "object", explain: "object", rules: "array", examples: "array", mistakes: "array", quiz: "array" },
+  topic: { emoji: "string", ko: "string", uz: "string", en: "string", ru: "string", questions: "array", words: "array" },
+};
+const typeOf = (value) => (Array.isArray(value) ? "array" : value === null ? "null" : typeof value);
+
+function cleanContent(kind, data) {
+  const fields = CONTENT_FIELDS[kind];
+  if (!data || typeOf(data) !== "object" || JSON.stringify(data).length > 60000) return null;
+  for (const [field, value] of Object.entries(data)) {
+    if (!fields[field] || typeOf(value) !== fields[field]) return null;
+    if (fields[field] === "string" && value.length > 300) return null;
+  }
+  return data;
+}
+
+const tashkentDay = () => new Date(Date.now() + 5 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+// A fresh progress object for "reset progress"; the learner's settings stay.
+function emptyProgress(settings) {
+  return {
+    theme: "dark",
+    favorites: {},
+    words: {},
+    lessonDecks: {},
+    studied: {},
+    stats: { studiedWords: 0, correct: 0, wrong: 0, studyMinutes: 0, streak: 0, lastStudyDate: "", activity: [] },
+    settings: settings || { speechRate: 0.82, autoSpeak: true, dailyGoal: 20 },
+    lastPlace: null,
+    shareMilestones: {},
+    xp: 0,
+    badges: {},
+    grammar: {},
+    stories: {},
+    xpSeeded: true,
+  };
+}
+
+// Edits the learner's synced progress. An open tab may later upload its own
+// copy over it, so tell the learner to reload after big changes.
+async function updateProgress(db, userId, change) {
+  const { data, error } = await db.from("user_progress").select("data").eq("user_id", userId).maybeSingle();
+  if (error) return [500, { error: "Load failed" }];
+  const next = change(data?.data ? structuredClone(data.data) : emptyProgress());
+  const { error: saveError } = await db.from("user_progress").upsert({ user_id: userId, data: next, updated_at: new Date().toISOString() });
+  if (saveError) return [500, { error: "Save failed" }];
+  return [200, { xp: next.xp || 0, streak: next.stats?.streak || 0, badges: Object.keys(next.badges || {}) }];
 }
 
 async function act(db, actor, body) {
   const { action, userId } = body || {};
+  if (action === "setting") {
+    const check = SETTINGS[body.key];
+    if (!check || !check(body.value)) return [400, { error: "Invalid setting" }];
+    const { error } = await db.from("app_settings").upsert({ key: body.key, value: body.value, updated_at: new Date().toISOString() });
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { key: body.key, value: body.value }];
+  }
+  if (action === "content") {
+    if (!CONTENT_FIELDS[body.kind] || !/^[a-z0-9-]{1,60}$/i.test(String(body.itemId || ""))) return [400, { error: "Invalid item" }];
+    if (body.revert) {
+      const { error } = await db.from("content_overrides").delete().eq("kind", body.kind).eq("item_id", body.itemId);
+      if (error) return [500, { error: "Update failed" }];
+      return [200, { reverted: true }];
+    }
+    const data = cleanContent(body.kind, body.data || {});
+    if (!data) return [400, { error: "Invalid content" }];
+    const { error } = await db.from("content_overrides").upsert({
+      kind: body.kind,
+      item_id: body.itemId,
+      data,
+      hidden: Boolean(body.hidden),
+      updated_by: actor.id,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { saved: true }];
+  }
   if (!UUID.test(String(userId || ""))) return [400, { error: "Invalid user" }];
   const selfChange = userId === actor.id;
 
   if (action === "premium") {
     const days = Number(body.days);
     if (!Number.isFinite(days) || days < 0 || days > 3660) return [400, { error: "Invalid duration" }];
+    const amount = Math.max(0, Math.round(Number(body.amount) || 0));
     try {
-      return [200, { premiumUntil: await extendPremium(db, userId, days) }];
+      const until = await extendPremium(db, userId, days);
+      await db.from("premium_log").insert({ user_id: userId, admin_id: actor.id, days, amount, note: String(body.note || "").slice(0, 200), premium_until: until });
+      return [200, { premiumUntil: until }];
     } catch (error) {
       return [error.status || 500, { error: error.message }];
     }
+  }
+
+  if (action === "profile") {
+    const patch = {};
+    if (typeof body.firstName === "string") patch.first_name = body.firstName.trim().slice(0, 50);
+    if (typeof body.lastName === "string") patch.last_name = body.lastName.trim().slice(0, 50);
+    if (body.birthYear !== undefined && body.birthYear !== null && body.birthYear !== "") {
+      const year = Number(body.birthYear);
+      if (!Number.isInteger(year) || year < 1900 || year > new Date().getFullYear()) return [400, { error: "Invalid birth year" }];
+      patch.birth_year = year;
+    }
+    if (body.gender !== undefined) {
+      if (![null, "male", "female"].includes(body.gender)) return [400, { error: "Invalid gender" }];
+      patch.gender = body.gender;
+    }
+    if (body.koreanLevel !== undefined) {
+      if (![null, "beginner", "intermediate", "advanced"].includes(body.koreanLevel)) return [400, { error: "Invalid level" }];
+      patch.korean_level = body.koreanLevel;
+    }
+    const { error } = await db.from("profiles").upsert({ id: userId, ...patch });
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { saved: true }];
+  }
+
+  if (action === "confirmEmail") {
+    const { error } = await db.auth.admin.updateUserById(userId, { email_confirm: true });
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { confirmed: true }];
+  }
+
+  if (action === "resetPassword") {
+    const { data, error } = await db.auth.admin.getUserById(userId);
+    if (error || !data.user?.email) return [404, { error: "User not found" }];
+    const site = process.env.SITE_URL || "https://lugat-six.vercel.app";
+    const { error: sendError } = await db.auth.resetPasswordForEmail(data.user.email, { redirectTo: site + "/reset-password" });
+    if (sendError) return [500, { error: "Could not send the email" }];
+    return [200, { sent: true }];
+  }
+
+  if (action === "resetSpeaking") {
+    const { error } = await db.from("speaking_usage").delete().eq("user_id", userId).eq("day", tashkentDay());
+    if (error) return [500, { error: "Update failed" }];
+    return [200, { reset: true }];
+  }
+
+  if (action === "progress") {
+    return updateProgress(db, userId, (data) => {
+      if (body.reset) return emptyProgress(data.settings);
+      if (Number.isFinite(Number(body.xpDelta))) data.xp = Math.max(0, (data.xp || 0) + Math.round(Number(body.xpDelta)));
+      if (body.streak !== undefined && Number.isInteger(Number(body.streak)) && Number(body.streak) >= 0) {
+        data.stats = { ...(data.stats || {}), streak: Number(body.streak), lastStudyDate: new Date().toISOString().slice(0, 10) };
+      }
+      if (typeof body.badge === "string" && /^[a-zA-Z0-9]{2,30}$/.test(body.badge)) {
+        data.badges = { ...(data.badges || {}) };
+        if (body.badgeValue === false) delete data.badges[body.badge];
+        else data.badges[body.badge] = Date.now();
+      }
+      return data;
+    });
   }
 
   if (action === "admin") {
@@ -320,11 +520,42 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
       const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body;
       const [status, payload] = await act(db, auth.user, body);
+      if (status < 400) {
+        const details = { ...body };
+        delete details.action;
+        delete details.userId;
+        // Content edits can be long; the log keeps which fields changed.
+        if (details.data) details.data = Object.keys(details.data);
+        await db.from("admin_audit").insert({
+          admin_id: auth.user.id,
+          action: String(body.action || ""),
+          target_user: UUID.test(String(body.userId || "")) ? body.userId : null,
+          details,
+        });
+      }
       return res.status(status).json(payload);
     }
     const action = req.query?.action;
     if (action === "overview") return res.status(200).json(await overview(db));
     if (action === "users") return res.status(200).json(await userList(db));
+    if (action === "messages") {
+      if (!UUID.test(String(req.query.sessionId || ""))) return res.status(400).json({ error: "Invalid session" });
+      const { data: messages } = await db.from("ai_chat_messages").select("role, content, created_at").eq("session_id", req.query.sessionId).order("created_at").limit(200);
+      return res.status(200).json({ messages: messages || [] });
+    }
+    if (action === "settings") {
+      const { data: settings } = await db.from("app_settings").select("key, value");
+      return res.status(200).json({ settings: Object.fromEntries((settings || []).map((row) => [row.key, row.value])) });
+    }
+    if (action === "journal") {
+      const [{ data: entries }, { data: sales }, users] = await Promise.all([
+        db.from("admin_audit").select("*").order("created_at", { ascending: false }).limit(300),
+        db.from("premium_log").select("*").order("created_at", { ascending: false }).limit(300),
+        listAllUsers(db),
+      ]);
+      const emails = Object.fromEntries(users.map((user) => [user.id, user.email || user.id]));
+      return res.status(200).json({ entries: entries || [], sales: sales || [], emails });
+    }
     if (action === "user") {
       if (!UUID.test(String(req.query.id || ""))) return res.status(400).json({ error: "Invalid user" });
       const detail = await userDetail(db, req.query.id);

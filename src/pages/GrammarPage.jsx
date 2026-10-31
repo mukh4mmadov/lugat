@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { lessons } from "../data";
 import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, grammarForLesson, rowText, tr } from "../data/grammar";
+import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { buildPractice } from "../lib/grammarDrills";
 import { getDeviceId } from "../lib/deviceId";

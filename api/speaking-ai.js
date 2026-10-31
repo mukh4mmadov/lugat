@@ -53,6 +53,15 @@ async function dailyLimit(db, premium) {
   };
 }
 
+// The built-in topic with any admin edits (content_overrides) laid over it.
+async function topicWithEdits(db, id) {
+  const topic = getSpeakingTopic(id);
+  if (!topic) return null;
+  const { data } = await db.from("content_overrides").select("data, hidden").eq("kind", "topic").eq("item_id", topic.id).maybeSingle();
+  if (data?.hidden) return null;
+  return { ...topic, ...(data?.data || {}), id: topic.id, level: topic.level };
+}
+
 async function usedToday(db, userId) {
   const { data } = await db.from("speaking_usage").select("seconds, turns").eq("user_id", userId).eq("day", tashkentDay()).maybeSingle();
   return { seconds: data?.seconds || 0, turns: data?.turns || 0 };
@@ -194,7 +203,7 @@ async function status(db, user, res) {
 }
 
 async function start(db, user, body, res) {
-  const topic = getSpeakingTopic(body.topicId);
+  const topic = await topicWithEdits(db, body.topicId);
   const level = LEVELS.includes(body.level) ? body.level : topic?.level;
   if (!topic || !level) return res.status(400).json({ error: "Unknown topic" });
   const premium = isPremium(user);
@@ -216,7 +225,7 @@ async function turn(db, user, body, res) {
 
   const { data: session } = await db.from("speaking_sessions").select("*").eq("id", body.sessionId).maybeSingle();
   if (!session || session.user_id !== user.id || session.ended_at) return res.status(404).json({ error: "Session not found" });
-  const topic = getSpeakingTopic(session.topic_id);
+  const topic = (await topicWithEdits(db, session.topic_id)) || getSpeakingTopic(session.topic_id);
   const premium = isPremium(user);
   const [limit, used] = await Promise.all([dailyLimit(db, premium), usedToday(db, user.id)]);
   if (!limit.enabled) return res.status(503).json({ error: "Speaking practice is turned off for now." });

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { allWords, getWordKey, meaning } from "../data";
 import { STORIES, getStory, isPremiumStory, lineText, storiesForLesson, wordCandidates } from "../data/stories";
+import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { isPremium } from "../lib/premium";
 import { speakKorean, stopSpeaking } from "../lib/speech";

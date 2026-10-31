@@ -149,43 +149,25 @@ if (Math.random() < 0.05) {
 const UPSTASH_URL = process.env.UPSTASH_REDIS_REST_URL;
 const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 let redis = null;
-let userLimiter = null;
 let reviewFreeLimiter = null;
 let reviewDeviceLimiter = null;
 let reviewPremiumLimiter = null;
-let grammarFreeLimiter = null;
 let grammarPremiumLimiter = null;
-let userDeviceLimiter = null;
-let premiumLimiter = null;
 let topikUserLimiter = null;
 let ipLimiter = null;
 let deviceLimiter = null;
+let RatelimitClass = null;
 
 if (UPSTASH_URL && UPSTASH_TOKEN) {
   try {
     const { Redis } = await import("@upstash/redis");
     const { Ratelimit } = await import("@upstash/ratelimit");
+    RatelimitClass = Ratelimit;
     redis = new Redis({ url: UPSTASH_URL, token: UPSTASH_TOKEN });
-    userLimiter = new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(FREE_DAILY_LIMIT, "24 h"),
-      prefix: "ratelimit:free-user",
-    });
-    userDeviceLimiter = new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(FREE_DAILY_LIMIT, "24 h"),
-      prefix: "ratelimit:free-device",
-    });
     reviewFreeLimiter = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(REVIEW_FREE_DAILY, "24 h"), prefix: "ratelimit:review-free" });
     reviewDeviceLimiter = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(REVIEW_FREE_DAILY, "24 h"), prefix: "ratelimit:review-device" });
     reviewPremiumLimiter = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(REVIEW_PREMIUM_DAILY, "24 h"), prefix: "ratelimit:review-premium" });
-    grammarFreeLimiter = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(GRAMMAR_FREE_DAILY, "24 h"), prefix: "ratelimit:grammar-free" });
     grammarPremiumLimiter = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(GRAMMAR_PREMIUM_DAILY, "24 h"), prefix: "ratelimit:grammar-premium" });
-    premiumLimiter = new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(PREMIUM_DAILY_LIMIT, "24 h"),
-      prefix: "ratelimit:premium-user",
-    });
     topikUserLimiter = new Ratelimit({
       redis,
       limiter: Ratelimit.slidingWindow(30, "24 h"),
@@ -210,6 +192,43 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
   );
 }
 
+// Limits admins set in app_settings, cached for a minute; the constants
+// above are the fallback.
+let limitsCache = { at: 0, values: null };
+async function adminLimits() {
+  if (limitsCache.values && Date.now() - limitsCache.at < 60000) return limitsCache.values;
+  const values = { free: FREE_DAILY_LIMIT, premium: PREMIUM_DAILY_LIMIT, grammar: GRAMMAR_FREE_DAILY, chatEnabled: true };
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (createClient && SUPABASE_URL && serviceKey) {
+    try {
+      const db = createClient(SUPABASE_URL, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
+      const { data } = await db.from("app_settings").select("key, value").in("key", ["ai_free_daily", "ai_premium_daily", "grammar_free_daily", "ai_chat_enabled"]);
+      const names = { ai_free_daily: "free", ai_premium_daily: "premium", grammar_free_daily: "grammar" };
+      for (const row of data || []) {
+        if (row.key === "ai_chat_enabled") {
+          values.chatEnabled = row.value !== false;
+          continue;
+        }
+        const limit = Number(row.value);
+        if (Number.isInteger(limit) && limit >= 0) values[names[row.key]] = limit;
+      }
+    } catch (error) {
+      console.error("Could not read AI limits:", error);
+    }
+  }
+  limitsCache = { at: Date.now(), values };
+  return values;
+}
+
+// One Upstash limiter per prefix and limit, so a changed limit takes effect.
+const dynamicLimiters = new Map();
+function limiterFor(prefix, limit) {
+  if (!redis || !RatelimitClass || limit <= 0) return null;
+  const key = prefix + ":" + limit;
+  if (!dynamicLimiters.has(key)) dynamicLimiters.set(key, new RatelimitClass({ redis, limiter: RatelimitClass.slidingWindow(limit, "24 h"), prefix }));
+  return dynamicLimiters.get(key);
+}
+
 async function checkUserLimit(user, deviceId) {
   const premium = isPremiumUser(user);
   const denied = (resetAt) => ({
@@ -219,25 +238,31 @@ async function checkUserLimit(user, deviceId) {
     isGuest: false,
     isPremium: premium,
   });
+  const limits = await adminLimits();
   if (premium) {
-    const result = premiumLimiter
-      ? await premiumLimiter.limit(`user:${user.id}`)
-      : toUpstashShape(checkMemoryRateLimit(`premium:${user.id}`, PREMIUM_DAILY_LIMIT, DAY_MS));
-    return result.success ? { allowed: true, remaining: result.remaining, isPremium: true } : denied(result.reset);
+    if (limits.premium <= 0) return { ...denied(), limit: 0 };
+    const limiter = limiterFor("ratelimit:premium-user", limits.premium);
+    const result = limiter
+      ? await limiter.limit(`user:${user.id}`)
+      : toUpstashShape(checkMemoryRateLimit(`premium:${user.id}`, limits.premium, DAY_MS));
+    return result.success ? { allowed: true, remaining: result.remaining, isPremium: true, limit: limits.premium } : { ...denied(result.reset), limit: limits.premium };
   }
-  const [userResult, deviceResult] = userLimiter
+  if (limits.free <= 0) return { ...denied(), limit: 0 };
+  const userLimit = limiterFor("ratelimit:free-user", limits.free);
+  const deviceLimit = limiterFor("ratelimit:free-device", limits.free);
+  const [userResult, deviceResult] = userLimit
     ? await Promise.all([
-        userLimiter.limit(`user:${user.id}`),
-        deviceId ? userDeviceLimiter.limit(`device:${deviceId}`) : Promise.resolve(null),
+        userLimit.limit(`user:${user.id}`),
+        deviceId ? deviceLimit.limit(`device:${deviceId}`) : Promise.resolve(null),
       ])
     : [
-        toUpstashShape(checkMemoryRateLimit(`free-user:${user.id}`, FREE_DAILY_LIMIT, DAY_MS)),
-        deviceId ? toUpstashShape(checkMemoryRateLimit(`free-device:${deviceId}`, FREE_DAILY_LIMIT, DAY_MS)) : null,
+        toUpstashShape(checkMemoryRateLimit(`free-user:${user.id}`, limits.free, DAY_MS)),
+        deviceId ? toUpstashShape(checkMemoryRateLimit(`free-device:${deviceId}`, limits.free, DAY_MS)) : null,
       ];
-  if (!userResult.success) return denied(userResult.reset);
-  if (deviceResult && !deviceResult.success) return denied(deviceResult.reset);
+  if (!userResult.success) return { ...denied(userResult.reset), limit: limits.free };
+  if (deviceResult && !deviceResult.success) return { ...denied(deviceResult.reset), limit: limits.free };
   const remaining = Math.min(userResult.remaining, deviceResult ? deviceResult.remaining : Infinity);
-  return { allowed: true, remaining, isPremium: false };
+  return { allowed: true, remaining, isPremium: false, limit: limits.free };
 }
 
 function toUpstashShape(result) {
@@ -477,10 +502,12 @@ async function handleTopikReview(res, body, user, deviceId, language) {
 // Checks a sentence the learner wrote with a grammar point. Free accounts get
 // a few checks a day, premium many.
 async function checkGrammarLimit(user, premium) {
-  const limiter = premium ? grammarPremiumLimiter : grammarFreeLimiter;
+  const freeLimit = (await adminLimits()).grammar;
+  if (!premium && freeLimit <= 0) return { success: false, remaining: 0, reset: Date.now() + DAY_MS };
+  const limiter = premium ? grammarPremiumLimiter : limiterFor("ratelimit:grammar-free", freeLimit);
   return limiter
     ? limiter.limit(`user:${user.id}`)
-    : toUpstashShape(checkMemoryRateLimit(`grammar-${premium ? "premium" : "free"}:${user.id}`, premium ? GRAMMAR_PREMIUM_DAILY : GRAMMAR_FREE_DAILY, DAY_MS));
+    : toUpstashShape(checkMemoryRateLimit(`grammar-${premium ? "premium" : "free"}:${user.id}`, premium ? GRAMMAR_PREMIUM_DAILY : freeLimit, DAY_MS));
 }
 
 async function handleGrammarCheck(res, body, user, language) {
@@ -735,6 +762,9 @@ export default async function handler(req, res) {
 
   if (body?.action === "topikReview") return handleTopikReview(res, body, user, deviceId, language);
   if (body?.action === "grammarCheck") return handleGrammarCheck(res, body, user, language);
+  if (!(await adminLimits()).chatEnabled) {
+    return res.status(503).json({ error: "The AI tutor is turned off for now." });
+  }
 
   if (!message || typeof message !== "string" || message.trim().length === 0) {
     return res.status(400).json({ error: "Message cannot be empty." });
@@ -774,7 +804,7 @@ export default async function handler(req, res) {
       isGuest: rateLimitResult.isGuest,
       isTopik: !!topikContext,
       isPremium: !!rateLimitResult.isPremium,
-      limit: rateLimitResult.isGuest ? null : rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT,
+      limit: rateLimitResult.isGuest ? null : rateLimitResult.limit ?? (rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT),
     });
   }
 
@@ -843,6 +873,6 @@ export default async function handler(req, res) {
     sessionId,
     // Questions left today for signed-in users (null for guests and TOPIK hints).
     remaining: user && !topikContext ? rateLimitResult.remaining ?? null : null,
-    limit: user && !topikContext ? (rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT) : null,
+    limit: user && !topikContext ? rateLimitResult.limit ?? (rateLimitResult.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT) : null,
   });
 }

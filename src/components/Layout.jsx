@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { Suspense, useEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
+import AnnouncementBanner from "./AnnouncementBanner";
 import BottomNav from "./BottomNav";
 import { setLastPlace, setPremiumUntil, setTheme } from "../store";
 import LevelChip from "./LevelChip";
@@ -244,6 +245,7 @@ export default function Layout({ onShowIELTSModal }) {
             </button>
           </div>
         )}
+        <AnnouncementBanner />
         <div className="fixed inset-0 -z-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,.28),transparent_30%),radial-gradient(circle_at_top_right,rgba(168,85,247,.24),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,197,94,.15),transparent_32%)]" />
 
         <header className="sticky top-0 z-40 border-b border-white/20 bg-white/70 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55">

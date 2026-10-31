@@ -2,10 +2,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import ContentEditor from "../components/admin/ContentEditor";
 import { allWords, getWordKey, lessonInfo, meaning } from "../data";
 import { TOPIK_EXAMS } from "../data/topik/exams";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
+import { formatPrice } from "../lib/premium";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../context/AuthContext";
 
@@ -116,6 +118,8 @@ export default function AdminPage() {
     ["/admin/feedback", t("admin.tab.feedback")],
     ["/admin/words", t("adminWords.tab")],
     ["/admin/content", t("admin.tab.content")],
+    ["/admin/settings", t("admin.tab.settings")],
+    ["/admin/journal", t("admin.tab.journal")],
   ];
 
   return (
@@ -269,7 +273,7 @@ export function AdminOverview() {
 
       <ServerNotice error={error} onRetry={load} />
 
-      <section aria-label={t("admin.summary")} className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-6">
+      <section aria-label={t("admin.summary")} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <StatTile label={t("admin.kpi.users")} value={data?.users.total} hint={data && t("admin.kpi.newWeek", { count: data.users.new7 })} />
         <StatTile tone="emerald" label={t("admin.kpi.active7")} value={data?.learning.active7} hint={data && t("admin.kpi.activeToday", { count: data.learning.active1 })} />
         <StatTile tone="violet" label={t("admin.kpi.ai7")} value={data?.ai.messagesWeek} hint={data && t("admin.kpi.aiToday", { count: data.ai.messagesDay ?? 0 })} />
@@ -278,6 +282,10 @@ export function AdminOverview() {
         </Link>
         <StatTile tone="violet" label={t("admin.kpi.premium")} value={data?.users.premium} hint={data && t("admin.kpi.admins", { count: data.users.admins })} />
         <StatTile tone="emerald" label={t("admin.kpi.known")} value={data?.learning.totalKnown} hint={data && t("admin.kpi.minutes", { count: data.learning.totalMinutes })} />
+        <Link to="/admin/journal" className="block">
+          <StatTile tone="emerald" label={t("admin.kpi.revenue30")} value={data?.revenue && formatPrice(data.revenue.month)} hint={data?.revenue && t("admin.kpi.revenueWeek", { amount: formatPrice(data.revenue.week) })} />
+        </Link>
+        <StatTile tone="sky" label={t("admin.kpi.speakingToday")} value={data?.speaking && t("speaking.minutesShort", { count: data.speaking.minutesToday })} hint={data?.speaking && t("admin.kpi.speakingWeek", { count: data.speaking.minutesWeek, people: data.speaking.speakersToday })} />
       </section>
 
       {data && (
@@ -399,6 +407,11 @@ export function AdminContent() {
         <StatTile tone="violet" label={t("admin.content.papers")} value={TOPIK_EXAMS.length} hint={t("admin.content.questions", { count: TOPIK_EXAMS.reduce((sum, exam) => sum + exam.questions.length, 0) })} />
         <StatTile tone={flagged + missingRomanization ? "amber" : "emerald"} label={t("admin.content.quality")} value={flagged + missingRomanization} hint={t("admin.content.qualityHint")} />
       </section>
+
+      <Panel title={t("admin.edit.title")}>
+        <p className="mb-3 text-xs text-slate-500">{t("admin.edit.hint")}</p>
+        <ContentEditor />
+      </Panel>
 
       <Panel title={t("admin.content.topikTitle")}>
         <ul className="divide-y divide-slate-100 dark:divide-white/5">

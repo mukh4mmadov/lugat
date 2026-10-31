@@ -8,6 +8,7 @@ import SpeakingSetup from "../components/speaking/SpeakingSetup";
 import TopicWheel from "../components/speaking/TopicWheel";
 import { allWords, meaning } from "../data";
 import { LEVEL_ICONS, SPEAKING_LEVELS, getSpeakingTopic, localized, topicsForLevel } from "../data/speakingTopics";
+import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { timeAgo } from "../lib/dates";
 import { formatMinutes, speakingRequest } from "../lib/speakingApi";

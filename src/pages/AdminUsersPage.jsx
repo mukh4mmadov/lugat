@@ -7,6 +7,7 @@ import { formatDate, timeAgo } from "../lib/dates";
 import { lookupWord, Panel, ServerNotice, StatTile, useAdminContext } from "./AdminPage";
 import { ticketTitle } from "../lib/feedback";
 import { meaning } from "../data";
+import UserPowers from "../components/admin/UserPowers";
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE_SIZE = 25;
@@ -203,6 +204,8 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
                   <p role={message.ok ? "status" : "alert"} className={`mt-3 text-sm font-bold ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>{message.text}</p>
                 )}
               </Panel>
+
+              <UserPowers key={detail.id} detail={detail} busy={busy} run={run} />
 
               {detail.lessons.length > 0 && (
                 <Panel title={t("admin.user.lessons")}>
