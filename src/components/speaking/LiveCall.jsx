@@ -86,6 +86,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
   const callRef = useRef(null);
   const connectedAt = useRef(null);
   const endingRef = useRef(false);
+  const pollRef = useRef(null);
 
   const remaining = status ? Math.max(0, status.limitSeconds - status.usedSeconds) : Infinity;
   const left = remaining - elapsed;
@@ -119,8 +120,14 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     supabase.rpc("speaking_online").then(({ data }) => !cancelled && setOnline(data));
 
     async function poll() {
-      const { data, error } = await supabase.rpc("find_speaking_partner", { p_want: want, p_level: level, p_topic: myTopic?.id || null });
-      if (cancelled) return;
+      // A real promise: awaiting a Supabase builder twice would send it twice.
+      pollRef.current = Promise.resolve(supabase.rpc("find_speaking_partner", { p_want: want, p_level: level, p_topic: myTopic?.id || null }));
+      const { data, error } = await pollRef.current;
+      if (cancelled) {
+        // Matched just as the learner left: free the partner straight away.
+        if (data?.status === "matched") supabase.rpc("end_speaking_call", { p_call: data.call_id });
+        return;
+      }
       if (error) {
         timer = setTimeout(poll, POLL_MS);
         return;
@@ -146,9 +153,10 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     };
   }, [phase, want, level, myTopic, round]);
 
-  // Leave the queue when the screen closes while searching.
+  // Leave the queue when the screen closes while searching, after any poll
+  // still on its way, so it cannot put the learner back in.
   useEffect(() => () => {
-    supabase.rpc("leave_speaking_queue");
+    Promise.resolve(pollRef.current).finally(() => supabase.rpc("leave_speaking_queue"));
   }, []);
 
   // Connect to the partner.
