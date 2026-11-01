@@ -91,3 +91,54 @@ async function sendBatch(db, userIds, kind, { gapHours = 12 } = {}) {
   if (reached.size) await db.from("push_log").insert([...reached].map((userId) => ({ user_id: userId, kind })));
   return reached.size;
 }
+
+const REPORT_REASONS = { rude: "qo'pollik", sexual: "uyatsiz gap", spam: "spam", silent: "jim turdi", underage: "yoshi kichik", other: "boshqa" };
+const ADMIN_TEXT = {
+  deletion: (data) => ({ title: "🗑 Akkauntni o'chirish arizasi", body: `${data.email || ""}: ${data.reason || ""}` }),
+  ticket: (data) => ({ title: "✉️ Yangi murojaat", body: data.text || "" }),
+  ticketReply: (data) => ({ title: "💬 Murojaatga javob yozildi", body: data.text || "" }),
+  report: (data) => ({ title: "⚠️ Suhbat haqida shikoyat", body: [REPORT_REASONS[data.reason] || data.reason, data.note].filter(Boolean).join(" — ") }),
+  signup: (data) => ({ title: "👋 Yangi o'quvchi", body: data.name || "Ro'yxatdan o'tdi" }),
+};
+
+// Sends admins a push for each new admin notification (see the
+// admin_notifications migration) that has not been pushed yet. Several at
+// once become one summary. Admins get these whatever the daily cap.
+export async function pushAdminNotifications(db) {
+  if (!pushConfigured()) return 0;
+  const since = new Date(Date.now() - 24 * 3600000).toISOString();
+  const { data: pending } = await db.from("admin_notifications").select("id").is("pushed_at", null).gte("created_at", since).limit(50);
+  if (!pending?.length) return 0;
+  // Claiming the rows first means two calls at once never push the same one.
+  const { data: claimed } = await db
+    .from("admin_notifications")
+    .update({ pushed_at: new Date().toISOString() })
+    .in("id", pending.map((row) => row.id))
+    .is("pushed_at", null)
+    .select("id, kind, data, link");
+  if (!claimed?.length) return 0;
+  const { data: admins } = await db.from("feedback_admins").select("user_id");
+  const adminIds = (admins || []).map((row) => row.user_id);
+  if (!adminIds.length) return 0;
+  const { data: subscriptions } = await db.from("push_subscriptions").select("*").in("user_id", adminIds);
+  if (!subscriptions?.length) return 0;
+  const messages =
+    claimed.length > 3
+      ? [{ title: `🔔 ${claimed.length} ta yangi bildirishnoma`, body: claimed.map((row) => ADMIN_TEXT[row.kind]?.(row.data || {}).title).join(", "), url: "/admin/notifications", tag: "admin-summary" }]
+      : claimed.map((row) => ({ ...(ADMIN_TEXT[row.kind]?.(row.data || {}) || { title: "🔔 K-TALIM", body: "" }), url: row.link, tag: `admin-${row.id}` }));
+  let sent = 0;
+  await Promise.all(
+    subscriptions.flatMap((row) =>
+      messages.map(async (message) => {
+        try {
+          await webpush.sendNotification({ endpoint: row.endpoint, keys: { p256dh: row.p256dh, auth: row.auth } }, JSON.stringify({ ...message, body: message.body.slice(0, 200) }), { TTL: 24 * 3600 });
+          sent += 1;
+        } catch (error) {
+          if (error.statusCode === 404 || error.statusCode === 410) await db.from("push_subscriptions").delete().eq("endpoint", row.endpoint);
+          else console.error("Admin push failed:", error.statusCode || error.message);
+        }
+      }),
+    ),
+  );
+  return sent;
+}

@@ -53,6 +53,12 @@ async function pushRequest(body) {
   return response.json();
 }
 
+// Something admins should know about just happened (a support request, a
+// report, a sign-up): the server pushes the new admin notifications.
+export function notifyAdmins() {
+  pushRequest({ action: "adminDigest" }).catch(() => {});
+}
+
 export async function pushState() {
   if (!pushSupported()) return { supported: false };
   const { publicKey } = await fetch("/api/push").then((response) => response.json()).catch(() => ({}));

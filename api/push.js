@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { chunks, pushConfigured, sendReminder } from "./_lib/push.js";
+import { chunks, pushAdminNotifications, pushConfigured, sendReminder } from "./_lib/push.js";
 
 // Web push reminders the learner turned on.
 //
@@ -8,6 +8,9 @@ import { chunks, pushConfigured, sendReminder } from "./_lib/push.js";
 //   POST /api/push { action: "unsubscribe", endpoint }
 //   POST /api/push { action: "partnerWaiting" }   the caller is waiting for a live call partner:
 //        tell a few learners at the same level who aren't searching (at most 2 pushes a day each)
+//   POST /api/push { action: "adminDigest" }   something new happened (a support request, a report,
+//        a sign-up): push the admin notifications that have not been pushed yet. Safe for anyone
+//        to call; it only sends what the database triggers have already recorded.
 //   Authorization: Bearer <session> (POST)
 
 const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
@@ -80,6 +83,7 @@ export default async function handler(req, res) {
       return res.status(200).json({ subscribed: false });
     }
     if (body.action === "partnerWaiting") return res.status(200).json({ notified: await partnerWaiting(db, user) });
+    if (body.action === "adminDigest") return res.status(200).json({ sent: await pushAdminNotifications(db) });
     return res.status(400).json({ error: "Unknown action" });
   } catch (error) {
     console.error("Push API error:", error);

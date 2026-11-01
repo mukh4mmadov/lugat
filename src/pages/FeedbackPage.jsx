@@ -20,6 +20,7 @@ import {
   ticketTitle,
 } from "../lib/feedback";
 import { supabase } from "../lib/supabase";
+import { notifyAdmins } from "../lib/growth";
 
 const DRAFT_KEY = "k-talim:feedback-draft";
 const LIST_COLUMNS = "id, category, subject, message, status, user_unread, last_message_at, last_message_by, created_at, rating";
@@ -105,6 +106,7 @@ function NewReportForm({ onCreated }) {
       return;
     }
     writeDraft(null);
+    notifyAdmins();
     onCreated(data);
   }
 
@@ -497,6 +499,7 @@ function TicketView({ ticketId }) {
       setError(t(errorKey(replyError)));
       return;
     }
+    notifyAdmins();
     setReply("");
     askedOnOpen.current = true;
     await load();

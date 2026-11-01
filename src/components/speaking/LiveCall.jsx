@@ -6,7 +6,7 @@ import GlassCard from "../GlassCard";
 import { LEVEL_ICONS, getSpeakingTopic, localized } from "../../data/speakingTopics";
 import { startCallRecording, uploadCallRecording } from "../../lib/callRecorder";
 import { createPeerCall, liveCallsSupported } from "../../lib/peerCall";
-import { notifyPartnerWaiting } from "../../lib/growth";
+import { notifyAdmins, notifyPartnerWaiting } from "../../lib/growth";
 import { speakKorean } from "../../lib/speech";
 import { supabase } from "../../lib/supabase";
 import { recordSpeaking } from "../../store";
@@ -46,7 +46,8 @@ function ReportForm({ callId, onDone }) {
   async function submit(event) {
     event.preventDefault();
     setBusy(true);
-    await supabase.rpc("report_speaking_user", { p_call: callId, p_reason: reason, p_note: note });
+    const { error } = await supabase.rpc("report_speaking_user", { p_call: callId, p_reason: reason, p_note: note });
+    if (!error) notifyAdmins();
     setBusy(false);
     onDone();
   }

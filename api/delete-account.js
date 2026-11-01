@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { pushAdminNotifications } from "./_lib/push.js";
 
 // Learners cannot delete their own account. They send a deletion request
 // with a reason; an admin checks the account and deletes it from the admin
@@ -43,5 +44,7 @@ export default async function handler(req, res) {
     : supabase.from("account_deletion_requests").insert({ user_id: data.user.id, email: data.user.email, reason });
   const { data: request, error } = await query.select("id, status, reason, created_at").single();
   if (error) return res.status(500).json({ error: "Could not send the request" });
+  // A trigger has added an admin notification; push it to the admins now.
+  await pushAdminNotifications(supabase).catch((pushError) => console.error("Admin push error:", pushError));
   return res.status(200).json({ request });
 }

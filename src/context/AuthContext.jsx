@@ -10,6 +10,7 @@ import {
 import { supabase, timeoutSignal } from "../lib/supabase";
 import { useDispatch } from "react-redux";
 import { fetchServerProgress, setCurrentSyncUserId } from "../lib/progressSync";
+import { notifyAdmins } from "../lib/growth";
 import { hasProgress, mergeProgress } from "../lib/progressMerge";
 import { PROGRESS_OWNER_KEY, hydrateProgress, progressUpdatedAt, resetProgress, saveProgressNow, store } from "../store";
 // TOPIK data is large, so its sync code loads only after sign-in.
@@ -201,6 +202,7 @@ export function AuthProvider({ children }) {
             const { error: insertError } = await supabase.from("profiles").upsert({ id: userId, ...created });
 
             if (!insertError) {
+              notifyAdmins();
               setProfile(created);
               cacheProfile(userId, created);
               setProfileComplete(true);
@@ -231,6 +233,7 @@ export function AuthProvider({ children }) {
     });
 
     if (!error) {
+      notifyAdmins();
       setProfile(profileData);
       setProfileComplete(true);
       await syncProgressOnLogin(user.id);

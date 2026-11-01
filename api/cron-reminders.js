@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { chunks, sendReminder } from "./_lib/push.js";
+import { chunks, pushAdminNotifications, sendReminder } from "./_lib/push.js";
 
 // Daily at 20:00 Tashkent (vercel.json crons): a "keep your streak" push for
 // learners with a streak who haven't studied today, and a "Premium ends in
@@ -51,7 +51,9 @@ export default async function handler(req, res) {
       if (data.users.length < 1000) break;
     }
     const expiryReminded = await sendReminder(db, expiring, "expiry", { gapHours: 72 });
-    return res.status(200).json({ due: due.length, reminded, expiring: expiring.length, expiryReminded });
+    // Anything admins have not been pushed about yet.
+    const adminPushes = await pushAdminNotifications(db);
+    return res.status(200).json({ due: due.length, reminded, expiring: expiring.length, expiryReminded, adminPushes });
   } catch (error) {
     console.error("Reminder cron error:", error);
     return res.status(500).json({ error: "Reminder run failed" });

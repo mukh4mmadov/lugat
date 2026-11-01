@@ -10,6 +10,7 @@ import { formatDate, timeAgo } from "../lib/dates";
 import { formatPrice } from "../lib/premium";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../context/AuthContext";
+import { useAdminUnseen } from "../lib/adminNotifications";
 
 const wordsByKey = new Map(allWords.map((word) => [getWordKey(word), word]));
 
@@ -56,6 +57,7 @@ export default function AdminPage() {
   const { user, loading: authLoading } = useAuth();
   const [access, setAccess] = useState("loading");
   const [error, setError] = useState("");
+  const unseen = useAdminUnseen(access === "allowed");
 
   const check = useCallback(async () => {
     if (!user) {
@@ -114,6 +116,7 @@ export default function AdminPage() {
 
   const tabs = [
     ["/admin", t("admin.tab.overview"), true],
+    ["/admin/notifications", t("adminNotifications.title"), false, unseen],
     ["/admin/users", t("admin.tab.users")],
     ["/admin/feedback", t("admin.tab.feedback")],
     ["/admin/words", t("adminWords.tab")],
@@ -131,7 +134,7 @@ export default function AdminPage() {
         <h1 className="mt-1 text-2xl font-black md:text-3xl">{t("admin.title")}</h1>
       </header>
       <nav aria-label={t("admin.tools")} className="-mx-1 flex gap-1 overflow-x-auto px-1 pb-1">
-        {tabs.map(([to, label, end]) => (
+        {tabs.map(([to, label, end, count]) => (
           <NavLink
             key={to}
             to={to}
@@ -145,6 +148,7 @@ export default function AdminPage() {
             }
           >
             {label}
+            {count > 0 && <span className="ml-1.5 rounded-full bg-rose-600 px-1.5 text-[11px] text-white">{count > 99 ? "99+" : count}</span>}
           </NavLink>
         ))}
       </nav>
