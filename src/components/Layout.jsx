@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Suspense, useEffect, useState, useRef } from "react";
+import { Suspense, useEffect, useLayoutEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
 import AnnouncementBanner from "./AnnouncementBanner";
@@ -39,6 +39,11 @@ export default function Layout({ onShowIELTSModal }) {
   const location = useLocation();
   const theme = useSelector((state) => state.progress.theme);
   const nextTheme = theme === "dark" ? "light" : "dark";
+  // The page behind the app (overscroll, the loading screen) follows the theme.
+  useLayoutEffect(() => {
+    document.documentElement.classList.toggle("k-dark", theme === "dark");
+    return () => document.documentElement.classList.remove("k-dark");
+  }, [theme]);
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const [displayLang, setDisplayLang] = useState(i18n.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -297,7 +302,7 @@ export default function Layout({ onShowIELTSModal }) {
               >
                 K
               </motion.div>
-              <div className="hidden sm:block">
+              <div className="hidden sm:block lg:hidden 2xl:block">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
                   {t("header.brand")}
                 </p>
@@ -305,16 +310,25 @@ export default function Layout({ onShowIELTSModal }) {
               </div>
             </NavLink>
 
-            <nav className="hidden md:flex md:flex-1 md:items-center md:justify-center md:gap-1.5 text-xs font-semibold lg:text-sm">
+            <nav className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:items-center lg:justify-center lg:gap-1 xl:gap-1.5 text-xs font-semibold xl:text-sm">
               {primaryNavItems.map(([to, label]) => (
                 <NavLink
                   key={to}
                   to={to}
                   className={({ isActive }) =>
-                    `whitespace-nowrap rounded-full px-2.5 py-1.5 transition lg:px-3 lg:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
+                    `whitespace-nowrap rounded-full px-2.5 py-1.5 transition xl:px-3 xl:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
                   }
+                  aria-label={to === "/search" ? label : undefined}
                 >
-                  {label}
+                  {/* Narrow laptops: search is just the icon, so the header fits. */}
+                  {to === "/search" ? (
+                    <>
+                      <span aria-hidden="true" className="xl:hidden">🔎</span>
+                      <span aria-hidden="true" className="hidden xl:inline">{label}</span>
+                    </>
+                  ) : (
+                    label
+                  )}
                 </NavLink>
               ))}
 
@@ -380,11 +394,11 @@ export default function Layout({ onShowIELTSModal }) {
               </div>
             </nav>
 
-            <div className="ml-auto flex min-w-0 items-center gap-1.5">
+            <div className="ml-auto flex shrink-0 items-center gap-1.5">
               {isAdmin && <AdminBell />}
-              <LevelChip />
-              <LanguageSelector onShowIELTSModal={onShowIELTSModal} className="hidden sm:block" />
-              <InstallAppButton className="hidden xl:block" />
+              <span className="lg:hidden xl:block"><LevelChip /></span>
+              <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+              <InstallAppButton className="hidden 2xl:block" />
 
               {!user ? (
                 <NavLink
@@ -398,7 +412,7 @@ export default function Layout({ onShowIELTSModal }) {
                   <button
                     type="button"
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
-                    className="flex min-w-0 max-w-[48vw] items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:max-w-none sm:px-3 lg:px-4 lg:py-2 lg:text-sm"
+                    className="flex min-w-0 max-w-[48vw] lg:max-w-[9rem] 2xl:max-w-[14rem] items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:max-w-none sm:px-3 lg:px-4 lg:py-2 lg:text-sm"
                   >
                     <span className="min-w-0 truncate">
                       {premiumDate && <span aria-label="Premium">⭐ </span>}
@@ -488,7 +502,7 @@ export default function Layout({ onShowIELTSModal }) {
                   mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")
                 }
                 aria-expanded={mobileMenuOpen}
-                className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
+                className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white lg:hidden"
               >
                 {unreadTotal > 0 && <span aria-hidden="true" className="absolute right-1.5 top-1.5 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900" />}
                 <svg
@@ -569,7 +583,7 @@ export default function Layout({ onShowIELTSModal }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[66] bg-black/50 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[66] bg-black/50 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             >
               <motion.div

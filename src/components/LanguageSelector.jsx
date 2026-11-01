@@ -22,7 +22,7 @@ const fadeConfig = {
   ease: [0.25, 0.1, 0.25, 1],
 };
 
-export default function LanguageSelector({ onShowIELTSModal }) {
+export default function LanguageSelector({ onShowIELTSModal, className = "" }) {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(i18n.language || 'uz');
@@ -127,7 +127,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className={`relative ${className}`} ref={dropdownRef}>
       <motion.button
         ref={triggerRef}
         type="button"
@@ -158,7 +158,7 @@ export default function LanguageSelector({ onShowIELTSModal }) {
         </motion.span>
         <motion.span
           aria-hidden="true"
-          className="hidden sm:inline"
+          className="hidden sm:inline lg:hidden 2xl:inline"
           animate={{
             opacity: isChanging ? 0.5 : 1,
             y: isChanging ? -4 : 0

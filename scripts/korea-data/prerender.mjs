@@ -26,7 +26,7 @@ function page({ url, title, description, body }) {
   html = html.replace(/<link rel="canonical"[^>]*>/, "");
   html = html.replace("</head>", `  <link rel="canonical" href="${url}" />\n  </head>`);
   // Readable content for crawlers; React replaces #root on load.
-  html = html.replace(/<div id="root"><\/div>/, `<div id="root"><main style="max-width:720px;margin:0 auto;padding:24px;font-family:sans-serif">${body}</main></div>`);
+  html = html.replace(/<div id="root">[\s\S]*?<!--\/splash--><\/div>/, `<div id="root"><main style="max-width:720px;margin:0 auto;padding:24px;font-family:sans-serif">${body}</main></div>`);
   return html;
 }
 

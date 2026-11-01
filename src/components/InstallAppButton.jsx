@@ -3,7 +3,7 @@ import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useInstallPrompt } from "../hooks/useInstallPrompt";
 
-export default function InstallAppButton() {
+export default function InstallAppButton({ className = "" }) {
   const { t } = useTranslation();
   const { isIOS, triggerInstall } = useInstallPrompt();
   const [justInstalled, setJustInstalled] = useState(false);
@@ -43,7 +43,7 @@ export default function InstallAppButton() {
             showToastMessage(t("pwa.installDismissed"));
           }
         }}
-        className="whitespace-nowrap rounded-full border border-slate-200 bg-white/70 px-2 py-1.5 text-[11px] font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:px-3 sm:text-xs lg:px-4 lg:py-2 lg:text-sm"
+        className={`${className} whitespace-nowrap rounded-full border border-slate-200 bg-white/70 px-2 py-1.5 text-[11px] font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:px-3 sm:text-xs lg:px-4 lg:py-2 lg:text-sm`}
       >
         {justInstalled ? t("nav.installed") : t("nav.installApp")}
       </button>

@@ -20,7 +20,11 @@ const motionFeatures = () => import("./lib/motionFeatures").then((module) => mod
 
 // Render once the interface language and the lesson words have loaded
 // (both are separate chunks); admin word corrections apply on top.
-Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => ReactDOM.createRoot(document.getElementById("root")).render(
+Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => {
+  // Pages outside the main layout (sign-in, ...) keep their light page; the
+  // layout sets the dark one again when it is chosen.
+  document.documentElement.classList.remove("k-dark");
+  ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -31,4 +35,5 @@ Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => Re
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
-));
+  );
+});

@@ -28,9 +28,28 @@
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>K-TALIM — Koreys tili lug'ati</title>
+    <style>
+      /* Shown by the HTML itself while the app's code downloads; React replaces it. */
+      html { background: #f8fafc; color: #020617; }
+      html.k-dark { background: #07111f; color: #fff; }
+      #splash { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; padding: 24px; }
+      #splash b { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; }
+      #splash span { font-size: 16px; opacity: 0.7; }
+      #splash i { width: 120px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, #0ea5e9, #8b5cf6); animation: splash 1.2s ease-in-out infinite; }
+      @keyframes splash { 50% { opacity: 0.35; transform: scaleX(0.6); } }
+    </style>
+    <script>
+      // The saved light/dark choice, applied before anything paints.
+      try {
+        var saved = JSON.parse(localStorage.getItem("ktalim-1a-progress-v1") || "{}");
+        if ((saved.theme || "dark") === "dark") document.documentElement.classList.add("k-dark");
+      } catch (error) {
+        document.documentElement.classList.add("k-dark");
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><div id="splash"><b>K-TALIM</b><span>Koreys tilini o'zbek tilida, AI bilan o'rganing</span><i></i></div><!--/splash--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
