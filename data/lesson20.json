@@ -1,0 +1,502 @@
+[
+  {
+    "id": 578,
+    "korean": "일이 생기다",
+    "uzbek": "Ish (yumush) chiqib qolmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 578,
+    "romanization": "iri saenggida",
+    "english": "Something comes up",
+    "russian": "Возникают дела",
+    "example": {
+      "ko": "갑자기 일이 생겼어요.",
+      "uz": "To'satdan ish chiqib qoldi.",
+      "en": "Something suddenly came up.",
+      "ru": "Внезапно возникли дела."
+    }
+  },
+  {
+    "id": 579,
+    "korean": "갑자기",
+    "uzbek": "To'satdan, kutilmaganda",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 579,
+    "romanization": "gapjagi",
+    "english": "Suddenly",
+    "russian": "Вдруг / Внезапно",
+    "example": {
+      "ko": "갑자기 비가 와요.",
+      "uz": "To'satdan yomg'ir yog'a boshladi.",
+      "en": "It suddenly started raining.",
+      "ru": "Вдруг пошёл дождь."
+    }
+  },
+  {
+    "id": 580,
+    "korean": "방학",
+    "uzbek": "Ta'til",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 580,
+    "note": "maktab, universitetda",
+    "romanization": "banghak",
+    "english": "School vacation",
+    "russian": "Каникулы",
+    "example": {
+      "ko": "방학에 여행을 가요.",
+      "uz": "Ta'tilda sayohatga boraman.",
+      "en": "I go on a trip during the vacation.",
+      "ru": "На каникулах я еду в путешествие."
+    }
+  },
+  {
+    "id": 581,
+    "korean": "계란빵",
+    "uzbek": "Tuxumli non",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 581,
+    "note": "pishiriq",
+    "romanization": "gyeranppang",
+    "english": "Egg bread",
+    "russian": "Яичный хлебец (керанппан)",
+    "example": {
+      "ko": "겨울에 계란빵을 먹어요.",
+      "uz": "Qishda tuxumli non yeyman.",
+      "en": "I eat egg bread in winter.",
+      "ru": "Зимой я ем яичный хлебец."
+    }
+  },
+  {
+    "id": 582,
+    "korean": "떡꼬치",
+    "uzbek": "Ttokkochi",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 582,
+    "note": "tayoqchadagi guruchli taom",
+    "romanization": "tteokkkochi",
+    "english": "Rice cake skewer (tteokkochi)",
+    "russian": "Шашлычок из рисовых лепёшек (ттоккочхи)",
+    "example": {
+      "ko": "시장에서 떡꼬치를 샀어요.",
+      "uz": "Bozordan ttokkochi sotib oldim.",
+      "en": "I bought rice cake skewers at the market.",
+      "ru": "Я купил ттоккочхи на рынке."
+    }
+  },
+  {
+    "id": 583,
+    "korean": "한식",
+    "uzbek": "Koreys taomlari",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 583,
+    "romanization": "hansik",
+    "english": "Korean food",
+    "russian": "Корейская кухня",
+    "example": {
+      "ko": "한식을 좋아해요.",
+      "uz": "Koreys taomlarini yaxshi ko'raman.",
+      "en": "I like Korean food.",
+      "ru": "Я люблю корейскую кухню."
+    }
+  },
+  {
+    "id": 584,
+    "korean": "한국생활",
+    "uzbek": "Koreyadagi hayot",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 584,
+    "romanization": "hanguksaenghwal",
+    "english": "Life in Korea",
+    "russian": "Жизнь в Корее",
+    "example": {
+      "ko": "한국생활이 재미있어요.",
+      "uz": "Koreyadagi hayot qiziqarli.",
+      "en": "Life in Korea is interesting.",
+      "ru": "Жизнь в Корее интересная."
+    }
+  },
+  {
+    "id": 585,
+    "korean": "입어 보다",
+    "uzbek": "Kiyib ko'rmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 585,
+    "romanization": "ibeo boda",
+    "english": "To try on (clothes)",
+    "russian": "Примерять (одежду)",
+    "example": {
+      "ko": "이 옷을 입어 봐도 돼요?",
+      "uz": "Bu kiyimni kiyib ko'rsam bo'ladimi?",
+      "en": "May I try on these clothes?",
+      "ru": "Можно примерить эту одежду?"
+    }
+  },
+  {
+    "id": 586,
+    "korean": "구경하다",
+    "uzbek": "Tomosha qilmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 586,
+    "romanization": "gugyeonghada",
+    "english": "To look around / Sightsee",
+    "russian": "Осматривать / Глазеть",
+    "example": {
+      "ko": "시장을 구경해요.",
+      "uz": "Bozorni tomosha qilaman.",
+      "en": "I look around the market.",
+      "ru": "Я осматриваю рынок."
+    }
+  },
+  {
+    "id": 587,
+    "korean": "시간 잘 보내다",
+    "uzbek": "Vaqtni yaxshi (maroqli) o'tkazmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 587,
+    "romanization": "sigan jal bonaeda",
+    "english": "To have a good time",
+    "russian": "Хорошо провести время",
+    "example": {
+      "ko": "주말에 시간 잘 보냈어요?",
+      "uz": "Dam olish kunlarini yaxshi o'tkazdingizmi?",
+      "en": "Did you have a good weekend?",
+      "ru": "Хорошо провели выходные?"
+    }
+  },
+  {
+    "id": 588,
+    "korean": "휴일",
+    "uzbek": "Dam olish kuni",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 588,
+    "romanization": "hyuil",
+    "english": "Holiday / Day off",
+    "russian": "Выходной / Праздник",
+    "example": {
+      "ko": "휴일에 집에서 쉬어요.",
+      "uz": "Dam olish kuni uyda dam olaman.",
+      "en": "I rest at home on holidays.",
+      "ru": "В выходной я отдыхаю дома."
+    }
+  },
+  {
+    "id": 589,
+    "korean": "아까",
+    "uzbek": "Baya, biroz oldin",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 589,
+    "romanization": "akka",
+    "english": "A while ago",
+    "russian": "Недавно / Только что",
+    "example": {
+      "ko": "아까 전화했어요.",
+      "uz": "Biroz oldin qo'ng'iroq qildim.",
+      "en": "I called a while ago.",
+      "ru": "Я звонил недавно."
+    }
+  },
+  {
+    "id": 590,
+    "korean": "김밥",
+    "uzbek": "Kimbap",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 590,
+    "romanization": "gimbap",
+    "english": "Kimbap",
+    "russian": "Кимбап",
+    "example": {
+      "ko": "김밥 두 줄 주세요.",
+      "uz": "Ikkita kimbap bering.",
+      "en": "Two rolls of kimbap, please.",
+      "ru": "Два ролла кимбапа, пожалуйста."
+    }
+  },
+  {
+    "id": 591,
+    "korean": "붕어빵",
+    "uzbek": "Pungoppang",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 591,
+    "note": "baliq shaklidagi shirinlik",
+    "romanization": "bungeoppang",
+    "english": "Fish-shaped bread (bungeoppang)",
+    "russian": "Пирожок-рыбка (пуноппан)",
+    "example": {
+      "ko": "붕어빵은 겨울 간식이에요.",
+      "uz": "Pungoppang — qishki gazak.",
+      "en": "Bungeoppang is a winter snack.",
+      "ru": "Пуноппан — зимняя закуска."
+    }
+  },
+  {
+    "id": 592,
+    "korean": "남산",
+    "uzbek": "Namsan",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 592,
+    "note": "Seuldagi tog'",
+    "romanization": "namsan",
+    "english": "Namsan (mountain in Seoul)",
+    "russian": "Намсан (гора в Сеуле)",
+    "example": {
+      "ko": "남산에서 서울을 봐요.",
+      "uz": "Namsandan Seulni tomosha qilaman.",
+      "en": "I look at Seoul from Namsan.",
+      "ru": "Я смотрю на Сеул с Намсана."
+    }
+  },
+  {
+    "id": 593,
+    "korean": "밤경치",
+    "uzbek": "Tungi manzara",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 593,
+    "romanization": "bamgyeongchi",
+    "english": "Night view",
+    "russian": "Ночной пейзаж",
+    "example": {
+      "ko": "서울의 밤경치가 아름다워요.",
+      "uz": "Seulning tungi manzarasi go'zal.",
+      "en": "Seoul's night view is beautiful.",
+      "ru": "Ночной Сеул прекрасен."
+    }
+  },
+  {
+    "id": 594,
+    "korean": "전통",
+    "uzbek": "An'ana",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 594,
+    "romanization": "jeontong",
+    "english": "Tradition",
+    "russian": "Традиция",
+    "example": {
+      "ko": "한국의 전통을 배워요.",
+      "uz": "Koreya an'analarini o'rganaman.",
+      "en": "I learn about Korean traditions.",
+      "ru": "Я изучаю корейские традиции."
+    }
+  },
+  {
+    "id": 595,
+    "korean": "한복",
+    "uzbek": "Xanbok",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 595,
+    "note": "koreys milliy kiyimi",
+    "romanization": "hanbok",
+    "english": "Hanbok (traditional clothes)",
+    "russian": "Ханбок (традиционная одежда)",
+    "example": {
+      "ko": "설날에 한복을 입어요.",
+      "uz": "Yangi yilda xanbok kiyamiz.",
+      "en": "We wear hanbok on Lunar New Year.",
+      "ru": "На Новый год по лунному календарю мы носим ханбок."
+    }
+  },
+  {
+    "id": 596,
+    "korean": "드라마",
+    "uzbek": "Drama, serial",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 596,
+    "romanization": "deurama",
+    "english": "TV drama / Series",
+    "russian": "Дорама / Сериал",
+    "example": {
+      "ko": "한국 드라마를 봐요.",
+      "uz": "Koreys seriallarini ko'raman.",
+      "en": "I watch Korean dramas.",
+      "ru": "Я смотрю корейские дорамы."
+    }
+  },
+  {
+    "id": 597,
+    "korean": "그때",
+    "uzbek": "O'sha paytda",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 597,
+    "romanization": "geuttae",
+    "english": "At that time",
+    "russian": "В то время",
+    "example": {
+      "ko": "그때 저는 학생이었어요.",
+      "uz": "O'sha paytda men talaba edim.",
+      "en": "At that time, I was a student.",
+      "ru": "В то время я был студентом."
+    }
+  },
+  {
+    "id": 598,
+    "korean": "여러 가지",
+    "uzbek": "Har xil, turli xil",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 598,
+    "romanization": "yeoreo gaji",
+    "english": "Various",
+    "russian": "Разные / Различные",
+    "example": {
+      "ko": "여러 가지 음식을 먹었어요.",
+      "uz": "Har xil taomlarni yedim.",
+      "en": "I ate various foods.",
+      "ru": "Я попробовал разные блюда."
+    }
+  },
+  {
+    "id": 599,
+    "korean": "계획",
+    "uzbek": "Reja",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 599,
+    "romanization": "gyehoek",
+    "english": "Plan",
+    "russian": "План",
+    "example": {
+      "ko": "방학 계획이 있어요?",
+      "uz": "Ta'tilga rejangiz bormi?",
+      "en": "Do you have plans for the vacation?",
+      "ru": "У вас есть планы на каникулы?"
+    }
+  },
+  {
+    "id": 600,
+    "korean": "즐겁게",
+    "uzbek": "Qiziqarli, maroqli qilib",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 600,
+    "romanization": "jeulgeopge",
+    "english": "Joyfully / In a fun way",
+    "russian": "Весело / С удовольствием",
+    "example": {
+      "ko": "즐겁게 놀았어요.",
+      "uz": "Maroqli o'ynadik.",
+      "en": "We had fun.",
+      "ru": "Мы весело провели время."
+    }
+  },
+  {
+    "id": 601,
+    "korean": "한식집",
+    "uzbek": "Koreys oshxonasi / restorani",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 601,
+    "romanization": "hansikjip",
+    "english": "Korean restaurant",
+    "russian": "Корейский ресторан",
+    "example": {
+      "ko": "한식집에서 불고기를 먹어요.",
+      "uz": "Koreys restoranida pulgogi yeymiz.",
+      "en": "We eat bulgogi at a Korean restaurant.",
+      "ru": "Мы едим пулькоги в корейском ресторане."
+    }
+  },
+  {
+    "id": 602,
+    "korean": "좋은 추억을 만들다",
+    "uzbek": "Yaxshi xotiralar qoldirmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 602,
+    "romanization": "joeun chueogeul mandeulda",
+    "english": "To make good memories",
+    "russian": "Создавать хорошие воспоминания",
+    "example": {
+      "ko": "여행에서 좋은 추억을 만들었어요.",
+      "uz": "Sayohatda yaxshi xotiralar qoldirdik.",
+      "en": "We made good memories on the trip.",
+      "ru": "В поездке у нас появились хорошие воспоминания."
+    }
+  },
+  {
+    "id": 603,
+    "korean": "경험하다",
+    "uzbek": "Tajriba qilib ko'rmoq, sinab ko'rmoq",
+    "lesson": 20,
+    "category": "korean culture, traditions and food",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 603,
+    "romanization": "gyeongheomhada",
+    "english": "To experience",
+    "russian": "Испытывать / Пробовать на опыте",
+    "example": {
+      "ko": "한국 문화를 경험하고 싶어요.",
+      "uz": "Koreys madaniyatini sinab ko'rmoqchiman.",
+      "en": "I want to experience Korean culture.",
+      "ru": "Я хочу познакомиться с корейской культурой."
+    }
+  }
+]

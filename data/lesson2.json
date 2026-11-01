@@ -1,0 +1,477 @@
+[
+  {
+    "id": 25,
+    "korean": "볼펜",
+    "uzbek": "Ruchka",
+    "romanization": "bolpen",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 25,
+    "english": "Ballpoint pen",
+    "russian": "Шариковая ручка",
+    "example": {
+      "ko": "볼펜 있어요?",
+      "uz": "Ruchkangiz bormi?",
+      "en": "Do you have a pen?",
+      "ru": "У вас есть ручка?"
+    }
+  },
+  {
+    "id": 26,
+    "korean": "사전",
+    "uzbek": "Lug'at",
+    "romanization": "sajeon",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 26,
+    "english": "Dictionary",
+    "russian": "Словарь",
+    "example": {
+      "ko": "사전을 찾아요.",
+      "uz": "Lug'atni qidiryapman.",
+      "en": "I'm looking for a dictionary.",
+      "ru": "Я ищу словарь."
+    }
+  },
+  {
+    "id": 27,
+    "korean": "지우개",
+    "uzbek": "O'chirg'ich",
+    "romanization": "jiugae",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 27,
+    "english": "Eraser",
+    "russian": "Ластик",
+    "example": {
+      "ko": "지우개 좀 빌려 주세요.",
+      "uz": "Iltimos, o'chirg'ichingizni berib turing.",
+      "en": "Please lend me an eraser.",
+      "ru": "Одолжите, пожалуйста, ластик."
+    }
+  },
+  {
+    "id": 28,
+    "korean": "필통",
+    "uzbek": "Qalamdon (Penal)",
+    "romanization": "piltong",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 28,
+    "english": "Pencil case",
+    "russian": "Пенал",
+    "example": {
+      "ko": "필통에 연필이 있어요.",
+      "uz": "Qalamdonda qalam bor.",
+      "en": "There is a pencil in the pencil case.",
+      "ru": "В пенале есть карандаш."
+    }
+  },
+  {
+    "id": 29,
+    "korean": "구두",
+    "uzbek": "Tufli",
+    "romanization": "gudu",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 29,
+    "english": "Dress shoes",
+    "russian": "Туфли",
+    "example": {
+      "ko": "새 구두를 샀어요.",
+      "uz": "Yangi tufli sotib oldim.",
+      "en": "I bought new shoes.",
+      "ru": "Я купил новые туфли."
+    }
+  },
+  {
+    "id": 30,
+    "korean": "모자",
+    "uzbek": "Bosh kiyim",
+    "romanization": "moja",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 30,
+    "english": "Hat / Cap",
+    "russian": "Шапка / Кепка",
+    "example": {
+      "ko": "모자가 예뻐요.",
+      "uz": "Bosh kiyim chiroyli.",
+      "en": "The hat is pretty.",
+      "ru": "Шапка красивая."
+    }
+  },
+  {
+    "id": 31,
+    "korean": "안경",
+    "uzbek": "Ko'zoynak",
+    "romanization": "angyeong",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 31,
+    "english": "Glasses",
+    "russian": "Очки",
+    "example": {
+      "ko": "안경을 써요.",
+      "uz": "Ko'zoynak taqaman.",
+      "en": "I wear glasses.",
+      "ru": "Я ношу очки."
+    }
+  },
+  {
+    "id": 32,
+    "korean": "시계",
+    "uzbek": "Soat",
+    "romanization": "sigye",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 32,
+    "english": "Clock / Watch",
+    "russian": "Часы",
+    "example": {
+      "ko": "시계가 비싸요.",
+      "uz": "Soat qimmat.",
+      "en": "The watch is expensive.",
+      "ru": "Часы дорогие."
+    }
+  },
+  {
+    "id": 33,
+    "korean": "복사기",
+    "uzbek": "Kserokopiya apparati",
+    "romanization": "boksagi",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 33,
+    "english": "Photocopier",
+    "russian": "Ксерокс",
+    "example": {
+      "ko": "복사기가 고장 났어요.",
+      "uz": "Kserokopiya apparati buzilib qoldi.",
+      "en": "The photocopier is broken.",
+      "ru": "Ксерокс сломался."
+    }
+  },
+  {
+    "id": 34,
+    "korean": "노트북",
+    "uzbek": "Noutbuk",
+    "romanization": "noteubuk",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 34,
+    "english": "Laptop",
+    "russian": "Ноутбук",
+    "example": {
+      "ko": "노트북으로 공부해요.",
+      "uz": "Noutbukda o'qiyman.",
+      "en": "I study on my laptop.",
+      "ru": "Я учусь на ноутбуке."
+    }
+  },
+  {
+    "id": 35,
+    "korean": "카메라",
+    "uzbek": "Kamera / Fotoapparat",
+    "romanization": "kamera",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 35,
+    "english": "Camera",
+    "russian": "Фотоаппарат / Камера",
+    "example": {
+      "ko": "카메라로 사진을 찍어요.",
+      "uz": "Kamera bilan rasmga olaman.",
+      "en": "I take photos with a camera.",
+      "ru": "Я фотографирую на камеру."
+    }
+  },
+  {
+    "id": 36,
+    "korean": "컴퓨터",
+    "uzbek": "Kompyuter",
+    "romanization": "keompyuteo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 36,
+    "english": "Computer",
+    "russian": "Компьютер",
+    "example": {
+      "ko": "컴퓨터가 새것이에요.",
+      "uz": "Kompyuter yangi.",
+      "en": "The computer is new.",
+      "ru": "Компьютер новый."
+    }
+  },
+  {
+    "id": 37,
+    "korean": "핸드폰",
+    "uzbek": "Mobil telefon",
+    "romanization": "haendeupon",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 37,
+    "english": "Mobile phone",
+    "russian": "Мобильный телефон",
+    "example": {
+      "ko": "핸드폰 번호가 뭐예요?",
+      "uz": "Telefon raqamingiz qanday?",
+      "en": "What is your phone number?",
+      "ru": "Какой у вас номер телефона?"
+    }
+  },
+  {
+    "id": 38,
+    "korean": "이어폰",
+    "uzbek": "Quloqchin (Naushnik)",
+    "romanization": "ieopon",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 38,
+    "english": "Earphones",
+    "russian": "Наушники",
+    "example": {
+      "ko": "이어폰으로 음악을 들어요.",
+      "uz": "Quloqchinda musiqa tinglayman.",
+      "en": "I listen to music with earphones.",
+      "ru": "Я слушаю музыку в наушниках."
+    }
+  },
+  {
+    "id": 39,
+    "korean": "이 거",
+    "uzbek": "Bu narsa",
+    "romanization": "i geo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 39,
+    "english": "This thing",
+    "russian": "Эта вещь",
+    "example": {
+      "ko": "이 거 얼마예요?",
+      "uz": "Bu narsa qancha turadi?",
+      "en": "How much is this?",
+      "ru": "Сколько это стоит?"
+    }
+  },
+  {
+    "id": 40,
+    "korean": "그 거",
+    "uzbek": "U narsa",
+    "romanization": "geu geo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 40,
+    "english": "That thing (near you)",
+    "russian": "Та вещь (рядом с вами)",
+    "example": {
+      "ko": "그 거 주세요.",
+      "uz": "O'sha narsani bering.",
+      "en": "Please give me that one.",
+      "ru": "Дайте, пожалуйста, вот то."
+    }
+  },
+  {
+    "id": 41,
+    "korean": "저 거",
+    "uzbek": "Anavi narsa",
+    "romanization": "jeo geo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 41,
+    "english": "That thing (over there)",
+    "russian": "Вон та вещь",
+    "example": {
+      "ko": "저 거 뭐예요?",
+      "uz": "Anavi narsa nima?",
+      "en": "What is that over there?",
+      "ru": "Что это вон там?"
+    }
+  },
+  {
+    "id": 42,
+    "korean": "돈",
+    "uzbek": "Pul",
+    "romanization": "don",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 42,
+    "english": "Money",
+    "russian": "Деньги",
+    "example": {
+      "ko": "돈이 없어요.",
+      "uz": "Pulim yo'q.",
+      "en": "I have no money.",
+      "ru": "У меня нет денег."
+    }
+  },
+  {
+    "id": 43,
+    "korean": "고마워요",
+    "uzbek": "Rahmat / Tashakkur",
+    "romanization": "gomawoyo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 43,
+    "english": "Thank you",
+    "russian": "Спасибо",
+    "example": {
+      "ko": "도와줘서 고마워요.",
+      "uz": "Yordam berganingiz uchun rahmat.",
+      "en": "Thank you for helping me.",
+      "ru": "Спасибо, что помогли."
+    }
+  },
+  {
+    "id": 44,
+    "korean": "아저씨",
+    "uzbek": "Amaki (yoshi katta erkak)",
+    "romanization": "ajeossi",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 44,
+    "english": "Mister (older man)",
+    "russian": "Дядя (мужчина постарше)",
+    "example": {
+      "ko": "아저씨, 이거 얼마예요?",
+      "uz": "Amaki, bu qancha turadi?",
+      "en": "Sir, how much is this?",
+      "ru": "Дядя, сколько это стоит?"
+    }
+  },
+  {
+    "id": 45,
+    "korean": "손님",
+    "uzbek": "Mijoz / Mehmon",
+    "romanization": "sonnim",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 45,
+    "english": "Customer / Guest",
+    "russian": "Клиент / Гость",
+    "example": {
+      "ko": "손님, 어서 오세요.",
+      "uz": "Mehmon, xush kelibsiz.",
+      "en": "Welcome, sir/madam.",
+      "ru": "Добро пожаловать, гость."
+    }
+  },
+  {
+    "id": 46,
+    "korean": "남자 친구",
+    "uzbek": "Yigit (Sevgili) do'st",
+    "romanization": "namja chingu",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 46,
+    "english": "Boyfriend",
+    "russian": "Парень (бойфренд)",
+    "example": {
+      "ko": "제 남자 친구는 한국 사람이에요.",
+      "uz": "Yigitim koreys.",
+      "en": "My boyfriend is Korean.",
+      "ru": "Мой парень — кореец."
+    }
+  },
+  {
+    "id": 47,
+    "korean": "여자 친구",
+    "uzbek": "Qiz (Sevgili) do'st",
+    "romanization": "yeoja chingu",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 47,
+    "english": "Girlfriend",
+    "russian": "Девушка (подруга)",
+    "example": {
+      "ko": "여자 친구가 있어요?",
+      "uz": "Qiz do'stingiz bormi?",
+      "en": "Do you have a girlfriend?",
+      "ru": "У тебя есть девушка?"
+    }
+  },
+  {
+    "id": 48,
+    "korean": "뭐",
+    "uzbek": "Nima",
+    "romanization": "mwo",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 48,
+    "english": "What",
+    "russian": "Что",
+    "example": {
+      "ko": "지금 뭐 해요?",
+      "uz": "Hozir nima qilyapsiz?",
+      "en": "What are you doing now?",
+      "ru": "Что вы сейчас делаете?"
+    }
+  },
+  {
+    "id": 49,
+    "korean": "한국어로",
+    "uzbek": "Koreys tilida",
+    "romanization": "hangugeoro",
+    "lesson": 2,
+    "category": "classroom objects and people",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 49,
+    "english": "In Korean",
+    "russian": "По-корейски",
+    "example": {
+      "ko": "한국어로 말해 주세요.",
+      "uz": "Iltimos, koreys tilida gapiring.",
+      "en": "Please say it in Korean.",
+      "ru": "Скажите, пожалуйста, по-корейски."
+    }
+  }
+]

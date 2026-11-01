@@ -1,0 +1,762 @@
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { m as motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { Suspense, useEffect, useState, useRef } from "react";
+import PageLoader from "./PageLoader";
+import VoiceNotice from "./VoiceNotice";
+import AnnouncementBanner from "./AnnouncementBanner";
+import PremiumExpiryBanner from "./PremiumExpiryBanner";
+import BottomNav from "./BottomNav";
+import { setLastPlace, setPremiumUntil, setTheme } from "../store";
+import LevelChip from "./LevelChip";
+import XpCelebrations from "./XpCelebrations";
+import LanguageSelector from "./LanguageSelector";
+import AIChatWidget from "./AIChatWidget";
+import { TopikExamProvider } from "../context/TopikExamContext";
+import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
+import InstallAppButton from "./InstallAppButton";
+import { useStudyTimer } from "../hooks/useStudyTimer";
+import { formatDate } from "../lib/dates";
+import { premiumUntil } from "../lib/premium";
+import { syncReferral } from "../lib/growth";
+import { LAST_ROUTE_KEY, UNREAD_EVENT } from "../lib/feedback";
+
+const TOPIK_ANNOUNCEMENT_KEY = "k-talim:topik-i-announcement:2026-10";
+
+export default function Layout({ onShowIELTSModal }) {
+  const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const theme = useSelector((state) => state.progress.theme);
+  const nextTheme = theme === "dark" ? "light" : "dark";
+  const [isChangingLanguage, setIsChangingLanguage] = useState(false);
+  const [displayLang, setDisplayLang] = useState(i18n.language);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showTopikAnnouncement, setShowTopikAnnouncement] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const [isOnline, setIsOnline] = useState(() => navigator.onLine);
+  const userMenuRef = useRef(null);
+  const moreMenuRef = useRef(null);
+
+  const { user, profile, signOut } = useAuth();
+  const premiumDate = premiumUntil(user);
+  useEffect(() => {
+    dispatch(setPremiumUntil(premiumDate));
+  }, [dispatch, premiumDate]);
+  useStudyTimer(location.pathname);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (user?.id) syncReferral(user.id);
+  }, [user?.id]);
+
+  const userId = user?.id;
+  useEffect(() => {
+    let cancelled = false;
+    setIsAdmin(false);
+    if (!userId) return undefined;
+    supabase
+      .rpc("is_feedback_admin")
+      .then(({ data }) => {
+        if (!cancelled) setIsAdmin(data === true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]);
+
+  // Unread feedback: replies for the learner, new messages for admins.
+  const [unread, setUnread] = useState({ user: 0, admin: 0 });
+
+  useEffect(() => {
+    let cancelled = false;
+    setUnread({ user: 0, admin: 0 });
+    if (!userId) return undefined;
+    const count = (query) => query.then(({ count: total }) => total || 0, () => 0);
+    const refresh = async () => {
+      const [mine, team] = await Promise.all([
+        count(supabase.from("feedback_tickets").select("id", { count: "exact", head: true }).eq("user_id", userId).eq("user_unread", true)),
+        isAdmin ? count(supabase.from("feedback_tickets").select("id", { count: "exact", head: true }).eq("admin_unread", true)) : 0,
+      ]);
+      if (!cancelled) setUnread({ user: mine, admin: team });
+    };
+    refresh();
+    window.addEventListener(UNREAD_EVENT, refresh);
+    window.addEventListener("focus", refresh);
+    return () => {
+      cancelled = true;
+      window.removeEventListener(UNREAD_EVENT, refresh);
+      window.removeEventListener("focus", refresh);
+    };
+  }, [userId, isAdmin]);
+
+  // Remember the last lesson, study session or TOPIK paper for "Continue".
+  const lastPlace = useSelector((state) => state.progress.lastPlace);
+  useEffect(() => {
+    const path = location.pathname;
+    if (!/^\/(study\/\d+|lesson\/\d+\/\w+|topik\/(?!result)[^/]+)$/.test(path)) return;
+    if (lastPlace?.path === path) return;
+    dispatch(setLastPlace({ path, at: Date.now() }));
+  }, [location.pathname, lastPlace?.path, dispatch]);
+
+  // Remember where the learner was so a feedback report can say so.
+  useEffect(() => {
+    if (/^\/(feedback|admin|login|register|auth)/.test(location.pathname)) return;
+    try {
+      window.sessionStorage.setItem(LAST_ROUTE_KEY, location.pathname);
+    } catch {
+      // Reports fall back to "/" without storage.
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const updateOnlineStatus = () => setIsOnline(navigator.onLine);
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+    return () => {
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
+    };
+  }, []);
+
+  useEffect(() => {
+    try {
+      setShowTopikAnnouncement(
+        window.localStorage.getItem(TOPIK_ANNOUNCEMENT_KEY) !== "dismissed",
+      );
+    } catch {
+      setShowTopikAnnouncement(true);
+    }
+  }, []);
+
+  const dismissTopikAnnouncement = () => {
+    try {
+      window.localStorage.setItem(TOPIK_ANNOUNCEMENT_KEY, "dismissed");
+    } catch {
+      // Keep the announcement dismissible when storage is unavailable.
+    }
+    setShowTopikAnnouncement(false);
+  };
+
+  const primaryNavItems = [
+    ["/", t("nav.home")],
+    ["/courses", t("nav.courses")],
+    ["/topik", t("nav.topik")],
+    ["/speaking", `🎙 ${t("nav.speaking")}`],
+    ["/korea", `🇰🇷 ${t("nav.korea")}`],
+    ["/search", t("nav.search")],
+  ];
+
+  // Everything else, in groups: a compact panel on desktop, tiles on phones.
+  // Items are [path, label, icon, unread count].
+  const navGroups = [
+    {
+      key: "learn",
+      items: [
+        ["/study", t("nav.study"), "🃏"],
+        ["/grammar", t("grammar.title"), "📐"],
+        ["/stories", t("stories.title"), "📖"],
+        ["/review", t("nav.review"), "🔁"],
+        ["/favorites", t("nav.favorites"), "⭐"],
+        ["/difficult", t("nav.difficult"), "🧩"],
+        ["/weak-words", t("library.weakWords"), "🎯"],
+      ],
+    },
+    {
+      key: "progress",
+      items: [
+        ["/stats", t("nav.stats"), "📊"],
+        ["/leaderboard", t("leaderboard.title"), "🏆"],
+        ["/achievements", t("nav.achievements"), "🏅"],
+      ],
+    },
+    {
+      key: "other",
+      items: [
+        ["/premium", "Premium", "💎"],
+        ["/feedback", t("nav.feedback"), "✉️", unread.user],
+        ["/settings", t("nav.settings"), "⚙️"],
+        ["/future-updates", t("nav.futureUpdates"), "🚀"],
+        ...(isAdmin ? [["/admin", t("admin.title"), "🛠", unread.admin]] : []),
+      ],
+    },
+  ];
+  const primaryIcons = { "/": "🏠", "/courses": "📚", "/topik": "📝", "/speaking": "🎙", "/korea": "🇰🇷", "/search": "🔎" };
+
+  const unreadTotal = unread.user + unread.admin;
+  const badge = (count) =>
+    count > 0 ? (
+      <span className="ml-2 inline-grid min-w-5 place-items-center rounded-full bg-rose-500 px-1.5 text-[11px] font-black leading-5 text-white">
+        {count > 99 ? "99+" : count}
+      </span>
+    ) : null;
+
+  const prefersReducedMotion =
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
+
+
+  useEffect(() => {
+    if (i18n.language !== displayLang) {
+      setIsChangingLanguage(true);
+
+      const transitionDuration = prefersReducedMotion ? 200 : 500;
+      setTimeout(() => {
+        setDisplayLang(i18n.language);
+        setIsChangingLanguage(false);
+      }, transitionDuration);
+    }
+  }, [i18n.language, displayLang, prefersReducedMotion]);
+
+  const transitionConfig = prefersReducedMotion
+    ? { duration: 0.2, ease: "linear" }
+    : {
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1],
+      };
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return undefined;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
+        setMoreMenuOpen(false);
+      }
+    };
+
+    if (userMenuOpen || moreMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [userMenuOpen, moreMenuOpen]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    setUserMenuOpen(false);
+    navigate("/login");
+  };
+
+  return (
+    <TopikExamProvider>
+    <div className={theme === "dark" ? "dark" : ""}>
+      <main className="min-h-screen overflow-x-clip bg-slate-50 text-slate-950 transition-colors dark:bg-[#07111f] dark:text-white">
+        <a href="#page-content" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[90] focus:rounded-xl focus:bg-sky-600 focus:px-4 focus:py-2 focus:font-black focus:text-white">
+          {t("a11y.skipToContent")}
+        </a>
+        {!isOnline && (
+          <div
+            role="alert"
+            className="relative z-50 flex flex-wrap items-center justify-center gap-3 bg-amber-100 px-4 py-2 text-center text-sm font-bold text-amber-950 dark:bg-amber-400/20 dark:text-amber-100"
+          >
+            <span>{t("network.offline")}</span>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="underline"
+            >
+              {t("network.retry")}
+            </button>
+          </div>
+        )}
+        <AnnouncementBanner />
+        <PremiumExpiryBanner />
+        <div className="fixed inset-0 -z-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,.28),transparent_30%),radial-gradient(circle_at_top_right,rgba(168,85,247,.24),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,197,94,.15),transparent_32%)]" />
+
+        <header className="sticky top-0 z-40 border-b border-white/20 bg-white/70 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55">
+          <div className="mx-auto flex max-w-7xl items-center gap-2 px-3 py-2.5 sm:px-4">
+            <NavLink to="/" className="group flex shrink-0 items-center gap-2">
+              <motion.div
+                whileHover={{ rotate: -8, scale: 1.04 }}
+                className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-sky-400 via-indigo-500 to-violet-500 text-base font-black text-white shadow-lg shadow-sky-500/25"
+              >
+                K
+              </motion.div>
+              <div className="hidden sm:block">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
+                  {t("header.brand")}
+                </p>
+                <span className="text-sm font-black tracking-tight">K-TALIM</span>
+              </div>
+            </NavLink>
+
+            <nav className="hidden md:flex md:flex-1 md:items-center md:justify-center md:gap-1.5 text-xs font-semibold lg:text-sm">
+              {primaryNavItems.map(([to, label]) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) =>
+                    `whitespace-nowrap rounded-full px-2.5 py-1.5 transition lg:px-3 lg:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
+
+              <div ref={moreMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setMoreMenuOpen(!moreMenuOpen)}
+                  aria-expanded={moreMenuOpen}
+                  aria-haspopup="true"
+                  className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/60 px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:bg-white transition lg:px-3 lg:py-2 dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
+                >
+                  <span>{t("nav.more")}</span>
+                  {unreadTotal > 0 && <span aria-hidden="true" className="h-2 w-2 rounded-full bg-rose-500" />}
+                  <motion.span
+                    animate={{ rotate: moreMenuOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-slate-400"
+                  >
+                    ▼
+                  </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {moreMenuOpen && (
+                    <div className="pointer-events-none absolute inset-x-0 top-full z-50 flex justify-center px-4 pt-2">
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.18 }}
+                        className="pointer-events-auto grid max-h-[calc(100vh-6rem)] w-full max-w-3xl grid-cols-3 gap-4 overflow-y-auto overscroll-contain rounded-3xl border border-slate-200/60 bg-white/95 p-4 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95"
+                      >
+                        {navGroups.map((group) => (
+                          <div key={group.key}>
+                            <p className="px-3 pb-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">{t(`nav.group.${group.key}`)}</p>
+                            <div className="space-y-0.5">
+                              {group.items.map(([to, label, icon, count]) => (
+                                <NavLink
+                                  key={to}
+                                  to={to}
+                                  state={to === "/feedback" ? { from: location.pathname } : undefined}
+                                  onClick={() => setMoreMenuOpen(false)}
+                                  className={({ isActive }) =>
+                                    `flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition ${
+                                      isActive
+                                        ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                                        : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-white/10"
+                                    }`
+                                  }
+                                >
+                                  <span aria-hidden="true" className="w-5 text-center">{icon}</span>
+                                  <span className="min-w-0 flex-1 truncate">{label}</span>
+                                  {badge(count)}
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </motion.div>
+                    </div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </nav>
+
+            <div className="ml-auto flex min-w-0 items-center gap-1.5">
+              <LevelChip />
+              <LanguageSelector onShowIELTSModal={onShowIELTSModal} className="hidden sm:block" />
+              <InstallAppButton className="hidden xl:block" />
+
+              {!user ? (
+                <NavLink
+                  to="/login"
+                  className="hidden rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:block lg:px-4 lg:py-2 lg:text-sm"
+                >
+                  {t("nav.login")}
+                </NavLink>
+              ) : (
+                <div className="relative hidden sm:block" ref={userMenuRef}>
+                  <button
+                    type="button"
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex min-w-0 max-w-[48vw] items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-2.5 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white sm:max-w-none sm:px-3 lg:px-4 lg:py-2 lg:text-sm"
+                  >
+                    <span className="min-w-0 truncate">
+                      {premiumDate && <span aria-label="Premium">⭐ </span>}
+                      {t("nav.hi")},{" "}
+                      {profile?.first_name || t("common.userFallback")}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: userMenuOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-slate-400"
+                    >
+                      ▼
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute right-0 top-full mt-2 w-60 overflow-hidden rounded-2xl border border-slate-200/60 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95 z-50"
+                      >
+                        <Link
+                          to="/premium"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block border-b border-slate-200/60 px-4 py-3 text-sm transition hover:bg-violet-50 dark:border-white/10 dark:hover:bg-violet-500/10"
+                        >
+                          {premiumDate ? (
+                            <>
+                              <span className="block font-black text-violet-700 dark:text-violet-300">⭐ Premium</span>
+                              <span className="block text-xs font-semibold text-slate-500 dark:text-slate-400">
+                                {t("premium.activeUntil", { date: formatDate(premiumDate, i18n.language) })}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="font-black text-violet-700 dark:text-violet-300">⭐ {t("premium.get")}</span>
+                          )}
+                        </Link>
+                        <Link
+                          to="/settings"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10"
+                        >
+                          {t("nav.settings")}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={handleSignOut}
+                          className="w-full px-4 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-100/80 dark:text-slate-200 dark:hover:bg-white/10 transition"
+                        >
+                          {t("nav.logout")}
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={() => dispatch(setTheme(nextTheme))}
+                className="relative hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10"
+                aria-label={theme === "dark" ? t("nav.light") : t("nav.dark")}
+                title={theme === "dark" ? t("nav.light") : t("nav.dark")}
+              >
+                <motion.div
+                  initial={false}
+                  animate={{
+                    rotate: theme === "dark" ? 0 : 180,
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    rotate: { duration: 0.3, ease: "easeInOut" },
+                    scale: { duration: 0.2 },
+                  }}
+                  className="text-lg"
+                >
+                  {theme === "dark" ? "🌙" : "☀️"}
+                </motion.div>
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={
+                  mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")
+                }
+                aria-expanded={mobileMenuOpen}
+                className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white/70 font-bold text-slate-700 shadow-sm transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/10 dark:text-white md:hidden"
+              >
+                {unreadTotal > 0 && <span aria-hidden="true" className="absolute right-1.5 top-1.5 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-white dark:ring-slate-900" />}
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <AnimatePresence initial={false}>
+          {showTopikAnnouncement && location.pathname === "/" && (
+            <motion.aside
+              role="status"
+              aria-labelledby="topik-announcement-title"
+              initial={prefersReducedMotion ? false : { opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
+              transition={{ duration: prefersReducedMotion ? 0.15 : 0.35 }}
+              className="relative z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-7xl overflow-hidden rounded-3xl border border-sky-200 bg-gradient-to-r from-sky-50 via-white to-violet-50 p-4 shadow-lg shadow-sky-900/10 dark:border-sky-300/20 dark:from-sky-950/80 dark:via-slate-900 dark:to-violet-950/60 md:p-5"
+            >
+              <div className="absolute -right-6 -top-10 h-28 w-28 rounded-full bg-violet-300/35 blur-2xl dark:bg-violet-400/20" />
+              <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-start gap-3">
+                  <span aria-hidden="true" className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-sky-500 to-violet-600 text-xl text-white shadow-md shadow-sky-500/25">✦</span>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">{t("topik.announcementLabel")}</p>
+                    <h2 id="topik-announcement-title" className="mt-1 text-lg font-black text-slate-950 dark:text-white md:text-xl">{t("topik.announcementTitle")}</h2>
+                    <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.announcementText")}</p>
+                    {!user && <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-400">{t("topik.announcementSignInNote")}</p>}
+                  </div>
+                </div>
+                <div className="flex shrink-0 items-center gap-2 pl-14 sm:pl-0">
+                  <Link
+                    to="/topik"
+                    onClick={dismissTopikAnnouncement}
+                    className="rounded-xl bg-slate-950 px-4 py-2.5 text-center text-sm font-black text-white transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
+                  >
+                    {t("topik.announcementAction")}
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={dismissTopikAnnouncement}
+                    aria-label={t("topik.dismissAnnouncement")}
+                    className="grid h-11 w-11 place-items-center rounded-xl text-lg font-bold text-slate-500 transition hover:bg-slate-950/5 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            </motion.aside>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[66] bg-black/50 backdrop-blur-sm md:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="absolute right-0 top-0 h-full w-80 max-w-[85vw] overflow-y-auto overscroll-contain bg-white/95 shadow-2xl backdrop-blur-xl dark:bg-slate-900/95"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-white/10">
+                  <span className="text-lg font-black text-slate-900 dark:text-white">
+                    {t("header.menu", { defaultValue: "Menu" })}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="rounded-full p-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <nav className="space-y-4 p-4">
+                  {[
+                    { key: "main", items: primaryNavItems.map(([to, label]) => [to, label.replace(/^(🎙|🇰🇷) /, ""), primaryIcons[to]]) },
+                    ...navGroups,
+                  ].map((group) => (
+                    <div key={group.key}>
+                      <p className="px-1 pb-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">{t(`nav.group.${group.key}`)}</p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {group.items.map(([to, label, icon, count]) => (
+                          <NavLink
+                            key={to}
+                            to={to}
+                            end={to === "/"}
+                            state={to === "/feedback" ? { from: location.pathname } : undefined}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={({ isActive }) =>
+                              `relative flex min-h-[3.25rem] items-center gap-2 rounded-2xl px-3 py-2.5 text-sm font-bold leading-tight transition ${
+                                isActive
+                                  ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                                  : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"
+                              }`
+                            }
+                          >
+                            <span aria-hidden="true" className="text-lg">{icon}</span>
+                            <span className="min-w-0 flex-1">{label}</span>
+                            {count > 0 && <span className="absolute right-2 top-2 h-2.5 w-2.5 rounded-full bg-rose-500" aria-label={String(count)} />}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+
+                  <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+                      <button
+                        type="button"
+                        onClick={() => dispatch(setTheme(nextTheme))}
+                        className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white/70 px-4 py-2.5 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-100 dark:border-white/10 dark:bg-white/10 dark:text-white"
+                      >
+                        <span className="text-lg">{theme === "dark" ? "🌙" : "☀️"}</span>
+                        <span>{theme === "dark" ? t("nav.light") : t("nav.dark")}</span>
+                      </button>
+                    </div>
+                    <InstallAppButton />
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4">
+                    {!user ? (
+                      <NavLink
+                        to="/login"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-2xl px-4 py-3 text-base font-bold bg-sky-500 text-white hover:bg-sky-600 transition"
+                      >
+                        {t("nav.login")}
+                      </NavLink>
+                    ) : (
+                      <>
+                        <div className="px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                          {t("nav.hi")}, {profile?.first_name || t("common.userFallback")}
+                          {premiumDate && (
+                            <span className="mt-1 block text-xs font-black text-violet-700 dark:text-violet-300">
+                              ⭐ {t("premium.activeUntil", { date: formatDate(premiumDate, i18n.language) })}
+                            </span>
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            handleSignOut();
+                            setMobileMenuOpen(false);
+                          }}
+                          className="w-full text-left rounded-2xl px-4 py-3 text-base font-bold text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-white/20 transition"
+                        >
+                          {t("nav.logout")}
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </nav>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={displayLang}
+              initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              animate={{
+                opacity: isChangingLanguage ? 0.6 : 1,
+                scale: isChangingLanguage ? 0.99 : 1,
+                filter: isChangingLanguage ? "blur(2px)" : "blur(0px)",
+              }}
+              exit={{
+                opacity: 0.6,
+                scale: 0.99,
+                filter: "blur(2px)",
+              }}
+              transition={transitionConfig}
+              className="min-h-[400px]"
+              id="page-content"
+              tabIndex={-1}
+            >
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <footer className="relative z-10 mt-16 border-t pb-24 md:pb-8 border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+          <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+            <div>
+              <p className="font-black text-slate-900 dark:text-white">
+                {t("footer.vocabularySource")}
+              </p>
+              <p>{t("footer.vocabularySourceName")}</p>
+            </div>
+            <div>
+              <p className="font-black text-slate-900 dark:text-white">
+                {t("footer.educationalOnly")}
+              </p>
+            </div>
+            <div>
+              <p className="font-black text-slate-900 dark:text-white">
+                {t("footer.developer")}
+              </p>
+              <p>{t("footer.developerName")}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                {t("footer.contact")}
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                {t("footer.contactTelegram")}
+              </p>
+              <Link
+                to="/feedback"
+                className="mt-2 inline-block text-sm font-bold text-sky-600 underline dark:text-sky-300"
+              >
+                {t("nav.feedback")}
+              </Link>
+            </div>
+          </div>
+        </footer>
+      </main>
+      {/* Fixed overlays render here: the animated page wrapper's transform would otherwise trap them. */}
+      <div id="overlay-root" />
+      <VoiceNotice />
+      <XpCelebrations />
+      {!/^\/topik\/(?!result|words)[^/]+/.test(location.pathname) && (
+        <BottomNav onMenu={() => setMobileMenuOpen(true)} badge={unreadTotal} />
+      )}
+      <AIChatWidget />
+    </div>
+    </TopikExamProvider>
+  );
+}

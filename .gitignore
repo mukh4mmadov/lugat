@@ -1,0 +1,8 @@
+node_modules
+dist
+dev-dist
+.vercel
+.env
+.kilo
+# Notes, prompts and docs stay on this computer
+*.md

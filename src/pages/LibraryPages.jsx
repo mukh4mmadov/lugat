@@ -1,0 +1,948 @@
+import { useMemo, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import GlassCard from "../components/GlassCard";
+import {
+  MASTERY_LEVELS,
+  getWordMastery,
+} from "../lib/mastery";
+import WordBadge from "../components/WordBadge";
+import MasteryBadge from "../components/MasteryBadge";
+import { allWords, getWordKey, lessonInfo, meaning } from "../data";
+import { searchWords } from "../lib/search";
+import {
+  clearDifficult,
+  resetProgress,
+  selectDifficultWords,
+  selectFavoriteWords,
+  selectProgressSummary,
+  markShareMilestoneShown,
+  setSpeechRate,
+  setAutoSpeak,
+} from "../store";
+import { normalizeAnswer } from "../lib/study";
+import { WordListActions } from "./PracticePages";
+import ShareModal from "../components/ShareModal";
+import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
+import { useAuth } from "../hooks/useAuth";
+import { supabase } from "../lib/supabase";
+import PasswordInput from "../components/PasswordInput";
+import { VoiceHelp } from "../components/VoiceNotice";
+import { koreanVoiceStatus, speakKorean } from "../lib/speech";
+import { Link } from "react-router-dom";
+import { BADGES, levelProgress, levelTitle } from "../lib/gamification";
+import { PushToggle } from "../components/GrowthPanels";
+
+export function SearchPage() {
+  const { t, i18n } = useTranslation();
+  const progress = useSelector((state) => state.progress);
+  const [query, setQuery] = useState("");
+  const [masteryFilter, setMasteryFilter] = useState("all");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(60);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 300);
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  useEffect(() => {
+    setVisibleCount(60);
+  }, [debouncedQuery, masteryFilter]);
+
+  const normalized = normalizeAnswer(debouncedQuery);
+  const results = useMemo(() => {
+    let filtered = normalized ? searchWords(allWords, normalized, meaning) : allWords;
+    if (masteryFilter !== "all") {
+      filtered = filtered.filter(
+        (word) =>
+          getWordMastery(getWordKey(word), progress.words).level ===
+          masteryFilter,
+      );
+    }
+    return filtered;
+    // meaning() follows the interface language.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [normalized, masteryFilter, progress.words, i18n.language]);
+
+  const globalCounts = useMemo(() => {
+    const counts = { all: allWords.length };
+    Object.values(MASTERY_LEVELS).forEach((level) => {
+      counts[level] = allWords.filter(
+        (word) =>
+          getWordMastery(getWordKey(word), progress.words).level === level,
+      ).length;
+    });
+    return counts;
+  }, [progress.words]);
+
+  const displayedResults = results.slice(0, visibleCount);
+  const hasMore = results.length > visibleCount;
+
+  return (
+    <GlassCard>
+      <Header title={t("library.search")} badge={t("library.searchBadge")} />
+      <label htmlFor="library-search-input" className="sr-only">
+        {t("library.search")}
+      </label>
+      <input
+        id="library-search-input"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder={t("library.searchPlaceholder", { count: allWords.length })}
+        className="premium-input mb-4"
+      />
+      <div className="mb-4 flex flex-wrap gap-2">
+        {[
+          {
+            key: "all",
+            label: t("mastery.filterAll", { count: globalCounts.all }),
+          },
+          {
+            key: MASTERY_LEVELS.NEW,
+            label: t("mastery.filterNew", { count: globalCounts.new }),
+          },
+          {
+            key: MASTERY_LEVELS.LEARNING,
+            label: t("mastery.filterLearning", {
+              count: globalCounts.learning,
+            }),
+          },
+          {
+            key: MASTERY_LEVELS.PRACTICED,
+            label: t("mastery.filterPracticed", {
+              count: globalCounts.practiced,
+            }),
+          },
+          {
+            key: MASTERY_LEVELS.MASTERED,
+            label: t("mastery.filterMastered", {
+              count: globalCounts.mastered,
+            }),
+          },
+        ].map((item) => (
+          <button
+            key={item.key}
+            type="button"
+            onClick={() => setMasteryFilter(item.key)}
+            className={`rounded-full px-3 py-1.5 text-xs font-black transition ${
+              masteryFilter === item.key
+                ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+                : "bg-white/65 text-slate-700 dark:bg-white/10 dark:text-slate-200"
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+        {masteryFilter !== "all" && (
+          <button
+            type="button"
+            onClick={() => setMasteryFilter("all")}
+            className="rounded-full border border-slate-200 bg-white/65 px-3 py-1.5 text-xs font-black text-slate-700 transition hover:border-slate-300 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+          >
+            {t("common.clear")}
+          </button>
+        )}
+      </div>
+      <div className="mb-3 text-xs font-bold text-slate-500 dark:text-slate-300">
+        {masteryFilter === "all"
+          ? `${t("search.results", { count: results.length })}`
+          : `${t("search.filteredResults", { count: results.length })}`}
+      </div>
+      <WordGrid
+        words={displayedResults}
+        empty={t("search.noResults")}
+        showMastery
+        masteryWordsState={progress.words}
+        Illustration={EmptyStateIllustrations.SearchNoResults}
+      />
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setVisibleCount((prev) => prev + 60)}
+          className="mt-4 rounded-2xl border border-slate-200 bg-white/75 px-5 py-2.5 font-black text-slate-800 shadow-sm transition hover:-translate-y-1 dark:border-white/10 dark:bg-white/10 dark:text-white"
+        >
+          {t("library.showMore")}
+        </button>
+      )}
+    </GlassCard>
+  );
+}
+
+export function FavoritesPage() {
+  const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
+  const words = useSelector(selectFavoriteWords);
+  return (
+    <GlassCard>
+      <Header title={t("library.favorites")} badge={t("flashcards.saved")} />
+      {words.length > 0 && <PracticeListLink to="/favorites/practice" count={words.length} />}
+      <WordGrid
+        words={words}
+        empty={t("library.favoritesEmpty")}
+        showMastery
+        masteryWordsState={progress.words}
+        Illustration={EmptyStateIllustrations.FavoritesEmpty}
+      />
+    </GlassCard>
+  );
+}
+
+export function DifficultPage() {
+  const { t } = useTranslation();
+  const progress = useSelector((state) => state.progress);
+  const dispatch = useDispatch();
+  const words = useSelector(selectDifficultWords);
+  return (
+    <GlassCard>
+      <Header
+        title={t("library.difficult")}
+        badge={t("library.autoCollected")}
+      />
+      {words.length > 0 && <PracticeListLink to="/difficult/practice" count={words.length} />}
+      <WordGrid
+        words={words}
+        empty={t("library.difficultEmpty")}
+        showMastery
+        masteryWordsState={progress.words}
+        Illustration={EmptyStateIllustrations.DifficultEmpty}
+        onRemove={(word) => dispatch(clearDifficult(getWordKey(word)))}
+      />
+    </GlassCard>
+  );
+}
+
+export function StatsPage() {
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const progress = useSelector((state) => state.progress);
+  const difficult = selectDifficultWords({ progress });
+  const progressSummary = useSelector(selectProgressSummary);
+  const studiedUnique = progressSummary.studiedWords;
+  const accuracy = progressSummary.accuracy;
+  const hardestLesson = lessonInfo
+    .map((lesson) => ({
+      lesson: lesson.lesson,
+      score: lesson.words.reduce(
+        (sum, word) =>
+          sum + (progress.words[getWordKey(word)]?.difficulty || 0),
+        0,
+      ),
+    }))
+    .sort((left, right) => right.score - left.score)[0];
+  const masteryOverview = progressSummary;
+
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+
+  const currentMilestone =
+    studiedUnique >= 50 ? Math.floor(studiedUnique / 50) * 50 : 0;
+
+  useEffect(() => {
+    if (currentMilestone > 0 && !progress.shareMilestones[currentMilestone]) {
+      dispatch(markShareMilestoneShown(currentMilestone));
+      setIsShareModalOpen(true);
+    }
+  }, [currentMilestone, progress.shareMilestones, dispatch]);
+
+  const xpLevel = levelProgress(progress.xp || 0);
+  const xpTitle = levelTitle(xpLevel.level);
+  const earnedBadges = BADGES.filter((badge) => progress.badges?.[badge.id]);
+
+  return (
+    <div className="space-y-6">
+      <GlassCard>
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <WordBadge>{t("library.analytics")}</WordBadge>
+            <h2 className="mt-3 text-2xl font-black tracking-tight md:text-4xl">
+              {t("library.stats")}
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={() => setIsShareModalOpen(true)}
+            className="action-btn inline-flex shrink-0 items-center whitespace-nowrap bg-slate-950 text-white dark:bg-white dark:text-slate-950"
+          >
+            <span className="mr-2">{t("common.share")}</span>
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M8.684 13.342C8.886 12.938 9 12.5 9 12c0-.5-.114-.938-.316-1.342m0 2.684a3 3 0 11-6 0 3 3 0 016 0zM17 6.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <Metric
+            label={t("stats.dailyStreak")}
+            value={progressSummary.streak}
+          />
+          <Metric label={t("stats.accuracy")} value={`${accuracy}%`} />
+          <Metric label={t("stats.wordsLearned")} value={studiedUnique} />
+          <Metric
+            label={t("stats.studyTime")}
+            value={`${progressSummary.studyMinutes} ${t("time.minutes")}`}
+          />
+          <Metric
+            label={t("stats.completedLessons")}
+            value={
+              lessonInfo.filter((lesson) =>
+                lesson.words.every(
+                  (word) => progress.words[getWordKey(word)]?.knownCount > 0,
+                ),
+              ).length
+            }
+          />
+          <Metric
+            label={t("stats.hardestLesson")}
+            value={
+              hardestLesson?.score ? hardestLesson.lesson : t("common.none")
+            }
+          />
+          <Metric label={t("stats.hardWords")} value={difficult.length} />
+          <Metric
+            label={t("stats.reviews")}
+            value={progressSummary.totalReviews}
+          />
+        </div>
+      </GlassCard>
+
+      <GlassCard>
+        <Header title={t("mastery.wordLevels")} badge={t("mastery.overview")} />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Metric
+            label={t("home.mastered")}
+            value={masteryOverview.mastered}
+            tone="green"
+          />
+          <Metric
+            label={t("home.practiced")}
+            value={masteryOverview.practiced}
+            tone="sky"
+          />
+          <Metric
+            label={t("home.learning")}
+            value={masteryOverview.learning}
+            tone="amber"
+          />
+          <Metric
+            label={t("home.new")}
+            value={masteryOverview.new}
+            tone="slate"
+          />
+        </div>
+        <div className="mt-4">
+          <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
+            <span>{t("mastery.overallMastery")}</span>
+            <span>{masteryOverview.overallPercent}%</span>
+          </div>
+          <div className="mt-2 h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400"
+              style={{ width: `${masteryOverview.overallPercent}%` }}
+            />
+          </div>
+        </div>
+      </GlassCard>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <GlassCard>
+          <Header
+            title={t("stats.achievements")}
+            badge={t("stats.milestones")}
+          />
+          <Link to="/achievements" className="block rounded-3xl bg-amber-50 p-4 transition hover:-translate-y-0.5 dark:bg-amber-500/10">
+            <p className="text-lg font-black">
+              ⚡ {t("xp.level", { level: xpLevel.level })} · {xpTitle.icon} {t(`xp.title.${xpTitle.id}`)}
+            </p>
+            <div className="mt-2 h-2 overflow-hidden rounded-full bg-amber-200 dark:bg-amber-500/20">
+              <div className="h-full rounded-full bg-amber-500" style={{ width: `${xpLevel.percent}%` }} />
+            </div>
+            <p className="mt-3 text-sm font-bold text-slate-600 dark:text-slate-300">
+              🏆 {t("xp.badgesEarned", { count: earnedBadges.length, total: BADGES.length })}
+            </p>
+            <p className="mt-1 text-2xl tracking-wider">{earnedBadges.slice(-8).map((badge) => badge.icon).join(" ") || "🔒"}</p>
+            <p className="mt-2 text-sm font-black text-sky-600 dark:text-sky-300">{t("xp.seeAchievements")} →</p>
+          </Link>
+        </GlassCard>
+        <GlassCard>
+          <Header
+            title={t("stats.recentActivity")}
+            badge={t("stats.latestPractice")}
+          />
+          <div className="space-y-3">
+            {progress.stats.activity.length ? (
+              progress.stats.activity.map((item) => (
+                <div
+                  key={`${item.word}-${item.at}`}
+                  className="rounded-3xl bg-slate-950/5 p-4 dark:bg-white/10"
+                >
+                  <p className="font-black">{item.word}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-300">
+                    {t("card.lesson", { lesson: item.lesson })} ·{" "}
+                    {t(`srs.${item.type}`, { defaultValue: item.type })}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <div className="text-center py-8">
+                <div className="mx-auto mb-4 h-24 w-24">
+                  <EmptyStateIllustrations.NoActivity />
+                </div>
+                <p className="text-slate-500 dark:text-slate-300">
+                  {t("stats.noActivity")}
+                </p>
+              </div>
+            )}
+          </div>
+        </GlassCard>
+      </div>
+
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        selectedTemplate={selectedTemplate}
+        onSelectTemplate={setSelectedTemplate}
+        progress={progress}
+      />
+    </div>
+  );
+}
+
+export function SettingsPage() {
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const progress = useSelector((state) => state.progress);
+  const { user, profile, updateProfile } = useAuth();
+  const [firstName, setFirstName] = useState(profile?.first_name || "");
+  const [lastName, setLastName] = useState(profile?.last_name || "");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [accountMessage, setAccountMessage] = useState("");
+  const [accountBusy, setAccountBusy] = useState(false);
+
+  useEffect(() => {
+    setFirstName(profile?.first_name || "");
+    setLastName(profile?.last_name || "");
+  }, [profile]);
+
+  async function saveProfile(event) {
+    event.preventDefault();
+    setAccountBusy(true);
+    setAccountMessage("");
+    const { error } = await updateProfile({
+      first_name: firstName.trim(),
+      last_name: lastName.trim(),
+    });
+    setAccountBusy(false);
+    setAccountMessage(
+      error
+        ? t("settings.profileFailed", {
+            defaultValue: "Could not save profile.",
+          })
+        : t("settings.profileSaved", { defaultValue: "Profile saved." }),
+    );
+  }
+
+  function exportData() {
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      account: { email: user?.email, profile },
+      progress,
+    };
+    const url = URL.createObjectURL(
+      new Blob([JSON.stringify(payload, null, 2)], {
+        type: "application/json",
+      }),
+    );
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "k-talim-progress.json";
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  async function changePassword(event) {
+    event.preventDefault();
+    setAccountMessage("");
+    if (newPassword.length < 8 || newPassword !== confirmPassword) {
+      setAccountMessage(t("settings.passwordMismatch"));
+      return;
+    }
+    setAccountBusy(true);
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    setAccountBusy(false);
+    setAccountMessage(
+      error
+        ? t("settings.passwordFailed", {
+            defaultValue: "Could not update password.",
+          })
+        : t("settings.passwordUpdated", { defaultValue: "Password updated." }),
+    );
+    if (!error) {
+      setNewPassword("");
+      setConfirmPassword("");
+    }
+  }
+
+  return (
+    <GlassCard className="mx-auto max-w-3xl">
+      <Header
+        title={t("library.settings")}
+        badge={t("library.personalization")}
+      />
+      <div className="space-y-4">
+        {user && (
+          <section className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+            <PushToggle />
+          </section>
+        )}
+        <section className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+          <h3 className="text-xl font-black">
+            {t("settings.accountTitle", { defaultValue: "Account" })}
+          </h3>
+          {user ? (
+            <>
+              <form
+                onSubmit={saveProfile}
+                className="mt-4 grid gap-3 sm:grid-cols-2"
+              >
+                <label className="text-xs font-bold">
+                  {t("settings.firstName", { defaultValue: "First name" })}
+                  <input
+                    required
+                    value={firstName}
+                    onChange={(event) => setFirstName(event.target.value)}
+                    className="premium-input mt-1"
+                  />
+                </label>
+                <label className="text-xs font-bold">
+                  {t("settings.lastName", { defaultValue: "Last name" })}
+                  <input
+                    required
+                    value={lastName}
+                    onChange={(event) => setLastName(event.target.value)}
+                    className="premium-input mt-1"
+                  />
+                </label>
+                <button
+                  disabled={accountBusy}
+                  className="action-btn bg-slate-950 text-white disabled:opacity-50 dark:bg-white dark:text-slate-950 sm:col-span-2"
+                >
+                  {t("settings.saveProfile", { defaultValue: "Save profile" })}
+                </button>
+              </form>
+              <form
+                onSubmit={changePassword}
+                className="mt-6 grid gap-3 sm:grid-cols-2"
+              >
+                <label className="text-xs font-bold">
+                  {t("settings.newPassword", { defaultValue: "New password" })}
+                  <PasswordInput
+                    autoComplete="new-password"
+                    minLength={8}
+                    required
+                    value={newPassword}
+                    onChange={(event) => setNewPassword(event.target.value)}
+                    className="premium-input"
+                    wrapperClassName="mt-1"
+                  />
+                </label>
+                <label className="text-xs font-bold">
+                  {t("settings.confirmPassword", {
+                    defaultValue: "Confirm password",
+                  })}
+                  <PasswordInput
+                    autoComplete="new-password"
+                    minLength={8}
+                    required
+                    value={confirmPassword}
+                    onChange={(event) => setConfirmPassword(event.target.value)}
+                    className="premium-input"
+                    wrapperClassName="mt-1"
+                  />
+                </label>
+                <button
+                  disabled={accountBusy}
+                  className="action-btn border border-slate-300 disabled:opacity-50 dark:border-white/15 sm:col-span-2"
+                >
+                  {t("settings.updatePassword", {
+                    defaultValue: "Update password",
+                  })}
+                </button>
+              </form>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={exportData}
+                  className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold dark:border-white/15"
+                >
+                  {t("settings.exportData", { defaultValue: "Export my data" })}
+                </button>
+              </div>
+              {accountMessage && (
+                <p role="status" className="mt-3 text-sm font-bold">
+                  {accountMessage}
+                </p>
+              )}
+              <DeletionRequest userId={user.id} />
+            </>
+          ) : (
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                {t("settings.exportLocalData", {
+                  defaultValue: "Export progress stored on this device.",
+                })}
+              </p>
+              <button
+                type="button"
+                onClick={exportData}
+                className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold dark:border-white/15"
+              >
+                {t("settings.exportData", { defaultValue: "Export my data" })}
+              </button>
+            </div>
+          )}
+        </section>
+        <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+          <h3 className="text-xl font-black">{t("settings.pronunciation")}</h3>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
+            {t("settings.pronunciationText")}
+          </p>
+        </div>
+        <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
+          <h3 className="text-xl font-black">{t("settings.audioSection")}</h3>
+          <div className="mt-4 space-y-4">
+            <VoiceCheck rate={progress.settings.speechRate} />
+            <div>
+              <label
+                htmlFor="settings-speech-rate"
+                className="mb-1 block text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400"
+              >
+                {t("settings.speechRate")}
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  id="settings-speech-rate"
+                  type="range"
+                  min="0.5"
+                  max="1.5"
+                  step="0.05"
+                  value={progress.settings.speechRate}
+                  onChange={(e) =>
+                    dispatch(setSpeechRate(Number(e.target.value)))
+                  }
+                  className="flex-1"
+                  aria-valuemin="0.5"
+                  aria-valuemax="1.5"
+                  aria-valuenow={progress.settings.speechRate}
+                />
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-200">
+                  {progress.settings.speechRate.toFixed(2)}x
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-black text-slate-900 dark:text-white">
+                  {t("settings.autoSpeak")}
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {t("settings.autoSpeakDescription")}
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={progress.settings.autoSpeak}
+                aria-label={t("settings.autoSpeak")}
+                onClick={() =>
+                  dispatch(setAutoSpeak(!progress.settings.autoSpeak))
+                }
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${
+                  progress.settings.autoSpeak
+                    ? "bg-sky-500"
+                    : "bg-slate-200 dark:bg-white/10"
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 rounded-full bg-white transition ${
+                    progress.settings.autoSpeak
+                      ? "translate-x-6"
+                      : "translate-x-1"
+                  }`}
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* An account's progress is kept for good; only a guest can start over. */}
+        {!user && (
+        <div className="rounded-3xl bg-rose-50 p-5 dark:bg-rose-500/10">
+          <h3 className="text-xl font-black text-rose-700 dark:text-rose-200">
+            {t("settings.resetProgress")}
+          </h3>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">
+            {t("settings.resetProgressText")}
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              if (!window.confirm(t("settings.resetConfirm"))) return;
+              dispatch(resetProgress());
+            }}
+            className="mt-4 rounded-2xl bg-rose-500 px-5 py-3 font-black text-white"
+          >
+            {t("settings.resetButton")}
+          </button>
+        </div>
+        )}
+      </div>
+    </GlassCard>
+  );
+}
+
+// Learners cannot delete their account themselves: they send a request with a
+// reason, and an admin checks the account before deleting it.
+function DeletionRequest({ userId }) {
+  const { t, i18n } = useTranslation();
+  const [requests, setRequests] = useState(null);
+  const [writing, setWriting] = useState(false);
+  const [reason, setReason] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    supabase
+      .from("account_deletion_requests")
+      .select("id, status, reason, admin_note, created_at")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .then(({ data }) => {
+        if (!cancelled) setRequests(data || []);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId]);
+
+  const latest = requests?.[0];
+  const open = latest?.status === "open" ? latest : null;
+
+  async function send(event) {
+    event.preventDefault();
+    setBusy(true);
+    setMessage("");
+    const { data } = await supabase.auth.getSession();
+    try {
+      const response = await fetch("/api/delete-account", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${data.session?.access_token || ""}` },
+        body: JSON.stringify({ reason }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.request) throw new Error(result.error || "failed");
+      setRequests([result.request]);
+      setWriting(false);
+      setMessage(t("settings.deletion.sent"));
+    } catch {
+      setMessage(t("settings.deletion.failed"));
+    }
+    setBusy(false);
+  }
+
+  return (
+    <div className="mt-6 rounded-2xl border border-rose-200 p-4 dark:border-rose-500/30">
+      <h4 className="font-black text-rose-700 dark:text-rose-200">{t("settings.deletion.title")}</h4>
+      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("settings.deletion.text")}</p>
+      {open && (
+        <p className="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-sm font-bold text-amber-800 dark:bg-amber-500/10 dark:text-amber-200">
+          {t("settings.deletion.pending", { date: new Date(open.created_at).toLocaleDateString(i18n.language) })}
+        </p>
+      )}
+      {latest?.status === "rejected" && !writing && (
+        <p className="mt-3 rounded-xl bg-slate-100 px-3 py-2 text-sm dark:bg-white/10">
+          {t("settings.deletion.rejected")}
+          {latest.admin_note ? ` ${latest.admin_note}` : ""}
+        </p>
+      )}
+      {writing ? (
+        <form onSubmit={send} className="mt-3 grid gap-2">
+          <label className="text-xs font-bold">
+            {t("settings.deletion.reasonLabel")}
+            <textarea
+              required
+              minLength={3}
+              maxLength={1000}
+              rows={3}
+              value={reason}
+              onChange={(event) => setReason(event.target.value)}
+              className="premium-input mt-1"
+            />
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <button disabled={busy || reason.trim().length < 3} className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-bold text-white disabled:opacity-50">
+              {t("settings.deletion.send")}
+            </button>
+            <button type="button" onClick={() => setWriting(false)} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold dark:border-white/15">
+              {t("common.cancel")}
+            </button>
+          </div>
+        </form>
+      ) : (
+        requests && (
+          <button
+            type="button"
+            onClick={() => {
+              setReason(open?.reason || "");
+              setWriting(true);
+              setMessage("");
+            }}
+            className="mt-3 rounded-xl border border-rose-300 px-4 py-2 text-sm font-bold text-rose-700 dark:border-rose-500/40 dark:text-rose-200"
+          >
+            {open ? t("settings.deletion.edit") : t("settings.deletion.open")}
+          </button>
+        )
+      )}
+      {message && <p role="status" className="mt-2 text-sm font-bold">{message}</p>}
+    </div>
+  );
+}
+
+function Header({ title, badge }) {
+  return (
+    <div className="mb-4">
+      <WordBadge>{badge}</WordBadge>
+      <h2 className="mt-3 text-2xl font-black tracking-tight md:text-4xl">
+        {title}
+      </h2>
+    </div>
+  );
+}
+
+function PracticeListLink({ to, count }) {
+  const { t } = useTranslation();
+  return (
+    <Link to={to} className="mb-4 inline-flex rounded-2xl bg-sky-500 px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-sky-500/25">
+      ▶ {t("library.practiceList", { count })}
+    </Link>
+  );
+}
+
+function WordGrid({
+  words,
+  empty,
+  showMastery = false,
+  masteryWordsState,
+  Illustration,
+  onRemove,
+}) {
+  const { t } = useTranslation();
+  if (!words.length) {
+    return (
+      <div className="text-center py-8">
+        {Illustration && (
+          <div className="mx-auto mb-4 h-24 w-24">
+            <Illustration />
+          </div>
+        )}
+        <p className="text-slate-500 dark:text-slate-300">{empty}</p>
+      </div>
+    );
+  }
+  return (
+    <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      {words.map((word) => {
+        const mastery = showMastery
+          ? getWordMastery(getWordKey(word), masteryWordsState)
+          : null;
+        return (
+          <article
+            key={getWordKey(word)}
+            className="rounded-3xl border border-slate-200 bg-white/75 p-4 dark:border-white/10 dark:bg-white/10"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="text-xl font-black">{word.korean}</p>
+                  {mastery && <MasteryBadge level={mastery.level} size="xs" />}
+                </div>
+                {word.romanization && (
+                  <p className="font-semibold text-sky-600 dark:text-sky-300">
+                    {word.romanization}
+                  </p>
+                )}
+                <p className="mt-1 text-slate-600 dark:text-slate-300">
+                  {meaning(word)}
+                </p>
+              </div>
+              <WordBadge tone={word.needsReview ? "amber" : "green"}>
+                {t("library.lessonPrefix")}
+                {word.lesson}
+              </WordBadge>
+            </div>
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <WordListActions word={word} />
+              {onRemove && (
+                <button type="button" onClick={() => onRemove(word)} className="rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-500 hover:bg-slate-100 dark:hover:bg-white/10">
+                  ✕ {t("library.removeDifficult")}
+                </button>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+function Metric({ label, value, tone }) {
+  const toneColors = {
+    green: "text-emerald-600 dark:text-emerald-300",
+    sky: "text-sky-600 dark:text-sky-300",
+    amber: "text-amber-600 dark:text-amber-300",
+    slate: "text-slate-600 dark:text-slate-300",
+  };
+  return (
+    <div className="rounded-3xl bg-slate-950/5 p-4 dark:bg-white/10">
+      <p
+        className={`text-2xl font-black ${toneColors[tone] || "text-slate-900 dark:text-white"}`}
+      >
+        {value}
+      </p>
+      <p className="mt-1 text-xs font-bold text-slate-500 dark:text-slate-300">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+// Whether this device can pronounce Korean, with a test button.
+function VoiceCheck({ rate }) {
+  const { t } = useTranslation();
+  const [status, setStatus] = useState("checking");
+  useEffect(() => {
+    koreanVoiceStatus(2500).then(setStatus);
+  }, []);
+  return (
+    <div className={`rounded-2xl p-3 ${status === "ok" ? "bg-emerald-50 dark:bg-emerald-500/10" : status === "checking" ? "bg-slate-50 dark:bg-white/5" : "bg-amber-50 text-amber-950 dark:bg-amber-500/10 dark:text-amber-100"}`}>
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-sm font-bold">{status === "ok" ? `✓ ${t("voice.ok")}` : status === "checking" ? t("common.loading") : "🔇"}</span>
+        <button type="button" onClick={() => speakKorean("안녕하세요", rate)} className="ml-auto rounded-xl bg-slate-950 px-3 py-1.5 text-xs font-black text-white dark:bg-white dark:text-slate-950">
+          🔊 {t("voice.test")}
+        </button>
+      </div>
+      {(status === "missing" || status === "unsupported") && <div className="mt-2"><VoiceHelp status={status} /></div>}
+    </div>
+  );
+}

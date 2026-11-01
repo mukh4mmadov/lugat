@@ -1,0 +1,730 @@
+[
+  {
+    "id": 734,
+    "korean": "기념품",
+    "uzbek": "Esdalik sovg'a",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 734,
+    "note": "suvenir",
+    "romanization": "ginyeompum",
+    "english": "Souvenir",
+    "russian": "Сувенир",
+    "example": {
+      "ko": "기념품을 샀어요.",
+      "uz": "Esdalik sovg'a sotib oldim.",
+      "en": "I bought a souvenir.",
+      "ru": "Я купил сувенир."
+    }
+  },
+  {
+    "id": 735,
+    "korean": "궁",
+    "uzbek": "Saroy",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 735,
+    "romanization": "gung",
+    "english": "Palace",
+    "russian": "Дворец",
+    "example": {
+      "ko": "서울에는 궁이 많아요.",
+      "uz": "Seulda saroylar ko'p.",
+      "en": "There are many palaces in Seoul.",
+      "ru": "В Сеуле много дворцов."
+    }
+  },
+  {
+    "id": 736,
+    "korean": "서울숲",
+    "uzbek": "Seul o'rmoni",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 736,
+    "note": "park",
+    "romanization": "seoulsup",
+    "english": "Seoul Forest",
+    "russian": "Сеульский лес (парк)",
+    "example": {
+      "ko": "서울숲에서 자전거를 타요.",
+      "uz": "Seul o'rmonida velosiped uchaman.",
+      "en": "I ride a bike in Seoul Forest.",
+      "ru": "Я катаюсь на велосипеде в Сеульском лесу."
+    }
+  },
+  {
+    "id": 737,
+    "korean": "한강",
+    "uzbek": "Xan daryosi",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 737,
+    "romanization": "hangang",
+    "english": "Han River",
+    "russian": "Река Ханган",
+    "example": {
+      "ko": "한강에서 라면을 먹어요.",
+      "uz": "Xan daryosi bo'yida ramyon yeymiz.",
+      "en": "We eat ramyeon by the Han River.",
+      "ru": "Мы едим рамён у реки Ханган."
+    }
+  },
+  {
+    "id": 738,
+    "korean": "꽃목걸이 (꽃목거리)",
+    "uzbek": "Gul marjon",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 738,
+    "romanization": "kkonmokgeori (kkonmokgeori)",
+    "english": "Flower necklace",
+    "russian": "Цветочное ожерелье",
+    "example": {
+      "ko": "꽃목걸이를 만들었어요.",
+      "uz": "Gul marjon yasadim.",
+      "en": "I made a flower necklace.",
+      "ru": "Я сделал цветочное ожерелье."
+    }
+  },
+  {
+    "id": 739,
+    "korean": "아리랑",
+    "uzbek": "Arirang",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 739,
+    "note": "koreys milliy qo'shig'i",
+    "romanization": "arirang",
+    "english": "Arirang (Korean folk song)",
+    "russian": "Ариран (корейская народная песня)",
+    "example": {
+      "ko": "아리랑은 한국 노래예요.",
+      "uz": "Arirang — koreys qo'shig'i.",
+      "en": "Arirang is a Korean song.",
+      "ru": "Ариран — корейская песня."
+    }
+  },
+  {
+    "id": 740,
+    "korean": "더",
+    "uzbek": "Yana, ko'proq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 740,
+    "romanization": "deo",
+    "english": "More",
+    "russian": "Ещё / Больше",
+    "example": {
+      "ko": "더 주세요.",
+      "uz": "Yana bering.",
+      "en": "Please give me more.",
+      "ru": "Дайте ещё, пожалуйста."
+    }
+  },
+  {
+    "id": 741,
+    "korean": "하루",
+    "uzbek": "Bir kun",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 741,
+    "romanization": "haru",
+    "english": "One day",
+    "russian": "Один день",
+    "example": {
+      "ko": "하루에 단어 열 개를 외워요.",
+      "uz": "Bir kunda o'nta so'z yodlayman.",
+      "en": "I memorize ten words a day.",
+      "ru": "Я учу десять слов в день."
+    }
+  },
+  {
+    "id": 742,
+    "korean": "단풍",
+    "uzbek": "Kuzgi yaproqlar",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 742,
+    "romanization": "danpung",
+    "english": "Autumn leaves",
+    "russian": "Осенние листья",
+    "example": {
+      "ko": "가을에 단풍이 아름다워요.",
+      "uz": "Kuzda yaproqlar go'zal.",
+      "en": "The autumn leaves are beautiful in fall.",
+      "ru": "Осенью красивые листья."
+    }
+  },
+  {
+    "id": 743,
+    "korean": "끝내다",
+    "uzbek": "Tugatmoq, yakunlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 743,
+    "romanization": "kkeunnaeda",
+    "english": "To finish",
+    "russian": "Заканчивать",
+    "example": {
+      "ko": "숙제를 끝냈어요.",
+      "uz": "Uy vazifasini tugatdim.",
+      "en": "I finished my homework.",
+      "ru": "Я закончил домашнее задание."
+    }
+  },
+  {
+    "id": 744,
+    "korean": "돈을 벌다",
+    "uzbek": "Pul topmoq, pul ishlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 744,
+    "romanization": "doneul beolda",
+    "english": "To earn money",
+    "russian": "Зарабатывать деньги",
+    "example": {
+      "ko": "아르바이트를 해서 돈을 벌어요.",
+      "uz": "Qo'shimcha ishlab pul topaman.",
+      "en": "I earn money from a part-time job.",
+      "ru": "Я зарабатываю деньги на подработке."
+    }
+  },
+  {
+    "id": 745,
+    "korean": "감기에 걸리다",
+    "uzbek": "Shamollamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 745,
+    "romanization": "gamgie geollida",
+    "english": "To catch a cold",
+    "russian": "Простудиться",
+    "example": {
+      "ko": "감기에 걸렸어요.",
+      "uz": "Shamolladim.",
+      "en": "I caught a cold.",
+      "ru": "Я простудился."
+    }
+  },
+  {
+    "id": 746,
+    "korean": "복습하다",
+    "uzbek": "Takrorlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 746,
+    "note": "darsni",
+    "romanization": "bokseuphada",
+    "english": "To review",
+    "russian": "Повторять",
+    "example": {
+      "ko": "집에서 복습해요.",
+      "uz": "Uyda takrorlayman.",
+      "en": "I review at home.",
+      "ru": "Я повторяю материал дома."
+    }
+  },
+  {
+    "id": 747,
+    "korean": "꿈을 꾸다",
+    "uzbek": "Tush ko'rmoq / Orzu qilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 747,
+    "romanization": "kkumeul kkuda",
+    "english": "To dream",
+    "russian": "Видеть сон / Мечтать",
+    "example": {
+      "ko": "어젯밤에 이상한 꿈을 꿨어요.",
+      "uz": "Kecha tunda g'alati tush ko'rdim.",
+      "en": "I had a strange dream last night.",
+      "ru": "Прошлой ночью мне приснился странный сон."
+    }
+  },
+  {
+    "id": 748,
+    "korean": "큰일 나다",
+    "uzbek": "Yomon ish bo'lmoq, falokat yuz bermoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 748,
+    "romanization": "keunil nada",
+    "english": "Something terrible happens",
+    "russian": "Случается беда",
+    "example": {
+      "ko": "지갑을 잃어버려서 큰일 났어요.",
+      "uz": "Hamyonimni yo'qotib qo'ydim, falokat!",
+      "en": "I lost my wallet — it's a disaster.",
+      "ru": "Я потерял кошелёк — беда!"
+    }
+  },
+  {
+    "id": 749,
+    "korean": "교통사고",
+    "uzbek": "Yo'l-transport hodisasi",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 749,
+    "note": "avariya",
+    "romanization": "gyotongsago",
+    "english": "Traffic accident",
+    "russian": "Дорожная авария",
+    "example": {
+      "ko": "교통사고가 났어요.",
+      "uz": "Yo'l-transport hodisasi yuz berdi.",
+      "en": "There was a traffic accident.",
+      "ru": "Произошла авария."
+    }
+  },
+  {
+    "id": 750,
+    "korean": "어젯밤",
+    "uzbek": "Kecha tunda",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 750,
+    "romanization": "eojetbam",
+    "english": "Last night",
+    "russian": "Прошлой ночью",
+    "example": {
+      "ko": "어젯밤에 늦게 잤어요.",
+      "uz": "Kecha tunda kech uxladim.",
+      "en": "I went to bed late last night.",
+      "ru": "Прошлой ночью я поздно лёг спать."
+    }
+  },
+  {
+    "id": 751,
+    "korean": "동안",
+    "uzbek": "Davomida, mobaynida",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 751,
+    "romanization": "dongan",
+    "english": "During / For (a period)",
+    "russian": "В течение",
+    "example": {
+      "ko": "방학 동안 한국어를 배웠어요.",
+      "uz": "Ta'til davomida koreys tilini o'rgandim.",
+      "en": "I learned Korean during the vacation.",
+      "ru": "За каникулы я учил корейский."
+    }
+  },
+  {
+    "id": 752,
+    "korean": "이상하다",
+    "uzbek": "G'alati, noodatiy",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 752,
+    "romanization": "isanghada",
+    "english": "To be strange",
+    "russian": "Быть странным",
+    "example": {
+      "ko": "오늘 날씨가 이상해요.",
+      "uz": "Bugun havo g'alati.",
+      "en": "The weather is strange today.",
+      "ru": "Сегодня странная погода."
+    }
+  },
+  {
+    "id": 753,
+    "korean": "노력하다",
+    "uzbek": "Harakat qilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 753,
+    "romanization": "noryeokhada",
+    "english": "To try hard",
+    "russian": "Стараться",
+    "example": {
+      "ko": "열심히 노력해요.",
+      "uz": "Astoydil harakat qilaman.",
+      "en": "I try hard.",
+      "ru": "Я очень стараюсь."
+    }
+  },
+  {
+    "id": 754,
+    "korean": "말을 타다",
+    "uzbek": "Ot minmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 754,
+    "romanization": "mareul tada",
+    "english": "To ride a horse",
+    "russian": "Ездить верхом",
+    "example": {
+      "ko": "제주도에서 말을 탔어요.",
+      "uz": "Jejuda ot mindim.",
+      "en": "I rode a horse on Jeju.",
+      "ru": "Я катался верхом на Чеджу."
+    }
+  },
+  {
+    "id": 755,
+    "korean": "사인을 받다",
+    "uzbek": "Dastxat (avtograf) olmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 755,
+    "romanization": "saineul batda",
+    "english": "To get an autograph",
+    "russian": "Получить автограф",
+    "example": {
+      "ko": "가수에게 사인을 받았어요.",
+      "uz": "Qo'shiqchidan avtograf oldim.",
+      "en": "I got an autograph from the singer.",
+      "ru": "Я получил автограф у певца."
+    }
+  },
+  {
+    "id": 756,
+    "korean": "장갑",
+    "uzbek": "Qo'lqop",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 756,
+    "romanization": "janggap",
+    "english": "Gloves",
+    "russian": "Перчатки",
+    "example": {
+      "ko": "추워서 장갑을 껴요.",
+      "uz": "Sovuq bo'lgani uchun qo'lqop kiyaman.",
+      "en": "It's cold, so I wear gloves.",
+      "ru": "Холодно, поэтому я надеваю перчатки."
+    }
+  },
+  {
+    "id": 757,
+    "korean": "지갑",
+    "uzbek": "Hamyon",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 757,
+    "romanization": "jigap",
+    "english": "Wallet",
+    "russian": "Кошелёк",
+    "example": {
+      "ko": "지갑에 돈이 없어요.",
+      "uz": "Hamyonimda pul yo'q.",
+      "en": "There's no money in my wallet.",
+      "ru": "В кошельке нет денег."
+    }
+  },
+  {
+    "id": 758,
+    "korean": "이해하다",
+    "uzbek": "Tushunmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 758,
+    "romanization": "ihaehada",
+    "english": "To understand",
+    "russian": "Понимать",
+    "example": {
+      "ko": "선생님 말을 이해해요.",
+      "uz": "O'qituvchining gapini tushunaman.",
+      "en": "I understand what the teacher says.",
+      "ru": "Я понимаю, что говорит учитель."
+    }
+  },
+  {
+    "id": 759,
+    "korean": "눕다",
+    "uzbek": "Yotmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 759,
+    "romanization": "nupda",
+    "english": "To lie down",
+    "russian": "Ложиться",
+    "example": {
+      "ko": "침대에 누워요.",
+      "uz": "Karavotga yotaman.",
+      "en": "I lie down on the bed.",
+      "ru": "Я ложусь на кровать."
+    }
+  },
+  {
+    "id": 760,
+    "korean": "그렇지만",
+    "uzbek": "Lekin, biroq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 760,
+    "romanization": "geureochiman",
+    "english": "However / But",
+    "russian": "Однако / Но",
+    "example": {
+      "ko": "비싸요. 그렇지만 좋아요.",
+      "uz": "Qimmat. Lekin yaxshi.",
+      "en": "It's expensive. But it's good.",
+      "ru": "Дорого. Но хорошо."
+    }
+  },
+  {
+    "id": 761,
+    "korean": "고장 나다",
+    "uzbek": "Buzilmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 761,
+    "romanization": "gojang nada",
+    "english": "To break down",
+    "russian": "Ломаться",
+    "example": {
+      "ko": "핸드폰이 고장 났어요.",
+      "uz": "Telefonim buzilib qoldi.",
+      "en": "My phone is broken.",
+      "ru": "Мой телефон сломался."
+    }
+  },
+  {
+    "id": 762,
+    "korean": "잃어버리다",
+    "uzbek": "Yo'qotib qo'ymoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 762,
+    "romanization": "ireobeorida",
+    "english": "To lose (something)",
+    "russian": "Терять",
+    "example": {
+      "ko": "우산을 잃어버렸어요.",
+      "uz": "Soyabonimni yo'qotib qo'ydim.",
+      "en": "I lost my umbrella.",
+      "ru": "Я потерял зонт."
+    }
+  },
+  {
+    "id": 763,
+    "korean": "글쎄요",
+    "uzbek": "Kim bilsin, bilmadim...",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 763,
+    "romanization": "geulsseyo",
+    "english": "Well… / I'm not sure",
+    "russian": "Ну… / Не знаю",
+    "example": {
+      "ko": "글쎄요, 잘 모르겠어요.",
+      "uz": "Bilmadim, aniq aytolmayman.",
+      "en": "Well, I'm not sure.",
+      "ru": "Ну, не знаю."
+    }
+  },
+  {
+    "id": 764,
+    "korean": "즐기다",
+    "uzbek": "Zavqlanmoq, rohatlanmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 764,
+    "romanization": "jeulgida",
+    "english": "To enjoy",
+    "russian": "Наслаждаться",
+    "example": {
+      "ko": "여행을 즐겨요.",
+      "uz": "Sayohatdan zavqlanaman.",
+      "en": "I enjoy traveling.",
+      "ru": "Я наслаждаюсь путешествием."
+    }
+  },
+  {
+    "id": 765,
+    "korean": "선택하다",
+    "uzbek": "Tanlamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 765,
+    "romanization": "seontaekhada",
+    "english": "To choose",
+    "russian": "Выбирать",
+    "example": {
+      "ko": "마음에 드는 것을 선택하세요.",
+      "uz": "Yoqqanini tanlang.",
+      "en": "Choose the one you like.",
+      "ru": "Выберите то, что вам нравится."
+    }
+  },
+  {
+    "id": 766,
+    "korean": "언제쯤",
+    "uzbek": "Qachonlar atrofida",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 766,
+    "romanization": "eonjejjeum",
+    "english": "About when",
+    "russian": "Примерно когда",
+    "example": {
+      "ko": "언제쯤 도착해요?",
+      "uz": "Taxminan qachon yetib kelasiz?",
+      "en": "About when will you arrive?",
+      "ru": "Примерно когда вы приедете?"
+    }
+  },
+  {
+    "id": 767,
+    "korean": "동대문시장",
+    "uzbek": "Dongdemun bozori",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 767,
+    "romanization": "dongdaemunsijang",
+    "english": "Dongdaemun Market",
+    "russian": "Рынок Тондэмун",
+    "example": {
+      "ko": "동대문시장에서 옷을 사요.",
+      "uz": "Dongdemun bozoridan kiyim sotib olaman.",
+      "en": "I buy clothes at Dongdaemun Market.",
+      "ru": "Я покупаю одежду на рынке Тондэмун."
+    }
+  },
+  {
+    "id": 768,
+    "korean": "팬",
+    "uzbek": "Muxlis",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 768,
+    "note": "fanat",
+    "romanization": "paen",
+    "english": "Fan",
+    "russian": "Фанат / Поклонник",
+    "example": {
+      "ko": "저는 그 가수의 팬이에요.",
+      "uz": "Men u qo'shiqchining muxlisiman.",
+      "en": "I'm a fan of that singer.",
+      "ru": "Я фанат этого певца."
+    }
+  },
+  {
+    "id": 769,
+    "korean": "다니다",
+    "uzbek": "Qatnamoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 769,
+    "romanization": "danida",
+    "english": "To attend / To go regularly",
+    "russian": "Посещать / Ходить (регулярно)",
+    "example": {
+      "ko": "저는 대학교에 다녀요.",
+      "uz": "Men universitetda o'qiyman.",
+      "en": "I attend university.",
+      "ru": "Я учусь в университете."
+    }
+  },
+  {
+    "id": 770,
+    "korean": "데이트하다",
+    "uzbek": "Uchrashuvga chiqmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 770,
+    "romanization": "deiteuhada",
+    "english": "To go on a date",
+    "russian": "Ходить на свидание",
+    "example": {
+      "ko": "주말에 데이트해요.",
+      "uz": "Dam olish kunlari uchrashuvga chiqaman.",
+      "en": "I go on a date on the weekend.",
+      "ru": "В выходные я хожу на свидание."
+    }
+  },
+  {
+    "id": 771,
+    "korean": "사진을 찍다",
+    "uzbek": "Rasmga tushirmoq",
+    "lesson": 26,
+    "category": "seoul, travel and daily expressions",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 771,
+    "romanization": "sajineul jjikda",
+    "english": "To take a photo",
+    "russian": "Фотографировать",
+    "example": {
+      "ko": "같이 사진을 찍어요.",
+      "uz": "Birga rasmga tushamiz.",
+      "en": "Let's take a photo together.",
+      "ru": "Давай сфотографируемся вместе."
+    }
+  }
+]

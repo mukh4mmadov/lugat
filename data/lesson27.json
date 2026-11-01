@@ -1,0 +1,440 @@
+[
+  {
+    "id": 772,
+    "korean": "건강하다",
+    "uzbek": "Sog'lom bo'lmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 772,
+    "romanization": "geonganghada",
+    "english": "To be healthy",
+    "russian": "Быть здоровым",
+    "example": {
+      "ko": "할아버지는 아직 건강하세요.",
+      "uz": "Bobom hali ham sog'lom.",
+      "en": "My grandfather is still healthy.",
+      "ru": "Дедушка всё ещё здоров."
+    }
+  },
+  {
+    "id": 773,
+    "korean": "계속하다",
+    "uzbek": "Davom ettirmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 773,
+    "romanization": "gyesokhada",
+    "english": "To continue",
+    "russian": "Продолжать",
+    "example": {
+      "ko": "운동을 계속하세요.",
+      "uz": "Sportni davom ettiring.",
+      "en": "Keep exercising.",
+      "ru": "Продолжайте заниматься спортом."
+    }
+  },
+  {
+    "id": 774,
+    "korean": "달리다",
+    "uzbek": "Yugurmoq / Osilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 774,
+    "romanization": "dallida",
+    "english": "To run / To hang",
+    "russian": "Бегать / Висеть",
+    "example": {
+      "ko": "공원에서 달려요.",
+      "uz": "Parkda yuguraman.",
+      "en": "I run in the park.",
+      "ru": "Я бегаю в парке."
+    }
+  },
+  {
+    "id": 775,
+    "korean": "걷다",
+    "uzbek": "Yurmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 775,
+    "note": "piyoda",
+    "romanization": "geotda",
+    "english": "To walk",
+    "russian": "Ходить",
+    "example": {
+      "ko": "매일 삼십 분씩 걸어요.",
+      "uz": "Har kuni o'ttiz daqiqa yuraman.",
+      "en": "I walk thirty minutes every day.",
+      "ru": "Я хожу пешком по тридцать минут каждый день."
+    }
+  },
+  {
+    "id": 776,
+    "korean": "스트레칭하다",
+    "uzbek": "Chigilni yozmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 776,
+    "romanization": "seuteurechinghada",
+    "english": "To stretch",
+    "russian": "Делать растяжку",
+    "example": {
+      "ko": "운동 전에 스트레칭해요.",
+      "uz": "Mashqdan oldin chigil yozaman.",
+      "en": "I stretch before exercising.",
+      "ru": "Перед тренировкой я делаю растяжку."
+    }
+  },
+  {
+    "id": 777,
+    "korean": "땀을 흘리다",
+    "uzbek": "Terlamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 777,
+    "romanization": "ttameul heullida",
+    "english": "To sweat",
+    "russian": "Потеть",
+    "example": {
+      "ko": "운동해서 땀을 흘려요.",
+      "uz": "Sport qilib terlayman.",
+      "en": "I sweat when I exercise.",
+      "ru": "Я потею во время тренировки."
+    }
+  },
+  {
+    "id": 778,
+    "korean": "멈추다",
+    "uzbek": "To'xtamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 778,
+    "romanization": "meomchuda",
+    "english": "To stop",
+    "russian": "Останавливаться",
+    "example": {
+      "ko": "버스가 멈췄어요.",
+      "uz": "Avtobus to'xtadi.",
+      "en": "The bus stopped.",
+      "ru": "Автобус остановился."
+    }
+  },
+  {
+    "id": 779,
+    "korean": "전체",
+    "uzbek": "Barchasi, butunlay",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 779,
+    "romanization": "jeonche",
+    "english": "The whole / Entire",
+    "russian": "Весь / Целиком",
+    "example": {
+      "ko": "전체 학생이 모였어요.",
+      "uz": "Barcha o'quvchilar yig'ildi.",
+      "en": "All the students gathered.",
+      "ru": "Собрались все ученики."
+    }
+  },
+  {
+    "id": 780,
+    "korean": "올라가다",
+    "uzbek": "Tepaga chiqmoq / Ko'tarilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 780,
+    "romanization": "ollagada",
+    "english": "To go up",
+    "russian": "Подниматься",
+    "example": {
+      "ko": "산에 올라가요.",
+      "uz": "Tog'ga chiqaman.",
+      "en": "I go up the mountain.",
+      "ru": "Я поднимаюсь на гору."
+    }
+  },
+  {
+    "id": 781,
+    "korean": "내려가다",
+    "uzbek": "Pastga tushmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 781,
+    "romanization": "naeryeogada",
+    "english": "To go down",
+    "russian": "Спускаться",
+    "example": {
+      "ko": "계단으로 내려가요.",
+      "uz": "Zinadan pastga tushaman.",
+      "en": "I go down the stairs.",
+      "ru": "Я спускаюсь по лестнице."
+    }
+  },
+  {
+    "id": 782,
+    "korean": "강하다",
+    "uzbek": "Kuchli",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 782,
+    "romanization": "ganghada",
+    "english": "To be strong",
+    "russian": "Быть сильным",
+    "example": {
+      "ko": "바람이 강해요.",
+      "uz": "Shamol kuchli.",
+      "en": "The wind is strong.",
+      "ru": "Ветер сильный."
+    }
+  },
+  {
+    "id": 783,
+    "korean": "약하다",
+    "uzbek": "Kuchsiz, zaif",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 783,
+    "romanization": "yakhada",
+    "english": "To be weak",
+    "russian": "Быть слабым",
+    "example": {
+      "ko": "할머니는 다리가 약하세요.",
+      "uz": "Buvimning oyoqlari zaif.",
+      "en": "My grandmother's legs are weak.",
+      "ru": "У бабушки слабые ноги."
+    }
+  },
+  {
+    "id": 784,
+    "korean": "아마",
+    "uzbek": "Balki, ehtimol",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 784,
+    "romanization": "ama",
+    "english": "Probably / Maybe",
+    "russian": "Наверное / Возможно",
+    "example": {
+      "ko": "내일은 아마 비가 올 거예요.",
+      "uz": "Ertaga balki yomg'ir yog'ar.",
+      "en": "It will probably rain tomorrow.",
+      "ru": "Завтра, наверное, будет дождь."
+    }
+  },
+  {
+    "id": 785,
+    "korean": "빠르다",
+    "uzbek": "Tez, chaqqon",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 785,
+    "romanization": "ppareuda",
+    "english": "To be fast",
+    "russian": "Быть быстрым",
+    "example": {
+      "ko": "시간이 빨라요.",
+      "uz": "Vaqt tez o'tadi.",
+      "en": "Time goes fast.",
+      "ru": "Время идёт быстро."
+    }
+  },
+  {
+    "id": 786,
+    "korean": "모르다",
+    "uzbek": "Bilmaslik",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 786,
+    "romanization": "moreuda",
+    "english": "Not to know",
+    "russian": "Не знать",
+    "example": {
+      "ko": "이 단어를 몰라요.",
+      "uz": "Bu so'zni bilmayman.",
+      "en": "I don't know this word.",
+      "ru": "Я не знаю этого слова."
+    }
+  },
+  {
+    "id": 787,
+    "korean": "다르다",
+    "uzbek": "Farq qilmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 787,
+    "romanization": "dareuda",
+    "english": "To be different",
+    "russian": "Отличаться",
+    "example": {
+      "ko": "두 사람의 생각이 달라요.",
+      "uz": "Ikki kishining fikri har xil.",
+      "en": "The two people think differently.",
+      "ru": "У этих двоих разные мнения."
+    }
+  },
+  {
+    "id": 788,
+    "korean": "고르다",
+    "uzbek": "Tanlamoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 788,
+    "romanization": "goreuda",
+    "english": "To choose",
+    "russian": "Выбирать",
+    "example": {
+      "ko": "마음에 드는 옷을 골라요.",
+      "uz": "Yoqqan kiyimni tanlayman.",
+      "en": "I pick the clothes I like.",
+      "ru": "Я выбираю одежду, которая мне нравится."
+    }
+  },
+  {
+    "id": 789,
+    "korean": "마르다",
+    "uzbek": "Qurimoq / Ozg'in bo'lmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 789,
+    "romanization": "mareuda",
+    "english": "To dry / To be thin",
+    "russian": "Сохнуть / Быть худым",
+    "example": {
+      "ko": "빨래가 다 말랐어요.",
+      "uz": "Kir kiyimlar qurib bo'ldi.",
+      "en": "The laundry has dried.",
+      "ru": "Бельё высохло."
+    }
+  },
+  {
+    "id": 790,
+    "korean": "기르다",
+    "uzbek": "O'stirmoq, boqmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 790,
+    "romanization": "gireuda",
+    "english": "To raise / To grow",
+    "russian": "Растить / Выращивать",
+    "example": {
+      "ko": "집에서 강아지를 길러요.",
+      "uz": "Uyda kuchukcha boqaman.",
+      "en": "I raise a puppy at home.",
+      "ru": "Я держу дома щенка."
+    }
+  },
+  {
+    "id": 791,
+    "korean": "흐르다",
+    "uzbek": "Oqmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 791,
+    "romanization": "heureuda",
+    "english": "To flow",
+    "russian": "Течь",
+    "example": {
+      "ko": "강물이 흘러요.",
+      "uz": "Daryo suvi oqadi.",
+      "en": "The river water flows.",
+      "ru": "Река течёт."
+    }
+  },
+  {
+    "id": 792,
+    "korean": "부르다",
+    "uzbek": "Chaqirmoq / Kuylamoq / Qorni to'q",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 792,
+    "romanization": "bureuda",
+    "english": "To call / To sing / To be full",
+    "russian": "Звать / Петь / Быть сытым",
+    "example": {
+      "ko": "친구의 이름을 불러요.",
+      "uz": "Do'stimning ismini chaqiraman.",
+      "en": "I call my friend's name.",
+      "ru": "Я зову друга по имени."
+    }
+  },
+  {
+    "id": 793,
+    "korean": "자르다",
+    "uzbek": "Kesmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 793,
+    "romanization": "jareuda",
+    "english": "To cut",
+    "russian": "Резать",
+    "example": {
+      "ko": "케이크를 잘라요.",
+      "uz": "Tortni kesaman.",
+      "en": "I cut the cake.",
+      "ru": "Я режу торт."
+    }
+  },
+  {
+    "id": 794,
+    "korean": "누르다",
+    "uzbek": "Bosmoq",
+    "lesson": 27,
+    "category": "health, exercise and daily life",
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "sourceNumber": 794,
+    "romanization": "nureuda",
+    "english": "To press",
+    "russian": "Нажимать",
+    "example": {
+      "ko": "버튼을 누르세요.",
+      "uz": "Tugmani bosing.",
+      "en": "Press the button.",
+      "ru": "Нажмите на кнопку."
+    }
+  }
+]

@@ -1,0 +1,60 @@
+// What the feedback assistant knows about K-TALIM. Keep it in step with the
+// app: prices with src/lib/premium.js, AI limits with api/ai-chat.js.
+
+export const SITE_KNOWLEDGE = `
+K-TALIM (https://lugat-six.vercel.app) is a website for Uzbek speakers learning Korean vocabulary and preparing for TOPIK I. The interface is in Uzbek, English and Russian (switch in the header menu). It has light and dark themes.
+
+ACCOUNTS
+- Sign up with email and password, or sign in with Google.
+- After email sign-up a confirmation link is emailed. The account works only after opening it. No email: check the Spam folder; the "send again" button works after 60 seconds. An expired or used link: just try signing in, or request a new link from the sign-in page.
+- Forgot password: "Forgot password?" on the sign-in page sends a reset link (also check Spam).
+- Settings (/settings): change name, password, speech speed, auto-play pronunciation, export progress. Guests can also reset their progress. An account cannot be deleted by the learner: Settings has "Request account deletion", where they write the reason; an admin checks the account and deletes it if there is no problem (until then all data stays). A signed-in learner's progress cannot be reset.
+- Everything a signed-in learner does is saved to the account: word progress, unfinished Study sessions, TOPIK attempts and results, grammar checks, Friday conversations, the Korea study plan and settings (language, exam theme), so it follows them to any device. The device only keeps a copy for offline use. Without an account it stays only in that browser and moves into the account on sign-up. "Deleting" a TOPIK attempt only hides it from the learner's list.
+
+LEARNING
+- Two books, K-TALIM 1A and 1B: 28 lessons, 833 words. Every word has an Uzbek, English and Russian meaning, romanization and a short example sentence.
+- Per lesson: Study, Flashcards, Listening, Quiz, Writing and Dictation (hear the example sentence, type it; a slower replay button exists).
+- Review (/review) brings back words that are due (spaced repetition). Also Difficult words, Weak words, Favorites (★), Search (searches all three languages and romanization, tolerates small typos), Stats.
+- Home has a Today card: daily goal (10/20/40/60 answers, changeable), last 7 days, a warning when the streak would end tonight, and a Continue button.
+- Leaderboard (/leaderboard): tabs League, Week (answers in 7 days), Speaking (minutes spoken in 7 days) and All time (mastered words). Learners can hide their name there.
+- Weekly leagues: Bronze → Silver → Gold → Sapphire → Diamond. The first XP of the week puts a learner in a group of up to 30 learners in their league; the week starts on Monday at 00:00 Tashkent time. The top 5 of a group move up a league, the bottom 5 move down.
+- Invite friends (Speaking → Invite tab): each learner has a 6-letter code and a link (lugat-six.vercel.app/?ref=CODE). Rewards: 2 friends → 1 day of Premium, 5 → 7 days, 10 → 30 days, 20 → 90 days, each once, claimed with the button in that tab. A friend counts after signing up with the link on their own device, confirming their email, and talking once in Speaking or studying on 3 different days.
+- Reminders: in Settings (and Speaking → Profile) learners can turn on push notifications: "a partner is waiting" and "keep your streak", at most 2 a day. On iPhone the site must be added to the Home Screen first.
+- Phones have a bottom tab bar (Home, Study, Review, TOPIK, Menu). The site can be installed as an app from the browser menu ("Install app" / "Add to Home Screen").
+- Pronunciation uses the device's Korean voice. No sound means the device has no Korean voice. Settings shows the voice status and a test button. To install one:
+  Android: Settings → System → Languages → Text-to-speech → Speech Services by Google → ⚙ → Install voice data → Korean, then reload.
+  iPhone: Settings → Accessibility → Spoken Content → Voices → Korean → download a voice, then reload.
+  Windows: Settings → Time & language → Speech → Add voices → Korean, then restart the browser.
+  Mac: System Settings → Accessibility → Spoken Content → System voice → Manage voices → Korean, then restart the browser.
+  Otherwise: open the site in Chrome.
+
+TOPIK I
+- The 35th TOPIK I paper with real audio: full mock exam (100 minutes, listening then reading, like the computer-based IBT test), listening only, reading only (no time limit). Answers are saved while testing; the result shows the score, every answer, and listening transcripts ("Audio text").
+- A vocabulary page for the 35th paper (/topik/words/...).
+- AI explanation of TOPIK mistakes on the result page: free accounts get 1 explanation per result (up to 3 a day), Premium explains 10 at a time.
+- More TOPIK papers will be added; we can't promise dates.
+
+STUDY IN KOREA (/korea, "Koreyada o'qish" in the menu)
+- A catalog of 367 Korean universities, colleges and graduate schools built only from official data: average annual tuition from the Korea Student Aid Foundation (KOSAF, as of April 2026), and IEQAS status from the Ministry of Justice and Ministry of Education announcement of 12 February 2026 (certified = simpler student visas; "visa scrutiny" universities have new student visas largely stopped for a year from fall 2026). Prices are also shown in so'm at the Central Bank of Uzbekistan rate. Filters, search, compare up to 3, and a page per university with sources and dates.
+- Tabs: My path (target universities, intake, TOPIK goal tied to the learner's TOPIK results here, visa document checklist, application tracker), Scholarships (GKS undergraduate and graduate, university TOPIK scholarships), Visa (D-4 language program, D-2 degree: steps and usual documents; the embassy's notice is authoritative), AI advisor (answers only from this official data), Write documents (Premium: AI writes or reviews 자기소개서, 학업계획서 and GKS documents in Korean or English from the learner's own facts), Interview practice (Premium: Friday asks 6 university or GKS interview questions by voice and scores each answer).
+- Free accounts: 5 advisor questions a day, 1 document and 1 interview a week; Premium much more. Exact deadlines and TOPIK requirements are on each university's website.
+
+SPEAKING (/speaking, "Gaplashish" in the menu and the phone tab bar)
+- Voice conversation in Korean with Friday, the AI partner: tap the microphone, say something in Korean, tap again to send. Friday answers in Korean (with a translation), corrects mistakes and asks the next question. Needs an account and microphone permission (allow it from the 🔒 icon in the address bar if it was blocked).
+- Live calls with other learners: in the start sheet pick "People" (👥), choose the partner's gender (anyone, male or female) and level, and the site finds a free learner at the same level. The call shows a shared topic card with a "next question" button, mute and hang up; afterwards learners rate the call and can block or report the partner (a report also blocks). Every live call is recorded (learners agree to this in the terms); admins may listen to a recording only to check a report, and recordings are deleted after 30 days. There is no age limit for live calls. Three reports pause live calls for 24 hours. If nobody is free within about 45 seconds the site offers Friday instead. Live calls use the same daily speaking minutes as Friday. On some mobile networks a call may fail to connect; Wi-Fi usually works.
+- Topics tab: a wheel of 45 conversation topics in three levels (beginner, intermediate, advanced), each with 3 questions and useful words.
+- Free accounts get 10 minutes of speaking a day (resets at midnight Tashkent time). Premium is unlimited and adds pronunciation feedback.
+- Before the first conversation the learner picks gender and level; both can be changed in the Profile tab.
+
+AI TUTOR (chat button in the corner)
+- Guests: 2 questions a day. Free accounts: 10 questions a day (counted per account and per device). Premium: practically unlimited. The limit resets 24 hours later.
+
+PREMIUM (/premium)
+- Prices: 1 month 29 000 UZS, 3 months 69 000 UZS, 12 months 199 000 UZS.
+- Gives now: AI tutor up to 200 questions a day (free: 10); speaking with Friday and live calls up to 2 hours a day (free: 10 minutes) with pronunciation feedback; AI explanations of TOPIK mistakes 10 at a time; the second story of every lesson; grammar sentence checks up to 100 a day (free: 5); Study in Korea AI tools (document writer and reviewer, interview practice, more advisor questions); streak freezes. Payment is a one-time transfer for 30, 90 or 365 days, not an automatic subscription. All lessons and the 35th TOPIK paper stay free.
+- How to buy: open /premium, pick a plan, press the Telegram button. It opens a chat with @mukh4mmadov with the order and account email filled in. Payment details are given there. Premium is usually turned on within an hour; a ⭐ appears next to the name. If it doesn't appear: sign out and back in, or reload.
+- Payment, refunds and premium activation problems are handled only by the owner in Telegram: @mukh4mmadov.
+
+FEEDBACK
+- Reports are answered in this conversation; a red badge in the menu shows new replies. A learner can reply, mark the report solved, and rate the help.
+`.trim();
