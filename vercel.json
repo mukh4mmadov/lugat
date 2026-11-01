@@ -23,7 +23,7 @@
       "destination": "/manifest.webmanifest"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/).*)",
       "destination": "/index.html"
     }
   ],

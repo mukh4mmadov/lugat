@@ -9,9 +9,20 @@ import RedirectIfAuthed from "./components/RedirectIfAuthed";
 import RequireProfileComplete from "./components/RequireProfileComplete";
 import PageLoader from "./components/PageLoader";
 import PageTitle from "./components/PageTitle";
+import { isChunkError, reloadForNewVersion } from "./lib/errorReport";
 
 // Each page is its own chunk, so the first visit only downloads what it shows.
-const page = (load, name = "default") => lazy(() => load().then((module) => ({ default: module[name] })));
+// A chunk from before a new deploy may be gone: reload once to get the new one.
+const page = (load, name = "default") =>
+  lazy(() =>
+    load().then(
+      (module) => ({ default: module[name] }),
+      (error) => {
+        if (isChunkError(error) && reloadForNewVersion()) return new Promise(() => {});
+        throw error;
+      },
+    ),
+  );
 const study = () => import("./pages/StudyPage");
 const practice = () => import("./pages/PracticePages");
 const library = () => import("./pages/LibraryPages");
@@ -70,6 +81,7 @@ const AdminJournal = page(adminTools, "AdminJournal");
 const AdminSpeaking = page(() => import("./components/admin/AdminSpeaking"));
 const AdminGrowth = page(() => import("./components/admin/AdminGrowth"));
 const AdminNotifications = page(() => import("./components/admin/AdminNotifications"));
+const AdminErrors = page(() => import("./components/admin/AdminErrors"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
 const TopikResultPage = page(topik, "TopikResultPage");
@@ -215,6 +227,7 @@ export default function App() {
               <Route path="speaking" element={<AdminSpeaking />} />
               <Route path="growth" element={<AdminGrowth />} />
               <Route path="notifications" element={<AdminNotifications />} />
+              <Route path="errors" element={<AdminErrors />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>

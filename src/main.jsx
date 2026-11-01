@@ -11,7 +11,9 @@ import { i18nReady } from "./lib/i18n";
 import { initWordOverrides } from "./lib/wordOverrides";
 import { dataReady } from "./data";
 import { captureReferral } from "./lib/growth";
+import { watchErrors } from "./lib/errorReport";
 
+watchErrors();
 captureReferral();
 
 const motionFeatures = () => import("./lib/motionFeatures").then((module) => module.default);

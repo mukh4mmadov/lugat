@@ -651,6 +651,12 @@ async function act(db, actor, body) {
     return [200, { deleted: true }];
   }
 
+  if (action === "clearError") {
+    const { error } = await db.from("app_errors").delete().eq("message", String(body.message || ""));
+    if (error) return [500, { error: "Delete failed" }];
+    return [200, { cleared: true }];
+  }
+
   if (action === "deletionRequest") {
     const id = Number(body.requestId);
     if (!Number.isInteger(id) || body.status !== "rejected") return [400, { error: "Invalid request" }];
@@ -722,6 +728,21 @@ export default async function handler(req, res) {
     }
     if (action === "speaking") return res.status(200).json(await speakingOverview(db));
     if (action === "growth") return res.status(200).json(await growthOverview(db));
+    if (action === "errors") {
+      // Errors learners hit in the last 14 days, grouped by message.
+      const since = new Date(Date.now() - 14 * DAY).toISOString();
+      const { data: rows } = await db.from("app_errors").select("kind, message, stack, path, user_id, user_agent, created_at").gte("created_at", since).order("created_at", { ascending: false }).limit(2000);
+      const groups = new Map();
+      for (const row of rows || []) {
+        const group = groups.get(row.message) || { message: row.message, kind: row.kind, count: 0, users: new Set(), paths: new Set(), lastAt: row.created_at, stack: row.stack, userAgent: row.user_agent };
+        group.count += 1;
+        if (row.user_id) group.users.add(row.user_id);
+        if (group.paths.size < 5) group.paths.add(row.path);
+        groups.set(row.message, group);
+      }
+      const errors = [...groups.values()].map((group) => ({ ...group, users: group.users.size, paths: [...group.paths] }));
+      return res.status(200).json({ errors, total: rows?.length || 0 });
+    }
     if (action === "transcript") {
       if (!UUID.test(String(req.query.sessionId || ""))) return res.status(400).json({ error: "Invalid session" });
       const { data: session } = await db.from("speaking_sessions").select("summary").eq("id", req.query.sessionId).maybeSingle();

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { useLocation } from "react-router-dom";
 import i18n from "../lib/i18n";
+import { isChunkError, reloadForNewVersion, reportError } from "../lib/errorReport";
 
 // Shows a recovery screen instead of a blank page when a page crashes.
 class Boundary extends Component {
@@ -15,6 +16,9 @@ class Boundary extends Component {
 
   componentDidCatch(error, info) {
     console.error("Page crashed:", error, info?.componentStack);
+    // A part of the site from before a new deploy: load the new version.
+    if (isChunkError(error) && reloadForNewVersion()) return;
+    reportError(Object.assign(new Error(error?.message || String(error)), { stack: `${error?.stack || ""}\n${info?.componentStack || ""}` }), "boundary");
   }
 
   render() {

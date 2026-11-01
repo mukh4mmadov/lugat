@@ -126,7 +126,8 @@ export default defineConfig({
             handler: "NetworkOnly",
           },
         ],
-        skipWaiting: true,
+        // No skipWaiting: the old worker keeps serving the files an open tab
+        // uses until the learner taps "Update" (PWAUpdate).
         clientsClaim: true,
       },
       registerType: "prompt",
