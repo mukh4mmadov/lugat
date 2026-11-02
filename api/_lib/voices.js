@@ -37,7 +37,9 @@ function wav(pcm, rate) {
 
 let workingModel = null;
 async function speak(word) {
-  const models = workingModel ? [workingModel] : TTS_MODELS;
+  // The model that worked last goes first; the others are fallbacks when it
+  // answers without audio (the preview models sometimes do).
+  const models = workingModel ? [workingModel, ...TTS_MODELS.filter((model) => model !== workingModel)] : TTS_MODELS;
   let lastError = "";
   for (const model of models) {
     const response = await fetch(gemini(model), {
@@ -58,7 +60,10 @@ async function speak(word) {
     }
     const data = await response.json();
     const part = data?.candidates?.[0]?.content?.parts?.find((item) => item.inlineData?.data);
-    if (!part) throw new Error(`${model}: no audio (${data?.candidates?.[0]?.finishReason || data?.promptFeedback?.blockReason || "?"})`);
+    if (!part) {
+      lastError = `${model}: no audio (${data?.candidates?.[0]?.finishReason || data?.promptFeedback?.blockReason || "?"})`;
+      continue;
+    }
     workingModel = model;
     const rate = Number(/rate=(\d+)/.exec(part.inlineData.mimeType || "")?.[1]) || 24000;
     const pcm = Buffer.from(part.inlineData.data, "base64");
@@ -116,7 +121,7 @@ export async function generateVoices(db, words, actorId) {
     let heard = "";
     let ok = false;
     let error = "";
-    for (let attempt = 0; attempt < 2 && !ok && (attempt === 0 || Date.now() < deadline - 25000); attempt += 1) {
+    for (let attempt = 0; attempt < 3 && !ok && (attempt === 0 || Date.now() < deadline - 25000); attempt += 1) {
       try {
         const voice = await speak(word);
         if (voice.seconds < 0.25 || voice.seconds > 6) {
@@ -129,8 +134,8 @@ export async function generateVoices(db, words, actorId) {
           ok = true;
         }
       } catch (caught) {
+        // Try again while there is time; the last reason is reported.
         error = caught.message.slice(0, 200);
-        break;
       }
     }
     results.push({ word, ok, heard, error });
