@@ -617,6 +617,9 @@ export function SettingsPage() {
           <p className="mt-2 text-slate-600 dark:text-slate-300">
             {t("settings.pronunciationText")}
           </p>
+          <Link to="/credits/audio" className="mt-2 inline-block text-sm font-bold text-sky-600 dark:text-sky-300">
+            {t("audioCredits.link")} →
+          </Link>
         </div>
         <div className="rounded-3xl bg-slate-950/5 p-5 dark:bg-white/10">
           <h3 className="text-xl font-black">{t("settings.audioSection")}</h3>

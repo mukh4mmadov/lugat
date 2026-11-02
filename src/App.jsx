@@ -54,6 +54,7 @@ const CompleteProfilePage = page(() => import("./pages/CompleteProfilePage"));
 const PrivacyPolicyPage = page(() => import("./pages/PrivacyPolicyPage"));
 const TermsOfServicePage = page(() => import("./pages/TermsOfServicePage"));
 const NotFoundPage = page(() => import("./pages/NotFoundPage"));
+const AudioCreditsPage = page(() => import("./pages/AudioCreditsPage"));
 const FeedbackPage = page(() => import("./pages/FeedbackPage"));
 const LeaderboardPage = page(() => import("./pages/LeaderboardPage"));
 const SpeakingPage = page(() => import("./pages/SpeakingPage"));
@@ -187,6 +188,7 @@ export default function App() {
             <Route path="difficult/practice" element={<FlashcardsPage list="difficult" />} />
             <Route path="stats" element={<StatsPage />} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
+            <Route path="credits/audio" element={<AudioCreditsPage />} />
             <Route path="premium" element={<PremiumPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />

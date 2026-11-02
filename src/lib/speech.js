@@ -1,6 +1,8 @@
-// Korean pronunciation uses the browser's own speech engine. Some devices have
-// no Korean voice installed and would stay silent, so we look for one first
-// and tell the learner how to install it when it is missing.
+// Korean pronunciation: words recorded by real people (src/data/wordAudio.js)
+// play that recording; everything else uses the browser's own speech engine.
+// Some devices have no Korean voice installed and would stay silent, so we
+// look for one first and tell the learner how to install it when it is missing.
+import WORD_AUDIO from "../data/wordAudio";
 
 export const NO_VOICE_EVENT = "k-talim:no-korean-voice";
 
@@ -10,6 +12,13 @@ const PREFERRED = [/google/i, /yuna/i, /sora/i, /heami/i, /microsoft/i, /samsung
 const MALE = /injoon|minsu|jian|\bmale\b/i;
 
 let cachedVoice = null;
+let currentAudio = null;
+
+// The recording of a word or short phrase, if a real person recorded it.
+export function recordingFor(text) {
+  const id = WORD_AUDIO[String(text || "").trim().replace(/[.?!…]+$/, "")];
+  return id ? `/audio/words/${id}.mp3` : null;
+}
 
 function supported() {
   return typeof window !== "undefined" && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
@@ -41,6 +50,37 @@ export function koreanVoiceStatus(timeout = 1500) {
 // Resolves when the text has been read (or reading failed), so callers can
 // wait for it, e.g. to highlight the next sentence.
 export function speakKorean(text, rate = 0.82) {
+  stopSpeaking();
+  const src = recordingFor(text);
+  if (!src) return speakWithEngine(text, rate);
+  return new Promise((resolve) => {
+    const audio = new Audio(src);
+    currentAudio = audio;
+    // The speed setting (0.82 is normal) also applies to recordings.
+    audio.playbackRate = Math.min(1.5, Math.max(0.6, rate / 0.82));
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      if (currentAudio === audio) currentAudio = null;
+      resolve();
+    };
+    // A recording that fails to load falls back to the speech engine.
+    const fallback = () => {
+      if (settled || currentAudio !== audio) return done();
+      currentAudio = null;
+      speakWithEngine(text, rate).then(done);
+    };
+    audio.onended = done;
+    // Stopped by stopSpeaking(): callers waiting for the end move on.
+    audio.onpause = done;
+    audio.onerror = fallback;
+    audio.play().catch((error) => (error?.name === "AbortError" ? done() : fallback()));
+    setTimeout(done, 8000);
+  });
+}
+
+function speakWithEngine(text, rate) {
   if (!supported()) {
     window.dispatchEvent?.(new CustomEvent(NO_VOICE_EVENT, { detail: "unsupported" }));
     return Promise.resolve();
@@ -69,5 +109,9 @@ export function speakKorean(text, rate = 0.82) {
 }
 
 export function stopSpeaking() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
   if (supported()) window.speechSynthesis.cancel();
 }
