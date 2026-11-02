@@ -274,6 +274,12 @@ export function AuthProvider({ children }) {
     if (user?.id) refreshUser().catch(() => {});
   }, [user?.id, refreshUser]);
 
+  // Android Chrome wipes a site's whole storage, saved login included, when the
+  // phone runs low on space; persistent storage is exempt from that cleanup.
+  useEffect(() => {
+    if (user?.id) navigator.storage?.persist?.().catch(() => {});
+  }, [user?.id]);
+
   const value = useMemo(
     () => ({ user, session, profile, profileComplete, loading, signOut, completeProfile, updateProfile, refreshUser }),
     // The functions are recreated each render but only read current state.
