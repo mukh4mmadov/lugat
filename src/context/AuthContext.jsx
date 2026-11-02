@@ -6,6 +6,7 @@ import {
   useRef,
   useCallback,
 } from "react";
+import { isAuthRetryableFetchError } from "@supabase/supabase-js";
 import { supabase, timeoutSignal } from "../lib/supabase";
 import { useDispatch } from "react-redux";
 import { setCurrentSyncUserId } from "../lib/progressSync";
@@ -22,6 +23,15 @@ function readCachedProfile(userId) {
   try {
     const cached = JSON.parse(localStorage.getItem(PROFILE_CACHE_KEY) || "null");
     return cached?.userId === userId ? cached.profile : null;
+  } catch {
+    return null;
+  }
+}
+
+// The saved login, read without the network.
+function readStoredUser() {
+  try {
+    return JSON.parse(localStorage.getItem(supabase.auth.storageKey) || "null")?.user ?? null;
   } catch {
     return null;
   }
@@ -89,12 +99,25 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     supabase.auth
       .getSession()
-      .then(async ({ data: { session } }) => {
+      .then(async ({ data: { session }, error }) => {
+        if (!session && isAuthRetryableFetchError(error)) {
+          // Opened offline with an expired access token (common when the
+          // installed app starts before the phone's network is up). The login
+          // is still saved and Supabase renews it once the network is back,
+          // arriving below as TOKEN_REFRESHED; until then stay signed in.
+          const storedUser = readStoredUser();
+          if (storedUser) {
+            setUser(storedUser);
+            setProfile(readCachedProfile(storedUser.id));
+            setProfileComplete(true);
+            return;
+          }
+        }
         setSession(session);
         setUser(session?.user ?? null);
         if (session?.user) {
           const complete = await fetchProfile(session.user.id, session.user);
-          if (complete) {
+          if (complete && !hasSyncedRef.current) {
             // Progress loads in the background. Saving to the server only
             // starts once it has loaded, so local data can't overwrite it.
             hasSyncedRef.current = true;
@@ -117,6 +140,9 @@ export function AuthProvider({ children }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
+      // Startup is handled by the getSession() call above, which also knows
+      // when a missing session only means the network isn't up yet.
+      if (event === "INITIAL_SESSION") return;
       setSession(session);
       setUser(session?.user ?? null);
 
@@ -126,7 +152,7 @@ export function AuthProvider({ children }) {
         // Run the follow-up queries after the callback returns.
         setTimeout(async () => {
           const complete = await fetchProfile(session.user.id, session.user);
-          if (complete && event === "SIGNED_IN" && !hasSyncedRef.current) {
+          if (complete && (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") && !hasSyncedRef.current) {
             hasSyncedRef.current = true;
             await syncProgressOnLogin(session.user.id);
           }
