@@ -42,10 +42,12 @@ async function speak(word) {
   for (const model of models) {
     const response = await fetch(gemini(model), {
       method: "POST",
-      signal: AbortSignal.timeout(25000),
+      signal: AbortSignal.timeout(30000),
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: word }] }],
+        // A bare word is often answered with no audio; a short spoken-style
+        // instruction is read as direction, not spoken (checked by hear()).
+        contents: [{ parts: [{ text: `Say clearly, at a normal pace, in Korean: ${word}` }] }],
         generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: VOICE } } } },
       }),
     });
@@ -56,7 +58,7 @@ async function speak(word) {
     }
     const data = await response.json();
     const part = data?.candidates?.[0]?.content?.parts?.find((item) => item.inlineData?.data);
-    if (!part) throw new Error(`${model}: no audio`);
+    if (!part) throw new Error(`${model}: no audio (${data?.candidates?.[0]?.finishReason || data?.promptFeedback?.blockReason || "?"})`);
     workingModel = model;
     const rate = Number(/rate=(\d+)/.exec(part.inlineData.mimeType || "")?.[1]) || 24000;
     const pcm = Buffer.from(part.inlineData.data, "base64");
@@ -69,7 +71,7 @@ async function speak(word) {
 async function hear(audio) {
   const response = await fetch(gemini(CHECK_MODEL), {
     method: "POST",
-    signal: AbortSignal.timeout(20000),
+    signal: AbortSignal.timeout(12000),
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents: [{ role: "user", parts: [{ inlineData: { mimeType: "audio/wav", data: audio.toString("base64") } }, { text: "Write exactly the Korean word or phrase spoken in this audio, in Hangul. Reply with only that text." }] }],
@@ -94,12 +96,19 @@ async function save(db, word, buffer, mime, source, extra) {
 }
 
 // AI voices for up to 5 words that have none yet; never replaces a recording.
+// Stops before the function time limit: unfinished words come back as
+// { later: true } for the next request.
 export async function generateVoices(db, words, actorId) {
+  const deadline = Date.now() + 45000;
   const list = [...new Set((Array.isArray(words) ? words : []).map((word) => String(word).trim()))].filter((word) => WORD.test(word)).slice(0, 5);
   const { data: existing } = await db.from("word_audio").select("word, source").in("word", list.length ? list : ["-"]);
   const taken = new Set((existing || []).map((row) => row.word));
   const results = [];
   for (const word of list) {
+    if (Date.now() > deadline - 25000) {
+      results.push({ word, ok: false, later: true });
+      continue;
+    }
     if (taken.has(word)) {
       results.push({ word, ok: true, skipped: true });
       continue;
@@ -107,7 +116,7 @@ export async function generateVoices(db, words, actorId) {
     let heard = "";
     let ok = false;
     let error = "";
-    for (let attempt = 0; attempt < 2 && !ok; attempt += 1) {
+    for (let attempt = 0; attempt < 2 && !ok && (attempt === 0 || Date.now() < deadline - 25000); attempt += 1) {
       try {
         const voice = await speak(word);
         if (voice.seconds < 0.25 || voice.seconds > 6) {

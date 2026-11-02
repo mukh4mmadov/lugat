@@ -49,18 +49,25 @@ export default function AdminVoices() {
     const failed = [];
     let done = 0;
     setJob({ total: queue.length, done, failed, running: true });
-    for (let i = 0; i < queue.length && !stopRef.current; i += 5) {
+    const total = queue.length;
+    // Words the server had no time for come back as "later" and go round again.
+    while (queue.length && !stopRef.current) {
+      const batch = queue.splice(0, 3);
       try {
-        const { results } = await adminRequest({}, { action: "voiceGenerate", words: queue.slice(i, i + 5) });
+        const { results } = await adminRequest({}, { action: "voiceGenerate", words: batch });
         for (const result of results) {
+          if (result.later) {
+            queue.push(result.word);
+            continue;
+          }
           done += 1;
           if (!result.ok) failed.push(result);
         }
       } catch (requestError) {
-        failed.push({ word: queue.slice(i, i + 5).join(", "), error: requestError.message });
-        done += Math.min(5, queue.length - i);
+        failed.push({ word: batch.join(", "), error: requestError.message });
+        done += batch.length;
       }
-      setJob({ total: queue.length, done, failed: [...failed], running: true });
+      setJob({ total, done, failed: [...failed], running: true });
     }
     setJob((current) => ({ ...current, running: false }));
     await loadVoiceMap(true);
