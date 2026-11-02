@@ -1,5 +1,8 @@
 {
   "functions": {
+    "api/admin.js": {
+      "maxDuration": 60
+    },
     "api/ai-chat.js": {
       "maxDuration": 60
     },

@@ -83,6 +83,8 @@ const AdminSpeaking = page(() => import("./components/admin/AdminSpeaking"));
 const AdminGrowth = page(() => import("./components/admin/AdminGrowth"));
 const AdminNotifications = page(() => import("./components/admin/AdminNotifications"));
 const AdminErrors = page(() => import("./components/admin/AdminErrors"));
+const AdminVoices = page(() => import("./components/admin/AdminVoices"));
+const RecordVoicePage = page(() => import("./pages/RecordVoicePage"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
 const TopikResultPage = page(topik, "TopikResultPage");
@@ -189,6 +191,7 @@ export default function App() {
             <Route path="stats" element={<StatsPage />} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="credits/audio" element={<AudioCreditsPage />} />
+            <Route path="record-voice" element={<RecordVoicePage />} />
             <Route path="premium" element={<PremiumPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="feedback" element={<FeedbackPage />} />
@@ -230,6 +233,7 @@ export default function App() {
               <Route path="growth" element={<AdminGrowth />} />
               <Route path="notifications" element={<AdminNotifications />} />
               <Route path="errors" element={<AdminErrors />} />
+              <Route path="voices" element={<AdminVoices />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>

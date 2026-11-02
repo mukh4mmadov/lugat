@@ -125,6 +125,7 @@ export default function AdminPage() {
     ["/admin/growth", t("admin.tab.growth")],
     ["/admin/settings", t("admin.tab.settings")],
     ["/admin/journal", t("admin.tab.journal")],
+    ["/admin/voices", t("voices.tab")],
     ["/admin/errors", t("adminErrors.tab")],
   ];
 

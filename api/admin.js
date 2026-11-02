@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 import { levelForXp } from "../src/lib/gamification.js";
+import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
 
 // Admin dashboard data and user management. Every request must carry the
 // session of a user listed in public.feedback_admins; the work itself runs with
@@ -30,6 +31,7 @@ import { levelForXp } from "../src/lib/gamification.js";
 
 const DAY = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;
@@ -651,6 +653,12 @@ async function act(db, actor, body) {
     return [200, { deleted: true }];
   }
 
+  if (action === "voiceGenerate") return [200, { results: await generateVoices(db, body.words, actor.id) }];
+  if (action === "voiceUpload") return saveRecording(db, { word: body.word, audio: body.audio, mime: body.mime, speaker: body.speaker || actor.email, actorId: actor.id });
+  if (action === "voiceDelete") return deleteVoice(db, body.word);
+  if (action === "voiceLink") return createRecordingLink(db, body.label);
+  if (action === "voiceLinkRevoke") return revokeRecordingLink(db);
+
   if (action === "clearError") {
     const { error } = await db.from("app_errors").delete().eq("message", String(body.message || ""));
     if (error) return [500, { error: "Delete failed" }];
@@ -679,11 +687,29 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const token = req.headers.authorization?.match(/^Bearer\s+(.+)$/i)?.[1];
-  if (!token) return res.status(401).json({ error: "Authentication required" });
-
   const db = serviceClient();
   if (!db) return res.status(503).json({ error: "Admin API is not configured (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)" });
+
+  // The recording link lets a native speaker without an admin account check
+  // the link and upload word recordings, nothing else.
+  const linkToken = String(req.query?.recordToken || (typeof req.body === "object" ? req.body?.recordToken : "") || "");
+  if (linkToken) {
+    try {
+      const link = await recordingLink(db, linkToken);
+      if (!link) return res.status(403).json({ error: "This recording link is not valid any more." });
+      if (req.method === "GET") return res.status(200).json({ label: link.label });
+      const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body;
+      if (body?.action !== "voiceUpload") return res.status(403).json({ error: "Not allowed" });
+      const [status, payload] = await saveRecording(db, { word: body.word, audio: body.audio, mime: body.mime, speaker: link.label, actorId: null });
+      return res.status(status).json(payload);
+    } catch (error) {
+      console.error("Recording link error:", error);
+      return res.status(500).json({ error: "Could not save the recording" });
+    }
+  }
+
+  const token = req.headers.authorization?.match(/^Bearer\s+(.+)$/i)?.[1];
+  if (!token) return res.status(401).json({ error: "Authentication required" });
 
   const { data: auth, error: authError } = await db.auth.getUser(token);
   if (authError || !auth.user) return res.status(401).json({ error: "Invalid session" });
@@ -705,6 +731,8 @@ export default async function handler(req, res) {
         delete details.userId;
         // Content edits can be long; the log keeps which fields changed.
         if (details.data) details.data = Object.keys(details.data);
+        // Recordings are files: the log keeps only which word.
+        if (details.audio) details.audio = `${Math.round(String(details.audio).length / 1365)} KB`;
         await db.from("admin_audit").insert({
           admin_id: auth.user.id,
           action: String(body.action || ""),
@@ -742,6 +770,10 @@ export default async function handler(req, res) {
       }
       const errors = [...groups.values()].map((group) => ({ ...group, users: group.users.size, paths: [...group.paths] }));
       return res.status(200).json({ errors, total: rows?.length || 0 });
+    }
+    if (action === "voiceLink") {
+      const link = await recordingLink(db);
+      return res.status(200).json({ link });
     }
     if (action === "transcript") {
       if (!UUID.test(String(req.query.sessionId || ""))) return res.status(400).json({ error: "Invalid session" });

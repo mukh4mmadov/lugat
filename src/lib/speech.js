@@ -1,8 +1,10 @@
-// Korean pronunciation: words recorded by real people (src/data/wordAudio.js)
-// play that recording; everything else uses the browser's own speech engine.
+// Korean pronunciation, best first: a recording made on our recording page,
+// a real person's recording from Wikimedia (src/data/wordAudio.js), a checked
+// AI voice, and otherwise the browser's own speech engine.
 // Some devices have no Korean voice installed and would stay silent, so we
 // look for one first and tell the learner how to install it when it is missing.
 import WORD_AUDIO from "../data/wordAudio";
+import { voiceFor } from "./voiceMap";
 
 export const NO_VOICE_EVENT = "k-talim:no-korean-voice";
 
@@ -14,10 +16,13 @@ const MALE = /injoon|minsu|jian|\bmale\b/i;
 let cachedVoice = null;
 let currentAudio = null;
 
-// The recording of a word or short phrase, if a real person recorded it.
+// The recording of a word or short phrase, if there is one.
 export function recordingFor(text) {
-  const id = WORD_AUDIO[String(text || "").trim().replace(/[.?!…]+$/, "")];
-  return id ? `/audio/words/${id}.mp3` : null;
+  const word = String(text || "").trim().replace(/[.?!…]+$/, "");
+  const stored = voiceFor(word);
+  if (stored?.source === "human") return stored.url;
+  if (WORD_AUDIO[word]) return `/audio/words/${WORD_AUDIO[word]}.mp3`;
+  return stored?.url || null;
 }
 
 function supported() {

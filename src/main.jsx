@@ -12,6 +12,7 @@ import { initWordOverrides } from "./lib/wordOverrides";
 import { dataReady } from "./data";
 import { captureReferral } from "./lib/growth";
 import { watchErrors } from "./lib/errorReport";
+import { loadVoiceMap } from "./lib/voiceMap";
 
 watchErrors();
 captureReferral();
@@ -36,4 +37,6 @@ Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => {
     </Provider>
   </React.StrictMode>
   );
+  // Which words have a stored pronunciation; fetched once the page is shown.
+  (window.requestIdleCallback || ((callback) => setTimeout(callback, 1500)))(() => loadVoiceMap());
 });
