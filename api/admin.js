@@ -525,6 +525,19 @@ async function act(db, actor, body) {
     if (error) return [500, { error: "Update failed" }];
     return [200, { ended: true }];
   }
+  // Not about one learner, so no userId.
+  if (action === "voiceGenerate") return [200, { results: await generateVoices(db, body.words, actor.id) }];
+  if (action === "voiceUpload") return saveRecording(db, { word: body.word, audio: body.audio, mime: body.mime, speaker: body.speaker || actor.email, actorId: actor.id });
+  if (action === "voiceDelete") return deleteVoice(db, body.word);
+  if (action === "voiceLink") return createRecordingLink(db, body.label);
+  if (action === "voiceLinkRevoke") return revokeRecordingLink(db);
+
+  if (action === "clearError") {
+    const { error } = await db.from("app_errors").delete().eq("message", String(body.message || ""));
+    if (error) return [500, { error: "Delete failed" }];
+    return [200, { cleared: true }];
+  }
+
   if (!UUID.test(String(userId || ""))) return [400, { error: "Invalid user" }];
   const selfChange = userId === actor.id;
 
@@ -651,18 +664,6 @@ async function act(db, actor, body) {
         .in("id", open.map((row) => row.id));
     }
     return [200, { deleted: true }];
-  }
-
-  if (action === "voiceGenerate") return [200, { results: await generateVoices(db, body.words, actor.id) }];
-  if (action === "voiceUpload") return saveRecording(db, { word: body.word, audio: body.audio, mime: body.mime, speaker: body.speaker || actor.email, actorId: actor.id });
-  if (action === "voiceDelete") return deleteVoice(db, body.word);
-  if (action === "voiceLink") return createRecordingLink(db, body.label);
-  if (action === "voiceLinkRevoke") return revokeRecordingLink(db);
-
-  if (action === "clearError") {
-    const { error } = await db.from("app_errors").delete().eq("message", String(body.message || ""));
-    if (error) return [500, { error: "Delete failed" }];
-    return [200, { cleared: true }];
   }
 
   if (action === "deletionRequest") {
