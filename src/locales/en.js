@@ -2164,4 +2164,5 @@ export default {
   "adminErrors.users_one": "{{count}} user",
   "adminErrors.users_other": "{{count}} users",
   "adminErrors.fixed": "Fixed — remove from the list",
+  "settings.deletion.sending": "Sending…",
 };

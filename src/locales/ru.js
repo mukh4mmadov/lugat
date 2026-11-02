@@ -2316,4 +2316,5 @@ export default {
   "adminErrors.users_many": "{{count}} пользователей",
   "adminErrors.users_other": "{{count}} пользователя",
   "adminErrors.fixed": "Исправлено — убрать из списка",
+  "settings.deletion.sending": "Отправка…",
 };

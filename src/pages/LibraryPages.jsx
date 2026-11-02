@@ -792,13 +792,15 @@ function DeletionRequest({ userId }) {
           </label>
           <div className="flex flex-wrap gap-2">
             <button disabled={busy || reason.trim().length < 3} className="rounded-xl bg-rose-600 px-4 py-2 text-sm font-bold text-white disabled:opacity-50">
-              {t("settings.deletion.send")}
+              {busy ? t("settings.deletion.sending") : t("settings.deletion.send")}
             </button>
             <button type="button" onClick={() => setWriting(false)} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold dark:border-white/15">
               {t("common.cancel")}
             </button>
           </div>
         </form>
+      ) : !requests ? (
+        <div aria-hidden="true" className="mt-3 h-9 w-56 animate-pulse rounded-xl bg-rose-100 dark:bg-rose-500/10" />
       ) : (
         requests && (
           <button

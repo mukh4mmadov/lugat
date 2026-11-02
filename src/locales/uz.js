@@ -2160,4 +2160,5 @@ export default {
   "adminErrors.users_one": "{{count}} foydalanuvchi",
   "adminErrors.users_other": "{{count}} foydalanuvchi",
   "adminErrors.fixed": "Tuzatildi — ro'yxatdan olish",
+  "settings.deletion.sending": "Yuborilmoqda…",
 };
