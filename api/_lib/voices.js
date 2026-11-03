@@ -136,7 +136,7 @@ export async function generateVoices(db, words, actorId) {
         }
         heard = await hear(voice.audio, voice.mime);
         if (normalize(heard) === normalize(word)) {
-          await save(db, word, voice.audio, voice.mime, "ai", { speaker: voice.mime === "audio/mpeg" ? "Google (Chirp 3 HD)" : `Gemini (${VOICE})`, model: voice.model, created_by: actorId });
+          await save(db, word, voice.audio, voice.mime, "ai", { speaker: voice.mime === "audio/mpeg" ? voice.model : `Gemini (${VOICE})`, model: voice.model, created_by: actorId });
           ok = true;
         }
       } catch (caught) {

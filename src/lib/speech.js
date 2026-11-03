@@ -10,7 +10,8 @@ export const NO_VOICE_EVENT = "k-talim:no-korean-voice";
 
 // Better-sounding voices first when a device offers several.
 // Female voices are preferred: the AI partner, Friday, speaks with them.
-const PREFERRED = [/google/i, /yuna/i, /sora/i, /heami/i, /microsoft/i, /samsung/i];
+// Edge offers free Microsoft "Online (Natural)" voices, by far the most natural.
+const PREFERRED = [/natural/i, /online/i, /google/i, /yuna/i, /sora/i, /heami/i, /microsoft/i, /samsung/i];
 const MALE = /injoon|minsu|jian|\bmale\b/i;
 
 let cachedVoice = null;
