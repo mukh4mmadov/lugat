@@ -164,6 +164,40 @@ export default function Layout({ onShowIELTSModal }) {
     ["/search", t("nav.search")],
   ];
 
+  // The top menu shows as many items as fit; the rest move into "More". The
+  // widths come from an invisible copy, so this works for every language,
+  // screen width and signed-in state (admin bell, long names).
+  const navRef = useRef(null);
+  const measureRef = useRef(null);
+  const [visibleCount, setVisibleCount] = useState(primaryNavItems.length);
+  const navLabels = primaryNavItems.map(([, label]) => label).join("|");
+  useLayoutEffect(() => {
+    const nav = navRef.current;
+    const measure = measureRef.current;
+    if (!nav || !measure) return undefined;
+    const fit = () => {
+      const available = nav.clientWidth;
+      if (!available) return;
+      const gap = parseFloat(getComputedStyle(nav).columnGap) || 0;
+      const widths = [...measure.children].map((child) => child.getBoundingClientRect().width);
+      const more = widths.pop() || 0;
+      let used = more;
+      let count = 0;
+      for (const width of widths) {
+        if (used + gap + width > available) break;
+        used += gap + width;
+        count += 1;
+      }
+      setVisibleCount(count);
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(nav);
+    document.fonts?.ready.then(fit);
+    return () => observer.disconnect();
+  }, [navLabels]);
+  const overflowNavItems = primaryNavItems.slice(visibleCount);
+
   // Everything else, in groups: a compact panel on desktop, tiles on phones.
   // Items are [path, label, icon, unread count].
   const navGroups = [
@@ -302,7 +336,7 @@ export default function Layout({ onShowIELTSModal }) {
               >
                 K
               </motion.div>
-              <div className="hidden sm:block lg:hidden 2xl:block">
+              <div className="hidden sm:block lg:hidden">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-500">
                   {t("header.brand")}
                 </p>
@@ -310,25 +344,25 @@ export default function Layout({ onShowIELTSModal }) {
               </div>
             </NavLink>
 
-            <nav className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:items-center lg:justify-center lg:gap-1 xl:gap-1.5 text-xs font-semibold xl:text-sm">
-              {primaryNavItems.map(([to, label]) => (
+            <nav ref={navRef} className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:items-center lg:justify-center lg:gap-1 xl:gap-1.5 text-xs font-semibold xl:text-sm">
+              {/* Zero-size and clipped: measured, never seen, no scrollbars. */}
+              <div aria-hidden="true" className="pointer-events-none invisible absolute left-0 top-0 h-0 w-0 overflow-hidden">
+                <div ref={measureRef} className="flex w-max gap-1 xl:gap-1.5">
+                  {primaryNavItems.map(([to, label]) => (
+                    <span key={to} className="shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 xl:px-3 xl:py-2">{label}</span>
+                  ))}
+                  <span className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full border px-2.5 py-1.5 lg:px-3 lg:py-2">{t("nav.more")} ● ▼</span>
+                </div>
+              </div>
+              {primaryNavItems.slice(0, visibleCount).map(([to, label]) => (
                 <NavLink
                   key={to}
                   to={to}
                   className={({ isActive }) =>
                     `whitespace-nowrap rounded-full px-2.5 py-1.5 transition xl:px-3 xl:py-2 ${isActive ? "bg-slate-950 text-white shadow-md dark:bg-white dark:text-slate-950" : "bg-white/60 text-slate-700 hover:bg-white dark:bg-white/10 dark:text-slate-200 dark:hover:bg-white/20"}`
                   }
-                  aria-label={to === "/search" ? label : undefined}
                 >
-                  {/* Narrow laptops: search is just the icon, so the header fits. */}
-                  {to === "/search" ? (
-                    <>
-                      <span aria-hidden="true" className="xl:hidden">🔎</span>
-                      <span aria-hidden="true" className="hidden xl:inline">{label}</span>
-                    </>
-                  ) : (
-                    label
-                  )}
+                  {label}
                 </NavLink>
               ))}
 
@@ -361,7 +395,10 @@ export default function Layout({ onShowIELTSModal }) {
                         transition={{ duration: 0.18 }}
                         className="pointer-events-auto grid max-h-[calc(100vh-6rem)] w-full max-w-3xl grid-cols-3 gap-4 overflow-y-auto overscroll-contain rounded-3xl border border-slate-200/60 bg-white/95 p-4 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/95"
                       >
-                        {navGroups.map((group) => (
+                        {[
+                          ...(overflowNavItems.length ? [{ key: "main", items: overflowNavItems.map(([to, label]) => [to, label.replace(/^(🎙|🇰🇷) /, ""), primaryIcons[to]]) }] : []),
+                          ...navGroups,
+                        ].map((group) => (
                           <div key={group.key}>
                             <p className="px-3 pb-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">{t(`nav.group.${group.key}`)}</p>
                             <div className="space-y-0.5">

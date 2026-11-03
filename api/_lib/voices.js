@@ -1,4 +1,5 @@
 import { createHash, randomBytes } from "crypto";
+import { synthesize, ttsConfigured } from "./tts.js";
 
 // Word pronunciations in Supabase (word_audio table + the public "word-audio"
 // bucket). AI voices come from Gemini TTS; each one is transcribed back and
@@ -36,7 +37,12 @@ function wav(pcm, rate) {
 }
 
 let workingModel = null;
-async function speak(word) {
+async function speak(word, db) {
+  if (ttsConfigured()) {
+    const voice = await synthesize(db, word);
+    if (!voice) throw new Error("Google TTS unavailable or over the monthly cap");
+    return { audio: Buffer.from(voice.audio, "base64"), mime: "audio/mpeg", seconds: 1, model: voice.voice };
+  }
   // The model that worked last goes first; the others are fallbacks when it
   // answers without audio (the preview models sometimes do).
   const models = workingModel ? [workingModel, ...TTS_MODELS.filter((model) => model !== workingModel)] : TTS_MODELS;
@@ -67,19 +73,19 @@ async function speak(word) {
     workingModel = model;
     const rate = Number(/rate=(\d+)/.exec(part.inlineData.mimeType || "")?.[1]) || 24000;
     const pcm = Buffer.from(part.inlineData.data, "base64");
-    return { audio: wav(pcm, rate), seconds: pcm.length / (rate * 2), model };
+    return { audio: wav(pcm, rate), mime: "audio/wav", seconds: pcm.length / (rate * 2), model };
   }
   throw new Error(`No TTS model worked. ${lastError}`);
 }
 
 // What a listener hears in the audio, in Hangul.
-async function hear(audio) {
+async function hear(audio, mime) {
   const response = await fetch(gemini(CHECK_MODEL), {
     method: "POST",
     signal: AbortSignal.timeout(12000),
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [{ role: "user", parts: [{ inlineData: { mimeType: "audio/wav", data: audio.toString("base64") } }, { text: "Write exactly the Korean word or phrase spoken in this audio, in Hangul. Reply with only that text." }] }],
+      contents: [{ role: "user", parts: [{ inlineData: { mimeType: mime, data: audio.toString("base64") } }, { text: "Write exactly the Korean word or phrase spoken in this audio, in Hangul. Reply with only that text." }] }],
       generationConfig: { temperature: 0 },
     }),
   });
@@ -123,14 +129,14 @@ export async function generateVoices(db, words, actorId) {
     let error = "";
     for (let attempt = 0; attempt < 3 && !ok && (attempt === 0 || Date.now() < deadline - 25000); attempt += 1) {
       try {
-        const voice = await speak(word);
+        const voice = await speak(word, db);
         if (voice.seconds < 0.25 || voice.seconds > 6) {
           heard = `length ${voice.seconds.toFixed(2)}s`;
           continue;
         }
-        heard = await hear(voice.audio);
+        heard = await hear(voice.audio, voice.mime);
         if (normalize(heard) === normalize(word)) {
-          await save(db, word, voice.audio, "audio/wav", "ai", { speaker: `Gemini (${VOICE})`, model: voice.model, created_by: actorId });
+          await save(db, word, voice.audio, voice.mime, "ai", { speaker: voice.mime === "audio/mpeg" ? "Google (Chirp 3 HD)" : `Gemini (${VOICE})`, model: voice.model, created_by: actorId });
           ok = true;
         }
       } catch (caught) {

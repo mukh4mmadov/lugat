@@ -23,7 +23,7 @@ function PartnerBubble({ message, rate, showTranslation }) {
       <div className="max-w-[88%] rounded-3xl rounded-bl-md border border-orange-200 bg-orange-50 px-4 py-3 dark:border-orange-400/20 dark:bg-orange-500/10">
         <div className="flex items-start gap-2">
           <p className="text-lg font-bold leading-8 text-slate-900 dark:text-white" lang="ko">{message.text}</p>
-          <button type="button" onClick={() => speakKorean(message.text, rate)} aria-label={t("speaking.replay")} className="mt-1 shrink-0 text-lg">🔊</button>
+          <button type="button" onClick={() => speakKorean(message.text, rate, message.audio)} aria-label={t("speaking.replay")} className="mt-1 shrink-0 text-lg">🔊</button>
         </div>
         {message.translation && (showTranslation || open ? (
           <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{message.translation}</p>
@@ -159,9 +159,10 @@ export default function AiConversation({ topic, level, premium, onClose }) {
     speakingRequest("POST", { action: "start", topicId: topic.id, level, language })
       .then((data) => {
         setSessionId(data.sessionId);
-        setMessages([{ id: newId(), role: "partner", text: data.opener.ko, translation: data.opener.translation }]);
+        const audio = data.openerAudio ? `data:audio/mpeg;base64,${data.openerAudio}` : null;
+        setMessages([{ id: newId(), role: "partner", text: data.opener.ko, translation: data.opener.translation, audio }]);
         setPhase("idle");
-        speakKorean(data.opener.ko, rate);
+        speakKorean(data.opener.ko, rate, audio);
       })
       .catch((startError) => {
         setPhase(startError.status === 429 ? "limit" : "error");
@@ -201,16 +202,17 @@ export default function AiConversation({ topic, level, premium, onClose }) {
     try {
       const data = await speakingRequest("POST", { action: "turn", sessionId, audio: recording.base64, history, language });
       setUsage({ used: data.usedSeconds, limit: data.limitSeconds });
+      const replyAudio = data.replyAudio ? `data:audio/mpeg;base64,${data.replyAudio}` : null;
       setMessages((current) => [
         ...current.map((message) =>
           message.id === pendingId
             ? { id: pendingId, role: "learner", text: data.transcript, corrections: data.corrections, pronunciation: data.pronunciation }
             : message,
         ),
-        { id: newId(), role: "partner", text: data.reply, translation: data.replyTranslation },
+        { id: newId(), role: "partner", text: data.reply, translation: data.replyTranslation, audio: replyAudio },
       ]);
       setPhase(data.usedSeconds >= data.limitSeconds ? "limit" : "idle");
-      speakKorean(data.reply, rate);
+      speakKorean(data.reply, rate, replyAudio);
     } catch (turnError) {
       setMessages((current) => current.filter((message) => message.id !== pendingId));
       if (turnError.status === 429) {

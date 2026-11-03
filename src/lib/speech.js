@@ -54,9 +54,10 @@ export function koreanVoiceStatus(timeout = 1500) {
 
 // Resolves when the text has been read (or reading failed), so callers can
 // wait for it, e.g. to highlight the next sentence.
-export function speakKorean(text, rate = 0.82) {
+// `audioSrc` plays given audio (e.g. Friday's voice from the server) instead.
+export function speakKorean(text, rate = 0.82, audioSrc = null) {
   stopSpeaking();
-  const src = recordingFor(text);
+  const src = audioSrc || recordingFor(text);
   if (!src) return speakWithEngine(text, rate);
   return new Promise((resolve) => {
     const audio = new Audio(src);

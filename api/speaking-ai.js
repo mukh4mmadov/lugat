@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSpeakingTopic } from "../src/data/speakingTopics.js";
+import { synthesize } from "./_lib/tts.js";
 
 // Speaking practice with the AI partner, Friday. The learner records a turn in
 // Korean (16 kHz WAV), Gemini listens to it and answers in Korean with a
@@ -212,7 +213,9 @@ async function start(db, user, body, res) {
   if (used.seconds >= limit.seconds) return res.status(429).json({ error: "Daily speaking time is used up.", premium });
   const { data, error } = await db.from("speaking_sessions").insert({ user_id: user.id, kind: "ai", topic_id: topic.id, level }).select("id").single();
   if (error) throw error;
-  return res.status(200).json({ sessionId: data.id, opener: buildOpener(topic, level, languageOf(body.language)) });
+  const opener = buildOpener(topic, level, languageOf(body.language));
+  const voice = await synthesize(db, opener.ko);
+  return res.status(200).json({ sessionId: data.id, opener, openerAudio: voice?.audio || null });
 }
 
 async function turn(db, user, body, res) {
@@ -241,6 +244,8 @@ async function turn(db, user, body, res) {
   }
   if (!result.reply) return res.status(502).json({ error: "The AI partner is not available right now. Please try again." });
 
+  // Friday's natural voice is made while the session is saved.
+  const voicePromise = synthesize(db, result.reply);
   const seconds = chargedSeconds(audioSeconds, result.reply);
   const { data: totals } = await db.rpc("add_speaking_usage", { p_user: user.id, p_day: tashkentDay(), p_seconds: seconds });
   const summary = session.summary || {};
@@ -262,7 +267,8 @@ async function turn(db, user, body, res) {
     })
     .eq("id", session.id);
   const usedSeconds = (Array.isArray(totals) ? totals[0]?.seconds : totals?.seconds) ?? used.seconds + seconds;
-  return res.status(200).json({ ...result, usedSeconds, limitSeconds: limit.seconds });
+  const voice = await voicePromise;
+  return res.status(200).json({ ...result, replyAudio: voice?.audio || null, usedSeconds, limitSeconds: limit.seconds });
 }
 
 async function end(db, user, body, res) {
