@@ -176,6 +176,12 @@ export function AdminJournal() {
   }, [load]);
 
   const total = data?.sales.reduce((sum, sale) => sum + sale.amount, 0) || 0;
+  const monthTotals = {};
+  (data?.sales || []).forEach((sale) => {
+    const key = String(sale.created_at).slice(0, 7);
+    monthTotals[key] = (monthTotals[key] || 0) + (sale.amount || 0);
+  });
+  const months = Object.entries(monthTotals).sort((a, b) => b[0].localeCompare(a[0]));
   const month = data?.sales.filter((sale) => Date.now() - new Date(sale.created_at).getTime() <= 30 * 24 * 60 * 60 * 1000).reduce((sum, sale) => sum + sale.amount, 0) || 0;
 
   return (
@@ -189,6 +195,19 @@ export function AdminJournal() {
             <StatTile tone="violet" label={t("admin.journal.total")} value={formatPrice(total)} hint={t("admin.journal.salesCount", { count: data.sales.filter((sale) => sale.amount > 0).length })} />
             <StatTile label={t("admin.journal.actions")} value={data.entries.length} />
           </section>
+
+          {months.length > 0 && (
+            <Panel title={t("admin.journal.byMonth")}>
+              <ul className="divide-y divide-slate-100 text-sm dark:divide-white/5">
+                {months.map(([key, sum]) => (
+                  <li key={key} className="flex justify-between gap-3 py-1.5">
+                    <span className="font-bold">{key}</span>
+                    <span className="tabular-nums">{formatPrice(sum)} {t("premium.currency")}</span>
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+          )}
 
           <Panel title={t("admin.journal.sales")}>
             {data.sales.length ? (

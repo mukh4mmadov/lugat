@@ -276,7 +276,7 @@ async function userDetail(db, id) {
     db.from("reward_claims").select("kind, days, claimed_at").eq("user_id", id).order("claimed_at", { ascending: false }).limit(20),
     db.from("premium_log").select("days, amount, note, premium_until, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
-  const [ban, reportsAgainst, topikAttempts, grammarChecks, deletionRequests, aiSettings, aiRequests] = await Promise.all([
+  const [ban, reportsAgainst, topikAttempts, grammarChecks, deletionRequests, aiSettings, aiRequests, studyPlan, documents, interviews, ratings, blocks, blockedBy, referralCode, pushes] = await Promise.all([
     db.from("speaking_bans").select("until, reason").eq("user_id", id).gt("until", new Date().toISOString()).maybeSingle(),
     db.from("speaking_reports").select("reason, note, status, created_at").eq("reported", id).order("created_at", { ascending: false }).limit(20),
     db.from("user_topik_attempts").select("id, variant_id, status, started_at, submitted_at, elapsed_seconds, result, hidden, updated_at").eq("user_id", id).order("updated_at", { ascending: false }).limit(50),
@@ -284,7 +284,16 @@ async function userDetail(db, id) {
     db.from("account_deletion_requests").select("id, status, reason, admin_note, created_at, handled_at").eq("user_id", id).order("created_at", { ascending: false }).limit(10),
     db.from("ai_user_settings").select("behavior").eq("user_id", id).maybeSingle(),
     db.from("ai_user_requests").select("id, question, status, answer, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("study_plans").select("targets, intake, degree, topik_goal, checklist, applications, updated_at").eq("user_id", id).maybeSingle(),
+    db.from("admission_docs").select("id, kind, language, university_id, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
+    db.from("interview_sessions").select("id, kind, language, university_id, started_at, ended_at").eq("user_id", id).order("started_at", { ascending: false }).limit(20),
+    db.from("speaking_ratings").select("stars").eq("rated", id).limit(1000),
+    db.from("speaking_blocks").select("blocked", { count: "exact", head: true }).eq("blocker", id),
+    db.from("speaking_blocks").select("blocker", { count: "exact", head: true }).eq("blocked", id),
+    db.from("referral_codes").select("code, devices, created_at").eq("user_id", id).maybeSingle(),
+    db.from("push_log").select("kind, sent_at").eq("user_id", id).order("sent_at", { ascending: false }).limit(20),
   ]);
+  const stars = (ratings.data || []).map((row) => row.stars);
   const row = userRow(data.user, profile.data, progress.data, new Set(admin.data ? [id] : []));
   const words = progress.data?.data?.words || {};
   const lessons = new Map();
@@ -317,6 +326,13 @@ async function userDetail(db, id) {
     deletionRequests: deletionRequests.data || [],
     aiBehavior: aiSettings.data?.behavior || "",
     aiRequests: aiRequests.data || [],
+    studyPlan: studyPlan.data || null,
+    documents: documents.data || [],
+    interviews: interviews.data || [],
+    rating: { count: stars.length, average: stars.length ? Math.round((stars.reduce((sum, value) => sum + value, 0) / stars.length) * 10) / 10 : null },
+    blocks: { made: blocks.count || 0, received: blockedBy.count || 0 },
+    referralCode: referralCode.data || null,
+    pushes: pushes.data || [],
     profile: {
       firstName: profile.data?.first_name || "",
       lastName: profile.data?.last_name || "",
@@ -538,6 +554,26 @@ async function act(db, actor, body) {
   if (action === "voiceDelete") return deleteVoice(db, body.word);
   if (action === "voiceLink") return createRecordingLink(db, body.label);
   if (action === "voiceLinkRevoke") return revokeRecordingLink(db);
+
+  if (action === "notifyGroup") {
+    const title = String(body.title || "").trim().slice(0, 80);
+    const text = String(body.body || "").trim().slice(0, 200);
+    if (!title || !text) return [400, { error: "Write the title and the text" }];
+    const { data: subscribers } = await db.from("push_subscriptions").select("user_id");
+    let ids = [...new Set((subscribers || []).map((row) => row.user_id))];
+    if (body.group === "premium") {
+      const premiumIds = new Set((await listAllUsers(db)).filter(isPremium).map((user) => user.id));
+      ids = ids.filter((id) => premiumIds.has(id));
+    }
+    if (body.group === "active" || body.group === "inactive") {
+      const since = new Date(Date.now() - 7 * DAY).toISOString();
+      const { data: recent } = await db.from("user_progress").select("user_id").gte("updated_at", since).limit(5000);
+      const activeIds = new Set((recent || []).map((row) => row.user_id));
+      ids = ids.filter((id) => activeIds.has(id) === (body.group === "active"));
+    }
+    const sent = await Promise.all(ids.map((id) => pushToUser(db, id, { title, body: text })));
+    return [200, { users: ids.length, devices: sent.reduce((sum, count) => sum + count, 0) }];
+  }
 
   if (action === "clearError") {
     const { error } = await db.from("app_errors").delete().eq("message", String(body.message || ""));
@@ -789,6 +825,32 @@ export default async function handler(req, res) {
       }
       const errors = [...groups.values()].map((group) => ({ ...group, users: group.users.size, paths: [...group.paths] }));
       return res.status(200).json({ errors, total: rows?.length || 0 });
+    }
+    if (action === "document") {
+      if (!UUID.test(String(req.query.docId || ""))) return res.status(400).json({ error: "Invalid document" });
+      const { data: document } = await db.from("admission_docs").select("kind, language, university_id, input, output, created_at").eq("id", req.query.docId).maybeSingle();
+      return document ? res.status(200).json(document) : res.status(404).json({ error: "Not found" });
+    }
+    if (action === "interview") {
+      if (!UUID.test(String(req.query.sessionId || ""))) return res.status(400).json({ error: "Invalid session" });
+      const { data: interview } = await db.from("interview_sessions").select("kind, language, university_id, turns, summary, started_at, ended_at").eq("id", req.query.sessionId).maybeSingle();
+      return interview ? res.status(200).json(interview) : res.status(404).json({ error: "Not found" });
+    }
+    if (action === "export") {
+      if (!UUID.test(String(req.query.id || ""))) return res.status(400).json({ error: "Invalid user" });
+      const id = req.query.id;
+      const detail = await userDetail(db, id);
+      if (!detail) return res.status(404).json({ error: "User not found" });
+      const [progress, chats, topik, grammar, speaking, docs, interviews] = await Promise.all([
+        db.from("user_progress").select("data, updated_at").eq("user_id", id).maybeSingle(),
+        db.from("ai_chat_sessions").select("id, title, updated_at, ai_chat_messages(role, content, created_at)").eq("user_id", id).limit(200),
+        db.from("user_topik_attempts").select("*").eq("user_id", id).limit(200),
+        db.from("grammar_checks").select("*").eq("user_id", id).limit(1000),
+        db.from("speaking_sessions").select("*").eq("user_id", id).limit(500),
+        db.from("admission_docs").select("*").eq("user_id", id).limit(100),
+        db.from("interview_sessions").select("*").eq("user_id", id).limit(100),
+      ]);
+      return res.status(200).json({ exportedAt: new Date().toISOString(), detail, progress: progress.data, chats: chats.data, topik: topik.data, grammar: grammar.data, speaking: speaking.data, documents: docs.data, interviews: interviews.data });
     }
     if (action === "ttsCheck") return res.status(200).json(await checkTts());
     if (action === "voiceLink") {

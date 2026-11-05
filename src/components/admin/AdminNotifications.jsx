@@ -2,12 +2,57 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { supabase } from "../../lib/supabase";
+import { adminRequest } from "../../lib/adminApi";
 import { timeAgo } from "../../lib/dates";
 import { ADMIN_NOTIFICATIONS_CHANGED, markAllNotificationsSeen, markNotificationSeen } from "../../lib/adminNotifications";
 import { Panel } from "../../pages/AdminPage";
 
 const ICONS = { deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋", aiAnswer: "🤖" };
 const PAGE = 50;
+
+// A push to a group of learners who have notifications turned on.
+function GroupMessage() {
+  const { t } = useTranslation();
+  const [group, setGroup] = useState("all");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [result, setResult] = useState("");
+  const field = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
+
+  async function send() {
+    if (!window.confirm(t("adminNotifications.groupConfirm"))) return;
+    setBusy(true);
+    setResult("");
+    try {
+      const data = await adminRequest({}, { action: "notifyGroup", group, title, body });
+      setResult(t("adminNotifications.groupSent", { users: data.users, devices: data.devices }));
+      setTitle("");
+      setBody("");
+    } catch (error) {
+      setResult(error.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <Panel title={`📣 ${t("adminNotifications.groupTitle")}`}>
+      <div className="grid gap-2">
+        <select value={group} onChange={(event) => setGroup(event.target.value)} aria-label={t("adminNotifications.groupTitle")} className={field}>
+          {["all", "premium", "active", "inactive"].map((key) => <option key={key} value={key}>{t(`adminNotifications.group.${key}`)}</option>)}
+        </select>
+        <input value={title} onChange={(event) => setTitle(event.target.value)} maxLength={80} placeholder={t("admin.records.notifyTitle")} className={field} />
+        <textarea value={body} onChange={(event) => setBody(event.target.value)} maxLength={200} rows={2} placeholder={t("admin.records.notifyBody")} className={field} />
+        <button type="button" disabled={busy || !title.trim() || !body.trim()} onClick={send} className="rounded-xl bg-sky-600 px-3 py-2 text-xs font-black text-white disabled:opacity-50">
+          {t("admin.records.notifySend")}
+        </button>
+        {result && <p role="status" className="text-sm font-bold">{result}</p>}
+      </div>
+    </Panel>
+    </div>
+  );
+}
 
 function detailText(t, item) {
   const data = item.data || {};
@@ -59,6 +104,8 @@ export default function AdminNotifications() {
   const shown = (items || []).filter((item) => filter === "all" || !seen.has(item.id));
 
   return (
+    <div className="space-y-4">
+    <GroupMessage />
     <Panel
       title={t("adminNotifications.title")}
       action={
