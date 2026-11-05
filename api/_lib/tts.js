@@ -39,10 +39,11 @@ let cloudflarePausedUntil = 0;
 
 async function askCloudflare(input, lang, timeout) {
   const started = Date.now();
-  const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/myshell-ai/melotts`, {
+  // Values pasted into the host settings often carry a stray space.
+  const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID.trim()}/ai/run/@cf/myshell-ai/melotts`, {
     method: "POST",
     signal: AbortSignal.timeout(timeout),
-    headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_AI_TOKEN}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_AI_TOKEN.trim()}`, "Content-Type": "application/json" },
     body: JSON.stringify({ prompt: input, lang }),
   });
   const type = response.headers.get("content-type") || "";

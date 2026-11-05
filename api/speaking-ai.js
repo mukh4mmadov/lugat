@@ -238,7 +238,9 @@ async function turn(db, user, body, res) {
   let result;
   const geminiStarted = Date.now();
   try {
-    result = cleanResult(await askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio), premium);
+    const ask = () => askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio);
+    // The model sometimes returns broken JSON; one quiet retry beats an error.
+    result = cleanResult(await ask().catch(ask), premium);
   } catch (error) {
     console.error("Speaking AI error:", error);
     return res.status(502).json({ error: "The AI partner is not available right now. Please try again." });
