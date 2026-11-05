@@ -41,8 +41,9 @@ const isPremium = (user) => Boolean(user.app_metadata?.premium_until) && new Dat
 // The allowance resets at midnight in Tashkent (UTC+5).
 export const tashkentDay = (now = Date.now()) => new Date(now + 5 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
-function logFailure(db, error) {
-  db.from("app_errors").insert({ user_id: null, kind: "error", message: `Friday: ${error.message}`.slice(0, 500), path: "/api/speaking-ai" }).then(({ error: insertError }) => insertError && console.error(insertError.message));
+async function logFailure(db, error) {
+  const { error: insertError } = await db.from("app_errors").insert({ user_id: null, kind: "error", message: `Friday: ${error.message}`.slice(0, 500), path: "/api/speaking-ai" });
+  if (insertError) console.error(insertError.message);
 }
 
 const voiceUrl = (voice) => (voice ? `data:${voice.mime};base64,${voice.audio}` : null);
@@ -248,15 +249,15 @@ async function turn(db, user, body, res) {
     // The model sometimes fails; one quiet retry beats an error. Failures show
     // in the admin Errors tab.
     result = cleanResult(
-      await ask().catch((error) => {
-        logFailure(db, error);
+      await ask().catch(async (error) => {
+        await logFailure(db, error);
         return ask();
       }),
       premium,
     );
   } catch (error) {
     console.error("Speaking AI error:", error);
-    logFailure(db, error);
+    await logFailure(db, error);
     return res.status(502).json({ error: "The AI partner is not available right now. Please try again." });
   }
   if (!result.reply) return res.status(502).json({ error: "The AI partner is not available right now. Please try again." });
