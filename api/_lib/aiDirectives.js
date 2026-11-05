@@ -20,6 +20,14 @@ function serviceClient() {
   return createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
 }
 
+// Shown in the admin Errors tab.
+export async function logAiFailure(message) {
+  const db = serviceClient();
+  if (!db) return;
+  const { error } = await db.from("app_errors").insert({ user_id: null, kind: "error", message: String(message).slice(0, 500), path: "/api/ai-chat" });
+  if (error) console.error(error.message);
+}
+
 const clip = (value, length) => String(value || "").trim().slice(0, length);
 
 export async function setBehavior(db, userId, behavior, actorId) {

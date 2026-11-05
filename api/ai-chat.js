@@ -1,6 +1,6 @@
 import { getTopikExam, getTopikVariant, getVariantQuestions } from "../src/data/topik/exams.js";
 import { getGrammarPoint } from "../src/data/grammar/index.js";
-import { chatDirectives } from "./_lib/aiDirectives.js";
+import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
@@ -64,6 +64,25 @@ const GEMINI_TIMEOUT_MS = 25000;
 const MAX_TOOL_STEPS = 4;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+
+const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
+const FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${FALLBACK_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+
+// Google sometimes answers that the model is overloaded: the second model
+// takes over, so the learner does not see an error.
+async function askModel(payload) {
+  const send = (url) =>
+    fetch(url, {
+      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  const first = await send(GEMINI_URL).catch((error) => ({ ok: false, status: 0, text: async () => error.message }));
+  if (first.ok) return first;
+  await logAiFailure(`AI tutor: ${first.status} ${(await first.text().catch(() => "")).replace(/\s+/g, " ").slice(0, 300)}`);
+  return send(FALLBACK_URL);
+}
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
@@ -838,28 +857,22 @@ export default async function handler(req, res) {
       { role: "user", parts: [{ text: trimmed }] },
     ];
     for (let step = 0; step < MAX_TOOL_STEPS && !reply; step += 1) {
-      const response = await fetch(GEMINI_URL, {
-        signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await askModel({
+        contents,
+        systemInstruction: {
+          parts: [{ text: systemPrompt }],
         },
-        body: JSON.stringify({
-          contents,
-          systemInstruction: {
-            parts: [{ text: systemPrompt }],
-          },
-          ...(directives?.tools ? { tools: [{ functionDeclarations: directives.tools }] } : {}),
-          generationConfig: {
-            temperature: 0.8,
-            maxOutputTokens: 1024,
-          },
-        }),
+        ...(directives?.tools ? { tools: [{ functionDeclarations: directives.tools }] } : {}),
+        generationConfig: {
+          temperature: 0.8,
+          maxOutputTokens: 1024,
+        },
       });
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "Unknown error");
         console.error("Gemini API error:", response.status, errorText);
+        await logAiFailure(`AI tutor fallback: ${response.status} ${errorText.replace(/\s+/g, " ").slice(0, 300)}`);
         return res.status(502).json({
           error: "AI service is temporarily unavailable. Please try again later.",
         });
