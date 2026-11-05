@@ -236,6 +236,7 @@ async function turn(db, user, body, res) {
 
   const language = languageOf(body.language);
   let result;
+  const geminiStarted = Date.now();
   try {
     result = cleanResult(await askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio), premium);
   } catch (error) {
@@ -244,7 +245,9 @@ async function turn(db, user, body, res) {
   }
   if (!result.reply) return res.status(502).json({ error: "The AI partner is not available right now. Please try again." });
 
+  const geminiMs = Date.now() - geminiStarted;
   // Friday's natural voice is made while the session is saved.
+  const voiceStarted = Date.now();
   const voicePromise = synthesize(db, result.reply);
   const seconds = chargedSeconds(audioSeconds, result.reply);
   const { data: totals } = await db.rpc("add_speaking_usage", { p_user: user.id, p_day: tashkentDay(), p_seconds: seconds });
@@ -268,6 +271,7 @@ async function turn(db, user, body, res) {
     .eq("id", session.id);
   const usedSeconds = (Array.isArray(totals) ? totals[0]?.seconds : totals?.seconds) ?? used.seconds + seconds;
   const voice = await voicePromise;
+  res.setHeader("Server-Timing", `gemini;dur=${geminiMs}, voice;dur=${Date.now() - voiceStarted}`);
   return res.status(200).json({ ...result, replyAudio: voice?.audio || null, usedSeconds, limitSeconds: limit.seconds });
 }
 

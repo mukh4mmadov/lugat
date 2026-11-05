@@ -32,34 +32,62 @@ export async function synthesize(db, text) {
   return (googleConfigured() && (await synthesizeGoogle(db, input))) || (cloudflareConfigured() && (await synthesizeCloudflare(input))) || null;
 }
 
+const CLOUDFLARE_TIMEOUT_MS = 5000;
+const CLOUDFLARE_PAUSE_MS = 5 * 60 * 1000;
 let cloudflareLang = null;
+let cloudflarePausedUntil = 0;
+
+async function askCloudflare(input, lang, timeout) {
+  const started = Date.now();
+  const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/myshell-ai/melotts`, {
+    method: "POST",
+    signal: AbortSignal.timeout(timeout),
+    headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_AI_TOKEN}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt: input, lang }),
+  });
+  const type = response.headers.get("content-type") || "";
+  if (!response.ok) return { status: response.status, ms: Date.now() - started, detail: (await response.text().catch(() => "")).slice(0, 300) };
+  const audio = type.includes("json") ? (await response.json())?.result?.audio : Buffer.from(await response.arrayBuffer()).toString("base64");
+  return { status: response.status, ms: Date.now() - started, audio: audio || null };
+}
+
+// A reply never waits long for its voice, and a service that is failing is
+// left alone for a few minutes instead of slowing every reply.
 async function synthesizeCloudflare(input) {
+  if (Date.now() < cloudflarePausedUntil) return null;
   // MeloTTS names Korean "KR"; try the spellings the API may expect.
   for (const lang of cloudflareLang ? [cloudflareLang] : ["kr", "ko", "KR"]) {
     try {
-      const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/ai/run/@cf/myshell-ai/melotts`, {
-        method: "POST",
-        signal: AbortSignal.timeout(15000),
-        headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_AI_TOKEN}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: input, lang }),
-      });
-      if (!response.ok) {
-        const detail = (await response.text().catch(() => "")).slice(0, 200);
-        if (response.status === 400) continue;
-        console.error("Cloudflare TTS failed:", response.status, detail);
-        return null;
+      const result = await askCloudflare(input, lang, CLOUDFLARE_TIMEOUT_MS);
+      if (result.audio) {
+        cloudflareLang = lang;
+        return { audio: result.audio, voice: `Cloudflare MeloTTS (${lang})` };
       }
-      const type = response.headers.get("content-type") || "";
-      const audio = type.includes("json") ? (await response.json())?.result?.audio : Buffer.from(await response.arrayBuffer()).toString("base64");
-      if (!audio) continue;
-      cloudflareLang = lang;
-      return { audio, voice: `Cloudflare MeloTTS (${lang})` };
+      if (result.status === 400) continue;
+      console.error("Cloudflare TTS failed:", result.status, result.detail);
+      break;
     } catch (error) {
       console.error("Cloudflare TTS error:", error.message);
-      return null;
+      break;
     }
   }
+  cloudflarePausedUntil = Date.now() + CLOUDFLARE_PAUSE_MS;
   return null;
+}
+
+// For the admin: which services are set up and what each one answers.
+export async function checkTts() {
+  const report = { google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
+  if (!report.cloudflare) return report;
+  for (const lang of ["kr", "ko", "KR", "en"]) {
+    try {
+      const result = await askCloudflare(lang === "en" ? "Hello" : "안녕하세요, 저는 프라이데이예요.", lang, 12000);
+      report.attempts.push({ lang, status: result.status, ms: result.ms, audioKb: result.audio ? Math.round(result.audio.length / 1365) : 0, detail: result.detail || "" });
+    } catch (error) {
+      report.attempts.push({ lang, error: error.message.slice(0, 160) });
+    }
+  }
+  return report;
 }
 
 async function synthesizeGoogle(db, input) {

@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 import { levelForXp } from "../src/lib/gamification.js";
 import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
+import { checkTts } from "./_lib/tts.js";
 
 // Admin dashboard data and user management. Every request must carry the
 // session of a user listed in public.feedback_admins; the work itself runs with
@@ -772,6 +773,7 @@ export default async function handler(req, res) {
       const errors = [...groups.values()].map((group) => ({ ...group, users: group.users.size, paths: [...group.paths] }));
       return res.status(200).json({ errors, total: rows?.length || 0 });
     }
+    if (action === "ttsCheck") return res.status(200).json(await checkTts());
     if (action === "voiceLink") {
       const link = await recordingLink(db);
       return res.status(200).json({ link });
