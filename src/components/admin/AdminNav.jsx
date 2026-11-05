@@ -25,7 +25,11 @@ function SectionSheet({ tabs, onClose }) {
     };
   }, [onClose]);
 
+  // The sheet lives outside the layout, whose wrapper carries the dark class.
+  const theme = document.documentElement.classList.contains("k-dark") ? "dark" : "";
+
   return createPortal(
+    <div className={theme}>
     <div role="dialog" aria-modal="true" aria-label={t("adminNav.menu")} className="fixed inset-0 z-[90] overflow-y-auto bg-slate-50 p-4 pb-10 text-slate-900 dark:bg-slate-950 dark:text-white">
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-lg font-black">{t("adminNav.menu")}</h2>
@@ -52,6 +56,7 @@ function SectionSheet({ tabs, onClose }) {
           </div>
         </section>
       ))}
+    </div>
     </div>,
     document.body,
   );
@@ -67,7 +72,7 @@ export default function AdminNav({ tabs }) {
 
   return (
     <>
-      <div className="sticky top-16 z-30 -mx-1 px-1 md:hidden">
+      <div className="sticky top-[4.5rem] z-30 -mx-1 px-1 md:hidden">
         <button type="button" aria-haspopup="dialog" aria-expanded={open} onClick={() => setOpen(true)} className="flex min-h-12 w-full items-center gap-2 rounded-2xl bg-sky-600 px-4 text-left text-sm font-black text-white shadow-lg">
           <span aria-hidden="true" className="text-lg">{current.icon}</span>
           <span className="min-w-0 flex-1 truncate">{current.label}</span>
