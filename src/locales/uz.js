@@ -2210,4 +2210,5 @@ export default {
   "live.direct": "To'g'ridan-to'g'ri ulanish",
   "live.viaServer": "Server orqali",
   "live.delay": "kechikish ~{{ms}} ms",
+  "korea.path.topikBelow": "Saytdagi eng yaxshi TOPIK I natijangiz: {{score}}/200 (1-darajadan past).",
 };

@@ -2214,4 +2214,5 @@ export default {
   "live.direct": "Direct connection",
   "live.viaServer": "Through a server",
   "live.delay": "delay ~{{ms}} ms",
+  "korea.path.topikBelow": "Your best TOPIK I result here: {{score}}/200 (below Level 1).",
 };

@@ -30,6 +30,8 @@ import { SRS_RATINGS, getDueWords } from "../lib/srs";
 import { speakKorean } from "../lib/speech";
 import { selectDifficultWords, selectFavoriteWords, selectWeakWords } from "../store";
 
+const NEXT_LOCK_MS = 300;
+
 export default function FlashcardsPage({ review = false, weak = false, list = null }) {
   const { t } = useTranslation();
   const { lessonId = "1" } = useParams();
@@ -46,6 +48,7 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
   const weakWords = useSelector(selectWeakWords);
   const listWords = useSelector(list === "difficult" ? selectDifficultWords : selectFavoriteWords);
   const advanceRef = useRef(null);
+  const lastNextRef = useRef(0);
   const lesson = Number(lessonId);
   const invalidLesson =
     !Number.isInteger(lesson) || lesson < 1 || lesson > lessonInfo.length;
@@ -279,6 +282,9 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
   }
 
   function nextCard() {
+    // A second tap while the card changes must not skip a word.
+    if (Date.now() - lastNextRef.current < NEXT_LOCK_MS) return;
+    lastNextRef.current = Date.now();
     if (cursor + 1 >= queue.length) {
       if (!review && !weak && !list) setDeckDone(true);
       rebuildDeck(0);
@@ -319,7 +325,7 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
       <ModeHeader lesson={lesson} review={review} weak={weak} list={list} />
       {deckDone && (
         <div role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-900 dark:bg-emerald-500/10 dark:text-emerald-100">
-          <span className="mr-auto">🎉 {t("flashcards.deckDone", { count: queue.length })}</span>
+          <span className="mr-auto">🎉 {t("flashcards.deckDone", { count: new Set(queue).size })}</span>
           <Link to={`/lesson/${lesson}/quiz`} className="rounded-xl bg-white px-3 py-1.5 text-xs font-black text-emerald-800 dark:bg-white/10 dark:text-emerald-100">{t("practice.quiz")}</Link>
           {lesson < lessonInfo.length && <Link to={`/study/${lesson + 1}`} className="rounded-xl bg-emerald-600 px-3 py-1.5 text-xs font-black text-white">{t("study.nextLesson")}</Link>}
           <button type="button" onClick={() => setDeckDone(false)} aria-label={t("common.close")} className="px-1 text-emerald-700 dark:text-emerald-200">✕</button>
@@ -379,7 +385,7 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
               initial={{ opacity: 0, rotateY: -24 }}
               animate={{ opacity: 1, rotateY: flipped ? 180 : 0 }}
               exit={{ opacity: 0, rotateY: 24 }}
-              transition={{ duration: 0.45 }}
+              transition={{ duration: 0.2 }}
               className="relative min-h-[320px] w-full rounded-[2rem] border border-white/60 bg-gradient-to-br from-white via-sky-50 to-violet-50 p-6 text-left shadow-2xl shadow-sky-900/10 [transform-style:preserve-3d] dark:border-white/10 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950"
             >
               <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(168,85,247,.18),transparent_35%)]" />

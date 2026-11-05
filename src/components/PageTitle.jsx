@@ -22,8 +22,21 @@ const SECTIONS = {
   leaderboard: "leaderboard.title",
   privacy: "privacy.title",
   terms: "terms.title",
+  speaking: "nav.speaking",
+  korea: "nav.korea",
+  grammar: "grammar.title",
+  stories: "stories.title",
+  achievements: "nav.achievements",
+  "forgot-password": "forgotPassword.title",
+  "reset-password": "resetPassword.title",
+  "complete-profile": "completeProfile.title",
+  credits: "audioCredits.title",
+  "record-voice": "voices.pageTitle",
+  auth: "nav.login",
 };
 const MODES = { flashcards: "practice.flashcards", listening: "practice.listening", quiz: "practice.quiz", writing: "practice.writing", dictation: "dictation.title" };
+
+const SITE = "https://lugat-six.vercel.app";
 
 // Sets the browser tab title from the current route, e.g. "Lesson 3 · Quiz — K-TALIM".
 export default function PageTitle() {
@@ -40,7 +53,9 @@ export default function PageTitle() {
         .join(" · ");
     } else if (SECTIONS[section]) title = SECTIONS[section].includes(".") ? t(SECTIONS[section]) : SECTIONS[section];
     else title = t("notFound.title");
-    document.title = title ? `${title} — K-TALIM` : "K-TALIM";
+    // University pages set their own title.
+    if (!(section === "korea" && id)) document.title = title ? `${title} — K-TALIM` : "K-TALIM";
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", `${SITE}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`);
     document.documentElement.lang = String(i18n.language || "uz").slice(0, 2);
   }, [pathname, t, i18n.language]);
 

@@ -52,6 +52,8 @@ export function SearchPage() {
 
   const normalized = normalizeAnswer(debouncedQuery);
   const results = useMemo(() => {
+    // Text with no letters left after clean-up (only punctuation) matches nothing.
+    if (debouncedQuery.trim() && !normalized) return [];
     let filtered = normalized ? searchWords(allWords, normalized, meaning) : allWords;
     if (masteryFilter !== "all") {
       filtered = filtered.filter(
@@ -63,7 +65,7 @@ export function SearchPage() {
     return filtered;
     // meaning() follows the interface language.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [normalized, masteryFilter, progress.words, i18n.language]);
+  }, [debouncedQuery, normalized, masteryFilter, progress.words, i18n.language]);
 
   const globalCounts = useMemo(() => {
     const counts = { all: allWords.length };

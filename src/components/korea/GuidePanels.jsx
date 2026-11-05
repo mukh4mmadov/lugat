@@ -235,7 +235,7 @@ export function MyPathPanel({ onOpenTab }) {
             <span className="text-sm font-black tabular-nums">{level}/{plan.topik_goal}</span>
           </div>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            {best ? t("korea.path.topikBest", { score: best.result.total, level: level || 0 }) : t("korea.path.topikNone")} {plan.topik_goal >= 3 && t("korea.path.topikTwo")}
+            {best ? t(level ? "korea.path.topikBest" : "korea.path.topikBelow", { score: best.result.total, level }) : t("korea.path.topikNone")} {plan.topik_goal >= 3 && t("korea.path.topikTwo")}
           </p>
           <Link to="/topik" className="mt-3 inline-block rounded-xl bg-slate-950 px-4 py-2 text-xs font-black text-white dark:bg-white dark:text-slate-950">{t("korea.path.practice")}</Link>
         </GlassCard>

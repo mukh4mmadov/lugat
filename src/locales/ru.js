@@ -2368,4 +2368,5 @@ export default {
   "live.direct": "Прямое соединение",
   "live.viaServer": "Через сервер",
   "live.delay": "задержка ~{{ms}} мс",
+  "korea.path.topikBelow": "Ваш лучший результат TOPIK I здесь: {{score}}/200 (ниже 1-го уровня).",
 };
