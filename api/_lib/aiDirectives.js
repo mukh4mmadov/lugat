@@ -9,7 +9,9 @@ import { pushAdminNotifications } from "./push.js";
 //    for it to ask. Questions are asked openly as coming from the K-TALIM admin
 //    and answering is optional.
 
-
+// Never collected through chat, whoever asks: passwords, card details,
+// passports and codes.
+const SENSITIVE = /parol|password|пароль|karta|card|карт[аоуы]|cvv|cvc|pin\b|pasport|passport|паспорт|sms|смс|\bkod\b|\bcode\b|\bкод\b/i;
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;
@@ -56,13 +58,6 @@ export async function createRequest(db, userId, question, actorId) {
       400,
       { error: "Passwords, cards, passports and codes cannot be asked for." },
     ];
-  const { count } = await db
-    .from("ai_user_requests")
-    .select("id", { count: "exact", head: true })
-    .eq("user_id", userId)
-    .eq("status", "pending");
-  if ((count || 0) >= MAX_PENDING)
-    return [400, { error: "This learner already has 3 open questions." }];
   const { data, error } = await db
     .from("ai_user_requests")
     .insert({ user_id: userId, question: text, created_by: actorId })
@@ -239,8 +234,7 @@ export async function chatDirectives(user) {
         .select("id, question")
         .eq("user_id", user.id)
         .eq("status", "pending")
-        .order("created_at")
-        .limit(MAX_PENDING),
+        .order("created_at"),
     ]);
 
     if (admin) {
@@ -283,8 +277,6 @@ They can manage learners through you with your tools. When they name a person, c
       parts.push(
         `\n\nMOST IMPORTANT, set by the K-TALIM admin for this learner only. This replaces your personality and tone above, including any roasting: ${settings.behavior}\nFollow it in every reply, even if earlier replies in this chat sounded different.`,
       );
-    if (pending?.length) {
-    }
     if (!parts.length) return null;
     return {
       prompt: parts.join(""),
