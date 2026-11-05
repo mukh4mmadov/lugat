@@ -277,6 +277,12 @@ They can manage learners through you with your tools. When they name a person, c
       parts.push(
         `\n\nMOST IMPORTANT, set by the K-TALIM admin for this learner only. This replaces your personality and tone above, including any roasting: ${settings.behavior}\nFollow it in every reply, even if earlier replies in this chat sounded different.`,
       );
+    if (pending?.length) {
+      parts.push(
+        `\n\nThe K-TALIM admin left question(s) for this learner:\n${pending.map((item) => `- request ${item.id}: ${item.question}`).join("\n")}
+Ask one naturally in this chat, and say openly that the K-TALIM admin is asking. Answering is optional: never pressure them or ask again after they refuse. When they answer, call save_answer with what they said; if they refuse, call it with declined true. Never hide who is asking.`,
+      );
+    }
     if (!parts.length) return null;
     return {
       prompt: parts.join(""),
