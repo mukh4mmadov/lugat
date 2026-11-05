@@ -62,6 +62,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // learner gets a JSON error instead of Vercel's plain-text timeout page.
 const GEMINI_TIMEOUT_MS = 25000;
 const MAX_TOOL_STEPS = 6;
+const TOOL_STEP_TIMEOUT_MS = 12000;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
@@ -69,19 +70,24 @@ const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-
 const FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${FALLBACK_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 // Google sometimes answers that the model is overloaded: the second model
-// takes over, so the learner does not see an error.
-async function askModel(payload) {
-  const send = (url) =>
+// takes over, so the learner does not see an error. `route` lasts for one
+// chat message: after one failure its other steps skip the busy model, and
+// messages with several tool steps wait less, to stay inside the time limit.
+async function askModel(payload, route) {
+  const send = (url, timeout) =>
     fetch(url, {
-      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeout),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-  const first = await send(GEMINI_URL).catch((error) => ({ ok: false, status: 0, text: async () => error.message }));
+  const timeout = payload.tools ? TOOL_STEP_TIMEOUT_MS : GEMINI_TIMEOUT_MS;
+  if (route.fallback) return send(FALLBACK_URL, timeout);
+  const first = await send(GEMINI_URL, timeout).catch((error) => ({ ok: false, status: 0, text: async () => error.message }));
   if (first.ok) return first;
+  route.fallback = true;
   await logAiFailure(`AI tutor: ${first.status} ${(await first.text().catch(() => "")).replace(/\s+/g, " ").slice(0, 300)}`);
-  return send(FALLBACK_URL);
+  return send(FALLBACK_URL, timeout);
 }
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -856,6 +862,7 @@ export default async function handler(req, res) {
       ...chatHistory,
       { role: "user", parts: [{ text: trimmed }] },
     ];
+    const route = { fallback: false };
     for (let step = 0; step < MAX_TOOL_STEPS && !reply; step += 1) {
       const response = await askModel({
         contents,
@@ -867,7 +874,7 @@ export default async function handler(req, res) {
           temperature: 0.8,
           maxOutputTokens: 1024,
         },
-      });
+      }, route);
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "Unknown error");
