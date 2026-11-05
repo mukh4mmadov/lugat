@@ -41,6 +41,8 @@ const isPremium = (user) => Boolean(user.app_metadata?.premium_until) && new Dat
 // The allowance resets at midnight in Tashkent (UTC+5).
 export const tashkentDay = (now = Date.now()) => new Date(now + 5 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
+const voiceUrl = (voice) => (voice ? `data:${voice.mime};base64,${voice.audio}` : null);
+
 const languageOf = (value) => (LANGUAGE_NAMES[value] ? value : "uz");
 
 async function dailyLimit(db, premium) {
@@ -215,7 +217,7 @@ async function start(db, user, body, res) {
   if (error) throw error;
   const opener = buildOpener(topic, level, languageOf(body.language));
   const voice = await synthesize(db, opener.ko);
-  return res.status(200).json({ sessionId: data.id, opener, openerAudio: voice?.audio || null });
+  return res.status(200).json({ sessionId: data.id, opener, openerAudio: voiceUrl(voice) });
 }
 
 async function turn(db, user, body, res) {
@@ -274,7 +276,7 @@ async function turn(db, user, body, res) {
   const usedSeconds = (Array.isArray(totals) ? totals[0]?.seconds : totals?.seconds) ?? used.seconds + seconds;
   const voice = await voicePromise;
   res.setHeader("Server-Timing", `gemini;dur=${geminiMs}, voice;dur=${Date.now() - voiceStarted}`);
-  return res.status(200).json({ ...result, replyAudio: voice?.audio || null, usedSeconds, limitSeconds: limit.seconds });
+  return res.status(200).json({ ...result, replyAudio: voiceUrl(voice), usedSeconds, limitSeconds: limit.seconds });
 }
 
 async function end(db, user, body, res) {

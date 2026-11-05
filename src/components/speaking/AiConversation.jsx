@@ -159,10 +159,9 @@ export default function AiConversation({ topic, level, premium, onClose }) {
     speakingRequest("POST", { action: "start", topicId: topic.id, level, language })
       .then((data) => {
         setSessionId(data.sessionId);
-        const audio = data.openerAudio ? `data:audio/mpeg;base64,${data.openerAudio}` : null;
-        setMessages([{ id: newId(), role: "partner", text: data.opener.ko, translation: data.opener.translation, audio }]);
+        setMessages([{ id: newId(), role: "partner", text: data.opener.ko, translation: data.opener.translation, audio: data.openerAudio }]);
         setPhase("idle");
-        speakKorean(data.opener.ko, rate, audio);
+        speakKorean(data.opener.ko, rate, data.openerAudio);
       })
       .catch((startError) => {
         setPhase(startError.status === 429 ? "limit" : "error");
@@ -202,17 +201,16 @@ export default function AiConversation({ topic, level, premium, onClose }) {
     try {
       const data = await speakingRequest("POST", { action: "turn", sessionId, audio: recording.base64, history, language });
       setUsage({ used: data.usedSeconds, limit: data.limitSeconds });
-      const replyAudio = data.replyAudio ? `data:audio/mpeg;base64,${data.replyAudio}` : null;
       setMessages((current) => [
         ...current.map((message) =>
           message.id === pendingId
             ? { id: pendingId, role: "learner", text: data.transcript, corrections: data.corrections, pronunciation: data.pronunciation }
             : message,
         ),
-        { id: newId(), role: "partner", text: data.reply, translation: data.replyTranslation, audio: replyAudio },
+        { id: newId(), role: "partner", text: data.reply, translation: data.replyTranslation, audio: data.replyAudio },
       ]);
       setPhase(data.usedSeconds >= data.limitSeconds ? "limit" : "idle");
-      speakKorean(data.reply, rate, replyAudio);
+      speakKorean(data.reply, rate, data.replyAudio);
     } catch (turnError) {
       setMessages((current) => current.filter((message) => message.id !== pendingId));
       if (turnError.status === 429) {

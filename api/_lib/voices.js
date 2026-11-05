@@ -41,7 +41,7 @@ async function speak(word, db) {
   if (ttsConfigured()) {
     const voice = await synthesize(db, word);
     if (!voice) throw new Error("Google TTS unavailable or over the monthly cap");
-    return { audio: Buffer.from(voice.audio, "base64"), mime: "audio/mpeg", seconds: 1, model: voice.voice };
+    return { audio: Buffer.from(voice.audio, "base64"), mime: voice.mime, seconds: 1, model: voice.voice };
   }
   // The model that worked last goes first; the others are fallbacks when it
   // answers without audio (the preview models sometimes do).
@@ -136,7 +136,7 @@ export async function generateVoices(db, words, actorId) {
         }
         heard = await hear(voice.audio, voice.mime);
         if (normalize(heard) === normalize(word)) {
-          await save(db, word, voice.audio, voice.mime, "ai", { speaker: voice.mime === "audio/mpeg" ? voice.model : `Gemini (${VOICE})`, model: voice.model, created_by: actorId });
+          await save(db, word, voice.audio, voice.mime, "ai", { speaker: voice.model.startsWith("gemini") ? `Gemini (${VOICE})` : voice.model, model: voice.model, created_by: actorId });
           ok = true;
         }
       } catch (caught) {

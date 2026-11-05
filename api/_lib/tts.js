@@ -24,7 +24,7 @@ async function usedChars(db) {
 
 let workingVoice = null;
 
-// Resolves to { audio: base64 MP3, voice } or null (not configured, over the
+// Resolves to { audio: base64, mime, voice } or null (not configured, over the
 // limits, or the services failed): callers then use the browser voice.
 export async function synthesize(db, text) {
   const input = String(text || "").trim().slice(0, 600);
@@ -32,9 +32,59 @@ export async function synthesize(db, text) {
   return (googleConfigured() && (await synthesizeGoogle(db, input))) || (cloudflareConfigured() && (await synthesizeCloudflare(input))) || null;
 }
 
+const SPEECH_RATE = 16000;
+
+// MeloTTS sends 44.1 kHz WAV, about 90 KB a second. Speech keeps its clarity at
+// 16 kHz, a third of the size, which matters on phones. Anything but 16-bit
+// mono PCM is returned untouched.
+export function shrinkWav(base64) {
+  const wav = Buffer.from(base64, "base64");
+  if (wav.toString("latin1", 0, 4) !== "RIFF" || wav.toString("latin1", 8, 12) !== "WAVE") return base64;
+  let format = null;
+  let data = null;
+  for (let offset = 12; offset + 8 <= wav.length; ) {
+    const id = wav.toString("latin1", offset, offset + 4);
+    const size = wav.readUInt32LE(offset + 4);
+    if (id === "fmt ") format = offset + 8;
+    if (id === "data") {
+      data = wav.subarray(offset + 8, Math.min(offset + 8 + size, wav.length));
+      break;
+    }
+    offset += 8 + size + (size % 2);
+  }
+  if (!format || !data) return base64;
+  const rate = wav.readUInt32LE(format + 4);
+  if (wav.readUInt16LE(format) !== 1 || wav.readUInt16LE(format + 2) !== 1 || wav.readUInt16LE(format + 14) !== 16 || rate <= SPEECH_RATE) return base64;
+
+  const inputSamples = Math.floor(data.length / 2);
+  const ratio = rate / SPEECH_RATE;
+  const samples = Math.floor(inputSamples / ratio);
+  const output = Buffer.alloc(44 + samples * 2);
+  output.write("RIFF", 0, "latin1");
+  output.writeUInt32LE(36 + samples * 2, 4);
+  output.write("WAVEfmt ", 8, "latin1");
+  output.writeUInt32LE(16, 16);
+  output.writeUInt16LE(1, 20);
+  output.writeUInt16LE(1, 22);
+  output.writeUInt32LE(SPEECH_RATE, 24);
+  output.writeUInt32LE(SPEECH_RATE * 2, 28);
+  output.writeUInt16LE(2, 32);
+  output.writeUInt16LE(16, 34);
+  output.write("data", 36, "latin1");
+  output.writeUInt32LE(samples * 2, 40);
+  // Averaging each span also removes the highs that would otherwise alias.
+  for (let index = 0; index < samples; index += 1) {
+    const start = Math.floor(index * ratio);
+    const end = Math.min(inputSamples, Math.max(start + 1, Math.floor((index + 1) * ratio)));
+    let sum = 0;
+    for (let sample = start; sample < end; sample += 1) sum += data.readInt16LE(sample * 2);
+    output.writeInt16LE(Math.round(sum / (end - start)), 44 + index * 2);
+  }
+  return output.toString("base64");
+}
+
 const CLOUDFLARE_TIMEOUT_MS = 5000;
 const CLOUDFLARE_PAUSE_MS = 5 * 60 * 1000;
-let cloudflareLang = null;
 let cloudflarePausedUntil = 0;
 
 async function askCloudflare(input, lang, timeout) {
@@ -56,21 +106,12 @@ async function askCloudflare(input, lang, timeout) {
 // left alone for a few minutes instead of slowing every reply.
 async function synthesizeCloudflare(input) {
   if (Date.now() < cloudflarePausedUntil) return null;
-  // MeloTTS names Korean "KR"; try the spellings the API may expect.
-  for (const lang of cloudflareLang ? [cloudflareLang] : ["kr", "ko", "KR"]) {
-    try {
-      const result = await askCloudflare(input, lang, CLOUDFLARE_TIMEOUT_MS);
-      if (result.audio) {
-        cloudflareLang = lang;
-        return { audio: result.audio, voice: `Cloudflare MeloTTS (${lang})` };
-      }
-      if (result.status === 400) continue;
-      console.error("Cloudflare TTS failed:", result.status, result.detail);
-      break;
-    } catch (error) {
-      console.error("Cloudflare TTS error:", error.message);
-      break;
-    }
+  try {
+    const result = await askCloudflare(input, "kr", CLOUDFLARE_TIMEOUT_MS);
+    if (result.audio) return { audio: shrinkWav(result.audio), mime: "audio/wav", voice: "Cloudflare MeloTTS" };
+    console.error("Cloudflare TTS failed:", result.status, result.detail);
+  } catch (error) {
+    console.error("Cloudflare TTS error:", error.message);
   }
   cloudflarePausedUntil = Date.now() + CLOUDFLARE_PAUSE_MS;
   return null;
@@ -80,13 +121,11 @@ async function synthesizeCloudflare(input) {
 export async function checkTts() {
   const report = { google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
   if (!report.cloudflare) return report;
-  for (const lang of ["kr", "ko", "KR", "en"]) {
-    try {
-      const result = await askCloudflare(lang === "en" ? "Hello" : "안녕하세요, 저는 프라이데이예요.", lang, 12000);
-      report.attempts.push({ lang, status: result.status, ms: result.ms, audioKb: result.audio ? Math.round(result.audio.length / 1365) : 0, detail: result.detail || "" });
-    } catch (error) {
-      report.attempts.push({ lang, error: error.message.slice(0, 160) });
-    }
+  try {
+    const result = await askCloudflare("안녕하세요, 저는 프라이데이예요.", "kr", 12000);
+    report.attempts.push({ status: result.status, ms: result.ms, audioKb: result.audio ? Math.round(shrinkWav(result.audio).length / 1365) : 0, detail: result.detail || "" });
+  } catch (error) {
+    report.attempts.push({ error: error.message.slice(0, 160) });
   }
   return report;
 }
@@ -113,7 +152,7 @@ async function synthesizeGoogle(db, input) {
       if (!data.audioContent) return null;
       workingVoice = name;
       await db.from("app_settings").upsert({ key: usageKey(), value: { chars: used + input.length } });
-      return { audio: data.audioContent, voice: name };
+      return { audio: data.audioContent, mime: "audio/mpeg", voice: name };
     }
     return null;
   } catch (error) {
