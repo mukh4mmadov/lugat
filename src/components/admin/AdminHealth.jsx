@@ -13,6 +13,7 @@ export default function AdminHealth() {
   const [error, setError] = useState(null);
   const [check, setCheck] = useState(null);
   const [busy, setBusy] = useState(false);
+  const [report, setReport] = useState("");
 
   const load = useCallback(async () => {
     setError(null);
@@ -32,6 +33,18 @@ export default function AdminHealth() {
     setCheck(null);
     try {
       setCheck((await adminRequest({}, { action: "aiCheck" })).models);
+    } catch (requestError) {
+      setError(requestError);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function sendReport() {
+    setBusy(true);
+    setReport("");
+    try {
+      setReport((await adminRequest({}, { action: "digestNow" })).text);
     } catch (requestError) {
       setError(requestError);
     } finally {
@@ -90,6 +103,9 @@ export default function AdminHealth() {
 
       <Panel title={t("adminHealth.alertsTitle")}>
         <p className="text-sm">{t("adminHealth.alertsText")}</p>
+        <p className="mt-2 text-sm">{t("adminHealth.digestText")}</p>
+        <button type="button" disabled={busy} onClick={sendReport} className="mt-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-black disabled:opacity-50 dark:border-white/15">{t("adminHealth.digestSend")}</button>
+        {report && <p role="status" className="mt-2 text-sm font-bold">{report}</p>}
         <p className={`mt-2 text-sm font-bold ${data.adminDevices ? "text-emerald-600" : "text-rose-600"}`}>
           {data.adminDevices ? t("adminHealth.devices", { count: data.adminDevices }) : t("adminHealth.noDevices")}
         </p>

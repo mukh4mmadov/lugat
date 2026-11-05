@@ -7,7 +7,7 @@ import { timeAgo } from "../../lib/dates";
 import { ADMIN_NOTIFICATIONS_CHANGED, markAllNotificationsSeen, markNotificationSeen } from "../../lib/adminNotifications";
 import { Panel } from "../../pages/AdminPage";
 
-const ICONS = { deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋", aiAnswer: "🤖" };
+const ICONS = { digest: "☀️", health: "⚠️", deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋", aiAnswer: "🤖" };
 const PAGE = 50;
 
 // A push to a group of learners who have notifications turned on.

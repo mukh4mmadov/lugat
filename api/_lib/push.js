@@ -94,6 +94,7 @@ async function sendBatch(db, userIds, kind, { gapHours = 12 } = {}) {
 
 const REPORT_REASONS = { rude: "qo'pollik", sexual: "uyatsiz gap", spam: "spam", silent: "jim turdi", underage: "yoshi kichik", other: "boshqa" };
 const ADMIN_TEXT = {
+  digest: (data) => ({ title: "☀️ K-TALIM: oxirgi 24 soat", body: data.text || "" }),
   health: (data) => ({ title: "⚠️ AI xatolari ko'paydi", body: `So'nggi 15 daqiqada ${data.count || ""} marta o'quvchi AI'dan javob ololmadi.` }),
   deletion: (data) => ({ title: "🗑 Akkauntni o'chirish arizasi", body: `${data.email || ""}: ${data.reason || ""}` }),
   ticket: (data) => ({ title: "✉️ Yangi murojaat", body: data.text || "" }),

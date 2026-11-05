@@ -1,10 +1,14 @@
 import { createClient } from "@supabase/supabase-js";
+import { sendDigest } from "./_lib/digest.js";
 import { chunks, pushAdminNotifications, sendReminder } from "./_lib/push.js";
 
 // Daily at 20:00 Tashkent (vercel.json crons): a "keep your streak" push for
 // learners with a streak who haven't studied today, and a "Premium ends in
 // 3 days" push, for learners who turned reminders on.
+// The morning run (08:00 Tashkent) only sends the admins their daily report.
 // Vercel calls it with Authorization: Bearer $CRON_SECRET.
+
+const LAST_MORNING_HOUR_UTC = 9;
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -16,6 +20,8 @@ export default async function handler(req, res) {
   const db = createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
 
   try {
+    if (new Date().getUTCHours() <= LAST_MORNING_HOUR_UTC) return res.status(200).json(await sendDigest(db));
+
     const subscribers = [];
     for (let from = 0; from < 100000; from += 1000) {
       const { data } = await db.from("push_subscriptions").select("user_id").range(from, from + 999);

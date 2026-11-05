@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Link, NavLink, Outlet, useOutletContext } from "react-router-dom";
+import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import AdminNav from "../components/admin/AdminNav";
 import AdminToday from "../components/admin/AdminToday";
 import ContentEditor from "../components/admin/ContentEditor";
 import { allWords, getWordKey, lessonInfo, meaning } from "../data";
@@ -117,22 +118,22 @@ export default function AdminPage() {
   }
 
   const tabs = [
-    ["/admin", t("admin.tab.overview"), true],
-    ["/admin/notifications", t("adminNotifications.title"), false, unseen],
-    ["/admin/activity", t("adminActivity.tab")],
-    ["/admin/users", t("admin.tab.users")],
-    ["/admin/feedback", t("admin.tab.feedback")],
-    ["/admin/words", t("adminWords.tab")],
-    ["/admin/content", t("admin.tab.content")],
-    ["/admin/studio", t("studio.tab")],
-    ["/admin/speaking", t("admin.tab.speaking")],
-    ["/admin/growth", t("admin.tab.growth")],
-    ["/admin/settings", t("admin.tab.settings")],
-    ["/admin/journal", t("admin.tab.journal")],
-    ["/admin/voices", t("voices.tab")],
-    ["/admin/texts", t("adminTexts.tab")],
-    ["/admin/errors", t("adminErrors.tab")],
-    ["/admin/health", t("adminHealth.tab")],
+    { to: "/admin", label: t("admin.tab.overview"), icon: "🏠", group: "daily", end: true },
+    { to: "/admin/notifications", label: t("adminNotifications.title"), icon: "🔔", group: "daily", count: unseen },
+    { to: "/admin/users", label: t("admin.tab.users"), icon: "👥", group: "daily" },
+    { to: "/admin/feedback", label: t("admin.tab.feedback"), icon: "✉️", group: "daily" },
+    { to: "/admin/speaking", label: t("admin.tab.speaking"), icon: "🎙", group: "daily" },
+    { to: "/admin/journal", label: t("admin.tab.journal"), icon: "📒", group: "daily" },
+    { to: "/admin/studio", label: t("studio.tab"), icon: "✨", group: "content" },
+    { to: "/admin/words", label: t("adminWords.tab"), icon: "🔤", group: "content" },
+    { to: "/admin/content", label: t("admin.tab.content"), icon: "📚", group: "content" },
+    { to: "/admin/texts", label: t("adminTexts.tab"), icon: "📝", group: "content" },
+    { to: "/admin/voices", label: t("voices.tab"), icon: "🔊", group: "content" },
+    { to: "/admin/activity", label: t("adminActivity.tab"), icon: "📊", group: "site" },
+    { to: "/admin/growth", label: t("admin.tab.growth"), icon: "📈", group: "site" },
+    { to: "/admin/health", label: t("adminHealth.tab"), icon: "❤️", group: "site" },
+    { to: "/admin/errors", label: t("adminErrors.tab"), icon: "🐞", group: "site" },
+    { to: "/admin/settings", label: t("admin.tab.settings"), icon: "⚙️", group: "site" },
   ];
 
   return (
@@ -141,25 +142,7 @@ export default function AdminPage() {
         <p className="text-xs font-black uppercase tracking-wide text-sky-600 dark:text-sky-300">{t("admin.eyebrow")}</p>
         <h1 className="mt-1 text-2xl font-black md:text-3xl">{t("admin.title")}</h1>
       </header>
-      <nav aria-label={t("admin.tools")} className="-mx-1 flex gap-1 overflow-x-auto px-1 pb-1">
-        {tabs.map(([to, label, end, count]) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={end}
-            className={({ isActive }) =>
-              `shrink-0 rounded-xl px-4 py-2 text-sm font-black transition ${
-                isActive
-                  ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
-                  : "bg-white/70 text-slate-600 hover:bg-white dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10"
-              }`
-            }
-          >
-            {label}
-            {count > 0 && <span className="ml-1.5 rounded-full bg-rose-600 px-1.5 text-[11px] text-white">{count > 99 ? "99+" : count}</span>}
-          </NavLink>
-        ))}
-      </nav>
+      <AdminNav tabs={tabs} />
       <Outlet context={{ currentUserId: user.id }} />
     </div>
   );

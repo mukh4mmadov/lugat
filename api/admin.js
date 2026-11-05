@@ -5,6 +5,7 @@ import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revoke
 import { checkTts } from "./_lib/tts.js";
 import { pushToUser } from "./_lib/push.js";
 import { BACKUP_MODEL, MAIN_MODEL, checkModel } from "./_lib/aiModels.js";
+import { sendDigest } from "./_lib/digest.js";
 import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.js";
 
 // Admin dashboard data and user management. Every request must carry the
@@ -378,6 +379,25 @@ async function callRecordings(db, callId) {
 const LEARNER_SAW_AI_ERROR = /^AI tutor (fallback|stopped)/;
 const emailOf = (users, id) => users.find((user) => user.id === id)?.email || "";
 
+// The panel's search box: learners by name or email, tickets by their text.
+async function adminSearch(db, query) {
+  const needle = String(query || "").trim().toLowerCase().slice(0, 80);
+  if (needle.length < 2) return { users: [], tickets: [] };
+  const [users, profiles, tickets] = await Promise.all([
+    listAllUsers(db),
+    selectAll(db, "profiles", "id, first_name, last_name"),
+    db.from("feedback_tickets").select("id, message").ilike("message", `%${needle.replace(/[\\%_]/g, "\\$&")}%`).order("created_at", { ascending: false }).limit(5),
+  ]);
+  const names = new Map(profiles.map((row) => [row.id, [row.first_name, row.last_name].filter(Boolean).join(" ")]));
+  return {
+    users: users
+      .map((user) => ({ id: user.id, email: user.email || "", name: names.get(user.id) || "" }))
+      .filter((user) => `${user.email} ${user.name}`.toLowerCase().includes(needle))
+      .slice(0, 8),
+    tickets: (tickets.data || []).map((ticket) => ({ id: ticket.id, message: ticket.message.slice(0, 90) })),
+  };
+}
+
 // Keeps the item's state before a change, so it can be brought back.
 async function keepHistory(db, kind, itemId, actorId) {
   const { data: row } = await db.from("content_overrides").select("data, hidden").eq("kind", kind).eq("item_id", itemId).maybeSingle();
@@ -718,6 +738,8 @@ async function act(db, actor, body) {
     return [200, { users: ids.length, devices: sent.reduce((sum, count) => sum + count, 0) }];
   }
 
+  if (action === "digestNow") return [200, await sendDigest(db)];
+
   if (action === "aiCheck") return [200, { models: await Promise.all([MAIN_MODEL, BACKUP_MODEL].map(checkModel)) }];
 
   if (action === "textSave") {
@@ -970,6 +992,7 @@ export default async function handler(req, res) {
     if (action === "growth") return res.status(200).json(await growthOverview(db));
     if (action === "activity") return res.status(200).json(await activityOverview(db));
     if (action === "today") return res.status(200).json(await todayOverview(db));
+    if (action === "search") return res.status(200).json(await adminSearch(db, req.query.q));
     if (action === "health") return res.status(200).json(await healthOverview(db));
     if (action === "contentHistory") {
       const { data: history } = await db.from("content_history").select("id, data, hidden, saved_at").eq("kind", String(req.query.kind || "")).eq("item_id", String(req.query.itemId || "")).order("saved_at", { ascending: false }).limit(20);
