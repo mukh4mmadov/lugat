@@ -1,5 +1,6 @@
 import { getTopikExam, getTopikVariant, getVariantQuestions } from "../src/data/topik/exams.js";
 import { getGrammarPoint } from "../src/data/grammar/index.js";
+import { chatDirectives } from "./_lib/aiDirectives.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
@@ -60,6 +61,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // Give up on a slow model reply well before Vercel kills the function, so the
 // learner gets a JSON error instead of Vercel's plain-text timeout page.
 const GEMINI_TIMEOUT_MS = 25000;
+const MAX_TOOL_STEPS = 4;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
@@ -829,40 +831,57 @@ export default async function handler(req, res) {
 
   let reply = null;
   try {
-    const systemPrompt = buildSystemPrompt(language, topikContext);
+    const directives = user && !topikContext ? await chatDirectives(user) : null;
+    const systemPrompt = buildSystemPrompt(language, topikContext) + (directives?.prompt || "");
     const contents = [
       ...chatHistory,
       { role: "user", parts: [{ text: trimmed }] },
     ];
-    const response = await fetch(GEMINI_URL, {
-      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contents,
-        systemInstruction: {
-          parts: [{ text: systemPrompt }],
+    for (let step = 0; step < MAX_TOOL_STEPS && !reply; step += 1) {
+      const response = await fetch(GEMINI_URL, {
+        signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        generationConfig: {
-          temperature: 0.8,
-          maxOutputTokens: 1024,
-        },
-      }),
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text().catch(() => "Unknown error");
-      console.error("Gemini API error:", response.status, errorText);
-      return res.status(502).json({
-        error: "AI service is temporarily unavailable. Please try again later.",
+        body: JSON.stringify({
+          contents,
+          systemInstruction: {
+            parts: [{ text: systemPrompt }],
+          },
+          ...(directives?.tools ? { tools: [{ functionDeclarations: directives.tools }] } : {}),
+          generationConfig: {
+            temperature: 0.8,
+            maxOutputTokens: 1024,
+          },
+        }),
       });
+
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => "Unknown error");
+        console.error("Gemini API error:", response.status, errorText);
+        return res.status(502).json({
+          error: "AI service is temporarily unavailable. Please try again later.",
+        });
+      }
+
+      const data = await response.json();
+      const content = data?.candidates?.[0]?.content;
+      const calls = (content?.parts || []).filter((part) => part.functionCall);
+      if (calls.length && directives) {
+        // The model's turn goes back unchanged, then what each tool returned.
+        contents.push(content);
+        const parts = await Promise.all(
+          calls.map(async ({ functionCall }) => ({
+            functionResponse: { name: functionCall.name, response: await directives.run(functionCall.name, functionCall.args || {}) },
+          })),
+        );
+        contents.push({ role: "user", parts });
+        continue;
+      }
+      reply = (content?.parts || []).map((part) => part.text || "").join("").trim();
+      break;
     }
-
-    const data = await response.json();
-
-    reply = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
     if (!reply) {
       return res.status(502).json({

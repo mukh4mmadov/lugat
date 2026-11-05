@@ -6,7 +6,7 @@ import { timeAgo } from "../../lib/dates";
 import { ADMIN_NOTIFICATIONS_CHANGED, markAllNotificationsSeen, markNotificationSeen } from "../../lib/adminNotifications";
 import { Panel } from "../../pages/AdminPage";
 
-const ICONS = { deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋" };
+const ICONS = { deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋", aiAnswer: "🤖" };
 const PAGE = 50;
 
 function detailText(t, item) {
@@ -14,6 +14,7 @@ function detailText(t, item) {
   if (item.kind === "deletion") return [data.email, data.reason].filter(Boolean).join(" — ");
   if (item.kind === "report") return [t(`live.reason.${data.reason}`, { defaultValue: data.reason }), data.note].filter(Boolean).join(" — ");
   if (item.kind === "signup") return data.name || "";
+  if (item.kind === "aiAnswer") return [data.email, data.question, data.declined ? t("admin.ai.declined") : data.answer].filter(Boolean).join(" — ");
   return data.text || "";
 }
 

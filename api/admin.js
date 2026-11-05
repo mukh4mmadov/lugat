@@ -3,6 +3,7 @@ import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 import { levelForXp } from "../src/lib/gamification.js";
 import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
 import { checkTts } from "./_lib/tts.js";
+import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.js";
 
 // Admin dashboard data and user management. Every request must carry the
 // session of a user listed in public.feedback_admins; the work itself runs with
@@ -274,12 +275,14 @@ async function userDetail(db, id) {
     db.from("reward_claims").select("kind, days, claimed_at").eq("user_id", id).order("claimed_at", { ascending: false }).limit(20),
     db.from("premium_log").select("days, amount, note, premium_until, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
-  const [ban, reportsAgainst, topikAttempts, grammarChecks, deletionRequests] = await Promise.all([
+  const [ban, reportsAgainst, topikAttempts, grammarChecks, deletionRequests, aiSettings, aiRequests] = await Promise.all([
     db.from("speaking_bans").select("until, reason").eq("user_id", id).gt("until", new Date().toISOString()).maybeSingle(),
     db.from("speaking_reports").select("reason, note, status, created_at").eq("reported", id).order("created_at", { ascending: false }).limit(20),
     db.from("user_topik_attempts").select("id, variant_id, status, started_at, submitted_at, elapsed_seconds, result, hidden, updated_at").eq("user_id", id).order("updated_at", { ascending: false }).limit(50),
     db.from("grammar_checks").select("id, point_id, sentence, result, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(50),
     db.from("account_deletion_requests").select("id, status, reason, admin_note, created_at, handled_at").eq("user_id", id).order("created_at", { ascending: false }).limit(10),
+    db.from("ai_user_settings").select("behavior").eq("user_id", id).maybeSingle(),
+    db.from("ai_user_requests").select("id, question, status, answer, created_at").eq("user_id", id).order("created_at", { ascending: false }).limit(20),
   ]);
   const row = userRow(data.user, profile.data, progress.data, new Set(admin.data ? [id] : []));
   const words = progress.data?.data?.words || {};
@@ -311,6 +314,8 @@ async function userDetail(db, id) {
     topikAttempts: topikAttempts.data || [],
     grammarChecks: grammarChecks.data || [],
     deletionRequests: deletionRequests.data || [],
+    aiBehavior: aiSettings.data?.behavior || "",
+    aiRequests: aiRequests.data || [],
     profile: {
       firstName: profile.data?.first_name || "",
       lastName: profile.data?.last_name || "",
@@ -666,6 +671,10 @@ async function act(db, actor, body) {
     }
     return [200, { deleted: true }];
   }
+
+  if (action === "aiBehavior") return setBehavior(db, userId, body.behavior, actor.id);
+  if (action === "aiAsk") return createRequest(db, userId, body.question, actor.id);
+  if (action === "aiCancel") return cancelRequest(db, userId, body.requestId);
 
   if (action === "deletionRequest") {
     const id = Number(body.requestId);

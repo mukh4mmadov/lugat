@@ -99,6 +99,7 @@ const ADMIN_TEXT = {
   ticketReply: (data) => ({ title: "💬 Murojaatga javob yozildi", body: data.text || "" }),
   report: (data) => ({ title: "⚠️ Suhbat haqida shikoyat", body: [REPORT_REASONS[data.reason] || data.reason, data.note].filter(Boolean).join(" — ") }),
   signup: (data) => ({ title: "👋 Yangi o'quvchi", body: data.name || "Ro'yxatdan o'tdi" }),
+  aiAnswer: (data) => ({ title: "🤖 AI savolingizga javob", body: `${data.email || ""}: ${data.declined ? "javob berishni xohlamadi" : data.answer || ""}` }),
 };
 
 // Sends admins a push for each new admin notification (see the

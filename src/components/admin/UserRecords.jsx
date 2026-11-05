@@ -155,11 +155,77 @@ function SpeakingHistory({ sessions }) {
   );
 }
 
+// How the AI tutor treats this learner, and questions it asks them for the admin.
+function AiDirectives({ detail, busy, run }) {
+  const { t, i18n } = useTranslation();
+  const [behavior, setBehavior] = useState(detail.aiBehavior);
+  const [question, setQuestion] = useState("");
+  return (
+    <Panel title={`🤖 ${t("admin.ai.title")}`}>
+      <label className="text-xs font-bold text-slate-500">
+        {t("admin.ai.behavior")}
+        <textarea
+          value={behavior}
+          onChange={(event) => setBehavior(event.target.value)}
+          maxLength={1000}
+          rows={3}
+          placeholder={t("admin.ai.behaviorHint")}
+          className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-normal text-slate-900 outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900 dark:text-white"
+        />
+      </label>
+      <button type="button" disabled={Boolean(busy) || behavior === detail.aiBehavior} onClick={() => run("aiBehavior", { behavior }, t("admin.ai.saved"))} className={`${button} mt-1 bg-violet-600 text-white`}>
+        {t("admin.ai.save")}
+      </button>
+
+      <p className="mt-4 text-xs font-bold text-slate-500">{t("admin.ai.ask")}</p>
+      <div className="mt-1 flex gap-2">
+        <input
+          value={question}
+          onChange={(event) => setQuestion(event.target.value)}
+          maxLength={300}
+          placeholder={t("admin.ai.askHint")}
+          className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900"
+        />
+        <button
+          type="button"
+          disabled={Boolean(busy) || question.trim().length < 3}
+          onClick={async () => {
+            await run("aiAsk", { question }, t("admin.ai.asked"));
+            setQuestion("");
+          }}
+          className={`${button} shrink-0 bg-sky-600 text-white`}
+        >
+          {t("admin.ai.askButton")}
+        </button>
+      </div>
+      <p className="mt-1 text-xs text-slate-500">{t("admin.ai.askNote")}</p>
+
+      {detail.aiRequests.length > 0 && (
+        <ul className="mt-3 space-y-2 text-sm">
+          {detail.aiRequests.map((request) => (
+            <li key={request.id} className="rounded-xl bg-slate-100 p-2.5 dark:bg-white/5">
+              <p className="text-xs font-bold text-slate-500">{t(`admin.ai.status.${request.status}`)} · {formatDate(request.created_at, i18n.language)}</p>
+              <p className="mt-1">{request.question}</p>
+              {request.answer && <p className="mt-1 font-bold">↳ {request.answer}</p>}
+              {request.status === "pending" && (
+                <button type="button" disabled={Boolean(busy)} onClick={() => run("aiCancel", { requestId: request.id }, t("admin.ai.cancelled"))} className="mt-1 text-xs font-bold text-rose-600">
+                  {t("common.cancel")}
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </Panel>
+  );
+}
+
 // Everything the learner did that is kept in the account.
 export default function UserRecords({ detail, busy, run, onDelete }) {
   return (
     <>
       {detail.deletionRequests.length > 0 && <DeletionRequests detail={detail} busy={busy} run={run} onDelete={onDelete} />}
+      <AiDirectives key={detail.id} detail={detail} busy={busy} run={run} />
       {detail.topikAttempts.length > 0 && <TopikAttempts attempts={detail.topikAttempts} />}
       {detail.grammarChecks.length > 0 && <GrammarChecks checks={detail.grammarChecks} />}
       {detail.speakingSessions.length > 0 && <SpeakingHistory sessions={detail.speakingSessions} />}
