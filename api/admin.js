@@ -3,6 +3,7 @@ import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 import { levelForXp } from "../src/lib/gamification.js";
 import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
 import { checkTts } from "./_lib/tts.js";
+import { pushToUser } from "./_lib/push.js";
 import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.js";
 
 // Admin dashboard data and user management. Every request must carry the
@@ -670,6 +671,13 @@ async function act(db, actor, body) {
         .in("id", open.map((row) => row.id));
     }
     return [200, { deleted: true }];
+  }
+
+  if (action === "notifyUser") {
+    const title = String(body.title || "").trim().slice(0, 80);
+    const text = String(body.body || "").trim().slice(0, 200);
+    if (!title || !text) return [400, { error: "Write the title and the text" }];
+    return [200, { devices: await pushToUser(db, userId, { title, body: text }) }];
   }
 
   if (action === "aiBehavior") return setBehavior(db, userId, body.behavior, actor.id);

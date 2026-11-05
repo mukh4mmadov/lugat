@@ -102,6 +102,25 @@ const ADMIN_TEXT = {
   aiAnswer: (data) => ({ title: "🤖 AI savolingizga javob", body: `${data.email || ""}: ${data.declined ? "javob berishni xohlamadi" : data.answer || ""}` }),
 };
 
+// A message from an admin to one learner. Returns how many devices got it.
+export async function pushToUser(db, userId, { title, body }) {
+  if (!pushConfigured()) return 0;
+  const { data: subscriptions } = await db.from("push_subscriptions").select("*").eq("user_id", userId);
+  let sent = 0;
+  await Promise.all(
+    (subscriptions || []).map(async (row) => {
+      try {
+        await webpush.sendNotification({ endpoint: row.endpoint, keys: { p256dh: row.p256dh, auth: row.auth } }, JSON.stringify({ title, body, url: "/", tag: "admin-message" }), { TTL: 24 * 3600 });
+        sent += 1;
+      } catch (error) {
+        if (error.statusCode === 404 || error.statusCode === 410) await db.from("push_subscriptions").delete().eq("endpoint", row.endpoint);
+        else console.error("Push failed:", error.statusCode || error.message);
+      }
+    }),
+  );
+  return sent;
+}
+
 // Sends admins a push for each new admin notification (see the
 // admin_notifications migration) that has not been pushed yet. Several at
 // once become one summary. Admins get these whatever the daily cap.

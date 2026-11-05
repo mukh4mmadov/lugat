@@ -61,7 +61,7 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // Give up on a slow model reply well before Vercel kills the function, so the
 // learner gets a JSON error instead of Vercel's plain-text timeout page.
 const GEMINI_TIMEOUT_MS = 25000;
-const MAX_TOOL_STEPS = 4;
+const MAX_TOOL_STEPS = 6;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
@@ -850,7 +850,7 @@ export default async function handler(req, res) {
 
   let reply = null;
   try {
-    const directives = user && !topikContext ? await chatDirectives(user) : null;
+    const directives = user && !topikContext ? await chatDirectives(user, authToken, trimmed) : null;
     const systemPrompt = buildSystemPrompt(language, topikContext) + (directives?.prompt || "");
     const contents = [
       ...chatHistory,
