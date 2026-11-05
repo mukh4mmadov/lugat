@@ -64,6 +64,10 @@ async function dailyLimit(db, premium) {
 
 // The built-in topic with any admin edits (content_overrides) laid over it.
 async function topicWithEdits(db, id) {
+  if (String(id).startsWith("x-")) {
+    const { data: added } = await db.from("content_overrides").select("data, hidden").eq("kind", "topic").eq("item_id", id).maybeSingle();
+    return added && !added.hidden ? { ...added.data, id } : null;
+  }
   const topic = getSpeakingTopic(id);
   if (!topic) return null;
   const { data } = await db.from("content_overrides").select("data, hidden").eq("kind", "topic").eq("item_id", topic.id).maybeSingle();

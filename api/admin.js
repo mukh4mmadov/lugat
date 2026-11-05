@@ -4,6 +4,7 @@ import { levelForXp } from "../src/lib/gamification.js";
 import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
 import { checkTts } from "./_lib/tts.js";
 import { pushToUser } from "./_lib/push.js";
+import { BACKUP_MODEL, MAIN_MODEL, checkModel } from "./_lib/aiModels.js";
 import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.js";
 
 // Admin dashboard data and user management. Every request must carry the
@@ -374,6 +375,74 @@ async function callRecordings(db, callId) {
 }
 
 // Leagues, invites and push for the admin "Growth" tab.
+const LEARNER_SAW_AI_ERROR = /^AI tutor (fallback|stopped)/;
+const emailOf = (users, id) => users.find((user) => user.id === id)?.email || "";
+
+// Keeps the item's state before a change, so it can be brought back.
+async function keepHistory(db, kind, itemId, actorId) {
+  const { data: row } = await db.from("content_overrides").select("data, hidden").eq("kind", kind).eq("item_id", itemId).maybeSingle();
+  await db.from("content_history").insert({ kind, item_id: itemId, data: row?.data ?? null, hidden: Boolean(row?.hidden), saved_by: actorId });
+}
+
+// Everything waiting for an admin, for the top of the panel.
+async function todayOverview(db) {
+  const now = Date.now();
+  const [users, tickets, reports, deletions, errors] = await Promise.all([
+    listAllUsers(db),
+    db.from("feedback_tickets").select("id, user_id, message, last_message_by, ai_draft, created_at").in("status", ["open", "in_progress"]).order("created_at").limit(100),
+    db.from("speaking_reports").select("id, reported, reason, note, created_at").eq("status", "open").order("created_at").limit(30),
+    db.from("account_deletion_requests").select("id, user_id, email, reason, created_at").eq("status", "open").order("created_at").limit(30),
+    selectAll(db, "app_errors", "message", (query) => query.gte("created_at", new Date(now - DAY).toISOString())),
+  ]);
+  const waiting = (tickets.data || []).filter((ticket) => ticket.last_message_by !== "admin").slice(0, 20);
+  const { data: messages } = waiting.length
+    ? await db.from("feedback_messages").select("ticket_id, body, author_role, created_at").in("ticket_id", waiting.map((ticket) => ticket.id)).eq("internal", false).neq("author_role", "admin").order("created_at", { ascending: false }).limit(200)
+    : { data: [] };
+  const counts = new Map();
+  for (const { message } of errors) if (!message.startsWith("AI tutor")) counts.set(message, (counts.get(message) || 0) + 1);
+  return {
+    aiFailed: errors.filter(({ message }) => LEARNER_SAW_AI_ERROR.test(message)).length,
+    tickets: waiting.map((ticket) => ({
+      id: ticket.id,
+      email: emailOf(users, ticket.user_id),
+      text: (messages || []).find((message) => message.ticket_id === ticket.id)?.body || ticket.message,
+      draft: ticket.ai_draft || "",
+      created_at: ticket.created_at,
+    })),
+    reports: (reports.data || []).map((report) => ({ ...report, email: emailOf(users, report.reported) })),
+    deletions: deletions.data || [],
+    errors: [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([message, count]) => ({ message, count })),
+    expiring: users
+      .map((user) => ({ id: user.id, email: user.email, until: premiumUntil(user) }))
+      .filter(({ until }) => until && new Date(until).getTime() > now && new Date(until).getTime() < now + 3 * DAY),
+  };
+}
+
+// How the site is doing over the last day.
+async function healthOverview(db) {
+  const [rows, setting, admins] = await Promise.all([
+    selectAll(db, "app_errors", "message, path, created_at", (query) => query.gte("created_at", new Date(Date.now() - DAY).toISOString())),
+    db.from("app_settings").select("value").eq("key", "ai_prefer_backup").maybeSingle(),
+    selectAll(db, "feedback_admins", "user_id"),
+  ]);
+  const { count: adminDevices } = await db.from("push_subscriptions").select("user_id", { count: "exact", head: true }).in("user_id", admins.map((row) => row.user_id));
+  const tutor = rows.filter(({ message }) => message.startsWith("AI tutor"));
+  const failed = tutor.filter(({ message }) => LEARNER_SAW_AI_ERROR.test(message));
+  const speaking = rows.filter(({ path }) => path === "/api/speaking-ai");
+  return {
+    ai: {
+      learnersFailed: failed.length,
+      mainFailed: tutor.length - failed.length,
+      lastFailure: failed.map((row) => row.created_at).sort().pop() || null,
+    },
+    speakingFailed: speaking.length,
+    siteErrors: rows.length - tutor.length - speaking.length,
+    preferBackup: setting.data?.value === true,
+    models: { main: MAIN_MODEL, backup: BACKUP_MODEL },
+    adminDevices: adminDevices || 0,
+  };
+}
+
 // Use of the site, from what progress already records, and of the AI services.
 async function activityOverview(db) {
   const today = Date.now();
@@ -477,6 +546,7 @@ async function speakingOverview(db) {
 
 // Settings admins may change, with how each value is checked.
 const SETTINGS = {
+  ai_prefer_backup: (value) => typeof value === "boolean",
   premium_prices: (value) => Boolean(value) && typeof value === "object" && ["month", "quarter", "year"].every((key) => Number.isInteger(value[key]) && value[key] >= 1000 && value[key] <= 100000000),
   ai_chat_enabled: (value) => typeof value === "boolean",
   speaking_enabled: (value) => typeof value === "boolean",
@@ -499,11 +569,32 @@ const CONTENT_FIELDS = {
   topic: { emoji: "string", ko: "string", uz: "string", en: "string", ru: "string", questions: "array", words: "array" },
   university: { en: "string", site: "string", region: "string", tuition: "number", entranceFee: "number" },
 };
+// New items, added from the studio: their ids start with "x-" and they carry
+// all their fields, including the ones built-in items keep fixed.
+const NEW_FIELDS = {
+  word: { lesson: "number", korean: "string", uzbek: "string", english: "string", russian: "string", romanization: "string", example: "object" },
+  lesson: { lesson: "number", course: "string", category: "object" },
+  story: { ...CONTENT_FIELDS.story, lesson: "number" },
+  grammar: { ...CONTENT_FIELDS.grammar, lesson: "number" },
+  topic: { ...CONTENT_FIELDS.topic, level: "string" },
+  topik: { number: "number", title: "string", form: "string", pdf: "string", audio: "string", listeningMinutes: "number", readingMinutes: "number", rows: "array" },
+};
+const NEW_REQUIRED = {
+  word: ["lesson", "korean", "uzbek"],
+  lesson: ["lesson", "category"],
+  story: ["lesson", "title", "lines"],
+  grammar: ["lesson", "pattern", "title", "explain"],
+  topic: ["level", "ko", "uz", "questions"],
+  topik: ["number", "title", "pdf", "rows"],
+};
+const isNewItem = (id) => String(id).startsWith("x-");
+
 const typeOf = (value) => (Array.isArray(value) ? "array" : value === null ? "null" : typeof value);
 
-function cleanContent(kind, data) {
-  const fields = CONTENT_FIELDS[kind];
-  if (!data || typeOf(data) !== "object" || JSON.stringify(data).length > 60000) return null;
+function cleanContent(kind, data, isNew) {
+  const fields = isNew ? NEW_FIELDS[kind] : CONTENT_FIELDS[kind];
+  if (!fields || !data || typeOf(data) !== "object" || JSON.stringify(data).length > 60000) return null;
+  if (isNew && NEW_REQUIRED[kind].some((field) => data[field] === undefined || data[field] === "")) return null;
   for (const [field, value] of Object.entries(data)) {
     if (!fields[field] || typeOf(value) !== fields[field]) return null;
     if (fields[field] === "string" && value.length > 300) return null;
@@ -553,14 +644,25 @@ async function act(db, actor, body) {
     if (error) return [500, { error: "Update failed" }];
     return [200, { key: body.key, value: body.value }];
   }
+  if (action === "contentRestore") {
+    const { data: saved } = await db.from("content_history").select("*").eq("id", Number(body.historyId)).maybeSingle();
+    if (!saved) return [404, { error: "Not found" }];
+    await keepHistory(db, saved.kind, saved.item_id, actor.id);
+    const { error } = saved.data
+      ? await db.from("content_overrides").upsert({ kind: saved.kind, item_id: saved.item_id, data: saved.data, hidden: saved.hidden, updated_by: actor.id, updated_at: new Date().toISOString() })
+      : await db.from("content_overrides").delete().eq("kind", saved.kind).eq("item_id", saved.item_id);
+    return error ? [500, { error: "Update failed" }] : [200, { restored: true }];
+  }
+
   if (action === "content") {
-    if (!CONTENT_FIELDS[body.kind] || !/^[a-z0-9-]{1,80}$/i.test(String(body.itemId || ""))) return [400, { error: "Invalid item" }];
+    if (!(CONTENT_FIELDS[body.kind] || NEW_FIELDS[body.kind]) || !/^[a-z0-9-]{1,60}$/i.test(String(body.itemId || ""))) return [400, { error: "Invalid item" }];
+    await keepHistory(db, body.kind, body.itemId, actor.id);
     if (body.revert) {
       const { error } = await db.from("content_overrides").delete().eq("kind", body.kind).eq("item_id", body.itemId);
       if (error) return [500, { error: "Update failed" }];
       return [200, { reverted: true }];
     }
-    const data = cleanContent(body.kind, body.data || {});
+    const data = cleanContent(body.kind, body.data || {}, isNewItem(body.itemId));
     if (!data) return [400, { error: "Invalid content" }];
     const { error } = await db.from("content_overrides").upsert({
       kind: body.kind,
@@ -615,6 +717,8 @@ async function act(db, actor, body) {
     const sent = await Promise.all(pushIds.map((id) => pushToUser(db, id, { title, body: text })));
     return [200, { users: ids.length, devices: sent.reduce((sum, count) => sum + count, 0) }];
   }
+
+  if (action === "aiCheck") return [200, { models: await Promise.all([MAIN_MODEL, BACKUP_MODEL].map(checkModel)) }];
 
   if (action === "textSave") {
     const key = String(body.key || "");
@@ -865,6 +969,12 @@ export default async function handler(req, res) {
     if (action === "speaking") return res.status(200).json(await speakingOverview(db));
     if (action === "growth") return res.status(200).json(await growthOverview(db));
     if (action === "activity") return res.status(200).json(await activityOverview(db));
+    if (action === "today") return res.status(200).json(await todayOverview(db));
+    if (action === "health") return res.status(200).json(await healthOverview(db));
+    if (action === "contentHistory") {
+      const { data: history } = await db.from("content_history").select("id, data, hidden, saved_at").eq("kind", String(req.query.kind || "")).eq("item_id", String(req.query.itemId || "")).order("saved_at", { ascending: false }).limit(20);
+      return res.status(200).json({ history: history || [] });
+    }
     if (action === "errors") {
       // Errors learners hit in the last 14 days, grouped by message.
       const since = new Date(Date.now() - 14 * DAY).toISOString();

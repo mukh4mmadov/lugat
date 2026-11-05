@@ -2,9 +2,11 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import AdminToday from "../components/admin/AdminToday";
 import ContentEditor from "../components/admin/ContentEditor";
 import { allWords, getWordKey, lessonInfo, meaning } from "../data";
 import { TOPIK_EXAMS } from "../data/topik/exams";
+import "../lib/customTopik";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
 import { formatPrice } from "../lib/premium";
@@ -122,6 +124,7 @@ export default function AdminPage() {
     ["/admin/feedback", t("admin.tab.feedback")],
     ["/admin/words", t("adminWords.tab")],
     ["/admin/content", t("admin.tab.content")],
+    ["/admin/studio", t("studio.tab")],
     ["/admin/speaking", t("admin.tab.speaking")],
     ["/admin/growth", t("admin.tab.growth")],
     ["/admin/settings", t("admin.tab.settings")],
@@ -129,6 +132,7 @@ export default function AdminPage() {
     ["/admin/voices", t("voices.tab")],
     ["/admin/texts", t("adminTexts.tab")],
     ["/admin/errors", t("adminErrors.tab")],
+    ["/admin/health", t("adminHealth.tab")],
   ];
 
   return (
@@ -280,6 +284,8 @@ export function AdminOverview() {
           {loading ? t("common.loading") : t("common.refresh", { defaultValue: "Refresh" })}
         </button>
       </div>
+
+      <AdminToday />
 
       <ServerNotice error={error} onRetry={load} />
 

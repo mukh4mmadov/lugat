@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { adminRequest } from "../../lib/adminApi";
 import { UNIVERSITIES } from "../../data/korea/universities";
+import ContentHistory from "./ContentHistory";
 import { EDITABLE_FIELDS, allContent, contentOverride, originalContent, refreshContentOverrides, registerContent } from "../../lib/contentOverrides";
 
 registerContent("university", UNIVERSITIES);
@@ -181,6 +182,7 @@ export default function ContentEditor() {
               <button type="button" disabled={busy} onClick={() => save(true)} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold disabled:opacity-40 dark:border-white/15">{t("admin.edit.revert")}</button>
             )}
           </div>
+          <ContentHistory kind={kind} itemId={itemId} onRestored={async () => { await refreshContentOverrides(); setVersion((value) => value + 1); }} />
           {invalid && <p className="text-xs font-bold text-rose-600">{t("admin.edit.badJson")}</p>}
           {message && <p role={message.ok ? "status" : "alert"} className={`text-sm font-bold ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>{message.text}</p>}
         </div>

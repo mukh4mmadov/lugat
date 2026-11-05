@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { getGrammarPoint } from "../../data/grammar";
 import { getSpeakingTopic } from "../../data/speakingTopics";
 import { getTopikVariant, TOPIK_EXAMS } from "../../data/topik/exams";
+import "../../lib/customTopik";
 import { adminRequest } from "../../lib/adminApi";
 import { formatDate, timeAgo } from "../../lib/dates";
 import { Panel } from "../../pages/AdminPage";

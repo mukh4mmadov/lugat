@@ -1,3 +1,4 @@
+import { useContentVersion } from "./lib/contentVersion";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
@@ -86,6 +87,8 @@ const AdminErrors = page(() => import("./components/admin/AdminErrors"));
 const AdminVoices = page(() => import("./components/admin/AdminVoices"));
 const AdminActivity = page(() => import("./components/admin/AdminActivity"));
 const AdminTexts = page(() => import("./components/admin/AdminTexts"));
+const AdminHealth = page(() => import("./components/admin/AdminHealth"));
+const AdminStudio = page(() => import("./components/admin/AdminStudio"));
 const RecordVoicePage = page(() => import("./pages/RecordVoicePage"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
@@ -102,6 +105,7 @@ function LessonRouteGuard({ children }) {
 }
 
 export default function App() {
+  useContentVersion();
   const [showIELTSModal, setShowIELTSModal] = useState(false);
 
   const handleShowIELTSModal = () => {
@@ -238,6 +242,8 @@ export default function App() {
               <Route path="voices" element={<AdminVoices />} />
               <Route path="activity" element={<AdminActivity />} />
               <Route path="texts" element={<AdminTexts />} />
+              <Route path="health" element={<AdminHealth />} />
+              <Route path="studio" element={<AdminStudio />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>

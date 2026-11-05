@@ -23,6 +23,19 @@ function serviceClient() {
 }
 
 // Shown in the admin Errors tab.
+// Tells the admins when learners keep getting no answer, at most once an hour.
+const ALERT_AFTER = 3;
+async function alertAdmins(db) {
+  const now = Date.now();
+  const { data: recent } = await db.from("app_errors").select("message").like("message", "AI tutor %").gte("created_at", new Date(now - 15 * 60000).toISOString()).limit(500);
+  const count = (recent || []).filter(({ message }) => /^AI tutor (fallback|stopped)/.test(message)).length;
+  if (count < ALERT_AFTER) return;
+  const { count: alerted } = await db.from("admin_notifications").select("id", { count: "exact", head: true }).eq("kind", "health").gte("created_at", new Date(now - 3600000).toISOString());
+  if (alerted) return;
+  await db.from("admin_notifications").insert({ kind: "health", data: { count }, link: "/admin/health" });
+  await pushAdminNotifications(db);
+}
+
 export async function logAiFailure(message) {
   const db = serviceClient();
   if (!db) return;
@@ -32,6 +45,7 @@ export async function logAiFailure(message) {
     message: String(message).slice(0, 500),
     path: "/api/ai-chat",
   });
+  if (!error && /^AI tutor (fallback|stopped)/.test(message)) await alertAdmins(db).catch((alertError) => console.error("AI alert failed:", alertError.message));
   if (error) console.error(error.message);
 }
 

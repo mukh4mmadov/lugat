@@ -82,6 +82,39 @@ export function exampleTranslation(example, language = i18n.language) {
   return example[String(language || "uz").slice(0, 2)] || example.uz;
 }
 
+// Lessons and words added in the admin panel (content_overrides). Lessons must
+// run on from the built-in ones, so a draft in the row stops the ones after it.
+const dropCustom = (list) => {
+  for (let index = list.length - 1; index >= 0; index -= 1) if (list[index].custom) list.splice(index, 1);
+};
+
+export function applyCustomContent(rows = [], drafts = false) {
+  dropCustom(lessonInfo);
+  lessons.length = lessonInfo.length;
+  lessons.forEach(dropCustom);
+  dropCustom(allWords);
+  lessonInfo.forEach((lesson) => {
+    lesson.baseCount ??= lesson.count;
+    lesson.count = lesson.baseCount;
+  });
+  const shown = rows.filter((row) => drafts || !row.hidden);
+  const newLessons = shown.filter((row) => row.kind === "lesson").sort((a, b) => a.data.lesson - b.data.lesson);
+  for (const { data } of newLessons) {
+    const number = lessonInfo.length + 1;
+    if (data.lesson !== number) break;
+    lessons[number - 1] = [];
+    lessonInfo.push({ lesson: number, title: `${number}-dars`, category: `lesson.${number}.category`, count: 0, course: data.course || "1B", words: lessons[number - 1], custom: true });
+  }
+  for (const row of shown) {
+    const info = row.kind === "word" && lessonInfo[row.data.lesson - 1];
+    if (!info) continue;
+    const word = { ...row.data, id: row.item_id, audio: "speechSynthesis:ko-KR", needsReview: false, custom: true };
+    lessons[info.lesson - 1].push(word);
+    allWords.push({ ...word, globalId: `${word.lesson}-${word.id}`, course: info.course });
+    info.count += 1;
+  }
+}
+
 // Admin corrections (public.word_overrides) applied over the built-in words.
 // Both the lesson arrays and allWords hold their own copies, so both change.
 const OVERRIDE_FIELDS = ["uzbek", "english", "russian", "romanization", "example"];

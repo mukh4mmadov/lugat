@@ -1,6 +1,7 @@
 import { GRAMMAR, GRAMMAR_COURSES } from "../data/grammar";
 import { SPEAKING_TOPICS } from "../data/speakingTopics";
 import { STORIES } from "../data/stories";
+import { contentChanged, isNewItem, showDrafts } from "./contentVersion";
 import { supabase } from "./supabase";
 
 const CACHE_KEY = "k-talim:content-overrides";
@@ -24,6 +25,7 @@ const originals = new Map();
 let current = [];
 
 const keyOf = (kind, id) => `${kind}:${id}`;
+const LAST_1A_LESSON = 14;
 
 // Lays admin edits over the built-in content, in place, so every page that
 // imported the lists sees them.
@@ -40,11 +42,18 @@ export function applyContentOverrides(rows = []) {
         item[field] = data[field] !== undefined ? structuredClone(data[field]) : structuredClone(original[field]);
       });
     });
+    // Items added in the panel have ids starting with "x-" and full data of their own.
+    const added = rows.filter((row) => row.kind === kind && isNewItem(row.item_id)).map((row) => ({ ...structuredClone(row.data), id: row.item_id }));
+    const drafts = showDrafts();
     copies.forEach((copy, index) => {
-      const visible = copy.filter((item) => !byKey.get(keyOf(kind, item.id))?.hidden);
+      // Grammar has one list for everything, then one for each course.
+      const extra = kind === "grammar" && index > 0 ? added.filter((item) => (item.lesson <= LAST_1A_LESSON ? index === 1 : index === 2)) : added;
+      const visible = [...copy, ...extra].filter((item) => !byKey.get(keyOf(kind, item.id))?.hidden || (drafts && isNewItem(item.id)));
+      if (added.length && kind !== "topic") visible.sort((a, b) => (a.lesson || 0) - (b.lesson || 0));
       LISTS[kind][index].splice(0, LISTS[kind][index].length, ...visible);
     });
   });
+  contentChanged();
 }
 
 // Large lists (the university catalog) join only on the pages that use them.

@@ -1,4 +1,5 @@
 import { getTopikVariant, scoreTopikAttempt } from "../data/topik/exams";
+import "./customTopik";
 import { supabase, timeoutSignal } from "./supabase";
 
 // TOPIK attempts are kept in the account (user_topik_attempts), so they are

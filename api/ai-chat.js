@@ -1,6 +1,7 @@
-import { getTopikExam, getTopikVariant, getVariantQuestions } from "../src/data/topik/exams.js";
+import { getTopikExam, getTopikVariant, getVariantQuestions, registerTopikExams } from "../src/data/topik/exams.js";
 import { getGrammarPoint } from "../src/data/grammar/index.js";
 import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
+import { BACKUP_MODEL, MAIN_MODEL, modelUrl } from "./_lib/aiModels.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
@@ -66,11 +67,9 @@ const LONG_ATTEMPT_TIMEOUT_MS = 25000;
 const MIN_ATTEMPT_MS = 3000;
 const PRIMARY_REST_MS = 60000;
 const MAX_TOOL_STEPS = 6;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = modelUrl(MAIN_MODEL);
 
-const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
-const FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${FALLBACK_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const FALLBACK_URL = modelUrl(BACKUP_MODEL);
 
 // Google sometimes answers that a model is overloaded, or takes too long. The
 // request then moves to the other model, up to three tries inside one time
@@ -81,7 +80,8 @@ let primaryBusyUntil = 0;
 
 export async function askModel(payload, route) {
   route.deadline ||= Date.now() + MESSAGE_BUDGET_MS;
-  const skipPrimary = route.fallback || Date.now() < primaryBusyUntil;
+  const { preferBackup } = await adminLimits();
+  const skipPrimary = preferBackup || route.fallback || Date.now() < primaryBusyUntil;
   const urls = skipPrimary ? [FALLBACK_URL, GEMINI_URL, FALLBACK_URL] : [GEMINI_URL, FALLBACK_URL, GEMINI_URL];
   let failure = { ok: false, status: 0, text: async () => "No time left for the model" };
   for (const [index, url] of urls.entries()) {
@@ -244,16 +244,20 @@ if (UPSTASH_URL && UPSTASH_TOKEN) {
 let limitsCache = { at: 0, values: null };
 async function adminLimits() {
   if (limitsCache.values && Date.now() - limitsCache.at < 60000) return limitsCache.values;
-  const values = { free: FREE_DAILY_LIMIT, premium: PREMIUM_DAILY_LIMIT, grammar: GRAMMAR_FREE_DAILY, chatEnabled: true };
+  const values = { free: FREE_DAILY_LIMIT, premium: PREMIUM_DAILY_LIMIT, grammar: GRAMMAR_FREE_DAILY, chatEnabled: true, preferBackup: false };
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (createClient && SUPABASE_URL && serviceKey) {
     try {
       const db = createClient(SUPABASE_URL, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
-      const { data } = await db.from("app_settings").select("key, value").in("key", ["ai_free_daily", "ai_premium_daily", "grammar_free_daily", "ai_chat_enabled"]);
+      const { data } = await db.from("app_settings").select("key, value").in("key", ["ai_free_daily", "ai_premium_daily", "grammar_free_daily", "ai_chat_enabled", "ai_prefer_backup"]);
       const names = { ai_free_daily: "free", ai_premium_daily: "premium", grammar_free_daily: "grammar" };
       for (const row of data || []) {
         if (row.key === "ai_chat_enabled") {
           values.chatEnabled = row.value !== false;
+          continue;
+        }
+        if (row.key === "ai_prefer_backup") {
+          values.preferBackup = row.value === true;
           continue;
         }
         const limit = Number(row.value);
@@ -382,6 +386,18 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
   return { allowed: true };
 }
 
+// Papers added in the admin panel, refreshed once a minute.
+let topikExamsAt = 0;
+async function loadAddedTopikExams() {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (Date.now() - topikExamsAt < 60000 || !createClient || !SUPABASE_URL || !serviceKey) return;
+  const db = createClient(SUPABASE_URL, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
+  const { data, error } = await db.from("content_overrides").select("item_id, data").eq("kind", "topik").eq("hidden", false);
+  if (error) return;
+  registerTopikExams((data || []).map((row) => ({ ...row.data, id: row.item_id })));
+  topikExamsAt = Date.now();
+}
+
 function loadTopikContext(input) {
   const variant = getTopikVariant(input.variantId);
   if (!variant) throw new Error("The TOPIK test could not be found.");
@@ -459,6 +475,7 @@ function reviewItem(exam, question, chosen) {
 }
 
 async function handleTopikReview(res, body, user, deviceId, language) {
+  await loadAddedTopikExams();
   if (!user) return res.status(401).json({ error: "Sign in to get AI explanations." });
   const variant = getTopikVariant(body.variantId);
   if (!variant) return res.status(400).json({ error: "The TOPIK test could not be found." });
@@ -838,6 +855,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid TOPIK question context." });
     }
     try {
+      await loadAddedTopikExams();
       topikContext = loadTopikContext(topikInput);
     } catch (error) {
       return res.status(400).json({ error: error.message });

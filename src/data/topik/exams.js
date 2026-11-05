@@ -116,11 +116,21 @@ export const TOPIK_EXAMS = [
 ];
 
 // Each exam is offered as a full timed mock plus untimed section practice.
-export const TOPIK_VARIANTS = TOPIK_EXAMS.flatMap((exam) => [
+const variantsOf = (exam) => [
   { id: `${exam.id}mock`, examId: exam.id, mode: "mock", section: null, durationSeconds: (exam.listeningMinutes + exam.readingMinutes) * 60 },
   { id: `${exam.id}listening`, examId: exam.id, mode: "listening", section: "listening", durationSeconds: null },
   { id: `${exam.id}reading`, examId: exam.id, mode: "reading", section: "reading", durationSeconds: null },
-]);
+];
+
+export const TOPIK_VARIANTS = TOPIK_EXAMS.flatMap(variantsOf);
+const BUILT_IN_EXAMS = TOPIK_EXAMS.length;
+
+// Papers added in the admin panel: a PDF, a recording and an answer key.
+export function registerTopikExams(list) {
+  TOPIK_EXAMS.length = BUILT_IN_EXAMS;
+  TOPIK_EXAMS.push(...list.map((exam) => ({ level: "TOPIK I", form: "", level1Min: 80, level2Min: 140, ...exam, questions: buildQuestions(exam.rows) })));
+  TOPIK_VARIANTS.splice(0, TOPIK_VARIANTS.length, ...TOPIK_EXAMS.flatMap(variantsOf));
+}
 
 // The standard TOPIK I question blocks (the same layout on every paper since the
 // 35th exam), used to show learners which kinds of questions cost them points.
