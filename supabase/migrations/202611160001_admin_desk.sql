@@ -29,6 +29,12 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('topik-papers', 'topik-papers', true, 52428800, array['application/pdf', 'audio/mpeg'])
 on conflict (id) do nothing;
 
+-- Replacing a file (upsert) also needs read access to the existing row.
+drop policy if exists "Admins read TOPIK papers" on storage.objects;
+create policy "Admins read TOPIK papers"
+  on storage.objects for select to authenticated
+  using (bucket_id = 'topik-papers' and public.is_feedback_admin());
+
 drop policy if exists "Admins upload TOPIK papers" on storage.objects;
 create policy "Admins upload TOPIK papers"
   on storage.objects for insert to authenticated

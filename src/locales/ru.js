@@ -2572,4 +2572,10 @@ export default {
   "studio.col.points": "Баллы",
   "studio.col.page": "Страница",
   "topik.answerFromPaper": "Прочитайте вопрос на бланке и выберите номер верного ответа.",
+  "adminActivity.most": "максимум: {{count}}",
+  "exercise.quiz": "Тест",
+  "exercise.flashcard": "Карточка",
+  "exercise.writing": "Письмо",
+  "exercise.dictation": "Диктант",
+  "exercise.listening": "Аудирование",
 };

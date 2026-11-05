@@ -2410,4 +2410,10 @@ export default {
   "studio.col.points": "Points",
   "studio.col.page": "Page",
   "topik.answerFromPaper": "Read the question on the paper and choose the number of the right answer.",
+  "adminActivity.most": "highest: {{count}}",
+  "exercise.quiz": "Quiz",
+  "exercise.flashcard": "Flashcard",
+  "exercise.writing": "Writing",
+  "exercise.dictation": "Dictation",
+  "exercise.listening": "Listening",
 };

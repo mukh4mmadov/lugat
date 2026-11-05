@@ -2406,4 +2406,10 @@ export default {
   "studio.col.points": "Ball",
   "studio.col.page": "Sahifa",
   "topik.answerFromPaper": "Savolni varaqdan o'qing va to'g'ri javob raqamini tanlang.",
+  "adminActivity.most": "eng ko'pi: {{count}}",
+  "exercise.quiz": "Test",
+  "exercise.flashcard": "Kartochka",
+  "exercise.writing": "Yozish",
+  "exercise.dictation": "Diktant",
+  "exercise.listening": "Eshitish",
 };
