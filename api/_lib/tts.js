@@ -120,7 +120,7 @@ async function synthesizeCloudflare(input) {
 // For the admin: which services are set up and what each one answers.
 export async function checkTts() {
   const report = { google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
-  const fallback = process.env.SPEAKING_FALLBACK_MODEL || "gemini-2.5-flash-lite";
+  const fallback = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
   const answer = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${fallback}:generateContent?key=${process.env.GEMINI_API_KEY}`, {
     method: "POST",
     signal: AbortSignal.timeout(10000),

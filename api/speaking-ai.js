@@ -23,7 +23,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const GEMINI_TIMEOUT_MS = 25000;
 const GEMINI_MODEL = process.env.SPEAKING_MODEL || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const geminiUrl = (model) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
-export const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-2.5-flash-lite";
+export const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
 const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
