@@ -2571,4 +2571,5 @@ export default {
   "studio.col.right": "Верно",
   "studio.col.points": "Баллы",
   "studio.col.page": "Страница",
+  "topik.answerFromPaper": "Прочитайте вопрос на бланке и выберите номер верного ответа.",
 };

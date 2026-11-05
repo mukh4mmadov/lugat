@@ -2405,4 +2405,5 @@ export default {
   "studio.col.right": "To'g'ri",
   "studio.col.points": "Ball",
   "studio.col.page": "Sahifa",
+  "topik.answerFromPaper": "Savolni varaqdan o'qing va to'g'ri javob raqamini tanlang.",
 };

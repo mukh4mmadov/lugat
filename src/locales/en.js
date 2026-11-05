@@ -2409,4 +2409,5 @@ export default {
   "studio.col.right": "Right",
   "studio.col.points": "Points",
   "studio.col.page": "Page",
+  "topik.answerFromPaper": "Read the question on the paper and choose the number of the right answer.",
 };

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TOPIK_INSTRUCTIONS } from "../data/topik/instructions";
+import PdfPageViewer from "./PdfPageViewer";
 
 // Renders paper regions (passages, notices, pictures) straight from the exam
 // PDF, so what the learner sees is exactly the printed paper.
@@ -156,12 +157,24 @@ function translationFor(instruction, language) {
   return entry[String(language || "uz").slice(0, 2)] || entry.uz;
 }
 
+const numberedOnly = (number, instruction) => ({
+  group: [number, number],
+  instruction,
+  prompt: "",
+  stem: null,
+  shared: null,
+  options: ["1", "2", "3", "4"].map((id) => ({ id, text: "" })),
+});
+
 // One exam question laid out like the computer-based test (IBT): the block
 // instruction (with an optional translation), any shared passage, the
 // question with its printed material, and the four numbered choices.
 export default function TopikQuestion({ exam, question, selected, onSelect, review = null, showShared = true, translate = false }) {
   const { t, i18n } = useTranslation();
-  const content = exam.content?.[question.number];
+  // Papers added in the admin panel have no extracted text: the learner reads
+  // the page of the PDF and picks a number.
+  const fromPaper = !exam.content;
+  const content = fromPaper ? numberedOnly(question.number, t("topik.answerFromPaper")) : exam.content[question.number];
   if (!content) return null;
   const [from, to] = content.group;
   const isPicture = content.options.some((option) => option.box);
@@ -194,6 +207,8 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
         </p>
         {translation && <p className="mt-1 text-sm font-semibold leading-6 text-slate-600 dark:text-slate-300">{translation}</p>}
       </div>
+
+      {fromPaper && <PdfPageViewer url={exam.pdf} page={question.page} maxHeightClass="max-h-[70vh]" />}
 
       {showShared && content.shared && (
         <div className="rounded-xl border border-slate-200 bg-white p-3 dark:border-white/10 md:p-4">
