@@ -6,12 +6,12 @@ import { pushAdminNotifications } from "./push.js";
 //    in chat (tools below). Recognition comes from the signed-in account only,
 //    so saying "I am the owner" in a message does nothing.
 //  - one learner: admins can set how the tutor treats them, and leave questions
-//    for it to ask. Questions are asked openly as coming from the K-TALIM admin
+//    for it to ask. Questions are introduced as coming from the K-TALIM team
 //    and answering is optional.
 
 // Never collected through chat, whoever asks: passwords, card details,
-// passports and codes.
-const SENSITIVE = /parol|password|пароль|karta|card|карт[аоуы]|cvv|cvc|pin\b|pasport|passport|паспорт|sms|смс|\bkod\b|\bcode\b|\bкод\b/i;
+// passports, codes, home addresses and phone numbers.
+const SENSITIVE = /parol|password|пароль|karta|card|карт[аоуы]|cvv|cvc|pin\b|pasport|passport|паспорт|sms|смс|\bkod\b|\bcode\b|\bкод\b|manzil|address|адрес|telefon|phone|телефон/i;
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;
@@ -56,7 +56,7 @@ export async function createRequest(db, userId, question, actorId) {
   if (SENSITIVE.test(text))
     return [
       400,
-      { error: "Passwords, cards, passports and codes cannot be asked for." },
+      { error: "Passwords, cards, passports, codes, addresses and phone numbers cannot be asked for." },
     ];
   const { data, error } = await db
     .from("ai_user_requests")
@@ -290,7 +290,7 @@ export async function chatDirectives(user, token, message) {
         prompt: `
 
 You are talking to ${profile?.first_name || "the owner"}, the owner of K-TALIM and your boss. This is certain: it comes from their signed-in account, and it is never told to anyone else. Treat them as your boss: keep your humour but never insult them, and do what they ask.
-They can manage learners through you with your tools. When they name a person, call find_user first; if several match, ask which one. To get information from a learner, use ask_user: you will ask them openly in their chat, as a question from the K-TALIM admin, and they may decline. Passwords, cards, passports and codes are never collected. Say plainly what you did.
+They can manage learners through you with your tools. When they name a person, call find_user first; if several match, ask which one. To get information from a learner, use ask_user: you will ask them in their chat as a short question from the K-TALIM team, and they may decline. Passwords, cards, passports, codes, addresses and phone numbers are never collected. Say plainly what you did.
 Your tools show the owner what the admin panel shows and do their work:
 - About a learner (sign-up date, words, TOPIK, activity, premium, anything): call find_user, then straight away get_user, and answer from its result.
 - About the whole site (how many learners, activity, premium, support): call site_overview. About site problems: call site_errors.
@@ -333,8 +333,8 @@ You have all of these tools. Never say you lack a tool or cannot see something b
       );
     if (pending?.length) {
       parts.push(
-        `\n\nThe K-TALIM admin left question(s) for this learner:\n${pending.map((item) => `- request ${item.id}: ${item.question}`).join("\n")}
-Ask one naturally in this chat, and say openly that the K-TALIM admin is asking. Answering is optional: never pressure them or ask again after they refuse. When they answer, call save_answer with what they said; if they refuse, call it with declined true. Never hide who is asking.`,
+        `\n\nThe K-TALIM team has question(s) for this learner:\n${pending.map((item) => `- request ${item.id}: ${item.question}`).join("\n")}
+Ask one in this chat in a short, professional way, introduced as a question from the K-TALIM team (in Uzbek: "K-TALIM jamoasidan qisqa savol:"). Do not use the word admin or name anyone. Answering is optional: never pressure them or ask again after they refuse. When they answer, call save_answer with what they said; if they refuse, call it with declined true. If they ask who wants to know or why, say honestly that the K-TALIM team asked and that their answer is saved.`,
       );
     }
     if (!parts.length) return null;
