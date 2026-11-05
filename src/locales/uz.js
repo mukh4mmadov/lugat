@@ -2207,4 +2207,7 @@ export default {
   "voices.micDenied": "Mikrofonga ruxsat berilmadi. Brauzer sozlamalarida ruxsat bering.",
   "voices.allDone": "Hamma so'zlar yozib bo'lindi. Rahmat!",
   "voices.tip": "Jim xonada, telefonni og'izdan 20–30 sm uzoqda tuting.",
+  "live.direct": "To'g'ridan-to'g'ri ulanish",
+  "live.viaServer": "Server orqali",
+  "live.delay": "kechikish ~{{ms}} ms",
 };

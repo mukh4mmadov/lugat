@@ -2211,4 +2211,7 @@ export default {
   "voices.micDenied": "Microphone access was blocked. Allow it in the browser settings.",
   "voices.allDone": "All words are recorded. Thank you!",
   "voices.tip": "Use a quiet room and hold the phone 20–30 cm from your mouth.",
+  "live.direct": "Direct connection",
+  "live.viaServer": "Through a server",
+  "live.delay": "delay ~{{ms}} ms",
 };

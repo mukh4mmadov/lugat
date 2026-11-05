@@ -14,6 +14,9 @@ import { recordSpeaking } from "../../store";
 const POLL_MS = 3000;
 const OFFER_AI_AFTER = 45;
 const CONNECT_TIMEOUT_MS = 25000;
+const LOST_AFTER_MS = 15000;
+const ENDED_CHECK_MS = 5000;
+const QUALITY_CHECK_MS = 5000;
 const REPORT_REASONS = ["rude", "sexual", "spam", "silent", "underage", "other"];
 
 const clock = (seconds) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
@@ -84,6 +87,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
   const [reported, setReported] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const [round, setRound] = useState(0);
+  const [quality, setQuality] = useState(null);
   const peer = useRef(null);
   const audio = useRef(null);
   const callRef = useRef(null);
@@ -92,6 +96,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
   const pollRef = useRef(null);
   const remoteRef = useRef(null);
   const recorderRef = useRef(null);
+  const lostTimer = useRef(null);
 
   const remaining = status ? Math.max(0, status.limitSeconds - status.usedSeconds) : Infinity;
   const left = remaining - elapsed;
@@ -101,6 +106,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     async (reason) => {
       if (endingRef.current || !callRef.current) return;
       endingRef.current = true;
+      clearTimeout(lostTimer.current);
       const recording = recorderRef.current?.stop();
       recorderRef.current = null;
       peer.current?.close({ notify: reason !== "partner" });
@@ -203,6 +209,9 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
             supabase.rpc("mark_speaking_connected", { p_call: callId });
             setPhase("live");
           }
+          // A short gap can heal itself; a long one ends the call.
+          clearTimeout(lostTimer.current);
+          if (state === "disconnected") lostTimer.current = setTimeout(() => finish("lost"), LOST_AFTER_MS);
           if (state === "failed" || state === "closed") finish("lost");
         },
         onMessage: (message) => {
@@ -234,6 +243,38 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     if (phase === "live" && left <= 0) finish("limit");
   }, [phase, left, finish]);
 
+  // The database has the last word: a partner who left without a goodbye
+  // reaching us has still ended the call there.
+  useEffect(() => {
+    if (phase !== "live") return undefined;
+    const callId = callRef.current;
+    const timer = setInterval(async () => {
+      const { data } = await supabase.from("speaking_calls").select("ended_at").eq("id", callId).maybeSingle();
+      if (data?.ended_at) finish("partner");
+    }, ENDED_CHECK_MS);
+    return () => clearInterval(timer);
+  }, [phase, finish]);
+
+  // Connection quality, shown small during the call.
+  useEffect(() => {
+    if (phase !== "live") return undefined;
+    const read = async () => setQuality(await peer.current?.quality().catch(() => null));
+    const first = setTimeout(read, 2000);
+    const timer = setInterval(read, QUALITY_CHECK_MS);
+    return () => {
+      clearTimeout(first);
+      clearInterval(timer);
+    };
+  }, [phase]);
+
+  // Closing the tab: the goodbye goes over the direct channel straight away.
+  useEffect(() => {
+    if (phase !== "live") return undefined;
+    const leave = (event) => !event.persisted && peer.current?.close();
+    window.addEventListener("pagehide", leave);
+    return () => window.removeEventListener("pagehide", leave);
+  }, [phase]);
+
   // Hang up if the page closes mid-call.
   useEffect(() => () => {
     if (callRef.current && !endingRef.current) {
@@ -260,6 +301,7 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
     setQuestion(0);
     setReporting(false);
     setReported(false);
+    setQuality(null);
     setBlocked(false);
     setProblem(null);
     setWaited(0);
@@ -352,6 +394,12 @@ export default function LiveCall({ level, want, topic: myTopic, status, onClose,
         <h2 className="mt-2 text-xl font-black">{partner?.name || "…"}</h2>
         <p className="text-sm text-slate-500">{partner && `${LEVEL_ICONS[partner.level] || ""} ${t(`speaking.level.${partner.level}`)}`}</p>
         <p className={`mt-3 text-3xl font-black tabular-nums ${phase === "live" ? "" : "text-slate-400"}`}>{phase === "live" ? clock(elapsed) : t("live.connecting")}</p>
+        {phase === "live" && quality?.roundTrip !== undefined && quality?.roundTrip !== null && (
+          <p className="mt-1 text-xs font-bold text-slate-500">
+            {quality.type === "relay" ? t("live.viaServer") : t("live.direct")}
+            {quality.protocol === "tcp" || quality.protocol === "tls" ? " (TCP)" : ""} · {t("live.delay", { ms: quality.roundTrip + (quality.buffer || 0) })}
+          </p>
+        )}
         {phase === "live" && Number.isFinite(left) && left <= 60 && (
           <p role="alert" className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm font-bold text-amber-800 dark:bg-amber-500/10 dark:text-amber-200">⏱ {t("live.oneMinute", { time: clock(left) })}</p>
         )}

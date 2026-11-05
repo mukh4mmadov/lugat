@@ -1,6 +1,8 @@
 import { supabase } from "./supabase";
 
 const FALLBACK_ICE = [{ urls: ["stun:stun.cloudflare.com:3478", "stun:stun.l.google.com:19302"] }];
+const RESTART_AFTER_MS = 4000;
+const BYE_WAIT_MS = 800;
 
 // STUN, plus TURN when the server has it configured (api/turn.js).
 async function getIceServers() {
@@ -22,14 +24,20 @@ export const liveCallsSupported = () => Boolean(window.RTCPeerConnection && navi
 // other; then the caller sends the offer. Audio only by default; pass
 // video: true to send the camera as well.
 //
+// Once connected, messages go straight to the other side over a WebRTC data
+// channel, so hanging up arrives at once and does not depend on the signalling
+// channel. The broadcast channel stays as the fallback.
+//
 // Callbacks: onRemoteStream(stream), onState(connectionState),
 // onMessage(payload) for app messages and { type: "bye" } when the other side
 // hangs up.
 export function createPeerCall({ callId, role, video = false, onRemoteStream, onState, onMessage }) {
   let pc = null;
   let channel = null;
+  let control = null;
   let local = null;
   let helloTimer = null;
+  let restartTimer = null;
   let offered = false;
   let closed = false;
   const pendingIce = [];
@@ -61,12 +69,28 @@ export function createPeerCall({ callId, role, video = false, onRemoteStream, on
     }
     pc = new RTCPeerConnection({ iceServers: await getIceServers() });
     local.getTracks().forEach((track) => pc.addTrack(track, local));
-    pc.ontrack = (event) => onRemoteStream?.(event.streams[0]);
+    // The same id on both sides opens the channel without extra signalling.
+    control = pc.createDataChannel("control", { negotiated: true, id: 0 });
+    control.onmessage = (event) => {
+      try {
+        onMessage?.(JSON.parse(event.data));
+      } catch {
+        // Not one of our messages.
+      }
+    };
+    pc.ontrack = (event) => {
+      // Ask for the shortest playback buffer the network allows.
+      if ("jitterBufferTarget" in event.receiver) event.receiver.jitterBufferTarget = 0;
+      onRemoteStream?.(event.streams[0]);
+    };
     pc.onicecandidate = (event) => event.candidate && send("ice", { candidate: event.candidate.toJSON() });
     pc.onconnectionstatechange = () => {
       onState?.(pc.connectionState);
+      clearTimeout(restartTimer);
       // A dropped network path: the caller asks for fresh candidates.
-      if (pc.connectionState === "failed" && role === "caller") makeOffer({ iceRestart: true }).catch(() => {});
+      if (pc.connectionState === "disconnected" && role === "caller") {
+        restartTimer = setTimeout(() => pc?.connectionState === "disconnected" && makeOffer({ iceRestart: true }).catch(() => {}), RESTART_AFTER_MS);
+      }
     };
 
     channel = supabase.channel(`call:${callId}`, { config: { broadcast: { self: false } } });
@@ -111,35 +135,62 @@ export function createPeerCall({ callId, role, video = false, onRemoteStream, on
     helloTimer = setInterval(() => send("hello", { role }), 1000);
   }
 
+  // The microphone stops at once; the connections stay open a moment longer,
+  // because closing them straight away would lose the goodbye.
   function close({ notify = true } = {}) {
     if (closed && !pc && !channel) return;
     closed = true;
     stopHello();
-    if (notify) send("bye");
+    clearTimeout(restartTimer);
     local?.getTracks().forEach((track) => track.stop());
-    pc?.close();
-    if (channel) supabase.removeChannel(channel);
+    const lastPc = pc;
+    const lastChannel = channel;
+    if (lastPc) lastPc.onconnectionstatechange = null;
+    let delivered = Promise.resolve();
+    if (notify) {
+      if (control?.readyState === "open") control.send(JSON.stringify({ type: "bye" }));
+      delivered = Promise.race([Promise.resolve(send("bye")), new Promise((resolve) => setTimeout(resolve, BYE_WAIT_MS))]);
+    }
     pc = null;
     channel = null;
+    control = null;
     local = null;
+    delivered
+      .catch(() => {})
+      .finally(() => {
+        lastPc?.close();
+        if (lastChannel) supabase.removeChannel(lastChannel);
+      });
   }
 
   return {
     start,
     close,
-    sendApp: (payload) => send("app", payload),
+    sendApp: (payload) => (control?.readyState === "open" ? control.send(JSON.stringify(payload)) : send("app", payload)),
     localStream: () => local,
     setMuted: (muted) => local?.getAudioTracks().forEach((track) => (track.enabled = !muted)),
-    // "relay" means the call goes through TURN; "host"/"srflx" are direct.
-    async connectionType() {
+    // How the call is doing: "relay" means it goes through TURN, "host" and
+    // "srflx" are direct; protocol is udp or tcp (tcp adds delay); roundTrip
+    // and buffer are in milliseconds.
+    async quality() {
       if (!pc) return null;
       const stats = await pc.getStats();
       let pair = null;
+      let inbound = null;
       stats.forEach((report) => {
         if (report.type === "transport" && report.selectedCandidatePairId) pair = stats.get(report.selectedCandidatePairId);
+        if (report.type === "inbound-rtp" && report.kind === "audio") inbound = report;
       });
       if (!pair) stats.forEach((report) => report.type === "candidate-pair" && report.nominated && report.state === "succeeded" && (pair = report));
-      return pair ? stats.get(pair.localCandidateId)?.candidateType || null : null;
+      if (!pair) return null;
+      const candidate = stats.get(pair.localCandidateId);
+      const emitted = inbound?.jitterBufferEmittedCount || 0;
+      return {
+        type: candidate?.candidateType || null,
+        protocol: candidate?.relayProtocol || candidate?.protocol || null,
+        roundTrip: pair.currentRoundTripTime === undefined ? null : Math.round(pair.currentRoundTripTime * 1000),
+        buffer: emitted ? Math.round((inbound.jitterBufferDelay / emitted) * 1000) : null,
+      };
     },
   };
 }
