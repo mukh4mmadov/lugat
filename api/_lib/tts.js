@@ -128,6 +128,8 @@ export async function checkTts() {
     body: JSON.stringify({ contents: [{ parts: [{ text: "Say OK" }] }] }),
   }).catch(() => null);
   report.fallbackModel = { name: fallback, status: answer?.status ?? "no answer" };
+  const models = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?pageSize=200&key=${process.env.GEMINI_API_KEY}`, { signal: AbortSignal.timeout(10000) }).then((response) => response.json()).catch(() => null);
+  report.models = (models?.models || []).filter((model) => model.supportedGenerationMethods?.includes("generateContent") && /flash/.test(model.name) && !/tts|image|live|audio/.test(model.name)).map((model) => model.name.replace("models/", ""));
   if (!report.cloudflare) return report;
   try {
     const result = await askCloudflare("안녕하세요, 저는 프라이데이예요.", "kr", 12000);
