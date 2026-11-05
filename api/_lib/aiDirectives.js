@@ -207,26 +207,13 @@ async function runOwnerPower(name, args, token, message) {
   return null;
 }
 
-const learnerTools = [
-  {
-    name: "mark_asked",
-    description: "Record that you have just asked the learner this question.",
-    parameters: {
-      type: "OBJECT",
-      properties: { request_id: { type: "INTEGER" } },
-      required: ["request_id"],
-    },
-  },
-];
-
-async function markAsked(db, user, args) {
+async function markAsked(db, user, requestId) {
   await db
     .from("ai_user_requests")
     .update({ asked_at: new Date().toISOString() })
-    .eq("id", Number(args.request_id))
+    .eq("id", requestId)
     .eq("user_id", user.id)
     .is("asked_at", null);
-  return { saved: true };
 }
 
 // Does this new message answer a question asked earlier? It may come many
@@ -370,14 +357,17 @@ You have all of these tools. Never say you lack a tool or cannot see something b
     const fresh = pending?.find((item) => !item.asked_at);
     await Promise.all((pending || []).filter((item) => item.asked_at).map((item) => checkForAnswer(db, user, item, message)));
     if (fresh) {
-      parts.push(`\n\nQuestion to ask this learner (request ${fresh.id}): ${fresh.question}
-Ask only this, once, in this reply, starting with this short line in the learner's language (in Uzbek: "Savol bor (javobingiz saqlanadi):"), and call mark_asked with its request id. Do not use the word admin or name anyone. If they ask who wants to know or why, say honestly that the K-TALIM team asked and that their answer is saved.`);
+      parts.push(`\n\nQuestion to ask this learner: ${fresh.question}
+Ask only this, once, in this reply, starting with this short line in the learner's language (in Uzbek: "Savol bor (javobingiz saqlanadi):"). Do not use the word admin or name anyone. If they ask who wants to know or why, say honestly that the K-TALIM team asked and that their answer is saved.`);
     }
     if (!parts.length) return null;
     return {
       prompt: parts.join(""),
-      tools: fresh ? learnerTools : null,
-      run: (name, args) => (name === "mark_asked" ? markAsked(db, user, args) : { error: "Unknown tool" }),
+      tools: null,
+      // The server sees the question in the reply, so it is never asked twice.
+      afterReply: async (reply) => {
+        if (fresh && (reply.includes(fresh.question) || /saqlanadi|saved|сохран/i.test(reply))) await markAsked(db, user, fresh.id);
+      },
     };
   } catch (error) {
     console.error("AI directives error:", error);

@@ -908,6 +908,7 @@ export default async function handler(req, res) {
         error: "AI service returned an empty response. Please try again.",
       });
     }
+    await directives?.afterReply?.(reply);
   } catch (error) {
     console.error("AI chat proxy error:", error);
     return res.status(502).json({
