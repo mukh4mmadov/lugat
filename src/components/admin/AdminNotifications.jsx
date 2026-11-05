@@ -50,7 +50,6 @@ function GroupMessage() {
         {result && <p role="status" className="text-sm font-bold">{result}</p>}
       </div>
     </Panel>
-    </div>
   );
 }
 
@@ -162,5 +161,6 @@ export default function AdminNotifications() {
         </button>
       )}
     </Panel>
+    </div>
   );
 }
