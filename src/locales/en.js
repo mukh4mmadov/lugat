@@ -2223,7 +2223,7 @@ export default {
   "admin.ai.ask": "Leave a question through the AI",
   "admin.ai.askHint": "For example: Why are you learning Korean?",
   "admin.ai.askButton": "Leave",
-  "admin.ai.askNote": "The AI asks it as a short question from the K-TALIM team, and answering is optional. Passwords, cards, passports, codes, addresses and phone numbers cannot be asked for.",
+  "admin.ai.askNote": "The AI asks once with \"A question (your answer is saved)\" and picks up the answer even if it comes later. Passwords, cards, passports, codes, addresses and phone numbers cannot be asked for.",
   "admin.ai.asked": "Question left.",
   "admin.ai.cancelled": "Question cancelled.",
   "admin.ai.declined": "chose not to answer",

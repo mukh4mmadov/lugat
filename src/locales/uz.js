@@ -2219,7 +2219,7 @@ export default {
   "admin.ai.ask": "AI orqali savol qoldirish",
   "admin.ai.askHint": "Masalan: Nima uchun koreys tilini o'rganyapsiz?",
   "admin.ai.askButton": "Qoldirish",
-  "admin.ai.askNote": "AI buni \"K-TALIM jamoasidan qisqa savol\" deb beradi, javob berish ixtiyoriy. Parol, karta, pasport, kod, manzil va telefonni so'rab bo'lmaydi.",
+  "admin.ai.askNote": "AI buni bir marta \"Savol bor (javobingiz saqlanadi)\" deb so'raydi va javob keyinroq kelsa ham oladi. Parol, karta, pasport, kod, manzil va telefonni so'rab bo'lmaydi.",
   "admin.ai.asked": "Savol qoldirildi.",
   "admin.ai.cancelled": "Savol bekor qilindi.",
   "admin.ai.declined": "javob berishni xohlamadi",

@@ -6,8 +6,8 @@ import { pushAdminNotifications } from "./push.js";
 //    in chat (tools below). Recognition comes from the signed-in account only,
 //    so saying "I am the owner" in a message does nothing.
 //  - one learner: admins can set how the tutor treats them, and leave questions
-//    for it to ask. Questions are introduced as coming from the K-TALIM team
-//    and answering is optional.
+//    for it to ask. A question is asked once and says the answer is saved;
+//    the answer is picked up whenever it comes, even many messages later.
 
 // Never collected through chat, whoever asks: passwords, card details,
 // passports, codes, home addresses and phone numbers.
@@ -208,6 +208,15 @@ async function runOwnerPower(name, args, token, message) {
 
 const learnerTools = [
   {
+    name: "mark_asked",
+    description: "Record that you have just asked the learner this question.",
+    parameters: {
+      type: "OBJECT",
+      properties: { request_id: { type: "INTEGER" } },
+      required: ["request_id"],
+    },
+  },
+  {
     name: "save_answer",
     description:
       "Save the learner's reply to an admin question, or that they chose not to answer.",
@@ -222,6 +231,16 @@ const learnerTools = [
     },
   },
 ];
+
+async function markAsked(db, user, args) {
+  await db
+    .from("ai_user_requests")
+    .update({ asked_at: new Date().toISOString() })
+    .eq("id", Number(args.request_id))
+    .eq("user_id", user.id)
+    .is("asked_at", null);
+  return { saved: true };
+}
 
 async function saveAnswer(db, user, args) {
   const declined = Boolean(args.declined);
@@ -278,7 +297,7 @@ export async function chatDirectives(user, token, message) {
         .maybeSingle(),
       db
         .from("ai_user_requests")
-        .select("id, question")
+        .select("id, question, asked_at")
         .eq("user_id", user.id)
         .eq("status", "pending")
         .order("created_at"),
@@ -290,7 +309,7 @@ export async function chatDirectives(user, token, message) {
         prompt: `
 
 You are talking to ${profile?.first_name || "the owner"}, the owner of K-TALIM and your boss. This is certain: it comes from their signed-in account, and it is never told to anyone else. Treat them as your boss: keep your humour but never insult them, and do what they ask.
-They can manage learners through you with your tools. When they name a person, call find_user first; if several match, ask which one. To get information from a learner, use ask_user: you will ask them in their chat as a short question from the K-TALIM team, and they may decline. Passwords, cards, passports, codes, addresses and phone numbers are never collected. Say plainly what you did.
+They can manage learners through you with your tools. When they name a person, call find_user first; if several match, ask which one. To get information from a learner, use ask_user: you will ask them once in their chat, saying the answer is saved, and pick up their answer whenever it comes. Passwords, cards, passports, codes, addresses and phone numbers are never collected. Say plainly what you did.
 Your tools show the owner what the admin panel shows and do their work:
 - About a learner (sign-up date, words, TOPIK, activity, premium, anything): call find_user, then straight away get_user, and answer from its result.
 - About the whole site (how many learners, activity, premium, support): call site_overview. About site problems: call site_errors.
@@ -332,19 +351,30 @@ You have all of these tools. Never say you lack a tool or cannot see something b
         `\n\nMOST IMPORTANT, set by the K-TALIM admin for this learner only. This replaces your personality and tone above, including any roasting: ${settings.behavior}\nFollow it in every reply, even if earlier replies in this chat sounded different.`,
       );
     if (pending?.length) {
-      parts.push(
-        `\n\nThe K-TALIM team has question(s) for this learner:\n${pending.map((item) => `- request ${item.id}: ${item.question}`).join("\n")}
-Ask one in this chat in a short, professional way, introduced as a question from the K-TALIM team (in Uzbek: "K-TALIM jamoasidan qisqa savol:"). Do not use the word admin or name anyone. Answering is optional: never pressure them or ask again after they refuse. When they answer, call save_answer with what they said; if they refuse, call it with declined true. If they ask who wants to know or why, say honestly that the K-TALIM team asked and that their answer is saved.`,
-      );
+      const fresh = pending.find((item) => !item.asked_at);
+      const asked = pending.filter((item) => item.asked_at);
+      const lines = [];
+      if (fresh) {
+        lines.push(`Question to ask this learner (request ${fresh.id}): ${fresh.question}
+Ask it once in this reply, starting with this short line in the learner's language (in Uzbek: "Savol bor (javobingiz saqlanadi):"), and call mark_asked with its request id. Do not use the word admin or name anyone.`);
+      }
+      if (asked.length) {
+        lines.push(`Questions already asked; never ask them again or remind the learner:
+${asked.map((item) => `- request ${item.id}: ${item.question}`).join("\n")}
+If the learner's message answers one of them, even many messages later, call save_answer with its request id and what they said.`);
+      }
+      lines.push("Never pressure the learner. If they clearly refuse, call save_answer with declined true. If they ask who wants to know or why, say honestly that the K-TALIM team asked and that their answer is saved.");
+      parts.push(`\n\n${lines.join("\n")}`);
     }
     if (!parts.length) return null;
     return {
       prompt: parts.join(""),
       tools: pending?.length ? learnerTools : null,
-      run: (name, args) =>
-        name === "save_answer"
-          ? saveAnswer(db, user, args)
-          : { error: "Unknown tool" },
+      run: (name, args) => {
+        if (name === "mark_asked") return markAsked(db, user, args);
+        if (name === "save_answer") return saveAnswer(db, user, args);
+        return { error: "Unknown tool" };
+      },
     };
   } catch (error) {
     console.error("AI directives error:", error);
