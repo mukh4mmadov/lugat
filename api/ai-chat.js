@@ -58,36 +58,56 @@ ${examInstructions}`;
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-// Give up on a slow model reply well before Vercel kills the function, so the
-// learner gets a JSON error instead of Vercel's plain-text timeout page.
-const GEMINI_TIMEOUT_MS = 25000;
+// One request may use this long in total, well before Vercel kills the function,
+// so the learner gets a JSON error instead of Vercel's plain-text timeout page.
+const MESSAGE_BUDGET_MS = 48000;
+const ATTEMPT_TIMEOUT_MS = 16000;
+const LONG_ATTEMPT_TIMEOUT_MS = 25000;
+const MIN_ATTEMPT_MS = 3000;
+const PRIMARY_REST_MS = 60000;
 const MAX_TOOL_STEPS = 6;
-const TOOL_STEP_TIMEOUT_MS = 12000;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
 const FALLBACK_URL = `https://generativelanguage.googleapis.com/v1beta/models/${FALLBACK_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
-// Google sometimes answers that the model is overloaded: the second model
-// takes over, so the learner does not see an error. `route` lasts for one
-// chat message: after one failure its other steps skip the busy model, and
-// messages with several tool steps wait less, to stay inside the time limit.
-async function askModel(payload, route) {
-  const send = (url, timeout) =>
-    fetch(url, {
+// Google sometimes answers that a model is overloaded, or takes too long. The
+// request then moves to the other model, up to three tries inside one time
+// budget, so the learner sees an error only when both stay down. `route` lasts
+// for one request: its tool steps share the budget and skip a busy model. A busy
+// model also rests for a minute, so the next learners do not wait for it.
+let primaryBusyUntil = 0;
+
+export async function askModel(payload, route) {
+  route.deadline ||= Date.now() + MESSAGE_BUDGET_MS;
+  const skipPrimary = route.fallback || Date.now() < primaryBusyUntil;
+  const urls = skipPrimary ? [FALLBACK_URL, GEMINI_URL, FALLBACK_URL] : [GEMINI_URL, FALLBACK_URL, GEMINI_URL];
+  let failure = { ok: false, status: 0, text: async () => "No time left for the model" };
+  for (const [index, url] of urls.entries()) {
+    const left = route.deadline - Date.now();
+    if (left < MIN_ATTEMPT_MS) break;
+    const timeout = index === urls.length - 1 ? left : Math.min(route.attemptMs || ATTEMPT_TIMEOUT_MS, left);
+    const response = await fetch(url, {
       signal: AbortSignal.timeout(timeout),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-    });
-  const timeout = payload.tools ? TOOL_STEP_TIMEOUT_MS : GEMINI_TIMEOUT_MS;
-  if (route.fallback) return send(FALLBACK_URL, timeout);
-  const first = await send(GEMINI_URL, timeout).catch((error) => ({ ok: false, status: 0, text: async () => error.message }));
-  if (first.ok) return first;
-  route.fallback = true;
-  await logAiFailure(`AI tutor: ${first.status} ${(await first.text().catch(() => "")).replace(/\s+/g, " ").slice(0, 300)}`);
-  return send(FALLBACK_URL, timeout);
+    }).catch((error) => ({ ok: false, status: 0, text: async () => error.message }));
+    if (response.ok) return response;
+    const detail = await response.text().catch(() => "");
+    const { status } = response;
+    failure = { ok: false, status, text: async () => detail };
+    if (url === GEMINI_URL && (status === 0 || status === 429 || status >= 500)) {
+      route.fallback = true;
+      primaryBusyUntil = Date.now() + PRIMARY_REST_MS;
+    }
+    if (!route.logged) {
+      route.logged = true;
+      await logAiFailure(`AI tutor: ${status} ${detail.replace(/\s+/g, " ").slice(0, 300)}`);
+    }
+  }
+  return failure;
 }
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -472,34 +492,29 @@ async function handleTopikReview(res, body, user, deviceId, language) {
   ].join("\n");
 
   try {
-    const response = await fetch(GEMINI_URL, {
-      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: JSON.stringify(items) }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 4096,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "ARRAY",
-            items: {
-              type: "OBJECT",
-              properties: {
-                number: { type: "INTEGER" },
-                whyWrong: { type: "STRING" },
-                whyRight: { type: "STRING" },
-                keyPoint: { type: "STRING" },
-                tip: { type: "STRING" },
-              },
-              required: ["number", "whyWrong", "whyRight", "keyPoint", "tip"],
+    const response = await askModel({
+      contents: [{ role: "user", parts: [{ text: JSON.stringify(items) }] }],
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+      generationConfig: {
+        temperature: 0.4,
+        maxOutputTokens: 4096,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "ARRAY",
+          items: {
+            type: "OBJECT",
+            properties: {
+              number: { type: "INTEGER" },
+              whyWrong: { type: "STRING" },
+              whyRight: { type: "STRING" },
+              keyPoint: { type: "STRING" },
+              tip: { type: "STRING" },
             },
+            required: ["number", "whyWrong", "whyRight", "keyPoint", "tip"],
           },
         },
-      }),
-    });
+      },
+    }, { attemptMs: LONG_ATTEMPT_TIMEOUT_MS });
     if (!response.ok) {
       console.error("Gemini review error:", response.status, await response.text().catch(() => ""));
       return res.status(502).json({ error: "AI service is temporarily unavailable. Please try again later." });
@@ -573,31 +588,26 @@ async function handleGrammarCheck(res, body, user, language) {
   ].join("\n");
 
   try {
-    const response = await fetch(GEMINI_URL, {
-      signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: sentence }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        generationConfig: {
-          temperature: 0.2,
-          maxOutputTokens: 600,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "OBJECT",
-            properties: {
-              correct: { type: "BOOLEAN" },
-              usesPattern: { type: "BOOLEAN" },
-              corrected: { type: "STRING" },
-              explanation: { type: "STRING" },
-              translation: { type: "STRING" },
-            },
-            required: ["correct", "usesPattern", "corrected", "explanation", "translation"],
+    const response = await askModel({
+      contents: [{ role: "user", parts: [{ text: sentence }] }],
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+      generationConfig: {
+        temperature: 0.2,
+        maxOutputTokens: 600,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          properties: {
+            correct: { type: "BOOLEAN" },
+            usesPattern: { type: "BOOLEAN" },
+            corrected: { type: "STRING" },
+            explanation: { type: "STRING" },
+            translation: { type: "STRING" },
           },
+          required: ["correct", "usesPattern", "corrected", "explanation", "translation"],
         },
-      }),
-    });
+      },
+    }, {});
     if (!response.ok) throw new Error(`Gemini ${response.status}`);
     const data = await response.json();
     const result = JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}");
@@ -911,6 +921,7 @@ export default async function handler(req, res) {
     await directives?.afterReply?.(reply);
   } catch (error) {
     console.error("AI chat proxy error:", error);
+    await logAiFailure(`AI tutor stopped: ${error.message}`);
     return res.status(502).json({
       error: "AI service is temporarily unavailable. Please try again later.",
     });
