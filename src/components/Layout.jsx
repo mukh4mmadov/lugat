@@ -12,6 +12,7 @@ import { Suspense, useEffect, useLayoutEffect, useState, useRef } from "react";
 import PageLoader from "./PageLoader";
 import VoiceNotice from "./VoiceNotice";
 import AnnouncementBanner from "./AnnouncementBanner";
+import UserMessages from "./UserMessages";
 import PremiumExpiryBanner from "./PremiumExpiryBanner";
 import BottomNav from "./BottomNav";
 import { setLastPlace, setPremiumUntil, setTheme } from "../store";
@@ -324,6 +325,7 @@ export default function Layout({ onShowIELTSModal }) {
           </div>
         )}
         <AnnouncementBanner />
+        <UserMessages />
         <PremiumExpiryBanner />
         <div className="fixed inset-0 -z-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,.28),transparent_30%),radial-gradient(circle_at_top_right,rgba(168,85,247,.24),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,197,94,.15),transparent_32%)]" />
 

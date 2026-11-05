@@ -117,6 +117,7 @@ export default function AdminPage() {
   const tabs = [
     ["/admin", t("admin.tab.overview"), true],
     ["/admin/notifications", t("adminNotifications.title"), false, unseen],
+    ["/admin/activity", t("adminActivity.tab")],
     ["/admin/users", t("admin.tab.users")],
     ["/admin/feedback", t("admin.tab.feedback")],
     ["/admin/words", t("adminWords.tab")],
@@ -126,6 +127,7 @@ export default function AdminPage() {
     ["/admin/settings", t("admin.tab.settings")],
     ["/admin/journal", t("admin.tab.journal")],
     ["/admin/voices", t("voices.tab")],
+    ["/admin/texts", t("adminTexts.tab")],
     ["/admin/errors", t("adminErrors.tab")],
   ];
 

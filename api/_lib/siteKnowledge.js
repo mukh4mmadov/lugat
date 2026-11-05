@@ -1,5 +1,5 @@
 // What the feedback assistant knows about K-TALIM. Keep it in step with the
-// app: prices with src/lib/premium.js, AI limits with api/ai-chat.js.
+// app: default prices with src/lib/premium.js, AI limits with api/ai-chat.js.
 
 export const SITE_KNOWLEDGE = `
 K-TALIM (https://lugat-six.vercel.app) is a website for Uzbek speakers learning Korean vocabulary and preparing for TOPIK I. The interface is in Uzbek, English and Russian (switch in the header menu). It has light and dark themes.
@@ -58,3 +58,10 @@ PREMIUM (/premium)
 FEEDBACK
 - Reports are answered in this conversation; a red badge in the menu shows new replies. A learner can reply, mark the report solved, and rate the help.
 `.trim();
+
+// The same text with the prices an admin set in the panel.
+export function siteKnowledge(prices) {
+  if (!["month", "quarter", "year"].every((plan) => Number.isInteger(prices?.[plan]))) return SITE_KNOWLEDGE;
+  const uzs = (price) => price.toLocaleString("en-US").replaceAll(",", " ");
+  return SITE_KNOWLEDGE.replace(/- Prices: .*/, `- Prices: 1 month ${uzs(prices.month)} UZS, 3 months ${uzs(prices.quarter)} UZS, 12 months ${uzs(prices.year)} UZS.`);
+}

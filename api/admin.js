@@ -54,10 +54,10 @@ async function listAllUsers(db) {
   return users;
 }
 
-async function selectAll(db, table, columns) {
+async function selectAll(db, table, columns, narrow = (query) => query) {
   const rows = [];
   for (let from = 0; from < 50000; from += 1000) {
-    const { data, error } = await db.from(table).select(columns).range(from, from + 999);
+    const { data, error } = await narrow(db.from(table).select(columns)).range(from, from + 999);
     if (error) throw error;
     rows.push(...data);
     if (data.length < 1000) break;
@@ -374,6 +374,42 @@ async function callRecordings(db, callId) {
 }
 
 // Leagues, invites and push for the admin "Growth" tab.
+// Use of the site, from what progress already records, and of the AI services.
+async function activityOverview(db) {
+  const today = Date.now();
+  const dayKeys = Array.from({ length: 30 }, (_, index) => new Date(today - (29 - index) * DAY).toISOString().slice(0, 10));
+  const since = new Date(today - 14 * DAY).toISOString();
+  const sinceDay = since.slice(0, 10);
+  const [progress, messages, grammar, speaking, korea] = await Promise.all([
+    selectAll(db, "user_progress", "data"),
+    db.from("ai_chat_messages").select("id", { count: "exact", head: true }).eq("role", "user").gte("created_at", since),
+    db.from("grammar_checks").select("id", { count: "exact", head: true }).gte("created_at", since),
+    selectAll(db, "speaking_usage", "seconds", (query) => query.gte("day", sinceDay)),
+    selectAll(db, "study_usage", "count", (query) => query.gte("day", sinceDay)),
+  ]);
+  const days = Object.fromEntries(dayKeys.map((day) => [day, { day, users: 0, answers: 0 }]));
+  const lessons = new Map();
+  const exercises = {};
+  for (const { data } of progress) {
+    for (const [day, answers] of Object.entries(data?.stats?.daily || {})) {
+      if (days[day] && answers > 0) {
+        days[day].users += 1;
+        days[day].answers += answers;
+      }
+    }
+    const started = new Set(Object.keys(data?.words || {}).map((key) => Number(key.split("-")[0])).filter(Number.isFinite));
+    started.forEach((lesson) => lessons.set(lesson, (lessons.get(lesson) || 0) + 1));
+    for (const [type, correct] of Object.entries(data?.stats?.typeCorrect || {})) exercises[type] = (exercises[type] || 0) + correct;
+  }
+  const sum = (rows, field) => rows.reduce((total, row) => total + (Number(row[field]) || 0), 0);
+  return {
+    days: dayKeys.map((day) => days[day]),
+    lessons: [...lessons.entries()].sort((a, b) => a[0] - b[0]).map(([lesson, learners]) => ({ lesson, learners })),
+    exercises: Object.entries(exercises).sort((a, b) => b[1] - a[1]).map(([type, correct]) => ({ type, correct })),
+    usage: { aiMessages: messages.count || 0, grammarChecks: grammar.count || 0, speakingSeconds: sum(speaking, "seconds"), koreaAi: sum(korea, "count") },
+  };
+}
+
 async function growthOverview(db) {
   const week = new Date(Date.now() + 5 * 3600000);
   week.setUTCDate(week.getUTCDate() - ((week.getUTCDay() + 6) % 7));
@@ -441,6 +477,7 @@ async function speakingOverview(db) {
 
 // Settings admins may change, with how each value is checked.
 const SETTINGS = {
+  premium_prices: (value) => Boolean(value) && typeof value === "object" && ["month", "quarter", "year"].every((key) => Number.isInteger(value[key]) && value[key] >= 1000 && value[key] <= 100000000),
   ai_chat_enabled: (value) => typeof value === "boolean",
   speaking_enabled: (value) => typeof value === "boolean",
   live_speaking_enabled: (value) => typeof value === "boolean",
@@ -559,20 +596,34 @@ async function act(db, actor, body) {
     const title = String(body.title || "").trim().slice(0, 80);
     const text = String(body.body || "").trim().slice(0, 200);
     if (!title || !text) return [400, { error: "Write the title and the text" }];
-    const { data: subscribers } = await db.from("push_subscriptions").select("user_id");
-    let ids = [...new Set((subscribers || []).map((row) => row.user_id))];
-    if (body.group === "premium") {
-      const premiumIds = new Set((await listAllUsers(db)).filter(isPremium).map((user) => user.id));
-      ids = ids.filter((id) => premiumIds.has(id));
-    }
+    const users = await listAllUsers(db);
+    let ids = (body.group === "premium" ? users.filter(isPremium) : users).map((user) => user.id);
     if (body.group === "active" || body.group === "inactive") {
       const since = new Date(Date.now() - 7 * DAY).toISOString();
-      const { data: recent } = await db.from("user_progress").select("user_id").gte("updated_at", since).limit(5000);
-      const activeIds = new Set((recent || []).map((row) => row.user_id));
+      const recent = await selectAll(db, "user_progress", "user_id", (query) => query.gte("updated_at", since));
+      const activeIds = new Set(recent.map((row) => row.user_id));
       ids = ids.filter((id) => activeIds.has(id) === (body.group === "active"));
     }
-    const sent = await Promise.all(ids.map((id) => pushToUser(db, id, { title, body: text })));
+    // Everyone sees it in the site; those with notifications also get a push.
+    for (let index = 0; index < ids.length; index += 500) {
+      const { error } = await db.from("user_messages").insert(ids.slice(index, index + 500).map((id) => ({ user_id: id, title, body: text, created_by: actor.id })));
+      if (error) return [500, { error: "Could not save the message" }];
+    }
+    const subscribers = await selectAll(db, "push_subscriptions", "user_id");
+    const targets = new Set(ids);
+    const pushIds = [...new Set(subscribers.map((row) => row.user_id))].filter((id) => targets.has(id));
+    const sent = await Promise.all(pushIds.map((id) => pushToUser(db, id, { title, body: text })));
     return [200, { users: ids.length, devices: sent.reduce((sum, count) => sum + count, 0) }];
+  }
+
+  if (action === "textSave") {
+    const key = String(body.key || "");
+    const value = String(body.value || "").trim().slice(0, 4000);
+    if (!["uz", "en", "ru"].includes(body.language) || !/^[\w.-]{1,120}$/.test(key)) return [400, { error: "Invalid text" }];
+    const result = value
+      ? await db.from("text_overrides").upsert({ language: body.language, key, value, updated_by: actor.id, updated_at: new Date().toISOString() })
+      : await db.from("text_overrides").delete().eq("language", body.language).eq("key", key);
+    return result.error ? [500, { error: "Could not save" }] : [200, { saved: true }];
   }
 
   if (action === "clearError") {
@@ -713,6 +764,8 @@ async function act(db, actor, body) {
     const title = String(body.title || "").trim().slice(0, 80);
     const text = String(body.body || "").trim().slice(0, 200);
     if (!title || !text) return [400, { error: "Write the title and the text" }];
+    const { error } = await db.from("user_messages").insert({ user_id: userId, title, body: text, created_by: actor.id });
+    if (error) return [500, { error: "Could not save the message" }];
     return [200, { devices: await pushToUser(db, userId, { title, body: text }) }];
   }
 
@@ -811,6 +864,7 @@ export default async function handler(req, res) {
     }
     if (action === "speaking") return res.status(200).json(await speakingOverview(db));
     if (action === "growth") return res.status(200).json(await growthOverview(db));
+    if (action === "activity") return res.status(200).json(await activityOverview(db));
     if (action === "errors") {
       // Errors learners hit in the last 14 days, grouped by message.
       const since = new Date(Date.now() - 14 * DAY).toISOString();

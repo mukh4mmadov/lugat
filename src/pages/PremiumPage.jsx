@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { useAuth } from "../context/AuthContext";
 import { formatDate } from "../lib/dates";
-import { PREMIUM_PLANS, TELEGRAM_USERNAME, formatPrice, premiumUntil, telegramOrderLink } from "../lib/premium";
+import { PREMIUM_PLANS, TELEGRAM_USERNAME, formatPrice, premiumUntil, telegramOrderLink, usePremiumPrices } from "../lib/premium";
 
 // Free vs premium: only what is live, with the real limits; upcoming perks
 // are a footnote.
@@ -31,6 +31,7 @@ function Cell({ value }) {
 export default function PremiumPage() {
   const { t, i18n } = useTranslation();
   const { user, refreshUser } = useAuth();
+  usePremiumPrices();
   const [plan, setPlan] = useState("quarter");
   const [copied, setCopied] = useState(false);
   const until = premiumUntil(user);

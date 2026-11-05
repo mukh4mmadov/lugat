@@ -84,6 +84,8 @@ const AdminGrowth = page(() => import("./components/admin/AdminGrowth"));
 const AdminNotifications = page(() => import("./components/admin/AdminNotifications"));
 const AdminErrors = page(() => import("./components/admin/AdminErrors"));
 const AdminVoices = page(() => import("./components/admin/AdminVoices"));
+const AdminActivity = page(() => import("./components/admin/AdminActivity"));
+const AdminTexts = page(() => import("./components/admin/AdminTexts"));
 const RecordVoicePage = page(() => import("./pages/RecordVoicePage"));
 const TopikAttemptPage = page(topik, "TopikAttemptPage");
 const TopikHomePage = page(topik, "TopikHomePage");
@@ -234,6 +236,8 @@ export default function App() {
               <Route path="notifications" element={<AdminNotifications />} />
               <Route path="errors" element={<AdminErrors />} />
               <Route path="voices" element={<AdminVoices />} />
+              <Route path="activity" element={<AdminActivity />} />
+              <Route path="texts" element={<AdminTexts />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Route>

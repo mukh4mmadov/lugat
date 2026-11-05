@@ -13,8 +13,12 @@ import { dataReady } from "./data";
 import { captureReferral } from "./lib/growth";
 import { watchErrors } from "./lib/errorReport";
 import { loadVoiceMap } from "./lib/voiceMap";
+import { applyCachedTextOverrides, loadTextOverrides } from "./lib/textOverrides";
+import { loadPremiumPrices } from "./lib/premium";
+import { supabase } from "./lib/supabase";
 
 watchErrors();
+applyCachedTextOverrides();
 captureReferral();
 
 const motionFeatures = () => import("./lib/motionFeatures").then((module) => module.default);
@@ -38,5 +42,9 @@ Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => {
   </React.StrictMode>
   );
   // Which words have a stored pronunciation; fetched once the page is shown.
-  (window.requestIdleCallback || ((callback) => setTimeout(callback, 1500)))(() => loadVoiceMap());
+  (window.requestIdleCallback || ((callback) => setTimeout(callback, 1500)))(() => {
+    loadVoiceMap();
+    loadTextOverrides();
+    loadPremiumPrices(supabase);
+  });
 });

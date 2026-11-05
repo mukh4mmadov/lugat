@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { adminRequest } from "../lib/adminApi";
 import { formatDate, timeAgo } from "../lib/dates";
-import { formatPrice } from "../lib/premium";
+import { formatPrice, PREMIUM_PLANS } from "../lib/premium";
 import { Panel, ServerNotice, StatTile } from "./AdminPage";
 
 const input = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
@@ -139,11 +139,33 @@ export function AdminSettings() {
               ))}
             </Panel>
           </div>
+          <Panel title={t("admin.prices.title")}>
+            <PriceForm value={settings.premium_prices} busy={busy} onSave={save} />
+          </Panel>
           <Panel title={t("admin.announce.title")}>
             <AnnouncementForm value={announcement} busy={busy} onSave={save} />
           </Panel>
         </>
       )}
+    </div>
+  );
+}
+
+// Premium prices in so'm. Saved prices show on the site for everyone.
+function PriceForm({ value, busy, onSave }) {
+  const { t } = useTranslation();
+  const [prices, setPrices] = useState(() => Object.fromEntries(PREMIUM_PLANS.map((plan) => [plan.id, String(value?.[plan.id] ?? plan.price)])));
+  const parsed = Object.fromEntries(Object.entries(prices).map(([key, text]) => [key, Number(text)]));
+  const valid = Object.values(parsed).every((price) => Number.isInteger(price) && price >= 1000);
+  return (
+    <div className="grid gap-2 sm:grid-cols-4">
+      {PREMIUM_PLANS.map((plan) => (
+        <label key={plan.id} className="text-xs font-bold text-slate-500">
+          {t("admin.prices.months", { count: plan.months })}
+          <input type="number" min="1000" value={prices[plan.id]} onChange={(event) => setPrices((current) => ({ ...current, [plan.id]: event.target.value }))} className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900 dark:text-white" />
+        </label>
+      ))}
+      <button type="button" disabled={busy || !valid} onClick={() => onSave("premium_prices", parsed)} className="self-end rounded-xl bg-violet-600 px-3 py-2.5 text-xs font-black text-white disabled:opacity-50">{t("admin.ai.save")}</button>
     </div>
   );
 }

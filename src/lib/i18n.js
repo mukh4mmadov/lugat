@@ -26,11 +26,26 @@ i18n.use(initReactI18next).init({
   contextSeparator: "_",
 });
 
+// Text changed in the admin panel goes on top of the built-in text.
+let textOverrides = {};
+const builtIn = {};
+
+function applyOverrides(code) {
+  if (!builtIn[code]) return;
+  i18n.addResourceBundle(code, "translation", { ...builtIn[code], ...textOverrides[code] }, true, true);
+}
+
+export function setTextOverrides(overrides) {
+  textOverrides = overrides || {};
+  Object.keys(builtIn).forEach(applyOverrides);
+}
+
 export async function loadLanguage(language) {
   const code = LOADERS[language] ? language : "uz";
   if (!i18n.hasResourceBundle(code, "translation")) {
     const module = await LOADERS[code]();
-    i18n.addResourceBundle(code, "translation", module.default, true, true);
+    builtIn[code] = module.default;
+    applyOverrides(code);
   }
   return code;
 }
