@@ -22,7 +22,8 @@ const LANGUAGE_NAMES = { uz: "Uzbek", en: "English", ru: "Russian" };
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const GEMINI_TIMEOUT_MS = 25000;
 const GEMINI_MODEL = process.env.SPEAKING_MODEL || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+const geminiUrl = (model) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+export const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-2.5-flash-lite";
 const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
@@ -143,8 +144,8 @@ function sanitizeHistory(history) {
     .map((turn) => `${turn.role === "learner" ? "Learner" : "Friday"}: ${turn.text.trim().slice(0, 500)}`);
 }
 
-async function askGemini(systemPrompt, history, audioBase64) {
-  const response = await fetch(GEMINI_URL, {
+async function askGemini(systemPrompt, history, audioBase64, model = GEMINI_MODEL) {
+  const response = await fetch(geminiUrl(model), {
     signal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -245,13 +246,13 @@ async function turn(db, user, body, res) {
   let result;
   const geminiStarted = Date.now();
   try {
-    const ask = () => askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio);
-    // The model sometimes fails; one quiet retry beats an error. Failures show
-    // in the admin Errors tab.
+    const ask = (model) => askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio, model);
+    // The model is sometimes overloaded: one quiet retry on another model
+    // beats an error. Failures show in the admin Errors tab.
     result = cleanResult(
       await ask().catch(async (error) => {
         await logFailure(db, error);
-        return ask();
+        return ask(FALLBACK_MODEL);
       }),
       premium,
     );

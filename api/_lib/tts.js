@@ -120,6 +120,14 @@ async function synthesizeCloudflare(input) {
 // For the admin: which services are set up and what each one answers.
 export async function checkTts() {
   const report = { google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
+  const fallback = process.env.SPEAKING_FALLBACK_MODEL || "gemini-2.5-flash-lite";
+  const answer = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${fallback}:generateContent?key=${process.env.GEMINI_API_KEY}`, {
+    method: "POST",
+    signal: AbortSignal.timeout(10000),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ contents: [{ parts: [{ text: "Say OK" }] }] }),
+  }).catch(() => null);
+  report.fallbackModel = { name: fallback, status: answer?.status ?? "no answer" };
   if (!report.cloudflare) return report;
   try {
     const result = await askCloudflare("안녕하세요, 저는 프라이데이예요.", "kr", 12000);

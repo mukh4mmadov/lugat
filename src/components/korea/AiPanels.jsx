@@ -76,7 +76,9 @@ export function ConsultantPanel() {
   const [error, setError] = useState("");
   const end = useRef(null);
 
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), [messages]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [messages]);
   if (!user) return <SignInCard />;
 
   async function ask(text) {

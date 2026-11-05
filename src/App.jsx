@@ -16,7 +16,7 @@ import { isChunkError, reloadForNewVersion } from "./lib/errorReport";
 const page = (load, name = "default") =>
   lazy(() =>
     load().then(
-      (module) => ({ default: module[name] }),
+      (module) => (module ? { default: module[name] } : new Promise(() => {})),
       (error) => {
         if (isChunkError(error) && reloadForNewVersion()) return new Promise(() => {});
         throw error;
