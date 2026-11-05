@@ -1,9 +1,12 @@
 import { applyCustomContent, applyWordOverrides } from "../data";
-import { contentChanged, showDrafts } from "./contentVersion";
+import { contentChanged, markAddedLessonsKnown, showDrafts } from "./contentVersion";
 import { supabase } from "./supabase";
 
 const CACHE_KEY = "k-talim:word-overrides";
 const CUSTOM_KEY = "k-talim:custom-words";
+
+// A stuck request must not leave a wrong lesson link on a blank page.
+const LESSONS_WAIT_MS = 8000;
 
 const FIELDS = "word_key, uzbek, english, russian, romanization, example, needs_review";
 
@@ -23,7 +26,8 @@ export function initWordOverrides() {
   } catch {
     // A bad cache only means we wait for the network.
   }
-  refreshWordOverrides();
+  window.setTimeout(markAddedLessonsKnown, LESSONS_WAIT_MS);
+  refreshWordOverrides().finally(markAddedLessonsKnown);
 }
 
 export async function refreshWordOverrides() {

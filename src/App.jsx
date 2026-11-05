@@ -1,4 +1,4 @@
-import { useContentVersion } from "./lib/contentVersion";
+import { addedLessonsKnown, useContentVersion } from "./lib/contentVersion";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
@@ -100,7 +100,7 @@ function LessonRouteGuard({ children }) {
   const parsed = Number(lessonId);
   const valid =
     Number.isInteger(parsed) && parsed >= 1 && parsed <= lessonInfo.length;
-  if (!valid) return <Navigate to="/404" replace />;
+  if (!valid) return addedLessonsKnown() ? <Navigate to="/404" replace /> : null;
   return children;
 }
 

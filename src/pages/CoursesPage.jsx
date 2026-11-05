@@ -11,6 +11,7 @@ import {
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
 import { getCourses, getCourseLessons } from "../data";
+import { useContentVersion } from "../lib/contentVersion";
 import { selectLessonProgress } from "../store";
 import { useSelector } from "react-redux";
 
@@ -20,7 +21,8 @@ export default function CoursesPage() {
   const navigate = useNavigate();
   const progress = useSelector((state) => state.progress);
 
-  const courses = useMemo(() => getCourses(), []);
+  const contentVersion = useContentVersion();
+  const courses = useMemo(() => getCourses(), [contentVersion]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (courseId) {
     const course = courses.find((c) => c.id === courseId);
