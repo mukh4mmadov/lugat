@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { extendPremium } from "./_lib/premium.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Premium days learners earn themselves. A 7-day streak gives 1 day of
 // Premium, at most once every 30 days. The streak is read from the learner's
@@ -23,7 +24,6 @@ export const INVITE_TIERS = [
   [10, 30],
   [20, 90],
 ];
-const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;

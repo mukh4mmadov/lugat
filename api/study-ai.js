@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { SOURCES, UNIVERSITIES } from "../src/data/korea/universities.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // AI help for studying in Korea:
 //   GET  /api/study-ai                                    limits used today / this week, my documents
@@ -13,7 +14,6 @@ import { SOURCES, UNIVERSITIES } from "../src/data/korea/universities.js";
 
 const GEMINI_MODEL = process.env.STUDY_MODEL || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
-const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const LANGUAGE_NAMES = { uz: "Uzbek (Latin script)", en: "English", ru: "Russian" };
 const DOC_KINDS = {

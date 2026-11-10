@@ -3,6 +3,7 @@ import { getGrammarPoint } from "../src/data/grammar/index.js";
 import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
 import { BACKUP_MODEL, MAIN_MODEL, modelUrl } from "./_lib/aiModels.js";
 import { takeQuota } from "./_lib/aiQuota.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
@@ -747,15 +748,10 @@ export default async function handler(req, res) {
   }
 
   const origin = getHeader(req, "origin");
-  const allowedOrigins = [
-    "https://lugat-six.vercel.app",
-    "http://localhost:5173",
-    "http://localhost:3000",
-  ];
 
   const isProjectPreview =
     origin && /^https:\/\/lugat-[a-z0-9-]+\.vercel\.app$/.test(origin);
-  const isAllowed = allowedOrigins.includes(origin) || isProjectPreview;
+  const isAllowed = ALLOWED_ORIGINS.includes(origin) || isProjectPreview;
 
   if (!origin || !isAllowed) {
     return res.status(403).json({

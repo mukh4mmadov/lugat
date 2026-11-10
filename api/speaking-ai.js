@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSpeakingTopic } from "../src/data/speakingTopics.js";
 import { synthesize } from "./_lib/tts.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Speaking practice with the AI partner, Friday. The learner records a turn in
 // Korean (16 kHz WAV), Gemini listens to it and answers in Korean with a
@@ -24,7 +25,6 @@ const GEMINI_TIMEOUT_MS = 25000;
 const GEMINI_MODEL = process.env.SPEAKING_MODEL || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const geminiUrl = (model) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
 export const FALLBACK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
-const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;

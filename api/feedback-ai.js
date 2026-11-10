@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { waitUntil } from "@vercel/functions";
 import { siteKnowledge } from "./_lib/siteKnowledge.js";
 import { takeQuota } from "./_lib/aiQuota.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Feedback assistant. After a learner opens a ticket or writes in it, the page
 // calls this endpoint. When the site knowledge answers the question, the
@@ -21,7 +22,6 @@ const PRIORITIES = ["low", "normal", "high", "urgent"];
 const GEMINI_TIMEOUT_MS = 25000;
 const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`;
-const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 
 function serviceClient() {
   const url = process.env.SUPABASE_URL;

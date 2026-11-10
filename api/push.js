@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { chunks, pushAdminNotifications, pushConfigured, sendReminder } from "./_lib/push.js";
+import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Web push reminders the learner turned on.
 //
@@ -13,7 +14,6 @@ import { chunks, pushAdminNotifications, pushConfigured, sendReminder } from "./
 //        to call; it only sends what the database triggers have already recorded.
 //   Authorization: Bearer <session> (POST)
 
-const ALLOWED_ORIGINS = ["https://lugat-six.vercel.app", "http://localhost:5173", "http://localhost:3000"];
 const originAllowed = (origin) => Boolean(origin) && (ALLOWED_ORIGINS.includes(origin) || /^https:\/\/lugat-[a-z0-9-]+\.vercel\.app$/.test(origin));
 const PARTNER_PUSHES = 5;
 
