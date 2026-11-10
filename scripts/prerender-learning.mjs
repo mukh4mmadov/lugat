@@ -20,7 +20,9 @@ import uz from "../src/locales/uz.js";
 
 const SITE = "https://lugat-six.vercel.app";
 const shell = fs.readFileSync("dist/index.html", "utf8");
-fs.writeFileSync("dist/app.html", shell);
+// The shell serves every route without a page of its own, so it must not name
+// the home page as their address: the app sets the right one on load.
+fs.writeFileSync("dist/app.html", shell.replace(/\s*<link rel="canonical"[^>]*>/, "").replace(/\s*<meta property="og:url"[^>]*>/, ""));
 
 const escape = (text) => String(text ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const clip = (text, length) => (text.length > length ? `${text.slice(0, length - 1).replace(/\s+\S*$/, "")}…` : text);

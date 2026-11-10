@@ -55,7 +55,15 @@ export default function PageTitle() {
     else title = t("notFound.title");
     // University pages set their own title.
     if (!(section === "korea" && id)) document.title = title ? `${title} — K-TALIM` : "K-TALIM";
-    document.querySelector('link[rel="canonical"]')?.setAttribute("href", `${SITE}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`);
+    // The shared page shell has no canonical address of its own, so the link
+    // is created here when the page did not come with one.
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `${SITE}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`);
     document.documentElement.lang = String(i18n.language || "uz").slice(0, 2);
   }, [pathname, t, i18n.language]);
 
