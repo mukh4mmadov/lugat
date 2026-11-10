@@ -2,6 +2,7 @@ import { getTopikExam, getTopikVariant, getVariantQuestions, registerTopikExams 
 import { getGrammarPoint } from "../src/data/grammar/index.js";
 import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
 import { BACKUP_MODEL, MAIN_MODEL, modelUrl } from "./_lib/aiModels.js";
+import { takeQuota } from "./_lib/aiQuota.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
   const langNames = {
@@ -125,8 +126,6 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY) {
   }
 }
 
-const memoryRateLimiters = new Map();
-
 // Daily AI questions. Free accounts are also counted per device, so opening
 // new accounts on the same browser doesn't reset the allowance. The premium
 // cap only guards against runaway costs.
@@ -158,23 +157,6 @@ function getClientIp(req) {
   return getHeader(req, "x-real-ip") || "unknown";
 }
 
-function checkMemoryRateLimit(key, maxRequests, windowMs) {
-  const now = Date.now();
-
-  const record = memoryRateLimiters.get(key);
-  if (!record || now > record.resetAt) {
-    memoryRateLimiters.set(key, { count: 1, resetAt: now + windowMs });
-    return { allowed: true, remaining: maxRequests - 1 };
-  }
-
-  if (record.count >= maxRequests) {
-    return { allowed: false, resetAt: record.resetAt, remaining: 0 };
-  }
-
-  record.count += 1;
-  return { allowed: true, remaining: maxRequests - record.count };
-}
-
 async function verifyAuthToken(token) {
   if (!supabaseAuth || !token) return null;
   try {
@@ -183,13 +165,6 @@ async function verifyAuthToken(token) {
     return data.user;
   } catch {
     return null;
-  }
-}
-
-if (Math.random() < 0.05) {
-  const now = Date.now();
-  for (const [key, record] of memoryRateLimiters) {
-    if (now > record.resetAt) memoryRateLimiters.delete(key);
   }
 }
 
@@ -295,7 +270,7 @@ async function checkUserLimit(user, deviceId) {
     const limiter = limiterFor("ratelimit:premium-user", limits.premium);
     const result = limiter
       ? await limiter.limit(`user:${user.id}`)
-      : toUpstashShape(checkMemoryRateLimit(`premium:${user.id}`, limits.premium, DAY_MS));
+      : await takeQuota(`premium:${user.id}`, limits.premium);
     return result.success ? { allowed: true, remaining: result.remaining, isPremium: true, limit: limits.premium } : { ...denied(result.reset), limit: limits.premium };
   }
   if (limits.free <= 0) return { ...denied(), limit: 0 };
@@ -306,18 +281,14 @@ async function checkUserLimit(user, deviceId) {
         userLimit.limit(`user:${user.id}`),
         deviceId ? deviceLimit.limit(`device:${deviceId}`) : Promise.resolve(null),
       ])
-    : [
-        toUpstashShape(checkMemoryRateLimit(`free-user:${user.id}`, limits.free, DAY_MS)),
-        deviceId ? toUpstashShape(checkMemoryRateLimit(`free-device:${deviceId}`, limits.free, DAY_MS)) : null,
-      ];
+    : await Promise.all([
+        takeQuota(`free-user:${user.id}`, limits.free),
+        deviceId ? takeQuota(`free-device:${deviceId}`, limits.free) : null,
+      ]);
   if (!userResult.success) return { ...denied(userResult.reset), limit: limits.free };
   if (deviceResult && !deviceResult.success) return { ...denied(deviceResult.reset), limit: limits.free };
   const remaining = Math.min(userResult.remaining, deviceResult ? deviceResult.remaining : Infinity);
   return { allowed: true, remaining, isPremium: false, limit: limits.free };
-}
-
-function toUpstashShape(result) {
-  return { success: result.allowed, remaining: result.remaining ?? 0, reset: result.resetAt };
 }
 
 async function checkRateLimit(ip, deviceId, user, isTopik = false) {
@@ -333,17 +304,13 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
             isGuest: false,
           };
     }
-    const result = checkMemoryRateLimit(
-      `topik-user:${user.id}`,
-      30,
-      24 * 60 * 60 * 1000,
-    );
-    return result.allowed
+    const result = await takeQuota(`topik-user:${user.id}`, 30);
+    return result.success
       ? { allowed: true }
       : {
           allowed: false,
           reason: "Daily TOPIK AI limit reached. Please try again tomorrow.",
-          resetAt: result.resetAt,
+          resetAt: result.reset,
           isGuest: false,
         };
   }
@@ -373,12 +340,12 @@ async function checkRateLimit(ip, deviceId, user, isTopik = false) {
     return { allowed: true };
   }
 
-  const memoryResult = checkMemoryRateLimit(`ip:${ip}`, 2, DAY_MS);
-  if (!memoryResult.allowed) {
+  const guestResult = await takeQuota(`ip:${ip}`, 2);
+  if (!guestResult.success) {
     return {
       allowed: false,
       reason: "Too many requests. Please wait a moment before trying again.",
-      resetAt: memoryResult.resetAt,
+      resetAt: guestResult.reset,
       isGuest: !user,
     };
   }
@@ -442,14 +409,14 @@ async function checkReviewLimit(user, deviceId, premium) {
   if (premium) {
     return reviewPremiumLimiter
       ? reviewPremiumLimiter.limit(key)
-      : toUpstashShape(checkMemoryRateLimit(`review-premium:${user.id}`, REVIEW_PREMIUM_DAILY, DAY_MS));
+      : takeQuota(`review-premium:${user.id}`, REVIEW_PREMIUM_DAILY);
   }
   const [userResult, deviceResult] = reviewFreeLimiter
     ? await Promise.all([reviewFreeLimiter.limit(key), deviceId ? reviewDeviceLimiter.limit(`device:${deviceId}`) : Promise.resolve(null)])
-    : [
-        toUpstashShape(checkMemoryRateLimit(`review-free:${user.id}`, REVIEW_FREE_DAILY, DAY_MS)),
-        deviceId ? toUpstashShape(checkMemoryRateLimit(`review-device:${deviceId}`, REVIEW_FREE_DAILY, DAY_MS)) : null,
-      ];
+    : await Promise.all([
+        takeQuota(`review-free:${user.id}`, REVIEW_FREE_DAILY),
+        deviceId ? takeQuota(`review-device:${deviceId}`, REVIEW_FREE_DAILY) : null,
+      ]);
   if (!userResult.success) return userResult;
   if (deviceResult && !deviceResult.success) return deviceResult;
   return { success: true, remaining: Math.min(userResult.remaining, deviceResult ? deviceResult.remaining : Infinity) };
@@ -566,7 +533,7 @@ async function checkGrammarLimit(user, premium) {
   const limiter = premium ? grammarPremiumLimiter : limiterFor("ratelimit:grammar-free", freeLimit);
   return limiter
     ? limiter.limit(`user:${user.id}`)
-    : toUpstashShape(checkMemoryRateLimit(`grammar-${premium ? "premium" : "free"}:${user.id}`, premium ? GRAMMAR_PREMIUM_DAILY : freeLimit, DAY_MS));
+    : takeQuota(`grammar-${premium ? "premium" : "free"}:${user.id}`, premium ? GRAMMAR_PREMIUM_DAILY : freeLimit);
 }
 
 // Every checked sentence is kept in the account (grammar_checks).
