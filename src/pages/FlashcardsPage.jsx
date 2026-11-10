@@ -27,6 +27,7 @@ import {
   pickRandomCardMode,
 } from "../lib/study";
 import { SRS_RATINGS, getDueWords } from "../lib/srs";
+import { MIN_FLASHCARD_MS } from "../lib/gamification";
 import { speakKorean } from "../lib/speech";
 import { selectDifficultWords, selectFavoriteWords, selectWeakWords } from "../store";
 
@@ -121,7 +122,9 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
     ? getWordMastery(getWordKey(word), progress.words)
     : null;
 
+  const shownAtRef = useRef(Date.now());
   useEffect(() => {
+    shownAtRef.current = Date.now();
     setFlipped(false);
     setHint("");
     if (mode === "random") {
@@ -304,7 +307,10 @@ export default function FlashcardsPage({ review = false, weak = false, list = nu
   function rate(rating) {
     if (!word || advanceRef.current) return;
     const key = getWordKey(word);
-    dispatch(rateFlashcard({ key, rating }));
+    const quick = Date.now() - shownAtRef.current < MIN_FLASHCARD_MS;
+    // A one-card deck shows the same word again without the cursor moving.
+    shownAtRef.current = Date.now() + 450;
+    dispatch(rateFlashcard({ key, rating, quick }));
     dispatch(
       addActivity({
         type: rating,

@@ -11,7 +11,19 @@ import {
   SRS_RATINGS,
 } from "./lib/srs";
 import { getWordMastery, getMasteryOverview } from "./lib/mastery";
-import { XP, canFreeze, grantXp, noteAnswerTime, refreshBadges, seedGamification, spendFreeze } from "./lib/gamification";
+import {
+  STUDY_SESSION_REWARDS_PER_DAY,
+  XP,
+  canFreeze,
+  capFlashcardXp,
+  claimAnswerReward,
+  claimBonus,
+  grantXp,
+  noteAnswerTime,
+  refreshBadges,
+  seedGamification,
+  spendFreeze,
+} from "./lib/gamification";
 
 const STORAGE_KEY = "ktalim-1a-progress-v1";
 
@@ -97,14 +109,14 @@ function updateStreak(state, amount = 1) {
 }
 
 // Everything an answer earns: streak, daily count, XP and badges.
-function recordAnswer(state, correct, exerciseType) {
+function recordAnswer(state, correct, exerciseType, xp = correct ? (exerciseType === "dictation" ? XP.dictation : XP.correct) : XP.wrong) {
   updateStreak(state);
   noteAnswerTime(state.stats);
   if (correct && exerciseType) {
     state.stats.typeCorrect = { ...(state.stats.typeCorrect || {}) };
     state.stats.typeCorrect[exerciseType] = (state.stats.typeCorrect[exerciseType] || 0) + 1;
   }
-  grantXp(state, correct ? (exerciseType === "dictation" ? XP.dictation : XP.correct) : XP.wrong);
+  grantXp(state, xp);
   refreshBadges(state);
 }
 
@@ -155,7 +167,8 @@ const progressSlice = createSlice({
         reviewed: 0,
         recentAnswers: [],
       };
-      record.knownCount += 1;
+      const earns = claimAnswerReward(state, key, exerciseType);
+      if (earns) record.knownCount += 1;
       record.difficulty = Math.max(0, record.difficulty - 1);
       record.reviewed = Date.now();
       Object.assign(record, applyPracticeAnswer(record, true));
@@ -166,6 +179,7 @@ const progressSlice = createSlice({
         ];
       }
       state.words[key] = record;
+      if (!earns) return;
       state.stats.correct += 1;
       state.stats.studiedWords += 1;
       recordAnswer(state, true, exerciseType);
@@ -183,7 +197,8 @@ const progressSlice = createSlice({
         reviewed: 0,
         recentAnswers: [],
       };
-      record.wrongCount += 1;
+      const earns = claimAnswerReward(state, key, exerciseType);
+      if (earns) record.wrongCount += 1;
       record.difficulty += 2;
       record.reviewed = Date.now();
       Object.assign(record, applyPracticeAnswer(record, false));
@@ -194,6 +209,7 @@ const progressSlice = createSlice({
         ];
       }
       state.words[key] = record;
+      if (!earns) return;
       state.stats.wrong += 1;
       state.stats.studiedWords += 1;
       recordAnswer(state, false, exerciseType);
@@ -253,7 +269,8 @@ const progressSlice = createSlice({
       record.manualDifficult = false;
     },
     rateFlashcard(state, action) {
-      const { key, rating } = action.payload;
+      // `quick`: rated faster than the card could have been read.
+      const { key, rating, quick } = action.payload;
       const record = state.words[key] || {
         knownCount: 0,
         wrongCount: 0,
@@ -271,14 +288,13 @@ const progressSlice = createSlice({
       // A flashcard rating is also an answer: "again" counts as a miss,
       // anything else as recalled, so lesson progress and mastery move.
       const recalled = rating !== SRS_RATINGS.AGAIN;
+      const earns = !quick && claimAnswerReward(state, key, "flashcard");
       if (recalled) {
-        record.knownCount = (record.knownCount || 0) + 1;
+        if (earns) record.knownCount = (record.knownCount || 0) + 1;
         record.difficulty = Math.max(0, (record.difficulty || 0) - 1);
-        state.stats.correct += 1;
       } else {
-        record.wrongCount = (record.wrongCount || 0) + 1;
+        if (earns) record.wrongCount = (record.wrongCount || 0) + 1;
         record.difficulty = (record.difficulty || 0) + 2;
-        state.stats.wrong += 1;
       }
       record.reviewed = Date.now();
       record.recentAnswers = [
@@ -286,8 +302,11 @@ const progressSlice = createSlice({
         { correct: recalled, exerciseType: "flashcard", timestamp: Date.now() },
       ];
       state.words[key] = record;
+      if (!earns) return;
+      if (recalled) state.stats.correct += 1;
+      else state.stats.wrong += 1;
       state.stats.studiedWords += 1;
-      recordAnswer(state, recalled, "flashcard");
+      recordAnswer(state, recalled, "flashcard", capFlashcardXp(state, recalled ? XP.flashcard : XP.wrong));
     },
     updateSRSFromExercise(state, action) {
       const { key, correct } = action.payload;
@@ -329,15 +348,21 @@ const progressSlice = createSlice({
     },
     recordStudySession(state) {
       state.stats.sessionsDone = (state.stats.sessionsDone || 0) + 1;
-      grantXp(state, XP.session);
+      if (claimBonus(state, "studySession", STUDY_SESSION_REWARDS_PER_DAY)) grantXp(state, XP.session);
       refreshBadges(state);
     },
+    // Rewarded once a day per paper and mode, and only when at least half
+    // the questions were answered, so submitting an empty paper earns nothing.
     recordTopik(state, action) {
+      const { variantId = "", answered = 0, total = 0 } = action.payload || {};
       const score = Number(action.payload?.score) || 0;
       state.stats.topikAttempts = (state.stats.topikAttempts || 0) + 1;
       state.stats.topikBest = Math.max(state.stats.topikBest || 0, score);
-      updateStreak(state, 10);
-      grantXp(state, XP.topik + Math.round(score / 2));
+      const serious = total > 0 && answered * 2 >= total;
+      if (serious) {
+        updateStreak(state, 10);
+        if (claimBonus(state, `topik:${variantId}`)) grantXp(state, XP.topik + Math.round(score / 2));
+      }
       refreshBadges(state);
     },
     recordSpeaking(state, action) {
@@ -354,8 +379,11 @@ const progressSlice = createSlice({
       state.grammar = state.grammar || {};
       const before = state.grammar[id];
       state.grammar[id] = { done: true, best: Math.max(before?.best || 0, score), at: Date.now() };
-      updateStreak(state, 5);
-      grantXp(state, before?.done ? 5 : XP.grammar);
+      // Repeats pay a little, once a day per grammar point.
+      if (!before?.done || claimBonus(state, `grammar:${id}`)) {
+        updateStreak(state, 5);
+        grantXp(state, before?.done ? 5 : XP.grammar);
+      }
       refreshBadges(state);
     },
     // A story read to the end with its questions answered.
@@ -365,8 +393,12 @@ const progressSlice = createSlice({
       const before = state.stories[id];
       const passed = score >= 50;
       state.stories[id] = { read: Boolean(before?.read || passed), best: Math.max(before?.best || 0, score), at: Date.now() };
-      updateStreak(state, 5);
-      grantXp(state, before?.read || !passed ? 5 : XP.story);
+      const firstPass = passed && !before?.read;
+      // Repeats and failed tries pay a little, once a day per story.
+      if (firstPass || claimBonus(state, `story:${id}`)) {
+        updateStreak(state, 5);
+        grantXp(state, firstPass ? XP.story : 5);
+      }
       refreshBadges(state);
     },
     clearFx(state) {

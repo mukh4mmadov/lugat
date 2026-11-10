@@ -587,12 +587,17 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
     updateTopikAttempt(attempt.id, { timeSpent: timeSpentRef.current });
     const submitted = submitTopikAttempt(attempt.id);
     if (submitted) {
-      dispatch(recordTopik({ score: submitted.result?.total }));
+      dispatch(recordTopik({
+        score: submitted.result?.total,
+        variantId: submitted.variantId,
+        answered: questions.filter((item) => submitted.answers?.[item.number]).length,
+        total: questions.length,
+      }));
       onSubmitted(submitted);
     } else {
       submittedRef.current = false;
     }
-  }, [attempt.id, onSubmitted, dispatch]);
+  }, [attempt.id, onSubmitted, dispatch, questions]);
 
   const questionRef = useRef(question);
   questionRef.current = question;

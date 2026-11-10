@@ -5,6 +5,8 @@ import { dailyKey } from "./dayKey.js";
 export const XP = {
   correct: 10,
   wrong: 2,
+  // Flashcards are rated by the learner, not checked, so they earn less.
+  flashcard: 5,
   dictation: 15,
   session: 20,
   goal: 25,
@@ -116,6 +118,48 @@ export function grantXp(state, amount) {
   events.gain = (Date.now() - events.at < 1500 ? events.gain : 0) + amount;
   events.at = Date.now();
   if (after > before) events.levelUp = after;
+}
+
+// Anti-farming limits. Repeats past them still train the word (its review
+// schedule moves) but earn no XP and don't count towards the daily goal, the
+// leaderboard or mastery.
+export const ANSWER_REWARDS_PER_DAY = 2;
+export const FLASHCARD_XP_PER_DAY = 200;
+export const MIN_FLASHCARD_MS = 1200;
+export const STUDY_SESSION_REWARDS_PER_DAY = 10;
+
+function rewardLog(state) {
+  const today = dailyKey();
+  if (state.rewardLog?.day !== today) state.rewardLog = { day: today, answers: {}, bonus: {}, flashcardXp: 0 };
+  return state.rewardLog;
+}
+
+// A word earns from each exercise type twice a day.
+export function claimAnswerReward(state, key, exerciseType) {
+  const log = rewardLog(state);
+  const id = `${exerciseType || "answer"}:${key}`;
+  const used = log.answers[id] || 0;
+  if (used >= ANSWER_REWARDS_PER_DAY) return false;
+  log.answers[id] = used + 1;
+  return true;
+}
+
+// Whole-activity rewards (a TOPIK paper, a grammar point, ...) pay out
+// `limit` times a day each.
+export function claimBonus(state, id, limit = 1) {
+  const log = rewardLog(state);
+  const used = log.bonus[id] || 0;
+  if (used >= limit) return false;
+  log.bonus[id] = used + 1;
+  return true;
+}
+
+// The part of `amount` still under today's flashcard XP cap.
+export function capFlashcardXp(state, amount) {
+  const log = rewardLog(state);
+  const allowed = Math.max(0, Math.min(amount, FLASHCARD_XP_PER_DAY - log.flashcardXp));
+  log.flashcardXp += allowed;
+  return allowed;
 }
 
 export function refreshBadges(state) {
