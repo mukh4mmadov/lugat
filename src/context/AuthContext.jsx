@@ -148,8 +148,9 @@ export function AuthProvider({ children }) {
       setUser(session?.user ?? null);
 
       if (session?.user) {
-        // A token refresh changes nothing that needs the profile reloaded.
-        if (event === "TOKEN_REFRESHED") return;
+        // A token refresh changes nothing that needs the profile reloaded,
+        // unless it is the first one after an offline start.
+        if (event === "TOKEN_REFRESHED" && hasSyncedRef.current) return;
         // Supabase holds its auth lock while this callback runs, so awaiting
         // another Supabase call here deadlocks (e.g. on a token refresh).
         // Run the follow-up queries after the callback returns.
