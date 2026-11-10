@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { waitUntil } from "@vercel/functions";
 import { siteKnowledge } from "./_lib/siteKnowledge.js";
+import { takeQuota } from "./_lib/aiQuota.js";
 
 // Feedback assistant. After a learner opens a ticket or writes in it, the page
 // calls this endpoint. When the site knowledge answers the question, the
@@ -11,7 +12,6 @@ import { siteKnowledge } from "./_lib/siteKnowledge.js";
 //   POST /api/feedback-ai { ticketId }   Authorization: Bearer <learner session>
 //   → 202 { action: "queued" } while it works, 200 { action: "skip" | "off" } otherwise
 
-const DAY_MS = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 // After this many assistant replies on one ticket a person takes over.
 const MAX_AI_REPLIES = 3;
@@ -42,18 +42,9 @@ if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) 
   }
 }
 
-const memoryCounts = new Map();
-
 async function underDailyLimit(userId) {
   if (dailyLimiter) return (await dailyLimiter.limit(`user:${userId}`)).success;
-  const now = Date.now();
-  const record = memoryCounts.get(userId);
-  if (!record || now > record.resetAt) {
-    memoryCounts.set(userId, { count: 1, resetAt: now + DAY_MS });
-    return true;
-  }
-  record.count += 1;
-  return record.count <= DAILY_LIMIT;
+  return (await takeQuota(`feedback-ai:${userId}`, DAILY_LIMIT)).success;
 }
 
 function originAllowed(origin) {
