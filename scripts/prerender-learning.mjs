@@ -18,7 +18,7 @@ import { SPEAKING_TOPICS } from "../src/data/speakingTopics.js";
 import { TOPIK_EXAMS } from "../src/data/topik/exams.js";
 import uz from "../src/locales/uz.js";
 
-const SITE = "https://lugat-six.vercel.app";
+const SITE = "https://www.ktalim.uz";
 const shell = fs.readFileSync("dist/index.html", "utf8");
 // The shell serves every route without a page of its own, so it must not name
 // the home page as their address: the app sets the right one on load.
