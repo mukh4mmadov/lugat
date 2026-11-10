@@ -178,7 +178,7 @@ const ownerTools = [
 // Deleting accounts, admin rights and password resets stay in the admin panel:
 // the tutor also reads learners' text, which must never be able to trigger
 // something that cannot be undone.
-const SITE = "https://lugat-six.vercel.app";
+const SITE = "https://www.ktalim.uz";
 const CHECK_MODEL = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
 const CONFIRMED = /^\s*(ha|xo'?p|xop|mayli|tasdiq|yes|ok|да)\b/i;
 const idParameter = { user_id: { type: "STRING" } };

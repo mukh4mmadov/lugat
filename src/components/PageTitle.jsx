@@ -36,7 +36,7 @@ const SECTIONS = {
 };
 const MODES = { flashcards: "practice.flashcards", listening: "practice.listening", quiz: "practice.quiz", writing: "practice.writing", dictation: "dictation.title" };
 
-const SITE = "https://lugat-six.vercel.app";
+const SITE = "https://www.ktalim.uz";
 
 // Sets the browser tab title from the current route, e.g. "Lesson 3 · Quiz — K-TALIM".
 export default function PageTitle() {

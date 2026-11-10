@@ -805,7 +805,7 @@ async function act(db, actor, body) {
   if (action === "resetPassword") {
     const { data, error } = await db.auth.admin.getUserById(userId);
     if (error || !data.user?.email) return [404, { error: "User not found" }];
-    const site = process.env.SITE_URL || "https://lugat-six.vercel.app";
+    const site = process.env.SITE_URL || "https://www.ktalim.uz";
     const { error: sendError } = await db.auth.resetPasswordForEmail(data.user.email, { redirectTo: site + "/reset-password" });
     if (sendError) return [500, { error: "Could not send the email" }];
     return [200, { sent: true }];

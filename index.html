@@ -3,14 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // K-TALIM moved to https://www.ktalim.uz. A browser keeps saved data per address, so the
+      // old address sends visitors on with what a guest kept here. Sign-in
+      // tokens stay behind, and links from sign-in emails still open here.
+      (function () {
+        var NEW_SITE = "https://www.ktalim.uz";
+        var MARK = "#ktalim-handoff=";
+        var CACHES = /^(sb-|k-talim:(word-overrides|voice-map|text-overrides|content-overrides|custom-words|custom-topik|premium-prices|new-version-reload|last-route|show-drafts))/;
+        var ON_SERVER = /^(ktalim-1a-progress-v1|ktalim-progress-updated-at|k-talim:topik-attempts:v1)$/;
+        function encode(text) {
+          var bytes = new TextEncoder().encode(text);
+          if (!window.CompressionStream) return Promise.resolve("raw." + encodeURIComponent(text));
+          var stream = new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"));
+          return new Response(stream).arrayBuffer().then(function (buffer) {
+            var binary = "";
+            var view = new Uint8Array(buffer);
+            for (var i = 0; i < view.length; i += 1) binary += String.fromCharCode(view[i]);
+            return "gz." + btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+          });
+        }
+        function decode(text) {
+          if (text.indexOf("raw.") === 0) return Promise.resolve(decodeURIComponent(text.slice(4)));
+          var base64 = text.slice(3).replace(/-/g, "+").replace(/_/g, "/");
+          var binary = atob(base64);
+          var bytes = new Uint8Array(binary.length);
+          for (var i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+          var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+          return new Response(stream).text();
+        }
+        try {
+          if (location.hostname === "lugat-six.vercel.app") {
+            if (/^\/(auth|reset-password)/.test(location.pathname)) return;
+            var target = NEW_SITE + location.pathname + location.search;
+            var data = {};
+            var signedIn = Boolean(localStorage.getItem("ktalim-progress-owner"));
+            for (var i = 0; i < localStorage.length; i += 1) {
+              var key = localStorage.key(i);
+              if (CACHES.test(key) || (signedIn && ON_SERVER.test(key))) continue;
+              data[key] = localStorage.getItem(key);
+            }
+            if (!Object.keys(data).length) return location.replace(target + location.hash);
+            var leave = function (payload) { location.replace(payload && payload.length < 500000 ? target + MARK + payload : target + location.hash); };
+            encode(JSON.stringify(data)).then(leave, function () { leave(""); });
+          } else if (location.hash.indexOf(MARK) === 0) {
+            var payload = location.hash.slice(MARK.length);
+            history.replaceState(null, "", location.pathname + location.search);
+            decode(payload).then(function (text) {
+              var moved = JSON.parse(text);
+              var added = false;
+              for (var name in moved) {
+                if (localStorage.getItem(name) === null) {
+                  localStorage.setItem(name, moved[name]);
+                  added = true;
+                }
+              }
+              if (added) location.reload();
+            });
+          }
+        } catch (error) {
+          // Nothing to carry over; the site works without it.
+        }
+      })();
+    </script>
     <meta name="description" content="K-TALIM: Koreys tilini o'rganing — 833 so'z, kartochkalar, testlar, TOPIK I mock imtihoni va AI ustoz. Learn Korean vocabulary in Uzbek, English or Russian." />
-    <link rel="canonical" href="https://lugat-six.vercel.app/" />
+    <link rel="canonical" href="https://www.ktalim.uz/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="K-TALIM" />
     <meta property="og:title" content="K-TALIM — Koreys tilini har kuni o'rganing" />
     <meta property="og:description" content="833 so'z, kartochkalar, testlar, TOPIK I mock imtihoni va AI ustoz. Bepul boshlang." />
-    <meta property="og:url" content="https://lugat-six.vercel.app/" />
-    <meta property="og:image" content="https://lugat-six.vercel.app/og-image.jpg" />
+    <meta property="og:url" content="https://www.ktalim.uz/" />
+    <meta property="og:image" content="https://www.ktalim.uz/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="uz_UZ" />
@@ -19,7 +82,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="K-TALIM — Koreys tilini har kuni o'rganing" />
     <meta name="twitter:description" content="833 so'z, kartochkalar, testlar, TOPIK I mock imtihoni va AI ustoz." />
-    <meta name="twitter:image" content="https://lugat-six.vercel.app/og-image.jpg" />
+    <meta name="twitter:image" content="https://www.ktalim.uz/og-image.jpg" />
     <meta name="theme-color" content="#0f172a" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />

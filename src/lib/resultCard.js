@@ -2,7 +2,7 @@
 
 const SIZE = 1080;
 const FONT = "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
-export const SITE_URL = "https://lugat-six.vercel.app";
+export const SITE_URL = "https://www.ktalim.uz";
 
 function roundRect(ctx, x, y, width, height, radius) {
   ctx.beginPath();

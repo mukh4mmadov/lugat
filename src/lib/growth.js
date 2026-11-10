@@ -4,7 +4,7 @@ import { supabase } from "./supabase";
 const REF_KEY = "k-talim:ref";
 const DEVICE_SEEN_KEY = "k-talim:ref-device";
 
-export const inviteLink = (code) => `https://lugat-six.vercel.app/?ref=${code}`;
+export const inviteLink = (code) => `https://www.ktalim.uz/?ref=${code}`;
 
 // Keeps an invite code from the address (?ref=CODE) until the visitor has an
 // account and the invite can be linked.

@@ -10,7 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { SOURCES, UNIVERSITIES } from "../../src/data/korea/universities.js";
 
-const SITE = "https://lugat-six.vercel.app";
+const SITE = "https://www.ktalim.uz";
 const shell = fs.readFileSync("dist/index.html", "utf8");
 const escape = (text) => String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const won = (value) => (value ? `₩${Math.round(value).toLocaleString("en-US")}` : null);

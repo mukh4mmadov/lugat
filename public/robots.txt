@@ -6,4 +6,4 @@ Disallow: /auth/
 Disallow: /reset-password
 Disallow: /complete-profile
 
-Sitemap: https://lugat-six.vercel.app/sitemap.xml
+Sitemap: https://www.ktalim.uz/sitemap.xml

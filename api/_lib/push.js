@@ -35,7 +35,7 @@ export function pushConfigured() {
   const publicKey = process.env.VAPID_PUBLIC_KEY;
   const privateKey = process.env.VAPID_PRIVATE_KEY;
   if (!publicKey || !privateKey) return false;
-  webpush.setVapidDetails("https://lugat-six.vercel.app", publicKey, privateKey);
+  webpush.setVapidDetails("https://www.ktalim.uz", publicKey, privateKey);
   return true;
 }
 
