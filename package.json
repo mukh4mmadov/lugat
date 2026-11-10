@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/korea-data/prerender.mjs",
+    "build": "vite build && node scripts/korea-data/prerender.mjs && node scripts/prerender-learning.mjs",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
