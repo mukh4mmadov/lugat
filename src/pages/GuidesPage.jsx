@@ -9,7 +9,7 @@ const HANGUL = /[ᄀ-ᇿ㄰-㆏가-힣]/;
 
 // A table cell; in the Korean column a tap reads the Korean part aloud.
 function Cell({ text, korean, rate, label }) {
-  if (!korean || !HANGUL.test(text)) return <td className="px-3 py-2 align-top">{text}</td>;
+  if (!korean || !HANGUL.test(text)) return <td className="px-2 py-2 align-top sm:px-3">{text}</td>;
   const spoken = text.split("→")[0].replace(/[[\]]/g, "").trim();
   return (
     <td className="px-3 py-2 align-top">
@@ -43,9 +43,9 @@ function Block({ block, rate }) {
   const { head, rows, ko } = block.table;
   return (
     <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/10">
-      <table className="w-full min-w-[420px] border-collapse text-left text-sm">
-        <thead className="bg-slate-100 text-xs font-black uppercase tracking-wide text-slate-500 dark:bg-white/5 dark:text-slate-400">
-          <tr>{head.map((cell) => <th key={cell} scope="col" className="px-3 py-2">{cell}</th>)}</tr>
+      <table className="w-full border-collapse text-left text-sm [&_td]:[overflow-wrap:anywhere]">
+        <thead className="bg-slate-100 text-[11px] font-black text-slate-500 dark:bg-white/5 dark:text-slate-400">
+          <tr>{head.map((cell) => <th key={cell} scope="col" className="px-2 py-2 sm:px-3">{cell}</th>)}</tr>
         </thead>
         <tbody className="divide-y divide-slate-100 text-slate-700 dark:divide-white/5 dark:text-slate-200">
           {rows.map((row) => (
