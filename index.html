@@ -43,16 +43,23 @@
               if (CACHES.test(key) || (signedIn && ON_SERVER.test(key))) continue;
               data[key] = localStorage.getItem(key);
             }
-            if (!Object.keys(data).length) return location.replace(target + location.hash);
-            var leave = function (payload) { location.replace(payload && payload.length < 500000 ? target + MARK + payload : target + location.hash); };
+            // A handoff mark in an incoming link is never passed on: only this
+            // browser's own data may travel.
+            var hash = location.hash.indexOf(MARK) === 0 ? "" : location.hash;
+            if (!Object.keys(data).length) return location.replace(target + hash);
+            var leave = function (payload) { location.replace(payload && payload.length < 500000 ? target + MARK + payload : target + hash); };
             encode(JSON.stringify(data)).then(leave, function () { leave(""); });
           } else if (location.hash.indexOf(MARK) === 0) {
             var payload = location.hash.slice(MARK.length);
             history.replaceState(null, "", location.pathname + location.search);
+            // Only a move made by the old address is taken in, and only the
+            // site's own keys: never sign-in tokens or cached site content.
+            if (document.referrer.indexOf("https://lugat-six.vercel.app/") !== 0) return;
             decode(payload).then(function (text) {
               var moved = JSON.parse(text);
               var added = false;
               for (var name in moved) {
+                if (!/^(ktalim|k-talim:|language$)/.test(name) || CACHES.test(name) || typeof moved[name] !== "string") continue;
                 if (localStorage.getItem(name) === null) {
                   localStorage.setItem(name, moved[name]);
                   added = true;
