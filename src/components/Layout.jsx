@@ -208,6 +208,7 @@ export default function Layout({ onShowIELTSModal }) {
         ["/study", t("nav.study"), "🃏"],
         ["/grammar", t("grammar.title"), "📐"],
         ["/stories", t("stories.title"), "📖"],
+        ["/guides", t("guides.title"), "📘"],
         ["/review", t("nav.review"), "🔁"],
         ["/favorites", t("nav.favorites"), "⭐"],
         ["/difficult", t("nav.difficult"), "🧩"],

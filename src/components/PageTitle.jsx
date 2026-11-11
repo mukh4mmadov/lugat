@@ -26,6 +26,7 @@ const SECTIONS = {
   korea: "nav.korea",
   grammar: "grammar.title",
   stories: "stories.title",
+  guides: "guides.title",
   achievements: "nav.achievements",
   "forgot-password": "forgotPassword.title",
   "reset-password": "resetPassword.title",

@@ -16,6 +16,7 @@ import { GRAMMAR } from "../src/data/grammar/index.js";
 import { STORIES } from "../src/data/stories/index.js";
 import { SPEAKING_TOPICS } from "../src/data/speakingTopics.js";
 import { TOPIK_EXAMS } from "../src/data/topik/exams.js";
+import { GUIDES } from "../src/data/guides.js";
 import uz from "../src/locales/uz.js";
 
 const SITE = "https://www.ktalim.uz";
@@ -75,7 +76,7 @@ function write(route, html) {
   fs.writeFileSync(file, html);
   if (route) written.push(`${SITE}/${route}`);
 }
-const nav = `<p><a href="/">Bosh sahifa</a> · <a href="/courses">Darslar</a> · <a href="/grammar">Grammatika</a> · <a href="/stories">Hikoyalar</a> · <a href="/speaking">Gaplashish</a> · <a href="/topik">TOPIK I</a> · <a href="/korea">Koreyada o'qish</a></p>`;
+const nav = `<p><a href="/">Bosh sahifa</a> · <a href="/courses">Darslar</a> · <a href="/grammar">Grammatika</a> · <a href="/stories">Hikoyalar</a> · <a href="/speaking">Gaplashish</a> · <a href="/topik">TOPIK I</a> · <a href="/korea">Koreyada o'qish</a> · <a href="/guides">Qo'llanmalar</a></p>`;
 
 // Lessons: every word with its reading and meaning.
 for (const lesson of lessons) {
@@ -170,9 +171,41 @@ write(
     url: `${SITE}/topik`,
     title: "TOPIK I mock imtihon onlayn — tinglash va o'qish | K-TALIM",
     description: `TOPIK I mock imtihoni: ${examList}, har biri ${TOPIK_EXAMS[0].questions.length} savol, haqiqiy vaqt bilan yoki bo'limma-bo'lim. Natija, daraja va AI xato tushuntirishi.`,
-    body: `${nav}<h1>TOPIK I mock imtihon</h1><p>${TOPIK_EXAMS.length} ta haqiqiy TOPIK I varianti (${examList}), har biri ${TOPIK_EXAMS[0].questions.length} savol: tinglash va o'qish. To'liq imtihonni vaqt bilan yoki har bir bo'limni alohida yeching. Oxirida ball, taxminiy daraja va AI xatolaringizni o'zbekcha tushuntiradi. Har bir imtihonning muhim so'zlari ham alohida sahifada.</p><ul>${TOPIK_EXAMS.map((exam) => `<li><a href="/topik/words/${exam.id}">${exam.number}-imtihon so'zlari</a></li>`).join("")}</ul>`,
+    body: `${nav}<h1>TOPIK I mock imtihon</h1><p>${TOPIK_EXAMS.length} ta haqiqiy TOPIK I varianti (${examList}), har biri ${TOPIK_EXAMS[0].questions.length} savol: tinglash va o'qish. To'liq imtihonni vaqt bilan yoki har bir bo'limni alohida yeching. Oxirida ball, taxminiy daraja va AI xatolaringizni o'zbekcha tushuntiradi. Har bir imtihonning muhim so'zlari ham alohida sahifada.</p><ul>${TOPIK_EXAMS.map((exam) => `<li><a href="/topik/words/${exam.id}">${exam.number}-imtihon so'zlari</a></li>`).join("")}</ul><p><a href="/guides/topik">TOPIK nima va qanday topshiriladi</a></p>`,
   }),
 );
+
+// Guides: the same text the app shows at /guides/<slug>.
+function guideBlock(block) {
+  if (block.p) return `<p>${escape(block.p)}</p>`;
+  if (block.list) return `<ul>${block.list.map((item) => `<li>${escape(item)}</li>`).join("")}</ul>`;
+  if (block.links) return `<p>${block.links.map((link) => `<a href="${link.to}">${escape(link.label)}</a>`).join(" · ")}</p>`;
+  const { head, rows, ko } = block.table;
+  const cell = (text, index) => (index === ko ? `<td lang="ko">${escape(text)}</td>` : `<td>${escape(text)}</td>`);
+  return `<table><thead><tr>${head.map((text) => `<th>${escape(text)}</th>`).join("")}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map(cell).join("")}</tr>`).join("")}</tbody></table>`;
+}
+write(
+  "guides",
+  page({
+    url: `${SITE}/guides`,
+    title: "Koreys tili bo'yicha qo'llanmalar: alifbo, raqamlar, TOPIK | K-TALIM",
+    description: "Koreys tilini o'zbek tilida o'rganuvchilar uchun qo'llanmalar: Hangul alifbosi, koreyscha raqamlar va TOPIK imtihoni haqida to'liq ma'lumot.",
+    body: `${nav}<h1>Koreys tili bo'yicha qo'llanmalar</h1><ul>${GUIDES.map((guide) => `<li><a href="/guides/${guide.slug}">${escape(guide.title)}</a> — ${escape(guide.description)}</li>`).join("")}</ul>`,
+  }),
+);
+for (const guide of GUIDES) {
+  const url = `${SITE}/guides/${guide.slug}`;
+  write(
+    `guides/${guide.slug}`,
+    page({
+      url,
+      title: `${guide.title} | K-TALIM`,
+      description: guide.description,
+      body: `${nav}<article lang="uz"><h1>${escape(guide.title)}</h1><p>${escape(guide.intro)}</p>${guide.sections.map((section, index) => `<h2>${index + 1}. ${escape(section.heading)}</h2>${section.blocks.map(guideBlock).join("")}`).join("")}</article>`,
+      data: { "@context": "https://schema.org", "@type": "Article", headline: guide.title, description: guide.description, url, inLanguage: "uz", author: { "@type": "Organization", name: "K-TALIM", url: SITE }, publisher: { "@type": "Organization", name: "K-TALIM", url: SITE } },
+    }),
+  );
+}
 
 // The home page: what K-TALIM has, with a link to each part.
 const homeDescription = `Koreys tilini o'zbek tilida o'rganing: ${lessons.length} dars va ${wordCount} so'z, grammatika, hikoyalar, AI bilan gaplashish, TOPIK I mock imtihon va Koreyada o'qish bo'yicha qo'llanma.`;
@@ -187,6 +220,7 @@ const home = page({
 <h2><a href="/speaking">Gaplashish</a></h2><p>AI suhbatdosh Friday bilan ${SPEAKING_TOPICS.length} ta mavzuda koreyscha ovozli suhbat va boshqa o'quvchilar bilan jonli qo'ng'iroq.</p>
 <h2><a href="/topik">TOPIK I mock imtihon</a></h2><p>${examList}: vaqt bilan to'liq imtihon yoki bo'limma-bo'lim, ball, daraja va AI xato tushuntirishi.</p>
 <h2>AI ustoz</h2><p>Koreys tili bo'yicha savollaringizga o'zbek tilida javob beradi.</p>
+<h2><a href="/guides">Qo'llanmalar</a></h2><p>${GUIDES.map((guide) => `<a href="/guides/${guide.slug}">${escape(guide.title)}</a>`).join(" · ")}</p>
 <h2><a href="/korea">Koreyada o'qish</a></h2><p>Koreya universitetlari, rasmiy kontrakt narxlari, GKS stipendiyasi va viza bo'yicha qo'llanma.</p>
 <h2><a href="/leaderboard">XP, darajalar va ligalar</a></h2><p>Har kuni o'qish uchun XP, yutuqlar, haftalik liga va streak.</p>
 <p>Boshlash bepul. <a href="/premium">Premium</a> qo'shimcha imkoniyatlar beradi.</p>`,
@@ -203,7 +237,7 @@ write("", home);
 // The sitemap: these pages replace any older entries for the same sections,
 // and the /lesson/N addresses (which open the flashcards) give way to /study/N.
 const sitemapPath = "dist/sitemap.xml";
-const sections = /\s*<url><loc>[^<]*\/(grammar|stories|speaking|topik|study|lesson)(\/[^<]*)?<\/loc><\/url>/g;
+const sections = /\s*<url><loc>[^<]*\/(grammar|stories|speaking|topik|study|lesson|guides)(\/[^<]*)?<\/loc><\/url>/g;
 const sitemap = fs.readFileSync(sitemapPath, "utf8").replace(sections, "");
 written.push(`${SITE}/study`);
 const urls = written.map((loc) => `  <url><loc>${loc}</loc></url>`).join("\n");

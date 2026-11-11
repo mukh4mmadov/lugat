@@ -2444,4 +2444,7 @@ export default {
   "terms.s13": "Bu shartlar O'zbekiston Respublikasi qonunlariga muvofiq tartibga solinadi. Nizolar avval muzokara yo'li bilan, kelishilmasa O'zbekiston Respublikasi qonunchiligida belgilangan tartibda hal qilinadi.",
   "terms.s14.title": "14. Bog'lanish",
   "terms.s14": "Savollar uchun Telegram'da @mukh4mmadov ga yoki saytdagi «Fikr-mulohaza» sahifasi orqali yozing.",
+  "guides.title": "Qo'llanmalar",
+  "guides.text": "Koreys tili bo'yicha foydali qo'llanmalar: alifbo, raqamlar va TOPIK imtihoni. Matnlar o'zbek tilida.",
+  "guides.listen": "Eshitish",
 };

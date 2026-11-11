@@ -2448,4 +2448,7 @@ export default {
   "terms.s13": "These terms are governed by the laws of the Republic of Uzbekistan. Disputes are first settled by negotiation, and if no agreement is reached, in the manner established by the laws of the Republic of Uzbekistan.",
   "terms.s14.title": "14. Contact",
   "terms.s14": "For questions, write to @mukh4mmadov on Telegram or use the \"Feedback\" page on the site.",
+  "guides.title": "Guides",
+  "guides.text": "Useful guides on Korean: the alphabet, numbers and the TOPIK exam. The guides are written in Uzbek.",
+  "guides.listen": "Listen",
 };
