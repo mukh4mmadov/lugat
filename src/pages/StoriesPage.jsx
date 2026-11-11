@@ -8,11 +8,22 @@ import { STORIES, getStory, isPremiumStory, lineText, storiesForLesson, wordCand
 import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { isPremium } from "../lib/premium";
+import { supabase } from "../lib/supabase";
 import { speakKorean, stopSpeaking } from "../lib/speech";
 import { completeStory, toggleFavorite } from "../store";
 import { ModeHeader } from "./FlashcardsPage";
 
 const titleText = (story, language) => story.title[language] || story.title.uz;
+
+// The full text of a Premium story, which only the server holds.
+async function loadFullStory(id) {
+  const { data } = await supabase.auth.getSession();
+  const response = await fetch(`/api/rewards?story=${encodeURIComponent(id)}`, {
+    headers: { Authorization: `Bearer ${data.session?.access_token || ""}` },
+  });
+  if (!response.ok) throw new Error(`Story text failed (${response.status})`);
+  return response.json();
+}
 
 function StoryCard({ story }) {
   const { t, i18n } = useTranslation();
@@ -181,8 +192,12 @@ function StoryReader({ storyId }) {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const { user } = useAuth();
-  const story = getStory(storyId);
+  const base = getStory(storyId);
   const rate = useSelector((state) => state.progress.settings.speechRate);
+  const needsText = Boolean(base?.teaser) && isPremium(user);
+  const [full, setFull] = useState(null);
+  const [textFailed, setTextFailed] = useState(false);
+  const story = base && full ? { ...base, lines: full.lines, questions: full.questions } : base;
   const [showTranslation, setShowTranslation] = useState(false);
   const [opened, setOpened] = useState({});
   const [playing, setPlaying] = useState(-1);
@@ -194,6 +209,17 @@ function StoryReader({ storyId }) {
     cancelled.current = true;
     stopSpeaking();
   }, []);
+
+  useEffect(() => {
+    if (!needsText) return undefined;
+    let stale = false;
+    loadFullStory(storyId)
+      .then((text) => !stale && setFull(text))
+      .catch(() => !stale && setTextFailed(true));
+    return () => {
+      stale = true;
+    };
+  }, [needsText, storyId]);
 
   if (!story) return <Navigate to="/stories" replace />;
   const language = i18n.language;
@@ -256,6 +282,10 @@ function StoryReader({ storyId }) {
             <Link to="/premium" className="rounded-2xl bg-violet-600 px-5 py-3 font-black text-white">⭐ {t("stories.getPremium")}</Link>
             {siblings[0] && siblings[0].id !== story.id && <Link to={`/stories/${siblings[0].id}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("stories.readFree")}</Link>}
           </div>
+        </GlassCard>
+      ) : needsText && !full ? (
+        <GlassCard className="text-center">
+          <p role="status" className="text-sm font-bold text-slate-500">{textFailed ? t("stories.loadFailed") : t("common.loading")}</p>
         </GlassCard>
       ) : (
         <>

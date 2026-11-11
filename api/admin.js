@@ -682,6 +682,10 @@ async function act(db, actor, body) {
       if (error) return [500, { error: "Update failed" }];
       return [200, { reverted: true }];
     }
+    // Edits are public, so a Premium story's text must never be stored there.
+    if (body.kind === "story" && !isNewItem(body.itemId) && /-b$/.test(body.itemId) && body.data && ("lines" in body.data || "questions" in body.data)) {
+      return [400, { error: "A Premium story's text stays on the server" }];
+    }
     const data = cleanContent(body.kind, body.data || {}, isNewItem(body.itemId));
     if (!data) return [400, { error: "Invalid content" }];
     const { error } = await db.from("content_overrides").upsert({

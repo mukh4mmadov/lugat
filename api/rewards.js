@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
-import { extendPremium } from "./_lib/premium.js";
+import { extendPremium, isPremium } from "./_lib/premium.js";
+import { FULL_STORIES, isPremiumStoryId } from "../src/data/stories/full.js";
 import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Premium days learners earn themselves. A 7-day streak gives 1 day of
@@ -87,6 +88,15 @@ export default async function handler(req, res) {
   if (!user) return res.status(401).json({ error: "Sign in first." });
 
   try {
+    // GET /api/rewards?story=<id>: the full text of a Premium story, only for
+    // learners with Premium and for admins.
+    if (req.method === "GET" && req.query?.story) {
+      const story = FULL_STORIES.find((item) => item.id === String(req.query.story) && isPremiumStoryId(item.id));
+      if (!story) return res.status(404).json({ error: "Story not found." });
+      const { data: admin } = isPremium(user) ? { data: true } : await db.from("feedback_admins").select("user_id").eq("user_id", user.id).maybeSingle();
+      if (!admin) return res.status(403).json({ error: "Premium needed." });
+      return res.status(200).json({ lines: story.lines, questions: story.questions });
+    }
     const status = await streakStatus(db, user.id);
     if (req.method === "GET") return res.status(200).json({ streak7: status, invite: await inviteStatus(db, user.id) });
     const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};

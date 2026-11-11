@@ -2425,4 +2425,5 @@ export default {
   "adminHealth.digestText": "Har kuni ertalab soat 8–9 oralig'ida oxirgi 24 soat hisoboti keladi.",
   "adminHealth.digestSend": "Hisobotni hozir yuborish",
   "adminNotifications.kind.digest": "Kunlik hisobot",
+  "stories.loadFailed": "Hikoya matnini yuklab bo'lmadi. Internetni tekshirib, sahifani yangilang.",
 };

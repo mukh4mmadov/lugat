@@ -366,12 +366,6 @@ export default function AdminStudio() {
       {edit && (
         <Panel key={edit.id} title={t(`studio.kind.${kind}`)}>
           <div className="space-y-3">
-            {kind === "story" && !edit.created && (
-              <label className="flex items-center gap-2 text-sm font-bold">
-                <input type="checkbox" checked={edit.id.endsWith("-b")} onChange={(event) => setEdit((current) => ({ ...current, id: `${current.id.slice(0, -2)}-${event.target.checked ? "b" : "a"}` }))} />
-                {t("studio.premiumStory")}
-              </label>
-            )}
             {kind === "lesson" && <p className="text-sm font-bold">{t("card.lesson", { lesson: edit.data.lesson || nextLesson })}</p>}
             {kind === "topik" ? <TopikForm id={edit.id} data={edit.data} set={set} /> : FORMS[kind].map((item) => (
               <div key={item.key}>

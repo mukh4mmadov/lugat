@@ -2591,4 +2591,5 @@ export default {
   "adminHealth.digestText": "Каждое утро с 8 до 9 приходит отчёт за последние 24 часа.",
   "adminHealth.digestSend": "Отправить отчёт сейчас",
   "adminNotifications.kind.digest": "Ежедневный отчёт",
+  "stories.loadFailed": "Не удалось загрузить текст рассказа. Проверьте интернет и обновите страницу.",
 };

@@ -116,7 +116,9 @@ export default function ContentEditor() {
   useEffect(() => {
     const item = items.find((entry) => entry.id === itemId);
     if (!item) return;
-    setDraft(Object.fromEntries(EDITABLE_FIELDS[kind].filter((field) => item[field] !== undefined).map((field) => [field, structuredClone(item[field])])));
+    // A Premium story's text is only on the server, so it is not edited here.
+    const serverOnly = (field) => item.teaser && (field === "lines" || field === "questions");
+    setDraft(Object.fromEntries(EDITABLE_FIELDS[kind].filter((field) => item[field] !== undefined && !serverOnly(field)).map((field) => [field, structuredClone(item[field])])));
     setHidden(Boolean(override?.hidden));
     setInvalid(false);
   }, [kind, itemId, items, override]);

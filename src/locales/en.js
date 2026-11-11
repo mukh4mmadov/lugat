@@ -2429,4 +2429,5 @@ export default {
   "adminHealth.digestText": "Every morning between 8 and 9 a report on the last 24 hours arrives.",
   "adminHealth.digestSend": "Send the report now",
   "adminNotifications.kind.digest": "Daily report",
+  "stories.loadFailed": "Could not load the story text. Check your connection and refresh the page.",
 };
