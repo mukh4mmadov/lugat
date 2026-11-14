@@ -20,7 +20,7 @@ export default function PWAUpdate() {
         setShowUpdate(true);
       },
       onRegistered(registration) {
-        if (registration) updateInterval = setInterval(() => registration.update(), 30 * 60 * 1000);
+        if (registration) updateInterval = setInterval(() => registration.update().catch(() => {}), 30 * 60 * 1000);
       },
       onRegisterError(error) {
         console.error("PWA registration error:", error);
