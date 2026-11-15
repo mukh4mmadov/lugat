@@ -60,6 +60,8 @@ export default function AdminPage() {
   const { user, loading: authLoading } = useAuth();
   const [access, setAccess] = useState("loading");
   const [error, setError] = useState("");
+  // Whose access the check answered for.
+  const [checkedFor, setCheckedFor] = useState(null);
   const unseen = useAdminUnseen(access === "allowed");
 
   const check = useCallback(async () => {
@@ -77,13 +79,18 @@ export default function AdminPage() {
       return;
     }
     setAccess(data ? "allowed" : "denied");
+    setCheckedFor(user.id);
   }, [t, user]);
 
   useEffect(() => {
     if (!authLoading) check();
   }, [check, authLoading]);
 
-  if (authLoading || access === "loading") {
+  // Signing out or into another account changes the user before the check
+  // above runs again; until it answers for this user, nothing is shown.
+  const shown = !user ? "unauthenticated" : checkedFor === user.id || access !== "allowed" ? access : "loading";
+
+  if (authLoading || shown === "loading") {
     return (
       <GlassCard>
         <p role="status">{t("common.loading")}</p>
@@ -91,24 +98,24 @@ export default function AdminPage() {
     );
   }
 
-  if (access !== "allowed") {
+  if (shown !== "allowed") {
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
-        <h1 className="text-xl font-black">{access === "unauthenticated" ? t("admin.title") : t("feedback.accessDenied")}</h1>
+        <h1 className="text-xl font-black">{shown === "unauthenticated" ? t("admin.title") : t("feedback.accessDenied")}</h1>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-          {access === "unauthenticated" ? t("admin.needLogin") : access === "denied" ? t("admin.noAdminAccess") : error}
+          {shown === "unauthenticated" ? t("admin.needLogin") : shown === "denied" ? t("admin.noAdminAccess") : error}
         </p>
-        {access === "unauthenticated" && (
+        {shown === "unauthenticated" && (
           <Link to="/login" className="mt-4 inline-flex rounded-2xl bg-sky-500 px-6 py-3 font-black text-white">
             {t("common.login")}
           </Link>
         )}
-        {access === "denied" && (
+        {shown === "denied" && (
           <Link to="/" className="mt-4 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950">
             {t("common.back")}
           </Link>
         )}
-        {access === "error" && (
+        {shown === "error" && (
           <button type="button" onClick={check} className="mt-4 rounded-xl border border-slate-300 px-4 py-2 text-sm font-bold dark:border-white/15">
             {t("common.tryAgain")}
           </button>
