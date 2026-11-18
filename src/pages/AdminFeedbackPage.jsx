@@ -292,6 +292,17 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
     [ticket, messages, people, reporter, currentUserId, t],
   );
 
+  // Like a chat: the newest message is in view when the thread loads or grows.
+  const scrollerRef = useRef(null);
+  const threadRef = useRef(null);
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    const section = threadRef.current;
+    if (loading || !scroller || !section) return;
+    const end = section.offsetTop + section.offsetHeight - scroller.clientHeight + 16;
+    if (end > scroller.scrollTop) scroller.scrollTop = end;
+  }, [loading, thread.length]);
+
   const otherTickets = useMemo(
     () =>
       tickets
@@ -345,15 +356,16 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
 
   return (
     <article className="flex min-h-0 flex-1 flex-col">
-      <header className="border-b border-slate-200 p-4 dark:border-white/10">
-        <div className="mb-3 flex items-center gap-2">
+      <header className="relative border-b border-slate-200 p-4 dark:border-white/10">
+        {/* On wide screens the arrows sit in the corner instead of a row of their own. */}
+        <div className="mb-3 flex items-center gap-2 lg:absolute lg:right-4 lg:top-3 lg:mb-0">
           <button type="button" onClick={onBack} className="text-sm font-bold text-sky-600 dark:text-sky-300 lg:hidden">‹ {t("admin.feedback.back")}</button>
           <span className="ml-auto flex gap-1">
             <button type="button" disabled={!prevId} onClick={() => onSelect(prevId)} aria-label={t("admin.feedback.prev")} title={`${t("admin.feedback.prev")} (K)`} className="grid h-8 w-8 place-items-center rounded-lg border border-slate-200 font-black disabled:opacity-30 dark:border-white/10">↑</button>
             <button type="button" disabled={!nextId} onClick={() => onSelect(nextId)} aria-label={t("admin.feedback.next")} title={`${t("admin.feedback.next")} (J)`} className="grid h-8 w-8 place-items-center rounded-lg border border-slate-200 font-black disabled:opacity-30 dark:border-white/10">↓</button>
           </span>
         </div>
-        <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400 lg:pr-20">
           <StatusPill status={ticket.status} />
           <PriorityPill priority={ticket.priority} />
           <CategoryLabel category={ticket.category} />
@@ -394,7 +406,20 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
         </div>
       </header>
 
-      <div className="min-h-0 flex-1 space-y-5 overflow-y-auto p-4">
+      {/* The conversation comes first and keeps its room: the reply form below
+          and the header above must never squeeze it out of sight. */}
+      <div ref={scrollerRef} className="relative min-h-0 flex-1 space-y-5 overflow-y-auto p-4 lg:min-h-[12rem]">
+        <section ref={threadRef} aria-label={t("admin.feedback.conversation")}>
+          {loading ? <div className="h-24 animate-pulse rounded-2xl bg-slate-100 dark:bg-white/5" /> : <MessageThread messages={thread} viewer="admin" onDelete={deleteNote} />}
+        </section>
+
+        {ticket.rating && (
+          <div className="rounded-2xl bg-amber-50 p-3 text-sm dark:bg-amber-500/10">
+            <Stars value={ticket.rating} size="text-base" label={t("feedback.ratedLabel", { count: ticket.rating })} />
+            {ticket.rating_comment && <p className="mt-1 whitespace-pre-wrap">“{ticket.rating_comment}”</p>}
+          </div>
+        )}
+
         <div className="grid gap-3 sm:grid-cols-2">
           <section className="rounded-2xl border border-slate-200 p-3 text-sm dark:border-white/10">
             <h3 className="text-[11px] font-black uppercase tracking-wide text-slate-500">{t("admin.feedback.reporter")}</h3>
@@ -464,17 +489,6 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
           </label>
         </div>
 
-        {ticket.rating && (
-          <div className="rounded-2xl bg-amber-50 p-3 text-sm dark:bg-amber-500/10">
-            <Stars value={ticket.rating} size="text-base" label={t("feedback.ratedLabel", { count: ticket.rating })} />
-            {ticket.rating_comment && <p className="mt-1 whitespace-pre-wrap">“{ticket.rating_comment}”</p>}
-          </div>
-        )}
-
-        <section aria-label={t("admin.feedback.conversation")}>
-          {loading ? <div className="h-24 animate-pulse rounded-2xl bg-slate-100 dark:bg-white/5" /> : <MessageThread messages={thread} viewer="admin" onDelete={deleteNote} />}
-        </section>
-
         {events.length > 0 && (
           <details className="rounded-xl bg-slate-50 p-3 text-xs dark:bg-white/5">
             <summary className="cursor-pointer font-black uppercase text-slate-500">{t("feedback.auditHistory")} · {events.length}</summary>
@@ -500,7 +514,7 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
           event.preventDefault();
           send(false);
         }}
-        className="space-y-2 border-t border-slate-200 bg-white/95 p-3 backdrop-blur dark:border-white/10 dark:bg-slate-900/95"
+        className="space-y-2 border-t border-slate-200 bg-white/95 p-3 backdrop-blur dark:border-white/10 dark:bg-slate-900/95 lg:max-h-[45vh] lg:shrink-0 lg:overflow-y-auto"
       >
         <div className="flex items-center gap-1" role="tablist">
           {[
@@ -528,7 +542,7 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
                 {t("admin.feedback.ai.useDraft")}
               </button>
             </div>
-            <p className="mt-1 line-clamp-3 whitespace-pre-wrap text-slate-700 dark:text-slate-200">{ticket.ai_draft}</p>
+            <p className="mt-1 line-clamp-2 whitespace-pre-wrap text-slate-700 dark:text-slate-200" title={ticket.ai_draft}>{ticket.ai_draft}</p>
           </div>
         )}
         <textarea
@@ -542,7 +556,7 @@ function TicketDetail({ ticket, tickets, people, admins, currentUserId, savedRep
             }
           }}
           maxLength={MESSAGE_MAX}
-          rows={3}
+          rows={text ? 3 : 2}
           placeholder={mode === "reply" ? (finished ? t("admin.feedback.replyFinished") : t("feedback.writeReply")) : t("admin.feedback.notePlaceholder")}
           className={`${control} resize-y !text-[15px] !font-normal leading-6 ${mode === "note" ? "!border-amber-300 !bg-amber-50 dark:!bg-amber-500/10" : ""}`}
         />
