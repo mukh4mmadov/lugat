@@ -36,6 +36,9 @@ const StudyHomePage = page(study, "StudyHomePage");
 const StudyModePage = page(study, "StudyModePage");
 const FlashcardsPage = page(() => import("./pages/FlashcardsPage"));
 const WordListPage = page(() => import("./pages/WordListPage"));
+const topikUnits = () => import("./pages/TopikUnitsPage");
+const TopikUnitsPage = page(topikUnits);
+const TopikUnitStudyPage = page(topikUnits, "TopikUnitStudyPage");
 const TopikPracticePage = page(() => import("./pages/TopikPracticePage"));
 const ListeningPage = page(practice, "ListeningPage");
 const QuizPage = page(practice, "QuizPage");
@@ -203,6 +206,8 @@ export default function App() {
             <Route path="difficult/practice" element={<RequireAccount><FlashcardsPage list="difficult" /></RequireAccount>} />
             <Route path="stats" element={<StatsPage />} />
             <Route path="words/:deckId" element={<WordListPage />} />
+            <Route path="units/topik1" element={<TopikUnitsPage />} />
+            <Route path="units/topik1/:unitId" element={<RequireAccount><TopikUnitStudyPage /></RequireAccount>} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="credits/audio" element={<AudioCreditsPage />} />
             <Route path="record-voice" element={<RecordVoicePage />} />

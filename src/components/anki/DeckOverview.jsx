@@ -111,6 +111,7 @@ export default function DeckOverview() {
                 <DueTriplet counts={counts} />
                 <div className="flex gap-2">
                   <Link to={`/review?deck=${deck.id}`} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white dark:bg-white dark:text-slate-950">{t("anki.study")}</Link>
+                  {deck.id === "topik1" && <Link to="/units/topik1" className="rounded-xl border border-sky-300 bg-sky-500/10 px-3 py-2 text-sm font-black text-sky-700 dark:border-sky-400/30 dark:text-sky-200">{t("units.open")}</Link>}
                   <Link to={`/words/${deck.id}`} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold dark:border-white/10">{t("anki.browse")}</Link>
                 </div>
               </div>

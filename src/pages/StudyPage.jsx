@@ -13,6 +13,7 @@ import { RECALL_SUFFIX } from "../lib/anki";
 import DeckOverview from "../components/anki/DeckOverview";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
+import LessonAudio from "../components/LessonAudio";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
 import { isAnswerCorrect } from "../lib/study";
@@ -54,26 +55,42 @@ function legacySession(lesson) {
   }
 }
 
-function loadSession(lesson, words) {
-  const saved = store.getState().progress.studySessions?.[lesson] || legacySession(lesson);
+function loadSession(sessionKey, words) {
+  const saved = store.getState().progress.studySessions?.[sessionKey] || (typeof sessionKey === "number" ? legacySession(sessionKey) : null);
   return isSessionValid(saved, words) ? saved : null;
 }
 
 export function StudyModePage() {
+  const { t } = useTranslation();
   const { lessonId = "1" } = useParams();
-  return <StudySession key={lessonId} lesson={Number(lessonId)} />;
+  const lesson = Number(lessonId);
+  const words = useMemo(() => getLessonWords(lesson), [lesson]);
+  return (
+    <StudySession
+      key={lessonId}
+      sessionKey={lesson}
+      words={words}
+      title={t("card.lesson", { lesson })}
+      backTo="/study"
+      backLabel={t("nav.study")}
+      flashcardsPath={`/lesson/${lesson}/flashcards`}
+      nextPath={lesson < lessonInfo.length ? `/study/${lesson + 1}` : null}
+      top={<LessonAudio lesson={lesson} />}
+    />
+  );
 }
 
-function StudySession({ lesson }) {
+// One study session over a fixed word list: a lesson or a TOPIK unit.
+export function StudySession({ sessionKey, words, title, backTo, backLabel, flashcardsPath, nextPath, top = null }) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const settings = useSelector((state) => state.progress.settings);
   const ankiOptions = useSelector(selectAnkiOptions);
   const wordsState = useSelector((state) => state.progress.words);
-  const words = useMemo(() => getLessonWords(lesson), [lesson]);
   const byKey = useMemo(() => Object.fromEntries(words.map((word) => [getWordKey(word), word])), [words]);
-  const [session, setSession] = useState(() => loadSession(lesson, words) || newSession(words));
+  const [session, setSession] = useState(() => loadSession(sessionKey, words) || newSession(words));
+  const lesson = sessionKey;
 
   useEffect(() => {
     dispatch(saveStudySession({ lesson, session }));
@@ -126,7 +143,7 @@ function StudySession({ lesson }) {
     return (
       <GlassCard className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-black">{t("study.lessonNotFound")}</h2>
-        <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to="/study">
+        <Link className="mt-6 inline-flex rounded-2xl bg-slate-950 px-6 py-3 font-black text-white dark:bg-white dark:text-slate-950" to={backTo}>
           {t("common.back")}
         </Link>
       </GlassCard>
@@ -140,12 +157,15 @@ function StudySession({ lesson }) {
   return (
     <div className="mx-auto max-w-3xl space-y-5">
       <StudyHeader
-        lesson={lesson}
+        title={title}
+        backTo={backTo}
+        backLabel={backLabel}
         introduced={session.introduced}
         total={words.length}
         mastered={mastered}
         onRestart={restart}
       />
+      {top}
       <AnimatePresence mode="wait">
         {session.phase === "learn" && learnWord && (
           <LearningCard
@@ -177,12 +197,11 @@ function StudySession({ lesson }) {
         {session.phase === "done" && (
           <StudyComplete
             key="done"
-            lesson={lesson}
             session={session}
             total={words.length}
             onAgain={() => setSession(newSession(words))}
-            onFlashcards={() => navigate(`/lesson/${lesson}/flashcards`)}
-            onNext={lesson < lessonInfo.length ? () => navigate(`/study/${lesson + 1}`) : null}
+            onFlashcards={flashcardsPath ? () => navigate(flashcardsPath) : null}
+            onNext={nextPath ? () => navigate(nextPath) : null}
           />
         )}
       </AnimatePresence>
@@ -190,14 +209,14 @@ function StudySession({ lesson }) {
   );
 }
 
-function StudyHeader({ lesson, introduced, total, mastered, onRestart }) {
+function StudyHeader({ title, backTo, backLabel, introduced, total, mastered, onRestart }) {
   const { t } = useTranslation();
   return (
     <GlassCard className="p-5 md:p-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <Link to="/study" className="text-xs font-bold text-sky-600 dark:text-sky-300">← {t("nav.study")}</Link>
-          <h1 className="mt-1 text-2xl font-black">{t("card.lesson", { lesson })}</h1>
+          <Link to={backTo} className="text-xs font-bold text-sky-600 dark:text-sky-300">← {backLabel}</Link>
+          <h1 className="mt-1 text-2xl font-black">{title}</h1>
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right">
@@ -614,7 +633,7 @@ function StudyComplete({ session, total, onAgain, onFlashcards, onNext }) {
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           {onNext && <button type="button" onClick={onNext} className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white">{t("study.nextLesson")}</button>}
-          <button type="button" onClick={onFlashcards} className="rounded-2xl bg-emerald-500 px-6 py-3 font-black text-white">{t("practice.flashcards")}</button>
+          {onFlashcards && <button type="button" onClick={onFlashcards} className="rounded-2xl bg-emerald-500 px-6 py-3 font-black text-white">{t("practice.flashcards")}</button>}
           <button type="button" onClick={onAgain} className="rounded-2xl border border-slate-300 px-6 py-3 font-bold dark:border-white/20">{t("home.studyAgain")}</button>
         </div>
       </div>

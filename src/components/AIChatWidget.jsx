@@ -325,7 +325,7 @@ export default function AIChatWidget() {
   const isRateLimited = !!resetAt && countdown !== "00:00:00";
   // TOPIK pages open the chat from their own "Ask AI" button, so the floating trigger stays out of the exam layout.
   // Study sessions, practice modes and the card reviewer keep their answer buttons where the floating trigger sits.
-  const isTopikPage = location.pathname.startsWith("/topik") || /^\/(review|weak-words|favorites\/practice|difficult\/practice|study\/\d+|lesson\/\d+\/\w+)/.test(location.pathname);
+  const isTopikPage = location.pathname.startsWith("/topik") || /^\/(review|weak-words|favorites\/practice|difficult\/practice|study\/\d+|units\/topik1\/\d+|lesson\/\d+\/\w+)/.test(location.pathname);
 
   return (
     <>

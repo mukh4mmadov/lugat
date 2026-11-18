@@ -1,0 +1,32 @@
+{
+  "id": "l01",
+  "title": "1-dars: davlatlar va kasblar",
+  "intro": "Assalomu alaykum! Bu K-TALIM audio darsi. Birinchi darsda yigirma to'rtta so'z bor: davlatlar, kasblar va eng kerakli savol so'zlari. Har bir so'zni avval koreys tilida sekin eshitasiz, keyin ma'nosini bilib olasiz. Koreyscha so'z aytilganda, uni ovoz chiqarib takrorlang. Boshladik!",
+  "outro": "Barakalla! Birinchi darsning hamma so'zlarini eshitdingiz. Bu audioni ertaga yana bir marta tinglang, keyin saytda mashq qiling. So'zlar xotirangizda mustahkam qoladi. Ko'rishguncha!",
+  "words": [
+    { "ko": "독일", "uz": "Germaniya", "tip": "Nemislar o'z davlatini Doychland deydi. Koreyscha nomi ham shu so'zdan kelgan: doyich, dog-il.", "exKo": "저는 독일에서 왔습니다.", "exUz": "Men Germaniyadan keldim." },
+    { "ko": "미국", "uz": "Amerika, AQSh", "tip": "Mi so'zi go'zal degani, guk esa mamlakat. Ya'ni Amerika koreyschada go'zal mamlakat.", "exKo": "그는 미국에 삽니다.", "exUz": "U Amerikada yashaydi." },
+    { "ko": "영국", "uz": "Angliya, Buyuk Britaniya", "tip": "Yong qismi Ingland so'zidan olingan. Oxiridagi guk yana mamlakat degani.", "exKo": "영국은 유럽에 있습니다.", "exUz": "Angliya Yevropada joylashgan." },
+    { "ko": "일본", "uz": "Yaponiya", "tip": "Il quyosh, bon esa asos degani. Ya'ni quyosh chiqadigan yurt.", "exKo": "일본 음식을 좋아합니다.", "exUz": "Men yapon taomlarini yaxshi ko'raman." },
+    { "ko": "중국", "uz": "Xitoy", "tip": "Jung o'rta degani. Xitoy o'zini dunyoning o'rtasidagi mamlakat deb atagan.", "exKo": "중국은 인구가 많습니다.", "exUz": "Xitoyda aholi ko'p." },
+    { "ko": "호주", "uz": "Avstraliya", "tip": "Kenguru sakraganini tasavvur qiling: ho, ju, ho, ju. Bu Avstraliya.", "exKo": "호주에는 캥거루가 있어요.", "exUz": "Avstraliyada kenguru bor." },
+    { "ko": "한국", "uz": "Koreya", "tip": "Han koreys xalqining nomi, guk mamlakat. Esda tuting: guk bilan tugagan so'z ko'pincha mamlakat bo'ladi.", "exKo": "한국 음식을 좋아합니다.", "exUz": "Men koreys taomlarini yaxshi ko'raman." },
+    { "ko": "우즈베키스탄", "uz": "O'zbekiston", "tip": "Koreys tilida z tovushi yo'q, shuning uchun u j bilan aytiladi: u-jeu-be-ki-seu-tan.", "exKo": "저는 우즈베키스탄 사람입니다.", "exUz": "Men o'zbekistonlikman." },
+    { "ko": "파키스탄", "uz": "Pokiston", "tip": "O'zbekiston kabi, oxiri yana seu-tan bilan tugaydi.", "exKo": "제 친구는 파키스탄 사람이에요.", "exUz": "Do'stim pokistonlik." },
+    { "ko": "경찰관", "uz": "politsiyachi", "tip": "Gyongchal politsiya degani, gvan esa xizmatchi. Politsiya xizmatchisi.", "exKo": "그는 경찰관입니다.", "exUz": "U politsiyachi." },
+    { "ko": "요리사", "uz": "oshpaz", "tip": "Yori taom tayyorlash, sa esa kasb egasi. Taom ustasi, ya'ni oshpaz.", "exKo": "그녀는 요리사입니다.", "exUz": "U oshpaz." },
+    { "ko": "의사", "uz": "shifokor, doktor", "tip": "Ui tibbiyot degani, sa yana kasb egasi. Oshpaz so'zidagi sa bilan bir xil.", "exKo": "우리 언니는 의사입니다.", "exUz": "Opam shifokor." },
+    { "ko": "학생", "uz": "o'quvchi, talaba", "tip": "Hak ilm, o'qish degani. Maktab ham shu so'z bilan boshlanadi: hakkyo.", "exKo": "저는 학생입니다.", "exUz": "Men o'quvchiman." },
+    { "ko": "회사원", "uz": "kompaniya xodimi, ofis xodimi", "tip": "Hoesa kompaniya, von esa a'zo, xodim. Kompaniya xodimi.", "exKo": "아버지는 회사원입니다.", "exUz": "Otam kompaniya xodimi." },
+    { "ko": "선생님", "uz": "o'qituvchi, ustoz", "tip": "Oxiridagi nim hurmat qo'shimchasi. Ustozga doim hurmat bilan murojaat qilinadi.", "exKo": "그분은 선생님입니다.", "exUz": "U kishi o'qituvchi." },
+    { "ko": "어느", "uz": "qaysi", "tip": "Bu so'z doim otdan oldin keladi. Masalan: qaysi davlat.", "exKo": "어느 나라 사람이에요?", "exUz": "Qaysi davlatdansiz?" },
+    { "ko": "직업", "uz": "kasb", "tip": "Kimdir bilan tanishganda kasbini so'rash uchun shu so'z kerak bo'ladi.", "exKo": "직업이 무엇입니까?", "exUz": "Kasbingiz nima?" },
+    { "ko": "저", "uz": "men, hurmat bilan aytilganda", "tip": "Kattalar va notanish odamlar bilan gaplashganda o'zingizni shunday deysiz.", "exKo": "저는 김민수입니다.", "exUz": "Men Kim Minsuman." },
+    { "ko": "이름이 뭐예요?", "uz": "Ismingiz nima?", "tip": "Ireum ism degani. Tanishishdagi eng birinchi savol.", "exKo": "안녕하세요? 이름이 뭐예요?", "exUz": "Assalomu alaykum! Ismingiz nima?" },
+    { "ko": "누구", "uz": "kim", "tip": "Odam haqida so'raganda ishlatiladi.", "exKo": "저 사람은 누구예요?", "exUz": "Anavi odam kim?" },
+    { "ko": "이", "uz": "bu", "tip": "Yaqindagi narsani ko'rsatadi va otdan oldin keladi: bu odam, bu kitob.", "exKo": "이 사람은 제 친구예요.", "exUz": "Bu odam mening do'stim." },
+    { "ko": "것", "uz": "narsa, buyum", "tip": "Bu so'zi bilan birga ko'p ishlatiladi: bu narsa.", "exKo": "이것은 제 것이에요.", "exUz": "Bu meniki." },
+    { "ko": "뭐", "uz": "nima, so'zlashuvda", "tip": "Kundalik gapda shu qisqa shakl ishlatiladi.", "exKo": "이게 뭐예요?", "exUz": "Bu nima?" },
+    { "ko": "무엇", "uz": "nima, rasmiy shakli", "tip": "Bu oldingi so'zning to'liq, rasmiy shakli. Kitob va rasmiy gaplarda uchraydi.", "exKo": "이것은 무엇입니까?", "exUz": "Bu nima?" }
+  ]
+}

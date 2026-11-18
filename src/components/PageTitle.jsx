@@ -52,6 +52,8 @@ export default function PageTitle() {
       title = [t("card.lesson", { lesson: id }), mode ? t(MODES[mode] || "") : section === "study" ? t("nav.study") : ""]
         .filter(Boolean)
         .join(" · ");
+    } else if (section === "units") {
+      title = mode ? `${t("units.unit", { n: mode })} · ${t("units.title")}` : t("units.title");
     } else if (section === "words") {
       title = id && i18n.exists(`anki.deck.${id}`) ? t(`anki.deck.${id}`) : t("anki.decks");
     } else if (SECTIONS[section]) title = SECTIONS[section].includes(".") ? t(SECTIONS[section]) : SECTIONS[section];
