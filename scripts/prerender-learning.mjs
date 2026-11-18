@@ -209,13 +209,13 @@ for (const guide of GUIDES) {
 }
 
 // The home page: what K-TALIM has, with a link to each part.
-const homeDescription = `Koreys tilini o'rganish va TOPIK'ga tayyorlanish uchun kerak bo'lgan hamma narsa — bir joyda: ${wordCount} so'z Anki usulida, ${GRAMMAR.length} ta grammatika mavzusi, hikoyalar, gaplashish va izohli haqiqiy TOPIK I imtihonlari.`;
+const homeDescription = `Koreys tilini o'rganish va TOPIK'ga tayyorlanish uchun kerak bo'lgan hamma narsa — bir joyda: ${wordCount} so'z aqlli takrorlash bilan, ${GRAMMAR.length} ta grammatika mavzusi, hikoyalar, gaplashish va izohli haqiqiy TOPIK I imtihonlari.`;
 const home = page({
   url: `${SITE}/`,
   title: "K-TALIM — koreys tili va TOPIK, hammasi bir joyda",
   description: homeDescription,
   body: `<h1>K-TALIM — koreys tili va TOPIK, hammasi bir joyda</h1><p>${escape(homeDescription)}</p>
-<h2><a href="/courses">So'z yodlash: ${lessons.length} dars, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. So'zlar Anki usulida (FSRS) takrorlanadi: har bir so'z unuta boshlaganingizda qaytadi. Mashqlar: test, eshitish, yozish va diktant.</p>
+<h2><a href="/courses">So'z yodlash: ${lessons.length} dars, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. So'zlar aqlli takrorlash bilan yodlanadi: har bir so'z unuta boshlaganingizda qaytadi. Mashqlar: test, eshitish, yozish va diktant.</p>
 <h2><a href="/grammar">Grammatika: ${GRAMMAR.length} mavzu</a></h2><p>O'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar. Gap tuzsangiz, AI uni tekshirib beradi.</p>
 <h2><a href="/stories">Hikoyalar: ${STORIES.length} ta</a></h2><p>Darsdagi so'zlar bilan yozilgan qisqa hikoyalar, so'zni bosib tarjimasini ko'rish va savollar.</p>
 <h2><a href="/speaking">Gaplashish</a></h2><p>AI suhbatdosh Friday bilan ${SPEAKING_TOPICS.length} ta mavzuda koreyscha ovozli suhbat va boshqa o'quvchilar bilan jonli qo'ng'iroq.</p>

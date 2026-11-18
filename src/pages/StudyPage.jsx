@@ -426,7 +426,7 @@ function ExerciseBody({ exercise, word, byKey, result, settings, onAnswer }) {
       );
     }
     case "trueFalse":
-      return <TrueFalseBody exercise={exercise} shown={byKey[exercise.shownKey]} result={result} onAnswer={onAnswer} />;
+      return <TrueFalseBody exercise={exercise} word={word} shown={byKey[exercise.shownKey] || word} result={result} onAnswer={onAnswer} />;
     case "missingSyllable":
       return <MissingSyllableBody exercise={exercise} word={word} result={result} onAnswer={onAnswer} />;
     case "typingChallenge":
@@ -447,7 +447,9 @@ function Prompt({ title, sub, hint, speak }) {
   );
 }
 
-function TrueFalseBody({ exercise, shown, result, onAnswer }) {
+// The word being learned paired with either its own meaning or the meaning of
+// another word from the lesson.
+function TrueFalseBody({ exercise, word, shown, result, onAnswer }) {
   const { t } = useTranslation();
   const isTrue = exercise.shownKey === exercise.key;
   const answered = Boolean(result);
@@ -459,7 +461,7 @@ function TrueFalseBody({ exercise, shown, result, onAnswer }) {
   };
   return (
     <>
-      <Prompt hint={t("study.isTranslationCorrect")} title={`${shown.korean} = ${meaning(shown)}`} sub={shown.romanization} />
+      <Prompt hint={t("study.isTranslationCorrect")} title={`${word.korean} = ${meaning(shown)}`} sub={word.romanization} />
       <div className="mt-6 grid grid-cols-2 gap-3">
         <button type="button" disabled={answered} onClick={() => pickAnswer(true)} className={`rounded-2xl border-2 p-4 text-lg font-black transition ${tone(true)}`}>✓ {t("study.yesCorrect")}</button>
         <button type="button" disabled={answered} onClick={() => pickAnswer(false)} className={`rounded-2xl border-2 p-4 text-lg font-black transition ${tone(false)}`}>✗ {t("study.noIncorrect")}</button>
