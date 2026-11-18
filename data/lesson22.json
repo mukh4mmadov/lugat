@@ -39,18 +39,18 @@
   },
   {
     "id": 632,
-    "korean": "학교버스",
+    "korean": "학교 버스",
     "uzbek": "Maktab avtobusi",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 632,
-    "romanization": "hakgyobeoseu",
+    "romanization": "hakgyo beoseu",
     "english": "School bus",
     "russian": "Школьный автобус",
     "example": {
-      "ko": "학교버스를 타요.",
+      "ko": "학교 버스를 타요.",
       "uz": "Maktab avtobusiga chiqaman.",
       "en": "I take the school bus.",
       "ru": "Я езжу на школьном автобусе."
@@ -211,7 +211,7 @@
   {
     "id": 641,
     "korean": "쌀",
-    "uzbek": "Guruch",
+    "uzbek": "Guruch (xom)",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
@@ -425,7 +425,7 @@
   {
     "id": 652,
     "korean": "얼마나",
-    "uzbek": "Qancha",
+    "uzbek": "Qancha, qanchalik",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
@@ -433,7 +433,7 @@
     "sourceNumber": 652,
     "romanization": "eolmana",
     "english": "How much / How long",
-    "russian": "Сколько",
+    "russian": "Сколько (времени) / Насколько",
     "example": {
       "ko": "서울에서 부산까지 얼마나 걸려요?",
       "uz": "Seuldan Pusangacha qancha vaqt ketadi?",
@@ -463,7 +463,7 @@
   {
     "id": 654,
     "korean": "멀다",
-    "uzbek": "Uzoq",
+    "uzbek": "Uzoq bo'lmoq",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
@@ -522,7 +522,7 @@
   {
     "id": 657,
     "korean": "호텔",
-    "uzbek": "Mehmonxona",
+    "uzbek": "Mehmonxona (otel)",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
@@ -541,15 +541,15 @@
   {
     "id": 658,
     "korean": "쓰다",
-    "uzbek": "Yozmoq / Achchiq / Kiymoq / Ishlatmoq",
+    "uzbek": "Yozmoq / Taxir bo'lmoq / Taqmoq (shapka yoki ko'zoynak) / Ishlatmoq",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 658,
     "romanization": "sseuda",
-    "english": "To write / Bitter / To wear / To use",
-    "russian": "Писать / Горький / Надевать / Использовать",
+    "english": "To write / To be bitter / To wear (a hat or glasses) / To use",
+    "russian": "Писать / Быть горьким / Надевать (шапку или очки) / Использовать",
     "example": {
       "ko": "이 약은 맛이 써요.",
       "uz": "Bu dori achchiq.",
@@ -567,7 +567,7 @@
     "needsReview": false,
     "sourceNumber": 659,
     "romanization": "gyesanhada",
-    "english": "To calculate / To pay",
+    "english": "To calculate / to pay",
     "russian": "Считать / Платить",
     "example": {
       "ko": "제가 계산할게요.",
@@ -605,7 +605,7 @@
     "needsReview": false,
     "sourceNumber": 661,
     "romanization": "sagwida",
-    "english": "To make friends / To date",
+    "english": "To make friends / to date",
     "russian": "Дружить / Встречаться",
     "example": {
       "ko": "한국 친구를 사귀었어요.",
@@ -617,18 +617,18 @@
   {
     "id": 662,
     "korean": "먼저",
-    "uzbek": "Oldin, birinchi bo'lib",
+    "uzbek": "Avval (birinchi navbatda)",
     "lesson": 22,
     "category": "travel, daily life and shopping",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 662,
     "romanization": "meonjeo",
-    "english": "First / Before",
+    "english": "First / Ahead (of others)",
     "russian": "Сначала / Первым",
     "example": {
       "ko": "먼저 가세요.",
-      "uz": "Siz oldin boring.",
+      "uz": "Avval siz boring.",
       "en": "Please go ahead first.",
       "ru": "Идите первым."
     }

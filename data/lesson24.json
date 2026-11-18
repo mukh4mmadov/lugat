@@ -21,15 +21,15 @@
   {
     "id": 692,
     "korean": "멋있다",
-    "uzbek": "Chiroyli, kelishgan, ajoyib",
+    "uzbek": "Kelishgan, ajoyib bo'lmoq",
     "lesson": 24,
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 692,
     "romanization": "meositda",
-    "english": "To be cool / Stylish",
-    "russian": "Быть классным / Стильным",
+    "english": "To be cool / stylish",
+    "russian": "Быть классным / стильным",
     "example": {
       "ko": "그 배우는 정말 멋있어요.",
       "uz": "U aktyor juda kelishgan.",
@@ -40,15 +40,15 @@
   {
     "id": 693,
     "korean": "짧다",
-    "uzbek": "Qisqa",
+    "uzbek": "Qisqa bo'lmoq",
     "lesson": 24,
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 693,
     "romanization": "jjalda",
-    "english": "To be short",
-    "russian": "Быть коротким",
+    "english": "To be short (in length)",
+    "russian": "Быть коротким (по длине)",
     "example": {
       "ko": "방학이 짧아요.",
       "uz": "Ta'til qisqa.",
@@ -78,7 +78,7 @@
   {
     "id": 695,
     "korean": "편리하다",
-    "uzbek": "Qulay",
+    "uzbek": "Qulay (foydalanishga) bo'lmoq",
     "lesson": 24,
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
@@ -86,7 +86,7 @@
     "sourceNumber": 695,
     "romanization": "pyeollihada",
     "english": "To be convenient",
-    "russian": "Быть удобным",
+    "russian": "Быть удобным (в использовании)",
     "example": {
       "ko": "지하철은 편리해요.",
       "uz": "Metro qulay.",
@@ -97,7 +97,7 @@
   {
     "id": 696,
     "korean": "어떻다",
-    "uzbek": "Qanday",
+    "uzbek": "Qanday bo'lmoq (qanaqa)",
     "lesson": 24,
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
@@ -105,7 +105,7 @@
     "sourceNumber": 696,
     "romanization": "eotteota",
     "english": "How (is it)",
-    "russian": "Какой / Каков",
+    "russian": "Каков (как)",
     "example": {
       "ko": "한국 생활은 어때요?",
       "uz": "Koreyadagi hayot qanday?",
@@ -116,7 +116,7 @@
   {
     "id": 697,
     "korean": "유명하다",
-    "uzbek": "Mashhur",
+    "uzbek": "Mashhur bo'lmoq",
     "lesson": 24,
     "category": "adjectives, nature and places",
     "audio": "speechSynthesis:ko-KR",
@@ -161,7 +161,7 @@
     "needsReview": false,
     "sourceNumber": 699,
     "romanization": "maeume deulda",
-    "english": "To like / To be pleased with",
+    "english": "To be pleased with",
     "russian": "Нравиться",
     "example": {
       "ko": "이 옷이 마음에 들어요.",

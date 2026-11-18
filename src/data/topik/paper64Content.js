@@ -236,10 +236,10 @@ export const PAPER_64_CONTENT = {
     stem: null,
     stemText: "",
     options: [
-      { id: "1", box: { page: 8, x0: 117, y0: 68, x1: 295, y1: 195 } },
-      { id: "2", box: { page: 8, x0: 305, y0: 68, x1: 516, y1: 195 } },
-      { id: "3", box: { page: 8, x0: 117, y0: 200, x1: 295, y1: 340 } },
-      { id: "4", box: { page: 8, x0: 305, y0: 200, x1: 516, y1: 340 } },
+      { id: "1", box: { page: 8, x0: 136, y0: 138, x1: 302, y1: 251 } },
+      { id: "2", box: { page: 8, x0: 332, y0: 138, x1: 500, y1: 251 } },
+      { id: "3", box: { page: 8, x0: 136, y0: 253, x1: 302, y1: 365 } },
+      { id: "4", box: { page: 8, x0: 332, y0: 253, x1: 500, y1: 365 } },
     ],
   },
   "16": {
@@ -251,10 +251,10 @@ export const PAPER_64_CONTENT = {
     stem: null,
     stemText: "",
     options: [
-      { id: "1", box: { page: 8, x0: 117, y0: 360, x1: 295, y1: 490 } },
-      { id: "2", box: { page: 8, x0: 305, y0: 360, x1: 516, y1: 490 } },
-      { id: "3", box: { page: 8, x0: 117, y0: 495, x1: 295, y1: 635 } },
-      { id: "4", box: { page: 8, x0: 305, y0: 495, x1: 516, y1: 635 } },
+      { id: "1", box: { page: 8, x0: 136, y0: 404, x1: 302, y1: 516 } },
+      { id: "2", box: { page: 8, x0: 332, y0: 404, x1: 500, y1: 516 } },
+      { id: "3", box: { page: 8, x0: 136, y0: 519, x1: 302, y1: 632 } },
+      { id: "4", box: { page: 8, x0: 332, y0: 519, x1: 500, y1: 632 } },
     ],
   },
   "17": {
@@ -622,7 +622,7 @@ export const PAPER_64_CONTENT = {
     shared: null,
     sharedText: "",
     prompt: "",
-    stem: { page: 15, x0: 72, y0: 245, x1: 525, y1: 355 },
+    stem: { page: 15, x0: 118, y0: 400, x1: 430, y1: 502 },
     stemText: "",
     options: [
       { id: "1", text: "금요일에 합니다." },
@@ -637,7 +637,7 @@ export const PAPER_64_CONTENT = {
     shared: null,
     sharedText: "",
     prompt: "",
-    stem: { page: 16, x0: 72, y0: 35, x1: 525, y1: 278 },
+    stem: { page: 16, x0: 118, y0: 104, x1: 332, y1: 303 },
     stemText: "",
     options: [
       { id: "1", text: "삼 분 후에 먹습니다." },
@@ -652,7 +652,7 @@ export const PAPER_64_CONTENT = {
     shared: null,
     sharedText: "",
     prompt: "",
-    stem: { page: 16, x0: 72, y0: 316, x1: 525, y1: 472 },
+    stem: { page: 16, x0: 120, y0: 436, x1: 296, y1: 571 },
     stemText: "",
     options: [
       { id: "1", text: "마이클 씨가 문자 메시지를 받습니다." },

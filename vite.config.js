@@ -34,7 +34,7 @@ export default defineConfig({
         name: "K-TALIM",
         short_name: "K-TALIM",
         description:
-          "Premium Korean vocabulary learning platform with flashcards, quizzes, and smart review for Uzbek learners.",
+          "Everything to learn Korean and prepare for TOPIK in one place: vocabulary, grammar, listening, reading, speaking and real TOPIK papers.",
         start_url: "/",
         display: "standalone",
         background_color: "#0f172a",
@@ -71,15 +71,15 @@ export default defineConfig({
         importScripts: ["/push-sw.js"],
         globPatterns: ["**/*.{js,mjs,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
         // Big chunks only some visitors need load on demand instead of on install.
-        globIgnores: ["**/pdf*.{js,mjs}", "**/Admin*.js", "**/universities-*.js", "**/korea/**", "**/node_modules/**"],
+        globIgnores: ["**/pdf*.{js,mjs}", "**/paper[0-9]*.js", "**/Admin*.js", "**/universities-*.js", "**/korea/**", "**/node_modules/**"],
         navigateFallbackDenylist: [/\.(?:pdf|mp3)(?:$|[?#])/i],
         runtimeCaching: [
           // Workbox matches RegExp routes against the full URL, so same-origin
           // paths are matched by function. Audio is left to the browser because
           // it streams with range requests that a cache-first route would break.
           {
-            urlPattern: ({ url, sameOrigin }) =>
-              sameOrigin && /^\/topik\/.*\.pdf$/i.test(url.pathname),
+            // TOPIK papers live in Supabase Storage (bucket topik-assets).
+            urlPattern: ({ url }) => /\/topik-assets\/.*\.pdf$/i.test(url.pathname),
             handler: "CacheFirst",
             options: {
               cacheName: "topik-pdf-cache",

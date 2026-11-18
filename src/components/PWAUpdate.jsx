@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { m as motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { registerSW } from "virtual:pwa-register";
 
-// A new version never reloads the page by itself in the middle of a lesson or
-// a TOPIK exam: the learner taps "Update", or it applies while the tab is in
-// the background.
+// A new version never reloads the page by itself while the learner is on it:
+// not when they come back to the tab, not mid-lesson and not mid-exam. They
+// tap "Update", or it applies on their next move to another page (outside a
+// running TOPIK attempt), which loads that page fresh anyway.
+const BUSY_PATH = /^\/(topik\/(?!result\/|words\/)[^/]+|study\/\d+)$/;
+
+
 export default function PWAUpdate() {
   const { t } = useTranslation();
   const [showUpdate, setShowUpdate] = useState(false);
@@ -29,14 +34,23 @@ export default function PWAUpdate() {
     return () => clearInterval(updateInterval);
   }, []);
 
+  const { pathname } = useLocation();
+  const shownOnRef = useRef(null);
   useEffect(() => {
-    if (!showUpdate) return undefined;
-    const applyInBackground = () => {
-      if (document.visibilityState === "hidden") updateRef.current?.(true);
-    };
-    document.addEventListener("visibilitychange", applyInBackground);
-    return () => document.removeEventListener("visibilitychange", applyInBackground);
-  }, [showUpdate]);
+    if (!showUpdate) {
+      shownOnRef.current = null;
+      return;
+    }
+    if (shownOnRef.current === null) {
+      shownOnRef.current = pathname;
+      return;
+    }
+    if (pathname !== shownOnRef.current && !BUSY_PATH.test(pathname) && !BUSY_PATH.test(shownOnRef.current)) {
+      setRefreshing(true);
+      updateRef.current?.(true);
+    }
+    shownOnRef.current = pathname;
+  }, [showUpdate, pathname]);
 
   return (
     <AnimatePresence>

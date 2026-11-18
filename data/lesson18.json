@@ -40,13 +40,13 @@
   {
     "id": 523,
     "korean": "팔",
-    "uzbek": "Qo'l",
+    "uzbek": "Qo'l (yelkadan bilakkacha)",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 523,
-    "note": "bilakdan yelkagacha",
+    "note": "yelkadan bilakkacha",
     "romanization": "pal",
     "english": "Arm",
     "russian": "Рука (от плеча)",
@@ -79,7 +79,7 @@
   {
     "id": 525,
     "korean": "발",
-    "uzbek": "Oyoq panjasi, tovon",
+    "uzbek": "Oyoq kafti (panjasi)",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -136,7 +136,7 @@
   {
     "id": 528,
     "korean": "손",
-    "uzbek": "Qo'l",
+    "uzbek": "Qo'l (kaft va barmoqlar)",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -186,7 +186,7 @@
     "russian": "Лицо",
     "example": {
       "ko": "얼굴이 빨개요.",
-      "uz": "Yuzi qizarib ketgan.",
+      "uz": "Yuzingiz qizarib ketibdi.",
       "en": "Your face is red.",
       "ru": "У тебя красное лицо."
     }
@@ -270,7 +270,7 @@
   {
     "id": 535,
     "korean": "나쁘다",
-    "uzbek": "Yomon",
+    "uzbek": "Yomon bo'lmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -300,7 +300,7 @@
     "russian": "Быть занятым",
     "example": {
       "ko": "요즘 너무 바빠요.",
-      "uz": "Hozir juda bandman.",
+      "uz": "Shu kunlarda juda bandman.",
       "en": "I'm very busy these days.",
       "ru": "В последнее время я очень занят."
     }
@@ -308,7 +308,7 @@
   {
     "id": 537,
     "korean": "슬프다",
-    "uzbek": "Xafa bo'lmoq, qayg'uli",
+    "uzbek": "Qayg'uli (g'amgin) bo'lmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -327,7 +327,7 @@
   {
     "id": 538,
     "korean": "배고프다",
-    "uzbek": "Qorni ochmoq",
+    "uzbek": "Qorni och bo'lmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -346,7 +346,7 @@
   {
     "id": 539,
     "korean": "크다",
-    "uzbek": "Katta",
+    "uzbek": "Katta bo'lmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -441,14 +441,14 @@
   {
     "id": 544,
     "korean": "크게 듣다",
-    "uzbek": "Baland qilib eshitmoq",
+    "uzbek": "Baland ovozda tinglamoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 544,
     "romanization": "keuge deutda",
-    "english": "To listen loudly",
+    "english": "To listen at high volume",
     "russian": "Слушать громко",
     "example": {
       "ko": "음악을 크게 듣지 마세요.",
@@ -479,7 +479,7 @@
   {
     "id": 546,
     "korean": "여드름이 생기다",
-    "uzbek": "Husnbuzar (toshma) toshmoq",
+    "uzbek": "Husnbuzar chiqmoq",
     "lesson": 18,
     "category": "body parts, health and descriptions",
     "audio": "speechSynthesis:ko-KR",
@@ -487,10 +487,10 @@
     "sourceNumber": 546,
     "romanization": "yeodeureumi saenggida",
     "english": "To get pimples",
-    "russian": "Появляются прыщи",
+    "russian": "Появляться (о прыщах)",
     "example": {
       "ko": "얼굴에 여드름이 생겼어요.",
-      "uz": "Yuzimga husnbuzar toshdi.",
+      "uz": "Yuzimga husnbuzar chiqdi.",
       "en": "I got pimples on my face.",
       "ru": "У меня на лице появились прыщи."
     }

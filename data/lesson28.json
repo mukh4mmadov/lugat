@@ -2,7 +2,7 @@
   {
     "id": 795,
     "korean": "잠깐",
-    "uzbek": "Biroz, bir lahza",
+    "uzbek": "Bir lahza, ozgina vaqt",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -59,7 +59,7 @@
   {
     "id": 798,
     "korean": "세탁소",
-    "uzbek": "Kir yuvish xizmati",
+    "uzbek": "Kimyoviy tozalash (kir yuvish) xizmati",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -71,7 +71,7 @@
     "russian": "Прачечная / Химчистка",
     "example": {
       "ko": "세탁소에 코트를 맡겨요.",
-      "uz": "Paltoni kir yuvish xizmatiga topshiraman.",
+      "uz": "Paltoni kimyoviy tozalashga topshiraman.",
       "en": "I leave my coat at the dry cleaner's.",
       "ru": "Я сдаю пальто в химчистку."
     }
@@ -98,7 +98,7 @@
   {
     "id": 800,
     "korean": "깜빡하다",
-    "uzbek": "Yoddan ko'tarmoq, esdan chiqib qolmoq",
+    "uzbek": "Esdan chiqarib qo'ymoq (bir lahzaga)",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -154,18 +154,18 @@
   },
   {
     "id": 803,
-    "korean": "필요없다",
+    "korean": "필요 없다",
     "uzbek": "Kerak emas",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 803,
-    "romanization": "piryoeopda",
+    "romanization": "piryo eopda",
     "english": "Not needed",
     "russian": "Не нужно",
     "example": {
-      "ko": "우산은 필요없어요.",
+      "ko": "우산은 필요 없어요.",
       "uz": "Soyabon kerak emas.",
       "en": "I don't need an umbrella.",
       "ru": "Зонт не нужен."
@@ -231,7 +231,7 @@
   {
     "id": 807,
     "korean": "혹시",
-    "uzbek": "Mobodo, ehtimol",
+    "uzbek": "Mobodo, tasodifan",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -239,7 +239,7 @@
     "sourceNumber": 807,
     "romanization": "hoksi",
     "english": "By any chance",
-    "russian": "Случайно / Может быть",
+    "russian": "Случайно (не…)",
     "example": {
       "ko": "혹시 시간 있어요?",
       "uz": "Mobodo vaqtingiz bormi?",
@@ -307,15 +307,15 @@
   {
     "id": 811,
     "korean": "힘들다",
-    "uzbek": "Qiyin, mashaqqatli",
+    "uzbek": "Mashaqqatli (charchatadigan) bo'lmoq",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 811,
     "romanization": "himdeulda",
-    "english": "To be hard / Tiring",
-    "russian": "Быть трудным / Утомительным",
+    "english": "To be hard / tiring",
+    "russian": "Быть утомительным (трудным)",
     "example": {
       "ko": "일이 힘들어요.",
       "uz": "Ish og'ir.",
@@ -410,7 +410,7 @@
     "sourceNumber": 816,
     "romanization": "honja",
     "english": "Alone",
-    "russian": "Один / В одиночку",
+    "russian": "В одиночку, сам",
     "example": {
       "ko": "혼자 영화를 봐요.",
       "uz": "Yolg'iz kino ko'raman.",
@@ -478,7 +478,7 @@
   {
     "id": 820,
     "korean": "케이크",
-    "uzbek": "Tort, keks",
+    "uzbek": "Tort",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -536,7 +536,7 @@
   {
     "id": 823,
     "korean": "만들다",
-    "uzbek": "Yasamoq, tayyorlamoq",
+    "uzbek": "Yasamoq (tayyorlamoq)",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -544,7 +544,7 @@
     "sourceNumber": 823,
     "romanization": "mandeulda",
     "english": "To make",
-    "russian": "Делать / Готовить",
+    "russian": "Изготавливать, создавать",
     "example": {
       "ko": "케이크를 만들어요.",
       "uz": "Tort tayyorlayman.",
@@ -555,15 +555,15 @@
   {
     "id": 824,
     "korean": "놀다",
-    "uzbek": "O'ynamoq, dam olmoq",
+    "uzbek": "O'ynamoq, ko'ngil ochmoq",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 824,
     "romanization": "nolda",
-    "english": "To play / To hang out",
-    "russian": "Играть / Отдыхать",
+    "english": "To play / to hang out",
+    "russian": "Играть / Развлекаться",
     "example": {
       "ko": "친구와 공원에서 놀아요.",
       "uz": "Do'stim bilan parkda o'ynayman.",
@@ -688,7 +688,7 @@
   {
     "id": 831,
     "korean": "길다",
-    "uzbek": "Uzun",
+    "uzbek": "Uzun bo'lmoq",
     "lesson": 28,
     "category": "daily life, home and miscellaneous",
     "audio": "speechSynthesis:ko-KR",
@@ -733,8 +733,8 @@
     "needsReview": false,
     "sourceNumber": 833,
     "romanization": "bulda",
-    "english": "To blow / To play (wind instrument)",
-    "russian": "Дуть / Играть (на духовом)",
+    "english": "To blow (wind or an instrument)",
+    "russian": "Дуть (о ветре или в духовой инструмент)",
     "example": {
       "ko": "바람이 불어요.",
       "uz": "Shamol esyapti.",

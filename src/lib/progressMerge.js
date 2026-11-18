@@ -75,6 +75,23 @@ function mergeBadges(local = {}, server = {}) {
   return result;
 }
 
+// Anki cards (packed arrays, last review in minutes at index 7): the copy
+// answered last wins. Day counts keep the larger number of each kind.
+function mergeCards(local = {}, server = {}) {
+  const result = { ...server };
+  for (const [id, mine] of Object.entries(local)) {
+    const theirs = result[id];
+    if (!theirs || (mine?.[7] || 0) >= (theirs?.[7] || 0)) result[id] = mine;
+  }
+  return result;
+}
+
+function mergeDays(local = {}, server = {}) {
+  const result = { ...server };
+  for (const [day, mine] of Object.entries(local)) result[day] = maxByKey(mine, result[day]);
+  return result;
+}
+
 // Each lesson's unfinished Study session: the one saved last.
 function mergeSessions(local = {}, server = {}) {
   const result = { ...server };
@@ -116,6 +133,9 @@ export function mergeProgress(local, server, localUpdatedAt = 0) {
     settings: { ...(localNewer ? server.settings : local.settings), ...newer.settings },
     lessonDecks: { ...server.lessonDecks, ...local.lessonDecks },
     studySessions: mergeSessions(local.studySessions, server.studySessions),
+    cards: mergeCards(local.cards, server.cards),
+    topikPractice: localNewer ? { ...server.topikPractice, ...local.topikPractice } : { ...local.topikPractice, ...server.topikPractice },
+    ankiDays: mergeDays(local.ankiDays, server.ankiDays),
     xpSeeded: Boolean(local.xpSeeded || server.xpSeeded),
     updatedAt: Math.max(localUpdatedAt, server.updatedAt || 0),
   };

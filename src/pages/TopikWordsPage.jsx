@@ -1,32 +1,34 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { allWords, exampleTranslation, getWordKey, meaning } from "../data";
-import { PAPER_35_CONTENT } from "../data/topik/paper35Content";
-import { PAPER_35_TRANSCRIPT } from "../data/topik/paper35Transcript";
+import { getTopikExam } from "../data/topik/exams";
 import { PAPER_35_KEY_WORDS } from "../data/topik/paper35Vocab";
+import { loadTopikVocab, topikEntries } from "../data/topikVocab";
 import { speakKorean } from "../lib/speech";
 import { toggleFavorite } from "../store";
 
-const PAPERS = { "35th": { content: PAPER_35_CONTENT, transcript: PAPER_35_TRANSCRIPT, keyWords: PAPER_35_KEY_WORDS, number: 35 } };
+// Hand-picked key words where they exist; otherwise the TOPIK I vocabulary
+// words (not taught in the lessons) that the paper uses.
+const KEY_WORDS = { "35th": PAPER_35_KEY_WORDS };
 // Endings after a one-syllable verb stem (맑 + 습니다), so short stems don't
 // match inside unrelated words.
 const ENDINGS = "(?:습니다|ㅂ니다|아요|어요|았|었|고|게|지|는|은|을|으)";
 
 function paperText(paper) {
-  const parts = [...Object.values(paper.transcript)];
+  const parts = [...Object.values(paper.transcript || {})];
   Object.values(paper.content).forEach((question) => {
     parts.push(question.prompt, question.sharedText, question.stemText, ...(question.options || []).map((option) => option.text));
   });
   return parts.filter(Boolean).join("\n").replace(/<보\s?기>/g, "");
 }
 
-// Lesson words found in the paper, most frequent first.
-function lessonWordsInPaper(text) {
+// Words from `list` found in the paper, most frequent first.
+function wordsInPaper(text, list = allWords) {
   const seen = new Set();
-  return allWords
+  return list
     .filter((word) => !seen.has(word.korean) && seen.add(word.korean))
     .map((word) => {
       const count = word.korean
@@ -55,8 +57,24 @@ export default function TopikWordsPage() {
   const { examId } = useParams();
   const favorites = useSelector((state) => state.progress.favorites);
   const rate = useSelector((state) => state.progress.settings.speechRate);
-  const paper = PAPERS[examId];
-  const lessonWords = useMemo(() => (paper ? lessonWordsInPaper(paperText(paper)) : []), [paper]);
+  const exam = getTopikExam(examId);
+  const paper = exam?.content ? exam : null;
+  const vocab = useSelector((state) => state.content.vocab);
+  useEffect(() => {
+    if (paper && !KEY_WORDS[paper.id]) loadTopikVocab("topik1");
+  }, [paper]);
+  const text = useMemo(() => (paper ? paperText(paper) : ""), [paper]);
+  const lessonWords = useMemo(() => (paper ? wordsInPaper(text) : []), [paper, text]);
+  const keyWords = useMemo(() => {
+    if (!paper) return [];
+    if (KEY_WORDS[paper.id]) return KEY_WORDS[paper.id];
+    const taught = new Set(allWords.flatMap((word) => word.korean.split("/").map((form) => form.trim())));
+    return wordsInPaper(text, topikEntries("topik1").filter((entry) => !entry.lessonKey && !taught.has(entry.korean)))
+      .slice(0, 60)
+      .map(({ word }) => ({ korean: word.korean, romanization: word.romanization, uz: word.uzbek, en: word.english, ru: word.russian }));
+    // vocab: the TOPIK list arrives after the first render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paper, text, vocab]);
   if (!paper) return <Navigate to="/topik" replace />;
 
   const language = String(i18n.language || "uz").slice(0, 2);
@@ -74,8 +92,8 @@ export default function TopikWordsPage() {
         <h2 className="text-xl font-black">{t("topikWords.keyTitle")}</h2>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t("topikWords.keyHint")}</p>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-          {paper.keyWords.map((word) => (
-            <li key={word.korean} className="flex items-center gap-3 rounded-2xl bg-slate-950/5 px-3 py-2.5 dark:bg-white/5">
+          {keyWords.map((word) => (
+            <li key={word.korean} className="flex min-w-0 items-center gap-3 rounded-2xl bg-slate-950/5 px-3 py-2.5 dark:bg-white/5">
               <button type="button" onClick={() => speakKorean(word.korean, rate)} aria-label={`${t("practice.replayAudio")} ${word.korean}`} className="shrink-0 text-lg">
                 🔊
               </button>

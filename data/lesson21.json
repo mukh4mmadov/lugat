@@ -40,7 +40,7 @@
   {
     "id": 606,
     "korean": "빠르다",
-    "uzbek": "Tez, chaqqon",
+    "uzbek": "Tez bo'lmoq",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -59,7 +59,7 @@
   {
     "id": 607,
     "korean": "안내 방송",
-    "uzbek": "E'lon",
+    "uzbek": "E'lon (ovozli xabar)",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -116,14 +116,14 @@
   },
   {
     "id": 610,
-    "korean": "노약자석 (노약자속)",
+    "korean": "노약자석",
     "uzbek": "Qariyalar va nogironlar uchun joy",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 610,
-    "romanization": "noyakjaseok (noyakjasok)",
+    "romanization": "noyakjaseok",
     "english": "Seats for the elderly and disabled",
     "russian": "Места для пожилых и инвалидов",
     "example": {
@@ -174,7 +174,7 @@
   {
     "id": 613,
     "korean": "몸",
-    "uzbek": "Tana, a'zo",
+    "uzbek": "Tana, badan",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -221,7 +221,7 @@
     "note": "yoshi ulug' insonlar",
     "romanization": "eoreun",
     "english": "Adult / Elder",
-    "russian": "Взрослый / Старший",
+    "russian": "Взрослый, старшие (люди)",
     "example": {
       "ko": "어른에게 존댓말을 써요.",
       "uz": "Kattalarga hurmat bilan gapiramiz.",
@@ -367,16 +367,16 @@
   {
     "id": 623,
     "korean": "내리다",
-    "uzbek": "Tushmoq",
+    "uzbek": "Tushmoq (transportdan)",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 623,
-    "note": "transportdan) / Yog'moq (yomg'ir/qor",
+    "note": "transportdan; yomg'ir, qor haqida: yog'moq",
     "romanization": "naerida",
     "english": "To get off",
-    "russian": "Выходить (из транспорта)",
+    "russian": "Сходить, выходить из транспорта",
     "example": {
       "ko": "다음 역에서 내려요.",
       "uz": "Keyingi bekatda tushaman.",
@@ -387,7 +387,7 @@
   {
     "id": 624,
     "korean": "시끄럽다",
-    "uzbek": "Shovqinli",
+    "uzbek": "Shovqinli bo'lmoq",
     "lesson": 21,
     "category": "transportation, public spaces and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -419,7 +419,7 @@
       "ko": "여기 자리 있어요?",
       "uz": "Bu yer band emasmi?",
       "en": "Is this seat taken?",
-      "ru": "Это место свободно?"
+      "ru": "Это место занято?"
     }
   },
   {
@@ -455,7 +455,7 @@
     "russian": "Станция",
     "example": {
       "ko": "서울역에서 만나요.",
-      "uz": "Seul bekatida uchrashamiz.",
+      "uz": "Seul vokzalida uchrashamiz.",
       "en": "Let's meet at Seoul Station.",
       "ru": "Встретимся на Сеульском вокзале."
     }

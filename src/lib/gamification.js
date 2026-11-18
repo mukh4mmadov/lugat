@@ -57,6 +57,13 @@ export function levelTitle(level) {
 const learnedWords = (state) => Object.values(state.words || {}).filter((record) => (record.knownCount || 0) >= 3).length;
 const favoritesCount = (state) => Object.values(state.favorites || {}).filter(Boolean).length;
 const level = (state) => levelForXp(state.xp || 0);
+// How many grammar points exist (the lesson course plus TOPIK I). Set by the
+// grammar data when it loads; until then the lesson course size.
+let grammarCount = 98;
+export function setGrammarTotal(count) {
+  grammarCount = count;
+}
+const grammarTotal = () => grammarCount;
 const grammarDone = (state) => Object.values(state.grammar || {}).filter((item) => item?.done).length;
 const storiesRead = (state) => Object.values(state.stories || {}).filter((item) => item?.read).length;
 
@@ -87,8 +94,8 @@ export const BADGES = [
   { id: "speak10", icon: "💬", check: (s) => (s.stats.speakingSessions || 0) >= 10 },
   { id: "grammarFirst", icon: "📐", check: (s) => grammarDone(s) >= 1 },
   { id: "grammar10", icon: "📏", check: (s) => grammarDone(s) >= 10 },
-  { id: "grammarHalf", icon: "🧩", check: (s) => grammarDone(s) >= 28 },
-  { id: "grammarAll", icon: "🏛️", check: (s) => grammarDone(s) >= 56 },
+  { id: "grammarHalf", icon: "🧩", check: (s) => grammarDone(s) >= Math.ceil(grammarTotal() / 2) },
+  { id: "grammarAll", icon: "🏛️", check: (s) => grammarDone(s) >= grammarTotal() },
   { id: "storyFirst", icon: "📖", check: (s) => storiesRead(s) >= 1 },
   { id: "stories10", icon: "📚", check: (s) => storiesRead(s) >= 10 },
   { id: "storiesAll", icon: "🏯", check: (s) => storiesRead(s) >= 56 },

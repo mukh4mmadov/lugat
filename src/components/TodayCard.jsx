@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { DAILY_GOALS, REVIEW_SESSION_LIMIT, selectCurrentStreak, selectReviewCount, setDailyGoal } from "../store";
+import { DAILY_GOALS, selectCurrentStreak, selectReviewCount, setDailyGoal } from "../store";
 import { dailyKey } from "../lib/study";
 
 const UZ_WEEKDAYS = ["Ya", "Du", "Se", "Ch", "Pa", "Ju", "Sh"];
@@ -148,7 +148,7 @@ export default function TodayCard({ fallbackLesson }) {
             to="/review"
             className="rounded-2xl bg-slate-950 px-5 py-3 font-black text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950"
           >
-            🔁 {t("today.review", { count: Math.min(reviewCount, REVIEW_SESSION_LIMIT) })}
+            🔁 {t("today.review", { count: reviewCount })}
           </Link>
         )}
       </div>

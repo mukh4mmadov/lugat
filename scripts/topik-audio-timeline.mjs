@@ -23,7 +23,8 @@ if (!audioPath || !outPath) {
 
 const ANSWER_GAP = 15; // seconds; longer silences are answering time
 // ffmpeg writes its report, including the detected silences, to stderr.
-const run = spawnSync(ffmpeg, ["-hide_banner", "-i", audioPath, "-af", "silencedetect=noise=-35dB:d=2.5", "-f", "null", "-"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+// -vn: some recordings carry cover art, which would otherwise break the filter.
+const run = spawnSync(ffmpeg, ["-hide_banner", "-i", audioPath, "-vn", "-af", "silencedetect=noise=-35dB:d=2.5", "-f", "null", "-"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
 const output = `${run.stdout || ""}${run.stderr || ""}`;
 const silences = [...output.matchAll(/silence_end: ([\d.]+) \| silence_duration: ([\d.]+)/g)].map((match) => {
   const end = Number(match[1]);
@@ -43,10 +44,28 @@ if (gaps.length !== Number(count)) {
 // The first question starts after the general introduction: at the end of the
 // longest silence before its answering time.
 const intro = silences.filter((silence) => silence.end <= gaps[0].start).sort((a, b) => (b.end - b.start) - (a.end - a.start))[0];
+let firstStart = intro?.end ?? 0;
+// On some recordings the longest pause before question 1 is the one between
+// its two readings, which would cut off its block instruction and example.
+// Question 1 is then given about as long as question 5, which has the same
+// shape (block instruction, example, question): it starts at the longest
+// pause around that point.
+const secondSpeech = gaps[1].start - gaps[0].end;
+if (gaps.length > 5 && gaps[0].start - firstStart < secondSpeech) {
+  const fifthSpeech = gaps[4].start - gaps[3].end;
+  const from = Math.max(0, gaps[0].start - 1.3 * fifthSpeech);
+  const to = gaps[0].start - 0.7 * fifthSpeech;
+  // Pauses inside the introduction are short, so look for ones of 1 s or more.
+  const scan = spawnSync(ffmpeg, ["-hide_banner", "-ss", String(from), "-t", String(to - from), "-i", audioPath, "-vn", "-af", "silencedetect=noise=-35dB:d=1", "-f", "null", "-"], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
+  const pauses = [...`${scan.stdout || ""}${scan.stderr || ""}`.matchAll(/silence_end: ([\d.]+) \| silence_duration: ([\d.]+)/g)].map((match) => ({ start: from + Number(match[1]) - Number(match[2]), end: from + Number(match[1]) }));
+  const best = pauses.sort((a, b) => (b.end - b.start) - (a.end - a.start))[0];
+  firstStart = best ? best.end : Math.max(0, gaps[0].start - fifthSpeech);
+  console.warn(`Question 1: no clear start found; estimated ${firstStart.toFixed(1)}s from question 5's length.`);
+}
 const round = (value) => Math.round(value * 10) / 10;
 const timeline = {};
 gaps.forEach((gap, index) => {
-  const start = index === 0 ? intro?.end ?? 0 : gaps[index - 1].end;
+  const start = index === 0 ? firstStart : gaps[index - 1].end;
   timeline[index + 1] = { start: round(start), speechEnd: round(gap.start), end: round(gap.end) };
 });
 

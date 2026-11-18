@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, Outlet, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
@@ -31,9 +31,9 @@ export function StatTile({ label, value, hint, tone = "sky" }) {
     rose: "text-rose-600 dark:text-rose-300",
   };
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+    <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/80 p-3 dark:border-white/10 dark:bg-white/5 sm:p-4">
       <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{label}</p>
-      <p className={`mt-1.5 text-2xl font-black tabular-nums md:text-3xl ${tones[tone]}`}>{value ?? "—"}</p>
+      <p className={`mt-1.5 break-words text-xl font-black tabular-nums sm:text-2xl md:text-3xl ${tones[tone]}`}>{value ?? "—"}</p>
       {hint && <p className="mt-1 text-xs font-semibold text-slate-500 dark:text-slate-400">{hint}</p>}
     </div>
   );
@@ -59,28 +59,32 @@ export default function AdminPage() {
   const { t } = useTranslation();
   const { user, loading: authLoading } = useAuth();
   const [access, setAccess] = useState("loading");
-  const [error, setError] = useState("");
   // Whose access the check answered for.
   const [checkedFor, setCheckedFor] = useState(null);
   const unseen = useAdminUnseen(access === "allowed");
+  // The newest check; an older one that answers late is ignored.
+  const latestCheck = useRef(0);
 
+  const userId = user?.id ?? null;
+  // Depends on the user only: a language switch must not re-run it, or every
+  // admin section would unmount behind the loader and lose its state.
   const check = useCallback(async () => {
-    if (!user) {
+    const run = ++latestCheck.current;
+    if (!userId) {
       setAccess("unauthenticated");
       return;
     }
     setAccess("loading");
-    setError("");
     const { data, error: accessError } = await supabase.rpc("is_feedback_admin");
+    if (run !== latestCheck.current) return;
     if (accessError) {
       console.error("Admin access check error:", accessError);
-      setError(t("feedback.permissionCheckFailed"));
       setAccess("error");
       return;
     }
     setAccess(data ? "allowed" : "denied");
-    setCheckedFor(user.id);
-  }, [t, user]);
+    setCheckedFor(userId);
+  }, [userId]);
 
   useEffect(() => {
     if (!authLoading) check();
@@ -103,7 +107,7 @@ export default function AdminPage() {
       <GlassCard className="mx-auto max-w-2xl text-center">
         <h1 className="text-xl font-black">{shown === "unauthenticated" ? t("admin.title") : t("feedback.accessDenied")}</h1>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-          {shown === "unauthenticated" ? t("admin.needLogin") : shown === "denied" ? t("admin.noAdminAccess") : error}
+          {shown === "unauthenticated" ? t("admin.needLogin") : shown === "denied" ? t("admin.noAdminAccess") : t("feedback.permissionCheckFailed")}
         </p>
         {shown === "unauthenticated" && (
           <Link to="/login" className="mt-4 inline-flex rounded-2xl bg-sky-500 px-6 py-3 font-black text-white">

@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { getReviewCount } from "../lib/srs";
+import { selectReviewCount } from "../store";
 
 const ICONS = {
   home: "M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z",
@@ -29,8 +29,7 @@ const itemClass = (active) =>
 export default function BottomNav({ onMenu, badge = 0 }) {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const words = useSelector((state) => state.progress.words);
-  const due = getReviewCount(words);
+  const due = useSelector(selectReviewCount);
   const items = [
     ["/", "home", t("nav.home"), (path) => path === "/"],
     ["/study", "study", t("nav.study"), (path) => /^\/(study|lesson|courses)/.test(path)],

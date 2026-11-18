@@ -11,7 +11,8 @@ import { isPremium } from "../lib/premium";
 import { supabase } from "../lib/supabase";
 import { speakKorean, stopSpeaking } from "../lib/speech";
 import { completeStory, toggleFavorite } from "../store";
-import { ModeHeader } from "./FlashcardsPage";
+import ModeHeader from "../components/ModeHeader";
+import RequireAccount from "../components/RequireAccount";
 
 const titleText = (story, language) => story.title[language] || story.title.uz;
 
@@ -326,13 +327,15 @@ function StoryReader({ storyId }) {
             </ol>
           </GlassCard>
 
-          <Questions
-            story={story}
-            onDone={(score) => {
-              setDone(true);
-              dispatch(completeStory({ id: story.id, score }));
-            }}
-          />
+          <RequireAccount compact>
+            <Questions
+              story={story}
+              onDone={(score) => {
+                setDone(true);
+                dispatch(completeStory({ id: story.id, score }));
+              }}
+            />
+          </RequireAccount>
           {done && next && (
             <Link to={`/stories/${next.id}`} className="block rounded-2xl bg-sky-600 px-5 py-3 text-center font-black text-white">
               {t("stories.next")}: {next.emoji} <span lang="ko">{next.title.ko}</span> →

@@ -2,19 +2,20 @@
 // app: default prices with src/lib/premium.js, AI limits with api/ai-chat.js.
 
 export const SITE_KNOWLEDGE = `
-K-TALIM (https://www.ktalim.uz) is a website for Uzbek speakers learning Korean vocabulary and preparing for TOPIK I. The interface is in Uzbek, English and Russian (switch in the header menu). It has light and dark themes.
+K-TALIM (https://www.ktalim.uz) is a website for Uzbek speakers with everything for learning Korean and preparing for TOPIK in one place: vocabulary, grammar, listening, reading, speaking and real TOPIK I papers. The interface is in Uzbek, English and Russian (switch in the header menu). It has light and dark themes.
 
 ACCOUNTS
 - Sign up with email and password, or sign in with Google.
 - After email sign-up a confirmation link is emailed. The account works only after opening it. No email: check the Spam folder; the "send again" button works after 60 seconds. An expired or used link: just try signing in, or request a new link from the sign-in page.
 - Forgot password: "Forgot password?" on the sign-in page sends a reset link (also check Spam).
-- Settings (/settings): change name, password, speech speed, auto-play pronunciation, export progress. Guests can also reset their progress. An account cannot be deleted by the learner: Settings has "Request account deletion", where they write the reason; an admin checks the account and deletes it if there is no problem (until then all data stays). A signed-in learner's progress cannot be reset.
-- Everything a signed-in learner does is saved to the account: word progress, unfinished Study sessions, TOPIK attempts and results, grammar checks, Friday conversations, the Korea study plan and settings (language, exam theme), so it follows them to any device. The device only keeps a copy for offline use. Without an account it stays only in that browser and moves into the account on sign-up. "Deleting" a TOPIK attempt only hides it from the learner's list.
+- Settings (/settings): change name, password, speech speed, auto-play pronunciation, export progress. An account cannot be deleted by the learner: Settings has "Request account deletion", where they write the reason; an admin checks the account and deletes it if there is no problem (until then all data stays). A signed-in learner's progress cannot be reset.
+- Everything a signed-in learner does is saved to the account: word progress, unfinished Study sessions, TOPIK attempts and results, grammar checks, Friday conversations, the Korea study plan and settings (language, exam theme), so it follows them to any device. The device only keeps a copy for offline use. Guests can look around (lessons, word lists, grammar explanations, stories, guides) but studying, reviews, practice, grammar practice and TOPIK exams need a free account: nothing is saved for guests. "Deleting" a TOPIK attempt only hides it from the learner's list.
 
 LEARNING
 - Two books, K-TALIM 1A and 1B: 28 lessons, 833 words. Every word has an Uzbek, English and Russian meaning, romanization and a short example sentence.
-- Per lesson: Study, Flashcards, Listening, Quiz, Writing and Dictation (hear the example sentence, type it; a slower replay button exists).
-- Review (/review) brings back words that are due (spaced repetition). Also Difficult words, Weak words, Favorites (★), Search (searches all three languages and romanization, tolerates small typos), Stats.
+- Vocabulary (/study) works like Anki with the FSRS scheduler: decks "K-TALIM lessons" and "TOPIK I words" (official NIKL beginner list), "Study now" (/review) shows learning, review and new cards with Again / Hard / Good / Easy buttons that show the next interval. Keys: Space shows the answer, 1–4 rate, Z undoes. Options (⚙): decks in Study now, new cards per day (default 20), maximum reviews per day (200), learning steps (1m 10m), relearning steps (10m), desired retention (90%), maximum interval, card types (Korean → meaning, and optionally meaning → Korean), bury siblings, the hour a new day starts (4:00), audio and display. All saved to the account. Each deck has a Browse list (/words/...) with search and each word's state.
+- Per lesson: Study (learn the words with exercises; mastered words join the Anki reviews), Cards (the lesson's Anki cards), Listening, Quiz, Writing and Dictation (hear the example sentence, type it; a slower replay button exists).
+- Grammar (/grammar): the lesson course (56 points) plus 42 extra TOPIK I points, each with explanation in uz/en/ru, examples, common mistakes and practice. Also Difficult words, Weak words, Favorites (★), Search (searches all three languages and romanization, tolerates small typos), Stats.
 - Home has a Today card: daily goal (10/20/40/60 answers, changeable), last 7 days, a warning when the streak would end tonight, and a Continue button.
 - Leaderboard (/leaderboard): tabs League, Week (answers in 7 days), Speaking (minutes spoken in 7 days) and All time (mastered words). Learners can hide their name there.
 - Weekly leagues: Bronze → Silver → Gold → Sapphire → Diamond. The first XP of the week puts a learner in a group of up to 30 learners in their league; the week starts on Monday at 00:00 Tashkent time. The top 5 of a group move up a league, the bottom 5 move down.
@@ -29,8 +30,10 @@ LEARNING
   Otherwise: open the site in Chrome.
 
 TOPIK I
-- The 35th TOPIK I paper with real audio: full mock exam (100 minutes, listening then reading, like the computer-based IBT test), listening only, reading only (no time limit). Answers are saved while testing; the result shows the score, every answer, and listening transcripts ("Audio text").
-- A vocabulary page for the 35th paper (/topik/words/...).
+- The TOPIK page (/topik) has tabs: Exams, Question types, Words & grammar, My results.
+- 12 official past TOPIK I papers with real audio (35, 36, 37, 41, 47, 52, 60, 64, 83, 91, 96, 102; the 35th and 64th are free): full mock exam (100 minutes, listening then reading, like the computer-based IBT test), listening only, reading only (no time limit). Answers are saved to the account while testing; the result shows the score, level, every answer, a written explanation of each question (uz/en/ru) and listening transcripts ("Audio text"). Papers added later are Premium.
+- Question-type practice (/topik/practice/...): every question of one kind (e.g. 장소 고르기, 빈칸 채우기) from all papers in a row, with the answer, explanation, key words and script right after each one, and a solving tip per type.
+- A vocabulary page per paper (/topik/words/...).
 - AI explanation of TOPIK mistakes on the result page: free accounts get 1 explanation per result (up to 3 a day), Premium explains 10 at a time.
 - More TOPIK papers will be added; we can't promise dates.
 
@@ -51,7 +54,7 @@ AI TUTOR (chat button in the corner)
 
 PREMIUM (/premium)
 - Prices: 1 month 29 000 UZS, 3 months 69 000 UZS, 12 months 199 000 UZS.
-- Gives now: AI tutor up to 200 questions a day (free: 10); speaking with Friday and live calls up to 2 hours a day (free: 10 minutes) with pronunciation feedback; AI explanations of TOPIK mistakes 10 at a time; the second story of every lesson; grammar sentence checks up to 100 a day (free: 5); Study in Korea AI tools (document writer and reviewer, interview practice, more advisor questions); streak freezes. Payment is a one-time transfer for 30, 90 or 365 days, not an automatic subscription. All lessons and the 35th TOPIK paper stay free.
+- Gives now: AI tutor up to 200 questions a day (free: 10); speaking with Friday and live calls up to 2 hours a day (free: 10 minutes) with pronunciation feedback; AI explanations of TOPIK mistakes 10 at a time; the second story of every lesson; grammar sentence checks up to 100 a day (free: 5); Study in Korea AI tools (document writer and reviewer, interview practice, more advisor questions); streak freezes. Payment is a one-time transfer for 30, 90 or 365 days, not an automatic subscription. All lessons, vocabulary (Anki), grammar, the 35th and 64th TOPIK papers and question-type practice on them stay free; other TOPIK papers come with Premium.
 - How to buy: open /premium, pick a plan, press the Telegram button. It opens a chat with @mukh4mmadov with the order and account email filled in. Payment details are given there. Premium is usually turned on within an hour; a ⭐ appears next to the name. If it doesn't appear: sign out and back in, or reload.
 - Payment, refunds and premium activation problems are handled only by the owner in Telegram: @mukh4mmadov.
 

@@ -11,9 +11,11 @@
 import fs from "node:fs";
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 
-const [pdfPath, outPath, exportName = "PAPER_CONTENT"] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const SAME_ROW_STEMS = args.includes("--same-row-stems");
+const [pdfPath, outPath, exportName = "PAPER_CONTENT"] = args.filter((arg) => !arg.startsWith("--"));
 if (!pdfPath || !outPath) {
-  console.error("Usage: node scripts/topik-extract-paper.mjs <paper.pdf> <out.js> <EXPORT_NAME>");
+  console.error("Usage: node scripts/topik-extract-paper.mjs <paper.pdf> <out.js> <EXPORT_NAME> [--same-row-stems]");
   process.exit(1);
 }
 
@@ -134,6 +136,17 @@ for (const page of pages.filter((item) => item.page >= 3)) {
       const hasChoices = line.items.some((item) => /[①②③④]/.test(item.s));
       const prompt = hasChoices ? header[2].split(/[①②③④]/)[0] : header[2];
       question.prompt = tidy(prompt.replace(/\(\s*\d\s*점\s*\)/, ""));
+      // --same-row-stems (the 36th/37th papers): a reading question whose
+      // material (a framed sentence or a picture) starts on the number's row.
+      // Its region starts above the row, right of the number, and a sentence
+      // printed there is material, not the question's prompt.
+      const pointsOnly = /^\s*\(\s*\d\s*점\s*\)\s*$/.test(header[2]);
+      if (SAME_ROW_STEMS && !hasChoices && question.number > 30 && !pointsOnly && !/(십시오|니까|까요)\s*[.?]?\s*$/.test(question.prompt)) {
+        question.prompt = "";
+        question.stemY0 = line.y - 22;
+        question.stemX0 = /^\d+\s*\.?\s*$/.test(first.s) ? Math.ceil(first.x + first.w + 2) : 98;
+        if (group && group.y1 === line.y - 16) group.y1 = line.y - 26;
+      }
       if (hasChoices) {
         question.noStem = true;
         parseOptions(question, line);
@@ -195,7 +208,7 @@ for (let number = 1; number <= QUESTION_COUNT; number += 1) {
   if (!item.picture && item.options.some((option) => !option.text)) problems.push(`question ${number}: empty choice text`);
   const { group: block } = item;
   const shared = block.y1 !== null && block.y1 - block.y0 >= 14 ? { page: block.page, x0: LEFT, x1: RIGHT, y0: block.y0, y1: block.y1 } : null;
-  const stem = item.stemY1 !== null && item.stemY1 - item.stemY0 >= 14 ? { page: item.page, x0: LEFT, x1: RIGHT, y0: item.stemY0, y1: item.stemY1 } : null;
+  const stem = item.stemY1 !== null && item.stemY1 - item.stemY0 >= 14 ? { page: item.page, x0: item.stemX0 ?? LEFT, x1: RIGHT, y0: item.stemY0, y1: item.stemY1 } : null;
   content[number] = {
     group: [block.from, block.to],
     instruction: block.instruction,

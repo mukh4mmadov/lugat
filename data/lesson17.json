@@ -21,7 +21,7 @@
   {
     "id": 507,
     "korean": "도착하다",
-    "uzbek": "Yetib kelmoq",
+    "uzbek": "Yetib kelmoq (yetib bormoq)",
     "lesson": 17,
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -79,7 +79,7 @@
   {
     "id": 510,
     "korean": "고향에 가다",
-    "uzbek": "Qishloqqa (ona shahriga) bormoq",
+    "uzbek": "Tug'ilib o'sgan joyiga bormoq",
     "lesson": 17,
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -105,13 +105,13 @@
     "needsReview": false,
     "sourceNumber": 511,
     "romanization": "ginyeomhada",
-    "english": "To commemorate / Celebrate",
+    "english": "To commemorate / celebrate",
     "russian": "Отмечать / Праздновать",
     "example": {
       "ko": "어린이날을 기념해요.",
       "uz": "Bolalar kunini nishonlaymiz.",
       "en": "We celebrate Children's Day.",
-      "ru": "Мы отмечаем День защиты детей."
+      "ru": "Мы отмечаем День детей."
     }
   },
   {
@@ -182,18 +182,18 @@
     "sourceNumber": 515,
     "romanization": "eorininal",
     "english": "Children's Day",
-    "russian": "День защиты детей",
+    "russian": "День детей",
     "example": {
       "ko": "오월 오일은 어린이날이에요.",
-      "uz": "Beshinchi may — Bolalar kuni.",
+      "uz": "5-may — Bolalar kuni.",
       "en": "May 5th is Children's Day.",
-      "ru": "Пятое мая — День защиты детей."
+      "ru": "Пятое мая — День детей."
     }
   },
   {
     "id": 516,
     "korean": "고향",
-    "uzbek": "Qishloq, tug'ilib o'sgan joy",
+    "uzbek": "Tug'ilib o'sgan joy (ona yurt)",
     "lesson": 17,
     "category": "travel, movement and directions",
     "audio": "speechSynthesis:ko-KR",
@@ -204,7 +204,7 @@
     "russian": "Родной город",
     "example": {
       "ko": "제 고향은 사마르칸트예요.",
-      "uz": "Mening tug'ilgan joyim Samarqand.",
+      "uz": "Mening tug'ilib o'sgan shahrim — Samarqand.",
       "en": "My hometown is Samarkand.",
       "ru": "Мой родной город — Самарканд."
     }
@@ -277,7 +277,7 @@
     "sourceNumber": 520,
     "romanization": "eolmana",
     "english": "How much / How long",
-    "russian": "Сколько / Насколько",
+    "russian": "Сколько (времени) / Насколько",
     "example": {
       "ko": "얼마나 걸려요?",
       "uz": "Qancha vaqt ketadi?",

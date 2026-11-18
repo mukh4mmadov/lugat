@@ -11,7 +11,7 @@ import { markDifficult, markKnown, toggleFavorite } from "../store";
 import { isAnswerCorrect, pickDistractors, shuffle } from "../lib/study";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
-import { ModeHeader } from "./FlashcardsPage";
+import ModeHeader from "../components/ModeHeader";
 import ShareResult from "../components/ShareResult";
 
 // A practice round walks through the lesson once, records each answer a single
@@ -395,7 +395,8 @@ export function QuizPage() {
       if (answered === undefined && index >= 0 && index < options.length) {
         setSelectedKey(getWordKey(options[index]));
         session.record(getWordKey(options[index]) === getWordKey(word));
-      } else if (answered !== undefined && event.key === "Enter") {
+      } else if (answered !== undefined && event.key === "Enter" && !event.target.closest?.("button")) {
+        // A focused button (Next) already handles Enter itself.
         session.next();
       }
     };

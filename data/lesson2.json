@@ -31,10 +31,10 @@
     "english": "Dictionary",
     "russian": "Словарь",
     "example": {
-      "ko": "사전을 찾아요.",
-      "uz": "Lug'atni qidiryapman.",
-      "en": "I'm looking for a dictionary.",
-      "ru": "Я ищу словарь."
+      "ko": "사전에서 단어를 찾아요.",
+      "uz": "Lug'atdan so'z qidiraman.",
+      "en": "I look up a word in the dictionary.",
+      "ru": "Я ищу слово в словаре."
     }
   },
   {
@@ -135,7 +135,7 @@
   {
     "id": 32,
     "korean": "시계",
-    "uzbek": "Soat",
+    "uzbek": "Soat (asbob)",
     "romanization": "sigye",
     "lesson": 2,
     "category": "classroom objects and people",
@@ -267,9 +267,9 @@
   },
   {
     "id": 39,
-    "korean": "이 거",
+    "korean": "이거",
     "uzbek": "Bu narsa",
-    "romanization": "i geo",
+    "romanization": "igeo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -278,7 +278,7 @@
     "english": "This thing",
     "russian": "Эта вещь",
     "example": {
-      "ko": "이 거 얼마예요?",
+      "ko": "이거 얼마예요?",
       "uz": "Bu narsa qancha turadi?",
       "en": "How much is this?",
       "ru": "Сколько это стоит?"
@@ -286,9 +286,9 @@
   },
   {
     "id": 40,
-    "korean": "그 거",
+    "korean": "그거",
     "uzbek": "U narsa",
-    "romanization": "geu geo",
+    "romanization": "geugeo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -297,7 +297,7 @@
     "english": "That thing (near you)",
     "russian": "Та вещь (рядом с вами)",
     "example": {
-      "ko": "그 거 주세요.",
+      "ko": "그거 주세요.",
       "uz": "O'sha narsani bering.",
       "en": "Please give me that one.",
       "ru": "Дайте, пожалуйста, вот то."
@@ -305,9 +305,9 @@
   },
   {
     "id": 41,
-    "korean": "저 거",
+    "korean": "저거",
     "uzbek": "Anavi narsa",
-    "romanization": "jeo geo",
+    "romanization": "jeogeo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
@@ -316,7 +316,7 @@
     "english": "That thing (over there)",
     "russian": "Вон та вещь",
     "example": {
-      "ko": "저 거 뭐예요?",
+      "ko": "저거 뭐예요?",
       "uz": "Anavi narsa nima?",
       "en": "What is that over there?",
       "ru": "Что это вон там?"
@@ -392,16 +392,16 @@
     "english": "Customer / Guest",
     "russian": "Клиент / Гость",
     "example": {
-      "ko": "손님, 어서 오세요.",
-      "uz": "Mehmon, xush kelibsiz.",
-      "en": "Welcome, sir/madam.",
-      "ru": "Добро пожаловать, гость."
+      "ko": "가게에 손님이 많아요.",
+      "uz": "Do'konda mijozlar ko'p.",
+      "en": "There are many customers in the shop.",
+      "ru": "В магазине много покупателей."
     }
   },
   {
     "id": 46,
     "korean": "남자 친구",
-    "uzbek": "Yigit (Sevgili) do'st",
+    "uzbek": "Sevgili yigit",
     "romanization": "namja chingu",
     "lesson": 2,
     "category": "classroom objects and people",
@@ -409,7 +409,7 @@
     "needsReview": false,
     "sourceNumber": 46,
     "english": "Boyfriend",
-    "russian": "Парень (бойфренд)",
+    "russian": "Парень (возлюбленный)",
     "example": {
       "ko": "제 남자 친구는 한국 사람이에요.",
       "uz": "Yigitim koreys.",
@@ -420,7 +420,7 @@
   {
     "id": 47,
     "korean": "여자 친구",
-    "uzbek": "Qiz (Sevgili) do'st",
+    "uzbek": "Sevgili qiz",
     "romanization": "yeoja chingu",
     "lesson": 2,
     "category": "classroom objects and people",
@@ -428,10 +428,10 @@
     "needsReview": false,
     "sourceNumber": 47,
     "english": "Girlfriend",
-    "russian": "Девушка (подруга)",
+    "russian": "Девушка (возлюбленная)",
     "example": {
       "ko": "여자 친구가 있어요?",
-      "uz": "Qiz do'stingiz bormi?",
+      "uz": "Sevgilingiz bormi?",
       "en": "Do you have a girlfriend?",
       "ru": "У тебя есть девушка?"
     }
@@ -439,15 +439,15 @@
   {
     "id": 48,
     "korean": "뭐",
-    "uzbek": "Nima",
+    "uzbek": "Nima (so'zlashuvda)",
     "romanization": "mwo",
     "lesson": 2,
     "category": "classroom objects and people",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 48,
-    "english": "What",
-    "russian": "Что",
+    "english": "What (casual)",
+    "russian": "Что (разговорное)",
     "example": {
       "ko": "지금 뭐 해요?",
       "uz": "Hozir nima qilyapsiz?",

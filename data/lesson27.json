@@ -59,7 +59,7 @@
   {
     "id": 775,
     "korean": "걷다",
-    "uzbek": "Yurmoq",
+    "uzbek": "Piyoda yurmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -68,7 +68,7 @@
     "note": "piyoda",
     "romanization": "geotda",
     "english": "To walk",
-    "russian": "Ходить",
+    "russian": "Ходить пешком",
     "example": {
       "ko": "매일 삼십 분씩 걸어요.",
       "uz": "Har kuni o'ttiz daqiqa yuraman.",
@@ -109,7 +109,7 @@
     "russian": "Потеть",
     "example": {
       "ko": "운동해서 땀을 흘려요.",
-      "uz": "Sport qilib terlayman.",
+      "uz": "Sport bilan shug'ullanib terlayman.",
       "en": "I sweat when I exercise.",
       "ru": "Я потею во время тренировки."
     }
@@ -136,14 +136,14 @@
   {
     "id": 779,
     "korean": "전체",
-    "uzbek": "Barchasi, butunlay",
+    "uzbek": "Butun, yaxlit",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 779,
     "romanization": "jeonche",
-    "english": "The whole / Entire",
+    "english": "The whole / entire",
     "russian": "Весь / Целиком",
     "example": {
       "ko": "전체 학생이 모였어요.",
@@ -193,7 +193,7 @@
   {
     "id": 782,
     "korean": "강하다",
-    "uzbek": "Kuchli",
+    "uzbek": "Kuchli bo'lmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -212,7 +212,7 @@
   {
     "id": 783,
     "korean": "약하다",
-    "uzbek": "Kuchsiz, zaif",
+    "uzbek": "Kuchsiz (zaif) bo'lmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -250,7 +250,7 @@
   {
     "id": 785,
     "korean": "빠르다",
-    "uzbek": "Tez, chaqqon",
+    "uzbek": "Tez bo'lmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -260,10 +260,10 @@
     "english": "To be fast",
     "russian": "Быть быстрым",
     "example": {
-      "ko": "시간이 빨라요.",
-      "uz": "Vaqt tez o'tadi.",
-      "en": "Time goes fast.",
-      "ru": "Время идёт быстро."
+      "ko": "기차가 버스보다 빨라요.",
+      "uz": "Poyezd avtobusdan tezroq.",
+      "en": "The train is faster than the bus.",
+      "ru": "Поезд быстрее автобуса."
     }
   },
   {
@@ -288,7 +288,7 @@
   {
     "id": 787,
     "korean": "다르다",
-    "uzbek": "Farq qilmoq",
+    "uzbek": "Farq qilmoq, boshqacha bo'lmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -307,15 +307,15 @@
   {
     "id": 788,
     "korean": "고르다",
-    "uzbek": "Tanlamoq",
+    "uzbek": "Tanlamoq (saralab olmoq)",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 788,
     "romanization": "goreuda",
-    "english": "To choose",
-    "russian": "Выбирать",
+    "english": "To pick",
+    "russian": "Выбирать (подбирать)",
     "example": {
       "ko": "마음에 드는 옷을 골라요.",
       "uz": "Yoqqan kiyimni tanlayman.",
@@ -333,7 +333,7 @@
     "needsReview": false,
     "sourceNumber": 789,
     "romanization": "mareuda",
-    "english": "To dry / To be thin",
+    "english": "To dry / to be thin",
     "russian": "Сохнуть / Быть худым",
     "example": {
       "ko": "빨래가 다 말랐어요.",
@@ -352,7 +352,7 @@
     "needsReview": false,
     "sourceNumber": 790,
     "romanization": "gireuda",
-    "english": "To raise / To grow",
+    "english": "To raise / to grow",
     "russian": "Растить / Выращивать",
     "example": {
       "ko": "집에서 강아지를 길러요.",
@@ -383,7 +383,7 @@
   {
     "id": 792,
     "korean": "부르다",
-    "uzbek": "Chaqirmoq / Kuylamoq / Qorni to'q",
+    "uzbek": "Chaqirmoq / Kuylamoq / Qorni to'q bo'lmoq",
     "lesson": 27,
     "category": "health, exercise and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -394,7 +394,7 @@
     "russian": "Звать / Петь / Быть сытым",
     "example": {
       "ko": "친구의 이름을 불러요.",
-      "uz": "Do'stimning ismini chaqiraman.",
+      "uz": "Do'stimni ismi bilan chaqiraman.",
       "en": "I call my friend's name.",
       "ru": "Я зову друга по имени."
     }

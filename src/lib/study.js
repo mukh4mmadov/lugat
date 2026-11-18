@@ -1,4 +1,14 @@
-import { meaning } from "../data";
+import { getWordKey, meaning } from "../data";
+import SYNONYM_GROUPS from "../data/synonymGroups.json";
+
+// Words that mean the same (synonyms, honorific pairs, Sino/native numbers):
+// never one as a wrong option for the other.
+const SYNONYMS = new Map();
+for (const group of SYNONYM_GROUPS) for (const key of group) SYNONYMS.set(key, new Set(group));
+
+export function areSynonyms(a, b) {
+  return Boolean(SYNONYMS.get(getWordKey(a))?.has(getWordKey(b)));
+}
 
 export const cardModes = [
   { value: "korean", label: "mode.korean" },
@@ -94,8 +104,11 @@ export function isAnswerCorrect(input, expected) {
   const normalizedInput = normalizeAnswer(input);
   if (!normalizedInput) return false;
   const isKorean = /[ㄱ-힝]/.test(expected);
+  // Korean spacing is often written differently (영화를 보다 / 영화를보다).
+  const squash = (value) => value.replace(/\s+/g, "");
   return answerCandidates(expected).some((candidate) => {
     if (normalizedInput === candidate) return true;
+    if (isKorean && squash(normalizedInput) === squash(candidate)) return true;
     if (isKorean || candidate.length < 5) return false;
     return editDistance(normalizedInput, candidate) <= (candidate.length >= 10 ? 2 : 1);
   });
@@ -127,7 +140,8 @@ export function wordKind(word) {
 
 // Up to `count` wrong options for `word`: same kind from the same lesson first,
 // then the same kind from nearby lessons, then anything from the lesson.
-// Meanings and Korean never repeat, so exactly one option is right.
+// Meanings and Korean never repeat and synonyms are skipped, so exactly one
+// option is right.
 export function pickDistractors(word, lessonWords, allWords, count = 3, meaningOf = meaning) {
   const kind = wordKind(word);
   const near = allWords.filter((item) => Math.abs(item.lesson - word.lesson) <= 4 && item.lesson !== word.lesson);
@@ -136,14 +150,16 @@ export function pickDistractors(word, lessonWords, allWords, count = 3, meaningO
     near.filter((item) => wordKind(item) === kind),
     lessonWords,
   ];
-  const seenMeanings = new Set([meaningOf(word)]);
+  const norm = (item) => normalizeAnswer(String(meaningOf(item) || ""));
+  const seenMeanings = new Set([norm(word)]);
   const seenKorean = new Set([word.korean]);
   const picked = [];
   for (const tier of tiers) {
     for (const item of shuffle(tier)) {
       if (picked.length >= count) return picked;
-      if (seenMeanings.has(meaningOf(item)) || seenKorean.has(item.korean)) continue;
-      seenMeanings.add(meaningOf(item));
+      if (seenMeanings.has(norm(item)) || seenKorean.has(item.korean)) continue;
+      if (areSynonyms(word, item) || picked.some((other) => areSynonyms(other, item))) continue;
+      seenMeanings.add(norm(item));
       seenKorean.add(item.korean);
       picked.push(item);
     }

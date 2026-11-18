@@ -2,7 +2,7 @@
   {
     "id": 386,
     "korean": "전통",
-    "uzbek": "An'ana / Milliy",
+    "uzbek": "An'ana, an'anaviy",
     "romanization": "jeontong",
     "lesson": 13,
     "category": "culture, home and communication",
@@ -13,7 +13,7 @@
     "russian": "Традиция / Традиционный",
     "example": {
       "ko": "한복은 한국의 전통 옷이에요.",
-      "uz": "Xanbok — Koreyaning milliy kiyimi.",
+      "uz": "Xanbok — Koreyaning an'anaviy kiyimi.",
       "en": "Hanbok is Korea's traditional clothing.",
       "ru": "Ханбок — традиционная корейская одежда."
     }
@@ -116,7 +116,7 @@
   {
     "id": 392,
     "korean": "거실",
-    "uzbek": "Mehmonxona / Zal (uyning o'rtasidagi asosiy xona)",
+    "uzbek": "Zal (uydagi mehmonxona)",
     "romanization": "geosil",
     "lesson": 13,
     "category": "culture, home and communication",
@@ -135,15 +135,15 @@
   {
     "id": 393,
     "korean": "중",
-    "uzbek": "Ichida / Davomida / Ora / O'rtasida",
+    "uzbek": "(…lar) ichidan, …jarayonida",
     "romanization": "jung",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 393,
-    "english": "Among / During",
-    "russian": "Среди / Во время",
+    "english": "Among / In the middle of",
+    "russian": "Среди / В процессе",
     "example": {
       "ko": "과일 중에서 사과를 제일 좋아해요.",
       "uz": "Mevalar ichida olmani eng yaxshi ko'raman.",
@@ -173,8 +173,8 @@
   {
     "id": 395,
     "korean": "실내",
-    "uzbek": "Xona ichi / Bino ichi",
-    "romanization": "silnae",
+    "uzbek": "Bino ichi (yopiq joy)",
+    "romanization": "sillae",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
@@ -184,7 +184,7 @@
     "russian": "В помещении",
     "example": {
       "ko": "실내에서 담배를 피우지 마세요.",
-      "uz": "Xona ichida chekmang.",
+      "uz": "Bino ichida chekmang.",
       "en": "Don't smoke indoors.",
       "ru": "Не курите в помещении."
     }
@@ -325,7 +325,7 @@
   {
     "id": 403,
     "korean": "문제를 풀다",
-    "uzbek": "Masala / Muammoni yechmoq",
+    "uzbek": "Masala (muammo) yechmoq",
     "romanization": "munjereul pulda",
     "lesson": 13,
     "category": "culture, home and communication",
@@ -363,7 +363,7 @@
   {
     "id": 405,
     "korean": "전화를 받다",
-    "uzbek": "Telefonni ko'tarmoq / Javob bermoq",
+    "uzbek": "Telefonni ko'tarmoq (qo'ng'iroqqa javob bermoq)",
     "romanization": "jeonhwareul batda",
     "lesson": 13,
     "category": "culture, home and communication",
@@ -382,14 +382,14 @@
   {
     "id": 406,
     "korean": "먼저",
-    "uzbek": "Oldin / Birinchi bo'lib / Avval",
+    "uzbek": "Avval (birinchi navbatda)",
     "romanization": "meonjeo",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 406,
-    "english": "First / Before",
+    "english": "First / Ahead (of others)",
     "russian": "Сначала / Сперва",
     "example": {
       "ko": "먼저 손을 씻으세요.",
@@ -420,8 +420,8 @@
   {
     "id": 408,
     "korean": "술을 끊다",
-    "uzbek": "Ichishni tashlamoq (Alkogolni to'xtatmoq)",
-    "romanization": "sureul kkeunda",
+    "uzbek": "Ichishni tashlamoq (spirtli ichimlik)",
+    "romanization": "sureul kkeunta",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",
@@ -440,7 +440,7 @@
     "id": 409,
     "korean": "담배를 끊다",
     "uzbek": "Chekishni tashlamoq",
-    "romanization": "dambaereul kkeunda",
+    "romanization": "dambaereul kkeunta",
     "lesson": 13,
     "category": "culture, home and communication",
     "audio": "speechSynthesis:ko-KR",

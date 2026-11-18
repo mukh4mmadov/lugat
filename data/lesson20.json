@@ -31,7 +31,7 @@
     "english": "Suddenly",
     "russian": "Вдруг / Внезапно",
     "example": {
-      "ko": "갑자기 비가 와요.",
+      "ko": "갑자기 비가 오기 시작했어요.",
       "uz": "To'satdan yomg'ir yog'a boshladi.",
       "en": "It suddenly started raining.",
       "ru": "Вдруг пошёл дождь."
@@ -118,18 +118,18 @@
   },
   {
     "id": 584,
-    "korean": "한국생활",
+    "korean": "한국 생활",
     "uzbek": "Koreyadagi hayot",
     "lesson": 20,
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 584,
-    "romanization": "hanguksaenghwal",
+    "romanization": "hanguk saenghwal",
     "english": "Life in Korea",
     "russian": "Жизнь в Корее",
     "example": {
-      "ko": "한국생활이 재미있어요.",
+      "ko": "한국 생활이 재미있어요.",
       "uz": "Koreyadagi hayot qiziqarli.",
       "en": "Life in Korea is interesting.",
       "ru": "Жизнь в Корее интересная."
@@ -164,7 +164,7 @@
     "needsReview": false,
     "sourceNumber": 586,
     "romanization": "gugyeonghada",
-    "english": "To look around / Sightsee",
+    "english": "To look around / sightsee",
     "russian": "Осматривать / Глазеть",
     "example": {
       "ko": "시장을 구경해요.",
@@ -195,7 +195,7 @@
   {
     "id": 588,
     "korean": "휴일",
-    "uzbek": "Dam olish kuni",
+    "uzbek": "Dam olish kuni (bayram kuni)",
     "lesson": 20,
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
@@ -214,7 +214,7 @@
   {
     "id": 589,
     "korean": "아까",
-    "uzbek": "Baya, biroz oldin",
+    "uzbek": "Baya (hozirgina)",
     "lesson": 20,
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",
@@ -225,7 +225,7 @@
     "russian": "Недавно / Только что",
     "example": {
       "ko": "아까 전화했어요.",
-      "uz": "Biroz oldin qo'ng'iroq qildim.",
+      "uz": "Baya qo'ng'iroq qildim.",
       "en": "I called a while ago.",
       "ru": "Я звонил недавно."
     }
@@ -244,7 +244,7 @@
     "russian": "Кимбап",
     "example": {
       "ko": "김밥 두 줄 주세요.",
-      "uz": "Ikkita kimbap bering.",
+      "uz": "Ikki rulon kimbap bering.",
       "en": "Two rolls of kimbap, please.",
       "ru": "Два ролла кимбапа, пожалуйста."
     }
@@ -342,7 +342,7 @@
     "russian": "Ханбок (традиционная одежда)",
     "example": {
       "ko": "설날에 한복을 입어요.",
-      "uz": "Yangi yilda xanbok kiyamiz.",
+      "uz": "Qamariy Yangi yilda (Sollal) xanbok kiyamiz.",
       "en": "We wear hanbok on Lunar New Year.",
       "ru": "На Новый год по лунному календарю мы носим ханбок."
     }
@@ -437,7 +437,7 @@
     "russian": "Весело / С удовольствием",
     "example": {
       "ko": "즐겁게 놀았어요.",
-      "uz": "Maroqli o'ynadik.",
+      "uz": "Maroqli vaqt o'tkazdik.",
       "en": "We had fun.",
       "ru": "Мы весело провели время."
     }
@@ -445,7 +445,7 @@
   {
     "id": 601,
     "korean": "한식집",
-    "uzbek": "Koreys oshxonasi / restorani",
+    "uzbek": "Koreys taomlari restorani",
     "lesson": 20,
     "category": "korean culture, traditions and food",
     "audio": "speechSynthesis:ko-KR",

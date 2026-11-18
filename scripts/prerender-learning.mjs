@@ -65,8 +65,9 @@ function page({ url, title, description, body, data }) {
     .replace(/<link rel="canonical"[^>]*>/, "");
   const json = data ? `  <script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>\n` : "";
   html = html.replace("</head>", `  <link rel="canonical" href="${url}" />\n${json}  </head>`);
-  // Readable content for crawlers; React replaces #root on load.
-  return html.replace(/<div id="root">[\s\S]*?<!--\/splash--><\/div>/, `<div id="root"><main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${body}</main></div>`);
+  // Readable content for crawlers. People see the loading screen on top of it
+  // until React replaces #root, never a flash of unstyled text.
+  return html.replace(/<div id="root">([\s\S]*?)<!--\/splash--><\/div>/, (match, splash) => `<div id="root">${splash}<main style="max-width:760px;margin:0 auto;padding:24px;font-family:sans-serif;line-height:1.6">${body}</main></div>`);
 }
 
 const written = [];
@@ -101,9 +102,9 @@ write(
   "grammar",
   page({
     url: `${SITE}/grammar`,
-    title: "Koreys tili grammatikasi o'zbek tilida — 56 mavzu | K-TALIM",
+    title: `Koreys tili grammatikasi o'zbek tilida — ${GRAMMAR.length} mavzu | K-TALIM`,
     description: `Koreys tili grammatikasi o'zbekcha tushuntirish bilan: ${GRAMMAR.length} ta mavzu, misollar, ko'p uchraydigan xatolar va mashqlar. AI gapingizni tekshirib beradi.`,
-    body: `${nav}<h1>Koreys tili grammatikasi</h1><p>${GRAMMAR.length} ta mavzu, har biri o'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar bilan.</p><ul>${GRAMMAR.map((point) => `<li><a href="/grammar/${point.id}">${escape(grammarName(point))}</a> (${point.lesson}-dars)</li>`).join("")}</ul>`,
+    body: `${nav}<h1>Koreys tili grammatikasi</h1><p>${GRAMMAR.length} ta mavzu, har biri o'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar bilan.</p><ul>${GRAMMAR.map((point) => `<li><a href="/grammar/${point.id}">${escape(grammarName(point))}</a> (${point.lesson ? `${point.lesson}-dars` : "TOPIK I"})</li>`).join("")}</ul>`,
   }),
 );
 for (const point of GRAMMAR) {
@@ -118,7 +119,7 @@ for (const point of GRAMMAR) {
       url,
       title: `${grammarName(point)} | Koreys grammatikasi | K-TALIM`,
       description,
-      body: `${nav}<h1>${escape(grammarName(point))}</h1><p>Qolip: <b lang="ko">${escape(point.pattern)}</b></p><p>${escape(point.explain.uz)}</p>${rules ? `<h2>Qoida</h2><ul>${rules}</ul>` : ""}${examples ? `<h2>Misollar</h2><ul>${examples}</ul>` : ""}${mistakes ? `<h2>Ko'p uchraydigan xatolar</h2><ul>${mistakes}</ul>` : ""}<p>${point.lesson}-dars grammatikasi · <a href="/grammar">Barcha mavzular</a></p>`,
+      body: `${nav}<h1>${escape(grammarName(point))}</h1><p>Qolip: <b lang="ko">${escape(point.pattern)}</b></p><p>${escape(point.explain.uz)}</p>${rules ? `<h2>Qoida</h2><ul>${rules}</ul>` : ""}${examples ? `<h2>Misollar</h2><ul>${examples}</ul>` : ""}${mistakes ? `<h2>Ko'p uchraydigan xatolar</h2><ul>${mistakes}</ul>` : ""}<p>${point.lesson ? `${point.lesson}-dars grammatikasi` : "TOPIK I grammatikasi"} · <a href="/grammar">Barcha mavzular</a></p>`,
       data: learningResource(url, grammarName(point), description, { learningResourceType: "Grammar explanation", teaches: point.pattern }),
     }),
   );
@@ -208,17 +209,17 @@ for (const guide of GUIDES) {
 }
 
 // The home page: what K-TALIM has, with a link to each part.
-const homeDescription = `Koreys tilini o'zbek tilida o'rganing: ${lessons.length} dars va ${wordCount} so'z, grammatika, hikoyalar, AI bilan gaplashish, TOPIK I mock imtihon va Koreyada o'qish bo'yicha qo'llanma.`;
+const homeDescription = `Koreys tilini o'rganish va TOPIK'ga tayyorlanish uchun kerak bo'lgan hamma narsa — bir joyda: ${wordCount} so'z Anki usulida, ${GRAMMAR.length} ta grammatika mavzusi, hikoyalar, gaplashish va izohli haqiqiy TOPIK I imtihonlari.`;
 const home = page({
   url: `${SITE}/`,
-  title: "K-TALIM — koreys tilini o'zbek tilida o'rganing | TOPIK, so'zlar, gaplashish",
+  title: "K-TALIM — koreys tili va TOPIK, hammasi bir joyda",
   description: homeDescription,
-  body: `<h1>K-TALIM — koreys tilini o'zbek tilida o'rganing</h1><p>${escape(homeDescription)}</p>
-<h2><a href="/courses">So'z yodlash: ${lessons.length} dars, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. Mashqlar: kartochkalar, test, eshitish, yozish va diktant. Takrorlash jadvali so'zni unutayotganingizda qaytaradi.</p>
+  body: `<h1>K-TALIM — koreys tili va TOPIK, hammasi bir joyda</h1><p>${escape(homeDescription)}</p>
+<h2><a href="/courses">So'z yodlash: ${lessons.length} dars, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. So'zlar Anki usulida (FSRS) takrorlanadi: har bir so'z unuta boshlaganingizda qaytadi. Mashqlar: test, eshitish, yozish va diktant.</p>
 <h2><a href="/grammar">Grammatika: ${GRAMMAR.length} mavzu</a></h2><p>O'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar. Gap tuzsangiz, AI uni tekshirib beradi.</p>
 <h2><a href="/stories">Hikoyalar: ${STORIES.length} ta</a></h2><p>Darsdagi so'zlar bilan yozilgan qisqa hikoyalar, so'zni bosib tarjimasini ko'rish va savollar.</p>
 <h2><a href="/speaking">Gaplashish</a></h2><p>AI suhbatdosh Friday bilan ${SPEAKING_TOPICS.length} ta mavzuda koreyscha ovozli suhbat va boshqa o'quvchilar bilan jonli qo'ng'iroq.</p>
-<h2><a href="/topik">TOPIK I mock imtihon</a></h2><p>${examList}: vaqt bilan to'liq imtihon yoki bo'limma-bo'lim, ball, daraja va AI xato tushuntirishi.</p>
+<h2><a href="/topik">TOPIK I mock imtihon</a></h2><p>${examList}: vaqt bilan to'liq imtihon yoki bo'limma-bo'lim, ball, daraja, har bir savolga izoh va savol turlari bo'yicha mashq.</p>
 <h2>AI ustoz</h2><p>Koreys tili bo'yicha savollaringizga o'zbek tilida javob beradi.</p>
 <h2><a href="/guides">Qo'llanmalar</a></h2><p>${GUIDES.map((guide) => `<a href="/guides/${guide.slug}">${escape(guide.title)}</a>`).join(" · ")}</p>
 <h2><a href="/korea">Koreyada o'qish</a></h2><p>Koreya universitetlari, rasmiy kontrakt narxlari, GKS stipendiyasi va viza bo'yicha qo'llanma.</p>

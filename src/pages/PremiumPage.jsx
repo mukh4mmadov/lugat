@@ -10,7 +10,11 @@ import { PREMIUM_PLANS, TELEGRAM_USERNAME, formatPrice, premiumUntil, telegramOr
 // are a footnote.
 const FEATURES = [
   { key: "lessons", free: "full", premium: "full" },
+  { key: "anki", free: "full", premium: "full" },
+  { key: "grammarCourse", free: "full", premium: "full" },
   { key: "topik35", free: "full", premium: "full" },
+  { key: "topikTypes", free: "full", premium: "full" },
+  { key: "topikPapers", free: "none", premium: "full" },
   { key: "speaking", free: "limited", premium: "full" },
   { key: "ai", free: "limited", premium: "full" },
   { key: "aiReview", free: "limited", premium: "full" },

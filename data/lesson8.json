@@ -20,9 +20,9 @@
   },
   {
     "id": 233,
-    "korean": "지난 주",
+    "korean": "지난주",
     "uzbek": "O'tgan hafta",
-    "romanization": "jinan ju",
+    "romanization": "jinanju",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -31,7 +31,7 @@
     "english": "Last week",
     "russian": "На прошлой неделе",
     "example": {
-      "ko": "지난 주에 부산에 갔어요.",
+      "ko": "지난주에 부산에 갔어요.",
       "uz": "O'tgan hafta Pusanga bordim.",
       "en": "I went to Busan last week.",
       "ru": "На прошлой неделе я ездил в Пусан."
@@ -39,9 +39,9 @@
   },
   {
     "id": 234,
-    "korean": "지난 달",
+    "korean": "지난달",
     "uzbek": "O'tgan oy",
-    "romanization": "jinan dal",
+    "romanization": "jinandal",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -50,7 +50,7 @@
     "english": "Last month",
     "russian": "В прошлом месяце",
     "example": {
-      "ko": "지난 달에 이사했어요.",
+      "ko": "지난달에 이사했어요.",
       "uz": "O'tgan oy ko'chdim.",
       "en": "I moved last month.",
       "ru": "В прошлом месяце я переехал."
@@ -60,7 +60,7 @@
     "id": 235,
     "korean": "작년",
     "uzbek": "O'tgan yil",
-    "romanization": "jaknyeon",
+    "romanization": "jangnyeon",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -97,7 +97,7 @@
   {
     "id": 237,
     "korean": "준비하다",
-    "uzbek": "Tayyorlanmoq",
+    "uzbek": "Tayyorlamoq, tayyorgarlik ko'rmoq",
     "romanization": "junbihada",
     "lesson": 8,
     "category": "time, places and daily life",
@@ -116,7 +116,7 @@
   {
     "id": 238,
     "korean": "만들기",
-    "uzbek": "Tayyorlamoq",
+    "uzbek": "Yasash, tayyorlash (jarayoni)",
     "romanization": "mandeulgi",
     "lesson": 8,
     "category": "time, places and daily life",
@@ -129,7 +129,7 @@
       "ko": "쿠키 만들기는 재미있어요.",
       "uz": "Pechenye tayyorlash qiziqarli.",
       "en": "Making cookies is fun.",
-      "ru": "Печь печенье интересно."
+      "ru": "Делать печенье интересно."
     }
   },
   {
@@ -249,7 +249,7 @@
   {
     "id": 245,
     "korean": "이사하다",
-    "uzbek": "Ko'chmoq (uy ko'chirish)",
+    "uzbek": "Ko'chib o'tmoq (yangi uyga)",
     "romanization": "isahada",
     "lesson": 8,
     "category": "time, places and daily life",
@@ -306,7 +306,7 @@
   {
     "id": 248,
     "korean": "아파트",
-    "uzbek": "Kvartira / Ko'p qavatli uy (Dom)",
+    "uzbek": "Kvartira, ko'p qavatli uy",
     "romanization": "apateu",
     "lesson": 8,
     "category": "time, places and daily life",
@@ -344,15 +344,15 @@
   {
     "id": 250,
     "korean": "학교를 졸업하다",
-    "uzbek": "Maktabni/O'qishni bitirmoq",
-    "romanization": "hakgyoreul joleophada",
+    "uzbek": "Maktabni bitirmoq",
+    "romanization": "hakgyoreul joreophada",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 250,
     "english": "To graduate from school",
-    "russian": "Окончить школу / учёбу",
+    "russian": "Окончить школу",
     "example": {
       "ko": "작년에 학교를 졸업했어요.",
       "uz": "O'tgan yili maktabni bitirdim.",
@@ -363,7 +363,7 @@
   {
     "id": 251,
     "korean": "전에",
-    "uzbek": "Oldin / Avval",
+    "uzbek": "Oldin",
     "romanization": "jeone",
     "lesson": 8,
     "category": "time, places and daily life",
@@ -371,7 +371,7 @@
     "needsReview": false,
     "sourceNumber": 251,
     "english": "Before / Ago",
-    "russian": "Раньше / До",
+    "russian": "Назад / До (того как)",
     "example": {
       "ko": "삼 년 전에 한국에 왔어요.",
       "uz": "Uch yil oldin Koreyaga keldim.",
@@ -389,7 +389,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 252,
-    "english": "To get up / Wake up",
+    "english": "To get up / wake up",
     "russian": "Вставать / Просыпаться",
     "example": {
       "ko": "아침 일곱 시에 일어나요.",
@@ -478,7 +478,7 @@
     "id": 257,
     "korean": "찻집",
     "uzbek": "Choyxona",
-    "romanization": "chajip",
+    "romanization": "chatjip",
     "lesson": 8,
     "category": "time, places and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -515,7 +515,7 @@
   {
     "id": 259,
     "korean": "너무",
-    "uzbek": "Juda / Haddan tashqari",
+    "uzbek": "Haddan tashqari (juda)",
     "romanization": "neomu",
     "lesson": 8,
     "category": "time, places and daily life",

@@ -6,7 +6,8 @@ import { LazyMotion } from "framer-motion";
 import App from "./App.jsx";
 import PWAUpdate from "./components/PWAUpdate";
 import "./index.css";
-import { store } from "./store";
+import { store, vocabLoaded } from "./store";
+import { onTopikVocab } from "./data/topikVocab";
 import { i18nReady } from "./lib/i18n";
 import { initWordOverrides } from "./lib/wordOverrides";
 import { dataReady } from "./data";
@@ -18,6 +19,7 @@ import { loadPremiumPrices } from "./lib/premium";
 import { supabase } from "./lib/supabase";
 
 watchErrors();
+onTopikVocab(() => store.dispatch(vocabLoaded()));
 applyCachedTextOverrides();
 captureReferral();
 

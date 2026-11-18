@@ -6,3 +6,5 @@ dev-dist
 .kilo
 # Notes, prompts and docs stay on this computer
 *.md
+# TOPIK PDFs and MP3s are served from Supabase Storage (bucket topik-assets)
+public/topik/

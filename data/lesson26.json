@@ -53,7 +53,7 @@
     "russian": "Сеульский лес (парк)",
     "example": {
       "ko": "서울숲에서 자전거를 타요.",
-      "uz": "Seul o'rmonida velosiped uchaman.",
+      "uz": "Seul o'rmonida velosiped minaman.",
       "en": "I ride a bike in Seoul Forest.",
       "ru": "Я катаюсь на велосипеде в Сеульском лесу."
     }
@@ -79,14 +79,14 @@
   },
   {
     "id": 738,
-    "korean": "꽃목걸이 (꽃목거리)",
+    "korean": "꽃목걸이",
     "uzbek": "Gul marjon",
     "lesson": 26,
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 738,
-    "romanization": "kkonmokgeori (kkonmokgeori)",
+    "romanization": "kkonmokgeori",
     "english": "Flower necklace",
     "russian": "Цветочное ожерелье",
     "example": {
@@ -157,7 +157,7 @@
   {
     "id": 742,
     "korean": "단풍",
-    "uzbek": "Kuzgi yaproqlar",
+    "uzbek": "Kuzgi (qizargan) barglar",
     "lesson": 26,
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
@@ -168,8 +168,8 @@
     "russian": "Осенние листья",
     "example": {
       "ko": "가을에 단풍이 아름다워요.",
-      "uz": "Kuzda yaproqlar go'zal.",
-      "en": "The autumn leaves are beautiful in fall.",
+      "uz": "Kuzda barglar go'zal tusga kiradi.",
+      "en": "In autumn, the leaves turn beautiful colors.",
       "ru": "Осенью красивые листья."
     }
   },
@@ -349,7 +349,7 @@
   {
     "id": 752,
     "korean": "이상하다",
-    "uzbek": "G'alati, noodatiy",
+    "uzbek": "G'alati bo'lmoq",
     "lesson": 26,
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
@@ -596,15 +596,15 @@
   {
     "id": 765,
     "korean": "선택하다",
-    "uzbek": "Tanlamoq",
+    "uzbek": "Tanlamoq (tanlov qilmoq)",
     "lesson": 26,
     "category": "seoul, travel and daily expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 765,
     "romanization": "seontaekhada",
-    "english": "To choose",
-    "russian": "Выбирать",
+    "english": "To choose / select",
+    "russian": "Выбирать (делать выбор)",
     "example": {
       "ko": "마음에 드는 것을 선택하세요.",
       "uz": "Yoqqanini tanlang.",

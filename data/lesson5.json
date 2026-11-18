@@ -40,7 +40,7 @@
   {
     "id": 111,
     "korean": "편지를 보내다",
-    "uzbek": "Xat yubormoq / jo'natmoq",
+    "uzbek": "Xat yubormoq",
     "romanization": "pyeonjireul bonaeda",
     "lesson": 5,
     "category": "places and activities",
@@ -186,7 +186,7 @@
       "ko": "저녁에 헬스장에 가요.",
       "uz": "Kechqurun trenajyor zaliga boraman.",
       "en": "I go to the gym in the evening.",
-      "ru": "Вечером я хожу в спортзал."
+      "ru": "Вечером я хожу в тренажёрный зал."
     }
   },
   {
@@ -287,7 +287,7 @@
   {
     "id": 124,
     "korean": "식당",
-    "uzbek": "Oshxona / Restoran",
+    "uzbek": "Restoran, ovqatlanish joyi (oshxona)",
     "romanization": "sikdang",
     "lesson": 5,
     "category": "places and activities",
@@ -344,15 +344,15 @@
   {
     "id": 127,
     "korean": "미안하다",
-    "uzbek": "Kechirim so'ramoq (Kechir)",
+    "uzbek": "Kechir, uzr (oddiy shakl)",
     "romanization": "mianhada",
     "lesson": 5,
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 127,
-    "english": "To be sorry",
-    "russian": "Извиняться (Прости)",
+    "english": "To be sorry (casual)",
+    "russian": "Извиняться (прости — обычная форма)",
     "example": {
       "ko": "늦어서 미안해.",
       "uz": "Kechikkanim uchun kechir.",
@@ -363,7 +363,7 @@
   {
     "id": 128,
     "korean": "죄송하다",
-    "uzbek": "Kechirim so'ramoq (Kechirasiz - hurmat shakli)",
+    "uzbek": "Kechirasiz, uzr so'rayman (hurmat shakli)",
     "romanization": "joesonghada",
     "lesson": 5,
     "category": "places and activities",
@@ -371,7 +371,7 @@
     "needsReview": false,
     "sourceNumber": 128,
     "english": "To be sorry (polite)",
-    "russian": "Извиняться (Извините — вежливо)",
+    "russian": "Извиняться (извините — вежливо)",
     "example": {
       "ko": "정말 죄송합니다.",
       "uz": "Juda uzr so'rayman.",
@@ -515,7 +515,7 @@
   {
     "id": 136,
     "korean": "백화점",
-    "uzbek": "Universal do'kon (Savdo markazi)",
+    "uzbek": "Univermag (savdo markazi)",
     "romanization": "baekhwajeom",
     "lesson": 5,
     "category": "places and activities",
@@ -554,7 +554,7 @@
     "id": 138,
     "korean": "약국",
     "uzbek": "Dorixona",
-    "romanization": "yakkuk",
+    "romanization": "yakguk",
     "lesson": 5,
     "category": "places and activities",
     "audio": "speechSynthesis:ko-KR",

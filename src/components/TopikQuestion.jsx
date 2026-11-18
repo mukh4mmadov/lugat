@@ -151,8 +151,12 @@ export function PaperCrop({ url, box, label, className = "", zoomable = false })
 
 const MARKS = { 1: "1", 2: "2", 3: "3", 4: "4" };
 
+// Papers print the same instruction with slightly different spacing ("( )").
+const normalizeInstruction = (text) => String(text || "").replace(/\(\s*\)/g, "()").replace(/\s+/g, " ").trim();
+const INSTRUCTIONS_BY_TEXT = new Map(Object.entries(TOPIK_INSTRUCTIONS).map(([text, entry]) => [normalizeInstruction(text), entry]));
+
 function translationFor(instruction, language) {
-  const entry = TOPIK_INSTRUCTIONS[instruction];
+  const entry = INSTRUCTIONS_BY_TEXT.get(normalizeInstruction(instruction));
   if (!entry) return null;
   return entry[String(language || "uz").slice(0, 2)] || entry.uz;
 }
@@ -169,6 +173,20 @@ const numberedOnly = (number, instruction) => ({
 // One exam question laid out like the computer-based test (IBT): the block
 // instruction (with an optional translation), any shared passage, the
 // question with its printed material, and the four numbered choices.
+// Printed text from the paper (an example box or a passage), set like the
+// paper: a "<보기>" example gets its own heading. Sharper than a picture of the
+// page on a phone, and it can be zoomed and translated by the browser.
+function PaperText({ text }) {
+  const example = /^<\s*보\s*기\s*>/.test(text);
+  const body = example ? text.replace(/^<\s*보\s*기\s*>\s*/, "") : text;
+  return (
+    <div lang="ko" className="text-[16px] leading-8 text-slate-900 dark:text-slate-100 md:text-[17px]">
+      {example && <p className="mb-1 text-center text-sm font-black tracking-[0.4em] text-slate-500 dark:text-slate-400">&lt;보기&gt;</p>}
+      <p className="whitespace-pre-line">{body}</p>
+    </div>
+  );
+}
+
 export default function TopikQuestion({ exam, question, selected, onSelect, review = null, showShared = true, translate = false }) {
   const { t, i18n } = useTranslation();
   // Papers added in the admin panel have no extracted text: the learner reads
@@ -212,7 +230,7 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
 
       {showShared && content.shared && (
         <div className="rounded-xl border border-slate-200 bg-white p-3 dark:border-white/10 md:p-4">
-          <PaperCrop url={exam.pdf} box={content.shared} label={content.instruction} className="mx-auto" zoomable />
+          {content.sharedText ? <PaperText text={content.sharedText} /> : <PaperCrop url={exam.pdf} box={content.shared} label={content.instruction} className="mx-auto" zoomable />}
         </div>
       )}
 
@@ -222,7 +240,11 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
           {content.prompt}
           <span className="ml-2 text-sm font-semibold text-slate-500 dark:text-slate-400">({question.points}점)</span>
         </p>
-        {content.stem && <PaperCrop url={exam.pdf} box={content.stem} label={t("topik.questionNumber", { number: question.number })} className="mx-auto mt-4" zoomable />}
+        {content.stem && (content.stemText ? (
+          <div className="mt-4 rounded-lg border border-slate-300 px-4 py-3 dark:border-white/15"><PaperText text={content.stemText} /></div>
+        ) : (
+          <PaperCrop url={exam.pdf} box={content.stem} label={t("topik.questionNumber", { number: question.number })} className="mx-auto mt-4" zoomable />
+        ))}
 
         <div className={`mt-5 grid gap-2.5 ${layout}`} role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
           {content.options.map((option) => {

@@ -72,13 +72,13 @@
       "ko": "영어를 할 수 있어요.",
       "uz": "Ingliz tilida gapira olaman.",
       "en": "I can speak English.",
-      "ru": "Я говорю по-английски."
+      "ru": "Я могу говорить по-английски."
     }
   },
   {
     "id": 416,
     "korean": "한국말",
-    "uzbek": "Koreys tili (Koreyscha nutq)",
+    "uzbek": "Koreys tili (so'zlashuv)",
     "romanization": "hangungmal",
     "lesson": 14,
     "category": "hobbies, language and expressions",
@@ -89,7 +89,7 @@
     "russian": "Корейский язык",
     "example": {
       "ko": "한국말을 잘해요.",
-      "uz": "Koreyscha yaxshi gapirasiz.",
+      "uz": "Koreys tilida yaxshi gapirasiz.",
       "en": "You speak Korean well.",
       "ru": "Вы хорошо говорите по-корейски."
     }
@@ -154,7 +154,7 @@
   {
     "id": 420,
     "korean": "정말",
-    "uzbek": "Haqiqatdan / Rostdan",
+    "uzbek": "Rostdan, haqiqatan",
     "romanization": "jeongmal",
     "lesson": 14,
     "category": "hobbies, language and expressions",
@@ -173,7 +173,7 @@
   {
     "id": 421,
     "korean": "노래하다",
-    "uzbek": "Qo'shiq kuylamoq",
+    "uzbek": "Qo'shiq aytmoq",
     "romanization": "noraehada",
     "lesson": 14,
     "category": "hobbies, language and expressions",
@@ -183,10 +183,10 @@
     "english": "To sing",
     "russian": "Петь",
     "example": {
-      "ko": "언니는 노래를 잘해요.",
-      "uz": "Opam yaxshi qo'shiq kuylaydi.",
-      "en": "My older sister sings well.",
-      "ru": "Моя старшая сестра хорошо поёт."
+      "ko": "언니가 무대에서 노래해요.",
+      "uz": "Opam sahnada qo'shiq aytyapti.",
+      "en": "My older sister is singing on stage.",
+      "ru": "Моя старшая сестра поёт на сцене."
     }
   },
   {
@@ -219,7 +219,7 @@
     "needsReview": false,
     "sourceNumber": 423,
     "english": "To be kind",
-    "russian": "Быть добрым / Вежливым",
+    "russian": "Быть добрым / любезным",
     "example": {
       "ko": "선생님은 친절해요.",
       "uz": "O'qituvchi mehribon.",
@@ -325,14 +325,14 @@
   {
     "id": 429,
     "korean": "시간이 빨리 가다",
-    "uzbek": "Vaqtni tez o'tmoq",
+    "uzbek": "Vaqt tez o'tmoq",
     "romanization": "sigani ppalli gada",
     "lesson": 14,
     "category": "hobbies, language and expressions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 429,
-    "english": "Time passes quickly",
+    "english": "Time flies (passes quickly)",
     "russian": "Время летит быстро",
     "example": {
       "ko": "친구와 있으면 시간이 빨리 가요.",
@@ -503,7 +503,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 438,
-    "english": "To pay / To calculate",
+    "english": "To pay / to calculate",
     "russian": "Платить / Рассчитываться",
     "example": {
       "ko": "카드로 계산해요.",
@@ -541,7 +541,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 440,
-    "english": "To wrap / To pack",
+    "english": "To wrap / to pack",
     "russian": "Упаковывать",
     "example": {
       "ko": "선물을 포장해 주세요.",

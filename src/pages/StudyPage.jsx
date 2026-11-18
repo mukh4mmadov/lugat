@@ -7,7 +7,10 @@ import ReportWordLink from "../components/ReportWordLink";
 import GlassCard from "../components/GlassCard";
 import WordBadge from "../components/WordBadge";
 import { exampleTranslation, getLessonWords, getWordKey, lessonInfo, meaning } from "../data";
-import { markKnown, markDifficult, recordStudySession, saveStudySession, selectStudyProgress, store } from "../store";
+import { introduceCard, markKnown, markDifficult, recordStudySession, saveStudySession, selectAnkiOptions, store } from "../store";
+import { RATING, ankiDay, packCard, schedule } from "../lib/fsrs";
+import { RECALL_SUFFIX } from "../lib/anki";
+import DeckOverview from "../components/anki/DeckOverview";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
 import { speakKorean } from "../lib/speech";
@@ -20,6 +23,7 @@ import {
   currentLearnKey,
   exerciseBlank,
   finishLearnCard,
+  isMastered,
   isSessionValid,
   masteredCount,
   newSession,
@@ -27,109 +31,7 @@ import {
 } from "../lib/studySession";
 
 export function StudyHomePage() {
-  const { t } = useTranslation();
-  const progress = useSelector((state) => state.progress);
-
-  return (
-    <div className="space-y-6">
-      <GlassCard className="relative overflow-hidden p-6 md:p-10">
-        <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-emerald-300/25 blur-3xl md:block" />
-        <WordBadge tone="green">{t("study.learnFirst")}</WordBadge>
-        <h2 className="mt-4 max-w-3xl text-3xl font-black tracking-tight md:text-6xl">
-          {t("study.title")}
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
-          {t("study.subtitle")}
-        </p>
-        <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-300 md:text-sm">
-          <span className="rounded-full bg-slate-950/5 px-3 py-1.5 dark:bg-white/10">
-            {t("nav.study")}
-          </span>
-          <span>→</span>
-          <span className="rounded-full bg-slate-950/5 px-3 py-1.5 dark:bg-white/10">
-            {t("practice.flashcards")}
-          </span>
-        </div>
-      </GlassCard>
-
-
-      <Link to="/courses" className="group block">
-        <GlassCard className="relative overflow-hidden p-5 md:p-8 transition hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-violet-300/25 blur-3xl md:block" />
-          <div className="relative">
-            <WordBadge tone="violet">
-              {t("courses.browseByCourse", {
-                defaultValue: "Browse by Course",
-              })}
-            </WordBadge>
-            <h3 className="mt-2 text-xl font-black text-slate-900 dark:text-white md:text-2xl">
-              {t("courses.browseTitle", {
-                defaultValue: "Explore Lessons by Book",
-              })}
-            </h3>
-            <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300 md:text-base">
-              {t("courses.browseSubtitle", {
-                defaultValue: "Choose K-TALIM 1A or 1B to view its lessons",
-              })}
-            </p>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-2xl bg-violet-500 px-4 py-2 font-black text-white transition group-hover:scale-105">
-              {t("courses.openCourses", {
-                defaultValue: "Open Course Library",
-              })}
-              <span className="transition group-hover:translate-x-1">→</span>
-            </div>
-          </div>
-        </GlassCard>
-      </Link>
-
-      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {lessonInfo.map((lesson, index) => {
-          const percent = selectStudyProgress({ progress }, lesson.lesson);
-          return (
-            <motion.article
-              key={lesson.lesson}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.03 }}
-              className="group rounded-[1.5rem] border border-white/70 bg-white/75 p-4 shadow-xl shadow-slate-200/60 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/10 dark:shadow-black/20"
-            >
-              <div className="flex items-center justify-between">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 to-sky-500 text-lg font-black text-white shadow-lg">
-                  {lesson.lesson}
-                </div>
-                <WordBadge tone={percent === 100 ? "green" : "violet"}>
-                  {t("home.wordCount", { count: lesson.count })}
-                </WordBadge>
-              </div>
-              <h3 className="mt-4 text-lg font-black">
-                {t("card.lesson", { lesson: lesson.lesson })}
-              </h3>
-              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">
-                {t(lesson.category)}
-              </p>
-              <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-sky-400"
-                  style={{ width: `${percent}%` }}
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-                <span>
-                  {percent}% {t("nav.study")}
-                </span>
-                <Link
-                  className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300"
-                  to={`/study/${lesson.lesson}`}
-                >
-                  {t("button.continue")}
-                </Link>
-              </div>
-            </motion.article>
-          );
-        })}
-      </section>
-    </div>
-  );
+  return <DeckOverview />;
 }
 
 const OPTION_TONE = {
@@ -167,6 +69,7 @@ function StudySession({ lesson }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const settings = useSelector((state) => state.progress.settings);
+  const ankiOptions = useSelector(selectAnkiOptions);
   const wordsState = useSelector((state) => state.progress.words);
   const words = useMemo(() => getLessonWords(lesson), [lesson]);
   const byKey = useMemo(() => Object.fromEntries(words.map((word) => [getWordKey(word), word])), [words]);
@@ -190,9 +93,19 @@ function StudySession({ lesson }) {
       dispatch(correct ? markKnown({ key, exerciseType }) : markDifficult({ key, exerciseType }));
       if (correct) playCorrectSound();
       else playWrongSound();
-      setSession(answerExercise(current, correct, given));
+      const next = answerExercise(current, correct, given);
+      // A word mastered here has been through its learning steps: it joins
+      // the Anki reviews as a learned card, due again in a few days.
+      if (isMastered(next.mastery[key]) && !isMastered(current.mastery[key])) {
+        const now = Date.now();
+        const day = ankiDay(now, ankiOptions.dayStartsAt);
+        const learned = schedule(schedule(null, RATING.good, ankiOptions, now), RATING.good, ankiOptions, now);
+        const ids = [ankiOptions.recognition || !ankiOptions.recall ? key : null, ankiOptions.recall ? key + RECALL_SUFFIX : null].filter(Boolean);
+        ids.forEach((id) => dispatch(introduceCard({ id, packed: packCard(learned), day })));
+      }
+      setSession(next);
     },
-    [dispatch],
+    [dispatch, ankiOptions],
   );
 
   const proceed = useCallback(() => {

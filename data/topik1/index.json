@@ -1,0 +1,59 @@
+{
+  "title": "TOPIK I (beginner) vocabulary — NIKL grade A + standard-curriculum 초급",
+  "source": [
+    "https://www.korean.go.kr/front_eng/down/down_02V.do?etc_seq=70",
+    "https://www.korean.go.kr/front/reportData/reportDataView.do?mn_id=207&report_seq=660",
+    "https://www.korean.go.kr/front/reportData/reportDataView.do?mn_id=207&report_seq=882"
+  ],
+  "sourceNotes": {
+    "NIKL-A": "국립국어원 「한국어 학습용 어휘 목록」 (2003), grade A (1단계). Homonym numbers as in that list.",
+    "NIKL-STD-초급": "국립국어원 「한국어 교육 어휘 내용 개발」 초급 list, the vocabulary companion of the 국제 통용 한국어 표준 교육과정: stage 1 (2012) 초급 어휘 선정 목록, membership checked against the final stage 4 (2015) list. Homonym numbers as in the stage 1 list. Entries in both lists are tagged NIKL-A.",
+    "order": "Grade A words by the list's frequency rank (unranked proper nouns last), then the remaining 초급 words by corpus frequency (강범모 외 2009 column of the 2012 list)."
+  },
+  "count": 925,
+  "countsBySource": {
+    "NIKL-A": 925,
+    "NIKL-STD-초급": 0,
+    "alsoInStd": 842
+  },
+  "linkedToLessons": 403,
+  "files": [
+    "vocab-01.json",
+    "vocab-02.json",
+    "vocab-03.json",
+    "vocab-04.json",
+    "vocab-05.json"
+  ],
+  "topics": {
+    "grammar words": 90,
+    "time": 86,
+    "food": 67,
+    "school": 66,
+    "numbers": 65,
+    "places": 56,
+    "actions": 55,
+    "communication": 45,
+    "home": 37,
+    "descriptions": 35,
+    "hobbies": 33,
+    "feelings": 30,
+    "daily life": 29,
+    "family": 26,
+    "people": 24,
+    "body": 20,
+    "transport": 19,
+    "shopping": 17,
+    "clothing": 17,
+    "weather": 17,
+    "health": 16,
+    "countries": 13,
+    "work": 12,
+    "travel": 12,
+    "nature": 12,
+    "colors": 7,
+    "animals": 6,
+    "culture": 6,
+    "money": 4,
+    "society": 3
+  }
+}

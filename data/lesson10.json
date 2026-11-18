@@ -180,8 +180,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 299,
-    "english": "To be light",
-    "russian": "Быть лёгким",
+    "english": "To be light (in weight)",
+    "russian": "Быть лёгким (по весу)",
     "example": {
       "ko": "이 노트북은 가벼워요.",
       "uz": "Bu noutbuk yengil.",
@@ -211,7 +211,7 @@
   {
     "id": 301,
     "korean": "더럽다",
-    "uzbek": "Kir / Iplos bo'lmoq",
+    "uzbek": "Kir (iflos) bo'lmoq",
     "romanization": "deoreopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -238,7 +238,7 @@
     "needsReview": false,
     "sourceNumber": 302,
     "english": "To be easy",
-    "russian": "Быть лёгким (простым)",
+    "russian": "Быть простым (лёгким)",
     "example": {
       "ko": "이 문제는 쉬워요.",
       "uz": "Bu masala oson.",
@@ -268,7 +268,7 @@
   {
     "id": 304,
     "korean": "아름답다",
-    "uzbek": "Go'zal / Chiroyli bo'lmoq (tabiatga nisbatan)",
+    "uzbek": "Go'zal bo'lmoq (manzara haqida)",
     "romanization": "areumdapda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -276,7 +276,7 @@
     "needsReview": false,
     "sourceNumber": 304,
     "english": "To be beautiful",
-    "russian": "Быть красивым",
+    "russian": "Быть прекрасным",
     "example": {
       "ko": "가을 산이 아름다워요.",
       "uz": "Kuzgi tog'lar go'zal.",
@@ -294,7 +294,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 305,
-    "english": "To be close / Near",
+    "english": "To be close / near",
     "russian": "Быть близким",
     "example": {
       "ko": "학교가 집에서 가까워요.",
@@ -325,15 +325,15 @@
   {
     "id": 307,
     "korean": "입다",
-    "uzbek": "Kiymoq",
+    "uzbek": "Kiymoq (kiyim)",
     "romanization": "ipda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 307,
-    "english": "To wear",
-    "russian": "Надевать",
+    "english": "To wear (clothes)",
+    "russian": "Надевать (одежду)",
     "example": {
       "ko": "코트를 입어요.",
       "uz": "Palto kiyaman.",
@@ -345,19 +345,19 @@
     "id": 308,
     "korean": "잡다",
     "uzbek": "Ushlamoq / Tutmoq",
-    "romanization": "jabda",
+    "romanization": "japda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 308,
-    "english": "To catch / To hold",
+    "english": "To catch / to hold",
     "russian": "Ловить / Держать",
     "example": {
-      "ko": "손을 잡아요.",
-      "uz": "Qo'lni ushlayman.",
-      "en": "I hold hands.",
-      "ru": "Я держу за руку."
+      "ko": "엄마 손을 잡아요.",
+      "uz": "Onamning qo'lidan ushlayman.",
+      "en": "I hold my mom's hand.",
+      "ru": "Я держу маму за руку."
     }
   },
   {
@@ -389,8 +389,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 310,
-    "english": "To be wide / Spacious",
-    "russian": "Быть широким / Просторным",
+    "english": "To be wide / spacious",
+    "russian": "Быть широким / просторным",
     "example": {
       "ko": "거실이 넓어요.",
       "uz": "Mehmonxona keng.",
@@ -401,7 +401,7 @@
   {
     "id": 311,
     "korean": "업다",
-    "uzbek": "Yelkasiga ortmoq / Opichmoq",
+    "uzbek": "Orqaga ko'tarmoq (opichlamoq)",
     "romanization": "eopda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -412,8 +412,8 @@
     "russian": "Нести на спине",
     "example": {
       "ko": "엄마가 아기를 업어요.",
-      "uz": "Onam chaqaloqni opichlab ko'taradi.",
-      "en": "The mother carries the baby on her back.",
+      "uz": "Onam chaqaloqni orqasiga ko'tarib oladi.",
+      "en": "Mom carries the baby on her back.",
       "ru": "Мама несёт малыша на спине."
     }
   },
@@ -439,7 +439,7 @@
   {
     "id": 313,
     "korean": "집다",
-    "uzbek": "(Barmoq bilan) ushlamoq / ko'tarmoq / qismoq",
+    "uzbek": "(Barmoq bilan) olmoq, terib olmoq",
     "romanization": "jipda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -572,7 +572,7 @@
   {
     "id": 320,
     "korean": "따뜻하다",
-    "uzbek": "Iliq / Issiqroq bo'lmoq",
+    "uzbek": "Iliq bo'lmoq",
     "romanization": "ttatteuthada",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
@@ -630,7 +630,7 @@
     "id": 323,
     "korean": "바람이 불다",
     "uzbek": "Shamol esmoq",
-    "romanization": "barami bureuda",
+    "romanization": "barami bulda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -648,8 +648,8 @@
   {
     "id": 324,
     "korean": "맑다",
-    "uzbek": "Musaffo / Ochiq bo'lmoq (havo)",
-    "romanization": "malda",
+    "uzbek": "Ochiq (musaffo) bo'lmoq (havo)",
+    "romanization": "makda",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",
     "audio": "speechSynthesis:ko-KR",
@@ -667,7 +667,7 @@
   {
     "id": 325,
     "korean": "흐리다",
-    "uzbek": "Bulutli",
+    "uzbek": "Bulutli bo'lmoq",
     "romanization": "heurida",
     "lesson": 10,
     "category": "seasons, weather and irregular verbs",

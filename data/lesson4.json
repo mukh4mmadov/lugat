@@ -2,15 +2,15 @@
   {
     "id": 77,
     "korean": "복잡하다",
-    "uzbek": "Gavjum / Tirband / Murakkab bo'lmoq",
-    "romanization": "bokjapada",
+    "uzbek": "Gavjum bo'lmoq, murakkab bo'lmoq",
+    "romanization": "bokjaphada",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 77,
-    "english": "To be crowded / Complicated",
-    "russian": "Быть многолюдным / Сложным",
+    "english": "To be crowded / complicated",
+    "russian": "Быть многолюдным / сложным",
     "example": {
       "ko": "지하철이 복잡해요.",
       "uz": "Metro gavjum.",
@@ -28,7 +28,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 78,
-    "english": "To be cool / Refreshing",
+    "english": "To be pleasantly cool / refreshing",
     "russian": "Быть прохладным / Освежающим",
     "example": {
       "ko": "바람이 시원해요.",
@@ -116,15 +116,15 @@
   {
     "id": 83,
     "korean": "적다",
-    "uzbek": "Kam / Oz bo'lmoq",
+    "uzbek": "Kam (oz) bo'lmoq",
     "romanization": "jeokda",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 83,
-    "english": "To be few / Little",
-    "russian": "Быть малочисленным / Мало",
+    "english": "To be few / little",
+    "russian": "Быть малочисленным (мало)",
     "example": {
       "ko": "사람이 적어요.",
       "uz": "Odam kam.",
@@ -180,8 +180,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 86,
-    "english": "To be many / Much",
-    "russian": "Быть многочисленным / Много",
+    "english": "To be many / much",
+    "russian": "Быть многочисленным (много)",
     "example": {
       "ko": "숙제가 많아요.",
       "uz": "Uy vazifasi ko'p.",
@@ -237,7 +237,7 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 89,
-    "english": "To be fun / Interesting",
+    "english": "To be fun / interesting",
     "russian": "Быть интересным",
     "example": {
       "ko": "한국어 공부가 재미있어요.",
@@ -363,7 +363,7 @@
   {
     "id": 96,
     "korean": "맛",
-    "uzbek": "Mazasi / Ta'mi",
+    "uzbek": "Maza, ta'm",
     "romanization": "mat",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
@@ -515,7 +515,7 @@
   {
     "id": 104,
     "korean": "아주",
-    "uzbek": "Juda / Judayam",
+    "uzbek": "Juda",
     "romanization": "aju",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
@@ -534,7 +534,7 @@
   {
     "id": 105,
     "korean": "값",
-    "uzbek": "Narx / Baho",
+    "uzbek": "Narx",
     "romanization": "gap",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
@@ -553,7 +553,7 @@
   {
     "id": 106,
     "korean": "과자",
-    "uzbek": "Pechenye / Shirinliklar",
+    "uzbek": "Pechenye, shirinlik",
     "romanization": "gwaja",
     "lesson": 4,
     "category": "descriptions, weather and drinks",
@@ -565,7 +565,7 @@
     "example": {
       "ko": "과자를 사요.",
       "uz": "Pechenye sotib olaman.",
-      "en": "I buy snacks.",
+      "en": "I buy cookies.",
       "ru": "Я покупаю печенье."
     }
   },

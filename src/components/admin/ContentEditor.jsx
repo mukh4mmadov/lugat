@@ -15,7 +15,7 @@ const isStringObject = (value) => value && typeof value === "object" && !Array.i
 function itemLabel(kind, item, t) {
   if (kind === "story") return `${item.emoji} ${t("card.lesson", { lesson: item.lesson })} · ${item.title.ko}`;
   if (kind === "university") return `${item.en || item.ko} · ${item.ko}`;
-  if (kind === "grammar") return `${t("card.lesson", { lesson: item.lesson })} · ${item.pattern}`;
+  if (kind === "grammar") return `${item.lesson ? t("card.lesson", { lesson: item.lesson }) : "TOPIK I"} · ${item.pattern}`;
   return `${item.emoji} ${item.ko} · ${item.level}`;
 }
 

@@ -22,7 +22,7 @@
     "id": 51,
     "korean": "쇼핑하다",
     "uzbek": "Bozorlik (xarid) qilmoq",
-    "romanization": "shoppinghada",
+    "romanization": "syopinghada",
     "lesson": 3,
     "category": "daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -78,7 +78,7 @@
   {
     "id": 54,
     "korean": "운전하다",
-    "uzbek": "Mashina haydamoq / Boshqarmoq",
+    "uzbek": "Mashina haydamoq",
     "romanization": "unjeonhada",
     "lesson": 3,
     "category": "daily actions",
@@ -116,7 +116,7 @@
   {
     "id": 56,
     "korean": "운동하다",
-    "uzbek": "Sport bilan shug'ullanmoq / Mashq qilmoq",
+    "uzbek": "Sport bilan shug'ullanmoq",
     "romanization": "undonghada",
     "lesson": 3,
     "category": "daily actions",
@@ -166,7 +166,7 @@
     "example": {
       "ko": "밤 열한 시에 자요.",
       "uz": "Kechasi soat o'n birda uxlayman.",
-      "en": "I sleep at eleven at night.",
+      "en": "I go to bed at eleven at night.",
       "ru": "Я ложусь спать в одиннадцать вечера."
     }
   },
@@ -382,7 +382,7 @@
   {
     "id": 70,
     "korean": "친구를 만나다",
-    "uzbek": "Do'sti bilan uchrashmoq",
+    "uzbek": "Do'st bilan uchrashmoq",
     "romanization": "chingureul mannada",
     "lesson": 3,
     "category": "daily actions",
@@ -427,8 +427,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 72,
-    "english": "Really? / Is that so?",
-    "russian": "Правда? / Вот как?",
+    "english": "Is that so? / I see",
+    "russian": "Вот как? / Неужели?",
     "example": {
       "ko": "그래요? 정말 재미있네요.",
       "uz": "Shunaqami? Juda qiziq ekan.",

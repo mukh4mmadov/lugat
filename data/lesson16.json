@@ -97,7 +97,7 @@
   {
     "id": 483,
     "korean": "밤",
-    "uzbek": "Tun, kecha",
+    "uzbek": "Tun",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -180,7 +180,7 @@
     "needsReview": false,
     "sourceNumber": 487,
     "romanization": "ireonada",
-    "english": "To get up / Wake up",
+    "english": "To get up / wake up",
     "russian": "Вставать / Просыпаться",
     "example": {
       "ko": "몇 시에 일어나요?",
@@ -230,7 +230,7 @@
   {
     "id": 490,
     "korean": "지하철을 타다",
-    "uzbek": "Metroga chiqmoq",
+    "uzbek": "Metroga tushmoq (metroda yurmoq)",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -326,7 +326,7 @@
   {
     "id": 495,
     "korean": "출퇴근하다",
-    "uzbek": "Ishga qatnamoq",
+    "uzbek": "Ishga borib-kelmoq (qatnamoq)",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -345,7 +345,7 @@
   {
     "id": 496,
     "korean": "출퇴근 시간",
-    "uzbek": "Ishga borish-kelish (tig'iz) vaqti",
+    "uzbek": "Tig'iz vaqt (ishga borish-kelish vaqti)",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -384,7 +384,7 @@
   {
     "id": 498,
     "korean": "돈을 넣다",
-    "uzbek": "Pul solmoq",
+    "uzbek": "Hisobga pul qo'ymoq",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -461,7 +461,7 @@
   {
     "id": 502,
     "korean": "시",
-    "uzbek": "Soat",
+    "uzbek": "Soat (vaqt)",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -480,7 +480,7 @@
   {
     "id": 503,
     "korean": "오랜만이다",
-    "uzbek": "Anchadan beri ko'rishmaslik",
+    "uzbek": "Ko'rishmaganimizga ancha bo'ldi",
     "lesson": 16,
     "category": "daily routine, time and daily actions",
     "audio": "speechSynthesis:ko-KR",

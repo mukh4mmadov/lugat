@@ -658,7 +658,13 @@ export default function AdminFeedbackPage() {
   useEffect(() => {
     load();
     loadSavedReplies();
-    const onFocus = () => load();
+    // Coming back to the tab refreshes the inbox quietly, at most once a minute.
+    let last = Date.now();
+    const onFocus = () => {
+      if (Date.now() - last < 60000) return;
+      last = Date.now();
+      load();
+    };
     window.addEventListener("focus", onFocus);
     return () => window.removeEventListener("focus", onFocus);
   }, [load, loadSavedReplies]);

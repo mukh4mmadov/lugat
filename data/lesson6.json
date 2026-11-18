@@ -78,8 +78,8 @@
   {
     "id": 143,
     "korean": "아래/밑",
-    "uzbek": "Tag / Ost / Past / Ostida",
-    "romanization": "arae/mit",
+    "uzbek": "Ost, tag, past",
+    "romanization": "arae / mit",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
@@ -116,7 +116,7 @@
   {
     "id": 145,
     "korean": "위",
-    "uzbek": "Tepa / Ust / Ustida",
+    "uzbek": "Ust, tepa",
     "romanization": "wi",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -200,7 +200,7 @@
     "needsReview": false,
     "sourceNumber": 149,
     "english": "Nearby",
-    "russian": "Поблизости / Рядом",
+    "russian": "Поблизости (окрестности)",
     "example": {
       "ko": "집 근처에 시장이 있어요.",
       "uz": "Uy yaqinida bozor bor.",
@@ -269,7 +269,7 @@
     "id": 153,
     "korean": "영/공",
     "uzbek": "Nol (0)",
-    "romanization": "yeong/gong",
+    "romanization": "yeong / gong",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
@@ -316,7 +316,7 @@
     "english": "Two (2)",
     "russian": "Два (2)",
     "example": {
-      "ko": "이 월에 한국에 가요.",
+      "ko": "이월에 한국에 가요.",
       "uz": "Fevralda Koreyaga boraman.",
       "en": "I go to Korea in February.",
       "ru": "В феврале я еду в Корею."
@@ -354,7 +354,7 @@
     "english": "Four (4)",
     "russian": "Четыре (4)",
     "example": {
-      "ko": "사 월에 꽃이 피어요.",
+      "ko": "사월에 꽃이 피어요.",
       "uz": "Aprelda gullar ochiladi.",
       "en": "Flowers bloom in April.",
       "ru": "В апреле цветут цветы."
@@ -392,10 +392,10 @@
     "english": "Six (6)",
     "russian": "Шесть (6)",
     "example": {
-      "ko": "육 월은 더워요.",
-      "uz": "Iyun issiq.",
-      "en": "June is hot.",
-      "ru": "В июне жарко."
+      "ko": "저는 육 층에 살아요.",
+      "uz": "Men oltinchi qavatda yashayman.",
+      "en": "I live on the sixth floor.",
+      "ru": "Я живу на шестом этаже."
     }
   },
   {
@@ -411,7 +411,7 @@
     "english": "Seven (7)",
     "russian": "Семь (7)",
     "example": {
-      "ko": "칠 월에 방학이 있어요.",
+      "ko": "칠월에 방학이 있어요.",
       "uz": "Iyulda ta'til bor.",
       "en": "There is a vacation in July.",
       "ru": "В июле каникулы."
@@ -430,7 +430,7 @@
     "english": "Eight (8)",
     "russian": "Восемь (8)",
     "example": {
-      "ko": "제 생일은 팔 월이에요.",
+      "ko": "제 생일은 팔월이에요.",
       "uz": "Mening tug'ilgan kunim avgustda.",
       "en": "My birthday is in August.",
       "ru": "Мой день рождения в августе."
@@ -449,10 +449,10 @@
     "english": "Nine (9)",
     "russian": "Девять (9)",
     "example": {
-      "ko": "구 월에 학교가 시작해요.",
-      "uz": "Sentyabrda maktab boshlanadi.",
-      "en": "School starts in September.",
-      "ru": "Учёба начинается в сентябре."
+      "ko": "구월에 학기가 시작돼요.",
+      "uz": "Sentyabrda semestr boshlanadi.",
+      "en": "The semester starts in September.",
+      "ru": "Семестр начинается в сентябре."
     }
   },
   {
@@ -468,10 +468,10 @@
     "english": "Ten (10)",
     "russian": "Десять (10)",
     "example": {
-      "ko": "십 월은 시원해요.",
-      "uz": "Oktyabr salqin.",
-      "en": "October is cool.",
-      "ru": "В октябре прохладно."
+      "ko": "십 분 후에 만나요.",
+      "uz": "O'n daqiqadan keyin ko'rishamiz.",
+      "en": "See you in ten minutes.",
+      "ru": "Увидимся через десять минут."
     }
   },
   {
@@ -705,7 +705,7 @@
   {
     "id": 176,
     "korean": "날짜",
-    "uzbek": "Sana / Kun",
+    "uzbek": "Sana",
     "romanization": "naljja",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -724,7 +724,7 @@
   {
     "id": 177,
     "korean": "요일",
-    "uzbek": "Haftakuni",
+    "uzbek": "Hafta kuni",
     "romanization": "yoil",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -743,7 +743,7 @@
   {
     "id": 178,
     "korean": "월",
-    "uzbek": "Oy (Kalandar oyi)",
+    "uzbek": "Oy (taqvim oyi)",
     "romanization": "wol",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -762,18 +762,18 @@
   {
     "id": 179,
     "korean": "일",
-    "uzbek": "Kun",
+    "uzbek": "Kun (oyning kuni)",
     "romanization": "il",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 179,
-    "english": "Day",
-    "russian": "День",
+    "english": "Day (of the month)",
+    "russian": "День (число месяца)",
     "example": {
       "ko": "오늘은 십오 일이에요.",
-      "uz": "Bugun o'n beshinchi sana.",
+      "uz": "Bugun oyning o'n beshinchi kuni.",
       "en": "Today is the fifteenth.",
       "ru": "Сегодня пятнадцатое число."
     }
@@ -819,15 +819,15 @@
   {
     "id": 182,
     "korean": "무슨",
-    "uzbek": "Qanday / Qaysi",
+    "uzbek": "Qanaqa, qaysi turdagi",
     "romanization": "museun",
     "lesson": 6,
     "category": "locations, dates and numbers",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 182,
-    "english": "What kind of / Which",
-    "russian": "Какой / Что за",
+    "english": "What kind of",
+    "russian": "Что за, какой",
     "example": {
       "ko": "무슨 음식을 좋아해요?",
       "uz": "Qanday taomni yoqtirasiz?",
@@ -857,7 +857,7 @@
   {
     "id": 184,
     "korean": "몇",
-    "uzbek": "Nechta / Nechchi",
+    "uzbek": "Nechta, necha",
     "romanization": "myeot",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -865,7 +865,7 @@
     "needsReview": false,
     "sourceNumber": 184,
     "english": "How many",
-    "russian": "Сколько",
+    "russian": "Сколько (штук)",
     "example": {
       "ko": "몇 시예요?",
       "uz": "Soat necha?",
@@ -876,7 +876,7 @@
   {
     "id": 185,
     "korean": "번",
-    "uzbek": "Raqam / Marta",
+    "uzbek": "Raqam (nomer), marta",
     "romanization": "beon",
     "lesson": 6,
     "category": "locations, dates and numbers",
@@ -886,10 +886,10 @@
     "english": "Number / Time (counter)",
     "russian": "Номер / Раз",
     "example": {
-      "ko": "제 번호는 칠 번이에요.",
-      "uz": "Mening raqamim yettinchi.",
-      "en": "My number is seven.",
-      "ru": "Мой номер — семь."
+      "ko": "삼 번 출구로 나가세요.",
+      "uz": "Uchinchi chiqish yo'lidan chiqing.",
+      "en": "Please take exit number 3.",
+      "ru": "Выходите через выход номер три."
     }
   }
 ]

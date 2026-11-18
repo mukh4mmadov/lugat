@@ -21,7 +21,7 @@
   {
     "id": 553,
     "korean": "약속을 지키다",
-    "uzbek": "Va'dani ustidan chiqmoq",
+    "uzbek": "Va'dada turmoq, va'dasining ustidan chiqmoq",
     "lesson": 19,
     "category": "sports, activities and school life",
     "audio": "speechSynthesis:ko-KR",
@@ -40,15 +40,15 @@
   {
     "id": 554,
     "korean": "전에",
-    "uzbek": "Oldin, avval",
+    "uzbek": "Oldin",
     "lesson": 19,
     "category": "sports, activities and school life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 554,
     "romanization": "jeone",
-    "english": "Before",
-    "russian": "Раньше / Прежде",
+    "english": "Before (doing)",
+    "russian": "До (того как)",
     "example": {
       "ko": "밥을 먹기 전에 손을 씻어요.",
       "uz": "Ovqatdan oldin qo'limni yuvaman.",
@@ -78,7 +78,7 @@
   {
     "id": 556,
     "korean": "기억하다",
-    "uzbek": "Eslamoq",
+    "uzbek": "Eslamoq, yodda tutmoq",
     "lesson": 19,
     "category": "sports, activities and school life",
     "audio": "speechSynthesis:ko-KR",
@@ -89,7 +89,7 @@
     "russian": "Помнить / Вспоминать",
     "example": {
       "ko": "그 이름을 기억해요.",
-      "uz": "U ismni eslayman.",
+      "uz": "O'sha ism esimda.",
       "en": "I remember that name.",
       "ru": "Я помню это имя."
     }
@@ -249,7 +249,7 @@
   {
     "id": 565,
     "korean": "경기하다",
-    "uzbek": "Musobaqalashmoq, o'ynamoq",
+    "uzbek": "Musobaqalashmoq (o'yin o'tkazmoq)",
     "lesson": 19,
     "category": "sports, activities and school life",
     "audio": "speechSynthesis:ko-KR",
@@ -374,7 +374,7 @@
     "russian": "Бег",
     "example": {
       "ko": "달리기를 잘해요.",
-      "uz": "Yugurishda yaxshiman.",
+      "uz": "Men yaxshi yuguraman.",
       "en": "I'm good at running.",
       "ru": "Я хорошо бегаю."
     }
@@ -389,7 +389,7 @@
     "needsReview": false,
     "sourceNumber": 572,
     "romanization": "cheyukgwan",
-    "english": "Gymnasium",
+    "english": "Gymnasium (sports hall)",
     "russian": "Спортзал",
     "example": {
       "ko": "체육관에서 농구를 해요.",
@@ -420,7 +420,7 @@
   {
     "id": 574,
     "korean": "대회",
-    "uzbek": "Musobaqa",
+    "uzbek": "Musobaqa, tanlov",
     "lesson": 19,
     "category": "sports, activities and school life",
     "audio": "speechSynthesis:ko-KR",
@@ -428,7 +428,7 @@
     "sourceNumber": 574,
     "romanization": "daehoe",
     "english": "Competition / Contest",
-    "russian": "Соревнование",
+    "russian": "Соревнование / Конкурс",
     "example": {
       "ko": "수영 대회에서 이겼어요.",
       "uz": "Suzish musobaqasida g'alaba qozondim.",
@@ -465,7 +465,7 @@
     "needsReview": false,
     "sourceNumber": 576,
     "romanization": "jida",
-    "english": "To lose",
+    "english": "To lose (a game)",
     "russian": "Проигрывать",
     "example": {
       "ko": "어제 경기에서 졌어요.",

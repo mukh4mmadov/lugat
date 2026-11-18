@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getGrammarPoint } from "../../data/grammar";
 import { getSpeakingTopic } from "../../data/speakingTopics";
@@ -107,20 +107,27 @@ function SpeakingHistory({ sessions }) {
   const [open, setOpen] = useState(null);
   const [transcript, setTranscript] = useState([]);
   const [loading, setLoading] = useState(false);
+  // The session asked for last; a slower answer for an earlier one is dropped.
+  const wanted = useRef(null);
   async function show(id) {
     if (open === id) {
+      wanted.current = null;
       setOpen(null);
       return;
     }
+    wanted.current = id;
     setOpen(id);
+    setTranscript([]);
     setLoading(true);
+    let next = [];
     try {
-      setTranscript((await adminRequest({ action: "transcript", sessionId: id })).transcript);
+      next = (await adminRequest({ action: "transcript", sessionId: id })).transcript || [];
     } catch {
-      setTranscript([]);
-    } finally {
-      setLoading(false);
+      next = [];
     }
+    if (wanted.current !== id) return;
+    setTranscript(next);
+    setLoading(false);
   }
   return (
     <Panel title={t("admin.powers.speakingHistory")}>
@@ -191,8 +198,8 @@ function AiDirectives({ detail, busy, run }) {
           type="button"
           disabled={Boolean(busy) || question.trim().length < 3}
           onClick={async () => {
-            await run("aiAsk", { question }, t("admin.ai.asked"));
-            setQuestion("");
+            // A failed request keeps the question, so it can be sent again.
+            if (await run("aiAsk", { question }, t("admin.ai.asked"))) setQuestion("");
           }}
           className={`${button} shrink-0 bg-sky-600 text-white`}
         >
@@ -225,14 +232,18 @@ function AiDirectives({ detail, busy, run }) {
 function OpenableList({ items, label, load }) {
   const [open, setOpen] = useState(null);
   const [content, setContent] = useState(null);
+  const wanted = useRef(null);
   async function show(id) {
     if (open === id) {
+      wanted.current = null;
       setOpen(null);
       return;
     }
+    wanted.current = id;
     setOpen(id);
     setContent(null);
-    setContent(await load(id).catch((error) => ({ error: error.message })));
+    const next = await load(id).catch((error) => ({ error: error.message }));
+    if (wanted.current === id) setContent(next);
   }
   return (
     <ul className="space-y-2 text-sm">
@@ -296,10 +307,12 @@ function ContactTools({ detail, busy, run }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState("");
   const field = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
 
   async function download() {
     setExporting(true);
+    setExportError("");
     try {
       const data = await adminRequest({ action: "export", id: detail.id });
       const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
@@ -308,6 +321,8 @@ function ContactTools({ detail, busy, run }) {
       link.download = `k-talim-${detail.id}.json`;
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+      setExportError(error.message);
     } finally {
       setExporting(false);
     }
@@ -336,7 +351,8 @@ function ContactTools({ detail, busy, run }) {
           type="button"
           disabled={Boolean(busy) || !title.trim() || !body.trim()}
           onClick={async () => {
-            await run("notifyUser", { title, body }, t("admin.records.notifySent"));
+            // A failed send keeps the text, so it can be sent again.
+            if (!(await run("notifyUser", { title, body }, t("admin.records.notifySent")))) return;
             setTitle("");
             setBody("");
           }}
@@ -348,6 +364,7 @@ function ContactTools({ detail, busy, run }) {
       <button type="button" disabled={exporting} onClick={download} className={`${button} mt-3 w-full border border-slate-300 dark:border-white/15`}>
         ⬇️ {exporting ? t("common.loading") : t("admin.records.export")}
       </button>
+      {exportError && <p role="alert" className="mt-2 text-xs font-bold text-rose-600">{exportError}</p>}
     </Panel>
   );
 }

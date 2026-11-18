@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -80,7 +80,14 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
   const [busy, setBusy] = useState("");
   const [message, setMessage] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const confirmRef = useRef(null);
   const target = document.getElementById("overlay-root") || document.body;
+
+  // "Delete" can be asked for from the deletion request far down the drawer;
+  // bring the confirmation into view so it is not missed.
+  useEffect(() => {
+    if (confirmDelete) confirmRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [confirmDelete]);
 
   const load = useCallback(async () => {
     setError(null);
@@ -104,6 +111,7 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  // Resolves true when the change was saved, so forms clear only then.
   async function run(action, payload, success) {
     setBusy(action);
     setMessage(null);
@@ -113,12 +121,14 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
       if (action === "delete") {
         onDeleted(userId);
         onClose();
-        return;
+        return true;
       }
       await load();
       onChanged();
+      return true;
     } catch (requestError) {
       setMessage({ ok: false, text: requestError.message });
+      return false;
     } finally {
       setBusy("");
     }
@@ -201,9 +211,10 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
                     {t("admin.user.delete")}
                   </button>
                 )}
-                {confirmDelete && <ConfirmDelete user={detail} busy={busy === "delete"} onCancel={() => setConfirmDelete(false)} onConfirm={() => run("delete", {}, "")} />}
-                {message && (
-                  <p role={message.ok ? "status" : "alert"} className={`mt-3 text-sm font-bold ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>{message.text}</p>
+                {confirmDelete && (
+                  <div ref={confirmRef}>
+                    <ConfirmDelete user={detail} busy={busy === "delete"} onCancel={() => setConfirmDelete(false)} onConfirm={() => run("delete", {}, "")} />
+                  </div>
                 )}
               </Panel>
 
@@ -262,6 +273,13 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
             </>
           )}
         </div>
+        {/* Outside the scrolling area: the result of an action taken far down the
+            drawer (XP, badges, messages) stays in sight. */}
+        {message && (
+          <p role={message.ok ? "status" : "alert"} className={`border-t border-slate-200 bg-white px-4 py-2.5 text-sm font-bold dark:border-white/10 dark:bg-slate-900 ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>
+            {message.text}
+          </p>
+        )}
       </aside>
     </div>,
     target,
@@ -307,7 +325,9 @@ export default function AdminUsersPage() {
 
   useEffect(() => setPage(0), [query, filter, sort]);
   const pageCount = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
-  const shown = visible.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  // The list can shrink under the current page (a deleted user, a reload).
+  const current = Math.min(page, pageCount - 1);
+  const shown = visible.slice(current * PAGE_SIZE, (current + 1) * PAGE_SIZE);
   const counts = useMemo(() => Object.fromEntries(Object.entries(FILTERS).map(([key, test]) => [key, users ? users.filter(test).length : 0])), [users]);
 
   const open = (id) => setParams(id ? { user: id } : {});
@@ -415,15 +435,17 @@ export default function AdminUsersPage() {
           {!shown.length && <p className="p-6 text-center text-sm text-slate-500">{t("admin.users.empty")}</p>}
           {pageCount > 1 && (
             <div className="flex items-center justify-between border-t border-slate-200 px-4 py-3 text-sm dark:border-white/10">
-              <button type="button" disabled={page === 0} onClick={() => setPage(page - 1)} className="rounded-xl px-3 py-1.5 font-bold disabled:opacity-30">‹</button>
-              <span className="font-bold tabular-nums text-slate-500">{page + 1} / {pageCount} · {visible.length}</span>
-              <button type="button" disabled={page >= pageCount - 1} onClick={() => setPage(page + 1)} className="rounded-xl px-3 py-1.5 font-bold disabled:opacity-30">›</button>
+              <button type="button" disabled={current === 0} onClick={() => setPage(current - 1)} className="rounded-xl px-3 py-1.5 font-bold disabled:opacity-30">‹</button>
+              <span className="font-bold tabular-nums text-slate-500">{current + 1} / {pageCount} · {visible.length}</span>
+              <button type="button" disabled={current >= pageCount - 1} onClick={() => setPage(current + 1)} className="rounded-xl px-3 py-1.5 font-bold disabled:opacity-30">›</button>
             </div>
           )}
         </div>
       )}
 
-      {openId && <UserDrawer userId={openId} currentUserId={currentUserId} onClose={close} onChanged={load} onDeleted={(id) => {
+      {/* Keyed by user: switching users (search, links) starts a fresh drawer,
+          so a late answer for the previous user cannot show up here. */}
+      {openId && <UserDrawer key={openId} userId={openId} currentUserId={currentUserId} onClose={close} onChanged={load} onDeleted={(id) => {
         setUsers((list) => list.filter((user) => user.id !== id));
         setDeletionRequests((list) => list.filter((request) => request.user_id !== id));
       }} />}

@@ -11,6 +11,7 @@ import RequireProfileComplete from "./components/RequireProfileComplete";
 import PageLoader from "./components/PageLoader";
 import PageTitle from "./components/PageTitle";
 import { isChunkError, reloadForNewVersion } from "./lib/errorReport";
+import RequireAccount from "./components/RequireAccount";
 
 // Each page is its own chunk, so the first visit only downloads what it shows.
 // A chunk from before a new deploy may be gone: reload once to get the new one.
@@ -34,6 +35,8 @@ const HomePage = page(() => import("./pages/HomePage"));
 const StudyHomePage = page(study, "StudyHomePage");
 const StudyModePage = page(study, "StudyModePage");
 const FlashcardsPage = page(() => import("./pages/FlashcardsPage"));
+const WordListPage = page(() => import("./pages/WordListPage"));
+const TopikPracticePage = page(() => import("./pages/TopikPracticePage"));
 const ListeningPage = page(practice, "ListeningPage");
 const QuizPage = page(practice, "QuizPage");
 const WritingPage = page(practice, "WritingPage");
@@ -125,7 +128,8 @@ export default function App() {
             <Route path="topik" element={<TopikHomePage />} />
             <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
             <Route path="topik/words/:examId" element={<TopikWordsPage />} />
-            <Route path="topik/:variantId" element={<TopikAttemptPage />} />
+            <Route path="topik/practice/:typeKey" element={<RequireAccount><TopikPracticePage /></RequireAccount>} />
+            <Route path="topik/:variantId" element={<RequireAccount><TopikAttemptPage /></RequireAccount>} />
           </Route>
           <Route
             element={
@@ -140,7 +144,7 @@ export default function App() {
               path="study/:lessonId"
               element={
                 <LessonRouteGuard>
-                  <StudyModePage />
+                  <RequireAccount><StudyModePage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
@@ -154,7 +158,7 @@ export default function App() {
               path="lesson/:lessonId/flashcards"
               element={
                 <LessonRouteGuard>
-                  <FlashcardsPage />
+                  <RequireAccount><FlashcardsPage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
@@ -162,7 +166,7 @@ export default function App() {
               path="lesson/:lessonId/listening"
               element={
                 <LessonRouteGuard>
-                  <ListeningPage />
+                  <RequireAccount><ListeningPage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
@@ -170,7 +174,7 @@ export default function App() {
               path="lesson/:lessonId/quiz"
               element={
                 <LessonRouteGuard>
-                  <QuizPage />
+                  <RequireAccount><QuizPage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
@@ -178,7 +182,7 @@ export default function App() {
               path="lesson/:lessonId/writing"
               element={
                 <LessonRouteGuard>
-                  <WritingPage />
+                  <RequireAccount><WritingPage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
@@ -186,18 +190,19 @@ export default function App() {
               path="lesson/:lessonId/dictation"
               element={
                 <LessonRouteGuard>
-                  <DictationPage />
+                  <RequireAccount><DictationPage /></RequireAccount>
                 </LessonRouteGuard>
               }
             />
-            <Route path="review" element={<FlashcardsPage review />} />
-            <Route path="weak-words" element={<FlashcardsPage weak />} />
+            <Route path="review" element={<RequireAccount><FlashcardsPage review /></RequireAccount>} />
+            <Route path="weak-words" element={<RequireAccount><FlashcardsPage weak /></RequireAccount>} />
             <Route path="search" element={<SearchPage />} />
             <Route path="favorites" element={<FavoritesPage />} />
-            <Route path="favorites/practice" element={<FlashcardsPage list="favorites" />} />
+            <Route path="favorites/practice" element={<RequireAccount><FlashcardsPage list="favorites" /></RequireAccount>} />
             <Route path="difficult" element={<DifficultPage />} />
-            <Route path="difficult/practice" element={<FlashcardsPage list="difficult" />} />
+            <Route path="difficult/practice" element={<RequireAccount><FlashcardsPage list="difficult" /></RequireAccount>} />
             <Route path="stats" element={<StatsPage />} />
+            <Route path="words/:deckId" element={<WordListPage />} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="credits/audio" element={<AudioCreditsPage />} />
             <Route path="record-voice" element={<RecordVoicePage />} />

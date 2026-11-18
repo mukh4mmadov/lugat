@@ -21,7 +21,7 @@
   {
     "id": 358,
     "korean": "공연을 보다",
-    "uzbek": "Tomosha (Konsert/Spektakl) ko'rmoq",
+    "uzbek": "Tomosha (konsert yoki spektakl) ko'rmoq",
     "romanization": "gongyeoneul boda",
     "lesson": 12,
     "category": "entertainment and daily actions",
@@ -78,7 +78,7 @@
   {
     "id": 361,
     "korean": "치킨",
-    "uzbek": "Qovurilgan tovuq (Chiken)",
+    "uzbek": "Qovurilgan tovuq (chikin)",
     "romanization": "chikin",
     "lesson": 12,
     "category": "entertainment and daily actions",
@@ -107,8 +107,8 @@
     "english": "To walk",
     "russian": "Ходить пешком",
     "example": {
-      "ko": "학교까지 걸어요.",
-      "uz": "Maktabgacha piyoda yuraman.",
+      "ko": "학교까지 걸어서 가요.",
+      "uz": "Maktabgacha piyoda boraman.",
       "en": "I walk to school.",
       "ru": "Я хожу в школу пешком."
     }
@@ -116,15 +116,15 @@
   {
     "id": 363,
     "korean": "묻다",
-    "uzbek": "So'ramoq / Ko'mmoq",
+    "uzbek": "So'ramoq",
     "romanization": "mutda",
     "lesson": 12,
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 363,
-    "english": "To ask / To bury",
-    "russian": "Спрашивать / Закапывать",
+    "english": "To ask",
+    "russian": "Спрашивать",
     "example": {
       "ko": "선생님께 길을 물어요.",
       "uz": "O'qituvchidan yo'lni so'rayman.",
@@ -174,7 +174,7 @@
     "id": 366,
     "korean": "쏟다",
     "uzbek": "To'kmoq / To'kib yubormoq",
-    "romanization": "ssoda",
+    "romanization": "ssotda",
     "lesson": 12,
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -211,7 +211,7 @@
   {
     "id": 368,
     "korean": "받다",
-    "uzbek": "Olmoq / Qabul qilmoq",
+    "uzbek": "Qabul qilib olmoq",
     "romanization": "batda",
     "lesson": 12,
     "category": "entertainment and daily actions",
@@ -382,7 +382,7 @@
   {
     "id": 377,
     "korean": "성공",
-    "uzbek": "Muvaffaqiyat / Zafar",
+    "uzbek": "Muvaffaqiyat",
     "romanization": "seonggong",
     "lesson": 12,
     "category": "entertainment and daily actions",
@@ -459,13 +459,13 @@
     "id": 381,
     "korean": "놓다",
     "uzbek": "Qo'ymoq / Joylashtirmoq",
-    "romanization": "nohta",
+    "romanization": "nota",
     "lesson": 12,
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 381,
-    "english": "To put / To place",
+    "english": "To put / to place",
     "russian": "Класть / Ставить",
     "example": {
       "ko": "책상 위에 책을 놓아요.",
@@ -515,8 +515,8 @@
   {
     "id": 384,
     "korean": "잡채",
-    "uzbek": "Jabche (koreyscha milliy taom)",
-    "romanization": "jabchae",
+    "uzbek": "Japche (koreys milliy taomi)",
+    "romanization": "japchae",
     "lesson": 12,
     "category": "entertainment and daily actions",
     "audio": "speechSynthesis:ko-KR",
@@ -526,7 +526,7 @@
     "russian": "Чапчхэ (корейская лапша)",
     "example": {
       "ko": "잡채는 한국 음식이에요.",
-      "uz": "Jabche koreys taomi.",
+      "uz": "Japche — koreys taomi.",
       "en": "Japchae is a Korean dish.",
       "ru": "Чапчхэ — корейское блюдо."
     }

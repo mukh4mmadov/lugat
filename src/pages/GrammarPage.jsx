@@ -1,11 +1,13 @@
-import { useMemo, useState } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
+import ModeHeader from "../components/ModeHeader";
+import RequireAccount from "../components/RequireAccount";
 import UpgradeCard from "../components/UpgradeCard";
 import { lessons } from "../data";
-import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, grammarForLesson, rowText, tr } from "../data/grammar";
+import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, grammarForLesson, isTopikPoint, rowText, TOPIK1_GROUPS, TOPIK1_TEXT, tr } from "../data/grammar";
 import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { buildPractice } from "../lib/grammarDrills";
@@ -13,7 +15,6 @@ import { getDeviceId } from "../lib/deviceId";
 import { speakKorean } from "../lib/speech";
 import { supabase } from "../lib/supabase";
 import { completeGrammar } from "../store";
-import { ModeHeader } from "./FlashcardsPage";
 
 const PASS_PERCENT = 70;
 
@@ -27,7 +28,7 @@ function PointCard({ point }) {
   return (
     <Link
       to={`/grammar/${point.id}`}
-      className={`flex items-center gap-3 rounded-2xl border p-3 transition hover:-translate-y-0.5 ${done ? "border-emerald-200 bg-emerald-50 dark:border-emerald-400/20 dark:bg-emerald-500/10" : "border-slate-200 bg-white/80 dark:border-white/10 dark:bg-white/5"}`}
+      className={`flex min-w-0 items-center gap-3 rounded-2xl border p-3 transition hover:-translate-y-0.5 ${done ? "border-emerald-200 bg-emerald-50 dark:border-emerald-400/20 dark:bg-emerald-500/10" : "border-slate-200 bg-white/80 dark:border-white/10 dark:bg-white/5"}`}
     >
       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-sm font-black ${done ? "bg-emerald-500 text-white" : "bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300"}`}>
         {done ? "✓" : "📐"}
@@ -40,21 +41,48 @@ function PointCard({ point }) {
   );
 }
 
-// /grammar — every point, grouped by book and lesson.
+// The lesson course (1A, 1B and points added in the panel) and the TOPIK I
+// list. The TOPIK list is read from its own course so the panel's sorting of
+// GRAMMAR by lesson never reorders it.
+const lessonCourses = () => GRAMMAR_COURSES.filter((course) => !course.level);
+const topikPoints = () => GRAMMAR_COURSES.find((course) => course.level === "topik1")?.points || [];
+
+function ProgressBar({ done, total }) {
+  return (
+    <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+      <div className="h-full rounded-full bg-emerald-500" style={{ width: `${total ? Math.round((done / total) * 100) : 0}%` }} />
+    </div>
+  );
+}
+
+// /grammar — the lesson course grouped by book and lesson, then TOPIK I
+// grammar grouped by kind.
 export function GrammarCatalogPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { hash } = useLocation();
   const grammar = useSelector((state) => state.progress.grammar || {});
-  const done = GRAMMAR.filter((point) => grammar[point.id]?.done).length;
+  const courses = lessonCourses();
+  const coursePoints = courses.flatMap((course) => course.points);
+  const done = coursePoints.filter((point) => grammar[point.id]?.done).length;
+  const topik = topikPoints();
+  const topikDone = topik.filter((point) => grammar[point.id]?.done).length;
+  const language = i18n.language;
+
+  // /grammar#topik1 (a TOPIK point's breadcrumb) opens at that section.
+  useEffect(() => {
+    if (!hash) return undefined;
+    const timer = window.setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start" }), 50);
+    return () => window.clearTimeout(timer);
+  }, [hash]);
+
   return (
     <div className="mx-auto max-w-4xl space-y-5">
       <header className="px-1">
         <h1 className="text-2xl font-black md:text-3xl">📐 {t("grammar.title")}</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.subtitle", { done, total: GRAMMAR.length })}</p>
-        <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-          <div className="h-full rounded-full bg-emerald-500" style={{ width: `${Math.round((done / GRAMMAR.length) * 100)}%` }} />
-        </div>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.subtitle", { done, total: coursePoints.length })}</p>
+        <ProgressBar done={done} total={coursePoints.length} />
       </header>
-      {GRAMMAR_COURSES.map((course) => (
+      {courses.map((course) => (
         <GlassCard key={course.id} className="!p-5">
           <h2 className="text-xl font-black">K-TALIM {course.id}</h2>
           <div className="mt-4 space-y-4">
@@ -69,6 +97,32 @@ export function GrammarCatalogPage() {
           </div>
         </GlassCard>
       ))}
+      {topik.length > 0 && (
+        <div id="topik1" className="scroll-mt-24">
+          <GlassCard className="!p-5">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              <h2 className="text-xl font-black">{tr(TOPIK1_TEXT.title, language)}</h2>
+              <span className="text-sm font-black text-emerald-600 dark:text-emerald-300">{topikDone} / {topik.length}</span>
+            </div>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{tr(TOPIK1_TEXT.intro, language)}</p>
+            <ProgressBar done={topikDone} total={topik.length} />
+            <div className="mt-4 space-y-4">
+              {TOPIK1_GROUPS.map((group) => {
+                const points = topik.filter((point) => point.group === group.id);
+                if (!points.length) return null;
+                return (
+                  <section key={group.id}>
+                    <h3 className="mb-2 text-xs font-black uppercase tracking-widest text-slate-500">{group.icon} {tr(group.title, language)}</h3>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {points.map((point) => <PointCard key={point.id} point={point} />)}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+          </GlassCard>
+        </div>
+      )}
     </div>
   );
 }
@@ -95,7 +149,8 @@ export function LessonGrammarPage() {
 
 function Practice({ point, onFinish }) {
   const { t, i18n } = useTranslation();
-  const words = useMemo(() => lessons.slice(0, point.lesson).flat(), [point.lesson]);
+  // Lesson points practise with the words learned so far; TOPIK points with all of them.
+  const words = useMemo(() => (point.lesson ? lessons.slice(0, point.lesson) : lessons).flat(), [point.lesson]);
   const [questions] = useState(() => buildPractice(point, words));
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState(null);
@@ -282,9 +337,14 @@ function GrammarPoint({ pointId }) {
   const [round, setRound] = useState(0);
   if (!point) return <Navigate to="/grammar" replace />;
   const language = i18n.language;
-  const position = GRAMMAR.indexOf(point);
-  const prev = GRAMMAR[position - 1];
-  const next = GRAMMAR[position + 1];
+  // Previous / next stay inside the point's own list: the lesson course or TOPIK I.
+  const topik = isTopikPoint(point);
+  const list = topik ? topikPoints() : GRAMMAR.filter((item) => !isTopikPoint(item));
+  const position = list.indexOf(point);
+  const prev = list[position - 1];
+  const next = list[position + 1];
+  const group = topik ? TOPIK1_GROUPS.find((item) => item.id === point.group) : null;
+  const where = topik ? `TOPIK I${group ? ` · ${tr(group.title, language)}` : ""}` : t("card.lesson", { lesson: point.lesson });
 
   function finish(percent) {
     setScore(percent);
@@ -297,12 +357,16 @@ function GrammarPoint({ pointId }) {
       <div className="flex flex-wrap items-center gap-2 px-1 text-sm font-bold">
         <Link to="/grammar" className="text-sky-600 dark:text-sky-300">📐 {t("grammar.title")}</Link>
         <span className="text-slate-400">/</span>
-        <Link to={`/lesson/${point.lesson}/grammar`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })}</Link>
+        {topik ? (
+          <Link to="/grammar#topik1" className="text-sky-600 dark:text-sky-300">TOPIK I</Link>
+        ) : (
+          <Link to={`/lesson/${point.lesson}/grammar`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })}</Link>
+        )}
       </div>
 
       <GlassCard>
-        <p className="text-xs font-black uppercase tracking-widest text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })} · {t("grammar.title")}</p>
-        <h1 className="mt-2 text-3xl font-black" lang="ko">{point.pattern}</h1>
+        <p className="text-xs font-black uppercase tracking-widest text-sky-600 dark:text-sky-300">{where} · {t("grammar.title")}</p>
+        <h1 className="mt-2 break-words text-3xl font-black" lang="ko">{point.pattern}</h1>
         <p className="mt-1 text-lg font-bold text-slate-600 dark:text-slate-300">{tr(point.title, language)}</p>
         {best != null && <p className="mt-2 text-sm font-black text-emerald-600">✓ {t("grammar.best", { score: best })}</p>}
         <p className="mt-4 leading-7">{tr(point.explain, language)}</p>
@@ -339,23 +403,26 @@ function GrammarPoint({ pointId }) {
         )}
       </GlassCard>
 
-      {mode === "learn" && (
-        <button type="button" onClick={() => setMode("practice")} className="w-full rounded-2xl bg-sky-600 px-5 py-4 text-lg font-black text-white shadow-lg hover:bg-sky-700">
-          🎯 {t("grammar.practice")}
-        </button>
-      )}
-      {mode === "practice" && <Practice key={round} point={point} onFinish={finish} />}
-      {mode === "result" && (
-        <GlassCard className="text-center">
-          <p className="text-5xl">{score >= PASS_PERCENT ? "🎉" : "💪"}</p>
-          <p className="mt-2 text-3xl font-black">{score}%</p>
-          <p className="mt-1 text-slate-600 dark:text-slate-300">{score >= PASS_PERCENT ? t("grammar.passed") : t("grammar.notPassed", { percent: PASS_PERCENT })}</p>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <button type="button" onClick={() => { setRound(round + 1); setMode("practice"); }} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">↻ {t("grammar.again")}</button>
-            {next && <Link to={`/grammar/${next.id}`} className="rounded-2xl bg-sky-600 px-5 py-3 font-black text-white">{t("grammar.nextPoint")} →</Link>}
-          </div>
-        </GlassCard>
-      )}
+      {/* Practice saves progress, so it needs an account; guests can still read the point. */}
+      <RequireAccount compact>
+        {mode === "learn" && (
+          <button type="button" onClick={() => setMode("practice")} className="w-full rounded-2xl bg-sky-600 px-5 py-4 text-lg font-black text-white shadow-lg hover:bg-sky-700">
+            🎯 {t("grammar.practice")}
+          </button>
+        )}
+        {mode === "practice" && <Practice key={round} point={point} onFinish={finish} />}
+        {mode === "result" && (
+          <GlassCard className="text-center">
+            <p className="text-5xl">{score >= PASS_PERCENT ? "🎉" : "💪"}</p>
+            <p className="mt-2 text-3xl font-black">{score}%</p>
+            <p className="mt-1 text-slate-600 dark:text-slate-300">{score >= PASS_PERCENT ? t("grammar.passed") : t("grammar.notPassed", { percent: PASS_PERCENT })}</p>
+            <div className="mt-5 flex flex-wrap justify-center gap-2">
+              <button type="button" onClick={() => { setRound(round + 1); setMode("practice"); }} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">↻ {t("grammar.again")}</button>
+              {next && <Link to={`/grammar/${next.id}`} className="rounded-2xl bg-sky-600 px-5 py-3 font-black text-white">{t("grammar.nextPoint")} →</Link>}
+            </div>
+          </GlassCard>
+        )}
+      </RequireAccount>
 
       <SentenceCheck key={point.id} point={point} />
 

@@ -161,16 +161,10 @@ export function MyPathPanel({ onOpenTab }) {
     async (next) => {
       setPlan(next);
       setSaved(false);
-      if (user) {
-        await supabase.from("study_plans").upsert(planRow(user.id, next));
-      } else {
-        try {
-          window.localStorage.setItem(LOCAL_PLAN, JSON.stringify(next));
-        } catch {
-          // Storage blocked: the plan lasts for this visit.
-        }
-      }
-      setSaved(true);
+      // A guest's plan lasts only for this visit: nothing is kept on the
+      // device; signing in saves it to the account.
+      if (user) await supabase.from("study_plans").upsert(planRow(user.id, next));
+      setSaved(Boolean(user));
     },
     [user],
   );

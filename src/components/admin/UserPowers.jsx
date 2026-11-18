@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { adminRequest } from "../../lib/adminApi";
 import { formatDate, timeAgo } from "../../lib/dates";
@@ -75,20 +75,27 @@ function ChatViewer({ sessions }) {
   const [open, setOpen] = useState(null);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  // The chat asked for last; a slower answer for an earlier one is dropped.
+  const wanted = useRef(null);
   async function show(id) {
     if (open === id) {
+      wanted.current = null;
       setOpen(null);
       return;
     }
+    wanted.current = id;
     setOpen(id);
+    setMessages([]);
     setLoading(true);
+    let next = [];
     try {
-      setMessages((await adminRequest({ action: "messages", sessionId: id })).messages);
+      next = (await adminRequest({ action: "messages", sessionId: id })).messages || [];
     } catch {
-      setMessages([]);
-    } finally {
-      setLoading(false);
+      next = [];
     }
+    if (wanted.current !== id) return;
+    setMessages(next);
+    setLoading(false);
   }
   return (
     <ul className="space-y-2">
@@ -124,6 +131,11 @@ export default function UserPowers({ detail, busy, run }) {
   const [confirmReset, setConfirmReset] = useState(false);
   const progress = detail.progress;
   const hasBadge = detail.badgeIds.includes(badge);
+
+  // After a change (streak set, progress reset) the field shows the saved value.
+  useEffect(() => {
+    setStreak(String(progress.streak || 0));
+  }, [progress.streak]);
 
   return (
     <>

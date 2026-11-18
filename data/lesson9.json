@@ -59,7 +59,7 @@
   {
     "id": 263,
     "korean": "빨리",
-    "uzbek": "Tez / Tezda / Tezroq",
+    "uzbek": "Tez, tezroq",
     "romanization": "ppalli",
     "lesson": 9,
     "category": "actions, health and family",
@@ -136,7 +136,7 @@
     "id": 267,
     "korean": "행복하다",
     "uzbek": "Baxtli bo'lmoq",
-    "romanization": "haengbokada",
+    "romanization": "haengbokhada",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -256,8 +256,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 273,
-    "english": "A little later",
-    "russian": "Чуть позже",
+    "english": "Later (today) / In a bit",
+    "russian": "Попозже (сегодня)",
     "example": {
       "ko": "이따 전화할게요.",
       "uz": "Birozdan keyin qo'ng'iroq qilaman.",
@@ -363,15 +363,15 @@
   {
     "id": 279,
     "korean": "신다",
-    "uzbek": "Kiymoq (oyoq kiyim, paypoq)",
+    "uzbek": "Kiymoq (oyoq kiyim yoki paypoq)",
     "romanization": "sinda",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 279,
-    "english": "To put on (shoes, socks)",
-    "russian": "Надевать (обувь, носки)",
+    "english": "To put on (shoes or socks)",
+    "russian": "Надевать (обувь или носки)",
     "example": {
       "ko": "운동화를 신으세요.",
       "uz": "Sport poyabzalini kiying.",
@@ -488,7 +488,7 @@
     "russian": "Старший брат (для парня)",
     "example": {
       "ko": "형은 키가 커요.",
-      "uz": "Akam bo'yi baland.",
+      "uz": "Akamning bo'yi baland.",
       "en": "My older brother is tall.",
       "ru": "Мой старший брат высокий."
     }
@@ -533,9 +533,9 @@
   },
   {
     "id": 288,
-    "korean": "도와 주다",
+    "korean": "도와주다",
     "uzbek": "Yordam bermoq",
-    "romanization": "dowa juda",
+    "romanization": "dowajuda",
     "lesson": 9,
     "category": "actions, health and family",
     "audio": "speechSynthesis:ko-KR",
@@ -544,7 +544,7 @@
     "english": "To help",
     "russian": "Помогать",
     "example": {
-      "ko": "이것 좀 도와 주세요.",
+      "ko": "이것 좀 도와주세요.",
       "uz": "Iltimos, bunga yordam bering.",
       "en": "Please help me with this.",
       "ru": "Помогите мне, пожалуйста, с этим."

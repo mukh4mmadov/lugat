@@ -1,330 +1,267 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { DAILY_GOALS, selectCurrentStreak, setDailyGoal } from "../store";
-import { useAuth } from "../hooks/useAuth";
-import { m as motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
-import WordBadge from "../components/WordBadge";
-import EmptyStateIllustrations from "../components/EmptyStateIllustrations";
-import TodayCard from "../components/TodayCard";
-import SeoulMap from "../components/SeoulMap";
+import { useAuth } from "../hooks/useAuth";
 import { lessonInfo } from "../data";
-import {
-  selectLessonProgress,
-  selectProgressSummary,
-  selectReviewCount,
-} from "../store";
+import { DAILY_GOALS, selectAnkiDue, selectCurrentStreak, selectLessonProgress, setDailyGoal } from "../store";
+import { dailyKey } from "../lib/study";
+import { levelForXp } from "../lib/gamification";
+
+// The parts of the course, named the way TOPIK names its skills.
+const SECTIONS = [
+  { to: "/study", ko: "어휘", key: "vocab", tone: "from-sky-500 to-cyan-500" },
+  { to: "/grammar", ko: "문법", key: "grammar", tone: "from-violet-500 to-fuchsia-500" },
+  { to: "/topik", ko: "듣기", key: "listening", tone: "from-emerald-500 to-teal-500" },
+  { to: "/stories", ko: "읽기", key: "reading", tone: "from-amber-500 to-orange-500" },
+  { to: "/speaking", ko: "말하기", key: "speaking", tone: "from-rose-500 to-pink-500" },
+  { to: "/topik", ko: "모의고사", key: "exams", tone: "from-indigo-500 to-blue-600" },
+];
+
+// Grammar and stories are separate downloads; the plan only needs ids and titles.
+function useNextContent(progress) {
+  const [next, setNext] = useState({ grammar: null, story: null });
+  const grammarDone = progress.grammar;
+  const storiesRead = progress.stories;
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([import("../data/grammar"), import("../data/stories")]).then(([grammar, stories]) => {
+      if (cancelled) return;
+      const point = grammar.GRAMMAR.find((item) => !grammarDone?.[item.id]?.done) || null;
+      const story = stories.STORIES.find((item) => !item.id.endsWith("-b") && !storiesRead?.[item.id]?.read) || null;
+      setNext({ grammar: point, story, grammarTotal: grammar.GRAMMAR.length, storiesTotal: stories.STORIES.length, tr: grammar.tr });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [grammarDone, storiesRead]);
+  return next;
+}
 
 export default function HomePage() {
-  const { t } = useTranslation();
-  const progress = useSelector((state) => state.progress);
-  const dispatch = useDispatch();
-  const { user, loading: authLoading } = useAuth();
-  const streak = useSelector(selectCurrentStreak);
-  const progressSummary = useSelector(selectProgressSummary);
-  const reviewCount = useSelector(selectReviewCount);
-  const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
-  const completedLessons = lessonInfo.filter(
-    (lesson) => selectLessonProgress({ progress }, lesson.lesson) === 100,
-  ).length;
-  const isNewUser =
-    progressSummary.studiedWords === 0 &&
-    progressSummary.streak === 0 &&
-    completedLessons === 0;
-  // Point learners at their first unfinished lesson; once everything is done, rotate daily.
-  const dailyLesson =
-    lessonInfo.find(
-      (lesson) => selectLessonProgress({ progress }, lesson.lesson) < 100,
-    )?.lesson ?? (new Date().getUTCDate() % lessonInfo.length) + 1;
+  const { user, loading } = useAuth();
+  if (loading) return null;
+  return user ? <LearnerHome /> : <GuestHome />;
+}
 
+function GuestHome() {
+  const { t } = useTranslation();
+  const totalWords = lessonInfo.reduce((sum, lesson) => sum + lesson.count, 0);
   return (
     <div className="space-y-8">
-      <section className="grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
-        <GlassCard className="relative overflow-hidden p-6 md:p-10">
-          {isNewUser && !user && !authLoading ? (
-            <div className="relative z-10">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">K-TALIM</p>
-              <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">{t("home.guest.title")}</h2>
-              <ul className="mt-5 space-y-3">
-                {[["🧑‍🏫", "home.guest.point1"], ["🎙", "home.guest.point2"], ["📝", "home.guest.point3"]].map(([icon, key]) => (
-                  <li key={key} className="flex items-start gap-3 text-sm font-semibold text-slate-700 dark:text-slate-200 md:text-base">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-100 text-lg dark:bg-sky-500/20">{icon}</span>
-                    <span className="pt-1.5">{t(key)}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Link to="/study/1" className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {t("home.guest.start")}</Link>
-                <Link to="/register" className="rounded-2xl border border-slate-300 px-6 py-3 font-black transition hover:-translate-y-0.5 dark:border-white/15">{t("home.guest.signup")}</Link>
-              </div>
-              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">{t("home.guest.note")}</p>
-            </div>
-          ) : isNewUser ? (
-            <div className="relative z-10">
-              <div className="mx-auto mb-4 h-24 w-24">
-                <EmptyStateIllustrations.WelcomeNewUser />
-              </div>
-              <h2 className="text-center text-2xl font-black md:text-3xl">
-                {t("home.welcomeTitle")}
-              </h2>
-              <p className="mt-2 text-center text-sm text-slate-600 dark:text-slate-300 md:text-base">
-                {t("home.welcomeMessage")}
-              </p>
-              <div className="mt-4 text-center">
-                <Link
-                  to="/study/1"
-                  className="inline-flex rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-1"
-                >
-                  {t("home.startLesson")}
-                </Link>
-              </div>
-              <div className="mt-5 text-center">
-                <p className="text-xs font-bold text-slate-500 dark:text-slate-400">{t("home.pickGoal")}</p>
-                <div className="mt-2 flex justify-center gap-1.5">
-                  {DAILY_GOALS.map((value) => (
-                    <button key={value} type="button" aria-pressed={progress.settings.dailyGoal === value} onClick={() => dispatch(setDailyGoal(value))} className={`rounded-full px-3 py-1.5 text-xs font-black ${progress.settings.dailyGoal === value ? "bg-sky-600 text-white" : "bg-slate-100 dark:bg-white/10"}`}>
-                      {t("today.answers", { count: value })}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <TodayCard fallbackLesson={dailyLesson} />
-          )}
-        </GlassCard>
-
-        <GlassCard className="grid content-between gap-5">
-          <div>
-            <WordBadge tone="green">{t("home.progress")}</WordBadge>
-            <h3 className="mt-4 text-3xl font-black">{t("home.dashboard")}</h3>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Metric label={t("home.words")} value={totalWords} />
-            <Metric label={t("home.lessons")} value={lessonInfo.length} />
-            <Metric label={t("home.completed")} value={completedLessons} />
-            <Metric label={t("home.streak")} value={streak} />
-          </div>
-        </GlassCard>
+      <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-indigo-950 to-sky-900 p-6 text-white shadow-2xl md:p-12">
+        <div className="pointer-events-none absolute -right-10 -top-10 text-[10rem] font-black leading-none text-white/5 md:text-[16rem]" aria-hidden="true">한국어</div>
+        <p className="relative text-xs font-black uppercase tracking-[0.25em] text-sky-300">K-TALIM · TOPIK 1–6</p>
+        <h1 className="relative mt-3 max-w-3xl text-3xl font-black leading-tight md:text-5xl">{t("home.guest.title")}</h1>
+        <p className="relative mt-4 max-w-2xl text-sm text-slate-200 md:text-lg">{t("home.subtitle")}</p>
+        <div className="relative mt-7 flex flex-wrap gap-3">
+          <Link to="/register" className="rounded-2xl bg-sky-400 px-6 py-3.5 font-black text-slate-950 shadow-xl shadow-sky-500/30 transition hover:-translate-y-0.5">{t("account.signUp")}</Link>
+          <Link to="/login" className="rounded-2xl border border-white/30 px-6 py-3.5 font-black transition hover:bg-white/10">{t("account.logIn")}</Link>
+        </div>
+        <p className="relative mt-4 text-xs text-slate-300">{t("home.guestNote")}</p>
       </section>
 
-      <Link to="/korea" className="block overflow-hidden rounded-3xl bg-gradient-to-r from-sky-600 via-indigo-600 to-rose-500 p-5 text-white shadow-xl transition hover:-translate-y-0.5 md:p-6">
-        <p className="text-xs font-black uppercase tracking-[0.2em] opacity-80">🇰🇷 {t("korea.eyebrow")}</p>
-        <p className="mt-1 text-xl font-black md:text-2xl">{t("korea.homeTitle")}</p>
-        <p className="mt-1 text-sm opacity-90">{t("korea.homeText")}</p>
-        <span className="mt-3 inline-block rounded-xl bg-white px-4 py-2 text-sm font-black text-indigo-700">{t("korea.homeButton")} →</span>
-      </Link>
+      <section>
+        <h2 className="text-xl font-black md:text-2xl">{t("home.insideTitle")}</h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {SECTIONS.map((section) => (
+            <SectionTile key={section.key} section={section} text={t(`home.section.${section.key}.text`, { words: totalWords })} />
+          ))}
+        </div>
+      </section>
 
       <GlassCard className="p-5 md:p-8">
-        <SeoulMap compact />
-      </GlassCard>
-
-      {(() => {
-        const overview = progressSummary;
-        return (
-          <GlassCard className="relative overflow-hidden p-5 md:p-8">
-            <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-emerald-300/20 blur-2xl" />
-            <div className="relative">
-              <WordBadge tone="green">{t("home.masteryOverview")}</WordBadge>
-              <h2 className="mt-3 text-xl font-black md:text-2xl">
-                {t("home.yourWordMastery")}
-              </h2>
-              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                <div className="rounded-2xl bg-emerald-50 p-3 text-center dark:bg-emerald-400/10">
-                  <p className="text-2xl font-black text-emerald-700 dark:text-emerald-200">
-                    {overview.mastered || 0}
-                  </p>
-                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-300">
-                    {t("home.mastered")}
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-sky-50 p-3 text-center dark:bg-sky-400/10">
-                  <p className="text-2xl font-black text-sky-700 dark:text-sky-200">
-                    {overview.practiced || 0}
-                  </p>
-                  <p className="text-xs font-bold text-sky-600 dark:text-sky-300">
-                    {t("home.practiced")}
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-amber-50 p-3 text-center dark:bg-amber-400/10">
-                  <p className="text-2xl font-black text-amber-700 dark:text-amber-200">
-                    {overview.learning || 0}
-                  </p>
-                  <p className="text-xs font-bold text-amber-600 dark:text-amber-300">
-                    {t("home.learning")}
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-slate-100 p-3 text-center dark:bg-white/10">
-                  <p className="text-2xl font-black text-slate-700 dark:text-slate-200">
-                    {overview.new || 0}
-                  </p>
-                  <p className="text-xs font-bold text-slate-600 dark:text-slate-300">
-                    {t("home.new")}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-4">
-                <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-                  <span>{t("home.overallProgress")}</span>
-                  <span>{overview.overallPercent || 0}%</span>
-                </div>
-                <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400"
-                    style={{ width: `${overview.overallPercent || 0}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          </GlassCard>
-        );
-      })()}
-
-      {reviewCount > 0 && (
-        <GlassCard className="relative overflow-hidden p-5 md:p-8 transition hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-amber-300/25 blur-3xl md:block" />
-          <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <WordBadge tone="amber">{t("home.reviewMode")}</WordBadge>
-              <h2 className="mt-2 text-2xl font-black md:text-3xl">
-                {t("srs.reviewsDue", { count: reviewCount })}
-              </h2>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300 md:text-base">
-                {t("srs.reviewsDueSubtitle")}
-              </p>
-            </div>
-            <Link
-              to="/review"
-              className="shrink-0 rounded-2xl bg-gradient-to-r from-amber-400 to-rose-500 px-5 py-2.5 text-center font-black text-white shadow-xl shadow-amber-500/25 transition hover:-translate-y-1"
-            >
-              {t("srs.reviewNow")}
-            </Link>
-          </div>
-        </GlassCard>
-      )}
-
-      <GlassCard className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
-        <div>
-          <WordBadge tone="amber">{t("home.dailyChallenge")}</WordBadge>
-          <h2 className="mt-2 text-2xl font-black md:text-3xl">
-            {t("home.dailyChallengeText", { lesson: dailyLesson })}
-          </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 md:text-base">
-            {t("home.dailyChallengeSubtitle")}
-          </p>
+        <h2 className="text-xl font-black md:text-2xl">{t("home.howTitle")}</h2>
+        <ol className="mt-4 grid gap-3 md:grid-cols-3">
+          {[1, 2, 3].map((step) => (
+            <li key={step} className="rounded-2xl bg-slate-950/5 p-4 dark:bg-white/5">
+              <span className="grid h-8 w-8 place-items-center rounded-full bg-sky-500 text-sm font-black text-white">{step}</span>
+              <p className="mt-3 font-black">{t(`home.how${step}.title`)}</p>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t(`home.how${step}.text`)}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-5 flex flex-wrap gap-2 text-sm font-bold">
+          <Link to="/courses" className="rounded-xl border border-slate-200 px-4 py-2 dark:border-white/10">{t("home.browseLessons")}</Link>
+          <Link to="/grammar" className="rounded-xl border border-slate-200 px-4 py-2 dark:border-white/10">{t("nav.grammar")}</Link>
+          <Link to="/guides" className="rounded-xl border border-slate-200 px-4 py-2 dark:border-white/10">{t("guides.title")}</Link>
         </div>
-        <Link
-          to={`/study/${dailyLesson}`}
-          className="rounded-2xl bg-gradient-to-r from-amber-400 to-rose-500 px-5 py-2.5 text-center font-black text-white shadow-xl shadow-amber-500/25 transition hover:-translate-y-1"
-        >
-          {t("home.startChallenge")}
-        </Link>
       </GlassCard>
 
-      <Link to="/topik" className="group block">
-        <GlassCard className="relative grid gap-4 overflow-hidden p-6 transition hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[1fr_auto] md:items-center md:p-8">
-          <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sky-300/25 blur-3xl" />
-          <div className="relative">
-            <WordBadge tone="violet">TOPIK I · 한국어능력시험</WordBadge>
-            <h2 className="mt-3 text-2xl font-black md:text-3xl">
-              {t("home.topikTitle")}
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300 md:text-base">
-              {t("home.topikText")}
-            </p>
-          </div>
-          <span className="relative rounded-2xl bg-slate-950 px-5 py-2.5 text-center font-black text-white transition group-hover:scale-105 dark:bg-white dark:text-slate-950">
-            {t("home.topikAction")} →
-          </span>
-        </GlassCard>
-      </Link>
-
-      <Link to="/courses" className="group block">
-        <GlassCard className="relative overflow-hidden p-6 md:p-10 transition hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute right-4 top-4 hidden h-28 w-28 rounded-full bg-violet-300/25 blur-3xl md:block" />
-          <div className="relative">
-            <WordBadge tone="violet">
-              {t("courses.browseByCourse", {
-                defaultValue: "Browse by Course",
-              })}
-            </WordBadge>
-            <h2 className="mt-4 max-w-3xl text-2xl font-black tracking-tight md:text-4xl">
-              {t("courses.browseTitle", {
-                defaultValue: "Explore Lessons by Book",
-              })}
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
-              {t("courses.browseSubtitle", {
-                defaultValue: "Choose K-TALIM 1A or 1B to view its lessons",
-              })}
-            </p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-violet-500 px-5 py-2.5 font-black text-white transition group-hover:scale-105">
-              {t("courses.openCourses", {
-                defaultValue: "Open Course Library",
-              })}
-              <span className="transition group-hover:translate-x-1">→</span>
-            </div>
-          </div>
-        </GlassCard>
-      </Link>
-
-      {/* The next few lessons; the full list lives on the Courses page above. */}
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {[...lessonInfo.filter((lesson) => lesson.lesson >= dailyLesson), ...lessonInfo].slice(0, 4).map((lesson, index) => {
-          const percent = selectLessonProgress({ progress }, lesson.lesson);
-          return (
-            <motion.article
-              key={lesson.lesson}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.03 }}
-              className="group rounded-[1.5rem] border border-white/70 bg-white/75 p-4 shadow-xl shadow-slate-200/60 backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/10 dark:shadow-black/20"
-            >
-              <div className="flex items-center justify-between">
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 to-violet-500 text-lg font-black text-white shadow-lg">
-                  {lesson.lesson}
-                </div>
-                <WordBadge tone={percent === 100 ? "green" : "violet"}>
-                  {t("home.wordCount", { count: lesson.count })}
-                </WordBadge>
-              </div>
-              <h3 className="mt-4 text-lg font-black">
-                {t("card.lesson", { lesson: lesson.lesson })}
-              </h3>
-              <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">
-                {t(lesson.category)}
-              </p>
-              <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-400"
-                  style={{ width: `${percent}%` }}
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300">
-                <span>{t("home.wordsLearned", { percent })}</span>
-                <Link
-                  className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300"
-                  to={`/study/${lesson.lesson}`}
-                >
-                  {t(percent > 0 ? "home.continue" : "home.start")}
-                </Link>
-              </div>
-            </motion.article>
-          );
-        })}
-      </section>
+      <KoreaBanner />
     </div>
   );
 }
 
-function Metric({ label, value }) {
+function LearnerHome() {
+  const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const { profile } = useAuth();
+  const progress = useSelector((state) => state.progress);
+  const due = useSelector(selectAnkiDue);
+  const streak = useSelector(selectCurrentStreak);
+  const next = useNextContent(progress);
+  const goal = progress.settings.dailyGoal || 20;
+  const doneToday = progress.stats.daily?.[dailyKey()] || 0;
+  const level = levelForXp(progress.xp || 0);
+  const nextLesson = lessonInfo.find((lesson) => selectLessonProgress({ progress }, lesson.lesson) < 100)?.lesson;
+  const reviews = due.learning + due.review;
+  const topikBest = progress.stats.topikBest || 0;
+  const lang = String(i18n.language || "uz").slice(0, 2);
+
+  const plan = [
+    {
+      key: "review",
+      icon: "🔁",
+      title: t("home.plan.review"),
+      detail: reviews ? t("home.plan.reviewCount", { count: reviews }) : t("home.plan.reviewNone"),
+      to: "/review",
+      done: !reviews,
+    },
+    {
+      key: "new",
+      icon: "✨",
+      title: t("home.plan.newWords"),
+      detail: due.new ? t("home.plan.newCount", { count: due.new }) : t("home.plan.newNone"),
+      to: "/review",
+      done: !due.new,
+    },
+    next.grammar && {
+      key: "grammar",
+      icon: "📐",
+      title: t("home.plan.grammar"),
+      detail: `${next.grammar.pattern} — ${next.tr ? next.tr(next.grammar.title, lang) : ""}`,
+      to: `/grammar/${next.grammar.id}`,
+    },
+    {
+      key: "topik",
+      icon: "📝",
+      title: t("home.plan.topik"),
+      detail: progress.stats.topikAttempts ? t("home.plan.topikBest", { score: topikBest }) : t("home.plan.topikFirst"),
+      to: "/topik",
+    },
+    next.story && {
+      key: "story",
+      icon: "📖",
+      title: t("home.plan.story"),
+      detail: next.tr ? next.tr(next.story.title, lang) : "",
+      to: `/stories/${next.story.id}`,
+    },
+  ].filter(Boolean);
+
   return (
-    <div className="rounded-3xl bg-slate-950/5 p-4 dark:bg-white/10">
-      <p className="text-3xl font-black">{value}</p>
-      <p className="text-sm font-bold text-slate-500 dark:text-slate-300">
-        {label}
-      </p>
+    <div className="space-y-6">
+      <section className="grid gap-4 lg:grid-cols-[1.35fr_.65fr]">
+        <GlassCard className="p-5 md:p-7">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-600 dark:text-sky-300">{t("home.plan.eyebrow")}</p>
+              <h1 className="mt-1 text-2xl font-black md:text-3xl">{profile?.first_name ? t("home.plan.hello", { name: profile.first_name }) : t("home.plan.title")}</h1>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-black">
+              <span className="rounded-xl bg-orange-500/10 px-3 py-1.5 text-orange-600 dark:text-orange-300">🔥 {streak}</span>
+              <span className="rounded-xl bg-violet-500/10 px-3 py-1.5 text-violet-600 dark:text-violet-300">Lv {level}</span>
+            </div>
+          </div>
+
+          <ul className="mt-5 space-y-2">
+            {plan.map((item) => (
+              <li key={item.key}>
+                <Link to={item.to} className={`flex items-center gap-3 rounded-2xl border p-3 transition hover:-translate-y-0.5 md:p-4 ${item.done ? "border-emerald-200 bg-emerald-50/60 dark:border-emerald-500/20 dark:bg-emerald-500/5" : "border-slate-200 bg-white/70 hover:border-sky-300 dark:border-white/10 dark:bg-white/5"}`}>
+                  <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-lg ${item.done ? "bg-emerald-500 text-white" : "bg-slate-950/5 dark:bg-white/10"}`}>{item.done ? "✓" : item.icon}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-black">{item.title}</span>
+                    <span className="block truncate text-xs text-slate-500 dark:text-slate-400">{item.detail}</span>
+                  </span>
+                  <span className="text-slate-400">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <Link to="/review" className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {t("anki.studyNow")}</Link>
+            {nextLesson && <Link to={`/study/${nextLesson}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("home.plan.nextLesson", { lesson: nextLesson })}</Link>}
+          </div>
+        </GlassCard>
+
+        <GlassCard className="flex flex-col justify-between gap-4 p-5 md:p-6">
+          <div>
+            <p className="text-sm font-black">{t("home.goal.title")}</p>
+            <div className="mt-3 flex items-end justify-between">
+              <p className="text-4xl font-black tabular-nums">{doneToday}<span className="text-lg text-slate-400">/{goal}</span></p>
+              <span className="text-3xl">{doneToday >= goal ? "🏆" : "🎯"}</span>
+            </div>
+            <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
+              <div className={`h-full rounded-full transition-all ${doneToday >= goal ? "bg-emerald-500" : "bg-sky-500"}`} style={{ width: `${Math.min(100, (doneToday / goal) * 100)}%` }} />
+            </div>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {DAILY_GOALS.map((value) => (
+                <button key={value} type="button" aria-pressed={goal === value} onClick={() => dispatch(setDailyGoal(value))} className={`rounded-full px-2.5 py-1 text-[11px] font-black ${goal === value ? "bg-sky-600 text-white" : "bg-slate-100 dark:bg-white/10"}`}>
+                  {value}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-center">
+            <Stat label={t("home.stat.words")} value={Object.values(progress.words || {}).filter((word) => (word.knownCount || 0) > 0).length} />
+            <Stat label={t("home.stat.grammar")} value={Object.values(progress.grammar || {}).filter((item) => item.done).length} />
+            <Stat label={t("home.stat.stories")} value={Object.values(progress.stories || {}).filter((item) => item.read).length} />
+            <Stat label={t("home.stat.topik")} value={topikBest || "—"} />
+          </div>
+          <Link to="/stats" className="text-center text-xs font-black text-sky-600 dark:text-sky-300">{t("home.stat.more")} →</Link>
+        </GlassCard>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-black md:text-xl">{t("home.sectionsTitle")}</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {SECTIONS.map((section) => (
+            <SectionTile key={section.key} section={section} text={t(`home.section.${section.key}.short`)} />
+          ))}
+        </div>
+      </section>
+
+      <Link to="/guides" className="block rounded-3xl border border-slate-200 bg-white/70 p-5 transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-white/5">
+        <p className="font-black">📚 {t("guides.title")}</p>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("home.guidesText")}</p>
+      </Link>
+
+      <KoreaBanner />
     </div>
+  );
+}
+
+function SectionTile({ section, text }) {
+  const { t } = useTranslation();
+  return (
+    <Link to={section.to} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white/80 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
+      <div className={`absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br opacity-20 blur-xl transition group-hover:opacity-40 ${section.tone}`} />
+      <p className={`inline-block bg-gradient-to-r bg-clip-text text-2xl font-black text-transparent ${section.tone}`} lang="ko">{section.ko}</p>
+      <p className="mt-1 text-lg font-black">{t(`home.section.${section.key}.title`)}</p>
+      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{text}</p>
+    </Link>
+  );
+}
+
+function Stat({ label, value }) {
+  return (
+    <div className="rounded-2xl bg-slate-950/5 p-3 dark:bg-white/10">
+      <p className="text-xl font-black tabular-nums">{value}</p>
+      <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400">{label}</p>
+    </div>
+  );
+}
+
+function KoreaBanner() {
+  const { t } = useTranslation();
+  return (
+    <Link to="/korea" className="block overflow-hidden rounded-3xl bg-gradient-to-r from-sky-600 via-indigo-600 to-rose-500 p-5 text-white shadow-xl transition hover:-translate-y-0.5 md:p-6">
+      <p className="text-xs font-black uppercase tracking-[0.2em] opacity-80">🇰🇷 {t("korea.eyebrow")}</p>
+      <p className="mt-1 text-xl font-black md:text-2xl">{t("korea.homeTitle")}</p>
+      <p className="mt-1 text-sm opacity-90">{t("korea.homeText")}</p>
+      <span className="mt-3 inline-block rounded-xl bg-white px-4 py-2 text-sm font-black text-indigo-700">{t("korea.homeButton")} →</span>
+    </Link>
   );
 }

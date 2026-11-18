@@ -21,7 +21,7 @@
   {
     "id": 713,
     "korean": "검사를 하다",
-    "uzbek": "Tekshirmoq, tibbiy ko'rikdan o'tkazmoq",
+    "uzbek": "Tekshiruvdan o'tmoq, tekshirmoq",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -40,7 +40,7 @@
   {
     "id": 714,
     "korean": "소아과",
-    "uzbek": "Pediatriya",
+    "uzbek": "Pediatriya (bolalar shifokori)",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -60,7 +60,7 @@
   {
     "id": 715,
     "korean": "상담(센터)",
-    "uzbek": "Maslahat",
+    "uzbek": "Maslahat (markazi)",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -99,7 +99,7 @@
   {
     "id": 717,
     "korean": "자꾸",
-    "uzbek": "Tez-tez, qayta-qayta",
+    "uzbek": "Qayta-qayta, to'xtovsiz",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -110,7 +110,7 @@
     "russian": "Постоянно / Снова и снова",
     "example": {
       "ko": "자꾸 기침이 나요.",
-      "uz": "Tez-tez yo'talyapman.",
+      "uz": "To'xtovsiz yo'talyapman.",
       "en": "I keep coughing.",
       "ru": "Я постоянно кашляю."
     }
@@ -187,14 +187,14 @@
     "example": {
       "ko": "슬픈 영화를 보면 눈물이 나요.",
       "uz": "Qayg'uli kino ko'rsam, ko'zimdan yosh oqadi.",
-      "en": "I cry when I watch sad movies.",
+      "en": "Tears come to my eyes when I watch sad movies.",
       "ru": "Когда я смотрю грустные фильмы, у меня текут слёзы."
     }
   },
   {
     "id": 722,
     "korean": "안과",
-    "uzbek": "Oftalmologiya",
+    "uzbek": "Ko'z shifoxonasi (oftalmologiya)",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -214,7 +214,7 @@
   {
     "id": 723,
     "korean": "치과",
-    "uzbek": "Stomatologiya",
+    "uzbek": "Tish shifoxonasi (stomatologiya)",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -260,7 +260,7 @@
     "needsReview": false,
     "sourceNumber": 725,
     "romanization": "butda",
-    "english": "To swell / To pour",
+    "english": "To swell / to pour",
     "russian": "Опухать / Наливать",
     "example": {
       "ko": "다리가 부었어요.",
@@ -310,7 +310,7 @@
   {
     "id": 728,
     "korean": "고민이 많다",
-    "uzbek": "Tashvishi ko'p",
+    "uzbek": "Tashvishi ko'p bo'lmoq",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -321,7 +321,7 @@
     "russian": "Иметь много забот",
     "example": {
       "ko": "요즘 고민이 많아요.",
-      "uz": "Hozir tashvishlarim ko'p.",
+      "uz": "Shu kunlarda tashvishlarim ko'p.",
       "en": "I have a lot on my mind these days.",
       "ru": "В последнее время у меня много забот."
     }
@@ -329,7 +329,7 @@
   {
     "id": 729,
     "korean": "데리다",
-    "uzbek": "O'zi bilan birga yetaklab yurmoq",
+    "uzbek": "(Kimnidir) o'zi bilan olib yurmoq",
     "lesson": 25,
     "category": "health, hospital and body",
     "audio": "speechSynthesis:ko-KR",
@@ -413,7 +413,7 @@
     "sourceNumber": 733,
     "romanization": "jillyoreul batda",
     "english": "To see a doctor",
-    "russian": "Получать медицинскую помощь",
+    "russian": "Быть на приёме у врача",
     "example": {
       "ko": "병원에서 진료를 받았어요.",
       "uz": "Shifoxonada shifokor ko'rigidan o'tdim.",

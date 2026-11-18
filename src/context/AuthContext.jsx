@@ -41,6 +41,18 @@ function readStoredUser() {
   }
 }
 
+// Two copies of the same login with no real change (Supabase hands out fresh
+// objects on every tab focus).
+function sameUser(a, b) {
+  if (!a || !b) return a === b;
+  if (a.id !== b.id || a.updated_at !== b.updated_at) return false;
+  try {
+    return JSON.stringify(a) === JSON.stringify(b);
+  } catch {
+    return false;
+  }
+}
+
 function cacheProfile(userId, profile) {
   try {
     if (profile) localStorage.setItem(PROFILE_CACHE_KEY, JSON.stringify({ userId, profile }));
@@ -61,6 +73,8 @@ export function AuthProvider({ children }) {
   const hasSyncedRef = useRef(false);
   const profileRequestRef = useRef(null);
   const syncRetryRef = useRef(0);
+  const currentUserIdRef = useRef(null);
+  currentUserIdRef.current = user?.id ?? null;
 
   const syncProgressOnLogin = useCallback(
     async (userId) => {
@@ -144,13 +158,18 @@ export function AuthProvider({ children }) {
       // Startup is handled by the getSession() call above, which also knows
       // when a missing session only means the network isn't up yet.
       if (event === "INITIAL_SESSION") return;
-      setSession(session);
-      setUser(session?.user ?? null);
+      // Supabase re-checks the login whenever the tab becomes visible again and
+      // reports it as SIGNED_IN / TOKEN_REFRESHED with fresh objects. Keeping
+      // the same objects when nothing changed stops every page that depends on
+      // the user from reloading its data each time the learner comes back.
+      setSession((current) => (current && session && current.access_token === session.access_token ? current : session));
+      setUser((current) => (sameUser(current, session?.user) ? current : session?.user ?? null));
 
       if (session?.user) {
-        // A token refresh changes nothing that needs the profile reloaded,
-        // unless it is the first one after an offline start.
-        if (event === "TOKEN_REFRESHED" && hasSyncedRef.current) return;
+        // A token refresh or a repeat sign-in of the same account changes
+        // nothing that needs the profile reloaded, unless it is the first one
+        // after an offline start.
+        if ((event === "TOKEN_REFRESHED" || event === "SIGNED_IN") && hasSyncedRef.current && currentUserIdRef.current === session.user.id) return;
         // Supabase holds its auth lock while this callback runs, so awaiting
         // another Supabase call here deadlocks (e.g. on a token refresh).
         // Run the follow-up queries after the callback returns.

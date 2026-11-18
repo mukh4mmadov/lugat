@@ -3,7 +3,7 @@
     "id": 1,
     "korean": "독일",
     "uzbek": "Germaniya",
-    "romanization": "dokil",
+    "romanization": "dogil",
     "lesson": 1,
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
@@ -70,7 +70,7 @@
     "russian": "Япония",
     "example": {
       "ko": "일본 음식을 좋아합니다.",
-      "uz": "Men Yaponiya taomlarini yaxshi ko'raman.",
+      "uz": "Men yapon taomlarini yaxshi ko'raman.",
       "en": "I like Japanese food.",
       "ru": "Я люблю японскую еду."
     }
@@ -127,7 +127,7 @@
     "russian": "Корея",
     "example": {
       "ko": "한국 음식을 좋아합니다.",
-      "uz": "Men Koreya taomlarini yaxshi ko'raman.",
+      "uz": "Men koreys taomlarini yaxshi ko'raman.",
       "en": "I like Korean food.",
       "ru": "Я люблю корейскую еду."
     }
@@ -211,7 +211,7 @@
   {
     "id": 12,
     "korean": "의사",
-    "uzbek": "Shifokor (Do'xtir)",
+    "uzbek": "Shifokor (doktor)",
     "romanization": "uisa",
     "lesson": 1,
     "category": "intro, countries and identity",
@@ -249,7 +249,7 @@
   {
     "id": 14,
     "korean": "회사원",
-    "uzbek": "Firma (Kompaniya) xodimi",
+    "uzbek": "Kompaniya xodimi",
     "romanization": "hoesawon",
     "lesson": 1,
     "category": "intro, countries and identity",
@@ -295,7 +295,7 @@
     "needsReview": false,
     "sourceNumber": 16,
     "english": "Which",
-    "russian": "Какой / Который",
+    "russian": "Который (из)",
     "example": {
       "ko": "어느 나라 사람이에요?",
       "uz": "Qaysi davlatdansiz?",
@@ -307,7 +307,7 @@
     "id": 17,
     "korean": "직업",
     "uzbek": "Kasb",
-    "romanization": "jikeop",
+    "romanization": "jigeop",
     "lesson": 1,
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
@@ -420,15 +420,15 @@
   {
     "id": 23,
     "korean": "뭐",
-    "uzbek": "Nima",
+    "uzbek": "Nima (so'zlashuvda)",
     "romanization": "mwo",
     "lesson": 1,
     "category": "intro, countries and identity",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 23,
-    "english": "What",
-    "russian": "Что",
+    "english": "What (casual)",
+    "russian": "Что (разговорное)",
     "example": {
       "ko": "이게 뭐예요?",
       "uz": "Bu nima?",

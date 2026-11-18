@@ -47,8 +47,8 @@
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 328,
-    "english": "To be short",
-    "russian": "Быть коротким",
+    "english": "To be short (in length)",
+    "russian": "Быть коротким (по длине)",
     "example": {
       "ko": "머리가 짧아요.",
       "uz": "Sochim kalta.",
@@ -116,7 +116,7 @@
   {
     "id": 332,
     "korean": "예쁘다",
-    "uzbek": "Chiroyli / Go'zal bo'lmoq",
+    "uzbek": "Chiroyli (yoqimli) bo'lmoq",
     "romanization": "yeppeuda",
     "lesson": 11,
     "category": "descriptions, transport and family",
@@ -124,7 +124,7 @@
     "needsReview": false,
     "sourceNumber": 332,
     "english": "To be pretty",
-    "russian": "Быть красивым",
+    "russian": "Быть симпатичным (красивым)",
     "example": {
       "ko": "꽃이 예뻐요.",
       "uz": "Gul chiroyli.",
@@ -192,7 +192,7 @@
   {
     "id": 336,
     "korean": "아름답다",
-    "uzbek": "Go'zal / Chiroyli bo'lmoq",
+    "uzbek": "Go'zal bo'lmoq",
     "romanization": "areumdapda",
     "lesson": 11,
     "category": "descriptions, transport and family",
@@ -281,7 +281,7 @@
       "ko": "유럽으로 여행을 가요.",
       "uz": "Yevropaga sayohatga boraman.",
       "en": "I'm traveling to Europe.",
-      "ru": "Я еду в путешествие по Европе."
+      "ru": "Я еду путешествовать в Европу."
     }
   },
   {
@@ -420,7 +420,7 @@
   {
     "id": 348,
     "korean": "남동생",
-    "uzbek": "Uka (Erkak jinsli)",
+    "uzbek": "Uka",
     "romanization": "namdongsaeng",
     "lesson": 11,
     "category": "descriptions, transport and family",
@@ -477,7 +477,7 @@
   {
     "id": 351,
     "korean": "싫어하다",
-    "uzbek": "Yomon ko'rmoq / Yoqtirmaslik",
+    "uzbek": "Yomon ko'rmoq, yoqtirmaslik",
     "romanization": "sireohada",
     "lesson": 11,
     "category": "descriptions, transport and family",
@@ -496,15 +496,15 @@
   {
     "id": 352,
     "korean": "타다",
-    "uzbek": "Minmoq,uchmoq",
+    "uzbek": "Minmoq, transportga chiqmoq",
     "romanization": "tada",
     "lesson": 11,
     "category": "descriptions, transport and family",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 352,
-    "english": "To ride / To take (transport)",
-    "russian": "Ехать / Кататься",
+    "english": "To ride / to get on (transport)",
+    "russian": "Ехать (на транспорте) / Кататься",
     "example": {
       "ko": "자전거를 타요.",
       "uz": "Velosiped minaman.",
@@ -545,7 +545,7 @@
     "russian": "Скейтборд",
     "example": {
       "ko": "공원에서 스케이트보드를 타요.",
-      "uz": "Parkda skeytbord uchaman.",
+      "uz": "Parkda skeytbordda uchaman.",
       "en": "I skateboard in the park.",
       "ru": "Я катаюсь на скейтборде в парке."
     }

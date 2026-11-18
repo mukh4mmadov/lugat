@@ -12,11 +12,18 @@ function TextRow({ name, value, changed, onSave }) {
   const { t } = useTranslation();
   const [text, setText] = useState(value);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   useEffect(() => setText(value), [value]);
   async function save(next) {
     setBusy(true);
-    await onSave(name, next);
-    setBusy(false);
+    setError("");
+    try {
+      await onSave(name, next);
+    } catch (saveError) {
+      setError(saveError.message);
+    } finally {
+      setBusy(false);
+    }
   }
   return (
     <li className="rounded-xl border border-slate-100 p-2.5 dark:border-white/5">
@@ -26,6 +33,7 @@ function TextRow({ name, value, changed, onSave }) {
         <button type="button" disabled={busy || !text.trim() || text === value} onClick={() => save(text)} className="rounded-xl bg-violet-600 px-3 py-1.5 text-xs font-black text-white disabled:opacity-50">{t("admin.ai.save")}</button>
         {changed && <button type="button" disabled={busy} onClick={() => save("")} className="rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-black disabled:opacity-50 dark:border-white/15">{t("adminTexts.restore")}</button>}
       </div>
+      {error && <p role="alert" className="mt-1 text-xs font-bold text-rose-600">{error}</p>}
     </li>
   );
 }

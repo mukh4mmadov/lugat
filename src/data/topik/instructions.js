@@ -87,4 +87,45 @@ export const TOPIK_INSTRUCTIONS = {
     ru: "Выберите вариант с правильным порядком предложений.",
     en: "Choose the correct order of the sentences.",
   },
+  // Wording used on later papers (52nd onward).
+  "다음 대화를 듣고 가장 알맞은 그림을 고르십시오.": {
+    uz: "Suhbatni tinglang va eng mos rasmni tanlang.",
+    ru: "Прослушайте диалог и выберите наиболее подходящую картинку.",
+    en: "Listen to the conversation and choose the picture that fits best.",
+  },
+  "다음을 듣고 가장 알맞은 그림을 고르십시오.": {
+    uz: "Tinglang va eng mos rasmni tanlang.",
+    ru: "Прослушайте и выберите наиболее подходящую картинку.",
+    en: "Listen and choose the picture that fits best.",
+  },
+  "다음을 듣고 남자의 중심 생각을 고르십시오.": {
+    uz: "Tinglang va erkakning asosiy fikrini tanlang.",
+    ru: "Прослушайте и выберите главную мысль мужчины.",
+    en: "Listen and choose the man's main idea.",
+  },
+  "무엇에 대한 내용입니까? <보기>와 같이 알맞은 것을 고르십시오.": {
+    uz: "Bu nima haqida? <Namuna>dagidek mos javobni tanlang.",
+    ru: "О чём этот текст? Как в <образце>, выберите подходящий вариант.",
+    en: "What is this about? Choose the right answer, as in the <example>.",
+  },
+  "<보기>와 같이 ()에 들어갈 말로 가장 알맞은 것을 고르십시오.": {
+    uz: "<Namuna>dagidek ( ) o‘rniga eng mos keladigan so‘zni tanlang.",
+    ru: "Как в <образце>, выберите слово, которое лучше всего подходит вместо ( ).",
+    en: "Choose the word that best fills the ( ), as in the <example>.",
+  },
+  "다음을 읽고 내용이 같은 것을 고르십시오.": {
+    uz: "O‘qing va mazmuniga mos gapni tanlang.",
+    ru: "Прочитайте и выберите утверждение, соответствующее тексту.",
+    en: "Read and choose the statement that matches the text.",
+  },
+  "다음을 읽고 중심 내용을 고르십시오.": {
+    uz: "O‘qing va asosiy mazmunni tanlang.",
+    ru: "Прочитайте и выберите основное содержание.",
+    en: "Read and choose the main point.",
+  },
+  "다음을 순서에 맞게 배열한 것을 고르십시오.": {
+    uz: "Gaplarni to‘g‘ri tartibda joylashtirilgan variantni tanlang.",
+    ru: "Выберите вариант с правильным порядком предложений.",
+    en: "Choose the correct order of the sentences.",
+  },
 };

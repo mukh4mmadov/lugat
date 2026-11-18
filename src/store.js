@@ -2,14 +2,10 @@ import { configureStore, createSelector, createSlice } from "@reduxjs/toolkit";
 import { allWords, getWordKey, lessonInfo } from "./data";
 import { getCurrentSyncUserId, saveServerProgress } from "./lib/progressSync";
 import { dailyKey } from "./lib/study";
-import {
-  applyPracticeAnswer,
-  calculateNextReview,
-  getDueWords,
-  getReviewCount,
-  getSRSRecord,
-  SRS_RATINGS,
-} from "./lib/srs";
+import { getSRSRecord } from "./lib/srs";
+import { RATING, STATE, ankiSettings, unpackCard } from "./lib/fsrs";
+import { buildPool, remainingCounts } from "./lib/anki";
+import { enabledDeckWords } from "./lib/decks";
 import { getWordMastery, getMasteryOverview } from "./lib/mastery";
 import {
   STUDY_SESSION_REWARDS_PER_DAY,
@@ -62,7 +58,16 @@ const defaultState = {
   badges: {},
   grammar: {},
   stories: {},
+  // Anki-style cards (src/lib/fsrs.js packCard) and per-day review counts.
+  cards: {},
+  ankiDays: {},
 };
+
+const ANKI_HISTORY_DAYS = 120;
+
+function blankWordRecord() {
+  return { knownCount: 0, wrongCount: 0, difficulty: 0, reviewed: 0, recentAnswers: [] };
+}
 
 const DAILY_HISTORY_DAYS = 60;
 export const DAILY_GOALS = [10, 20, 40, 60];
@@ -171,7 +176,6 @@ const progressSlice = createSlice({
       if (earns) record.knownCount += 1;
       record.difficulty = Math.max(0, record.difficulty - 1);
       record.reviewed = Date.now();
-      Object.assign(record, applyPracticeAnswer(record, true));
       if (exerciseType) {
         record.recentAnswers = [
           ...(record.recentAnswers || []).slice(-4),
@@ -201,7 +205,6 @@ const progressSlice = createSlice({
       if (earns) record.wrongCount += 1;
       record.difficulty += 2;
       record.reviewed = Date.now();
-      Object.assign(record, applyPracticeAnswer(record, false));
       if (exerciseType) {
         record.recentAnswers = [
           ...(record.recentAnswers || []).slice(-4),
@@ -268,27 +271,29 @@ const progressSlice = createSlice({
       record.difficulty = 0;
       record.manualDifficult = false;
     },
-    rateFlashcard(state, action) {
-      // `quick`: rated faster than the card could have been read.
-      const { key, rating, quick } = action.payload;
-      const record = state.words[key] || {
-        knownCount: 0,
-        wrongCount: 0,
-        difficulty: 0,
-        reviewed: 0,
-        recentAnswers: [],
-      };
-      const srs = getSRSRecord(record);
-      const next = calculateNextReview(srs, rating);
-      record.interval = next.interval;
-      record.repetitions = next.repetitions;
-      record.easinessFactor = next.easinessFactor;
-      record.nextReviewAt = next.nextReviewAt;
-      record.lastReviewedAt = next.lastReviewedAt;
-      // A flashcard rating is also an answer: "again" counts as a miss,
-      // anything else as recalled, so lesson progress and mastery move.
-      const recalled = rating !== SRS_RATINGS.AGAIN;
-      const earns = !quick && claimAnswerReward(state, key, "flashcard");
+    // One answer in the Anki-style reviewer. The component schedules the card
+    // (src/lib/fsrs.js schedule) and passes it packed, with the Anki day.
+    answerCard(state, action) {
+      const { id, wordKey, rating, packed, day, quick, ms = 0, leechThreshold = 8 } = action.payload;
+      state.cards = state.cards || {};
+      state.ankiDays = state.ankiDays || {};
+      // The card's state before the answer; the component also knows cards
+      // that still live only in the old SM-2 fields.
+      const prevState = action.payload.prevState ?? (state.cards[id] ? unpackCard(state.cards[id]).state : STATE.new);
+      const kind = prevState === STATE.new ? "new" : prevState === STATE.review ? "review" : "learn";
+      state.cards[id] = packed;
+      const counts = { ...(state.ankiDays[day] || {}) };
+      counts[kind] = (counts[kind] || 0) + 1;
+      if (rating === RATING.again) counts.again = (counts.again || 0) + 1;
+      counts.ms = (counts.ms || 0) + Math.min(ms, 60000);
+      state.ankiDays[day] = counts;
+      const days = Object.keys(state.ankiDays).sort();
+      if (days.length > ANKI_HISTORY_DAYS) days.slice(0, days.length - ANKI_HISTORY_DAYS).forEach((old) => delete state.ankiDays[old]);
+
+      // The word's practice record moves too, so lesson progress and mastery follow.
+      const record = state.words[wordKey] || blankWordRecord();
+      const recalled = rating !== RATING.again;
+      const earns = !quick && claimAnswerReward(state, wordKey, "flashcard");
       if (recalled) {
         if (earns) record.knownCount = (record.knownCount || 0) + 1;
         record.difficulty = Math.max(0, (record.difficulty || 0) - 1);
@@ -296,36 +301,61 @@ const progressSlice = createSlice({
         if (earns) record.wrongCount = (record.wrongCount || 0) + 1;
         record.difficulty = (record.difficulty || 0) + 2;
       }
+      // Anki's leech: a card forgotten again and again is flagged as difficult.
+      if (!recalled && (unpackCard(packed)?.lapses || 0) >= leechThreshold) record.manualDifficult = true;
       record.reviewed = Date.now();
-      record.recentAnswers = [
-        ...(record.recentAnswers || []).slice(-4),
-        { correct: recalled, exerciseType: "flashcard", timestamp: Date.now() },
-      ];
-      state.words[key] = record;
+      record.recentAnswers = [...(record.recentAnswers || []).slice(-4), { correct: recalled, exerciseType: "flashcard", timestamp: Date.now() }];
+      state.words[wordKey] = record;
       if (!earns) return;
       if (recalled) state.stats.correct += 1;
       else state.stats.wrong += 1;
       state.stats.studiedWords += 1;
       recordAnswer(state, recalled, "flashcard", capFlashcardXp(state, recalled ? XP.flashcard : XP.wrong));
     },
-    updateSRSFromExercise(state, action) {
-      const { key, correct } = action.payload;
-      const record = state.words[key] || {
-        knownCount: 0,
-        wrongCount: 0,
-        difficulty: 0,
-        reviewed: 0,
-        recentAnswers: [],
-      };
-      const srs = getSRSRecord(record);
-      const rating = correct ? SRS_RATINGS.GOOD : SRS_RATINGS.AGAIN;
-      const next = calculateNextReview(srs, rating);
-      record.interval = next.interval;
-      record.repetitions = next.repetitions;
-      record.easinessFactor = next.easinessFactor;
-      record.nextReviewAt = next.nextReviewAt;
-      record.lastReviewedAt = next.lastReviewedAt;
-      state.words[key] = record;
+    // Undo: puts a card and the day's counts back as they were.
+    restoreCard(state, action) {
+      const { id, packed, day, counts } = action.payload;
+      state.cards = state.cards || {};
+      state.ankiDays = state.ankiDays || {};
+      if (packed) state.cards[id] = packed;
+      else delete state.cards[id];
+      if (counts) state.ankiDays[day] = counts;
+      else delete state.ankiDays[day];
+    },
+    // A word learned in a lesson's Study session joins the reviews as a
+    // learned card: its exercises were the learning steps.
+    introduceCard(state, action) {
+      const { id, packed, day } = action.payload;
+      state.cards = state.cards || {};
+      state.ankiDays = state.ankiDays || {};
+      const existing = state.cards[id] ? unpackCard(state.cards[id]) : null;
+      if (existing && existing.state !== STATE.new) return;
+      state.cards[id] = packed;
+      const counts = { ...(state.ankiDays[day] || {}) };
+      counts.new = (counts.new || 0) + 1;
+      state.ankiDays[day] = counts;
+    },
+    // One answer in TOPIK question-type practice. The last result of each
+    // question is kept (questions are "<exam>-<number>"), and a correct answer
+    // earns a little XP once a day per question.
+    recordTopikPractice(state, action) {
+      const { qid, correct } = action.payload;
+      state.topikPractice = { ...(state.topikPractice || {}) };
+      state.topikPractice[qid] = correct ? 1 : 0;
+      updateStreak(state);
+      if (correct && claimBonus(state, `tq:${qid}`)) grantXp(state, XP.correct);
+      refreshBadges(state);
+    },
+    // Anki's "increase today's new card limit".
+    extendNewToday(state, action) {
+      const { day, amount } = action.payload;
+      state.ankiDays = state.ankiDays || {};
+      const counts = { ...(state.ankiDays[day] || {}) };
+      counts.newExtra = (counts.newExtra || 0) + amount;
+      state.ankiDays[day] = counts;
+    },
+    setAnkiSettings(state, action) {
+      state.settings.anki = { ...(state.settings.anki || {}), ...action.payload };
     },
     addActivity(state, action) {
       state.stats.activity = [action.payload, ...state.stats.activity].slice(
@@ -444,8 +474,12 @@ export const {
   markWordStudied,
   toggleManualDifficult,
   clearDifficult,
-  rateFlashcard,
-  updateSRSFromExercise,
+  answerCard,
+  restoreCard,
+  introduceCard,
+  setAnkiSettings,
+  extendNewToday,
+  recordTopikPractice,
   markShareMilestoneShown,
   hydrateProgress,
   setSpeechRate,
@@ -465,9 +499,24 @@ export const {
   completeStory,
 } = progressSlice.actions;
 
+// Content that loads after start (the TOPIK vocabulary decks); selectors that
+// read it recompute when the counter moves.
+const contentSlice = createSlice({
+  name: "content",
+  initialState: { vocab: 0 },
+  reducers: {
+    vocabLoaded(state) {
+      state.vocab += 1;
+    },
+  },
+});
+
+export const { vocabLoaded } = contentSlice.actions;
+
 export const store = configureStore({
   reducer: {
     progress: progressSlice.reducer,
+    content: contentSlice.reducer,
   },
 });
 
@@ -483,10 +532,18 @@ let changedAt = Number(localStorage.getItem(PROGRESS_UPDATED_KEY)) || 0;
 
 export const progressUpdatedAt = () => changedAt;
 
+// The device keeps a cache of the signed-in account's progress (the account
+// is the real copy). A guest's learning is never stored: only the theme is.
 function writeLocal() {
   localTimer = null;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(withoutFx(store.getState().progress)));
+    const progress = withoutFx(store.getState().progress);
+    if (!getCurrentSyncUserId() && !localStorage.getItem(PROGRESS_OWNER_KEY)) {
+      const saved = loadState();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved ? { ...saved, theme: progress.theme } : { theme: progress.theme }));
+      return;
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
     localStorage.setItem(PROGRESS_UPDATED_KEY, String(changedAt));
   } catch {
     // Storage full or blocked: the server copy still saves.
@@ -561,15 +618,23 @@ export function selectStudyProgress(state, lesson) {
   return selectLessonProgress(state, lesson);
 }
 
+export const selectAnkiOptions = createSelector([(state) => state.progress.settings], (settings) => ankiSettings(settings));
+
+// Today's Anki counts over the decks turned on in the settings:
+// { new, learning, review } still to do today. Recomputed when the TOPIK
+// vocabulary finishes loading (content.vocab).
+export const selectAnkiDue = createSelector(
+  [(state) => state.progress, selectAnkiOptions, (state) => state.content.vocab],
+  (progress, options) => {
+    const words = enabledDeckWords(options);
+    return remainingCounts(buildPool(progress, words, options), progress, options);
+  },
+);
+
+// Cards waiting for review today (learning + review), as shown on badges.
 export function selectReviewCount(state) {
-  return getReviewCount(state.progress.words, allWords);
-}
-
-export const REVIEW_SESSION_LIMIT = 50;
-
-// The next review session: most overdue first, at most 50 words.
-export function selectDueWords(state) {
-  return getDueWords(allWords, state.progress.words, REVIEW_SESSION_LIMIT);
+  const due = selectAnkiDue(state);
+  return due.learning + due.review;
 }
 
 // The streak as it stands today: it lapses after a missed day (two with a freeze).

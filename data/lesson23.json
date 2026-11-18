@@ -51,7 +51,7 @@
     "russian": "Игрушка",
     "example": {
       "ko": "동생에게 장난감을 사 줬어요.",
-      "uz": "Ukamga o'yinchoq sotib oldim.",
+      "uz": "Ukamga o'yinchoq sotib olib berdim.",
       "en": "I bought a toy for my younger brother.",
       "ru": "Я купил младшему брату игрушку."
     }
@@ -97,7 +97,7 @@
   {
     "id": 668,
     "korean": "글씨",
-    "uzbek": "Yozuv, xat",
+    "uzbek": "Qo'l yozuvi, yozuv",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -213,7 +213,7 @@
   {
     "id": 674,
     "korean": "선배",
-    "uzbek": "Katta kurs/ishchi",
+    "uzbek": "Katta kursdosh (hamkasb)",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -233,7 +233,7 @@
   {
     "id": 675,
     "korean": "후배",
-    "uzbek": "Kichik kurs/ishchi",
+    "uzbek": "Kichik kursdosh (hamkasb)",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -278,7 +278,7 @@
     "needsReview": false,
     "sourceNumber": 677,
     "romanization": "jeonhada",
-    "english": "To pass on / Deliver",
+    "english": "To pass on / deliver",
     "russian": "Передавать",
     "example": {
       "ko": "이 편지를 전해 주세요.",
@@ -290,7 +290,7 @@
   {
     "id": 678,
     "korean": "생신",
-    "uzbek": "Tug'ilgan kun",
+    "uzbek": "Tug'ilgan kun (hurmat shakli)",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -369,7 +369,7 @@
   {
     "id": 682,
     "korean": "통역가",
-    "uzbek": "Tarjimon",
+    "uzbek": "Tarjimon (og'zaki)",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
@@ -387,15 +387,15 @@
   },
   {
     "id": 683,
-    "korean": "깎다 (깍다)",
-    "uzbek": "Archmoq / Narxni tushirmoq",
+    "korean": "깎다",
+    "uzbek": "Archmoq, narxni tushirmoq",
     "lesson": 23,
     "category": "office, communication and daily life",
     "audio": "speechSynthesis:ko-KR",
     "needsReview": false,
     "sourceNumber": 683,
-    "note": "mevani) / Arzonlashtirmoq (narxni",
-    "romanization": "kkakda (kkakda)",
+    "note": "mevani archmoq; narxni arzonlashtirmoq",
+    "romanization": "kkakda",
     "english": "To peel / To give a discount",
     "russian": "Чистить (кожуру) / Делать скидку",
     "example": {
@@ -435,7 +435,7 @@
     "sourceNumber": 685,
     "note": "Iltimos, tinchlik saqlang",
     "romanization": "joyonghi hada (joyonghi hae juseyo)",
-    "english": "To be quiet",
+    "english": "To keep quiet",
     "russian": "Вести себя тихо",
     "example": {
       "ko": "도서관에서는 조용히 해 주세요.",
@@ -454,7 +454,7 @@
     "needsReview": false,
     "sourceNumber": 686,
     "romanization": "annaehada",
-    "english": "To guide / To inform",
+    "english": "To guide / to inform",
     "russian": "Показывать дорогу / Информировать",
     "example": {
       "ko": "제가 길을 안내할게요.",
