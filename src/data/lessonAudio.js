@@ -5,7 +5,7 @@
 const BASE = "https://chwnukigxuiggnhvzsuo.supabase.co/storage/v1/object/public/topik-assets/audio-lessons";
 
 const LESSON_AUDIO = {
-  1: { id: "l01", short: 356, full: null },
+  1: { id: "l01", short: 356, full: 879 },
 };
 
 // { short?, full? } with { url, seconds } each, or null.
