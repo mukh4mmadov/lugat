@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { useLocation } from "react-router-dom";
 import i18n from "../lib/i18n";
-import { isChunkError, reloadForNewVersion, reportError } from "../lib/errorReport";
+import { dropOldCopy, isChunkError, reloadForNewVersion, reportError } from "../lib/errorReport";
 
 // Shows a recovery screen instead of a blank page when a page crashes.
 class Boundary extends Component {
@@ -30,7 +30,7 @@ class Boundary extends Component {
         <h1 className="mt-3 text-xl font-black">{t("errorBoundary.title")}</h1>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{t("errorBoundary.text")}</p>
         <div className="mt-5 flex justify-center gap-2">
-          <button type="button" onClick={() => window.location.reload()} className="rounded-2xl bg-slate-950 px-5 py-2.5 text-sm font-black text-white dark:bg-white dark:text-slate-950">
+          <button type="button" onClick={() => dropOldCopy().finally(() => window.location.reload())} className="rounded-2xl bg-slate-950 px-5 py-2.5 text-sm font-black text-white dark:bg-white dark:text-slate-950">
             {t("errorBoundary.reload")}
           </button>
           <a href="/" className="rounded-2xl border border-slate-300 px-5 py-2.5 text-sm font-bold dark:border-white/15">{t("errorBoundary.home")}</a>
