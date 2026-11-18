@@ -3,17 +3,26 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "./GlassCard";
 import { lessonAudio } from "../data/lessonAudio";
 
-// The lesson's listening version (beta): the Korean words with their Uzbek
-// meanings, examples and recaps, to play on the go. Plays with the screen off.
+const chip = (active) =>
+  `rounded-xl border px-3 py-2 text-sm font-black transition ${active ? "border-sky-400 bg-sky-500/10 text-sky-700 dark:text-sky-200" : "border-slate-200 dark:border-white/10"}`;
+
+// The lesson's listening version (beta): the Korean words with their meanings,
+// examples and recaps, to play on the go. Plays with the screen off. The
+// teacher speaks Uzbek or English; the interface language picks the first one.
 export default function LessonAudio({ lesson }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const audio = lessonAudio(lesson);
   const [open, setOpen] = useState(false);
-  const [picked, setPicked] = useState("short");
+  const [pickedLanguage, setPickedLanguage] = useState(null);
+  const [pickedKind, setPickedKind] = useState("short");
   if (!audio) return null;
-  const kinds = Object.keys(audio);
-  const kind = audio[picked] ? picked : kinds[0];
-  const current = audio[kind];
+  const languages = Object.keys(audio);
+  const uiLanguage = String(i18n.language || "uz").slice(0, 2);
+  const language = audio[pickedLanguage] ? pickedLanguage : audio[uiLanguage] ? uiLanguage : languages[0];
+  const versions = audio[language];
+  const kinds = Object.keys(versions);
+  const kind = versions[pickedKind] ? pickedKind : kinds[0];
+  const current = versions[kind];
   const minutes = (seconds) => Math.max(1, Math.round(seconds / 60));
 
   const setMetadata = () => {
@@ -34,16 +43,19 @@ export default function LessonAudio({ lesson }) {
       {open && (
         <div className="mt-3 space-y-3">
           <p className="text-sm text-slate-600 dark:text-slate-300">{t("lessonAudio.text")}</p>
+          {languages.length > 1 && (
+            <div className="grid grid-cols-2 gap-2" role="group" aria-label={t("lessonAudio.language")}>
+              {languages.map((value) => (
+                <button key={value} type="button" onClick={() => setPickedLanguage(value)} aria-pressed={language === value} className={chip(language === value)}>
+                  {t(`lessonAudio.lang.${value}`)}
+                </button>
+              ))}
+            </div>
+          )}
           <div className={`grid gap-2 ${kinds.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
             {kinds.map((value) => (
-              <button
-                key={value}
-                type="button"
-                onClick={() => setPicked(value)}
-                aria-pressed={kind === value}
-                className={`rounded-xl border px-3 py-2 text-sm font-black transition ${kind === value ? "border-sky-400 bg-sky-500/10 text-sky-700 dark:text-sky-200" : "border-slate-200 dark:border-white/10"}`}
-              >
-                {t(`lessonAudio.${value}`, { min: minutes(audio[value].seconds) })}
+              <button key={value} type="button" onClick={() => setPickedKind(value)} aria-pressed={kind === value} className={chip(kind === value)}>
+                {t(`lessonAudio.${value}`, { min: minutes(versions[value].seconds) })}
               </button>
             ))}
           </div>
@@ -51,7 +63,7 @@ export default function LessonAudio({ lesson }) {
             <track kind="captions" />
           </audio>
           {/* The file is on another host, so the storage itself is asked to send it as a download. */}
-          <a href={`${current.url}?download=K-TALIM-${lesson}-dars-${kind === "full" ? "toliq" : "qisqa"}.mp3`} className="inline-flex text-sm font-bold text-sky-600 dark:text-sky-300">⬇ {t("lessonAudio.download")}</a>
+          <a href={`${current.url}?download=K-TALIM-${lesson}-${language}-${kind}.mp3`} className="inline-flex text-sm font-bold text-sky-600 dark:text-sky-300">⬇ {t("lessonAudio.download")}</a>
         </div>
       )}
     </GlassCard>
