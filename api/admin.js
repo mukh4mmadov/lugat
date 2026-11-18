@@ -1043,7 +1043,7 @@ export default async function handler(req, res) {
       ]);
       return res.status(200).json({ exportedAt: new Date().toISOString(), detail, progress: progress.data, chats: chats.data, topik: topik.data, grammar: grammar.data, speaking: speaking.data, documents: docs.data, interviews: interviews.data });
     }
-    if (action === "ttsCheck") return res.status(200).json(await checkTts());
+    if (action === "ttsCheck") return res.status(200).json(await checkTts(db));
     if (action === "voiceLink") {
       const link = await recordingLink(db);
       return res.status(200).json({ link });

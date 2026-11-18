@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { getSpeakingTopic } from "../src/data/speakingTopics.js";
-import { synthesize } from "./_lib/tts.js";
+import { stripVoiceTags, synthesize, VOICE_TAGS } from "./_lib/tts.js";
 import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 // Speaking practice with the AI partner, Friday. The learner records a turn in
@@ -113,6 +113,7 @@ Topic: ${topic.ko} (${topic.en}). Questions you can use: ${topic.questions.map((
 For every learner turn (the audio) return:
 - transcript: everything the learner said in the whole recording, word for word and sentence by sentence, in Hangul when they spoke Korean. Keep their mistakes as spoken; never fix them here. If they spoke another language, write it as said. Empty only if the audio is silent or unintelligible.
 - reply: Korean only, polite spoken style (해요체), ${length}. React to what they said, then ask one follow-up question so the conversation continues, staying on or near the topic. If the transcript is empty, kindly ask them in simple Korean to say it again.
+- spoken: the reply exactly as you would say it aloud: the same Korean words, plus one or two voice tags in square brackets placed right before the words they colour, chosen from: ${VOICE_TAGS.map((tag) => `[${tag}]`).join(" ")}. Match the feeling of the moment (glad when they did well, [laughs] at something funny, [sympathetic] when they are tired or sad, [curious] for questions). No other changes to the words.
 - replyTranslation: the reply translated into ${langName}.
 - corrections: up to 3 real mistakes anywhere in the transcript (particles, tense, conjugation, word choice, politeness): wrong = their words, right = the corrected words, note = a short explanation in ${langName}. If they spoke another language, give the Korean way to say it. Empty when the Korean was fine; ignore spacing and tiny slips.
 - pronunciation: ${premium ? `one short, concrete tip in ${langName} when a word was clearly mispronounced, otherwise empty` : "always empty"}.
@@ -126,6 +127,7 @@ const RESPONSE_SCHEMA = {
   properties: {
     transcript: { type: "STRING" },
     reply: { type: "STRING" },
+    spoken: { type: "STRING" },
     replyTranslation: { type: "STRING" },
     corrections: {
       type: "ARRAY",
@@ -137,7 +139,7 @@ const RESPONSE_SCHEMA = {
       items: { type: "OBJECT", properties: { ko: { type: "STRING" }, meaning: { type: "STRING" } }, required: ["ko", "meaning"] },
     },
   },
-  propertyOrdering: ["transcript", "reply", "replyTranslation", "corrections", "pronunciation", "newWords"],
+  propertyOrdering: ["transcript", "reply", "spoken", "replyTranslation","corrections", "pronunciation", "newWords"],
   required: ["transcript", "reply", "replyTranslation", "corrections", "newWords"],
 };
 
@@ -165,7 +167,7 @@ async function askGemini(systemPrompt, history, audioBase64, model = GEMINI_MODE
           ],
         },
       ],
-      generationConfig: { temperature: 0.6, maxOutputTokens: 1024, responseMimeType: "application/json", responseSchema: RESPONSE_SCHEMA },
+      generationConfig: { temperature: 0.6, maxOutputTokens: 1536, responseMimeType: "application/json", responseSchema: RESPONSE_SCHEMA },
     }),
   });
   if (!response.ok) throw new Error(`Gemini ${response.status}: ${(await response.text().catch(() => "")).slice(0, 300)}`);
@@ -178,10 +180,15 @@ export const chargedSeconds = (audioSeconds, reply) => Math.ceil(audioSeconds + 
 
 const clip = (value, max) => String(value || "").trim().slice(0, max);
 
+// The tagged version of the reply is used for the voice only when its words
+// are the reply's words; otherwise Friday just says the reply.
+const sameWords = (text) => stripVoiceTags(text).replace(/[\s.,!?~…"'«»“”]+/g, "");
+export const spokenText = (reply, spoken) => (spoken && sameWords(spoken) === sameWords(reply) ? clip(spoken, 700) : reply);
+
 function cleanResult(result, premium) {
   return {
     transcript: clip(result.transcript, 600),
-    reply: clip(result.reply, 600),
+    reply: clip(stripVoiceTags(result.reply), 600),
     replyTranslation: clip(result.replyTranslation, 800),
     corrections: (Array.isArray(result.corrections) ? result.corrections : [])
       .slice(0, 3)
@@ -226,7 +233,7 @@ async function start(db, user, body, res) {
   const { data, error } = await db.from("speaking_sessions").insert({ user_id: user.id, kind: "ai", topic_id: topic.id, level }).select("id").single();
   if (error) throw error;
   const opener = buildOpener(topic, level, languageOf(body.language));
-  const voice = await synthesize(db, opener.ko);
+  const voice = await synthesize(db, `[cheerfully] ${opener.ko}`, { expressive: true });
   return res.status(200).json({ sessionId: data.id, opener, openerAudio: voiceUrl(voice) });
 }
 
@@ -248,18 +255,17 @@ async function turn(db, user, body, res) {
 
   const language = languageOf(body.language);
   let result;
+  let raw = {};
   const geminiStarted = Date.now();
   try {
     const ask = (model) => askGemini(buildSystemPrompt({ topic, level: session.level, language, premium }), sanitizeHistory(body.history), audio, model);
     // The model is sometimes overloaded: one quiet retry on another model
     // beats an error. Failures show in the admin Errors tab.
-    result = cleanResult(
-      await ask().catch(async (error) => {
-        await logFailure(db, error);
-        return ask(FALLBACK_MODEL);
-      }),
-      premium,
-    );
+    raw = await ask().catch(async (error) => {
+      await logFailure(db, error);
+      return ask(FALLBACK_MODEL);
+    });
+    result = cleanResult(raw, premium);
   } catch (error) {
     console.error("Speaking AI error:", error);
     await logFailure(db, error);
@@ -270,7 +276,7 @@ async function turn(db, user, body, res) {
   const geminiMs = Date.now() - geminiStarted;
   // Friday's natural voice is made while the session is saved.
   const voiceStarted = Date.now();
-  const voicePromise = synthesize(db, result.reply);
+  const voicePromise = synthesize(db, spokenText(result.reply, raw.spoken), { expressive: true });
   const seconds = chargedSeconds(audioSeconds, result.reply);
   const { data: totals } = await db.rpc("add_speaking_usage", { p_user: user.id, p_day: tashkentDay(), p_seconds: seconds });
   const summary = session.summary || {};

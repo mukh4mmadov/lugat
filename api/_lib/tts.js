@@ -1,4 +1,9 @@
 // Korean speech for Friday's replies and word pronunciations, best first:
+//  0. ElevenLabs (Eleven v3) for Friday only (`expressive`), when
+//     ELEVENLABS_API_KEY is set. It reads audio tags such as [laughs] or
+//     [excited], so Friday sounds happy, surprised or sad. Usage is counted per
+//     month in app_settings and stops at ELEVENLABS_MONTHLY_CHARS (default
+//     10 000, the free plan). ELEVENLABS_VOICE_ID picks the voice.
 //  1. Google Cloud Text-to-Speech (Chirp 3 HD) when GOOGLE_TTS_API_KEY is set.
 //     Usage is counted per month in app_settings and stops below the free
 //     allowance (GOOGLE_TTS_MONTHLY_CHARS, default 950 000).
@@ -11,14 +16,26 @@
 const VOICES = [process.env.GOOGLE_TTS_VOICE, "ko-KR-Chirp3-HD-Kore", "ko-KR-Chirp3-HD-Aoede", "ko-KR-Neural2-A"].filter(Boolean);
 const MONTHLY_LIMIT = Number(process.env.GOOGLE_TTS_MONTHLY_CHARS) || 950000;
 
+const ELEVEN_MONTHLY_LIMIT = Number(process.env.ELEVENLABS_MONTHLY_CHARS) || 10000;
+// A stock ElevenLabs voice until the owner picks one in ELEVENLABS_VOICE_ID.
+const ELEVEN_DEFAULT_VOICE = "EXAVITQu4vr4xnSDxMaL";
+
 const googleConfigured = () => Boolean(process.env.GOOGLE_TTS_API_KEY);
 const cloudflareConfigured = () => Boolean(process.env.CLOUDFLARE_ACCOUNT_ID && process.env.CLOUDFLARE_AI_TOKEN);
-export const ttsConfigured = () => googleConfigured() || cloudflareConfigured();
+const elevenConfigured = () => Boolean(process.env.ELEVENLABS_API_KEY);
+export const ttsConfigured = () => elevenConfigured() || googleConfigured() || cloudflareConfigured();
 
-const usageKey = () => `tts_usage_${new Date().toISOString().slice(0, 7)}`;
+// The audio tags Friday may use. Anything else in brackets is dropped.
+export const VOICE_TAGS = ["happy", "excited", "cheerfully", "laughs", "chuckles", "giggles", "curious", "surprised", "sighs", "sad", "sympathetic", "warmly", "softly", "whispers", "thoughtful", "playfully", "proud", "impressed", "encouraging", "calm"];
+const TAG = /\[([a-z ]{2,24})\]/gi;
+export const stripVoiceTags = (text) => String(text || "").replace(TAG, " ").replace(/\s{2,}/g, " ").trim();
+const keepKnownTags = (text) => String(text || "").replace(TAG, (tag, name) => (VOICE_TAGS.includes(name.trim().toLowerCase()) ? `[${name.trim().toLowerCase()}]` : " ")).replace(/\s{2,}/g, " ").trim();
 
-async function usedChars(db) {
-  const { data } = await db.from("app_settings").select("value").eq("key", usageKey()).maybeSingle();
+const monthKey = (name) => `${name}_${new Date().toISOString().slice(0, 7)}`;
+const usageKey = () => monthKey("tts_usage");
+
+async function usedChars(db, key = usageKey()) {
+  const { data } = await db.from("app_settings").select("value").eq("key", key).maybeSingle();
   return Number(data?.value?.chars) || 0;
 }
 
@@ -26,10 +43,57 @@ let workingVoice = null;
 
 // Resolves to { audio: base64, mime, voice } or null (not configured, over the
 // limits, or the services failed): callers then use the browser voice.
-export async function synthesize(db, text) {
-  const input = String(text || "").trim().slice(0, 600);
+// `expressive` (Friday) may carry audio tags; only ElevenLabs reads them, the
+// other services get the plain words.
+export async function synthesize(db, text, { expressive = false } = {}) {
+  const tagged = keepKnownTags(String(text || "").slice(0, 700));
+  const input = stripVoiceTags(tagged).slice(0, 600);
   if (!input) return null;
-  return (googleConfigured() && (await synthesizeGoogle(db, input))) || (cloudflareConfigured() && (await synthesizeCloudflare(input))) || null;
+  return (
+    (expressive && elevenConfigured() && (await synthesizeEleven(db, tagged))) ||
+    (googleConfigured() && (await synthesizeGoogle(db, input))) ||
+    (cloudflareConfigured() && (await synthesizeCloudflare(input))) ||
+    null
+  );
+}
+
+const ELEVEN_TIMEOUT_MS = 15000;
+let elevenPausedUntil = 0;
+
+async function askEleven(text, timeout) {
+  const voice = String(process.env.ELEVENLABS_VOICE_ID || ELEVEN_DEFAULT_VOICE).trim();
+  const started = Date.now();
+  const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voice)}?output_format=mp3_44100_64`, {
+    method: "POST",
+    signal: AbortSignal.timeout(timeout),
+    headers: { "xi-api-key": process.env.ELEVENLABS_API_KEY.trim(), "Content-Type": "application/json", Accept: "audio/mpeg" },
+    body: JSON.stringify({ text, model_id: process.env.ELEVENLABS_MODEL || "eleven_v3" }),
+  });
+  if (!response.ok) return { status: response.status, ms: Date.now() - started, detail: (await response.text().catch(() => "")).slice(0, 300) };
+  return { status: response.status, ms: Date.now() - started, audio: Buffer.from(await response.arrayBuffer()).toString("base64") };
+}
+
+// Over the monthly allowance, or failing: Friday falls back to the next voice,
+// and a failing service is left alone for a while instead of slowing replies.
+async function synthesizeEleven(db, text) {
+  if (Date.now() < elevenPausedUntil) return null;
+  try {
+    const key = monthKey("elevenlabs_usage");
+    const used = await usedChars(db, key);
+    if (used + text.length > ELEVEN_MONTHLY_LIMIT) return null;
+    const result = await askEleven(text, ELEVEN_TIMEOUT_MS);
+    if (result.audio) {
+      await db.from("app_settings").upsert({ key, value: { chars: used + text.length } });
+      return { audio: result.audio, mime: "audio/mpeg", voice: "ElevenLabs" };
+    }
+    console.error("ElevenLabs TTS failed:", result.status, result.detail);
+    // 401: bad key or the plan's credits are used up; wait longer then.
+    elevenPausedUntil = Date.now() + (result.status === 401 || result.status === 402 ? 60 : 5) * 60 * 1000;
+  } catch (error) {
+    console.error("ElevenLabs TTS error:", error.message);
+    elevenPausedUntil = Date.now() + 5 * 60 * 1000;
+  }
+  return null;
 }
 
 const SPEECH_RATE = 16000;
@@ -118,8 +182,13 @@ async function synthesizeCloudflare(input) {
 }
 
 // For the admin: which services are set up and what each one answers.
-export async function checkTts() {
-  const report = { google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
+export async function checkTts(db) {
+  const report = { elevenlabs: elevenConfigured(), google: googleConfigured(), cloudflare: cloudflareConfigured(), attempts: [] };
+  if (report.elevenlabs) {
+    report.elevenlabsUsed = { chars: await usedChars(db, monthKey("elevenlabs_usage")).catch(() => null), limit: ELEVEN_MONTHLY_LIMIT };
+    const result = await askEleven("[cheerfully] 안녕하세요, 저는 프라이데이예요.", 20000).catch((error) => ({ error: error.message.slice(0, 160) }));
+    report.elevenlabsTest = { status: result.status, ms: result.ms, audioKb: result.audio ? Math.round(result.audio.length / 1365) : 0, detail: result.detail || result.error || "" };
+  }
   const fallback = process.env.SPEAKING_FALLBACK_MODEL || "gemini-3.1-flash-lite";
   const answer = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${fallback}:generateContent?key=${process.env.GEMINI_API_KEY}`, {
     method: "POST",
