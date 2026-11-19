@@ -20,6 +20,7 @@ import LevelChip from "./LevelChip";
 import XpCelebrations from "./XpCelebrations";
 import LanguageSelector from "./LanguageSelector";
 import AdminBell from "./AdminBell";
+import UserBell from "./UserBell";
 import AIChatWidget from "./AIChatWidget";
 import { TopikExamProvider } from "../context/TopikExamContext";
 import { useAuth } from "../hooks/useAuth";
@@ -415,7 +416,7 @@ export default function Layout({ onShowIELTSModal }) {
             </nav>
 
             <div className="ml-auto flex shrink-0 items-center gap-1.5">
-              {isAdmin && <AdminBell />}
+              {isAdmin ? <AdminBell /> : <UserBell />}
               <span className="lg:hidden xl:block"><LevelChip /></span>
               <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
               <InstallAppButton className="hidden 2xl:block" />

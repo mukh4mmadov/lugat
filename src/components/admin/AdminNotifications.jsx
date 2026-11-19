@@ -6,6 +6,7 @@ import { adminRequest } from "../../lib/adminApi";
 import { timeAgo } from "../../lib/dates";
 import { ADMIN_NOTIFICATIONS_CHANGED, markAllNotificationsSeen, markNotificationSeen } from "../../lib/adminNotifications";
 import { Panel } from "../../pages/AdminPage";
+import MessageExtras from "./MessageExtras";
 
 const ICONS = { digest: "☀️", health: "⚠️", deletion: "🗑", ticket: "✉️", ticketReply: "💬", report: "⚠️", signup: "👋", aiAnswer: "🤖" };
 const PAGE = 50;
@@ -16,6 +17,8 @@ function GroupMessage() {
   const [group, setGroup] = useState("all");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [important, setImportant] = useState(false);
+  const [link, setLink] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState("");
   const field = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
@@ -25,7 +28,7 @@ function GroupMessage() {
     setBusy(true);
     setResult("");
     try {
-      const data = await adminRequest({}, { action: "notifyGroup", group, title, body });
+      const data = await adminRequest({}, { action: "notifyGroup", group, title, body, important, link });
       setResult(t("adminNotifications.groupSent", { users: data.users, devices: data.devices }));
       setTitle("");
       setBody("");
@@ -44,6 +47,7 @@ function GroupMessage() {
         </select>
         <input value={title} onChange={(event) => setTitle(event.target.value)} maxLength={80} placeholder={t("admin.records.notifyTitle")} className={field} />
         <textarea value={body} onChange={(event) => setBody(event.target.value)} maxLength={200} rows={2} placeholder={t("admin.records.notifyBody")} className={field} />
+        <MessageExtras important={important} onImportant={setImportant} link={link} onLink={setLink} field={field} />
         <button type="button" disabled={busy || !title.trim() || !body.trim()} onClick={send} className="rounded-xl bg-sky-600 px-3 py-2 text-xs font-black text-white disabled:opacity-50">
           {t("admin.records.notifySend")}
         </button>

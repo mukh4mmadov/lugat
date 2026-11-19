@@ -7,6 +7,7 @@ import "../../lib/customTopik";
 import { adminRequest } from "../../lib/adminApi";
 import { formatDate, timeAgo } from "../../lib/dates";
 import { Panel } from "../../pages/AdminPage";
+import MessageExtras from "./MessageExtras";
 
 const button = "rounded-xl px-3 py-2 text-xs font-black disabled:opacity-50";
 
@@ -305,6 +306,8 @@ function KoreaRecords({ detail }) {
 function ContactTools({ detail, busy, run }) {
   const { t, i18n } = useTranslation();
   const [title, setTitle] = useState("");
+  const [important, setImportant] = useState(false);
+  const [link, setLink] = useState("");
   const [body, setBody] = useState("");
   const [exporting, setExporting] = useState(false);
   const [exportError, setExportError] = useState("");
@@ -347,12 +350,13 @@ function ContactTools({ detail, busy, run }) {
       <div className="mt-1 grid gap-2">
         <input value={title} onChange={(event) => setTitle(event.target.value)} maxLength={80} placeholder={t("admin.records.notifyTitle")} className={field} />
         <textarea value={body} onChange={(event) => setBody(event.target.value)} maxLength={200} rows={2} placeholder={t("admin.records.notifyBody")} className={field} />
+        <MessageExtras important={important} onImportant={setImportant} link={link} onLink={setLink} field={field} />
         <button
           type="button"
           disabled={Boolean(busy) || !title.trim() || !body.trim()}
           onClick={async () => {
             // A failed send keeps the text, so it can be sent again.
-            if (!(await run("notifyUser", { title, body }, t("admin.records.notifySent")))) return;
+            if (!(await run("notifyUser", { title, body, important, link }, t("admin.records.notifySent")))) return;
             setTitle("");
             setBody("");
           }}

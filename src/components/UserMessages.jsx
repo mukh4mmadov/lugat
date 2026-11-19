@@ -1,48 +1,34 @@
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../hooks/useAuth";
-import { supabase } from "../lib/supabase";
+import { markRead, useNotifications } from "../lib/notifications";
 
-// Messages from K-TALIM, shown when the learner opens the site, so they arrive
-// even without push notifications. Closing one marks it as read.
+// Admin messages marked important also show as a bar at the top of the site,
+// so they are seen even before the bell is opened. Closing one marks it read
+// (it stays in the bell).
 export default function UserMessages() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const userId = user?.id;
-  const [messages, setMessages] = useState([]);
-
-  useEffect(() => {
-    if (!userId) {
-      setMessages([]);
-      return undefined;
-    }
-    let cancelled = false;
-    supabase
-      .from("user_messages")
-      .select("id, title, body")
-      .is("read_at", null)
-      .order("created_at")
-      .limit(5)
-      .then(({ data }) => !cancelled && setMessages(data || []));
-    return () => {
-      cancelled = true;
-    };
-  }, [userId]);
-
-  const message = messages[0];
+  const navigate = useNavigate();
+  const { items } = useNotifications(user?.id);
+  const message = items.filter((item) => item.kind === "admin" && item.important && !item.read_at).at(-1);
   if (!message) return null;
-
-  function dismiss() {
-    supabase.rpc("mark_user_message_read", { p_id: message.id }).then(() => {});
-    setMessages((list) => list.slice(1));
-  }
 
   return (
     <div role="status" className="relative z-40 flex items-start justify-center gap-3 bg-sky-600 px-4 py-2 text-sm text-white">
-      <span className="min-w-0 text-center">
+      <button
+        type="button"
+        disabled={!message.link}
+        onClick={() => {
+          markRead(message.id);
+          navigate(message.link);
+        }}
+        className="min-w-0 text-center disabled:cursor-default"
+      >
         <b>📬 {message.title}</b> {message.body}
-      </span>
-      <button type="button" onClick={dismiss} aria-label={t("common.close")} className="shrink-0 rounded-lg px-2 py-0.5 hover:bg-white/20">✕</button>
+        {message.link && <span className="ml-1 underline">→</span>}
+      </button>
+      <button type="button" onClick={() => markRead(message.id)} aria-label={t("common.close")} className="shrink-0 rounded-lg px-2 py-0.5 hover:bg-white/20">✕</button>
     </div>
   );
 }

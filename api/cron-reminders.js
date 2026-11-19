@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { sendDigest } from "./_lib/digest.js";
 import { chunks, pushAdminNotifications, sendReminder } from "./_lib/push.js";
+import { notifiedSince, notify } from "./_lib/notify.js";
 
 // Daily at 20:00 Tashkent (vercel.json crons): a "keep your streak" push for
 // learners with a streak who haven't studied today, and a "Premium ends in
@@ -9,6 +10,42 @@ import { chunks, pushAdminNotifications, sendReminder } from "./_lib/push.js";
 // Vercel calls it with Authorization: Bearer $CRON_SECRET.
 
 const LAST_MORNING_HOUR_UTC = 9;
+const DAY = 86400000;
+
+// Evening notifications in the bell: a streak that ends tonight unless the
+// learner studies, and Premium ending in about three days (once).
+async function bellReminders(db) {
+  const today = new Date(Date.now() + 5 * 3600000).toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() + 5 * 3600000 - DAY).toISOString().slice(0, 10);
+  const atRisk = [];
+  for (let from = 0; from < 100000; from += 1000) {
+    const { data } = await db.from("leaderboard_stats").select("user_id, streak").gt("streak", 0).eq("last_study_date", yesterday).range(from, from + 999);
+    atRisk.push(...(data || []));
+    if (!data || data.length < 1000) break;
+  }
+  const streakDone = await notifiedSince(db, atRisk.map((row) => row.user_id), "streak", `${today}T00:00:00+05:00`);
+  let streak = 0;
+  for (const row of atRisk.filter((item) => !streakDone.has(item.user_id))) {
+    streak += await notify(db, [row.user_id], "streak", { link: "/review", data: { streak: row.streak } });
+  }
+
+  const expiring = [];
+  for (let page = 1; page <= 50; page += 1) {
+    const { data, error } = await db.auth.admin.listUsers({ page, perPage: 1000 });
+    if (error) break;
+    for (const user of data.users) {
+      const left = Date.parse(user.app_metadata?.premium_until || "") - Date.now();
+      if (left > 2 * DAY && left <= 3 * DAY) expiring.push(user);
+    }
+    if (data.users.length < 1000) break;
+  }
+  const expiryDone = await notifiedSince(db, expiring.map((user) => user.id), "premium_expiring", new Date(Date.now() - 5 * DAY).toISOString());
+  let premium = 0;
+  for (const user of expiring.filter((item) => !expiryDone.has(item.id))) {
+    premium += await notify(db, [user.id], "premium_expiring", { link: "/premium", data: { until: user.app_metadata.premium_until } });
+  }
+  return { streak, premium };
+}
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -22,6 +59,9 @@ export default async function handler(req, res) {
   try {
     if (new Date().getUTCHours() <= LAST_MORNING_HOUR_UTC) return res.status(200).json(await sendDigest(db));
 
+    // The bell, for every learner (push below only for those who turned it on).
+    const bell = await bellReminders(db);
+
     const subscribers = [];
     for (let from = 0; from < 100000; from += 1000) {
       const { data } = await db.from("push_subscriptions").select("user_id").range(from, from + 999);
@@ -29,7 +69,7 @@ export default async function handler(req, res) {
       if (!data || data.length < 1000) break;
     }
     const ids = [...new Set(subscribers.map((row) => row.user_id))];
-    if (!ids.length) return res.status(200).json({ reminded: 0 });
+    if (!ids.length) return res.status(200).json({ reminded: 0, bell });
     // Only the small streak fields, in batches.
     const progress = [];
     for (const batch of chunks(ids)) {
@@ -59,7 +99,7 @@ export default async function handler(req, res) {
     const expiryReminded = await sendReminder(db, expiring, "expiry", { gapHours: 72 });
     // Anything admins have not been pushed about yet.
     const adminPushes = await pushAdminNotifications(db);
-    return res.status(200).json({ due: due.length, reminded, expiring: expiring.length, expiryReminded, adminPushes });
+    return res.status(200).json({ due: due.length, reminded, expiring: expiring.length, expiryReminded, adminPushes, bell });
   } catch (error) {
     console.error("Reminder cron error:", error);
     return res.status(500).json({ error: "Reminder run failed" });

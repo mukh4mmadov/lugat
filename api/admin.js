@@ -5,6 +5,7 @@ import { levelForXp } from "../src/lib/gamification.js";
 import { createRecordingLink, deleteVoice, generateVoices, recordingLink, revokeRecordingLink, saveRecording } from "./_lib/voices.js";
 import { checkTts } from "./_lib/tts.js";
 import { pushToUser } from "./_lib/push.js";
+import { notify } from "./_lib/notify.js";
 import { BACKUP_MODEL, MAIN_MODEL, checkModel } from "./_lib/aiModels.js";
 import { sendDigest } from "./_lib/digest.js";
 import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.js";
@@ -37,6 +38,16 @@ import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.j
 
 const DAY = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// Optional parts of an admin message: shown as the top bar too ("important"),
+// and a page of the site the bell opens.
+function messageExtras(body) {
+  const extras = {};
+  if (body.important) extras.important = true;
+  const link = String(body.link || "").trim();
+  if (/^\/[A-Za-z0-9/_?=&%.-]{0,199}$/.test(link)) extras.link = link;
+  return extras;
+}
 
 // A Supabase access token (HS256, signed with the project's JWT secret).
 function signJwt(payload, secret) {
@@ -740,7 +751,7 @@ async function act(db, actor, body) {
     }
     // Everyone sees it in the site; those with notifications also get a push.
     for (let index = 0; index < ids.length; index += 500) {
-      const { error } = await db.from("user_messages").insert(ids.slice(index, index + 500).map((id) => ({ user_id: id, title, body: text, created_by: actor.id })));
+      const { error } = await db.from("user_messages").insert(ids.slice(index, index + 500).map((id) => ({ user_id: id, title, body: text, created_by: actor.id, ...messageExtras(body) })));
       if (error) return [500, { error: "Could not save the message" }];
     }
     const subscribers = await selectAll(db, "push_subscriptions", "user_id");
@@ -815,6 +826,7 @@ async function act(db, actor, body) {
     try {
       const until = await extendPremium(db, userId, days);
       await db.from("premium_log").insert({ user_id: userId, admin_id: actor.id, days, amount, note: String(body.note || "").slice(0, 200), premium_until: until });
+      if (days > 0) await notify(db, [userId], "premium", { link: "/premium", data: { days, until } });
       return [200, { premiumUntil: until }];
     } catch (error) {
       return [error.status || 500, { error: error.message }];
@@ -937,7 +949,7 @@ async function act(db, actor, body) {
     const title = String(body.title || "").trim().slice(0, 80);
     const text = String(body.body || "").trim().slice(0, 200);
     if (!title || !text) return [400, { error: "Write the title and the text" }];
-    const { error } = await db.from("user_messages").insert({ user_id: userId, title, body: text, created_by: actor.id });
+    const { error } = await db.from("user_messages").insert({ user_id: userId, title, body: text, created_by: actor.id, ...messageExtras(body) });
     if (error) return [500, { error: "Could not save the message" }];
     return [200, { devices: await pushToUser(db, userId, { title, body: text }) }];
   }
