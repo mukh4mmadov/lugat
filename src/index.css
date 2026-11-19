@@ -55,3 +55,8 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* While an admin views the site as a learner, the site header sits below the notice bar. */
+.k-view-as header.sticky {
+  top: 2.25rem;
+}

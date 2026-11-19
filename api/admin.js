@@ -1,3 +1,4 @@
+import { createHmac } from "node:crypto";
 import { createClient } from "@supabase/supabase-js";
 import { extendPremium, isPremium, premiumUntil } from "./_lib/premium.js";
 import { levelForXp } from "../src/lib/gamification.js";
@@ -36,6 +37,13 @@ import { cancelRequest, createRequest, setBehavior } from "./_lib/aiDirectives.j
 
 const DAY = 24 * 60 * 60 * 1000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// A Supabase access token (HS256, signed with the project's JWT secret).
+function signJwt(payload, secret) {
+  const part = (value) => Buffer.from(JSON.stringify(value)).toString("base64url");
+  const body = `${part({ alg: "HS256", typ: "JWT" })}.${part(payload)}`;
+  return `${body}.${createHmac("sha256", secret).update(body).digest("base64url")}`;
+}
 
 
 function serviceClient() {
@@ -764,6 +772,41 @@ async function act(db, actor, body) {
 
   if (!UUID.test(String(userId || ""))) return [400, { error: "Invalid user" }];
   const selfChange = userId === actor.id;
+
+  // "View as this learner": a 30-minute pass that lets the admin's browser
+  // read what the learner sees. The site never writes with it (see
+  // src/lib/viewAs.js); it is never given for admin accounts.
+  if (action === "viewAs") {
+    if (!UUID.test(String(userId || ""))) return [400, { error: "Invalid user" }];
+    if (selfChange) return [400, { error: "This is your own account" }];
+    const secret = process.env.SUPABASE_JWT_SECRET;
+    if (!secret) return [503, { error: "SUPABASE_JWT_SECRET is not set in Vercel", code: "no_secret" }];
+    const { data: adminRow } = await db.from("feedback_admins").select("user_id").eq("user_id", userId).maybeSingle();
+    if (adminRow) return [403, { error: "Admin accounts cannot be viewed" }];
+    const { data: found, error } = await db.auth.admin.getUserById(userId);
+    if (error || !found?.user) return [404, { error: "User not found" }];
+    const learner = found.user;
+    const now = Math.floor(Date.now() / 1000);
+    const expiresAt = now + 30 * 60;
+    const token = signJwt(
+      {
+        aud: "authenticated",
+        role: "authenticated",
+        sub: learner.id,
+        email: learner.email,
+        app_metadata: learner.app_metadata || {},
+        user_metadata: learner.user_metadata || {},
+        is_anonymous: false,
+        iss: `${process.env.SUPABASE_URL}/auth/v1`,
+        iat: now,
+        exp: expiresAt,
+        view_as_admin: actor.id,
+      },
+      secret,
+    );
+    const user = { id: learner.id, email: learner.email, created_at: learner.created_at, app_metadata: learner.app_metadata || {}, user_metadata: learner.user_metadata || {} };
+    return [200, { token, expiresAt: expiresAt * 1000, user }];
+  }
 
   if (action === "premium") {
     const days = Number(body.days);

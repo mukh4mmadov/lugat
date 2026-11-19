@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { Link, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { adminRequest } from "../lib/adminApi";
+import { startViewAs } from "../lib/viewAs";
 import { formatDate, timeAgo } from "../lib/dates";
 import { lookupWord, Panel, ServerNotice, StatTile, useAdminContext } from "./AdminPage";
 import { ticketTitle } from "../lib/feedback";
@@ -134,6 +135,19 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
     }
   }
 
+  // Opens the site as this learner in this tab (read-only, 30 minutes).
+  async function viewAsLearner() {
+    setBusy("viewAs");
+    setMessage(null);
+    try {
+      const pass = await adminRequest({}, { action: "viewAs", userId });
+      startViewAs({ ...pass, name: detail?.name || detail?.email || "", returnTo: window.location.pathname + window.location.search });
+    } catch (requestError) {
+      setMessage({ ok: false, text: /SUPABASE_JWT_SECRET/.test(requestError.message) ? t("viewAs.needSecret") : requestError.message });
+      setBusy("");
+    }
+  }
+
   const self = userId === currentUserId;
   const progress = detail?.progress;
   const accuracy = progress && progress.correct + progress.wrong ? Math.round((progress.correct * 100) / (progress.correct + progress.wrong)) : null;
@@ -183,6 +197,15 @@ function UserDrawer({ userId, currentUserId, onClose, onChanged, onDeleted }) {
                 <dt className="text-slate-500">ID</dt>
                 <dd className="truncate text-right font-mono text-xs">{detail.id}</dd>
               </dl>
+
+              {!self && !detail.admin && (
+                <div className="rounded-2xl border border-amber-300 bg-amber-50 p-3 dark:border-amber-400/30 dark:bg-amber-500/10">
+                  <button type="button" disabled={Boolean(busy)} onClick={viewAsLearner} className="w-full rounded-xl bg-amber-500 px-3 py-2.5 text-sm font-black text-white disabled:opacity-50">
+                    👁 {t("viewAs.open")}
+                  </button>
+                  <p className="mt-2 text-xs text-amber-800 dark:text-amber-100">{t("viewAs.hint")}</p>
+                </div>
+              )}
 
               <Panel title={t("admin.user.actions")}>
                 <p className="mb-2 text-xs font-bold text-slate-500">{t("admin.badge.premium")}</p>

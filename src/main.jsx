@@ -1,4 +1,5 @@
 import "./polyfills";
+import "./lib/viewAs";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -6,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { LazyMotion } from "framer-motion";
 import App from "./App.jsx";
 import PWAUpdate from "./components/PWAUpdate";
+import ViewAsBanner from "./components/ViewAsBanner";
 import "./index.css";
 import { store, vocabLoaded } from "./store";
 import { onTopikVocab } from "./data/topikVocab";
@@ -37,6 +39,7 @@ Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => {
     <Provider store={store}>
       <BrowserRouter>
         <LazyMotion features={motionFeatures} strict>
+          <ViewAsBanner />
           <App />
           <PWAUpdate />
         </LazyMotion>

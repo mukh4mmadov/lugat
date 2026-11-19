@@ -9,6 +9,7 @@ import {
 } from "react";
 import { isAuthRetryableFetchError } from "@supabase/supabase-js";
 import { supabase, timeoutSignal } from "../lib/supabase";
+import { isViewingAs, stopViewAs, viewAs } from "../lib/viewAs";
 import { useDispatch } from "react-redux";
 import { fetchServerProgress, setCurrentSyncUserId } from "../lib/progressSync";
 import { notifyAdmins } from "../lib/growth";
@@ -112,7 +113,31 @@ export function AuthProvider({ children }) {
     [dispatch],
   );
 
+  // An admin viewing the site as a learner: show that learner's profile and
+  // progress, and never start saving (no sync user is set).
   useEffect(() => {
+    if (!isViewingAs) return;
+    const learner = viewAs.user;
+    setUser(learner);
+    setProfileComplete(true);
+    (async () => {
+      try {
+        const [{ data }, serverData] = await Promise.all([
+          supabase.from("profiles").select("first_name, last_name, birth_year").eq("id", learner.id).maybeSingle(),
+          fetchServerProgress(learner.id),
+        ]);
+        setProfile(data || null);
+        dispatch(serverData ? hydrateProgress(serverData) : resetProgress());
+      } catch (error) {
+        console.error("Error loading the learner's view:", error);
+      }
+      topikAttempts().then((module) => module.syncTopikAttempts(learner.id));
+      setLoading(false);
+    })();
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isViewingAs) return undefined;
     supabase.auth
       .getSession()
       .then(async ({ data: { session }, error }) => {
@@ -272,7 +297,7 @@ export function AuthProvider({ children }) {
   };
 
   const completeProfile = async (profileData) => {
-    if (!user) return { error: new Error("No user") };
+    if (!user || isViewingAs) return { error: new Error("No user") };
     const { error } = await supabase.from("profiles").upsert({
       id: user.id,
       ...profileData,
@@ -290,7 +315,7 @@ export function AuthProvider({ children }) {
   };
 
   const updateProfile = async (profileData) => {
-    if (!user) return { error: new Error("No user") };
+    if (!user || isViewingAs) return { error: new Error("No user") };
     const { error } = await supabase
       .from("profiles")
       .update(profileData)
@@ -302,6 +327,8 @@ export function AuthProvider({ children }) {
   // Signing out saves the latest progress, then leaves this device as a
   // fresh guest: the account's progress stays safe on the server.
   const signOut = async () => {
+    // Leaving a learner's view returns to the admin's own account.
+    if (isViewingAs) return stopViewAs();
     await Promise.all([saveProgressNow(), topikAttempts().then((module) => module.stopTopikSync())]);
     await supabase.auth.signOut();
     setCurrentSyncUserId(null);
@@ -312,6 +339,7 @@ export function AuthProvider({ children }) {
   // The stored session can carry an old copy of the user; reload it so
   // changes made by an admin (such as premium) show up without signing out.
   const refreshUser = useCallback(async () => {
+    if (isViewingAs) return;
     const { data } = await supabase.auth.getUser();
     if (data?.user) setUser((current) => (current?.id === data.user.id ? data.user : current));
   }, []);
