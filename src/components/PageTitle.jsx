@@ -45,7 +45,7 @@ export default function PageTitle() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const [section, id, mode] = pathname.split("/").filter(Boolean);
+    const [section, id, mode, part] = pathname.split("/").filter(Boolean);
     let title = "";
     if (!section) title = t("header.brand");
     else if ((section === "lesson" || section === "study") && id) {
@@ -53,7 +53,8 @@ export default function PageTitle() {
         .filter(Boolean)
         .join(" · ");
     } else if (section === "units") {
-      title = mode ? `${t("units.unit", { n: mode })} · ${t("units.title")}` : t("units.title");
+      const action = part === "cards" ? t("sets.cards") : part === "study" ? t("sets.study") : t("units.title");
+      title = mode ? `${t("units.unit", { n: mode })} · ${action}` : t("units.title");
     } else if (section === "words") {
       title = id && i18n.exists(`anki.deck.${id}`) ? t(`anki.deck.${id}`) : t("anki.decks");
     } else if (SECTIONS[section]) title = SECTIONS[section].includes(".") ? t(SECTIONS[section]) : SECTIONS[section];

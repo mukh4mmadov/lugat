@@ -4,7 +4,7 @@ import { getCurrentSyncUserId, saveServerProgress } from "./lib/progressSync";
 import { dailyKey } from "./lib/study";
 import { getSRSRecord } from "./lib/srs";
 import { RATING, STATE, ankiSettings, unpackCard } from "./lib/fsrs";
-import { buildPool, remainingCounts } from "./lib/anki";
+import { buildPool, dueCardCount, remainingCounts } from "./lib/anki";
 import { enabledDeckWords } from "./lib/decks";
 import { getWordMastery, getMasteryOverview } from "./lib/mastery";
 import {
@@ -631,11 +631,8 @@ export const selectAnkiDue = createSelector(
   },
 );
 
-// Cards waiting for review today (learning + review), as shown on badges.
-export function selectReviewCount(state) {
-  const due = selectAnkiDue(state);
-  return due.learning + due.review;
-}
+// Cards waiting for review today in any lesson or unit, as shown on badges.
+export const selectReviewCount = createSelector([(state) => state.progress, selectAnkiOptions], (progress, options) => dueCardCount(progress, options));
 
 // The streak as it stands today: it lapses after a missed day (two with a freeze).
 export function selectCurrentStreak(state) {

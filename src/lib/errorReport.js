@@ -71,18 +71,35 @@ export function reloadForNewVersion() {
 // say nothing about what learners see.
 const ROBOT = /bot\b|crawler|spider|slurp|Google-InspectionTool|Chrome-Lighthouse|HeadlessChrome|bingpreview|facebookexternalhit/i;
 
+// Whether the live site still runs this tab's version. After a deploy the
+// old files are gone for good, so a tab left open asks for missing files:
+// that is an old copy, not a broken site.
+async function runningLatest() {
+  const own = new URL(import.meta.url).pathname.split("/").pop();
+  try {
+    const response = await fetch("/app.html", { cache: "no-store" });
+    if (!response.ok) return true;
+    return (await response.text()).includes(own);
+  } catch {
+    return true;
+  }
+}
+
 // A part of the site that failed to download is only the site's fault when
-// the file is really gone; after a dropped connection it is still there.
+// the file is really gone in the current version; after a dropped
+// connection it is still there.
 async function chunkIsMissing(error) {
   if (navigator.onLine === false) return false;
   const url = String(error?.message || error || "").match(/https?:\/\/\S+?\.(?:m?js|css)\b/)?.[0];
-  if (!url) return true;
-  try {
-    const response = await fetch(url, { method: "HEAD", cache: "no-store" });
-    return !response.ok;
-  } catch {
-    return false;
+  if (url) {
+    try {
+      const response = await fetch(url, { method: "HEAD", cache: "no-store" });
+      if (response.ok) return false;
+    } catch {
+      return false;
+    }
   }
+  return runningLatest();
 }
 
 export async function reportError(error, kind = "error") {

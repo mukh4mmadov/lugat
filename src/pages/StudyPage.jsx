@@ -10,10 +10,8 @@ import { exampleTranslation, getLessonWords, getWordKey, lessonInfo, meaning } f
 import { introduceCard, markKnown, markDifficult, recordStudySession, saveStudySession, selectAnkiOptions, store } from "../store";
 import { RATING, ankiDay, packCard, schedule } from "../lib/fsrs";
 import { RECALL_SUFFIX } from "../lib/anki";
-import DeckOverview from "../components/anki/DeckOverview";
 import { getWordMastery } from "../lib/mastery";
 import MasteryBadge from "../components/MasteryBadge";
-import LessonAudio from "../components/LessonAudio";
 import { speakKorean } from "../lib/speech";
 import { playCorrectSound, playWrongSound } from "../lib/sounds";
 import { isAnswerCorrect } from "../lib/study";
@@ -30,10 +28,6 @@ import {
   newSession,
   wordExample,
 } from "../lib/studySession";
-
-export function StudyHomePage() {
-  return <DeckOverview />;
-}
 
 const OPTION_TONE = {
   idle: "border-slate-200 bg-white/70 hover:-translate-y-0.5 hover:border-sky-300 dark:border-white/10 dark:bg-white/10",
@@ -71,11 +65,10 @@ export function StudyModePage() {
       sessionKey={lesson}
       words={words}
       title={t("card.lesson", { lesson })}
-      backTo="/study"
-      backLabel={t("nav.study")}
+      backTo={`/lesson/${lesson}`}
+      backLabel={t("card.lesson", { lesson })}
       flashcardsPath={`/lesson/${lesson}/flashcards`}
-      nextPath={lesson < lessonInfo.length ? `/study/${lesson + 1}` : null}
-      top={<LessonAudio lesson={lesson} />}
+      nextPath={lesson < lessonInfo.length ? `/lesson/${lesson + 1}` : null}
     />
   );
 }

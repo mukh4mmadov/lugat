@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { DEFAULT_ANKI_SETTINGS, formatSteps, parseSteps } from "../../lib/fsrs";
-import { availableDecks } from "../../lib/decks";
 import { selectAnkiOptions, setAnkiSettings, setAutoSpeak, setSpeechRate } from "../../store";
 
 const field = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
@@ -79,17 +78,8 @@ export default function AnkiSettingsPanel({ onClose }) {
           <div className="space-y-4 overflow-y-auto px-5 py-4">
             <p className="text-xs text-slate-500 dark:text-slate-400">{t("anki.settings.intro")}</p>
 
-            <Section title={t("anki.settings.decks")}>
-              {availableDecks().map((deck) => (
-                <Toggle key={deck.id} checked={Boolean(options.decks[deck.id])} label={t(deck.titleKey)} hint={t(deck.textKey)} onChange={(checked) => save({ decks: { ...options.decks, [deck.id]: checked } })} />
-              ))}
-            </Section>
-
             <Section title={t("anki.settings.limits")}>
               <div className="grid gap-3 sm:grid-cols-2">
-                <Row label={t("anki.settings.newPerDay")} hint={t("anki.settings.newPerDayHint")}>
-                  <input type="number" min="0" max="9999" value={options.newPerDay} onChange={number("newPerDay", 0, 9999)} className={field} />
-                </Row>
                 <Row label={t("anki.settings.reviewsPerDay")} hint={t("anki.settings.reviewsPerDayHint")}>
                   <input type="number" min="0" max="9999" value={options.reviewsPerDay} onChange={number("reviewsPerDay", 0, 9999)} className={field} />
                 </Row>

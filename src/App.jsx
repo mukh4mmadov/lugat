@@ -32,13 +32,15 @@ const admin = () => import("./pages/AdminPage");
 const topik = () => import("./pages/TopikPages");
 
 const HomePage = page(() => import("./pages/HomePage"));
-const StudyHomePage = page(study, "StudyHomePage");
+const wordSets = () => import("./pages/WordSetPages");
+const StudyHub = page(wordSets, "StudyHub");
+const ReviewHub = page(wordSets, "ReviewHub");
+const LessonHome = page(wordSets, "LessonHome");
+const UnitHome = page(wordSets, "UnitHome");
 const StudyModePage = page(study, "StudyModePage");
 const FlashcardsPage = page(() => import("./pages/FlashcardsPage"));
 const WordListPage = page(() => import("./pages/WordListPage"));
-const topikUnits = () => import("./pages/TopikUnitsPage");
-const TopikUnitsPage = page(topikUnits);
-const TopikUnitStudyPage = page(topikUnits, "TopikUnitStudyPage");
+const TopikUnitStudyPage = page(() => import("./pages/TopikUnitsPage"), "TopikUnitStudyPage");
 const TopikPracticePage = page(() => import("./pages/TopikPracticePage"));
 const ListeningPage = page(practice, "ListeningPage");
 const QuizPage = page(practice, "QuizPage");
@@ -142,7 +144,7 @@ export default function App() {
             }
           >
             <Route index element={<HomePage />} />
-            <Route path="study" element={<StudyHomePage />} />
+            <Route path="study" element={<StudyHub />} />
             <Route
               path="study/:lessonId"
               element={
@@ -155,7 +157,11 @@ export default function App() {
             <Route path="courses/:courseId" element={<CoursesPage />} />
             <Route
               path="lesson/:lessonId"
-              element={<Navigate to="flashcards" replace />}
+              element={
+                <LessonRouteGuard>
+                  <LessonHome />
+                </LessonRouteGuard>
+              }
             />
             <Route
               path="lesson/:lessonId/flashcards"
@@ -197,7 +203,7 @@ export default function App() {
                 </LessonRouteGuard>
               }
             />
-            <Route path="review" element={<RequireAccount><FlashcardsPage review /></RequireAccount>} />
+            <Route path="review" element={<RequireAccount><ReviewHub /></RequireAccount>} />
             <Route path="weak-words" element={<RequireAccount><FlashcardsPage weak /></RequireAccount>} />
             <Route path="search" element={<SearchPage />} />
             <Route path="favorites" element={<FavoritesPage />} />
@@ -206,8 +212,10 @@ export default function App() {
             <Route path="difficult/practice" element={<RequireAccount><FlashcardsPage list="difficult" /></RequireAccount>} />
             <Route path="stats" element={<StatsPage />} />
             <Route path="words/:deckId" element={<WordListPage />} />
-            <Route path="units/topik1" element={<TopikUnitsPage />} />
-            <Route path="units/topik1/:unitId" element={<RequireAccount><TopikUnitStudyPage /></RequireAccount>} />
+            <Route path="units/topik1" element={<Navigate to="/study?tab=units" replace />} />
+            <Route path="units/topik1/:unitId" element={<UnitHome />} />
+            <Route path="units/topik1/:unitId/study" element={<RequireAccount><TopikUnitStudyPage /></RequireAccount>} />
+            <Route path="units/topik1/:unitId/cards" element={<RequireAccount><FlashcardsPage unit /></RequireAccount>} />
             <Route path="future-updates" element={<FutureUpdatesPage />} />
             <Route path="credits/audio" element={<AudioCreditsPage />} />
             <Route path="record-voice" element={<RecordVoicePage />} />

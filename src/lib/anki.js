@@ -142,3 +142,22 @@ export function deckBreakdown(progress, words, options) {
   }
   return result;
 }
+
+// Every card waiting for review today, whatever set it belongs to.
+export function dueCardCount(progress, options, now = Date.now()) {
+  const cutoff = dayCutoff(now, options.dayStartsAt);
+  let count = 0;
+  const seen = new Set();
+  for (const id of Object.keys(progress.cards || {})) {
+    seen.add(id);
+    const card = readCard(progress, id);
+    if (card && card.state !== STATE.new && card.due < cutoff) count += 1;
+  }
+  // Words only practised with the old scheduler are read as review cards.
+  for (const key of Object.keys(progress.words || {})) {
+    if (seen.has(key)) continue;
+    const card = readCard(progress, key);
+    if (card && card.state !== STATE.new && card.due < cutoff) count += 1;
+  }
+  return count;
+}

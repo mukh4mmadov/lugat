@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { useAuth } from "../hooks/useAuth";
 import { lessonInfo } from "../data";
-import { DAILY_GOALS, selectAnkiDue, selectCurrentStreak, selectLessonProgress, setDailyGoal } from "../store";
+import { DAILY_GOALS, selectCurrentStreak, selectLessonProgress, selectReviewCount, setDailyGoal } from "../store";
 import { dailyKey } from "../lib/study";
 import { levelForXp } from "../lib/gamification";
 
@@ -99,14 +99,13 @@ function LearnerHome() {
   const dispatch = useDispatch();
   const { profile } = useAuth();
   const progress = useSelector((state) => state.progress);
-  const due = useSelector(selectAnkiDue);
+  const reviews = useSelector(selectReviewCount);
   const streak = useSelector(selectCurrentStreak);
   const next = useNextContent(progress);
   const goal = progress.settings.dailyGoal || 20;
   const doneToday = progress.stats.daily?.[dailyKey()] || 0;
   const level = levelForXp(progress.xp || 0);
   const nextLesson = lessonInfo.find((lesson) => selectLessonProgress({ progress }, lesson.lesson) < 100)?.lesson;
-  const reviews = due.learning + due.review;
   const topikBest = progress.stats.topikBest || 0;
   const lang = String(i18n.language || "uz").slice(0, 2);
 
@@ -123,9 +122,9 @@ function LearnerHome() {
       key: "new",
       icon: "✨",
       title: t("home.plan.newWords"),
-      detail: due.new ? t("home.plan.newCount", { count: due.new }) : t("home.plan.newNone"),
-      to: "/review",
-      done: !due.new,
+      detail: nextLesson ? t("home.plan.nextLesson", { lesson: nextLesson }) : t("home.plan.newNone"),
+      to: nextLesson ? `/lesson/${nextLesson}` : "/study",
+      done: !nextLesson,
     },
     next.grammar && {
       key: "grammar",
@@ -181,8 +180,8 @@ function LearnerHome() {
           </ul>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link to="/review" className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {t("anki.studyNow")}</Link>
-            {nextLesson && <Link to={`/study/${nextLesson}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("home.plan.nextLesson", { lesson: nextLesson })}</Link>}
+            <Link to={reviews ? "/review" : nextLesson ? `/lesson/${nextLesson}` : "/study"} className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {reviews ? t("sets.reviewNow", { count: reviews }) : t("anki.studyNow")}</Link>
+            {nextLesson && <Link to={`/lesson/${nextLesson}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("home.plan.nextLesson", { lesson: nextLesson })}</Link>}
           </div>
         </GlassCard>
 
