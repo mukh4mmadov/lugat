@@ -709,13 +709,7 @@ export default function Layout({ onShowIELTSModal }) {
         </div>
 
         <footer className="relative z-10 mt-16 border-t pb-24 md:pb-8 border-slate-200/70 bg-white/60 px-4 py-8 text-base text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
-          <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
-            <div>
-              <p className="font-black text-slate-900 dark:text-white">
-                {t("footer.vocabularySource")}
-              </p>
-              <p>{t("footer.vocabularySourceName")}</p>
-            </div>
+          <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2">
             <div>
               <p className="font-black text-slate-900 dark:text-white">
                 {t("footer.educationalOnly")}
