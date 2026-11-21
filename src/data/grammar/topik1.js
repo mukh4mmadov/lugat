@@ -378,7 +378,7 @@ export default [
       ["두 개 씩", "두 개씩", t("씩 qo'shib yoziladi.", "씩 is written attached.", "씩 пишется слитно.")],
     ],
     quiz: [
-      ["학생들에게 공책을 두 권___ 나눠 줬어요.", ["씩", "쯤"], 0],
+      ["학생들에게 공책을 두 권___ 나눠 줬어요.", ["씩", "의"], 0],
       ["이 사과는 한 개___ 천 원이에요.", ["에", "를"], 0],
       ["매일 단어를 열 개___ 외워요.", ["씩", "의"], 0],
       ["물을 조금___ 마시세요.", ["씩", "도"], 0],
@@ -841,7 +841,7 @@ export default [
     ],
     examples: [
       ["이 버스가 시청에 가나요?", "Bu avtobus shahar hokimiyatiga boradimi?", "Does this bus go to City Hall?", "Этот автобус идёт до мэрии?"],
-      ["혹시 시간 있나요?", "Bo'sh vaqtingiz bormi?", "Do you happen to have time?", "У вас случайно есть время?"],
+      ["혹시 시간 있나요?", "Mabodo bo'sh vaqtingiz bormi?", "Do you happen to have time?", "У вас случайно есть время?"],
       ["여기에서 학교까지 먼가요?", "Bu yerdan maktabgacha uzoqmi?", "Is it far from here to the school?", "Отсюда до школы далеко?"],
       ["이분이 새로 온 선생님인가요?", "Bu kishi yangi kelgan o'qituvchimi?", "Is this the new teacher?", "Это новый учитель?"],
       ["점심은 드셨나요?", "Tushlik qildingizmi?", "Have you had lunch?", "Вы уже обедали?"],
@@ -854,7 +854,7 @@ export default [
       ["내일도 회사에 ___? (가다)", ["가나요", "간가요"], 0],
       ["그 식당 음식이 ___? (비싸다)", ["비싼가요", "비싸는가요"], 0],
       ["어제 그 영화를 ___? (보다)", ["봤나요", "봤은가요"], 0],
-      ["이 사과는 ___? (얼마)", ["얼마인가요", "얼마나요"], 0],
+      ["이 사과는 ___? (얼마)", ["얼마인가요", "얼마는가요"], 0],
     ],
   }),
   point("endings", {
@@ -948,7 +948,7 @@ export default [
       ["뉴스에서 내일 날씨가 ___. (춥다)", ["춥대요", "춥는대요"], 0],
       ["동생이 밥을 ___ 했어요. (먹다)", ["먹는다고", "먹다고"], 0],
       ["저 사람이 새 선생님___.", ["이래요", "이대요"], 0],
-      ["엄마가 일찍 ___ 하셨어요. (자다)", ["자라고", "자자고"], 0, t("Buyruq", "Command", "Просьба, приказ")],
+      ["엄마가 일찍 ___ 하셨어요. (자다)", ["자라고", "자으라고"], 0, t("Buyruq", "Command", "Просьба, приказ")],
     ],
   }),
 
@@ -1185,7 +1185,7 @@ export default [
       ["먹으다가", "먹다가", t("다가 oldidan 으 qo'shilmaydi.", "다가 never takes 으.", "Перед 다가 не добавляется 으.")],
     ],
     quiz: [
-      ["숙제를 ___ 친구한테 전화했어요. (하다)", ["하다가", "해서"], 0],
+      ["숙제를 ___ 친구한테 전화했어요. (하다)", ["하다가", "하지만"], 0],
       ["길을 ___ 넘어졌어요. (걷다)", ["걷다가", "걸으다가"], 0],
       ["백화점에 ___ 왔어요. (가다)", ["갔다가", "가다가"], 0, t("Borib, qaytib keldim", "Went and came back", "Сходил и вернулся")],
       ["책을 ___ 잠이 들었어요. (읽다)", ["읽다가", "읽으다가"], 0],
@@ -1208,7 +1208,7 @@ export default [
     examples: [
       ["비가 와도 축구를 할 거예요.", "Yomg'ir yog'sa ham futbol o'ynaymiz.", "We'll play football even if it rains.", "Будем играть в футбол, даже если пойдёт дождь."],
       ["아무리 바빠도 아침은 꼭 먹어요.", "Qanchalik band bo'lsam ham nonushta albatta qilaman.", "However busy I am, I always eat breakfast.", "Как бы я ни был занят, обязательно завтракаю."],
-      ["약을 먹어도 머리가 계속 아파요.", "Dori ichsam ham boshim og'riyapti.", "Even after taking medicine, my head still hurts.", "Даже после лекарства голова всё болит."],
+      ["약을 먹어도 머리가 계속 아파요.", "Dori ichgan bo'lsam ham, boshim hali ham og'riyapti.", "Even after taking medicine, my head still hurts.", "Даже после лекарства голова всё болит."],
       ["이 옷은 비싸도 사고 싶어요.", "Bu kiyim qimmat bo'lsa ham olgim keladi.", "These clothes are expensive, but I still want them.", "Хоть эта одежда и дорогая, хочу её купить."],
     ],
     mistakes: [
@@ -1592,9 +1592,9 @@ export default [
     id: "in-middle-jung", pattern: "V + 는 중이다 · N 중이다",
     title: t("Ayni paytda — 는 중이에요", "In the middle of — 는 중이에요", "В процессе — 는 중이에요"),
     explain: t(
-      "Harakat ayni paytda davom etayotganini ta'kidlaydi: 지금 회의하는 중이에요 — hozir majlisdaman. 고 있다 ga yaqin, lekin rasmiyroq va “band” degan ma'no beradi. Ot bilan: 수업 중, 회의 중, 통화 중. O'tgan zamon: 는 중이었어요.",
-      "Stresses that an action is in progress right now: 지금 회의하는 중이에요 (I'm in a meeting now). Close to 고 있다 but more formal, with a sense of “busy with it”. With nouns: 수업 중, 회의 중, 통화 중. Past: 는 중이었어요.",
-      "Подчёркивает, что действие идёт прямо сейчас: 지금 회의하는 중이에요 — сейчас я на совещании. Близко к 고 있다, но официальнее, с оттенком «занят этим». С существительными: 수업 중, 회의 중, 통화 중. Прошедшее: 는 중이었어요.",
+      "Harakat ayni paytda davom etayotganini ta'kidlaydi: 지금 회의하는 중이에요 — hozir majlisdaman. 고 있다 ga yaqin, lekin “ayni shu ish bilan bandman” degan ma'noni kuchliroq beradi. Ot bilan: 수업 중, 회의 중, 통화 중. O'tgan zamon: 는 중이었어요.",
+      "Stresses that an action is in progress right now: 지금 회의하는 중이에요 (I'm in a meeting now). Close to 고 있다, but stresses “I'm busy with it right now”. With nouns: 수업 중, 회의 중, 통화 중. Past: 는 중이었어요.",
+      "Подчёркивает, что действие идёт прямо сейчас: 지금 회의하는 중이에요 — сейчас я на совещании. Близко к 고 있다, но сильнее подчёркивает «как раз занят этим». С существительными: 수업 중, 회의 중, 통화 중. Прошедшее: 는 중이었어요.",
     ),
     rules: [
       ["V + 는 중이에요", "…yapman (ayni paytda)", "in the middle of …", "в процессе …"],
@@ -1636,7 +1636,7 @@ export default [
       ["다음 달부터 운동하기 시작할 거예요.", "Kelasi oydan sport bilan shug'ullana boshlayman.", "I'm going to start exercising next month.", "Со следующего месяца начну заниматься спортом."],
     ],
     mistakes: [
-      ["배우를 시작했어요", "배우기 시작했어요", t("시작하다 oldidan fe'lga 기 qo'shiladi.", "Add 기 to the verb before 시작하다.", "Перед 시작하다 к глаголу добавляется 기.")],
+      ["배우는 시작했어요", "배우기 시작했어요", t("시작하다 oldidan fe'lga 기 qo'shiladi.", "Add 기 to the verb before 시작하다.", "Перед 시작하다 к глаголу добавляется 기.")],
     ],
     quiz: [
       ["눈이 ___ 시작했어요. (오다)", ["오기", "와서"], 0],
@@ -1655,7 +1655,7 @@ export default [
     ),
     rules: [
       ["A + 아/어 보여요", "…ko'rinadi", "looks …", "выглядит …"],
-      ["A + 아/어 보이는 N", "…ko'ringan N", "N that looks …", "N, который выглядит …"],
+      ["A + 아/어 보이는 N", "…ko'rinadigan N", "N that looks …", "N, который выглядит …"],
       ["N처럼 보여요", "N ga o'xshab ko'rinadi", "looks like N", "выглядит как N"],
     ],
     examples: [
@@ -1779,7 +1779,7 @@ export default [
     examples: [
       ["이번 방학에 제주도에 갈까 해요.", "Bu ta'tilda Jejuga borsammi deyapman.", "I'm thinking of going to Jeju this vacation.", "Думаю съездить на Чеджу в эти каникулы."],
       ["오늘 저녁은 집에서 김치찌개를 만들까 해요.", "Bugun kechqurun uyda kimchi-jjigae pishirsammi deyapman.", "I'm thinking of making kimchi stew at home tonight.", "Думаю сегодня вечером приготовить дома кимчи-ччигэ."],
-      ["머리를 짧게 자를까 해요.", "Sochimni qisqa qildirsammi deb turibman.", "I'm thinking of cutting my hair short.", "Думаю коротко подстричься."],
+      ["머리를 짧게 자를까 해요.", "Sochimni qisqa oldirsammi deyapman.", "I'm thinking of cutting my hair short.", "Думаю коротко подстричься."],
       ["택시를 탈까 했는데 버스를 탔어요.", "Taksiga o'tirsammi degandim, lekin avtobusga chiqdim.", "I thought about taking a taxi, but I took the bus.", "Хотел взять такси, но поехал на автобусе."],
     ],
     mistakes: [

@@ -26,11 +26,11 @@ export default [
     ),
     rules: [
       ["V + 는 바람에 (오다 → 오는 바람에)", "Fe'l + 는 바람에", "Verb + 는 바람에", "Глагол + 는 바람에"],
-      ["Natija: salbiy / kutilmagan", "Yomon yoki kutilmagan oqibat", "A bad or unplanned result", "Плохой или непредвиденный итог"],
-      ["Sifatga qo'shilmaydi", "Sifat bilan 아/어서 ishlating", "With adjectives use 아/어서", "С прилагательными — 아/어서"],
+      ["결과: 부정적 / 예상 밖", "Yomon yoki kutilmagan oqibat", "A bad or unplanned result", "Плохой или непредвиденный итог"],
+      ["A + 는 바람에 (X)", "Sifat bilan 아/어서 ishlating", "With adjectives use 아/어서", "С прилагательными — 아/어서"],
     ],
     examples: [
-      ["비가 갑자기 오는 바람에 소풍을 못 갔어요.", "Yomg'ir to'satdan yog'ib qolgani uchun sayohatga bora olmadik.", "Because it suddenly rained, we couldn't go on the picnic.", "Из-за внезапного дождя мы не смогли поехать на пикник."],
+      ["비가 갑자기 오는 바람에 소풍을 못 갔어요.", "Yomg'ir to'satdan yog'ib qolgani uchun piknikka bora olmadik.", "Because it suddenly rained, we couldn't go on the picnic.", "Из-за внезапного дождя мы не смогли поехать на пикник."],
       ["늦잠을 자는 바람에 지각했어요.", "Uxlab qolganim uchun kechikdim.", "I overslept and was late.", "Я проспал и опоздал."],
       ["길이 막히는 바람에 약속에 늦었어요.", "Yo'l tiqilib qolgani uchun uchrashuvga kechikdim.", "Traffic jammed up, so I was late for the appointment.", "Из-за пробки я опоздал на встречу."],
       ["휴대폰이 꺼지는 바람에 연락을 못 했어요.", "Telefon o'chib qolgani uchun aloqa qila olmadim.", "My phone died, so I couldn't get in touch.", "Телефон отключился, поэтому я не смог связаться."],
@@ -62,7 +62,7 @@ export default [
     examples: [
       ["선생님 덕분에 한국어를 잘하게 됐어요.", "Ustozim tufayli koreyschani yaxshi bilib oldim.", "Thanks to my teacher, I got good at Korean.", "Благодаря учителю я хорошо выучил корейский."],
       ["친구가 도와준 덕분에 일이 빨리 끝났어요.", "Do'stim yordam bergani tufayli ish tez tugadi.", "Thanks to my friend's help, the work finished quickly.", "Благодаря помощи друга работа быстро закончилась."],
-      ["날씨가 좋은 덕분에 소풍이 즐거웠어요.", "Havo yaxshi bo'lgani tufayli sayohat yoqimli o'tdi.", "Thanks to the nice weather, the picnic was fun.", "Благодаря хорошей погоде пикник удался."],
+      ["날씨가 좋은 덕분에 소풍이 즐거웠어요.", "Havo yaxshi bo'lgani tufayli piknik yoqimli o'tdi.", "Thanks to the nice weather, the picnic was fun.", "Благодаря хорошей погоде пикник удался."],
       ["부모님 덕분에 대학교를 졸업했어요.", "Ota-onam tufayli universitetni bitirdim.", "Thanks to my parents, I graduated from university.", "Благодаря родителям я окончил университет."],
     ],
     mistakes: [
@@ -80,20 +80,20 @@ export default [
     id: "neurago", pattern: "V + 느라고",
     title: t("“…ish bilan band bo'lib” — 느라고", "“Being busy doing…” — 느라고", "«Занимаясь…» — 느라고"),
     explain: t(
-      "Bir ish bilan band bo'lgani uchun boshqa ishga ulgurmaganini bildiradi: 공부하느라고 잠을 못 잤어요 — dars qilib uxlay olmadim. Ikkala qismda ega bir xil bo'ladi, 느라고 oldida zamon (았/었) kelmaydi, ikkinchi qismda buyruq yoki taklif ishlatilmaydi.",
+      "Bir ish bilan band bo'lgani uchun boshqa ishga ulgurmaganini bildiradi: 공부하느라고 잠을 못 잤어요 — dars qilaman deb uxlay olmadim. Ikkala qismda ega bir xil bo'ladi, 느라고 oldida zamon (았/었) kelmaydi, ikkinchi qismda buyruq yoki taklif ishlatilmaydi.",
       "Shows that time or effort spent on one action left no room for another: 공부하느라고 잠을 못 잤어요 (I couldn't sleep because I was studying). Both clauses share the same subject, there is no tense (았/었) before 느라고, and the second clause cannot be a command or suggestion.",
-      "Показывает, что из-за занятости одним действием не удалось сделать другое: 공부하느라고 잠을 못 잤어요 — я учился и не спал. Подлежащее в обеих частях одно и то же, перед 느라고 нет времени (았/었), во второй части нельзя ставить приказ или предложение.",
+      "Показывает, что из-за занятости одним действием не удалось сделать другое: 공부하느라고 잠을 못 잤어요 — из-за учёбы я не смог поспать. Подлежащее в обеих частях одно и то же, перед 느라고 нет времени (았/었), во второй части нельзя ставить приказ или предложение.",
     ),
     rules: [
       ["V + 느라고 (하다 → 하느라고)", "Fe'l o'zagi + 느라고 (qisqa: 느라)", "Verb stem + 느라고 (short: 느라)", "Основа + 느라고 (кратко: 느라)"],
-      ["Ega bir xil", "Ikkala qismda bir kishi", "Same subject in both clauses", "Одно подлежащее в обеих частях"],
-      ["Zamon yo'q", "았/었 qo'shilmaydi", "No 았/었 before it", "Без 았/었"],
+      ["주어가 같다", "Ikkala qismda bir kishi", "Same subject in both clauses", "Одно подлежащее в обеих частях"],
+      ["았/었느라고 (X)", "았/었 qo'shilmaydi", "No 았/었 before it", "Без 았/었"],
     ],
     examples: [
       ["시험 준비를 하느라고 요즘 잠을 못 자요.", "Imtihonga tayyorlanib, bu kunlarda uxlay olmayapman.", "I've been busy preparing for the exam and can't sleep lately.", "Готовясь к экзамену, я в последнее время не высыпаюсь."],
       ["친구와 이야기하느라고 버스를 놓쳤어요.", "Do'st bilan gaplashib, avtobusni o'tkazib yubordim.", "I was chatting with a friend and missed the bus.", "Я разговорился с другом и пропустил автобус."],
       ["영화를 보느라 전화를 못 받았어요.", "Kino ko'rib, telefonga javob bera olmadim.", "I was watching a movie and couldn't answer the phone.", "Я смотрел фильм и не смог ответить на звонок."],
-      ["일하느라 점심을 못 먹었어요.", "Ishlab, tushlik qila olmadim.", "I was working and couldn't have lunch.", "Я работал и не успел пообедать."],
+      ["일하느라 점심을 못 먹었어요.", "Ish bilan band bo'lib, tushlik qila olmadim.", "I was working and couldn't have lunch.", "Я работал и не успел пообедать."],
     ],
     mistakes: [
       ["공부했느라고 피곤해요", "공부하느라고 피곤해요", t("느라고 oldida 았/었 kelmaydi.", "No 았/었 before 느라고.", "Перед 느라고 нет 았/었.")],
@@ -101,7 +101,7 @@ export default [
     ],
     quiz: [
       ["숙제를 ___ 못 놀았어요. (하다)", ["하느라고", "했느라고"], 0],
-      ["아르바이트를 ___ 학교에 늦었어요.", ["하느라고", "하니까"], 0],
+      ["아르바이트를 ___ 학교에 늦었어요.", ["하느라고", "하러"], 0],
       ["친구와 ___ 시간 가는 줄 몰랐어요. (이야기하다)", ["이야기하느라고", "이야기했느라고"], 0],
       ["동생이 떠드는 ___ 공부를 못 했어요.", ["바람에", "느라고"], 0],
     ],
@@ -147,7 +147,7 @@ export default [
     rules: [
       ["V + 는 데다가", "Fe'l: 오다 → 오는 데다가", "Verb: 오다 → 오는 데다가", "Глагол: 오다 → 오는 데다가"],
       ["A + (으)ㄴ 데다가", "Sifat: 넓다 → 넓은 데다가", "Adjective: 넓다 → 넓은 데다가", "Прилагательное: 넓다 → 넓은 데다가"],
-      ["Bir yo'nalish", "Ikkala qism ham yaxshi yoki ikkalasi ham yomon", "Both parts good, or both bad", "Обе части хорошие или обе плохие"],
+      ["같은 방향", "Ikkala qism ham yaxshi yoki ikkalasi ham yomon", "Both parts good, or both bad", "Обе части хорошие или обе плохие"],
     ],
     examples: [
       ["비가 오는 데다가 바람도 불어요.", "Yomg'ir yog'ib, ustiga shamol ham esyapti.", "It's raining and, on top of that, windy.", "Идёт дождь, да ещё и дует ветер."],
@@ -157,20 +157,20 @@ export default [
     ],
     mistakes: [
       ["넓는 데다가", "넓은 데다가", t("Sifatga (으)ㄴ qo'shiladi.", "Adjectives take (으)ㄴ.", "Прилагательные берут (으)ㄴ.")],
-      ["싼 데다가 맛없어요", "싼 데다가 맛있어요", t("Ikkala qism bir yo'nalishda bo'lishi kerak.", "Both parts must go the same way.", "Обе части должны идти в одну сторону.")],
+      ["싼 데다가 맛없어요", "싼 데다가 맛도 있어요", t("Ikkala qism bir yo'nalishda bo'lishi kerak.", "Both parts must go the same way.", "Обе части должны идти в одну сторону.")],
     ],
     quiz: [
       ["날씨가 ___ 데다가 바람도 불어요. (춥다)", ["추운", "춥는"], 0],
       ["숙제가 많은 ___ 시험도 있어요.", ["데다가", "뿐"], 0],
       ["이 옷은 ___ 데다가 예뻐요. (싸다)", ["싼", "싸는"], 0],
-      ["그는 친절한 ___ 유머도 있어요.", ["데다가", "바람에"], 0],
+      ["그는 친절한 ___ 유머 감각도 있어요.", ["데다가", "바람에"], 0],
     ],
   }),
   point("connectors", {
     id: "eulsurok", pattern: "V/A + (으)ㄹ수록",
     title: t("“Qancha … shuncha” — (으)ㄹ수록", "“The more … the more” — (으)ㄹ수록", "«Чем больше …, тем …» — (으)ㄹ수록"),
     explain: t(
-      "Biror ish yoki holat kuchaygan sari natija ham kuchayadi: 공부할수록 재미있어요 — o'qigan sari qiziqarli. Ko'pincha 더 yoki 점점 bilan keladi. Undosh bilan tugasa 을수록, unli bilan tugasa ㄹ수록, ㄹ bilan tugasa to'g'ridan-to'g'ri 수록.",
+      "Biror ish yoki holat kuchaygan sari natija ham kuchayadi: 공부할수록 재미있어요 — o'qigan sari qiziqarliroq bo'ladi. Ko'pincha 더 yoki 점점 bilan keladi. Undosh bilan tugasa 을수록, unli bilan tugasa ㄹ수록, ㄹ bilan tugasa to'g'ridan-to'g'ri 수록.",
       "As an action or state grows, the result grows with it: 공부할수록 재미있어요 (the more I study, the more fun it is). Often used with 더 or 점점. After a consonant use 을수록, after a vowel ㄹ수록, after ㄹ just 수록.",
       "По мере усиления действия или состояния растёт и результат: 공부할수록 재미있어요 — чем больше учусь, тем интереснее. Часто с 더 или 점점. После согласной — 을수록, после гласной — ㄹ수록, после ㄹ — просто 수록.",
     ),
@@ -180,10 +180,10 @@ export default [
       ["ㄹ 받침: 수록 (살다 → 살수록)", "ㄹ bilan tugasa", "After ㄹ", "После ㄹ"],
     ],
     examples: [
-      ["한국어는 공부할수록 재미있어요.", "Koreys tili o'qigan sari qiziqarli.", "The more I study Korean, the more fun it is.", "Чем больше я учу корейский, тем он интереснее."],
+      ["한국어는 공부할수록 재미있어요.", "Koreys tilini o'qigan sari qiziqarliroq bo'ladi.", "The more I study Korean, the more fun it is.", "Чем больше я учу корейский, тем он интереснее."],
       ["먹을수록 더 먹고 싶어요.", "Yegan sari yana yegim keladi.", "The more I eat, the more I want to eat.", "Чем больше ем, тем больше хочется."],
       ["나이가 들수록 시간이 빨리 가요.", "Yosh o'tgan sari vaqt tez o'tadi.", "The older you get, the faster time goes.", "Чем старше становишься, тем быстрее идёт время."],
-      ["알면 알수록 어려워요.", "Bilsangiz bilgan sari qiyin.", "The more you know, the harder it gets.", "Чем больше знаешь, тем сложнее."],
+      ["알면 알수록 어려워요.", "Qancha ko'p bilsangiz, shuncha qiyin.", "The more you know, the harder it gets.", "Чем больше знаешь, тем сложнее."],
     ],
     mistakes: [
       ["읽수록", "읽을수록", t("Undosh bilan tugasa 을수록.", "After a consonant use 을수록.", "После согласной — 을수록.")],
@@ -206,8 +206,8 @@ export default [
     ),
     rules: [
       ["V + (으)ㄴ 채(로) (켜다 → 켠 채)", "Fe'lning o'tgan shakli", "Past form of the verb", "Прошедшая форма глагола"],
-      ["열다 → 연 채, 서다 → 선 채", "ㄹ tushadi", "ㄹ drops", "ㄹ выпадает"],
-      ["는 / 고 있는 emas", "하는 채 deb bo'lmaydi", "Not 는 or 고 있는", "Не 는 и не 고 있는"],
+      ["열다 → 연 채, 들다 → 든 채", "ㄹ tushadi", "ㄹ drops", "ㄹ выпадает"],
+      ["는 채 / 고 있는 채 (X)", "하는 채 deb bo'lmaydi", "Not 는 or 고 있는", "Не 는 и не 고 있는"],
     ],
     examples: [
       ["불을 켠 채로 잤어요.", "Chiroqni yoqiq holda uxlabman.", "I fell asleep with the light on.", "Я заснул при включённом свете."],
@@ -237,7 +237,7 @@ export default [
     rules: [
       ["V + 도록 (보이다 → 보이도록)", "Maqsad: …ishi uchun", "Purpose: so that", "Цель: чтобы"],
       ["V + 지 않도록", "…masligi uchun", "So that … doesn't", "Чтобы не …"],
-      ["Zamon yo'q", "았/었 qo'shilmaydi", "No 았/었", "Без 았/었"],
+      ["았/었도록 (X)", "았/었 qo'shilmaydi", "No 았/었", "Без 았/었"],
     ],
     examples: [
       ["잘 들리도록 크게 말해 주세요.", "Yaxshi eshitilishi uchun baland gapiring.", "Please speak loudly so it can be heard.", "Говорите громче, чтобы было слышно."],
@@ -250,7 +250,7 @@ export default [
     ],
     quiz: [
       ["아이가 깨지 ___ 조용히 하세요.", ["않도록", "못도록"], 0],
-      ["잘 ___ 도록 앞에 앉으세요. (보이다)", ["보이", "보였"], 0],
+      ["잘 ___도록 앞에 앉으세요. (보이다)", ["보이", "보였"], 0],
       ["늦지 ___ 일찍 일어났어요.", ["않도록", "않으도록"], 0],
       ["여러분이 이해하기 쉽___ 설명하겠습니다.", ["도록", "는데"], 0],
     ],
@@ -269,7 +269,7 @@ export default [
       ["지금 막 / 마침", "Ko'pincha 막, 마침 bilan", "Often with 막 or 마침", "Часто с 막 или 마침"],
     ],
     examples: [
-      ["지금 막 전화하려던 참이에요.", "Hozir aynan qo'ng'iroq qilmoqchi edim.", "I was just about to call you.", "Я как раз собирался вам позвонить."],
+      ["지금 막 전화하려던 참이에요.", "Hozirgina qo'ng'iroq qilmoqchi bo'lib turgan edim.", "I was just about to call you.", "Я как раз собирался вам позвонить."],
       ["마침 나가려던 참인데 잘 오셨어요.", "Aynan chiqmoqchi edim, yaxshi keldingiz.", "I was just about to leave, so you came at the right time.", "Я как раз собирался уходить, вы вовремя."],
       ["밥을 먹으려던 참에 친구가 왔어요.", "Ovqat yemoqchi bo'lganimda do'stim keldi.", "Just as I was about to eat, my friend came.", "Только я собрался поесть, как пришёл друг."],
       ["연락드리려던 참이었어요.", "Sizga aloqa qilmoqchi edim.", "I was just about to contact you.", "Я как раз собирался с вами связаться."],
@@ -308,7 +308,7 @@ export default [
     ],
     quiz: [
       ["어제 늦었어요. 길이 ___. (막히다)", ["막혔거든요", "막히거든요"], 0],
-      ["왜 웃어요? 이 영화가 정말 ___. (웃기다)", ["웃기거든요", "웃기거든"], 0],
+      ["왜 웃어요? 이 영화가 정말 ___. (웃기다)", ["웃기거든요", "웃기거든다"], 0],
       ["저는 한국 음식을 자주 먹어요. 한국 음식을 ___. (좋아하다)", ["좋아하거든요", "좋아하거든다"], 0],
       ["오늘 못 만나요. 내일 시험이 ___.", ["있거든요", "있거든다"], 0],
     ],
@@ -327,7 +327,7 @@ export default [
       ["V/A + 았/었을 텐데", "O'tgan taxmin / afsus", "Past guess / regret", "Прошлое предположение / сожаление"],
     ],
     examples: [
-      ["지금 가면 길이 막힐 텐데 지하철을 타세요.", "Hozir ketsangiz yo'l tiqilgan bo'ladi, metroda boring.", "The roads will probably be jammed, so take the subway.", "Сейчас на дорогах, наверное, пробки — езжайте на метро."],
+      ["지금 가면 길이 막힐 텐데 지하철을 타세요.", "Hozir ketsangiz yo'l tiqilgan bo'lsa kerak, metroda boring.", "If you go now, the roads will probably be jammed, so take the subway.", "Если поедете сейчас, наверное, попадёте в пробку — езжайте на метро."],
       ["피곤할 텐데 좀 쉬세요.", "Charchagan bo'lsangiz kerak, biroz dam oling.", "You must be tired, so take a rest.", "Вы, наверное, устали — отдохните."],
       ["내일은 추울 텐데 따뜻하게 입으세요.", "Ertaga sovuq bo'lsa kerak, issiq kiyining.", "It will probably be cold tomorrow, so dress warmly.", "Завтра, наверное, будет холодно — одевайтесь тепло."],
       ["민수 씨는 지금 집에 있을 텐데 전화해 볼까요?", "Minsu hozir uyda bo'lsa kerak, qo'ng'iroq qilib ko'raymi?", "Minsu is probably home. Shall I call him?", "Минсу, наверное, сейчас дома. Позвонить ему?"],
@@ -352,8 +352,8 @@ export default [
     ),
     rules: [
       ["V + 았/었더니 (걷다 → 걸었더니)", "O'z ishim + natija", "My own action + result", "Моё действие + результат"],
-      ["Natija: his-tuyg'u yoki kashfiyot", "Tanada yoki atrofda sezilgan o'zgarish", "A change felt or discovered", "Ощущаемое или обнаруженное изменение"],
-      ["1-qism ega: men", "Boshqa odam uchun emas", "Not for another person", "Не для другого лица"],
+      ["결과: 느낌 / 발견", "Tanada yoki atrofda sezilgan o'zgarish", "A change felt or discovered", "Ощущаемое или обнаруженное изменение"],
+      ["주어: 나 (1인칭)", "Boshqa odam uchun emas", "Not for another person", "Не для другого лица"],
     ],
     examples: [
       ["어제 많이 걸었더니 다리가 아파요.", "Kecha ko'p yurganim uchun oyoqlarim og'riyapti.", "I walked a lot yesterday, so my legs hurt.", "Вчера я много ходил, и теперь болят ноги."],
@@ -375,18 +375,18 @@ export default [
     id: "neun-pyeon", pattern: "V + 는 편이다 · A + (으)ㄴ 편이다",
     title: t("“…ga moyil” — 는 편이다", "“Tend to be” — 는 편이다", "«Скорее …» — 는 편이다"),
     explain: t(
-      "Qat'iy aytmasdan, ko'proq shu tomonga moyilligini bildiradi: 저는 키가 큰 편이에요 — men uzunroq tomonman. Fe'lga 는, sifatga (으)ㄴ qo'shiladi.",
+      "Qat'iy aytmasdan, ko'proq shu tomonga moyilligini bildiradi: 저는 키가 큰 편이에요 — bo'yim balandroq. Fe'lga 는, sifatga (으)ㄴ qo'shiladi.",
       "Says that something leans toward a side without being absolute: 저는 키가 큰 편이에요 (I'm on the tall side). Verbs take 는, adjectives take (으)ㄴ.",
       "Говорит, что что-то скорее склоняется в одну сторону, не утверждая категорично: 저는 키가 큰 편이에요 — я скорее высокий. Глаголы берут 는, прилагательные — (으)ㄴ.",
     ),
     rules: [
       ["V + 는 편이다 (먹다 → 먹는 편이다)", "Fe'l + 는 편이다", "Verb + 는 편이다", "Глагол + 는 편이다"],
       ["A + (으)ㄴ 편이다 (크다 → 큰 편이다)", "Sifat + (으)ㄴ 편이다", "Adjective + (으)ㄴ 편이다", "Прилагательное + (으)ㄴ 편이다"],
-      ["N + 인 편이다", "Ot: 학생인 편이다", "Noun: 학생인 편이다", "Сущ.: 학생인 편이다"],
+      ["N + 인 편이다", "Ot: 적극적인 편이다", "Noun: 적극적인 편이다", "Сущ.: 적극적인 편이다"],
     ],
     examples: [
-      ["저는 키가 큰 편이에요.", "Men uzun bo'yli tomonman.", "I'm on the tall side.", "Я скорее высокого роста."],
-      ["민수는 말이 많은 편이에요.", "Minsu ko'p gapiradigan tomonda.", "Minsu tends to talk a lot.", "Минсу скорее разговорчивый."],
+      ["저는 키가 큰 편이에요.", "Bo'yim balandroq.", "I'm on the tall side.", "Я скорее высокого роста."],
+      ["민수는 말이 많은 편이에요.", "Minsu gapdonroq.", "Minsu tends to talk a lot.", "Минсу скорее разговорчивый."],
       ["저는 아침을 먹는 편이에요.", "Men odatda nonushta qilaman.", "I usually eat breakfast.", "Я обычно завтракаю."],
       ["이 식당은 값이 비싼 편이에요.", "Bu restoranda narxlar qimmatroq.", "The prices at this restaurant are on the high side.", "В этом ресторане цены скорее высокие."],
     ],
@@ -397,7 +397,7 @@ export default [
       ["저는 책을 자주 ___ 편이에요. (읽다)", ["읽는", "읽은"], 0],
       ["이 방은 ___ 편이에요. (좁다)", ["좁은", "좁는"], 0],
       ["제 동생은 ___ 편이에요. (조용하다)", ["조용한", "조용하는"], 0],
-      ["저는 일찍 ___ 편이에요. (일어나다)", ["일어나는", "일어난"], 0],
+      ["저는 일찍 ___ 편이에요. (일어나다)", ["일어나는", "일어날"], 0],
     ],
   }),
   point("expressions", {
@@ -417,16 +417,16 @@ export default [
       ["그는 알면서도 모르는 척했어요.", "U bilib turib bilmagandek qildi.", "He knew but pretended not to.", "Он знал, но сделал вид, что не знает."],
       ["졸리지 않은 척하려고 커피를 마셨어요.", "Uyqum kelmagandek ko'rinish uchun kofe ichdim.", "I drank coffee to look like I wasn't sleepy.", "Я выпил кофе, чтобы не показать, что хочу спать."],
       ["자는 척하고 있었어요.", "Uxlayotgandek qilib yotgan edim.", "I was pretending to sleep.", "Я притворялся спящим."],
-      ["바쁜 척했지만 사실은 한가했어요.", "Band bo'lgandek qildim, aslida bo'shman.", "I acted busy, but I was actually free.", "Я делал вид, что занят, хотя был свободен."],
+      ["바쁜 척했지만 사실은 한가했어요.", "Band bo'lgandek qildim, aslida bo'sh edim.", "I acted busy, but I was actually free.", "Я делал вид, что занят, хотя был свободен."],
     ],
     mistakes: [
       ["바쁘는 척했어요", "바쁜 척했어요", t("Sifatga (으)ㄴ 척.", "Adjectives take (으)ㄴ 척.", "Прилагательные — (으)ㄴ 척.")],
     ],
     quiz: [
-      ["알면서 모르는 ___ 했어요.", ["척", "편"], 0],
+      ["알면서 모르는 ___했어요.", ["척", "편"], 0],
       ["바쁘지 않은데 ___ 척했어요. (바쁘다)", ["바쁜", "바쁘는"], 0],
-      ["그는 공부하는 ___ 하고 게임을 해요.", ["척", "때문에"], 0],
-      ["일부러 못 들은 ___ 했어요.", ["척", "바람에"], 0],
+      ["그는 공부하는 ___하고 게임을 해요.", ["척", "때문에"], 0],
+      ["일부러 못 들은 ___했어요.", ["척", "바람에"], 0],
     ],
   }),
   point("expressions", {
@@ -454,7 +454,7 @@ export default [
     quiz: [
       ["이 영화는 한번 ___ 만해요. (보다)", ["볼", "보는"], 0],
       ["서울에서 가 ___ 만한 곳을 추천해 주세요.", ["볼", "본"], 0],
-      ["이 노래는 들을 ___ 해요.", ["만", "편"], 0],
+      ["이 노래는 들을 ___해요.", ["만", "편"], 0],
       ["이 책은 ___ 만한 책이에요. (읽다)", ["읽을", "읽는"], 0],
     ],
   }),
