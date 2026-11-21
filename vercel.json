@@ -29,6 +29,12 @@
       "maxDuration": 60
     }
   },
+  "redirects": [
+    { "source": "/lesson/:path*", "destination": "/courses", "statusCode": 301 },
+    { "source": "/study/:n(\\d+)", "destination": "/courses", "statusCode": 301 },
+    { "source": "/courses/1A", "destination": "/courses", "statusCode": 301 },
+    { "source": "/courses/1B", "destination": "/courses", "statusCode": 301 }
+  ],
   "rewrites": [
     {
       "source": "/sw.js",

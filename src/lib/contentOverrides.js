@@ -25,7 +25,6 @@ const originals = new Map();
 let current = [];
 
 const keyOf = (kind, id) => `${kind}:${id}`;
-const LAST_1A_LESSON = 14;
 
 // Lays admin edits over the built-in content, in place, so every page that
 // imported the lists sees them.
@@ -43,13 +42,12 @@ export function applyContentOverrides(rows = []) {
       });
     });
     // Items added in the panel have ids starting with "x-" and full data of their own.
-    const added = rows.filter((row) => row.kind === kind && isNewItem(row.item_id)).map((row) => ({ ...structuredClone(row.data), id: row.item_id }));
+    // Panel grammar joins the TOPIK I list, in its group ("expressions" if none).
+    const added = rows.filter((row) => row.kind === kind && isNewItem(row.item_id)).map((row) => ({ ...structuredClone(row.data), id: row.item_id, ...(kind === "grammar" ? { lesson: null, level: "topik1", group: row.data?.group || "expressions" } : {}) }));
     const drafts = showDrafts();
     copies.forEach((copy, index) => {
-      // Grammar has one list for everything, then one for each course.
-      const extra = kind === "grammar" && index > 0 ? added.filter((item) => (item.lesson <= LAST_1A_LESSON ? index === 1 : index === 2)) : added;
-      const visible = [...copy, ...extra].filter((item) => !byKey.get(keyOf(kind, item.id))?.hidden || (drafts && isNewItem(item.id)));
-      if (added.length && kind !== "topic") visible.sort((a, b) => (a.lesson || 0) - (b.lesson || 0));
+      const visible = [...copy, ...added].filter((item) => !byKey.get(keyOf(kind, item.id))?.hidden || (drafts && isNewItem(item.id)));
+      if (added.length && kind === "story") visible.sort((a, b) => (a.lesson || 0) - (b.lesson || 0));
       LISTS[kind][index].splice(0, LISTS[kind][index].length, ...visible);
     });
   });

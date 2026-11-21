@@ -1,0 +1,363 @@
+[
+  {
+    "id": 1,
+    "korean": "고마워요",
+    "uzbek": "rahmat",
+    "english": "thanks",
+    "russian": "спасибо",
+    "romanization": "gomawoyo",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우산을 빌려줘서 고마워요.",
+      "uz": "Soyabon berib turganing uchun rahmat.",
+      "en": "Thanks for lending me the umbrella.",
+      "ru": "Спасибо, что одолжил зонт."
+    }
+  },
+  {
+    "id": 2,
+    "korean": "그래요",
+    "uzbek": "shunaqami?; xo'p",
+    "english": "really?; okay",
+    "russian": "вот как?; ладно",
+    "romanization": "geuraeyo",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아, 그래요? 몰랐어요.",
+      "uz": "A, shunaqami? Bilmagan ekanman.",
+      "en": "Oh, really? I didn't know.",
+      "ru": "А, вот как? Я не знал."
+    }
+  },
+  {
+    "id": 3,
+    "korean": "글쎄요",
+    "uzbek": "bilmadim-da; hmm",
+    "english": "well, I'm not sure",
+    "russian": "ну, не знаю",
+    "romanization": "geulsseyo",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "글쎄요, 내일은 바쁠 것 같아요.",
+      "uz": "Bilmadim, ertaga band bo'lsam kerak.",
+      "en": "Well, I think I'll be busy tomorrow.",
+      "ru": "Ну, завтра я, наверное, буду занят."
+    }
+  },
+  {
+    "id": 4,
+    "korean": "마음에 들다",
+    "uzbek": "yoqmoq",
+    "english": "to like, to be pleased with",
+    "russian": "нравиться",
+    "romanization": "maeume deulda",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 가방이 마음에 들어요.",
+      "uz": "Bu sumka menga yoqdi.",
+      "en": "I like this bag.",
+      "ru": "Мне нравится эта сумка."
+    }
+  },
+  {
+    "id": 5,
+    "korean": "마음에 안 들다",
+    "uzbek": "yoqmaslik",
+    "english": "to not like",
+    "russian": "не нравиться",
+    "romanization": "maeume an deulda",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새 머리 모양이 마음에 안 들어요.",
+      "uz": "Yangi soch turmagim yoqmadi.",
+      "en": "I don't like my new haircut.",
+      "ru": "Мне не нравится моя новая стрижка."
+    }
+  },
+  {
+    "id": 6,
+    "korean": "무슨 일이에요?",
+    "uzbek": "nima bo'ldi?",
+    "english": "what's wrong?",
+    "russian": "что случилось?",
+    "romanization": "museun irieyo?",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "얼굴이 안 좋아요. 무슨 일이에요?",
+      "uz": "Rangingiz yaxshi emas. Nima bo'ldi?",
+      "en": "You don't look well. What's wrong?",
+      "ru": "Вы плохо выглядите. Что случилось?"
+    }
+  },
+  {
+    "id": 7,
+    "korean": "미안하다",
+    "uzbek": "kechirasiz (oddiy)",
+    "english": "to be sorry",
+    "russian": "извини(те), простите",
+    "romanization": "mianhada",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "늦어서 미안해요.",
+      "uz": "Kechikkanim uchun kechir.",
+      "en": "Sorry I'm late.",
+      "ru": "Извини, что опоздал."
+    }
+  },
+  {
+    "id": 8,
+    "korean": "시간 잘 보내다",
+    "uzbek": "vaqtni yaxshi o'tkazmoq",
+    "english": "to have a good time",
+    "russian": "хорошо провести время",
+    "romanization": "sigan jal bonaeda",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 시간 잘 보내세요.",
+      "uz": "Dam olish kunlarini yaxshi o'tkazing.",
+      "en": "Have a good weekend.",
+      "ru": "Хорошо проведите выходные."
+    }
+  },
+  {
+    "id": 9,
+    "korean": "알겠습니다",
+    "uzbek": "tushundim; xo'p bo'ladi",
+    "english": "I understand; all right",
+    "russian": "понял(а); хорошо",
+    "romanization": "algetseumnida",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "네, 알겠습니다. 바로 할게요.",
+      "uz": "Xo'p, tushundim. Hozir qilaman.",
+      "en": "All right, got it. I'll do it now.",
+      "ru": "Хорошо, понял. Сейчас сделаю."
+    }
+  },
+  {
+    "id": 10,
+    "korean": "어때요?",
+    "uzbek": "qalay?; qanday?",
+    "english": "how is it?",
+    "russian": "как?; как вам?",
+    "romanization": "eottaeyo?",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이번 토요일 어때요?",
+      "uz": "Shu shanba qalay?",
+      "en": "How about this Saturday?",
+      "ru": "Как насчёт этой субботы?"
+    }
+  },
+  {
+    "id": 11,
+    "korean": "어서 오세요",
+    "uzbek": "xush kelibsiz",
+    "english": "welcome",
+    "russian": "добро пожаловать",
+    "romanization": "eoseo oseyo",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어서 오세요. 몇 분이세요?",
+      "uz": "Xush kelibsiz. Necha kishisiz?",
+      "en": "Welcome. How many of you are there?",
+      "ru": "Добро пожаловать. Сколько вас?"
+    }
+  },
+  {
+    "id": 12,
+    "korean": "오랜만이다",
+    "uzbek": "ko'rishmaganimizga ancha bo'ldi",
+    "english": "it's been a long time",
+    "russian": "давно не виделись",
+    "romanization": "oraenmanida",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "민수 씨, 정말 오랜만이에요!",
+      "uz": "Minsu, ko'rishmaganimizga ancha bo'ldi!",
+      "en": "Minsu, it's been ages!",
+      "ru": "Минсу, сколько лет, сколько зим!"
+    }
+  },
+  {
+    "id": 13,
+    "korean": "이름이 뭐예요?",
+    "uzbek": "ismingiz nima?",
+    "english": "what's your name?",
+    "russian": "как вас зовут?",
+    "romanization": "ireumi mwoyeyo?",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "안녕하세요. 이름이 뭐예요?",
+      "uz": "Salom. Ismingiz nima?",
+      "en": "Hello. What's your name?",
+      "ru": "Здравствуйте. Как вас зовут?"
+    }
+  },
+  {
+    "id": 14,
+    "korean": "잘 지내다",
+    "uzbek": "yaxshi yurmoq; tinch yashamoq",
+    "english": "to be doing well",
+    "russian": "поживать хорошо",
+    "romanization": "jal jinaeda",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "요즘 잘 지내요?",
+      "uz": "Yaqinda qalaysiz, yaxshimisiz?",
+      "en": "Have you been doing well lately?",
+      "ru": "Как поживаете в последнее время?"
+    }
+  },
+  {
+    "id": 15,
+    "korean": "조용히 하다 (조용히 해 주세요)",
+    "uzbek": "jim bo'lmoq (jim bo'ling)",
+    "english": "to be quiet (please be quiet)",
+    "russian": "вести себя тихо (тише, пожалуйста)",
+    "romanization": "joyonghi hada (joyonghi hae juseyo)",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아기가 자요. 조용히 해 주세요.",
+      "uz": "Chaqaloq uxlayapti. Jim bo'ling.",
+      "en": "The baby is sleeping. Please be quiet.",
+      "ru": "Малыш спит. Тише, пожалуйста."
+    }
+  },
+  {
+    "id": 16,
+    "korean": "죄송하다",
+    "uzbek": "uzr so'ramoq (hurmat bilan)",
+    "english": "to apologize (politely)",
+    "russian": "извиняться (вежливо)",
+    "romanization": "joesonghada",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "기다리게 해서 죄송합니다.",
+      "uz": "Kuttirib qo'yganim uchun uzr.",
+      "en": "I'm sorry to have kept you waiting.",
+      "ru": "Простите, что заставил ждать."
+    }
+  },
+  {
+    "id": 17,
+    "korean": "주세요",
+    "uzbek": "bering (iltimos)",
+    "english": "please give me",
+    "russian": "дайте, пожалуйста",
+    "romanization": "juseyo",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "물 한 잔 주세요.",
+      "uz": "Bir stakan suv bering.",
+      "en": "A glass of water, please.",
+      "ru": "Дайте стакан воды, пожалуйста."
+    }
+  },
+  {
+    "id": 18,
+    "korean": "축하하다",
+    "uzbek": "tabriklamoq",
+    "english": "to congratulate",
+    "russian": "поздравлять",
+    "romanization": "chukhahada",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "결혼을 진심으로 축하해요.",
+      "uz": "To'yingiz bilan chin dildan tabriklayman.",
+      "en": "Sincere congratulations on your wedding.",
+      "ru": "От всей души поздравляю со свадьбой."
+    }
+  },
+  {
+    "id": 19,
+    "korean": "큰일 나다",
+    "uzbek": "katta ko'ngilsizlik bo'lmoq",
+    "english": "something serious happens",
+    "russian": "случиться беде",
+    "romanization": "keunil nada",
+    "lesson": 1,
+    "theme": "greet",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지갑이 없어요. 큰일 났어요!",
+      "uz": "Hamyonim yo'q. Ish chatoq!",
+      "en": "My wallet is gone. This is bad!",
+      "ru": "Кошелька нет. Вот беда!"
+    }
+  }
+]

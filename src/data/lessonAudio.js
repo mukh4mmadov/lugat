@@ -4,9 +4,9 @@
 // here; the Korean is the same in every version. Lengths are in seconds.
 const BASE = "https://chwnukigxuiggnhvzsuo.supabase.co/storage/v1/object/public/topik-assets/audio-lessons";
 
-const LESSON_AUDIO = {
-  1: { id: "l01", uz: { short: 356, full: 879 }, en: { short: 331, full: 800 } },
-};
+// Keyed by topic deck number. Empty since the words were regrouped by topic:
+// the earlier recordings followed the old lesson lists.
+const LESSON_AUDIO = {};
 
 export const AUDIO_LANGUAGES = ["uz", "en"];
 

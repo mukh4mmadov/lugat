@@ -8,11 +8,16 @@ const CUSTOM_KEY = "k-talim:custom-words";
 // A stuck request must not leave a wrong lesson link on a blank page.
 const LESSONS_WAIT_MS = 8000;
 
-const FIELDS = "word_key, uzbek, english, russian, romanization, example, needs_review";
+const FIELDS = "word_key, uzbek, english, russian, romanization, example, needs_review, updated_at";
+
+// Corrections saved before the words were regrouped by topic point at the
+// old lesson keys, which now belong to other words, so they are skipped.
+export const WORDS_REGROUPED_AT = Date.parse("2026-11-21T16:30:00Z");
+export const isCurrentOverride = (row) => Date.parse(row?.updated_at || 0) >= WORDS_REGROUPED_AT;
 
 function apply(custom, overrides) {
   applyCustomContent(custom, showDrafts());
-  applyWordOverrides(overrides);
+  applyWordOverrides(overrides.filter(isCurrentOverride));
   contentChanged();
 }
 

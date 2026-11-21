@@ -172,7 +172,7 @@ async function overview(db) {
   const activeWithin = (days) =>
     progress.filter((row) => row.updated_at && now - new Date(row.updated_at).getTime() <= days * DAY).length;
 
-  // Words that cost learners the most mistakes, and how far learners got per lesson.
+  // Words that cost learners the most mistakes, and how far learners got per topic deck.
   const wordMistakes = new Map();
   const lessons = new Map();
   let totalMinutes = 0;
@@ -611,10 +611,11 @@ const CONTENT_FIELDS = {
 // New items, added from the studio: their ids start with "x-" and they carry
 // all their fields, including the ones built-in items keep fixed.
 const NEW_FIELDS = {
-  word: { lesson: "number", korean: "string", uzbek: "string", english: "string", russian: "string", romanization: "string", example: "object" },
+  // wordKeys: 2 marks a word saved after the decks were grouped by topic.
+  word: { lesson: "number", korean: "string", uzbek: "string", english: "string", russian: "string", romanization: "string", example: "object", wordKeys: "number" },
   lesson: { lesson: "number", course: "string", category: "object" },
   story: { ...CONTENT_FIELDS.story, lesson: "number" },
-  grammar: { ...CONTENT_FIELDS.grammar, lesson: "number" },
+  grammar: { ...CONTENT_FIELDS.grammar, group: "string" },
   topic: { ...CONTENT_FIELDS.topic, level: "string" },
   topik: { number: "number", title: "string", form: "string", pdf: "string", audio: "string", listeningMinutes: "number", readingMinutes: "number", rows: "array" },
 };
@@ -622,7 +623,7 @@ const NEW_REQUIRED = {
   word: ["lesson", "korean", "uzbek"],
   lesson: ["lesson", "category"],
   story: ["lesson", "title", "lines"],
-  grammar: ["lesson", "pattern", "title", "explain"],
+  grammar: ["group", "pattern", "title", "explain"],
   topic: ["level", "ko", "uz", "questions"],
   topik: ["number", "title", "pdf", "rows"],
 };
@@ -655,6 +656,7 @@ function emptyProgress(settings) {
     settings: settings || { speechRate: 0.82, autoSpeak: true, dailyGoal: 20 },
     lastPlace: null,
     shareMilestones: {},
+    wordKeys: 2,
     xp: 0,
     badges: {},
     grammar: {},

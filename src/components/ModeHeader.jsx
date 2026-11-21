@@ -11,14 +11,14 @@ export default function ModeHeader({ lesson, review = false, weak = false, list 
       : review
         ? [["/review", t("home.reviewMode")]]
         : [
-            [`/study/${lesson}`, t("nav.study")],
-            [`/lesson/${lesson}/flashcards`, t("anki.cards")],
-            [`/lesson/${lesson}/listening`, t("practice.listening")],
-            [`/lesson/${lesson}/quiz`, t("practice.quiz")],
-            [`/lesson/${lesson}/writing`, t("practice.writing")],
-            [`/lesson/${lesson}/dictation`, t("dictation.title")],
-            [`/lesson/${lesson}/grammar`, `📐 ${t("grammar.tab")}`],
-            [`/lesson/${lesson}/stories`, `📖 ${t("stories.tab")}`],
+            [`/topic/${lesson}/study`, t("nav.study")],
+            [`/topic/${lesson}/flashcards`, t("anki.cards")],
+            [`/topic/${lesson}/listening`, t("practice.listening")],
+            [`/topic/${lesson}/quiz`, t("practice.quiz")],
+            [`/topic/${lesson}/writing`, t("practice.writing")],
+            [`/topic/${lesson}/dictation`, t("dictation.title")],
+            ["/grammar", `📐 ${t("grammar.tab")}`],
+            [`/topic/${lesson}/stories`, `📖 ${t("stories.tab")}`],
           ];
 
   return (

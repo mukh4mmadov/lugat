@@ -54,7 +54,7 @@ export function readLastRoute() {
 
 export function routeContext(route) {
   return {
-    lessonId: route.match(/\/(?:lesson|study)\/(\d+)/)?.[1] || null,
+    lessonId: route.match(/\/topic\/(\d+)/)?.[1] || null,
     exerciseMode: route.match(/\/(flashcards|listening|quiz|writing|dictation)$/)?.[1] || null,
   };
 }

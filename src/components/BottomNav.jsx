@@ -32,7 +32,7 @@ export default function BottomNav({ onMenu, badge = 0 }) {
   const due = useSelector(selectReviewCount);
   const items = [
     ["/", "home", t("nav.home"), (path) => path === "/"],
-    ["/study", "study", t("nav.study"), (path) => /^\/(study|lesson|courses)/.test(path)],
+    ["/study", "study", t("nav.study"), (path) => /^\/(study|topic|courses)/.test(path)],
     ["/speaking", "speaking", t("nav.speaking"), (path) => path.startsWith("/speaking")],
     ["/review", "review", t("nav.review"), (path) => path.startsWith("/review")],
     ["/topik", "topik", "TOPIK", (path) => path.startsWith("/topik")],

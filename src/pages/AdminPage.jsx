@@ -5,7 +5,7 @@ import GlassCard from "../components/GlassCard";
 import AdminNav from "../components/admin/AdminNav";
 import AdminToday from "../components/admin/AdminToday";
 import ContentEditor from "../components/admin/ContentEditor";
-import { allWords, getWordKey, lessonInfo, meaning } from "../data";
+import { allWords, deckName, getWordKey, lessonInfo, meaning } from "../data";
 import { TOPIK_EXAMS } from "../data/topik/exams";
 import "../lib/customTopik";
 import { adminRequest } from "../lib/adminApi";
@@ -447,12 +447,12 @@ export function AdminContent() {
           {lessonInfo.map((lesson) => (
             <Link
               key={lesson.lesson}
-              to={`/study/${lesson.lesson}`}
+              to={`/topic/${lesson.lesson}/study`}
               className="flex items-center justify-between rounded-2xl border border-slate-100 px-3 py-2.5 text-sm transition hover:border-sky-300 dark:border-white/5 dark:hover:border-sky-400/40"
             >
               <span className="min-w-0 truncate">
                 <span className="font-black">{t("card.lesson", { lesson: lesson.lesson })}</span>
-                <span className="ml-2 text-xs text-slate-500">{t(lesson.category)}</span>
+                <span className="ml-2 text-xs text-slate-500">{deckName(lesson, t)}</span>
               </span>
               <span className="shrink-0 text-xs font-bold tabular-nums text-slate-500">{lesson.words.length}</span>
             </Link>

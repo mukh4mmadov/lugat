@@ -1,0 +1,515 @@
+[
+  {
+    "id": 355,
+    "korean": "공부하다",
+    "uzbek": "o'qimoq, dars qilmoq",
+    "english": "to study",
+    "russian": "учиться, заниматься",
+    "romanization": "gongbuhada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구와 같이 한국어를 공부해요.",
+      "uz": "Do'stim bilan birga koreys tilini o'qiymiz.",
+      "en": "I study Korean with a friend.",
+      "ru": "Я учу корейский вместе с другом."
+    }
+  },
+  {
+    "id": 356,
+    "korean": "교실",
+    "uzbek": "sinfxona",
+    "english": "classroom",
+    "russian": "класс (кабинет)",
+    "romanization": "gyosil",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교실에 아무도 없어요.",
+      "uz": "Sinfda hech kim yo'q.",
+      "en": "There's no one in the classroom.",
+      "ru": "В классе никого нет."
+    }
+  },
+  {
+    "id": 357,
+    "korean": "글씨",
+    "uzbek": "yozuv, husnixat",
+    "english": "handwriting",
+    "russian": "почерк",
+    "romanization": "geulssi",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "글씨를 예쁘게 써요.",
+      "uz": "Chiroyli yozadi.",
+      "en": "She has neat handwriting.",
+      "ru": "У неё красивый почерк."
+    }
+  },
+  {
+    "id": 358,
+    "korean": "단어",
+    "uzbek": "so'z",
+    "english": "word",
+    "russian": "слово",
+    "romanization": "daneo",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "매일 단어를 열 개 외워요.",
+      "uz": "Har kuni o'nta so'z yodlayman.",
+      "en": "I memorize ten words a day.",
+      "ru": "Каждый день я учу десять слов."
+    }
+  },
+  {
+    "id": 359,
+    "korean": "대답하다",
+    "uzbek": "javob bermoq",
+    "english": "to answer",
+    "russian": "отвечать",
+    "romanization": "daedaphada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "질문에 대답해 주세요.",
+      "uz": "Savolga javob bering.",
+      "en": "Please answer the question.",
+      "ru": "Ответьте на вопрос."
+    }
+  },
+  {
+    "id": 360,
+    "korean": "문제를 풀다",
+    "uzbek": "masala yechmoq",
+    "english": "to solve a problem",
+    "russian": "решать задачу",
+    "romanization": "munjereul pulda",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수학 문제를 풀었어요.",
+      "uz": "Matematika masalasini yechdim.",
+      "en": "I solved a math problem.",
+      "ru": "Я решил задачу по математике."
+    }
+  },
+  {
+    "id": 361,
+    "korean": "반",
+    "uzbek": "sinf, guruh; yarim",
+    "english": "class (group); half",
+    "russian": "класс, группа; половина",
+    "romanization": "ban",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 반 학생은 스무 명이에요.",
+      "uz": "Sinfimizda yigirma o'quvchi bor.",
+      "en": "There are twenty students in our class.",
+      "ru": "В нашем классе двадцать учеников."
+    }
+  },
+  {
+    "id": 362,
+    "korean": "복습하다",
+    "uzbek": "takrorlamoq (darsni)",
+    "english": "to review (lessons)",
+    "russian": "повторять (урок)",
+    "romanization": "bokseuphada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집에서 복습했어요.",
+      "uz": "Uyda darsni takrorladim.",
+      "en": "I reviewed at home.",
+      "ru": "Я повторил дома."
+    }
+  },
+  {
+    "id": 363,
+    "korean": "볼펜",
+    "uzbek": "sharikli ruchka",
+    "english": "ballpoint pen",
+    "russian": "шариковая ручка",
+    "romanization": "bolpen",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "볼펜 좀 빌려 주세요.",
+      "uz": "Ruchkangizni berib turing.",
+      "en": "Can I borrow a pen?",
+      "ru": "Одолжите, пожалуйста, ручку."
+    }
+  },
+  {
+    "id": 364,
+    "korean": "사전",
+    "uzbek": "lug'at (kitob)",
+    "english": "dictionary",
+    "russian": "словарь",
+    "romanization": "sajeon",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "모르는 단어는 사전에서 찾아요.",
+      "uz": "Bilmagan so'zni lug'atdan qidiraman.",
+      "en": "I look up unknown words in the dictionary.",
+      "ru": "Незнакомые слова я ищу в словаре."
+    }
+  },
+  {
+    "id": 365,
+    "korean": "설명하다",
+    "uzbek": "tushuntirmoq",
+    "english": "to explain",
+    "russian": "объяснять",
+    "romanization": "seolmyeonghada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "길을 자세히 설명해 주세요.",
+      "uz": "Yo'lni batafsil tushuntirib bering.",
+      "en": "Please explain the way in detail.",
+      "ru": "Объясните, пожалуйста, дорогу подробно."
+    }
+  },
+  {
+    "id": 366,
+    "korean": "손을 들다",
+    "uzbek": "qo'l ko'tarmoq",
+    "english": "to raise one's hand",
+    "russian": "поднять руку",
+    "romanization": "soneul deulda",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아는 사람은 손을 드세요.",
+      "uz": "Biladiganlar qo'l ko'tarsin.",
+      "en": "Raise your hand if you know.",
+      "ru": "Кто знает, поднимите руку."
+    }
+  },
+  {
+    "id": 367,
+    "korean": "숙제하다",
+    "uzbek": "uy vazifasini bajarmoq",
+    "english": "to do homework",
+    "russian": "делать домашнее задание",
+    "romanization": "sukjehada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "숙제하고 텔레비전을 봐요.",
+      "uz": "Uy vazifasini qilib, keyin televizor ko'raman.",
+      "en": "I do my homework and then watch TV.",
+      "ru": "Я делаю уроки, а потом смотрю телевизор."
+    }
+  },
+  {
+    "id": 368,
+    "korean": "시험을 보다",
+    "uzbek": "imtihon topshirmoq",
+    "english": "to take an exam",
+    "russian": "сдавать экзамен",
+    "romanization": "siheomeul boda",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다음 달에 TOPIK 시험을 봐요.",
+      "uz": "Kelasi oy TOPIK imtihonini topshiraman.",
+      "en": "I'm taking the TOPIK next month.",
+      "ru": "В следующем месяце я сдаю TOPIK."
+    }
+  },
+  {
+    "id": 369,
+    "korean": "실수",
+    "uzbek": "xato",
+    "english": "mistake",
+    "russian": "ошибка",
+    "romanization": "silsu",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "누구나 실수할 수 있어요.",
+      "uz": "Har kim xato qilishi mumkin.",
+      "en": "Anyone can make a mistake.",
+      "ru": "Ошибиться может каждый."
+    }
+  },
+  {
+    "id": 370,
+    "korean": "연습하다",
+    "uzbek": "mashq qilmoq",
+    "english": "to practice",
+    "russian": "тренироваться, упражняться",
+    "romanization": "yeonseuphada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "발음을 많이 연습해요.",
+      "uz": "Talaffuzni ko'p mashq qilaman.",
+      "en": "I practice pronunciation a lot.",
+      "ru": "Я много тренирую произношение."
+    }
+  },
+  {
+    "id": 371,
+    "korean": "예문",
+    "uzbek": "misol gap",
+    "english": "example sentence",
+    "russian": "пример (предложение)",
+    "romanization": "yemun",
+    "lesson": 16,
+    "theme": "study",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "예문을 보면 이해가 돼요.",
+      "uz": "Misol gapni ko'rsam, tushunaman.",
+      "en": "I understand when I see an example.",
+      "ru": "С примером становится понятно."
+    }
+  },
+  {
+    "id": 372,
+    "korean": "외우다",
+    "uzbek": "yod olmoq",
+    "english": "to memorize",
+    "russian": "заучивать",
+    "romanization": "oeuda",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "노래 가사를 외웠어요.",
+      "uz": "Qo'shiq so'zlarini yodladim.",
+      "en": "I memorized the song lyrics.",
+      "ru": "Я выучил слова песни."
+    }
+  },
+  {
+    "id": 373,
+    "korean": "의미",
+    "uzbek": "ma'no",
+    "english": "meaning",
+    "russian": "значение",
+    "romanization": "uimi",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 말은 무슨 의미예요?",
+      "uz": "Bu so'z nimani anglatadi?",
+      "en": "What does this word mean?",
+      "ru": "Что означает это слово?"
+    }
+  },
+  {
+    "id": 374,
+    "korean": "이해하다",
+    "uzbek": "tushunmoq",
+    "english": "to understand",
+    "russian": "понимать",
+    "romanization": "ihaehada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이제 이해했어요.",
+      "uz": "Endi tushundim.",
+      "en": "Now I understand.",
+      "ru": "Теперь я понял."
+    }
+  },
+  {
+    "id": 375,
+    "korean": "일본어를 가르치다",
+    "uzbek": "yapon tilidan dars bermoq",
+    "english": "to teach Japanese",
+    "russian": "преподавать японский",
+    "romanization": "ilboneoreul gareuchida",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "언니는 학원에서 일본어를 가르쳐요.",
+      "uz": "Opam o'quv markazida yapon tilidan dars beradi.",
+      "en": "My sister teaches Japanese at an academy.",
+      "ru": "Сестра преподаёт японский на курсах."
+    }
+  },
+  {
+    "id": 376,
+    "korean": "지우개",
+    "uzbek": "o'chirg'ich",
+    "english": "eraser",
+    "russian": "ластик",
+    "romanization": "jiugae",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지우개로 지웠어요.",
+      "uz": "O'chirg'ich bilan o'chirdim.",
+      "en": "I erased it with an eraser.",
+      "ru": "Я стёр это ластиком."
+    }
+  },
+  {
+    "id": 377,
+    "korean": "질문하다",
+    "uzbek": "savol bermoq",
+    "english": "to ask a question",
+    "russian": "задавать вопрос",
+    "romanization": "jilmunhada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수업 후에 선생님께 질문했어요.",
+      "uz": "Darsdan keyin o'qituvchiga savol berdim.",
+      "en": "I asked the teacher a question after class.",
+      "ru": "После урока я задал вопрос учителю."
+    }
+  },
+  {
+    "id": 378,
+    "korean": "필통",
+    "uzbek": "qalamdon",
+    "english": "pencil case",
+    "russian": "пенал",
+    "romanization": "piltong",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "필통에 연필이 세 개 있어요.",
+      "uz": "Qalamdonda uchta qalam bor.",
+      "en": "There are three pencils in the pencil case.",
+      "ru": "В пенале три карандаша."
+    }
+  },
+  {
+    "id": 379,
+    "korean": "학교",
+    "uzbek": "maktab",
+    "english": "school",
+    "russian": "школа",
+    "romanization": "hakgyo",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 학교는 역 근처에 있어요.",
+      "uz": "Maktabimiz bekat yaqinida.",
+      "en": "Our school is near the station.",
+      "ru": "Наша школа рядом со станцией."
+    }
+  },
+  {
+    "id": 380,
+    "korean": "학교를 졸업하다",
+    "uzbek": "maktabni tamomlamoq",
+    "english": "to graduate from school",
+    "russian": "окончить школу",
+    "romanization": "hakgyoreul joreophada",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교를 졸업하고 회사에 들어갔어요.",
+      "uz": "Maktabni bitirib, kompaniyaga ishga kirdim.",
+      "en": "After graduating, I joined a company.",
+      "ru": "Окончив учёбу, я поступил на работу в компанию."
+    }
+  },
+  {
+    "id": 381,
+    "korean": "한국어를 배우다",
+    "uzbek": "koreys tilini o'rganmoq",
+    "english": "to learn Korean",
+    "russian": "учить корейский язык",
+    "romanization": "hangugeoreul baeuda",
+    "lesson": 16,
+    "theme": "study",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일 년 동안 한국어를 배웠어요.",
+      "uz": "Bir yil koreys tilini o'rgandim.",
+      "en": "I studied Korean for a year.",
+      "ru": "Я учил корейский год."
+    }
+  }
+]

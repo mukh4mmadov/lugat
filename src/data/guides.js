@@ -194,7 +194,7 @@ export const GUIDES = [
         heading: "Keyingi qadam",
         blocks: [
           { p: "Harflarni o'rgangach, ularni so'zlarda mashq qiling: K-TALIM darslarida har bir so'zni eshitib, kartochka va testlar bilan yodlaysiz." },
-          { links: [{ to: "/study/1", label: "1-darsni boshlash" }, { to: "/guides/korean-numbers", label: "Koreyscha raqamlar" }] },
+          { links: [{ to: "/topic/1/study", label: "Birinchi mavzuni boshlash" }, { to: "/guides/korean-numbers", label: "Koreyscha raqamlar" }] },
         ],
       },
     ],

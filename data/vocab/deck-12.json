@@ -1,0 +1,458 @@
+[
+  {
+    "id": 253,
+    "korean": "가위",
+    "uzbek": "qaychi",
+    "english": "scissors",
+    "russian": "ножницы",
+    "romanization": "gawi",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가위 좀 빌려주세요.",
+      "uz": "Qaychingizni berib turing.",
+      "en": "Could I borrow your scissors?",
+      "ru": "Одолжите, пожалуйста, ножницы."
+    }
+  },
+  {
+    "id": 254,
+    "korean": "거실",
+    "uzbek": "mehmonxona (uyda)",
+    "english": "living room",
+    "russian": "гостиная",
+    "romanization": "geosil",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "거실에 큰 소파가 있어요.",
+      "uz": "Mehmonxonada katta divan bor.",
+      "en": "There's a big sofa in the living room.",
+      "ru": "В гостиной большой диван."
+    }
+  },
+  {
+    "id": 255,
+    "korean": "계단",
+    "uzbek": "zinapoya",
+    "english": "stairs",
+    "russian": "лестница",
+    "romanization": "gyedan",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "계단에서 넘어졌어요.",
+      "uz": "Zinapoyada yiqilib tushdim.",
+      "en": "I fell on the stairs.",
+      "ru": "Я упал на лестнице."
+    }
+  },
+  {
+    "id": 256,
+    "korean": "냉장고",
+    "uzbek": "muzlatgich",
+    "english": "refrigerator",
+    "russian": "холодильник",
+    "romanization": "naengjanggo",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우유를 냉장고에 넣었어요.",
+      "uz": "Sutni muzlatgichga qo'ydim.",
+      "en": "I put the milk in the fridge.",
+      "ru": "Я положил молоко в холодильник."
+    }
+  },
+  {
+    "id": 257,
+    "korean": "문",
+    "uzbek": "eshik",
+    "english": "door",
+    "russian": "дверь",
+    "romanization": "mun",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "문 좀 열어 주세요.",
+      "uz": "Eshikni ochib yuboring.",
+      "en": "Please open the door.",
+      "ru": "Откройте, пожалуйста, дверь."
+    }
+  },
+  {
+    "id": 258,
+    "korean": "방",
+    "uzbek": "xona",
+    "english": "room",
+    "russian": "комната",
+    "romanization": "bang",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 방은 작지만 깨끗해요.",
+      "uz": "Xonam kichik, lekin toza.",
+      "en": "My room is small but clean.",
+      "ru": "Моя комната маленькая, но чистая."
+    }
+  },
+  {
+    "id": 259,
+    "korean": "부엌",
+    "uzbek": "oshxona (uyda)",
+    "english": "kitchen",
+    "russian": "кухня",
+    "romanization": "bueok",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어머니가 부엌에 계세요.",
+      "uz": "Onam oshxonadalar.",
+      "en": "Mom is in the kitchen.",
+      "ru": "Мама на кухне."
+    }
+  },
+  {
+    "id": 260,
+    "korean": "빗자루",
+    "uzbek": "supurgi",
+    "english": "broom",
+    "russian": "метла, веник",
+    "romanization": "bitjaru",
+    "lesson": 12,
+    "theme": "home",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빗자루로 마당을 쓸었어요.",
+      "uz": "Hovlini supurgi bilan supurdim.",
+      "en": "I swept the yard with a broom.",
+      "ru": "Я подмёл двор веником."
+    }
+  },
+  {
+    "id": 261,
+    "korean": "선풍기",
+    "uzbek": "ventilyator",
+    "english": "electric fan",
+    "russian": "вентилятор",
+    "romanization": "seonpunggi",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선풍기 바람이 시원해요.",
+      "uz": "Ventilyator shamoli salqin.",
+      "en": "The fan's breeze is cool.",
+      "ru": "От вентилятора прохладно."
+    }
+  },
+  {
+    "id": 262,
+    "korean": "숟가락",
+    "uzbek": "qoshiq",
+    "english": "spoon",
+    "russian": "ложка",
+    "romanization": "sutgarak",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "숟가락으로 국을 먹어요.",
+      "uz": "Sho'rvani qoshiq bilan ichaman.",
+      "en": "I eat soup with a spoon.",
+      "ru": "Я ем суп ложкой."
+    }
+  },
+  {
+    "id": 263,
+    "korean": "실내",
+    "uzbek": "bino ichi",
+    "english": "indoors",
+    "russian": "в помещении",
+    "romanization": "sillae",
+    "lesson": 12,
+    "theme": "home",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "실내에서는 모자를 벗으세요.",
+      "uz": "Bino ichida bosh kiyimni yeching.",
+      "en": "Please take off your hat indoors.",
+      "ru": "В помещении снимите головной убор."
+    }
+  },
+  {
+    "id": 264,
+    "korean": "아파트",
+    "uzbek": "ko'p qavatli uy (kvartira)",
+    "english": "apartment",
+    "russian": "квартира, многоэтажка",
+    "romanization": "apateu",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 아파트는 십 층이에요.",
+      "uz": "Bizning uy o'n qavatli.",
+      "en": "Our apartment building has ten floors.",
+      "ru": "В нашем доме десять этажей."
+    }
+  },
+  {
+    "id": 265,
+    "korean": "에어컨",
+    "uzbek": "konditsioner",
+    "english": "air conditioner",
+    "russian": "кондиционер",
+    "romanization": "eeokeon",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "더워서 에어컨을 켰어요.",
+      "uz": "Issiq bo'lgani uchun konditsionerni yoqdim.",
+      "en": "It was hot, so I turned on the AC.",
+      "ru": "Было жарко, и я включил кондиционер."
+    }
+  },
+  {
+    "id": 266,
+    "korean": "엘리베이터",
+    "uzbek": "lift",
+    "english": "elevator",
+    "russian": "лифт",
+    "romanization": "ellibeiteo",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "엘리베이터가 고장 났어요.",
+      "uz": "Lift buzilib qoldi.",
+      "en": "The elevator is broken.",
+      "ru": "Лифт сломался."
+    }
+  },
+  {
+    "id": 267,
+    "korean": "인형",
+    "uzbek": "qo'g'irchoq",
+    "english": "doll",
+    "russian": "кукла",
+    "romanization": "inhyeong",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생이 인형을 안고 자요.",
+      "uz": "Singlim qo'g'irchog'ini quchoqlab uxlaydi.",
+      "en": "My little sister sleeps hugging her doll.",
+      "ru": "Сестрёнка спит в обнимку с куклой."
+    }
+  },
+  {
+    "id": 268,
+    "korean": "장난감",
+    "uzbek": "o'yinchoq",
+    "english": "toy",
+    "russian": "игрушка",
+    "romanization": "jangnangam",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이에게 장난감을 사 줬어요.",
+      "uz": "Bolaga o'yinchoq olib berdim.",
+      "en": "I bought the child a toy.",
+      "ru": "Я купил ребёнку игрушку."
+    }
+  },
+  {
+    "id": 269,
+    "korean": "집",
+    "uzbek": "uy",
+    "english": "house, home",
+    "russian": "дом",
+    "romanization": "jip",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집에 일찍 왔어요.",
+      "uz": "Uyga erta keldim.",
+      "en": "I came home early.",
+      "ru": "Я рано пришёл домой."
+    }
+  },
+  {
+    "id": 270,
+    "korean": "집안일",
+    "uzbek": "uy yumushlari",
+    "english": "housework",
+    "russian": "домашние дела",
+    "romanization": "jibanil",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "남편과 집안일을 나눠서 해요.",
+      "uz": "Erim bilan uy ishlarini bo'lishib qilamiz.",
+      "en": "My husband and I share the housework.",
+      "ru": "Мы с мужем делим домашние дела."
+    }
+  },
+  {
+    "id": 271,
+    "korean": "창문",
+    "uzbek": "deraza",
+    "english": "window",
+    "russian": "окно",
+    "romanization": "changmun",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "창문 밖으로 산이 보여요.",
+      "uz": "Derazadan tog' ko'rinadi.",
+      "en": "You can see the mountain from the window.",
+      "ru": "Из окна видна гора."
+    }
+  },
+  {
+    "id": 272,
+    "korean": "청소기",
+    "uzbek": "changyutgich",
+    "english": "vacuum cleaner",
+    "russian": "пылесос",
+    "romanization": "cheongsogi",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "청소기로 방을 청소해요.",
+      "uz": "Xonani changyutgich bilan tozalayman.",
+      "en": "I clean my room with a vacuum.",
+      "ru": "Я убираю комнату пылесосом."
+    }
+  },
+  {
+    "id": 273,
+    "korean": "칫솔",
+    "uzbek": "tish cho'tkasi",
+    "english": "toothbrush",
+    "russian": "зубная щётка",
+    "romanization": "chitsol",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여행 가방에 칫솔을 넣었어요.",
+      "uz": "Sayohat sumkasiga tish cho'tkasini soldim.",
+      "en": "I put a toothbrush in my travel bag.",
+      "ru": "Я положил зубную щётку в дорожную сумку."
+    }
+  },
+  {
+    "id": 274,
+    "korean": "칼",
+    "uzbek": "pichoq",
+    "english": "knife",
+    "russian": "нож",
+    "romanization": "kal",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "칼을 조심하세요.",
+      "uz": "Pichoqdan ehtiyot bo'ling.",
+      "en": "Be careful with the knife.",
+      "ru": "Осторожно с ножом."
+    }
+  },
+  {
+    "id": 275,
+    "korean": "텔레비전",
+    "uzbek": "televizor",
+    "english": "television",
+    "russian": "телевизор",
+    "romanization": "tellebijeon",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밤늦게 텔레비전을 봤어요.",
+      "uz": "Kechasi kech televizor ko'rdim.",
+      "en": "I watched TV late at night.",
+      "ru": "Я смотрел телевизор допоздна."
+    }
+  },
+  {
+    "id": 276,
+    "korean": "휴게실",
+    "uzbek": "dam olish xonasi",
+    "english": "lounge, break room",
+    "russian": "комната отдыха",
+    "romanization": "hyugesil",
+    "lesson": 12,
+    "theme": "home",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "휴게실에서 커피를 마셔요.",
+      "uz": "Dam olish xonasida qahva ichamiz.",
+      "en": "We drink coffee in the lounge.",
+      "ru": "Мы пьём кофе в комнате отдыха."
+    }
+  }
+]

@@ -1,8 +1,8 @@
-// Beginner grammar (TOPIK I, levels 1–2) that the K-TALIM lessons don't
-// teach: NIKL 초급 items and forms seen in TOPIK I papers. Same shapes as
-// course1A.js, plus `level: "topik1"` and a `group` (see TOPIK1_GROUPS);
+// Beginner grammar (TOPIK I, levels 1–2) beyond the core points in core1.js
+// and core2.js: NIKL 초급 items and forms seen in TOPIK I papers. Same shapes as
+// core1.js, plus `level: "topik1"` and a `group` (see TOPIK1_GROUPS);
 // `lesson` is null. A `drill` is only set where grammarDrills can build a
-// correct one from lesson words.
+// correct one from the topic words.
 
 const t = (uz, en, ru) => ({ uz, en, ru });
 

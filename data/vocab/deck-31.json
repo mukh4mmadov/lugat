@@ -1,0 +1,629 @@
+[
+  {
+    "id": 757,
+    "korean": "갑자기",
+    "uzbek": "birdan, to'satdan",
+    "english": "suddenly",
+    "russian": "вдруг, внезапно",
+    "romanization": "gapjagi",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "갑자기 비가 왔어요.",
+      "uz": "Birdan yomg'ir yog'di.",
+      "en": "It suddenly rained.",
+      "ru": "Вдруг пошёл дождь."
+    }
+  },
+  {
+    "id": 758,
+    "korean": "같이",
+    "uzbek": "birga",
+    "english": "together",
+    "russian": "вместе",
+    "romanization": "gachi",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "같이 점심 먹을래요?",
+      "uz": "Birga tushlik qilamizmi?",
+      "en": "Shall we have lunch together?",
+      "ru": "Пообедаем вместе?"
+    }
+  },
+  {
+    "id": 759,
+    "korean": "그래서",
+    "uzbek": "shuning uchun",
+    "english": "so, therefore",
+    "russian": "поэтому",
+    "romanization": "geuraeseo",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비가 왔어요. 그래서 집에 있었어요.",
+      "uz": "Yomg'ir yog'di. Shuning uchun uyda qoldim.",
+      "en": "It rained. So I stayed home.",
+      "ru": "Шёл дождь. Поэтому я остался дома."
+    }
+  },
+  {
+    "id": 760,
+    "korean": "그럼",
+    "uzbek": "unda, bo'lmasa",
+    "english": "then, in that case",
+    "russian": "тогда, в таком случае",
+    "romanization": "geureom",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그럼 내일 만나요.",
+      "uz": "Unda ertaga ko'rishamiz.",
+      "en": "Then let's meet tomorrow.",
+      "ru": "Тогда встретимся завтра."
+    }
+  },
+  {
+    "id": 761,
+    "korean": "그렇지만",
+    "uzbek": "lekin, biroq",
+    "english": "but, however",
+    "russian": "но, однако",
+    "romanization": "geureochiman",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국어는 어려워요. 그렇지만 재미있어요.",
+      "uz": "Koreys tili qiyin. Lekin qiziq.",
+      "en": "Korean is hard. But it's fun.",
+      "ru": "Корейский трудный. Но интересный."
+    }
+  },
+  {
+    "id": 762,
+    "korean": "그리고",
+    "uzbek": "va, hamda",
+    "english": "and",
+    "russian": "и, а также",
+    "romanization": "geurigo",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빵을 먹었어요. 그리고 우유를 마셨어요.",
+      "uz": "Non yedim. Keyin sut ichdim.",
+      "en": "I ate bread. And I drank milk.",
+      "ru": "Я съел хлеб. А потом выпил молоко."
+    }
+  },
+  {
+    "id": 763,
+    "korean": "꼭",
+    "uzbek": "albatta",
+    "english": "surely, without fail",
+    "russian": "обязательно",
+    "romanization": "kkok",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "약을 꼭 드세요.",
+      "uz": "Dorini albatta iching.",
+      "en": "Be sure to take your medicine.",
+      "ru": "Обязательно примите лекарство."
+    }
+  },
+  {
+    "id": 764,
+    "korean": "너무",
+    "uzbek": "juda, haddan tashqari",
+    "english": "too, very",
+    "russian": "слишком, очень",
+    "romanization": "neomu",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "너무 늦었어요.",
+      "uz": "Juda kech bo'ldi.",
+      "en": "It's too late.",
+      "ru": "Слишком поздно."
+    }
+  },
+  {
+    "id": 765,
+    "korean": "더",
+    "uzbek": "ko'proq, yana",
+    "english": "more",
+    "russian": "больше, ещё",
+    "romanization": "deo",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "조금 더 주세요.",
+      "uz": "Yana ozgina bering.",
+      "en": "A little more, please.",
+      "ru": "Дайте ещё немного."
+    }
+  },
+  {
+    "id": 766,
+    "korean": "마다",
+    "uzbek": "har (bir)",
+    "english": "every",
+    "russian": "каждый",
+    "romanization": "mada",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일요일마다 교회에 가요.",
+      "uz": "Har yakshanba ibodatxonaga boradi.",
+      "en": "He goes to church every Sunday.",
+      "ru": "Каждое воскресенье он ходит в церковь."
+    }
+  },
+  {
+    "id": 767,
+    "korean": "먼저",
+    "uzbek": "avval, birinchi",
+    "english": "first, ahead",
+    "russian": "сначала, сперва",
+    "romanization": "meonjeo",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "먼저 가세요. 저는 좀 있다가 갈게요.",
+      "uz": "Siz oldinroq boring. Men birozdan keyin boraman.",
+      "en": "You go ahead. I'll go a little later.",
+      "ru": "Идите первым. Я пойду чуть позже."
+    }
+  },
+  {
+    "id": 768,
+    "korean": "모두",
+    "uzbek": "hammasi, hamma",
+    "english": "all, everyone",
+    "russian": "все, всё",
+    "romanization": "modu",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "모두 같이 사진 찍어요.",
+      "uz": "Hammamiz birga suratga tushamiz.",
+      "en": "Let's all take a photo together.",
+      "ru": "Давайте все вместе сфотографируемся."
+    }
+  },
+  {
+    "id": 769,
+    "korean": "벌써",
+    "uzbek": "allaqachon",
+    "english": "already",
+    "russian": "уже",
+    "romanization": "beolsseo",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "벌써 열 시예요.",
+      "uz": "Allaqachon soat o'n.",
+      "en": "It's already ten o'clock.",
+      "ru": "Уже десять часов."
+    }
+  },
+  {
+    "id": 770,
+    "korean": "보통",
+    "uzbek": "odatda",
+    "english": "usually",
+    "russian": "обычно",
+    "romanization": "botong",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "보통 버스로 출근해요.",
+      "uz": "Odatda ishga avtobusda boraman.",
+      "en": "I usually go to work by bus.",
+      "ru": "Обычно я езжу на работу на автобусе."
+    }
+  },
+  {
+    "id": 771,
+    "korean": "빨리",
+    "uzbek": "tez",
+    "english": "quickly",
+    "russian": "быстро",
+    "romanization": "ppalli",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빨리 먹으면 배가 아파요.",
+      "uz": "Tez yesangiz, qorningiz og'riydi.",
+      "en": "If you eat fast, your stomach will hurt.",
+      "ru": "Если есть быстро, заболит живот."
+    }
+  },
+  {
+    "id": 772,
+    "korean": "생각보다",
+    "uzbek": "o'ylaganimdan ko'ra",
+    "english": "than expected",
+    "russian": "чем ожидалось",
+    "romanization": "saenggakboda",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시험이 생각보다 쉬웠어요.",
+      "uz": "Imtihon o'ylaganimdan oson ekan.",
+      "en": "The exam was easier than expected.",
+      "ru": "Экзамен оказался легче, чем я думал."
+    }
+  },
+  {
+    "id": 773,
+    "korean": "아마",
+    "uzbek": "ehtimol",
+    "english": "probably, maybe",
+    "russian": "наверное",
+    "romanization": "ama",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아마 내일 비가 올 거예요.",
+      "uz": "Ehtimol, ertaga yomg'ir yog'adi.",
+      "en": "It'll probably rain tomorrow.",
+      "ru": "Наверное, завтра будет дождь."
+    }
+  },
+  {
+    "id": 774,
+    "korean": "아주",
+    "uzbek": "juda",
+    "english": "very",
+    "russian": "очень",
+    "romanization": "aju",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 아주 행복해요.",
+      "uz": "Bugun juda xursandman.",
+      "en": "I'm very happy today.",
+      "ru": "Сегодня я очень счастлив."
+    }
+  },
+  {
+    "id": 775,
+    "korean": "여러 가지",
+    "uzbek": "turli xil",
+    "english": "various",
+    "russian": "разные, различные",
+    "romanization": "yeoreo gaji",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여러 가지 음식을 먹어 봤어요.",
+      "uz": "Turli xil taomlarni tatib ko'rdim.",
+      "en": "I tried various dishes.",
+      "ru": "Я попробовал разные блюда."
+    }
+  },
+  {
+    "id": 776,
+    "korean": "열심히",
+    "uzbek": "tirishib, astoydil",
+    "english": "hard, diligently",
+    "russian": "усердно",
+    "romanization": "yeolsimhi",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "열심히 공부하세요.",
+      "uz": "Astoydil o'qing.",
+      "en": "Study hard.",
+      "ru": "Учитесь усердно."
+    }
+  },
+  {
+    "id": 777,
+    "korean": "이제",
+    "uzbek": "endi",
+    "english": "now (from now on)",
+    "russian": "теперь",
+    "romanization": "ije",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이제 괜찮아요.",
+      "uz": "Endi hammasi joyida.",
+      "en": "I'm okay now.",
+      "ru": "Теперь всё в порядке."
+    }
+  },
+  {
+    "id": 778,
+    "korean": "일찍",
+    "uzbek": "erta",
+    "english": "early",
+    "russian": "рано",
+    "romanization": "iljjik",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 일찍 잤어요.",
+      "uz": "Bugun erta uxladim.",
+      "en": "I went to bed early today.",
+      "ru": "Сегодня я рано лёг спать."
+    }
+  },
+  {
+    "id": 779,
+    "korean": "자꾸",
+    "uzbek": "qayta-qayta",
+    "english": "repeatedly, keep (doing)",
+    "russian": "всё время, снова и снова",
+    "romanization": "jakku",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "자꾸 잊어버려요.",
+      "uz": "Qayta-qayta unutaman.",
+      "en": "I keep forgetting.",
+      "ru": "Я всё время забываю."
+    }
+  },
+  {
+    "id": 780,
+    "korean": "자주",
+    "uzbek": "tez-tez",
+    "english": "often",
+    "russian": "часто",
+    "romanization": "jaju",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 카페에 자주 와요.",
+      "uz": "Bu kafega tez-tez kelaman.",
+      "en": "I come to this café often.",
+      "ru": "Я часто бываю в этом кафе."
+    }
+  },
+  {
+    "id": 781,
+    "korean": "잠깐",
+    "uzbek": "bir lahza",
+    "english": "a moment",
+    "russian": "минутку",
+    "romanization": "jamkkan",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "잠깐만 기다리세요.",
+      "uz": "Bir lahza kuting.",
+      "en": "Wait a moment, please.",
+      "ru": "Подождите минутку."
+    }
+  },
+  {
+    "id": 782,
+    "korean": "전체",
+    "uzbek": "butun, umumiy",
+    "english": "the whole, entire",
+    "russian": "весь, целиком",
+    "romanization": "jeonche",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "전체 학생이 운동장에 모였어요.",
+      "uz": "Barcha o'quvchilar maydonda yig'ildi.",
+      "en": "All the students gathered in the yard.",
+      "ru": "Все ученики собрались во дворе."
+    }
+  },
+  {
+    "id": 783,
+    "korean": "정말",
+    "uzbek": "rostdan, chindan",
+    "english": "really",
+    "russian": "правда, действительно",
+    "romanization": "jeongmal",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "정말 고마워요.",
+      "uz": "Chindan rahmat.",
+      "en": "Thank you so much.",
+      "ru": "Большое спасибо."
+    }
+  },
+  {
+    "id": 784,
+    "korean": "제일",
+    "uzbek": "eng",
+    "english": "the most",
+    "russian": "самый",
+    "romanization": "jeil",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "무슨 계절을 제일 좋아해요?",
+      "uz": "Qaysi faslni eng yaxshi ko'rasiz?",
+      "en": "Which season do you like best?",
+      "ru": "Какое время года вы любите больше всего?"
+    }
+  },
+  {
+    "id": 785,
+    "korean": "좀",
+    "uzbek": "biroz; iltimos",
+    "english": "a little; please",
+    "russian": "немного; пожалуйста",
+    "romanization": "jom",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "좀 도와주세요.",
+      "uz": "Iltimos, yordam bering.",
+      "en": "Please help me a little.",
+      "ru": "Помогите, пожалуйста."
+    }
+  },
+  {
+    "id": 786,
+    "korean": "즐겁게",
+    "uzbek": "quvnoq, maroqli",
+    "english": "joyfully, happily",
+    "russian": "весело, радостно",
+    "romanization": "jeulgeopge",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말을 즐겁게 보냈어요.",
+      "uz": "Dam olish kunlarini maroqli o'tkazdim.",
+      "en": "I had a fun weekend.",
+      "ru": "Я весело провёл выходные."
+    }
+  },
+  {
+    "id": 787,
+    "korean": "쯤",
+    "uzbek": "taxminan",
+    "english": "about, around",
+    "russian": "примерно, около",
+    "romanization": "jjeum",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서울까지 두 시간쯤 걸려요.",
+      "uz": "Seulgacha taxminan ikki soat ketadi.",
+      "en": "It takes about two hours to Seoul.",
+      "ru": "До Сеула примерно два часа."
+    }
+  },
+  {
+    "id": 788,
+    "korean": "혹시",
+    "uzbek": "balki, tasodifan",
+    "english": "by any chance",
+    "russian": "случайно, может быть",
+    "romanization": "hoksi",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "혹시 펜 있어요?",
+      "uz": "Tasodifan ruchkangiz yo'qmi?",
+      "en": "Do you have a pen, by any chance?",
+      "ru": "У вас случайно нет ручки?"
+    }
+  },
+  {
+    "id": 789,
+    "korean": "혼자",
+    "uzbek": "yolg'iz, o'zi",
+    "english": "alone",
+    "russian": "один, в одиночку",
+    "romanization": "honja",
+    "lesson": 31,
+    "theme": "adverbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "혼자 여행을 갔어요.",
+      "uz": "Yolg'iz sayohatga bordim.",
+      "en": "I traveled alone.",
+      "ru": "Я поехал путешествовать один."
+    }
+  }
+]

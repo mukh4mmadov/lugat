@@ -1,20 +1,35 @@
 import { setGrammarTotal } from "../../lib/gamification.js";
-import course1A from "./course1A.js";
-import course1B from "./course1B.js";
+import core1 from "./core1.js";
+import core2 from "./core2.js";
 import topik1, { TOPIK1_GROUPS, TOPIK1_TEXT } from "./topik1.js";
 
-// Every grammar point: the lesson course (1A is lessons 1–14, 1B is 15–28)
-// in lesson order, then the TOPIK I points that the lessons don't cover.
-export const GRAMMAR = [...course1A, ...course1B, ...topik1];
+// The TOPIK I group of each core point (core1.js, core2.js).
+const CORE_GROUP = {
+  topic: "particles", object: "particles", subject: "particles", destination: "particles", "location-eseo": "particles",
+  "and-with": "particles", "by-means": "particles", time: "particles", dates: "particles", comparison: "particles",
+  copula: "endings", present: "endings", past: "endings", future: "endings", "honorific-request": "endings",
+  "honorific-si": "endings", "honorific-words": "endings", progressive: "endings", suggest: "endings",
+  "will-promise": "endings", "exclaim-neyo": "endings", seems: "endings", dont: "endings",
+  "and-then": "connectors", but: "connectors", "sequence-aseo": "connectors", if: "connectors", "because-nikka": "connectors",
+  when: "connectors", "before-after": "connectors", "because-ttaemune": "connectors", "background-neunde": "connectors",
+  "negation-an": "modifiers", "cannot-mot": "modifiers", "modifier-present": "modifiers", "modifier-adjective": "modifiers",
+  "nominal-hobby": "modifiers",
+  exist: "expressions", demonstratives: "expressions", position: "expressions", "native-numbers": "expressions",
+  want: "expressions", "purpose-go": "expressions", can: "expressions", "like-dislike": "expressions", must: "expressions",
+  try: "expressions", "please-for-me": "expressions", "enough-doeda": "expressions", may: "expressions",
+  "must-not": "expressions", experience: "expressions", "come-to": "expressions",
+  "b-irregular": "irregular", "reu-irregular": "irregular", "d-irregular": "irregular",
+};
+const core = [...core1, ...core2].map((point) => ({ ...point, lesson: null, level: "topik1", group: CORE_GROUP[point.id] || "expressions" }));
+const groupOrder = (point) => TOPIK1_GROUPS.findIndex((group) => group.id === point.group);
+
+// Every grammar point, one TOPIK I list grouped by kind (particles, endings, …).
+export const GRAMMAR = [...core, ...topik1].sort((a, b) => groupOrder(a) - groupOrder(b));
 setGrammarTotal(GRAMMAR.length);
 
-// Lesson courses have no `level`; the TOPIK I list has level "topik1" and
-// is grouped by `group` instead of by lesson.
-export const GRAMMAR_COURSES = [
-  { id: "1A", points: course1A },
-  { id: "1B", points: course1B },
-  { id: "topik1", level: "topik1", points: topik1 },
-];
+// One course: TOPIK I, shown by `group`. Its own copy, so the panel can
+// edit GRAMMAR and the course list separately (see contentOverrides.js).
+export const GRAMMAR_COURSES = [{ id: "topik1", level: "topik1", points: [...GRAMMAR] }];
 
 export { TOPIK1_GROUPS, TOPIK1_TEXT };
 
@@ -24,9 +39,6 @@ export function getGrammarPoint(id) {
   return GRAMMAR.find((point) => point.id === id) || null;
 }
 
-export function grammarForLesson(lesson) {
-  return GRAMMAR.filter((point) => point.lesson === Number(lesson));
-}
 
 // A { uz, en, ru } text in the interface language.
 export function tr(text, language) {

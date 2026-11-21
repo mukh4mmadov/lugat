@@ -1,0 +1,667 @@
+[
+  {
+    "id": 631,
+    "korean": "가져오다",
+    "uzbek": "olib kelmoq",
+    "english": "to bring",
+    "russian": "приносить",
+    "romanization": "gajyeooda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우산을 가져왔어요?",
+      "uz": "Soyabon olib keldingizmi?",
+      "en": "Did you bring an umbrella?",
+      "ru": "Вы принесли зонт?"
+    }
+  },
+  {
+    "id": 632,
+    "korean": "가지고 오다 / 가다",
+    "uzbek": "olib kelmoq / olib ketmoq",
+    "english": "to bring / to take (a thing)",
+    "russian": "приносить / уносить",
+    "romanization": "gajigo oda / gada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "책을 가지고 가세요.",
+      "uz": "Kitobni olib keting.",
+      "en": "Take the book with you.",
+      "ru": "Возьмите книгу с собой."
+    }
+  },
+  {
+    "id": 633,
+    "korean": "걷다",
+    "uzbek": "yurmoq (piyoda)",
+    "english": "to walk",
+    "russian": "ходить пешком",
+    "romanization": "geotda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "매일 한 시간 걸어요.",
+      "uz": "Har kuni bir soat yuraman.",
+      "en": "I walk an hour every day.",
+      "ru": "Каждый день я хожу пешком час."
+    }
+  },
+  {
+    "id": 634,
+    "korean": "계속하다",
+    "uzbek": "davom ettirmoq",
+    "english": "to continue",
+    "russian": "продолжать",
+    "romanization": "gyesokhada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이야기를 계속하세요.",
+      "uz": "Gapingizni davom ettiring.",
+      "en": "Please go on.",
+      "ru": "Продолжайте, пожалуйста."
+    }
+  },
+  {
+    "id": 635,
+    "korean": "고르다",
+    "uzbek": "tanlamoq",
+    "english": "to pick, to choose",
+    "russian": "выбирать",
+    "romanization": "goreuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "마음에 드는 것을 고르세요.",
+      "uz": "Yoqqanini tanlang.",
+      "en": "Pick the one you like.",
+      "ru": "Выберите то, что нравится."
+    }
+  },
+  {
+    "id": 636,
+    "korean": "고장 나다",
+    "uzbek": "buzilmoq",
+    "english": "to break down",
+    "russian": "ломаться",
+    "romanization": "gojang nada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "세탁기가 고장 났어요.",
+      "uz": "Kir yuvish mashinasi buzildi.",
+      "en": "The washing machine broke down.",
+      "ru": "Стиральная машина сломалась."
+    }
+  },
+  {
+    "id": 637,
+    "korean": "기념하다",
+    "uzbek": "nishonlamoq, xotirlamoq",
+    "english": "to commemorate, to celebrate",
+    "russian": "отмечать, праздновать",
+    "romanization": "ginyeomhada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "결혼 십 주년을 기념했어요.",
+      "uz": "To'yning o'n yilligini nishonladik.",
+      "en": "We celebrated our tenth anniversary.",
+      "ru": "Мы отметили десятилетие свадьбы."
+    }
+  },
+  {
+    "id": 638,
+    "korean": "기르다",
+    "uzbek": "o'stirmoq, boqmoq",
+    "english": "to raise, to grow",
+    "russian": "растить, выращивать",
+    "romanization": "gireuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니는 마당에서 닭을 길러요.",
+      "uz": "Buvim hovlida tovuq boqadilar.",
+      "en": "Grandma raises chickens in the yard.",
+      "ru": "Бабушка держит кур во дворе."
+    }
+  },
+  {
+    "id": 639,
+    "korean": "기뻐하다",
+    "uzbek": "xursand bo'lmoq",
+    "english": "to be glad",
+    "russian": "радоваться",
+    "romanization": "gippeohada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선물을 받고 기뻐했어요.",
+      "uz": "Sovg'ani olib xursand bo'ldi.",
+      "en": "She was glad to get the present.",
+      "ru": "Она обрадовалась подарку."
+    }
+  },
+  {
+    "id": 640,
+    "korean": "기억하다",
+    "uzbek": "eslamoq, yodda tutmoq",
+    "english": "to remember",
+    "russian": "помнить",
+    "romanization": "gieokhada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 이름을 기억해요?",
+      "uz": "Ismimni eslaysizmi?",
+      "en": "Do you remember my name?",
+      "ru": "Вы помните моё имя?"
+    }
+  },
+  {
+    "id": 641,
+    "korean": "깜빡하다",
+    "uzbek": "esdan chiqarmoq (bir lahzaga)",
+    "english": "to forget for a moment",
+    "russian": "забыть (на миг)",
+    "romanization": "kkamppakhada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "약속 시간을 깜빡했어요.",
+      "uz": "Uchrashuv vaqtini esdan chiqaribman.",
+      "en": "I forgot the meeting time.",
+      "ru": "Я забыл время встречи."
+    }
+  },
+  {
+    "id": 642,
+    "korean": "끝나다",
+    "uzbek": "tugamoq",
+    "english": "to end",
+    "russian": "заканчиваться",
+    "romanization": "kkeunnada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수업이 몇 시에 끝나요?",
+      "uz": "Dars soat nechada tugaydi?",
+      "en": "What time does class end?",
+      "ru": "Во сколько заканчивается урок?"
+    }
+  },
+  {
+    "id": 643,
+    "korean": "끝내다",
+    "uzbek": "tugatmoq",
+    "english": "to finish",
+    "russian": "заканчивать",
+    "romanization": "kkeunnaeda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일을 빨리 끝냈어요.",
+      "uz": "Ishni tez tugatdim.",
+      "en": "I finished the work quickly.",
+      "ru": "Я быстро закончил работу."
+    }
+  },
+  {
+    "id": 644,
+    "korean": "나오다",
+    "uzbek": "chiqmoq; chiqib kelmoq",
+    "english": "to come out",
+    "russian": "выходить",
+    "romanization": "naoda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방에서 빨리 나오세요.",
+      "uz": "Xonadan tezroq chiqing.",
+      "en": "Come out of the room quickly.",
+      "ru": "Скорее выходите из комнаты."
+    }
+  },
+  {
+    "id": 645,
+    "korean": "내려가다",
+    "uzbek": "tushmoq, pastga tushmoq",
+    "english": "to go down",
+    "russian": "спускаться",
+    "romanization": "naeryeogada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일 층으로 내려가요.",
+      "uz": "Birinchi qavatga tushaman.",
+      "en": "I'm going down to the first floor.",
+      "ru": "Я спускаюсь на первый этаж."
+    }
+  },
+  {
+    "id": 646,
+    "korean": "노력하다",
+    "uzbek": "harakat qilmoq, intilmoq",
+    "english": "to try hard, to make an effort",
+    "russian": "стараться",
+    "romanization": "noryeokhada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "더 노력할게요.",
+      "uz": "Ko'proq harakat qilaman.",
+      "en": "I'll try harder.",
+      "ru": "Я буду стараться больше."
+    }
+  },
+  {
+    "id": 647,
+    "korean": "놀다",
+    "uzbek": "o'ynamoq; vaqt o'tkazmoq",
+    "english": "to play, to hang out",
+    "russian": "играть; проводить время",
+    "romanization": "nolda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이들이 밖에서 놀아요.",
+      "uz": "Bolalar tashqarida o'ynayapti.",
+      "en": "The kids are playing outside.",
+      "ru": "Дети играют на улице."
+    }
+  },
+  {
+    "id": 648,
+    "korean": "놓다",
+    "uzbek": "qo'ymoq",
+    "english": "to put, to place",
+    "russian": "класть, ставить",
+    "romanization": "nota",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가방을 의자 위에 놓으세요.",
+      "uz": "Sumkani stul ustiga qo'ying.",
+      "en": "Put your bag on the chair.",
+      "ru": "Положите сумку на стул."
+    }
+  },
+  {
+    "id": 649,
+    "korean": "누르다",
+    "uzbek": "bosmoq",
+    "english": "to press",
+    "russian": "нажимать",
+    "romanization": "nureuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 버튼을 누르세요.",
+      "uz": "Bu tugmani bosing.",
+      "en": "Press this button.",
+      "ru": "Нажмите эту кнопку."
+    }
+  },
+  {
+    "id": 650,
+    "korean": "눕다",
+    "uzbek": "yotmoq",
+    "english": "to lie down",
+    "russian": "ложиться",
+    "romanization": "nupda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "피곤해서 침대에 누웠어요.",
+      "uz": "Charchab, karavotga yotdim.",
+      "en": "I was tired, so I lay down on the bed.",
+      "ru": "Я устал и лёг на кровать."
+    }
+  },
+  {
+    "id": 651,
+    "korean": "다니다",
+    "uzbek": "qatnamoq",
+    "english": "to go regularly, to attend",
+    "russian": "ходить (регулярно), посещать",
+    "romanization": "danida",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생은 초등학교에 다녀요.",
+      "uz": "Ukam boshlang'ich maktabga qatnaydi.",
+      "en": "My little brother goes to elementary school.",
+      "ru": "Младший брат ходит в начальную школу."
+    }
+  },
+  {
+    "id": 652,
+    "korean": "닫다",
+    "uzbek": "yopmoq",
+    "english": "to close",
+    "russian": "закрывать",
+    "romanization": "datda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "나갈 때 문을 닫으세요.",
+      "uz": "Chiqayotganda eshikni yoping.",
+      "en": "Close the door when you leave.",
+      "ru": "Закройте дверь, когда уходите."
+    }
+  },
+  {
+    "id": 653,
+    "korean": "달리다",
+    "uzbek": "yugurmoq",
+    "english": "to run",
+    "russian": "бежать",
+    "romanization": "dallida",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "버스를 타려고 달렸어요.",
+      "uz": "Avtobusga ulgurish uchun yugurdim.",
+      "en": "I ran to catch the bus.",
+      "ru": "Я бежал, чтобы успеть на автобус."
+    }
+  },
+  {
+    "id": 654,
+    "korean": "데리다",
+    "uzbek": "(kishini) yoniga olmoq",
+    "english": "to take (someone) along",
+    "russian": "брать с собой (кого-то)",
+    "romanization": "derida",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생을 데리고 왔어요.",
+      "uz": "Ukamni olib keldim.",
+      "en": "I brought my little brother.",
+      "ru": "Я привёл младшего брата."
+    }
+  },
+  {
+    "id": 655,
+    "korean": "도와주다",
+    "uzbek": "yordam bermoq",
+    "english": "to help",
+    "russian": "помогать",
+    "romanization": "dowajuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구가 이사를 도와줬어요.",
+      "uz": "Do'stim ko'chishimga yordam berdi.",
+      "en": "A friend helped me move.",
+      "ru": "Друг помог мне с переездом."
+    }
+  },
+  {
+    "id": 656,
+    "korean": "돌아가다",
+    "uzbek": "qaytib ketmoq",
+    "english": "to go back",
+    "russian": "возвращаться (туда)",
+    "romanization": "doragada",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이제 집에 돌아가요.",
+      "uz": "Endi uyga qaytaman.",
+      "en": "I'm going back home now.",
+      "ru": "Сейчас я возвращаюсь домой."
+    }
+  },
+  {
+    "id": 657,
+    "korean": "돌아오다",
+    "uzbek": "qaytib kelmoq",
+    "english": "to come back",
+    "russian": "возвращаться (сюда)",
+    "romanization": "doraoda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지가 출장에서 돌아오셨어요.",
+      "uz": "Otam xizmat safaridan qaytdilar.",
+      "en": "My father came back from a business trip.",
+      "ru": "Папа вернулся из командировки."
+    }
+  },
+  {
+    "id": 658,
+    "korean": "돕다",
+    "uzbek": "yordamlashmoq",
+    "english": "to help",
+    "russian": "помогать",
+    "romanization": "dopda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어려운 사람을 도와요.",
+      "uz": "Muhtojlarga yordam beraman.",
+      "en": "I help people in need.",
+      "ru": "Я помогаю нуждающимся."
+    }
+  },
+  {
+    "id": 659,
+    "korean": "듣다",
+    "uzbek": "eshitmoq, tinglamoq",
+    "english": "to hear, to listen",
+    "russian": "слушать, слышать",
+    "romanization": "deutda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "라디오를 들어요.",
+      "uz": "Radio tinglayman.",
+      "en": "I listen to the radio.",
+      "ru": "Я слушаю радио."
+    }
+  },
+  {
+    "id": 660,
+    "korean": "들어오다",
+    "uzbek": "kirib kelmoq",
+    "english": "to come in",
+    "russian": "входить",
+    "romanization": "deureooda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "추우니까 빨리 들어오세요.",
+      "uz": "Sovuq, tezroq ichkariga kiring.",
+      "en": "It's cold, so come in quickly.",
+      "ru": "Холодно, заходите скорее."
+    }
+  },
+  {
+    "id": 661,
+    "korean": "마르다",
+    "uzbek": "qurimoq; ozg'in bo'lmoq",
+    "english": "to dry; to be thin",
+    "russian": "сохнуть; быть худым",
+    "romanization": "mareuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "날씨가 더워서 꽃이 말랐어요.",
+      "uz": "Havo issiq bo'lib, gullar qurib qoldi.",
+      "en": "It was hot, so the flowers dried up.",
+      "ru": "Было жарко, и цветы засохли."
+    }
+  },
+  {
+    "id": 662,
+    "korean": "마시다",
+    "uzbek": "ichmoq",
+    "english": "to drink",
+    "russian": "пить",
+    "romanization": "masida",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우유를 마셔요.",
+      "uz": "Sut ichaman.",
+      "en": "I drink milk.",
+      "ru": "Я пью молоко."
+    }
+  },
+  {
+    "id": 663,
+    "korean": "만들다",
+    "uzbek": "yasamoq, tayyorlamoq",
+    "english": "to make",
+    "russian": "делать, создавать",
+    "romanization": "mandeulda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "엄마가 케이크를 만들었어요.",
+      "uz": "Onam tort tayyorladi.",
+      "en": "Mom made a cake.",
+      "ru": "Мама испекла торт."
+    }
+  },
+  {
+    "id": 664,
+    "korean": "멈추다",
+    "uzbek": "to'xtamoq",
+    "english": "to stop",
+    "russian": "останавливаться",
+    "romanization": "meomchuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "차가 갑자기 멈췄어요.",
+      "uz": "Mashina birdan to'xtadi.",
+      "en": "The car stopped suddenly.",
+      "ru": "Машина внезапно остановилась."
+    }
+  },
+  {
+    "id": 665,
+    "korean": "모르다",
+    "uzbek": "bilmaslik",
+    "english": "to not know",
+    "russian": "не знать",
+    "romanization": "moreuda",
+    "lesson": 27,
+    "theme": "verbs",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "길을 몰라서 물어봤어요.",
+      "uz": "Yo'lni bilmaganim uchun so'radim.",
+      "en": "I didn't know the way, so I asked.",
+      "ru": "Я не знал дорогу и спросил."
+    }
+  }
+]

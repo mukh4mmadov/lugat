@@ -1,12 +1,7 @@
 // Revised Romanization of Korean following pronunciation: liaison,
-// palatalization, ㅎ + ㄱ/ㄷ/ㅈ aspiration, nasalization and ㄹ assimilation.
-// Like the book's own romanizations, ㄱ/ㄷ/ㅂ + ㅎ keep the h ("sijakhada")
-// and tensing is not written.
-//
-//   node scripts/romanize.mjs            fill missing romanizations in data/lesson*.json
-//   node scripts/romanize.mjs --check    compare with the hand-written ones
-
-import fs from "node:fs";
+// palatalization, ㅎ + ㄱ/ㄷ/ㅂ/ㅈ aspiration, nasalization and ㄹ assimilation.
+// ㄱ/ㄷ/ㅂ + ㅎ keep the h ("sijakhada") and tensing is not written.
+// Used by scripts/vocab/build.mjs.
 
 const INITIALS = [..."ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ"];
 const VOWELS = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"];
@@ -104,39 +99,3 @@ export function romanize(text) {
     .trim();
 }
 
-if (process.argv[1]?.endsWith("romanize.mjs")) {
-  const files = fs.readdirSync("data").filter((name) => /^lesson\d+\.json$/.test(name));
-  const readWords = (file) => JSON.parse(fs.readFileSync(`data/${file}`, "utf8"));
-  if (process.argv.includes("--check")) {
-    let same = 0;
-    let total = 0;
-    const diffs = [];
-    for (const file of files) {
-      for (const word of readWords(file)) {
-        if (!word.romanization) continue;
-        total += 1;
-        const ours = romanize(word.korean);
-        if (ours === word.romanization.toLowerCase()) same += 1;
-        else diffs.push(`${word.korean} | book: ${word.romanization} | ours: ${ours}`);
-      }
-    }
-    console.log(`${same}/${total} identical`);
-    console.log(diffs.join("\n"));
-  } else {
-    let filled = 0;
-    for (const file of files) {
-      const path = `data/${file}`;
-      const raw = fs.readFileSync(path, "utf8");
-      const words = JSON.parse(raw);
-      const missing = words.filter((word) => !word.romanization);
-      if (!missing.length) continue;
-      missing.forEach((word) => {
-        word.romanization = romanize(word.korean);
-      });
-      filled += missing.length;
-      const eol = raw.includes("\r\n") ? "\r\n" : "\n";
-      fs.writeFileSync(path, JSON.stringify(words, null, 2).replace(/\n/g, eol) + (/\r?\n$/.test(raw) ? eol : ""));
-    }
-    console.log(`Filled ${filled} romanizations`);
-  }
-}

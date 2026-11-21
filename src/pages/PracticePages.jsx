@@ -121,9 +121,9 @@ function RoundSummary({ session, title }) {
       </div>
       {Number.isInteger(Number(session.lesson)) && Number(session.lesson) > 0 && (
         <div className="mt-5 flex flex-wrap justify-center gap-2 border-t border-slate-200 pt-5 text-sm dark:border-white/10">
-          <Link to={`/study/${session.lesson}`} className="rounded-xl bg-sky-50 px-4 py-2 font-black text-sky-800 dark:bg-sky-500/10 dark:text-sky-100">{t("practice.toStudy")}</Link>
+          <Link to={`/topic/${session.lesson}/study`} className="rounded-xl bg-sky-50 px-4 py-2 font-black text-sky-800 dark:bg-sky-500/10 dark:text-sky-100">{t("practice.toStudy")}</Link>
           {Number(session.lesson) < lessonInfo.length && (
-            <Link to={`/study/${Number(session.lesson) + 1}`} className="rounded-xl bg-emerald-50 px-4 py-2 font-black text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-100">{t("study.nextLesson")}</Link>
+            <Link to={`/topic/${Number(session.lesson) + 1}/study`} className="rounded-xl bg-emerald-50 px-4 py-2 font-black text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-100">{t("study.nextLesson")}</Link>
           )}
         </div>
       )}

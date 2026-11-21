@@ -123,7 +123,7 @@ function LearnerHome() {
       icon: "✨",
       title: t("home.plan.newWords"),
       detail: nextLesson ? t("home.plan.nextLesson", { lesson: nextLesson }) : t("home.plan.newNone"),
-      to: nextLesson ? `/lesson/${nextLesson}` : "/study",
+      to: nextLesson ? `/topic/${nextLesson}` : "/study",
       done: !nextLesson,
     },
     next.grammar && {
@@ -180,8 +180,8 @@ function LearnerHome() {
           </ul>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link to={reviews ? "/review" : nextLesson ? `/lesson/${nextLesson}` : "/study"} className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {reviews ? t("sets.reviewNow", { count: reviews }) : t("anki.studyNow")}</Link>
-            {nextLesson && <Link to={`/lesson/${nextLesson}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("home.plan.nextLesson", { lesson: nextLesson })}</Link>}
+            <Link to={reviews ? "/review" : nextLesson ? `/topic/${nextLesson}` : "/study"} className="rounded-2xl bg-sky-500 px-6 py-3 font-black text-white shadow-xl shadow-sky-500/25 transition hover:-translate-y-0.5">▶ {reviews ? t("sets.reviewNow", { count: reviews }) : t("anki.studyNow")}</Link>
+            {nextLesson && <Link to={`/topic/${nextLesson}`} className="rounded-2xl border border-slate-300 px-5 py-3 font-black dark:border-white/15">{t("home.plan.nextLesson", { lesson: nextLesson })}</Link>}
           </div>
         </GlassCard>
 

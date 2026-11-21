@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { TOPIK1_GROUPS } from "../../data/grammar";
 import { useTranslation } from "react-i18next";
 import { lessonInfo } from "../../data";
 import { SPEAKING_LEVELS } from "../../data/speakingTopics";
@@ -47,7 +48,7 @@ const topicQuestionRow = {
 
 const FORMS = {
   lesson: [
-    { key: "course", type: "select", options: ["1A", "1B"] },
+    { key: "course", type: "select", options: ["basics", "everyday"] },
     { key: "category", type: "langs", langs: LANGS3 },
   ],
   word: [
@@ -68,7 +69,7 @@ const FORMS = {
     { key: "questions", type: "rows", row: quizRow },
   ],
   grammar: [
-    { key: "lesson", type: "number" },
+    { key: "group", type: "select", options: TOPIK1_GROUPS.map((group) => group.id) },
     { key: "pattern" },
     { key: "title", type: "langs", langs: LANGS3 },
     { key: "explain", type: "langs", langs: LANGS3 },
@@ -93,7 +94,7 @@ const REQUIRED = {
   lesson: ["category"],
   word: ["lesson", "korean", "uzbek"],
   story: ["lesson", "title", "lines"],
-  grammar: ["lesson", "pattern", "title", "explain"],
+  grammar: ["group", "pattern", "title", "explain"],
   topic: ["level", "ko", "uz", "questions"],
   topik: ["number", "title", "pdf"],
 };
@@ -109,7 +110,7 @@ function blank(kind) {
   }));
   if (kind === "story") values.emoji = "📖";
   if (kind === "topic") values.emoji = "💬";
-  if (kind === "lesson") values.course = "1B";
+  if (kind === "lesson") values.course = "everyday";
   if (kind !== "topik") return values;
   const paper = TOPIK_EXAMS[0];
   return {
@@ -229,8 +230,8 @@ function TopikForm({ id, data, set }) {
 }
 
 const previewLink = (kind, id, data) => ({
-  lesson: `/study/${data.lesson}?draft=1`,
-  word: `/study/${data.lesson}?draft=1`,
+  lesson: `/topic/${data.lesson}/study?draft=1`,
+  word: `/topic/${data.lesson}/study?draft=1`,
   story: `/stories/${id}?draft=1`,
   grammar: `/grammar/${id}?draft=1`,
   topic: "/speaking?draft=1",
@@ -301,7 +302,9 @@ export default function AdminStudio() {
     if (text) return setMessage({ ok: false, text });
     setBusy(true);
     setMessage(null);
-    const data = kind === "lesson" ? { ...edit.data, lesson: edit.data.lesson || nextLesson } : edit.data;
+    // wordKeys: a word saved after the decks were regrouped by topic, so its
+  // deck number is a current one (see applyCustomContent).
+  const data = kind === "lesson" ? { ...edit.data, lesson: edit.data.lesson || nextLesson } : kind === "word" ? { ...edit.data, wordKeys: 2 } : edit.data;
     try {
       await adminRequest({}, { action: "content", kind, itemId: edit.id, data, hidden });
       if (kind === "lesson") {

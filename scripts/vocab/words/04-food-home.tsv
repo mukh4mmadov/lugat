@@ -1,0 +1,86 @@
+# korean	topic	level	uz	en	ru	ex_ko	ex_uz	ex_en	ex_ru
+음식	food	1	ovqat, taom	food	еда, блюдо	한국 음식이 입에 맞아요.	Koreys taomlari menga yoqadi.	Korean food suits my taste.	Корейская еда мне по вкусу.
+맛	food	1	ta'm, maza	taste	вкус	이 국은 맛이 좋아요.	Bu sho'rvaning mazasi yaxshi.	This soup tastes good.	У этого супа хороший вкус.
+물	food	1	suv	water	вода	운동 후에 물을 많이 마셔요.	Sportdan keyin ko'p suv ichaman.	I drink a lot of water after exercise.	После тренировки я пью много воды.
+커피	food	1	qahva	coffee	кофе	커피에 설탕을 넣지 마세요.	Qahvaga shakar solmang.	Don't put sugar in the coffee.	Не кладите сахар в кофе.
+녹차	food	1	ko'k choy	green tea	зелёный чай	녹차가 몸에 좋아요.	Ko'k choy sog'liqqa foydali.	Green tea is good for you.	Зелёный чай полезен.
+레몬차	food	1	limonli choy	lemon tea	чай с лимоном	감기에 레몬차가 좋아요.	Shamollaganda limonli choy yaxshi.	Lemon tea is good for a cold.	При простуде хорош чай с лимоном.
+오렌지주스	food	1	apelsin sharbati	orange juice	апельсиновый сок	오렌지주스 한 잔 주세요.	Bir stakan apelsin sharbati bering.	A glass of orange juice, please.	Стакан апельсинового сока, пожалуйста.
+콜라	food	1	kola	cola	кола	피자하고 콜라를 시켰어요.	Pitsa va kola buyurtma qildim.	I ordered pizza and cola.	Я заказал пиццу и колу.
+맥주	food	1	pivo	beer	пиво	저는 맥주를 안 마셔요.	Men pivo ichmayman.	I don't drink beer.	Я не пью пиво.
+음료수	food	1	ichimlik	beverage, drink	напиток	음료수는 냉장고에 있어요.	Ichimliklar muzlatgichda.	The drinks are in the fridge.	Напитки в холодильнике.
+빵	food	1	non	bread	хлеб	아침에 빵을 먹었어요.	Ertalab non yedim.	I had bread for breakfast.	На завтрак я съел хлеб.
+과자	food	1	pechenye, shirinlik	snacks, cookies	печенье, сладости	아이들이 과자를 좋아해요.	Bolalar pechenyeni yaxshi ko'radi.	Kids love snacks.	Дети любят печенье.
+간식	food	1	yengil tamaddi	snack	перекус	학교에서 간식으로 과일을 먹어요.	Maktabda tamaddi uchun meva yeymiz.	We eat fruit as a snack at school.	В школе мы перекусываем фруктами.
+김치	food	1	kimchi (achchiq tuzlangan karam)	kimchi	кимчхи	김치가 조금 매워요.	Kimchi biroz achchiq.	The kimchi is a little spicy.	Кимчхи немного острое.
+김밥	food	1	kimbap (dengiz o'tiga o'ralgan guruch)	gimbap (rice rolls)	кимпап (рисовые роллы)	소풍에 김밥을 가져가요.	Sayrga kimbap olib boramiz.	We take gimbap on picnics.	На пикник мы берём кимпап.
+떡볶이	food	1	tteokbokki (achchiq guruch xamiri)	tteokbokki (spicy rice cakes)	токпокки (острые рисовые клёцки)	학교 앞에서 떡볶이를 사 먹었어요.	Maktab oldida tteokbokki olib yedim.	I bought tteokbokki in front of school.	Я купил токпокки возле школы.
+잡채	food	1	japchae (kraxmal ugrali taom)	japchae (glass noodles)	чапчхэ (крахмальная лапша)	잔치에 잡채가 꼭 있어요.	To'yda japchae albatta bo'ladi.	There's always japchae at a feast.	На празднике всегда есть чапчхэ.
+찌개	food	1	quyuq sho'rva (jjigae)	stew (jjigae)	густой суп (ччигэ)	된장찌개를 끓였어요.	Soyali quyuq sho'rva pishirdim.	I made soybean paste stew.	Я сварил суп с соевой пастой.
+국	food	1	sho'rva	soup	суп	밥하고 국을 먹어요.	Guruch va sho'rva yeymiz.	We eat rice with soup.	Мы едим рис с супом.
+쌀	food	1	guruch (xom)	rice (uncooked)	рис (крупа)	쌀을 씻어서 밥을 해요.	Guruchni yuvib, osh qilaman.	I wash the rice and cook it.	Я мою рис и варю его.
+밀가루	food	1	un	flour	мука	빵은 밀가루로 만들어요.	Non undan tayyorlanadi.	Bread is made from flour.	Хлеб делают из муки.
+계란	food	1	tuxum	egg	яйцо	아침에 계란을 삶았어요.	Ertalab tuxum qaynatdim.	I boiled eggs in the morning.	Утром я сварил яйца.
+계란빵	food	2	tuxumli non	egg bread	хлеб с яйцом	겨울에는 계란빵이 맛있어요.	Qishda tuxumli non mazali.	Egg bread is tasty in winter.	Зимой хлеб с яйцом особенно вкусный.
+떡꼬치	food	2	tteok shashlik (guruch xamiridan)	rice cake skewers	шпажки из рисовых клёцок	시장에서 떡꼬치를 먹었어요.	Bozorda guruch xamiridan shashlik yedim.	I ate rice cake skewers at the market.	На рынке я съел шпажки из клёцок.
+붕어빵	food	2	baliq shaklidagi shirin non	fish-shaped pastry	пирожок в форме рыбки	붕어빵 안에 팥이 있어요.	Baliqcha non ichida loviya qiyomi bor.	There's red bean paste inside the fish pastry.	Внутри пирожка-рыбки фасолевая паста.
+한식	food	1	koreys taomlari	Korean food	корейская кухня	외국 친구가 한식을 좋아해요.	Chet ellik do'stim koreys taomlarini yoqtiradi.	My foreign friend likes Korean food.	Моему иностранному другу нравится корейская кухня.
+치킨	food	1	qovurilgan tovuq	fried chicken	жареная курица	주말에 치킨을 시켜 먹어요.	Dam olish kuni qovurilgan tovuq buyurtma qilamiz.	We order fried chicken on weekends.	В выходные мы заказываем курицу.
+사과	food	1	olma	apple	яблоко	사과가 아주 달아요.	Olma juda shirin.	The apple is very sweet.	Яблоко очень сладкое.
+껌	food	1	saqich	chewing gum	жвачка	껌을 길에 버리지 마세요.	Saqichni ko'chaga tashlamang.	Don't throw gum on the street.	Не бросайте жвачку на улицу.
+초콜릿	food	1	shokolad	chocolate	шоколад	초콜릿을 너무 많이 먹었어요.	Shokoladni juda ko'p yeb qo'ydim.	I ate too much chocolate.	Я съел слишком много шоколада.
+아이스크림	food	1	muzqaymoq	ice cream	мороженое	더워서 아이스크림을 먹었어요.	Issiq bo'lgani uchun muzqaymoq yedim.	It was hot, so I had ice cream.	Было жарко, и я съел мороженое.
+샌드위치	food	1	sendvich	sandwich	сэндвич	점심으로 샌드위치를 먹어요.	Tushlikka sendvich yeyman.	I eat a sandwich for lunch.	На обед я ем сэндвич.
+케이크	food	1	tort	cake	торт	생일 케이크를 샀어요.	Tug'ilgan kun torti oldim.	I bought a birthday cake.	Я купил торт на день рождения.
+밥을 먹다	food	1	ovqatlanmoq	to have a meal	есть, кушать	오늘은 집에서 밥을 먹어요.	Bugun uyda ovqatlanaman.	I'm eating at home today.	Сегодня я ем дома.
+아침을 먹다	food	1	nonushta qilmoq	to have breakfast	завтракать	바빠서 아침을 못 먹었어요.	Band bo'lib, nonushta qilolmadim.	I was busy and couldn't have breakfast.	Я был занят и не успел позавтракать.
+점심을 먹다	food	1	tushlik qilmoq	to have lunch	обедать	회사 식당에서 점심을 먹어요.	Ishxona oshxonasida tushlik qilaman.	I have lunch at the company cafeteria.	Я обедаю в столовой на работе.
+쿠키를 만들다	food	1	pechenye pishirmoq	to bake cookies	печь печенье	동생과 쿠키를 만들었어요.	Ukam bilan pechenye pishirdik.	I baked cookies with my brother.	Мы с братом испекли печенье.
+집	home	1	uy	house, home	дом	집에 일찍 왔어요.	Uyga erta keldim.	I came home early.	Я рано пришёл домой.
+아파트	home	1	ko'p qavatli uy (kvartira)	apartment	квартира, многоэтажка	우리 아파트는 십 층이에요.	Bizning uy o'n qavatli.	Our apartment building has ten floors.	В нашем доме десять этажей.
+방	home	1	xona	room	комната	제 방은 작지만 깨끗해요.	Xonam kichik, lekin toza.	My room is small but clean.	Моя комната маленькая, но чистая.
+거실	home	1	mehmonxona (uyda)	living room	гостиная	거실에 큰 소파가 있어요.	Mehmonxonada katta divan bor.	There's a big sofa in the living room.	В гостиной большой диван.
+부엌	home	1	oshxona (uyda)	kitchen	кухня	어머니가 부엌에 계세요.	Onam oshxonadalar.	Mom is in the kitchen.	Мама на кухне.
+문	home	1	eshik	door	дверь	문 좀 열어 주세요.	Eshikni ochib yuboring.	Please open the door.	Откройте, пожалуйста, дверь.
+창문	home	1	deraza	window	окно	창문 밖으로 산이 보여요.	Derazadan tog' ko'rinadi.	You can see the mountain from the window.	Из окна видна гора.
+계단	home	1	zinapoya	stairs	лестница	계단에서 넘어졌어요.	Zinapoyada yiqilib tushdim.	I fell on the stairs.	Я упал на лестнице.
+엘리베이터	home	1	lift	elevator	лифт	엘리베이터가 고장 났어요.	Lift buzilib qoldi.	The elevator is broken.	Лифт сломался.
+휴게실	home	1	dam olish xonasi	lounge, break room	комната отдыха	휴게실에서 커피를 마셔요.	Dam olish xonasida qahva ichamiz.	We drink coffee in the lounge.	Мы пьём кофе в комнате отдыха.
+실내	home	2	bino ichi	indoors	в помещении	실내에서는 모자를 벗으세요.	Bino ichida bosh kiyimni yeching.	Please take off your hat indoors.	В помещении снимите головной убор.
+에어컨	home	1	konditsioner	air conditioner	кондиционер	더워서 에어컨을 켰어요.	Issiq bo'lgani uchun konditsionerni yoqdim.	It was hot, so I turned on the AC.	Было жарко, и я включил кондиционер.
+선풍기	home	1	ventilyator	electric fan	вентилятор	선풍기 바람이 시원해요.	Ventilyator shamoli salqin.	The fan's breeze is cool.	От вентилятора прохладно.
+냉장고	home	1	muzlatgich	refrigerator	холодильник	우유를 냉장고에 넣었어요.	Sutni muzlatgichga qo'ydim.	I put the milk in the fridge.	Я положил молоко в холодильник.
+텔레비전	home	1	televizor	television	телевизор	밤늦게 텔레비전을 봤어요.	Kechasi kech televizor ko'rdim.	I watched TV late at night.	Я смотрел телевизор допоздна.
+청소기	home	1	changyutgich	vacuum cleaner	пылесос	청소기로 방을 청소해요.	Xonani changyutgich bilan tozalayman.	I clean my room with a vacuum.	Я убираю комнату пылесосом.
+빗자루	home	2	supurgi	broom	метла, веник	빗자루로 마당을 쓸었어요.	Hovlini supurgi bilan supurdim.	I swept the yard with a broom.	Я подмёл двор веником.
+가위	home	1	qaychi	scissors	ножницы	가위 좀 빌려주세요.	Qaychingizni berib turing.	Could I borrow your scissors?	Одолжите, пожалуйста, ножницы.
+칼	home	1	pichoq	knife	нож	칼을 조심하세요.	Pichoqdan ehtiyot bo'ling.	Be careful with the knife.	Осторожно с ножом.
+숟가락	home	1	qoshiq	spoon	ложка	숟가락으로 국을 먹어요.	Sho'rvani qoshiq bilan ichaman.	I eat soup with a spoon.	Я ем суп ложкой.
+칫솔	home	1	tish cho'tkasi	toothbrush	зубная щётка	여행 가방에 칫솔을 넣었어요.	Sayohat sumkasiga tish cho'tkasini soldim.	I put a toothbrush in my travel bag.	Я положил зубную щётку в дорожную сумку.
+인형	home	1	qo'g'irchoq	doll	кукла	동생이 인형을 안고 자요.	Singlim qo'g'irchog'ini quchoqlab uxlaydi.	My little sister sleeps hugging her doll.	Сестрёнка спит в обнимку с куклой.
+장난감	home	1	o'yinchoq	toy	игрушка	아이에게 장난감을 사 줬어요.	Bolaga o'yinchoq olib berdim.	I bought the child a toy.	Я купил ребёнку игрушку.
+집안일	home	1	uy yumushlari	housework	домашние дела	남편과 집안일을 나눠서 해요.	Erim bilan uy ishlarini bo'lishib qilamiz.	My husband and I share the housework.	Мы с мужем делим домашние дела.
+노트북	items	1	noutbuk	laptop	ноутбук	노트북으로 숙제를 해요.	Uy vazifasini noutbukda qilaman.	I do my homework on a laptop.	Я делаю домашнее задание на ноутбуке.
+컴퓨터	items	1	kompyuter	computer	компьютер	컴퓨터가 너무 느려요.	Kompyuter juda sekin.	The computer is too slow.	Компьютер слишком медленный.
+카메라	items	1	fotoapparat	camera	фотоаппарат	새 카메라로 사진을 찍었어요.	Yangi fotoapparat bilan suratga oldim.	I took photos with my new camera.	Я фотографировал новым фотоаппаратом.
+핸드폰	items	1	telefon (qo'l telefoni)	cell phone	мобильный телефон	핸드폰을 집에 두고 왔어요.	Telefonimni uyda qoldirib keldim.	I left my phone at home.	Я оставил телефон дома.
+휴대폰	items	1	mobil telefon	mobile phone	мобильный телефон	휴대폰 배터리가 없어요.	Telefonimning quvvati tugadi.	My phone battery is dead.	У телефона сел аккумулятор.
+이어폰	items	1	quloqchin	earphones	наушники	이어폰을 잃어버렸어요.	Quloqchinimni yo'qotib qo'ydim.	I lost my earphones.	Я потерял наушники.
+복사기	items	2	nusxa ko'chirish mashinasi	photocopier	ксерокс	복사기가 종이가 없어요.	Nusxa ko'chirish mashinasida qog'oz yo'q.	The copier is out of paper.	В ксероксе нет бумаги.
+시계	items	1	soat	clock, watch	часы	시계가 오 분 빨라요.	Soat besh daqiqa oldinda.	The clock is five minutes fast.	Часы спешат на пять минут.
+안경	items	1	ko'zoynak	glasses	очки	안경이 어디 있어요?	Ko'zoynagim qayerda?	Where are my glasses?	Где мои очки?
+모자	items	1	shapka, bosh kiyim	hat, cap	шапка, кепка	햇빛이 강해서 모자를 썼어요.	Quyosh kuchli, shuning uchun shapka kiydim.	The sun was strong, so I wore a hat.	Солнце было сильное, и я надел кепку.
+구두	items	1	tufli	dress shoes	туфли	결혼식에 구두를 신고 가요.	To'yga tufli kiyib boraman.	I wear dress shoes to the wedding.	На свадьбу я надеваю туфли.
+등산화	items	2	tog' oyoq kiyimi	hiking boots	ботинки для походов	등산화가 아주 편해요.	Tog' botinkalari juda qulay.	The hiking boots are very comfortable.	Походные ботинки очень удобные.
+치마	items	1	yubka	skirt	юбка	빨간 치마를 입었어요.	Qizil yubka kiydim.	I wore a red skirt.	Я надела красную юбку.
+바지	items	1	shim	pants, trousers	брюки	이 바지는 좀 길어요.	Bu shim biroz uzun.	These pants are a bit long.	Эти брюки немного длинные.
+교복	items	1	maktab formasi	school uniform	школьная форма	우리 학교 교복은 파란색이에요.	Maktabimiz formasi ko'k rangda.	Our school uniform is blue.	Наша школьная форма синяя.
+얇은 옷	items	1	yupqa kiyim	thin clothes	тонкая одежда	얇은 옷을 입어서 추웠어요.	Yupqa kiyim kiyganim uchun sovqotdim.	I was cold because I wore thin clothes.	Мне было холодно в тонкой одежде.
+따뜻한 옷	items	1	issiq kiyim	warm clothes	тёплая одежда	따뜻한 옷을 챙기세요.	Issiq kiyim olib oling.	Pack warm clothes.	Возьмите тёплую одежду.
+장갑	items	1	qo'lqop	gloves	перчатки	추워서 장갑을 꼈어요.	Sovuq bo'lgani uchun qo'lqop kiydim.	It was cold, so I put on gloves.	Было холодно, и я надел перчатки.
+지갑	items	1	hamyon	wallet	кошелёк	지갑에 돈이 별로 없어요.	Hamyonimda pul ko'p emas.	There isn't much money in my wallet.	В кошельке мало денег.
+향수	items	2	atir	perfume	духи	이 향수 냄새가 좋아요.	Bu atirning hidi yoqimli.	This perfume smells nice.	У этих духов приятный запах.
+마스크	items	1	niqob (tibbiy)	face mask	маска	감기에 걸려서 마스크를 썼어요.	Shamollaganim uchun niqob taqdim.	I caught a cold, so I wore a mask.	Я простыл и надел маску.
+신문	items	1	gazeta	newspaper	газета	할아버지는 매일 신문을 읽으세요.	Bobom har kuni gazeta o'qiydilar.	My grandfather reads the paper every day.	Дедушка каждый день читает газету.
+동화책	items	1	ertak kitobi	storybook	книга сказок	도서관에서 동화책을 빌렸어요.	Kutubxonadan ertak kitobi oldim.	I borrowed a storybook from the library.	Я взял книгу сказок в библиотеке.
+요리책	items	1	pazandachilik kitobi	cookbook	кулинарная книга	요리책을 보고 요리했어요.	Pazandachilik kitobiga qarab ovqat qildim.	I cooked following a cookbook.	Я готовил по кулинарной книге.

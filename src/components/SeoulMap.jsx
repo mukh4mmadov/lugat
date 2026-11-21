@@ -30,7 +30,7 @@ export default function SeoulMap({ compact = false }) {
           return (
             <li key={place.lesson} className={`relative flex items-center gap-3 ${offset}`}>
               <Link
-                to={`/study/${place.lesson}`}
+                to={`/topic/${place.lesson}/study`}
                 aria-label={`${t("card.lesson", { lesson: place.lesson })}: ${place[language] || place.en}`}
                 className={`relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl border-4 text-2xl shadow-lg transition hover:scale-105 ${
                   done

@@ -201,6 +201,10 @@ function SetHome({ set }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const stats = useMemo(() => setStats(progress, set, options), [progress, set, options, vocab]);
   const [showWords, setShowWords] = useState(false);
+  // Topic decks mark each word's TOPIK level; the list can show one level.
+  const [level, setLevel] = useState(0);
+  const levels = [...new Set(words.map((word) => word.level).filter(Boolean))].sort();
+  const listed = level ? words.filter((word) => word.level === level) : words;
   const last = lastStudied(stats.last, t);
   const neighbour = (n) => (set.kind === "lesson" ? lessonSet(n) : unitSet(n));
   const previous = neighbour(set.n - 1);
@@ -255,7 +259,7 @@ function SetHome({ set }) {
                 ["dictation", t("dictation.title")],
                 ["grammar", t("nav.grammar")],
               ].map(([path, label]) => (
-                <Link key={path} to={`/lesson/${set.n}/${path}`} className="rounded-xl border border-slate-200 px-3 py-2.5 text-center hover:border-sky-300 dark:border-white/10">{label}</Link>
+                <Link key={path} to={path === "grammar" ? "/grammar" : `/topic/${set.n}/${path}`} className="rounded-xl border border-slate-200 px-3 py-2.5 text-center hover:border-sky-300 dark:border-white/10">{label}</Link>
               ))}
             </div>
           </GlassCard>
@@ -267,15 +271,25 @@ function SetHome({ set }) {
           <span>{t("sets.wordList")} · {words.length || stats.total}</span>
           <span aria-hidden="true">{showWords ? "▴" : "▾"}</span>
         </button>
+        {showWords && levels.length > 1 && (
+          <div className="mt-3 flex flex-wrap gap-2 text-xs font-black" role="group">
+            {[0, ...levels].map((value) => (
+              <button key={value} type="button" onClick={() => setLevel(value)} aria-pressed={level === value} className={`rounded-full border px-3 py-1 ${level === value ? "border-sky-500 bg-sky-500 text-white" : "border-slate-200 dark:border-white/10"}`}>
+                {value ? t("word.level", { level: value }) : t("word.levelAll")}
+              </button>
+            ))}
+          </div>
+        )}
         {showWords && (
           <ul className="mt-3 divide-y divide-slate-200 dark:divide-white/10">
-            {words.map((word) => {
+            {listed.map((word) => {
               const card = readCard(progress, getWordKey(word));
               const tone = !card || card.state === STATE.new ? "bg-slate-300 dark:bg-white/20" : card.state === STATE.review ? "bg-emerald-500" : "bg-amber-400";
               return (
                 <li key={getWordKey(word)} className="flex items-center gap-3 py-2">
                   <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${tone}`} aria-hidden="true" />
                   <span className="font-bold" lang="ko">{word.korean}</span>
+                  {word.level > 1 && <span className="shrink-0 rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black text-violet-700 dark:bg-violet-500/15 dark:text-violet-200">{t("word.level", { level: word.level })}</span>}
                   <span className="min-w-0 flex-1 truncate text-right text-sm text-slate-500 dark:text-slate-400">{meaning(word)}</span>
                 </li>
               );

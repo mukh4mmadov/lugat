@@ -1,8 +1,8 @@
-// Word sets a learner studies one at a time: the 28 lessons and the TOPIK I
+// Word sets a learner studies one at a time: the topic decks and the TOPIK I
 // units. Each set has its own page (study, cards, word list) and its own
 // numbers, all read from the word cards in the learner's progress, so they
 // follow the account across devices without extra storage.
-import { getLessonWords, getWordKey, lessonInfo } from "../data";
+import { deckName, getLessonWords, getWordKey, lessonInfo } from "../data";
 import { TOPIK1_UNITS, getTopikUnit, topikUnitTitle, topikUnitWords } from "../data/topikUnits";
 import { cardIdsFor, readCard } from "./anki";
 export { dueCardCount } from "./anki";
@@ -17,9 +17,10 @@ export function lessonSet(n) {
     key: `l${info.lesson}`,
     size: info.count,
     category: info.category,
-    home: `/lesson/${info.lesson}`,
-    study: `/study/${info.lesson}`,
-    cards: `/lesson/${info.lesson}/flashcards`,
+    info,
+    home: `/topic/${info.lesson}`,
+    study: `/topic/${info.lesson}/study`,
+    cards: `/topic/${info.lesson}/flashcards`,
     words: () => getLessonWords(info.lesson),
   };
 }
@@ -43,7 +44,7 @@ export function unitSet(n) {
 export const allLessonSets = () => lessonInfo.map((lesson) => lessonSet(lesson.lesson)).filter(Boolean);
 export const allUnitSets = () => TOPIK1_UNITS.map((unit) => unitSet(unit.n));
 
-// "Lesson 3" / "Unit 12 · Family".
+// "Topic 3" / "Unit 12 · Family".
 export function setTitle(set, t, language) {
   if (!set) return "";
   if (set.kind === "lesson") return t("card.lesson", { lesson: set.n });
@@ -52,7 +53,7 @@ export function setTitle(set, t, language) {
 
 export function setSubtitle(set, t, language) {
   if (!set) return "";
-  if (set.kind === "lesson") return t(set.category);
+  if (set.kind === "lesson") return deckName(set.info, t);
   return topikUnitTitle(set.unit, language);
 }
 

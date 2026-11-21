@@ -1,0 +1,344 @@
+[
+  {
+    "id": 235,
+    "korean": "사과",
+    "uzbek": "olma",
+    "english": "apple",
+    "russian": "яблоко",
+    "romanization": "sagwa",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "사과가 아주 달아요.",
+      "uz": "Olma juda shirin.",
+      "en": "The apple is very sweet.",
+      "ru": "Яблоко очень сладкое."
+    }
+  },
+  {
+    "id": 236,
+    "korean": "샌드위치",
+    "uzbek": "sendvich",
+    "english": "sandwich",
+    "russian": "сэндвич",
+    "romanization": "saendeuwichi",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "점심으로 샌드위치를 먹어요.",
+      "uz": "Tushlikka sendvich yeyman.",
+      "en": "I eat a sandwich for lunch.",
+      "ru": "На обед я ем сэндвич."
+    }
+  },
+  {
+    "id": 237,
+    "korean": "쌀",
+    "uzbek": "guruch (xom)",
+    "english": "rice (uncooked)",
+    "russian": "рис (крупа)",
+    "romanization": "ssal",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "쌀을 씻어서 밥을 해요.",
+      "uz": "Guruchni yuvib, osh qilaman.",
+      "en": "I wash the rice and cook it.",
+      "ru": "Я мою рис и варю его."
+    }
+  },
+  {
+    "id": 238,
+    "korean": "아이스크림",
+    "uzbek": "muzqaymoq",
+    "english": "ice cream",
+    "russian": "мороженое",
+    "romanization": "aiseukeurim",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "더워서 아이스크림을 먹었어요.",
+      "uz": "Issiq bo'lgani uchun muzqaymoq yedim.",
+      "en": "It was hot, so I had ice cream.",
+      "ru": "Было жарко, и я съел мороженое."
+    }
+  },
+  {
+    "id": 239,
+    "korean": "아침을 먹다",
+    "uzbek": "nonushta qilmoq",
+    "english": "to have breakfast",
+    "russian": "завтракать",
+    "romanization": "achimeul meokda",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바빠서 아침을 못 먹었어요.",
+      "uz": "Band bo'lib, nonushta qilolmadim.",
+      "en": "I was busy and couldn't have breakfast.",
+      "ru": "Я был занят и не успел позавтракать."
+    }
+  },
+  {
+    "id": 240,
+    "korean": "오렌지주스",
+    "uzbek": "apelsin sharbati",
+    "english": "orange juice",
+    "russian": "апельсиновый сок",
+    "romanization": "orenjijuseu",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오렌지주스 한 잔 주세요.",
+      "uz": "Bir stakan apelsin sharbati bering.",
+      "en": "A glass of orange juice, please.",
+      "ru": "Стакан апельсинового сока, пожалуйста."
+    }
+  },
+  {
+    "id": 241,
+    "korean": "음료수",
+    "uzbek": "ichimlik",
+    "english": "beverage, drink",
+    "russian": "напиток",
+    "romanization": "eumnyosu",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "음료수는 냉장고에 있어요.",
+      "uz": "Ichimliklar muzlatgichda.",
+      "en": "The drinks are in the fridge.",
+      "ru": "Напитки в холодильнике."
+    }
+  },
+  {
+    "id": 242,
+    "korean": "음식",
+    "uzbek": "ovqat, taom",
+    "english": "food",
+    "russian": "еда, блюдо",
+    "romanization": "eumsik",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 음식이 입에 맞아요.",
+      "uz": "Koreys taomlari menga yoqadi.",
+      "en": "Korean food suits my taste.",
+      "ru": "Корейская еда мне по вкусу."
+    }
+  },
+  {
+    "id": 243,
+    "korean": "잡채",
+    "uzbek": "japchae (kraxmal ugrali taom)",
+    "english": "japchae (glass noodles)",
+    "russian": "чапчхэ (крахмальная лапша)",
+    "romanization": "japchae",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "잔치에 잡채가 꼭 있어요.",
+      "uz": "To'yda japchae albatta bo'ladi.",
+      "en": "There's always japchae at a feast.",
+      "ru": "На празднике всегда есть чапчхэ."
+    }
+  },
+  {
+    "id": 244,
+    "korean": "점심을 먹다",
+    "uzbek": "tushlik qilmoq",
+    "english": "to have lunch",
+    "russian": "обедать",
+    "romanization": "jeomsimeul meokda",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "회사 식당에서 점심을 먹어요.",
+      "uz": "Ishxona oshxonasida tushlik qilaman.",
+      "en": "I have lunch at the company cafeteria.",
+      "ru": "Я обедаю в столовой на работе."
+    }
+  },
+  {
+    "id": 245,
+    "korean": "찌개",
+    "uzbek": "quyuq sho'rva (jjigae)",
+    "english": "stew (jjigae)",
+    "russian": "густой суп (ччигэ)",
+    "romanization": "jjigae",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "된장찌개를 끓였어요.",
+      "uz": "Soyali quyuq sho'rva pishirdim.",
+      "en": "I made soybean paste stew.",
+      "ru": "Я сварил суп с соевой пастой."
+    }
+  },
+  {
+    "id": 246,
+    "korean": "초콜릿",
+    "uzbek": "shokolad",
+    "english": "chocolate",
+    "russian": "шоколад",
+    "romanization": "chokollit",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "초콜릿을 너무 많이 먹었어요.",
+      "uz": "Shokoladni juda ko'p yeb qo'ydim.",
+      "en": "I ate too much chocolate.",
+      "ru": "Я съел слишком много шоколада."
+    }
+  },
+  {
+    "id": 247,
+    "korean": "치킨",
+    "uzbek": "qovurilgan tovuq",
+    "english": "fried chicken",
+    "russian": "жареная курица",
+    "romanization": "chikin",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 치킨을 시켜 먹어요.",
+      "uz": "Dam olish kuni qovurilgan tovuq buyurtma qilamiz.",
+      "en": "We order fried chicken on weekends.",
+      "ru": "В выходные мы заказываем курицу."
+    }
+  },
+  {
+    "id": 248,
+    "korean": "커피",
+    "uzbek": "qahva",
+    "english": "coffee",
+    "russian": "кофе",
+    "romanization": "keopi",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "커피에 설탕을 넣지 마세요.",
+      "uz": "Qahvaga shakar solmang.",
+      "en": "Don't put sugar in the coffee.",
+      "ru": "Не кладите сахар в кофе."
+    }
+  },
+  {
+    "id": 249,
+    "korean": "케이크",
+    "uzbek": "tort",
+    "english": "cake",
+    "russian": "торт",
+    "romanization": "keikeu",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "생일 케이크를 샀어요.",
+      "uz": "Tug'ilgan kun torti oldim.",
+      "en": "I bought a birthday cake.",
+      "ru": "Я купил торт на день рождения."
+    }
+  },
+  {
+    "id": 250,
+    "korean": "콜라",
+    "uzbek": "kola",
+    "english": "cola",
+    "russian": "кола",
+    "romanization": "kolla",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "피자하고 콜라를 시켰어요.",
+      "uz": "Pitsa va kola buyurtma qildim.",
+      "en": "I ordered pizza and cola.",
+      "ru": "Я заказал пиццу и колу."
+    }
+  },
+  {
+    "id": 251,
+    "korean": "쿠키를 만들다",
+    "uzbek": "pechenye pishirmoq",
+    "english": "to bake cookies",
+    "russian": "печь печенье",
+    "romanization": "kukireul mandeulda",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생과 쿠키를 만들었어요.",
+      "uz": "Ukam bilan pechenye pishirdik.",
+      "en": "I baked cookies with my brother.",
+      "ru": "Мы с братом испекли печенье."
+    }
+  },
+  {
+    "id": 252,
+    "korean": "한식",
+    "uzbek": "koreys taomlari",
+    "english": "Korean food",
+    "russian": "корейская кухня",
+    "romanization": "hansik",
+    "lesson": 11,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "외국 친구가 한식을 좋아해요.",
+      "uz": "Chet ellik do'stim koreys taomlarini yoqtiradi.",
+      "en": "My foreign friend likes Korean food.",
+      "ru": "Моему иностранному другу нравится корейская кухня."
+    }
+  }
+]

@@ -1,8 +1,8 @@
-// Builds the listening lessons ("audio darslar") for one lesson file:
-//   node scripts/lesson-audio/build.mjs scripts/lesson-audio/lesson-01.json <outDir>
+// Builds the listening lessons ("audio darslar") for one topic deck script:
+//   node scripts/lesson-audio/build.mjs scripts/lesson-audio/topic-NN.json <outDir>
 // A teacher voice explains and a Korean voice says the words. NARRATION picks
 // the teacher's language: "uz" (default, VoiceLab) or "en" (ElevenLabs, with
-// the English texts from lesson-NN.en.json). Korean is always VoiceLab.
+// the English texts from topic-NN.en.json). Korean is always VoiceLab.
 // Keys: VOICELAB_API_KEY, ELEVENLABS_API_KEY. Each spoken line is cached in
 // <outDir>/cache, so a rebuild only pays for lines that changed. The result is
 // two WAV files (<id>[-en]-short.wav, <id>[-en]-full.wav); encode.ps1 turns

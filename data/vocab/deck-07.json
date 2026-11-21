@@ -1,0 +1,496 @@
+[
+  {
+    "id": 133,
+    "korean": "그동안",
+    "uzbek": "shu vaqt ichida",
+    "english": "meanwhile, all this time",
+    "russian": "за это время",
+    "romanization": "geudongan",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그동안 많이 바빴어요.",
+      "uz": "Shu vaqt ichida juda band bo'ldim.",
+      "en": "I've been very busy all this time.",
+      "ru": "Всё это время я был очень занят."
+    }
+  },
+  {
+    "id": 134,
+    "korean": "그때",
+    "uzbek": "o'sha paytda",
+    "english": "at that time",
+    "russian": "тогда, в то время",
+    "romanization": "geuttae",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그때 처음으로 눈을 봤어요.",
+      "uz": "O'shanda birinchi marta qor ko'rdim.",
+      "en": "That was the first time I saw snow.",
+      "ru": "Тогда я впервые увидел снег."
+    }
+  },
+  {
+    "id": 135,
+    "korean": "금요일",
+    "uzbek": "juma",
+    "english": "Friday",
+    "russian": "пятница",
+    "romanization": "geumyoil",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "금요일 저녁에 가족과 외식해요.",
+      "uz": "Juma kuni kechqurun oilam bilan tashqarida ovqatlanamiz.",
+      "en": "We eat out with the family on Friday evening.",
+      "ru": "В пятницу вечером мы ужинаем с семьёй в ресторане."
+    }
+  },
+  {
+    "id": 136,
+    "korean": "날짜",
+    "uzbek": "sana",
+    "english": "date",
+    "russian": "дата, число",
+    "romanization": "naljja",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 날짜가 어떻게 돼요?",
+      "uz": "Bugun nechanchi sana?",
+      "en": "What's the date today?",
+      "ru": "Какое сегодня число?"
+    }
+  },
+  {
+    "id": 137,
+    "korean": "낮",
+    "uzbek": "kunduz",
+    "english": "daytime",
+    "russian": "день (светлое время)",
+    "romanization": "nat",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여름에는 낮이 길어요.",
+      "uz": "Yozda kunlar uzun.",
+      "en": "Days are long in summer.",
+      "ru": "Летом длинные дни."
+    }
+  },
+  {
+    "id": 138,
+    "korean": "내년",
+    "uzbek": "kelasi yil",
+    "english": "next year",
+    "russian": "в следующем году",
+    "romanization": "naenyeon",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "내년에 대학교에 들어가요.",
+      "uz": "Kelasi yil universitetga kiraman.",
+      "en": "I'm entering university next year.",
+      "ru": "В следующем году я поступаю в университет."
+    }
+  },
+  {
+    "id": 139,
+    "korean": "내일",
+    "uzbek": "ertaga",
+    "english": "tomorrow",
+    "russian": "завтра",
+    "romanization": "naeil",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "내일 다시 올게요.",
+      "uz": "Ertaga yana kelaman.",
+      "en": "I'll come again tomorrow.",
+      "ru": "Я приду снова завтра."
+    }
+  },
+  {
+    "id": 140,
+    "korean": "년",
+    "uzbek": "yil (sana aytishda)",
+    "english": "year (in dates)",
+    "russian": "год (в датах)",
+    "romanization": "nyeon",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이천 년에 태어났어요.",
+      "uz": "2000-yilda tug'ilganman.",
+      "en": "I was born in 2000.",
+      "ru": "Я родился в 2000 году."
+    }
+  },
+  {
+    "id": 141,
+    "korean": "다음 달",
+    "uzbek": "kelasi oy",
+    "english": "next month",
+    "russian": "в следующем месяце",
+    "romanization": "daeum dal",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다음 달에 휴가를 가요.",
+      "uz": "Kelasi oy ta'tilga chiqaman.",
+      "en": "I'm going on vacation next month.",
+      "ru": "В следующем месяце я иду в отпуск."
+    }
+  },
+  {
+    "id": 142,
+    "korean": "다음 주",
+    "uzbek": "kelasi hafta",
+    "english": "next week",
+    "russian": "на следующей неделе",
+    "romanization": "daeum ju",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다음 주 월요일에 시험이 있어요.",
+      "uz": "Kelasi dushanba imtihon bor.",
+      "en": "There's an exam next Monday.",
+      "ru": "В следующий понедельник экзамен."
+    }
+  },
+  {
+    "id": 143,
+    "korean": "달",
+    "uzbek": "oy (muddat)",
+    "english": "month (period)",
+    "russian": "месяц (срок)",
+    "romanization": "dal",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한 달 동안 한국에 있었어요.",
+      "uz": "Bir oy Koreyada bo'ldim.",
+      "en": "I was in Korea for a month.",
+      "ru": "Я был в Корее месяц."
+    }
+  },
+  {
+    "id": 144,
+    "korean": "동안",
+    "uzbek": "davomida",
+    "english": "during, for (a period)",
+    "russian": "в течение",
+    "romanization": "dongan",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학 동안 고향에 있었어요.",
+      "uz": "Ta'til davomida ona yurtimda bo'ldim.",
+      "en": "I was in my hometown during the break.",
+      "ru": "Во время каникул я был дома."
+    }
+  },
+  {
+    "id": 145,
+    "korean": "목요일",
+    "uzbek": "payshanba",
+    "english": "Thursday",
+    "russian": "четверг",
+    "romanization": "mogyoil",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "목요일 저녁에 시간 있어요?",
+      "uz": "Payshanba kechqurun bo'shmisiz?",
+      "en": "Are you free Thursday evening?",
+      "ru": "Вы свободны в четверг вечером?"
+    }
+  },
+  {
+    "id": 146,
+    "korean": "밤",
+    "uzbek": "tun, kecha",
+    "english": "night",
+    "russian": "ночь",
+    "romanization": "bam",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밤에 별이 많이 보여요.",
+      "uz": "Kechasi yulduzlar ko'p ko'rinadi.",
+      "en": "You can see many stars at night.",
+      "ru": "Ночью видно много звёзд."
+    }
+  },
+  {
+    "id": 147,
+    "korean": "방학",
+    "uzbek": "ta'til (o'quv)",
+    "english": "school vacation",
+    "russian": "каникулы",
+    "romanization": "banghak",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학에 여행을 가고 싶어요.",
+      "uz": "Ta'tilda sayohatga borgim keladi.",
+      "en": "I want to travel during the break.",
+      "ru": "На каникулах хочу поехать в путешествие."
+    }
+  },
+  {
+    "id": 148,
+    "korean": "분",
+    "uzbek": "daqiqa",
+    "english": "minute",
+    "russian": "минута",
+    "romanization": "bun",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "십 분만 쉬어요.",
+      "uz": "O'n daqiqa dam olaylik.",
+      "en": "Let's rest for ten minutes.",
+      "ru": "Давайте отдохнём десять минут."
+    }
+  },
+  {
+    "id": 149,
+    "korean": "새벽",
+    "uzbek": "tong, saharlab",
+    "english": "dawn, early morning",
+    "russian": "рассвет, раннее утро",
+    "romanization": "saebyeok",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새벽 다섯 시에 일어났어요.",
+      "uz": "Saharlab soat beshda turdim.",
+      "en": "I got up at five in the morning.",
+      "ru": "Я встал в пять утра."
+    }
+  },
+  {
+    "id": 150,
+    "korean": "생일",
+    "uzbek": "tug'ilgan kun",
+    "english": "birthday",
+    "russian": "день рождения",
+    "romanization": "saengil",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "생일이 언제예요?",
+      "uz": "Tug'ilgan kuningiz qachon?",
+      "en": "When is your birthday?",
+      "ru": "Когда у вас день рождения?"
+    }
+  },
+  {
+    "id": 151,
+    "korean": "수요일",
+    "uzbek": "chorshanba",
+    "english": "Wednesday",
+    "russian": "среда",
+    "romanization": "suyoil",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수요일에 시험이 있어요.",
+      "uz": "Chorshanba kuni imtihon bor.",
+      "en": "There's an exam on Wednesday.",
+      "ru": "В среду экзамен."
+    }
+  },
+  {
+    "id": 152,
+    "korean": "시",
+    "uzbek": "soat (vaqt aytishda)",
+    "english": "o'clock",
+    "russian": "час (при указании времени)",
+    "romanization": "si",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지금 세 시예요.",
+      "uz": "Hozir soat uch.",
+      "en": "It's three o'clock now.",
+      "ru": "Сейчас три часа."
+    }
+  },
+  {
+    "id": 153,
+    "korean": "아까",
+    "uzbek": "hozirgina, sal oldin",
+    "english": "a while ago",
+    "russian": "недавно, только что",
+    "romanization": "akka",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아까 누가 왔어요?",
+      "uz": "Hozirgina kim keldi?",
+      "en": "Who came by a moment ago?",
+      "ru": "Кто недавно приходил?"
+    }
+  },
+  {
+    "id": 154,
+    "korean": "아침",
+    "uzbek": "ertalab; nonushta",
+    "english": "morning; breakfast",
+    "russian": "утро; завтрак",
+    "romanization": "achim",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침마다 운동해요.",
+      "uz": "Har ertalab sport qilaman.",
+      "en": "I exercise every morning.",
+      "ru": "Я делаю зарядку каждое утро."
+    }
+  },
+  {
+    "id": 155,
+    "korean": "어렸을 때",
+    "uzbek": "yoshligimda",
+    "english": "when (I was) young",
+    "russian": "в детстве",
+    "romanization": "eoryeosseul ttae",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어렸을 때 시골에 살았어요.",
+      "uz": "Yoshligimda qishloqda yashardim.",
+      "en": "I lived in the countryside as a child.",
+      "ru": "В детстве я жил в деревне."
+    }
+  },
+  {
+    "id": 156,
+    "korean": "어제",
+    "uzbek": "kecha",
+    "english": "yesterday",
+    "russian": "вчера",
+    "romanization": "eoje",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어제 하루 종일 비가 왔어요.",
+      "uz": "Kecha kun bo'yi yomg'ir yog'di.",
+      "en": "It rained all day yesterday.",
+      "ru": "Вчера весь день шёл дождь."
+    }
+  },
+  {
+    "id": 157,
+    "korean": "어젯밤",
+    "uzbek": "kecha kechqurun",
+    "english": "last night",
+    "russian": "вчера вечером, прошлой ночью",
+    "romanization": "eojetbam",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어젯밤에 눈이 많이 왔어요.",
+      "uz": "Kecha kechqurun ko'p qor yog'di.",
+      "en": "It snowed a lot last night.",
+      "ru": "Вчера ночью выпало много снега."
+    }
+  },
+  {
+    "id": 158,
+    "korean": "언제쯤",
+    "uzbek": "taxminan qachon",
+    "english": "about when",
+    "russian": "примерно когда",
+    "romanization": "eonjejjeum",
+    "lesson": 7,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "택배가 언제쯤 와요?",
+      "uz": "Posilka taxminan qachon keladi?",
+      "en": "About when will the package arrive?",
+      "ru": "Примерно когда придёт посылка?"
+    }
+  }
+]

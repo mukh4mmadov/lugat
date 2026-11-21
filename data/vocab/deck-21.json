@@ -1,0 +1,325 @@
+[
+  {
+    "id": 475,
+    "korean": "귀",
+    "uzbek": "quloq",
+    "english": "ear",
+    "russian": "ухо",
+    "romanization": "gwi",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "귀에 물이 들어갔어요.",
+      "uz": "Qulog'imga suv kirdi.",
+      "en": "Water got in my ear.",
+      "ru": "Мне в ухо попала вода."
+    }
+  },
+  {
+    "id": 476,
+    "korean": "눈",
+    "uzbek": "ko'z; qor",
+    "english": "eye; snow",
+    "russian": "глаз; снег",
+    "romanization": "nun",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "눈이 피곤해요.",
+      "uz": "Ko'zlarim charchadi.",
+      "en": "My eyes are tired.",
+      "ru": "Глаза устали."
+    }
+  },
+  {
+    "id": 477,
+    "korean": "다리",
+    "uzbek": "oyoq; ko'prik",
+    "english": "leg; bridge",
+    "russian": "нога; мост",
+    "romanization": "dari",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오래 걸어서 다리가 아파요.",
+      "uz": "Ko'p yurganimdan oyog'im og'riyapti.",
+      "en": "My legs hurt from walking.",
+      "ru": "Ноги болят от долгой ходьбы."
+    }
+  },
+  {
+    "id": 478,
+    "korean": "등",
+    "uzbek": "orqa (tana); va hokazo",
+    "english": "back (body); etc.",
+    "russian": "спина; и т. д.",
+    "romanization": "deung",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "등이 가려워요.",
+      "uz": "Orqam qichiyapti.",
+      "en": "My back itches.",
+      "ru": "У меня чешется спина."
+    }
+  },
+  {
+    "id": 479,
+    "korean": "머리",
+    "uzbek": "bosh; soch",
+    "english": "head; hair",
+    "russian": "голова; волосы",
+    "romanization": "meori",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "머리를 짧게 잘랐어요.",
+      "uz": "Sochimni kalta qildirdim.",
+      "en": "I got a short haircut.",
+      "ru": "Я коротко подстригся."
+    }
+  },
+  {
+    "id": 480,
+    "korean": "몸",
+    "uzbek": "tana, badan",
+    "english": "body",
+    "russian": "тело",
+    "romanization": "mom",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "몸이 좀 안 좋아요.",
+      "uz": "O'zimni biroz yomon his qilyapman.",
+      "en": "I don't feel very well.",
+      "ru": "Мне немного нездоровится."
+    }
+  },
+  {
+    "id": 481,
+    "korean": "무릎",
+    "uzbek": "tizza",
+    "english": "knee",
+    "russian": "колено",
+    "romanization": "mureup",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "넘어져서 무릎을 다쳤어요.",
+      "uz": "Yiqilib tizzamni urib oldim.",
+      "en": "I fell and hurt my knee.",
+      "ru": "Я упал и ушиб колено."
+    }
+  },
+  {
+    "id": 482,
+    "korean": "발",
+    "uzbek": "oyoq (panja)",
+    "english": "foot",
+    "russian": "ступня",
+    "romanization": "bal",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새 신발 때문에 발이 아파요.",
+      "uz": "Yangi oyoq kiyim tufayli oyog'im og'riyapti.",
+      "en": "My feet hurt because of the new shoes.",
+      "ru": "Ноги болят из-за новой обуви."
+    }
+  },
+  {
+    "id": 483,
+    "korean": "배",
+    "uzbek": "qorin; kema; nok",
+    "english": "stomach; ship; pear",
+    "russian": "живот; корабль; груша",
+    "romanization": "bae",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "많이 먹어서 배가 불러요.",
+      "uz": "Ko'p yeb, qornim to'ydi.",
+      "en": "I ate a lot, so I'm full.",
+      "ru": "Я много съел и наелся."
+    }
+  },
+  {
+    "id": 484,
+    "korean": "손",
+    "uzbek": "qo'l (kaft)",
+    "english": "hand",
+    "russian": "кисть руки, ладонь",
+    "romanization": "son",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밥 먹기 전에 손을 씻어요.",
+      "uz": "Ovqatdan oldin qo'l yuvaman.",
+      "en": "I wash my hands before eating.",
+      "ru": "Я мою руки перед едой."
+    }
+  },
+  {
+    "id": 485,
+    "korean": "손가락",
+    "uzbek": "barmoq",
+    "english": "finger",
+    "russian": "палец",
+    "romanization": "songarak",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "손가락으로 숫자를 세요.",
+      "uz": "Barmoqlar bilan sanayman.",
+      "en": "I count on my fingers.",
+      "ru": "Я считаю на пальцах."
+    }
+  },
+  {
+    "id": 486,
+    "korean": "어깨",
+    "uzbek": "yelka",
+    "english": "shoulder",
+    "russian": "плечо",
+    "romanization": "eokkae",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어깨가 많이 아파요.",
+      "uz": "Yelkam qattiq og'riyapti.",
+      "en": "My shoulder hurts a lot.",
+      "ru": "У меня сильно болит плечо."
+    }
+  },
+  {
+    "id": 487,
+    "korean": "얼굴",
+    "uzbek": "yuz",
+    "english": "face",
+    "russian": "лицо",
+    "romanization": "eolgul",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "얼굴이 빨개졌어요.",
+      "uz": "Yuzi qizarib ketdi.",
+      "en": "His face turned red.",
+      "ru": "Его лицо покраснело."
+    }
+  },
+  {
+    "id": 488,
+    "korean": "입",
+    "uzbek": "og'iz",
+    "english": "mouth",
+    "russian": "рот",
+    "romanization": "ip",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "입 안이 좀 아파요.",
+      "uz": "Og'zimning ichi biroz og'riyapti.",
+      "en": "The inside of my mouth hurts a little.",
+      "ru": "У меня немного болит во рту."
+    }
+  },
+  {
+    "id": 489,
+    "korean": "키가 작다",
+    "uzbek": "bo'yi past bo'lmoq",
+    "english": "to be short",
+    "russian": "быть невысоким",
+    "romanization": "kiga jakda",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 키가 좀 작아요.",
+      "uz": "Mening bo'yim biroz past.",
+      "en": "I'm a bit short.",
+      "ru": "Я невысокого роста."
+    }
+  },
+  {
+    "id": 490,
+    "korean": "키가 크다",
+    "uzbek": "bo'yi baland bo'lmoq",
+    "english": "to be tall",
+    "russian": "быть высоким",
+    "romanization": "kiga keuda",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생은 키가 커요.",
+      "uz": "Ukamning bo'yi baland.",
+      "en": "My younger brother is tall.",
+      "ru": "Младший брат высокий."
+    }
+  },
+  {
+    "id": 491,
+    "korean": "팔",
+    "uzbek": "qo'l (yelkadan bilakkacha)",
+    "english": "arm",
+    "russian": "рука (от плеча)",
+    "romanization": "pal",
+    "lesson": 21,
+    "theme": "body",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "팔을 위로 올리세요.",
+      "uz": "Qo'lingizni yuqoriga ko'taring.",
+      "en": "Raise your arms.",
+      "ru": "Поднимите руки вверх."
+    }
+  }
+]

@@ -1,0 +1,126 @@
+# korean	topic	level	uz	en	ru	ex_ko	ex_uz	ex_en	ex_ru
+버스	transport	1	avtobus	bus	автобус	버스가 늦게 왔어요.	Avtobus kech keldi.	The bus came late.	Автобус пришёл поздно.
+지하철	transport	1	metro	subway	метро	지하철이 제일 빨라요.	Metro eng tez.	The subway is the fastest.	Метро — самый быстрый вариант.
+택시	transport	1	taksi	taxi	такси	늦어서 택시를 탔어요.	Kechikkanim uchun taksiga chiqdim.	I was late, so I took a taxi.	Я опаздывал и сел в такси.
+자전거	transport	1	velosiped	bicycle	велосипед	주말에 자전거를 타요.	Dam olish kuni velosiped haydayman.	I ride my bike on weekends.	По выходным я катаюсь на велосипеде.
+오토바이	transport	1	mototsikl	motorcycle	мотоцикл	오토바이는 위험해요.	Mototsikl xavfli.	Motorcycles are dangerous.	Мотоцикл опасен.
+기차	transport	1	poyezd	train	поезд	기차 안에서 도시락을 먹었어요.	Poyezd ichida tushlik qutisini yedim.	I ate a lunch box on the train.	В поезде я съел ланч-бокс.
+비행기	transport	1	samolyot	airplane	самолёт	비행기 표가 비싸요.	Samolyot chiptasi qimmat.	Plane tickets are expensive.	Билеты на самолёт дорогие.
+셔틀버스	transport	2	servis avtobusi	shuttle bus	шаттл-автобус	호텔 셔틀버스를 탔어요.	Mehmonxona servis avtobusiga chiqdim.	I took the hotel shuttle.	Я поехал на гостиничном шаттле.
+학교 버스	transport	1	maktab avtobusi	school bus	школьный автобус	아이들이 학교 버스를 기다려요.	Bolalar maktab avtobusini kutyapti.	The kids are waiting for the school bus.	Дети ждут школьный автобус.
+렌터카	transport	2	ijara mashinasi	rental car	арендованная машина	제주도에서 렌터카를 빌렸어요.	Chejuda ijara mashinasi oldim.	I rented a car on Jeju.	На Чеджу я взял машину напрокат.
+역	transport	1	bekat (temir yo'l, metro)	station	станция	역에서 친구를 기다렸어요.	Bekatda do'stimni kutdim.	I waited for a friend at the station.	Я ждал друга на станции.
+지하철역	transport	1	metro bekati	subway station	станция метро	지하철역까지 오 분 걸려요.	Metro bekatigacha besh daqiqa.	It's five minutes to the subway station.	До станции метро пять минут.
+호선	transport	1	liniya (metro)	(subway) line	линия (метро)	2호선으로 갈아타세요.	2-liniyaga o'ting.	Transfer to line two.	Пересядьте на вторую линию.
+교통카드	transport	1	transport kartasi	transit card	транспортная карта	교통카드에 돈을 충전했어요.	Transport kartasiga pul tashladim.	I topped up my transit card.	Я пополнил транспортную карту.
+출구	transport	1	chiqish	exit	выход	삼 번 출구에서 만나요.	3-chiqishda ko'rishamiz.	Let's meet at exit three.	Встретимся у выхода номер три.
+입구	transport	1	kirish	entrance	вход	입구가 어디예요?	Kirish qayerda?	Where's the entrance?	Где вход?
+자리	transport	1	joy, o'rindiq	seat, place	место	창가 자리에 앉고 싶어요.	Deraza yonidagi joyga o'tirgim keladi.	I'd like a window seat.	Я хочу сесть у окна.
+노약자석	transport	2	keksalar va nogironlar uchun joy	priority seat	места для пожилых и инвалидов	노약자석은 비워 두세요.	Keksalar uchun joyni bo'sh qoldiring.	Please keep the priority seats free.	Оставляйте места для пожилых свободными.
+임산부석	transport	2	homiladorlar uchun joy	seat for pregnant women	место для беременных	임산부석에 앉지 마세요.	Homiladorlar joyiga o'tirmang.	Don't sit in the seat for pregnant women.	Не садитесь на место для беременных.
+타다	transport	1	(transportga) chiqmoq, minmoq	to ride, to get on	садиться, ехать на	버스를 타고 가요.	Avtobusda boraman.	I go by bus.	Я еду на автобусе.
+내리다	transport	1	tushmoq (transportdan)	to get off	выходить (из транспорта)	여기서 내려 주세요.	Shu yerda tushirib qo'ying.	Please let me off here.	Остановите здесь, пожалуйста.
+갈아타다	transport	1	o'tmoq (boshqa transportga)	to transfer	пересаживаться	시청역에서 갈아타요.	Shahar hokimiyati bekatida boshqa poyezdga o'taman.	I transfer at City Hall station.	Я пересаживаюсь на станции Сичхон.
+지하철을 타다	transport	1	metroga chiqmoq	to take the subway	ехать на метро	학교에 지하철을 타고 가요.	Maktabga metroda boraman.	I take the subway to school.	Я езжу в школу на метро.
+버스를 타고 가다	transport	1	avtobusda bormoq	to go by bus	ехать на автобусе	시장에 버스를 타고 갔어요.	Bozorga avtobusda bordim.	I went to the market by bus.	Я поехал на рынок на автобусе.
+걸어서 가다	transport	1	piyoda bormoq	to go on foot	идти пешком	가까워서 걸어서 가요.	Yaqin bo'lgani uchun piyoda boraman.	It's close, so I walk.	Это близко, я иду пешком.
+길을 건너다	transport	1	yo'ldan o'tmoq	to cross the road	переходить дорогу	아이들이 손을 잡고 길을 건너요.	Bolalar qo'l ushlashib yo'ldan o'tishyapti.	The children cross the road holding hands.	Дети переходят дорогу, держась за руки.
+출발하다	transport	1	jo'namoq, yo'lga chiqmoq	to depart	отправляться	비행기가 늦게 출발했어요.	Samolyot kech uchdi.	The plane departed late.	Самолёт вылетел с опозданием.
+도착하다	transport	1	yetib kelmoq	to arrive	прибывать	몇 시에 도착해요?	Soat nechada yetib kelasiz?	What time do you arrive?	Во сколько вы прибываете?
+시간이 걸리다	transport	1	vaqt ketmoq	to take (time)	занимать (время)	공항까지 한 시간이 걸려요.	Aeroportgacha bir soat ketadi.	It takes an hour to the airport.	До аэропорта час езды.
+걸리다	transport	1	(vaqt) ketmoq; ilinmoq	to take (time); to hang	занимать (время); висеть	숙제가 오래 걸렸어요.	Uy vazifasiga ko'p vaqt ketdi.	The homework took a long time.	Домашнее задание заняло много времени.
+교통사고	transport	1	yo'l-transport hodisasi	traffic accident	ДТП, авария	교통사고가 나서 길이 막혀요.	Avariya sababli yo'l tirband.	There was an accident, so traffic is jammed.	Из-за аварии пробка.
+여행을 하다	travel	1	sayohat qilmoq	to travel	путешествовать	방학에 여행을 했어요.	Ta'tilda sayohat qildim.	I traveled during the vacation.	На каникулах я путешествовал.
+구경하다	travel	1	tomosha qilmoq, aylanib ko'rmoq	to look around, to sightsee	осматривать	시내를 구경했어요.	Shahar markazini aylanib chiqdim.	I looked around downtown.	Я осмотрел центр города.
+경험하다	travel	2	boshdan kechirmoq	to experience	испытывать, получать опыт	새로운 문화를 경험했어요.	Yangi madaniyatni his qildim.	I experienced a new culture.	Я познакомился с новой культурой.
+좋은 추억을 만들다	travel	2	yaxshi xotiralar qoldirmoq	to make good memories	создать хорошие воспоминания	친구들과 좋은 추억을 만들었어요.	Do'stlarim bilan yaxshi xotiralar qoldirdik.	I made good memories with friends.	Мы с друзьями создали хорошие воспоминания.
+경치	travel	1	manzara	scenery, view	пейзаж, вид	산 위 경치가 정말 좋아요.	Tog' tepasidan manzara juda chiroyli.	The view from the mountaintop is great.	С вершины горы прекрасный вид.
+밤경치	travel	2	tungi manzara	night view	ночной вид	서울 밤경치가 아름다워요.	Seulning tungi manzarasi go'zal.	Seoul's night view is beautiful.	Ночной вид Сеула красив.
+고향	travel	1	ona yurt, tug'ilgan joy	hometown	родной город	고향 음식이 그리워요.	Ona yurtim taomlarini sog'indim.	I miss the food from home.	Я скучаю по еде с родины.
+고향에 가다	travel	1	ona yurtga bormoq	to go to one's hometown	ехать на родину	명절에 고향에 가요.	Bayramda ona yurtimga boraman.	I go to my hometown for the holidays.	На праздники я еду на родину.
+부산	travel	1	Pusan (shahar)	Busan	Пусан	부산은 바다가 유명해요.	Pusan dengizi bilan mashhur.	Busan is famous for its sea.	Пусан славится морем.
+인천	travel	1	Inchxon (shahar)	Incheon	Инчхон	인천에서 서울까지 버스로 가요.	Inchxondan Seulgacha avtobusda boraman.	I go from Incheon to Seoul by bus.	Из Инчхона в Сеул я еду на автобусе.
+제주도	travel	1	Cheju oroli	Jeju Island	остров Чеджу	제주도에서 귤을 먹었어요.	Cheju orolida mandarin yedim.	I ate tangerines on Jeju.	На Чеджу я ел мандарины.
+해운대	travel	2	Xeunde (Pusandagi plyaj)	Haeundae (beach in Busan)	Хэундэ (пляж в Пусане)	여름에 해운대에 사람이 많아요.	Yozda Xeundeda odam ko'p.	Haeundae is crowded in summer.	Летом на Хэундэ много людей.
+남산	travel	1	Namsan (Seuldagi tog')	Namsan (mountain in Seoul)	Намсан (гора в Сеуле)	남산에 올라가서 사진을 찍었어요.	Namsanga chiqib, suratga tushdim.	I climbed Namsan and took photos.	Я поднялся на Намсан и сфотографировался.
+서울타워	travel	1	Seul minorasi	Seoul Tower	Сеульская башня	서울타워에서 서울이 다 보여요.	Seul minorasidan butun Seul ko'rinadi.	You can see all of Seoul from Seoul Tower.	С Сеульской башни виден весь Сеул.
+한강	travel	1	Xangang daryosi	Han River	река Ханган	한강에서 자전거를 탔어요.	Xangang bo'yida velosiped haydadim.	I rode a bike along the Han River.	Я катался на велосипеде у Хангана.
+서울숲	travel	2	Seul o'rmon bog'i	Seoul Forest	Сеульский лес (парк)	서울숲에서 피크닉을 했어요.	Seul o'rmon bog'ida piknik qildik.	We had a picnic at Seoul Forest.	Мы устроили пикник в Сеульском лесу.
+남이섬	travel	2	Nami oroli	Nami Island	остров Нами	가을에 남이섬이 예뻐요.	Kuzda Nami oroli chiroyli.	Nami Island is pretty in autumn.	Осенью остров Нами красив.
+동대문시장	travel	2	Tongdemun bozori	Dongdaemun Market	рынок Тондэмун	동대문시장은 밤에도 열어요.	Tongdemun bozori kechasi ham ochiq.	Dongdaemun Market is open at night too.	Рынок Тондэмун работает и ночью.
+궁	travel	2	saroy	palace	дворец	궁에서 한복을 입고 사진을 찍었어요.	Saroyda hanbok kiyib suratga tushdim.	I took photos at the palace in hanbok.	Я сфотографировался во дворце в ханбоке.
+머리	body	1	bosh; soch	head; hair	голова; волосы	머리를 짧게 잘랐어요.	Sochimni kalta qildirdim.	I got a short haircut.	Я коротко подстригся.
+얼굴	body	1	yuz	face	лицо	얼굴이 빨개졌어요.	Yuzi qizarib ketdi.	His face turned red.	Его лицо покраснело.
+눈	body	1	ko'z; qor	eye; snow	глаз; снег	눈이 피곤해요.	Ko'zlarim charchadi.	My eyes are tired.	Глаза устали.
+귀	body	1	quloq	ear	ухо	귀에 물이 들어갔어요.	Qulog'imga suv kirdi.	Water got in my ear.	Мне в ухо попала вода.
+입	body	1	og'iz	mouth	рот	입 안이 좀 아파요.	Og'zimning ichi biroz og'riyapti.	The inside of my mouth hurts a little.	У меня немного болит во рту.
+어깨	body	1	yelka	shoulder	плечо	어깨가 많이 아파요.	Yelkam qattiq og'riyapti.	My shoulder hurts a lot.	У меня сильно болит плечо.
+팔	body	1	qo'l (yelkadan bilakkacha)	arm	рука (от плеча)	팔을 위로 올리세요.	Qo'lingizni yuqoriga ko'taring.	Raise your arms.	Поднимите руки вверх.
+손	body	1	qo'l (kaft)	hand	кисть руки, ладонь	밥 먹기 전에 손을 씻어요.	Ovqatdan oldin qo'l yuvaman.	I wash my hands before eating.	Я мою руки перед едой.
+손가락	body	1	barmoq	finger	палец	손가락으로 숫자를 세요.	Barmoqlar bilan sanayman.	I count on my fingers.	Я считаю на пальцах.
+배	body	1	qorin; kema; nok	stomach; ship; pear	живот; корабль; груша	많이 먹어서 배가 불러요.	Ko'p yeb, qornim to'ydi.	I ate a lot, so I'm full.	Я много съел и наелся.
+등	body	1	orqa (tana); va hokazo	back (body); etc.	спина; и т. д.	등이 가려워요.	Orqam qichiyapti.	My back itches.	У меня чешется спина.
+다리	body	1	oyoq; ko'prik	leg; bridge	нога; мост	오래 걸어서 다리가 아파요.	Ko'p yurganimdan oyog'im og'riyapti.	My legs hurt from walking.	Ноги болят от долгой ходьбы.
+무릎	body	1	tizza	knee	колено	넘어져서 무릎을 다쳤어요.	Yiqilib tizzamni urib oldim.	I fell and hurt my knee.	Я упал и ушиб колено.
+발	body	1	oyoq (panja)	foot	ступня	새 신발 때문에 발이 아파요.	Yangi oyoq kiyim tufayli oyog'im og'riyapti.	My feet hurt because of the new shoes.	Ноги болят из-за новой обуви.
+몸	body	1	tana, badan	body	тело	몸이 좀 안 좋아요.	O'zimni biroz yomon his qilyapman.	I don't feel very well.	Мне немного нездоровится.
+키가 크다	body	1	bo'yi baland bo'lmoq	to be tall	быть высоким	동생은 키가 커요.	Ukamning bo'yi baland.	My younger brother is tall.	Младший брат высокий.
+키가 작다	body	1	bo'yi past bo'lmoq	to be short	быть невысоким	저는 키가 좀 작아요.	Mening bo'yim biroz past.	I'm a bit short.	Я невысокого роста.
+아프다	health	1	og'rimoq; kasal bo'lmoq	to hurt; to be sick	болеть	이가 아파서 밥을 못 먹어요.	Tishim og'rib, ovqat yeya olmayapman.	My tooth hurts, so I can't eat.	Болит зуб, не могу есть.
+건강하다	health	1	sog'lom bo'lmoq	to be healthy	быть здоровым	할머니는 아직 건강하세요.	Buvim hali ham sog'lomlar.	My grandmother is still healthy.	Бабушка ещё здорова.
+피곤하다	health	1	charchamoq	to be tired	уставать	일이 많아서 피곤해요.	Ish ko'p, shuning uchun charchadim.	I have a lot of work, so I'm tired.	Много работы, я устал.
+졸리다	health	1	uyqusiramoq	to be sleepy	хотеть спать	점심 후에 졸려요.	Tushlikdan keyin uyqum keladi.	I get sleepy after lunch.	После обеда хочется спать.
+배고프다	health	1	qorni och bo'lmoq	to be hungry	быть голодным	아침을 안 먹어서 배고파요.	Nonushta qilmaganim uchun qornim och.	I skipped breakfast, so I'm hungry.	Я не завтракал и голоден.
+감기에 걸리다	health	1	shamollamoq	to catch a cold	простудиться	감기에 걸려서 학교에 못 갔어요.	Shamollab, maktabga borolmadim.	I caught a cold and couldn't go to school.	Я простудился и не пошёл в школу.
+열이 나다	health	1	isitmasi chiqmoq	to have a fever	подниматься температура	아이가 밤에 열이 났어요.	Bolaning kechasi isitmasi chiqdi.	The child had a fever at night.	Ночью у ребёнка поднялась температура.
+목이 아프다	health	1	tomog'i og'rimoq	to have a sore throat	болеть горлу	목이 아파서 말을 못 해요.	Tomog'im og'rib, gapirolmayman.	My throat hurts, so I can't talk.	Горло болит, не могу говорить.
+콧물이 나다	health	1	burni oqmoq	to have a runny nose	течь из носа	콧물이 계속 나요.	Burnim to'xtamay oqyapti.	My nose keeps running.	У меня всё время течёт из носа.
+코가 막히다	health	1	burni bitmoq	to have a stuffy nose	заложить нос	코가 막혀서 잠을 못 잤어요.	Burnim bitib, uxlay olmadim.	My nose was stuffed, so I couldn't sleep.	Нос заложило, я не мог уснуть.
+재채기를 하다	health	1	aksirmoq	to sneeze	чихать	꽃가루 때문에 재채기를 해요.	Gulchang tufayli aksiraman.	I sneeze because of pollen.	Я чихаю из-за пыльцы.
+눈물이 나다	health	1	ko'zdan yosh chiqmoq	tears come out	слёзы текут	양파를 자르면 눈물이 나요.	Piyoz to'g'rasam ko'zimdan yosh chiqadi.	Cutting onions makes my eyes water.	Когда режу лук, текут слёзы.
+피가 나다	health	1	qon chiqmoq	to bleed	идёт кровь	코에서 피가 나요.	Burnimdan qon kelyapti.	My nose is bleeding.	У меня идёт кровь из носа.
+상처를 닦다	health	2	jarohatni tozalamoq	to clean a wound	промывать рану	물로 상처를 닦았어요.	Jarohatni suv bilan tozaladim.	I cleaned the wound with water.	Я промыл рану водой.
+붓다	health	2	shishmoq; quymoq	to swell; to pour	опухать; наливать	발목이 부었어요.	To'pig'im shishib ketdi.	My ankle is swollen.	У меня опухла лодыжка.
+여드름이 생기다	health	2	husnbuzar chiqmoq	to get pimples	появляться прыщам	잠을 못 자면 여드름이 생겨요.	Uxlamasam, husnbuzar chiqadi.	I get pimples when I don't sleep.	Когда не высыпаюсь, появляются прыщи.
+땀을 흘리다	health	1	terlamoq	to sweat	потеть	운동하면서 땀을 많이 흘렸어요.	Sport qilib, ko'p terladim.	I sweated a lot while exercising.	Я сильно вспотел на тренировке.
+시력	health	2	ko'rish qobiliyati	eyesight	зрение	시력 검사를 받았어요.	Ko'rish tekshiruvidan o'tdim.	I had an eye test.	Я проверил зрение.
+잘 안 보이다	health	1	yaxshi ko'rinmaslik	can't see well	плохо видно	너무 어두워서 잘 안 보여요.	Juda qorong'i, yaxshi ko'rinmayapti.	It's too dark to see well.	Слишком темно, плохо видно.
+안경을 쓰다	health	1	ko'zoynak taqmoq	to wear glasses	носить очки	책을 읽을 때 안경을 써요.	Kitob o'qiyotganda ko'zoynak taqaman.	I wear glasses when I read.	Я надеваю очки, когда читаю.
+두통약	health	2	bosh og'rig'i dorisi	headache medicine	лекарство от головной боли	두통약을 먹고 잤어요.	Bosh og'rig'i dorisini ichib uxladim.	I took a headache pill and slept.	Я выпил таблетку от головы и уснул.
+진료를 받다	health	2	shifokor ko'rigidan o'tmoq	to see a doctor	проходить приём у врача	진료를 받으려면 예약해야 해요.	Shifokor ko'rigiga yozilish kerak.	You need an appointment to see the doctor.	Чтобы попасть к врачу, нужно записаться.
+검사를 하다	health	1	tekshiruvdan o'tmoq	to have a test, a checkup	проходить обследование	병원에서 피 검사를 했어요.	Shifoxonada qon tahlili topshirdim.	I had a blood test at the hospital.	Я сдал анализ крови в больнице.
+체온을 확인하다	health	2	tana haroratini o'lchamoq	to check body temperature	измерять температуру тела	입구에서 체온을 확인해요.	Kirishda tana harorati o'lchanadi.	Body temperature is checked at the entrance.	На входе измеряют температуру.
+소아과	health	2	pediatriya (bolalar shifokori)	pediatrics	педиатрия	아이를 데리고 소아과에 갔어요.	Bolani bolalar shifokoriga olib bordim.	I took my child to the pediatrician.	Я отвёл ребёнка к педиатру.
+안과	health	2	ko'z shifoxonasi	eye clinic	глазная клиника	눈이 아파서 안과에 갔어요.	Ko'zim og'rib, ko'z shifokoriga bordim.	My eye hurt, so I went to the eye doctor.	Болел глаз, и я пошёл к окулисту.
+치과	health	1	tish shifoxonasi	dental clinic	стоматология	치과는 토요일에도 열어요.	Tish shifoxonasi shanba kuni ham ishlaydi.	The dental clinic is open on Saturdays too.	Стоматология работает и по субботам.
+고민이 많다	health	2	tashvishi ko'p bo'lmoq	to have many worries	иметь много забот	시험 때문에 고민이 많아요.	Imtihon tufayli tashvishim ko'p.	I'm worried about the exam.	Из-за экзамена у меня много переживаний.
+날씨	nature	1	ob-havo	weather	погода	내일 날씨가 어때요?	Ertaga havo qanday bo'ladi?	What will the weather be like tomorrow?	Какая будет завтра погода?
+일기예보	nature	1	ob-havo ma'lumoti	weather forecast	прогноз погоды	일기예보를 봤어요?	Ob-havo ma'lumotini ko'rdingizmi?	Did you check the forecast?	Вы смотрели прогноз погоды?
+사계절	nature	1	to'rt fasl	the four seasons	четыре времени года	제주도는 사계절 모두 아름다워요.	Cheju oroli to'rt faslning hammasida go'zal.	Jeju is beautiful in all four seasons.	Чеджу красив во все времена года.
+봄	nature	1	bahor	spring	весна	봄이 되면 공원에 사람이 많아져요.	Bahor kelsa, bog'da odam ko'payadi.	When spring comes, the park gets busy.	Весной в парке становится многолюдно.
+여름	nature	1	yoz	summer	лето	여름에는 바다에 가요.	Yozda dengizga boramiz.	We go to the sea in summer.	Летом мы ездим на море.
+가을	nature	1	kuz	autumn, fall	осень	가을 하늘이 높아요.	Kuzda osmon baland ko'rinadi.	The autumn sky looks high.	Осенью небо кажется высоким.
+겨울	nature	1	qish	winter	зима	겨울에 눈이 많이 와요.	Qishda qor ko'p yog'adi.	It snows a lot in winter.	Зимой идёт много снега.
+춥다	nature	1	sovuq bo'lmoq	to be cold (weather)	быть холодно	오늘 아침은 정말 추워요.	Bugun ertalab juda sovuq.	It's really cold this morning.	Сегодня утром очень холодно.
+덥다	nature	1	issiq bo'lmoq	to be hot (weather)	быть жарко	교실이 너무 더워요.	Sinf juda issiq.	The classroom is too hot.	В классе слишком жарко.
+따뜻하다	nature	1	iliq bo'lmoq	to be warm	быть тёплым	따뜻한 차 한 잔 드세요.	Bir piyola iliq choy iching.	Have a cup of warm tea.	Выпейте чашку тёплого чая.
+시원하다	nature	1	salqin bo'lmoq	to be cool, refreshing	быть прохладным, освежающим	냉면이 아주 시원해요.	Sovuq ugra juda salqin, yoqimli.	The cold noodles are very refreshing.	Холодная лапша очень освежает.
+맑다	nature	1	ochiq bo'lmoq (havo); tiniq	to be clear, sunny	ясный, чистый	오늘은 하늘이 맑아요.	Bugun osmon ochiq.	The sky is clear today.	Сегодня ясное небо.
+흐리다	nature	1	bulutli bo'lmoq	to be cloudy	пасмурный	날씨가 흐려서 우산을 가져가요.	Havo bulutli, soyabon olaman.	It's cloudy, so I'm taking an umbrella.	Пасмурно, я беру зонт.
+비가 오다	nature	1	yomg'ir yog'moq	to rain	идти (о дожде)	밖에 비가 와요.	Tashqarida yomg'ir yog'yapti.	It's raining outside.	На улице идёт дождь.
+비가 많이 오다	nature	1	kuchli yomg'ir yog'moq	to rain a lot	идёт сильный дождь	비가 많이 와서 축구 경기가 취소됐어요.	Kuchli yomg'ir sabab futbol o'yini bekor qilindi.	The soccer game was canceled because of heavy rain.	Из-за сильного дождя матч отменили.
+눈이 오다	nature	1	qor yog'moq	to snow	идти (о снеге)	눈이 와서 길이 미끄러워요.	Qor yog'ib, yo'l sirpanchiq.	It snowed, so the road is slippery.	Выпал снег, и дорога скользкая.
+바람이 불다	nature	1	shamol esmoq	the wind blows	дуть (о ветре)	바람이 세게 불어요.	Shamol qattiq esyapti.	The wind is blowing hard.	Дует сильный ветер.
+꽃이 피다	nature	1	gul ochilmoq	flowers bloom	цвести	공원에 꽃이 피었어요.	Bog'da gullar ochildi.	Flowers have bloomed in the park.	В парке расцвели цветы.
+단풍	nature	1	kuzgi barglar	autumn leaves	осенняя листва	단풍이 빨갛게 들었어요.	Barglar qip-qizil bo'ldi.	The leaves have turned red.	Листья покраснели.
+나무	nature	1	daraxt; yog'och	tree; wood	дерево	집 앞에 큰 나무가 있어요.	Uy oldida katta daraxt bor.	There's a big tree in front of the house.	Перед домом растёт большое дерево.
+숲	nature	1	o'rmon	forest	лес	숲에서 새소리가 들려요.	O'rmonda qushlar ovozi eshitiladi.	You can hear birds in the forest.	В лесу слышно пение птиц.
+강	nature	1	daryo	river	река	강에서 낚시를 해요.	Daryoda baliq ovlaymiz.	We fish in the river.	Мы рыбачим на реке.
+바다	nature	1	dengiz	sea	море	바다가 아주 파래요.	Dengiz juda moviy.	The sea is very blue.	Море очень синее.
+바닷가	nature	1	dengiz sohili	beach, seaside	побережье, пляж	바닷가에서 조개를 주웠어요.	Dengiz sohilidan chig'anoq terdim.	I picked up shells at the beach.	Я собирал ракушки на берегу.
+섬	nature	1	orol	island	остров	배를 타고 섬에 갔어요.	Kemada orolga bordik.	We went to the island by boat.	Мы поплыли на остров на корабле.
+폭포	nature	2	sharshara	waterfall	водопад	폭포 소리가 시원해요.	Sharshara ovozi yoqimli, salqin.	The sound of the waterfall is refreshing.	Шум водопада освежает.
+대양	nature	2	okean	ocean	океан	태평양은 가장 큰 대양이에요.	Tinch okeani eng katta okean.	The Pacific is the largest ocean.	Тихий океан — самый большой.
+새	nature	1	qush; yangi	bird; new	птица; новый	나무 위에 새가 있어요.	Daraxt ustida qush bor.	There's a bird in the tree.	На дереве сидит птица.
+고양이	nature	1	mushuk	cat	кошка	고양이가 소파에서 자요.	Mushuk divanda uxlayapti.	The cat is sleeping on the sofa.	Кошка спит на диване.
+강아지	nature	1	kuchukcha	puppy	щенок	강아지와 산책해요.	Kuchukcham bilan sayr qilaman.	I go for walks with my puppy.	Я гуляю со щенком.

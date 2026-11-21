@@ -74,7 +74,6 @@ const AchievementsPage = page(() => import("./pages/AchievementsPage"));
 const grammar = () => import("./pages/GrammarPage");
 const GrammarCatalogPage = page(grammar, "GrammarCatalogPage");
 const GrammarPointPage = page(grammar, "GrammarPointPage");
-const LessonGrammarPage = page(grammar, "LessonGrammarPage");
 const storiesPages = () => import("./pages/StoriesPage");
 const StoriesLibraryPage = page(storiesPages, "StoriesLibraryPage");
 const guides = () => import("./pages/GuidesPage");
@@ -146,7 +145,7 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="study" element={<StudyHub />} />
             <Route
-              path="study/:lessonId"
+              path="topic/:lessonId/study"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><StudyModePage /></RequireAccount>
@@ -155,8 +154,13 @@ export default function App() {
             />
             <Route path="courses" element={<CoursesPage />} />
             <Route path="courses/:courseId" element={<CoursesPage />} />
+            {/* Addresses from before the words were grouped by topic (vercel.json sends a 301 too). */}
+            <Route path="lesson/*" element={<Navigate to="/courses" replace />} />
+            <Route path="study/:legacyLesson" element={<Navigate to="/courses" replace />} />
+            <Route path="courses/1A" element={<Navigate to="/courses" replace />} />
+            <Route path="courses/1B" element={<Navigate to="/courses" replace />} />
             <Route
-              path="lesson/:lessonId"
+              path="topic/:lessonId"
               element={
                 <LessonRouteGuard>
                   <LessonHome />
@@ -164,7 +168,7 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/flashcards"
+              path="topic/:lessonId/flashcards"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><FlashcardsPage /></RequireAccount>
@@ -172,7 +176,7 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/listening"
+              path="topic/:lessonId/listening"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><ListeningPage /></RequireAccount>
@@ -180,7 +184,7 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/quiz"
+              path="topic/:lessonId/quiz"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><QuizPage /></RequireAccount>
@@ -188,7 +192,7 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/writing"
+              path="topic/:lessonId/writing"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><WritingPage /></RequireAccount>
@@ -196,7 +200,7 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/dictation"
+              path="topic/:lessonId/dictation"
               element={
                 <LessonRouteGuard>
                   <RequireAccount><DictationPage /></RequireAccount>
@@ -234,7 +238,7 @@ export default function App() {
             <Route path="guides/:slug" element={<GuidePage />} />
             <Route path="stories/:storyId" element={<StoryReaderPage />} />
             <Route
-              path="lesson/:lessonId/stories"
+              path="topic/:lessonId/stories"
               element={
                 <LessonRouteGuard>
                   <LessonStoriesPage />
@@ -242,12 +246,8 @@ export default function App() {
               }
             />
             <Route
-              path="lesson/:lessonId/grammar"
-              element={
-                <LessonRouteGuard>
-                  <LessonGrammarPage />
-                </LessonRouteGuard>
-              }
+              path="topic/:lessonId/grammar"
+              element={<Navigate to="/grammar" replace />}
             />
             <Route path="feedback/:ticketId" element={<FeedbackPage />} />
             <Route path="admin" element={<AdminPage />}>

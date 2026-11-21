@@ -1,0 +1,477 @@
+[
+  {
+    "id": 159,
+    "korean": "예전",
+    "uzbek": "ilgari, avvallari",
+    "english": "the past, former times",
+    "russian": "раньше, прежде",
+    "romanization": "yejeon",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "예전에 여기는 공원이었어요.",
+      "uz": "Ilgari bu yer bog' edi.",
+      "en": "This used to be a park.",
+      "ru": "Раньше здесь был парк."
+    }
+  },
+  {
+    "id": 160,
+    "korean": "오늘",
+    "uzbek": "bugun",
+    "english": "today",
+    "russian": "сегодня",
+    "romanization": "oneul",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 날씨가 좋아요.",
+      "uz": "Bugun havo yaxshi.",
+      "en": "The weather is nice today.",
+      "ru": "Сегодня хорошая погода."
+    }
+  },
+  {
+    "id": 161,
+    "korean": "오전 / 오후",
+    "uzbek": "tushgacha / tushdan keyin",
+    "english": "a.m. / p.m.",
+    "russian": "до полудня / после полудня",
+    "romanization": "ojeon / ohu",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오후 세 시에 만나요.",
+      "uz": "Kunduzi soat uchda ko'rishamiz.",
+      "en": "Let's meet at 3 p.m.",
+      "ru": "Встретимся в три часа дня."
+    }
+  },
+  {
+    "id": 162,
+    "korean": "올해",
+    "uzbek": "bu yil",
+    "english": "this year",
+    "russian": "в этом году",
+    "romanization": "olhae",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "올해 목표가 뭐예요?",
+      "uz": "Bu yilgi maqsadingiz nima?",
+      "en": "What's your goal this year?",
+      "ru": "Какая у вас цель на этот год?"
+    }
+  },
+  {
+    "id": 163,
+    "korean": "요일",
+    "uzbek": "hafta kuni",
+    "english": "day of the week",
+    "russian": "день недели",
+    "romanization": "yoil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘이 무슨 요일이에요?",
+      "uz": "Bugun haftaning qaysi kuni?",
+      "en": "What day of the week is it?",
+      "ru": "Какой сегодня день недели?"
+    }
+  },
+  {
+    "id": 164,
+    "korean": "월",
+    "uzbek": "oy (sana aytishda)",
+    "english": "month (in dates)",
+    "russian": "месяц (в датах)",
+    "romanization": "wol",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 생일은 삼 월이에요.",
+      "uz": "Tug'ilgan kunim mart oyida.",
+      "en": "My birthday is in March.",
+      "ru": "Мой день рождения в марте."
+    }
+  },
+  {
+    "id": 165,
+    "korean": "월요일",
+    "uzbek": "dushanba",
+    "english": "Monday",
+    "russian": "понедельник",
+    "romanization": "woryoil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "월요일 아침은 바빠요.",
+      "uz": "Dushanba ertalabi band bo'ladi.",
+      "en": "Monday mornings are busy.",
+      "ru": "Утро понедельника всегда занятое."
+    }
+  },
+  {
+    "id": 166,
+    "korean": "이따",
+    "uzbek": "birozdan keyin",
+    "english": "later (today)",
+    "russian": "попозже, потом",
+    "romanization": "itta",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이따 점심 같이 먹어요.",
+      "uz": "Birozdan keyin birga tushlik qilaylik.",
+      "en": "Let's have lunch together later.",
+      "ru": "Давай попозже вместе пообедаем."
+    }
+  },
+  {
+    "id": 167,
+    "korean": "이번 달",
+    "uzbek": "shu oy",
+    "english": "this month",
+    "russian": "в этом месяце",
+    "romanization": "ibeon dal",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이번 달은 돈이 별로 없어요.",
+      "uz": "Shu oy pulim unchalik ko'p emas.",
+      "en": "I don't have much money this month.",
+      "ru": "В этом месяце у меня мало денег."
+    }
+  },
+  {
+    "id": 168,
+    "korean": "이번 주",
+    "uzbek": "shu hafta",
+    "english": "this week",
+    "russian": "на этой неделе",
+    "romanization": "ibeon ju",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이번 주에 시험이 많아요.",
+      "uz": "Shu hafta imtihonlar ko'p.",
+      "en": "I have a lot of exams this week.",
+      "ru": "На этой неделе много экзаменов."
+    }
+  },
+  {
+    "id": 169,
+    "korean": "일",
+    "uzbek": "kun (oyning kuni)",
+    "english": "day (of the month)",
+    "russian": "число (день месяца)",
+    "romanization": "il",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 오 월 오 일이에요.",
+      "uz": "Bugun 5-may.",
+      "en": "Today is May fifth.",
+      "ru": "Сегодня пятое мая."
+    }
+  },
+  {
+    "id": 170,
+    "korean": "일요일",
+    "uzbek": "yakshanba",
+    "english": "Sunday",
+    "russian": "воскресенье",
+    "romanization": "iryoil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일요일에 가족과 쉬어요.",
+      "uz": "Yakshanba kuni oilam bilan dam olaman.",
+      "en": "I rest with my family on Sundays.",
+      "ru": "В воскресенье я отдыхаю с семьёй."
+    }
+  },
+  {
+    "id": 171,
+    "korean": "작년",
+    "uzbek": "o'tgan yil",
+    "english": "last year",
+    "russian": "в прошлом году",
+    "romanization": "jangnyeon",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "작년 겨울은 많이 추웠어요.",
+      "uz": "O'tgan yilgi qish juda sovuq edi.",
+      "en": "Last winter was very cold.",
+      "ru": "Прошлая зима была очень холодной."
+    }
+  },
+  {
+    "id": 172,
+    "korean": "저녁",
+    "uzbek": "kechqurun; kechki ovqat",
+    "english": "evening; dinner",
+    "russian": "вечер; ужин",
+    "romanization": "jeonyeok",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저녁에 친구가 와요.",
+      "uz": "Kechqurun do'stim keladi.",
+      "en": "A friend is coming this evening.",
+      "ru": "Вечером придёт друг."
+    }
+  },
+  {
+    "id": 173,
+    "korean": "전에",
+    "uzbek": "oldin; ilgari",
+    "english": "before; ago",
+    "russian": "до; назад",
+    "romanization": "jeone",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "자기 전에 이를 닦아요.",
+      "uz": "Uxlashdan oldin tish yuvaman.",
+      "en": "I brush my teeth before bed.",
+      "ru": "Перед сном я чищу зубы."
+    }
+  },
+  {
+    "id": 174,
+    "korean": "점심",
+    "uzbek": "tush payti; tushlik",
+    "english": "noon; lunch",
+    "russian": "полдень; обед",
+    "romanization": "jeomsim",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "점심에 뭐 먹을까요?",
+      "uz": "Tushlikka nima yeymiz?",
+      "en": "What shall we have for lunch?",
+      "ru": "Что съедим на обед?"
+    }
+  },
+  {
+    "id": 175,
+    "korean": "조금 전 / 조금 후",
+    "uzbek": "sal oldin / sal keyin",
+    "english": "a little earlier / a little later",
+    "russian": "немного раньше / чуть позже",
+    "romanization": "jogeum jeon / jogeum hu",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "조금 후에 출발해요.",
+      "uz": "Sal keyin yo'lga chiqamiz.",
+      "en": "We're leaving in a little while.",
+      "ru": "Мы отправляемся чуть позже."
+    }
+  },
+  {
+    "id": 176,
+    "korean": "주말",
+    "uzbek": "dam olish kunlari",
+    "english": "weekend",
+    "russian": "выходные",
+    "romanization": "jumal",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이번 주말에 바다에 가요.",
+      "uz": "Shu dam olish kunlari dengizga boramiz.",
+      "en": "We're going to the sea this weekend.",
+      "ru": "В эти выходные мы едем на море."
+    }
+  },
+  {
+    "id": 177,
+    "korean": "지금",
+    "uzbek": "hozir",
+    "english": "now",
+    "russian": "сейчас",
+    "romanization": "jigeum",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지금 바로 출발해요.",
+      "uz": "Hozir darhol yo'lga chiqamiz.",
+      "en": "We're leaving right now.",
+      "ru": "Мы выезжаем прямо сейчас."
+    }
+  },
+  {
+    "id": 178,
+    "korean": "지난달",
+    "uzbek": "o'tgan oy",
+    "english": "last month",
+    "russian": "в прошлом месяце",
+    "romanization": "jinandal",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지난달에 일을 시작했어요.",
+      "uz": "O'tgan oy ishni boshladim.",
+      "en": "I started work last month.",
+      "ru": "Я начал работать в прошлом месяце."
+    }
+  },
+  {
+    "id": 179,
+    "korean": "지난주",
+    "uzbek": "o'tgan hafta",
+    "english": "last week",
+    "russian": "на прошлой неделе",
+    "romanization": "jinanju",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지난주에 바빴어요.",
+      "uz": "O'tgan hafta band edim.",
+      "en": "I was busy last week.",
+      "ru": "На прошлой неделе я был занят."
+    }
+  },
+  {
+    "id": 180,
+    "korean": "토요일",
+    "uzbek": "shanba",
+    "english": "Saturday",
+    "russian": "суббота",
+    "romanization": "toyoil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "토요일에는 늦잠을 자요.",
+      "uz": "Shanba kuni kech turaman.",
+      "en": "I sleep in on Saturdays.",
+      "ru": "В субботу я сплю допоздна."
+    }
+  },
+  {
+    "id": 181,
+    "korean": "하루",
+    "uzbek": "bir kun",
+    "english": "one day; a day",
+    "russian": "один день; сутки",
+    "romanization": "haru",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "하루에 물을 많이 마셔요.",
+      "uz": "Bir kunda ko'p suv ichaman.",
+      "en": "I drink a lot of water every day.",
+      "ru": "Я пью много воды в день."
+    }
+  },
+  {
+    "id": 182,
+    "korean": "화요일",
+    "uzbek": "seshanba",
+    "english": "Tuesday",
+    "russian": "вторник",
+    "romanization": "hwayoil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "화요일에 수영을 배워요.",
+      "uz": "Seshanba kuni suzishni o'rganaman.",
+      "en": "I take swimming lessons on Tuesdays.",
+      "ru": "По вторникам я учусь плавать."
+    }
+  },
+  {
+    "id": 183,
+    "korean": "휴일",
+    "uzbek": "dam olish kuni, bayram",
+    "english": "day off, holiday",
+    "russian": "выходной, праздник",
+    "romanization": "hyuil",
+    "lesson": 8,
+    "theme": "time",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "휴일에는 집에서 쉬어요.",
+      "uz": "Dam olish kuni uyda dam olaman.",
+      "en": "I rest at home on my days off.",
+      "ru": "В выходной я отдыхаю дома."
+    }
+  }
+]

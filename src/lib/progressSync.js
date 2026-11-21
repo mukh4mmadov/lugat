@@ -1,4 +1,5 @@
 import { supabase, timeoutSignal } from './supabase';
+import { migrateProgress } from './progressMigrate';
 
 let currentUserId = null;
 
@@ -22,7 +23,7 @@ export async function fetchServerProgress(userId) {
     .maybeSingle();
 
   if (error) throw error;
-  return data?.data ?? null;
+  return migrateProgress(data?.data ?? null);
 }
 
 export async function saveServerProgress(userId, progressData) {

@@ -1,0 +1,629 @@
+[
+  {
+    "id": 598,
+    "korean": "계획",
+    "uzbek": "reja",
+    "english": "plan",
+    "russian": "план",
+    "romanization": "gyehoek",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학 계획을 세웠어요.",
+      "uz": "Ta'til rejasini tuzdim.",
+      "en": "I made a plan for the vacation.",
+      "ru": "Я составил план на каникулы."
+    }
+  },
+  {
+    "id": 599,
+    "korean": "꿈을 꾸다",
+    "uzbek": "tush ko'rmoq",
+    "english": "to dream",
+    "russian": "видеть сон",
+    "romanization": "kkumeul kkuda",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어젯밤에 무서운 꿈을 꿨어요.",
+      "uz": "Kecha qo'rqinchli tush ko'rdim.",
+      "en": "I had a scary dream last night.",
+      "ru": "Вчера мне приснился страшный сон."
+    }
+  },
+  {
+    "id": 600,
+    "korean": "담배를 끊다",
+    "uzbek": "chekishni tashlamoq",
+    "english": "to quit smoking",
+    "russian": "бросить курить",
+    "romanization": "dambaereul kkeunta",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지가 담배를 끊으셨어요.",
+      "uz": "Otam chekishni tashladilar.",
+      "en": "My father quit smoking.",
+      "ru": "Папа бросил курить."
+    }
+  },
+  {
+    "id": 601,
+    "korean": "담배를 피우다",
+    "uzbek": "sigaret chekmoq",
+    "english": "to smoke",
+    "russian": "курить",
+    "romanization": "dambaereul piuda",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여기서 담배를 피우면 안 돼요.",
+      "uz": "Bu yerda chekish mumkin emas.",
+      "en": "You can't smoke here.",
+      "ru": "Здесь нельзя курить."
+    }
+  },
+  {
+    "id": 602,
+    "korean": "데이트하다",
+    "uzbek": "uchrashuvga chiqmoq (sevgilisi bilan)",
+    "english": "to go on a date",
+    "russian": "ходить на свидание",
+    "romanization": "deiteuhada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 여자 친구와 데이트해요.",
+      "uz": "Dam olish kuni qizim bilan uchrashuvga chiqaman.",
+      "en": "I'm going on a date with my girlfriend this weekend.",
+      "ru": "В выходные у меня свидание с девушкой."
+    }
+  },
+  {
+    "id": 603,
+    "korean": "만들기",
+    "uzbek": "yasash, tayyorlash (mashg'ulot)",
+    "english": "making (as an activity)",
+    "russian": "изготовление, поделки",
+    "romanization": "mandeulgi",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이들과 쿠키 만들기를 했어요.",
+      "uz": "Bolalar bilan pechenye tayyorlash mashg'uloti qildik.",
+      "en": "We did cookie making with the kids.",
+      "ru": "Мы с детьми пекли печенье."
+    }
+  },
+  {
+    "id": 604,
+    "korean": "밖에 나가다",
+    "uzbek": "tashqariga chiqmoq",
+    "english": "to go outside",
+    "russian": "выходить на улицу",
+    "romanization": "bakke nagada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비가 와서 밖에 안 나가요.",
+      "uz": "Yomg'ir yog'yapti, tashqariga chiqmayman.",
+      "en": "It's raining, so I'm not going out.",
+      "ru": "Идёт дождь, я не выхожу."
+    }
+  },
+  {
+    "id": 605,
+    "korean": "빨래하다",
+    "uzbek": "kir yuvmoq",
+    "english": "to do laundry",
+    "russian": "стирать",
+    "romanization": "ppallaehada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 빨래해야 해요.",
+      "uz": "Bugun kir yuvishim kerak.",
+      "en": "I need to do laundry today.",
+      "ru": "Сегодня мне нужно постирать."
+    }
+  },
+  {
+    "id": 606,
+    "korean": "설거지를 하다",
+    "uzbek": "idish yuvmoq",
+    "english": "to wash the dishes",
+    "russian": "мыть посуду",
+    "romanization": "seolgeojireul hada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밥을 먹고 설거지를 했어요.",
+      "uz": "Ovqatdan keyin idish yuvdim.",
+      "en": "I washed the dishes after eating.",
+      "ru": "После еды я помыл посуду."
+    }
+  },
+  {
+    "id": 607,
+    "korean": "세수하다",
+    "uzbek": "yuz yuvmoq",
+    "english": "to wash one's face",
+    "russian": "умываться",
+    "romanization": "sesuhada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "찬물로 세수했어요.",
+      "uz": "Sovuq suv bilan yuz yuvdim.",
+      "en": "I washed my face with cold water.",
+      "ru": "Я умылся холодной водой."
+    }
+  },
+  {
+    "id": 608,
+    "korean": "술을 끊다",
+    "uzbek": "ichishni tashlamoq",
+    "english": "to quit drinking",
+    "russian": "бросить пить",
+    "romanization": "sureul kkeunta",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "건강 때문에 술을 끊었어요.",
+      "uz": "Sog'lig'im tufayli ichishni tashladim.",
+      "en": "I quit drinking for my health.",
+      "ru": "Я бросил пить из-за здоровья."
+    }
+  },
+  {
+    "id": 609,
+    "korean": "술을 마시다",
+    "uzbek": "spirtli ichimlik ichmoq",
+    "english": "to drink alcohol",
+    "russian": "пить алкоголь",
+    "romanization": "sureul masida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 술을 안 마셔요.",
+      "uz": "Men spirtli ichimlik ichmayman.",
+      "en": "I don't drink alcohol.",
+      "ru": "Я не пью алкоголь."
+    }
+  },
+  {
+    "id": 610,
+    "korean": "쉬다",
+    "uzbek": "dam olmoq",
+    "english": "to rest",
+    "russian": "отдыхать",
+    "romanization": "swida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "잠깐 쉬고 하세요.",
+      "uz": "Biroz dam olib, keyin qiling.",
+      "en": "Take a short break first.",
+      "ru": "Немного отдохните, потом продолжайте."
+    }
+  },
+  {
+    "id": 611,
+    "korean": "시간이 빨리 가다",
+    "uzbek": "vaqt tez o'tmoq",
+    "english": "time flies",
+    "russian": "время летит",
+    "romanization": "sigani ppalli gada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학에는 시간이 빨리 가요.",
+      "uz": "Ta'tilda vaqt tez o'tadi.",
+      "en": "Time flies during the holidays.",
+      "ru": "На каникулах время летит быстро."
+    }
+  },
+  {
+    "id": 612,
+    "korean": "시간이 없다",
+    "uzbek": "vaqti yo'q bo'lmoq",
+    "english": "to have no time",
+    "russian": "нет времени",
+    "romanization": "sigani eopda",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "요즘 바빠서 시간이 없어요.",
+      "uz": "Yaqinda bandman, vaqtim yo'q.",
+      "en": "I'm busy these days and have no time.",
+      "ru": "Сейчас я занят, и времени нет."
+    }
+  },
+  {
+    "id": 613,
+    "korean": "쓰레기를 버리다",
+    "uzbek": "axlat tashlamoq",
+    "english": "to throw away trash",
+    "russian": "выбрасывать мусор",
+    "romanization": "sseuregireul beorida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저녁에 쓰레기를 버려요.",
+      "uz": "Kechqurun axlat tashlayman.",
+      "en": "I take out the trash in the evening.",
+      "ru": "Вечером я выношу мусор."
+    }
+  },
+  {
+    "id": 614,
+    "korean": "약속",
+    "uzbek": "va'da; uchrashuv",
+    "english": "promise; appointment",
+    "russian": "обещание; встреча",
+    "romanization": "yaksok",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 저녁에 약속이 있어요.",
+      "uz": "Bugun kechqurun uchrashuvim bor.",
+      "en": "I have plans this evening.",
+      "ru": "У меня сегодня вечером встреча."
+    }
+  },
+  {
+    "id": 615,
+    "korean": "약속을 지키다",
+    "uzbek": "va'dasida turmoq",
+    "english": "to keep a promise",
+    "russian": "сдерживать обещание",
+    "romanization": "yaksogeul jikida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "약속을 꼭 지킬게요.",
+      "uz": "Va'damda albatta turaman.",
+      "en": "I'll definitely keep my promise.",
+      "ru": "Я обязательно сдержу обещание."
+    }
+  },
+  {
+    "id": 616,
+    "korean": "요리하다",
+    "uzbek": "ovqat pishirmoq",
+    "english": "to cook",
+    "russian": "готовить",
+    "romanization": "yorihada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에는 제가 요리해요.",
+      "uz": "Dam olish kunlari men ovqat qilaman.",
+      "en": "I cook on weekends.",
+      "ru": "По выходным готовлю я."
+    }
+  },
+  {
+    "id": 617,
+    "korean": "운전하다",
+    "uzbek": "mashina haydamoq",
+    "english": "to drive",
+    "russian": "водить машину",
+    "romanization": "unjeonhada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지는 운전을 잘하세요.",
+      "uz": "Otam mashinani yaxshi haydaydilar.",
+      "en": "My father drives well.",
+      "ru": "Папа хорошо водит машину."
+    }
+  },
+  {
+    "id": 618,
+    "korean": "이를 닦다",
+    "uzbek": "tish yuvmoq",
+    "english": "to brush one's teeth",
+    "russian": "чистить зубы",
+    "romanization": "ireul dakda",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "하루에 세 번 이를 닦아요.",
+      "uz": "Kuniga uch marta tish yuvaman.",
+      "en": "I brush my teeth three times a day.",
+      "ru": "Я чищу зубы три раза в день."
+    }
+  },
+  {
+    "id": 619,
+    "korean": "이사하다",
+    "uzbek": "ko'chib o'tmoq (uydan)",
+    "english": "to move (house)",
+    "russian": "переезжать",
+    "romanization": "isahada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교 근처로 이사했어요.",
+      "uz": "Maktab yaqiniga ko'chib o'tdim.",
+      "en": "I moved near the school.",
+      "ru": "Я переехал поближе к школе."
+    }
+  },
+  {
+    "id": 620,
+    "korean": "일어나다",
+    "uzbek": "uyg'onmoq, turmoq",
+    "english": "to get up, to wake up",
+    "russian": "вставать, просыпаться",
+    "romanization": "ireonada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침 일찍 일어나요.",
+      "uz": "Ertalab erta turaman.",
+      "en": "I get up early in the morning.",
+      "ru": "Я встаю рано утром."
+    }
+  },
+  {
+    "id": 621,
+    "korean": "일이 생기다",
+    "uzbek": "ish chiqib qolmoq",
+    "english": "something comes up",
+    "russian": "возникнуть делу",
+    "romanization": "iri saenggida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "갑자기 일이 생겨서 못 가요.",
+      "uz": "Birdan ish chiqib qoldi, borolmayman.",
+      "en": "Something came up, so I can't go.",
+      "ru": "Неожиданно возникли дела, я не смогу прийти."
+    }
+  },
+  {
+    "id": 622,
+    "korean": "자다",
+    "uzbek": "uxlamoq",
+    "english": "to sleep",
+    "russian": "спать",
+    "romanization": "jada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "보통 열한 시에 자요.",
+      "uz": "Odatda soat o'n birda uxlayman.",
+      "en": "I usually go to bed at eleven.",
+      "ru": "Обычно я ложусь в одиннадцать."
+    }
+  },
+  {
+    "id": 623,
+    "korean": "잠을 자다",
+    "uzbek": "uxlamoq (uyqu)",
+    "english": "to sleep",
+    "russian": "спать (сном)",
+    "romanization": "jameul jada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어제 잠을 못 잤어요.",
+      "uz": "Kecha uxlay olmadim.",
+      "en": "I couldn't sleep last night.",
+      "ru": "Вчера я не смог уснуть."
+    }
+  },
+  {
+    "id": 624,
+    "korean": "준비하다",
+    "uzbek": "tayyorlamoq, tayyorlanmoq",
+    "english": "to prepare",
+    "russian": "готовить(ся)",
+    "romanization": "junbihada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여행 준비를 다 했어요.",
+      "uz": "Sayohatga hammasini tayyorladim.",
+      "en": "I've finished preparing for the trip.",
+      "ru": "Я всё подготовил к поездке."
+    }
+  },
+  {
+    "id": 625,
+    "korean": "청소하다",
+    "uzbek": "tozalamoq, yig'ishtirmoq",
+    "english": "to clean",
+    "russian": "убирать",
+    "romanization": "cheongsohada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "토요일마다 방을 청소해요.",
+      "uz": "Har shanba xonamni tozalayman.",
+      "en": "I clean my room every Saturday.",
+      "ru": "Каждую субботу я убираю комнату."
+    }
+  },
+  {
+    "id": 626,
+    "korean": "초대하다",
+    "uzbek": "taklif qilmoq",
+    "english": "to invite",
+    "russian": "приглашать",
+    "romanization": "chodaehada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구들을 집에 초대했어요.",
+      "uz": "Do'stlarimni uyga taklif qildim.",
+      "en": "I invited my friends home.",
+      "ru": "Я пригласил друзей домой."
+    }
+  },
+  {
+    "id": 627,
+    "korean": "친구를 만나다",
+    "uzbek": "do'st bilan uchrashmoq",
+    "english": "to meet a friend",
+    "russian": "встречаться с другом",
+    "romanization": "chingureul mannada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 오랜만에 친구를 만나요.",
+      "uz": "Bugun ancha vaqtdan beri ko'rmagan do'stim bilan uchrashaman.",
+      "en": "Today I'm meeting a friend I haven't seen in a while.",
+      "ru": "Сегодня я встречаюсь с давним другом."
+    }
+  },
+  {
+    "id": 628,
+    "korean": "크게 듣다",
+    "uzbek": "baland ovozda tinglamoq",
+    "english": "to listen at high volume",
+    "russian": "слушать громко",
+    "romanization": "keuge deutda",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "음악을 너무 크게 듣지 마세요.",
+      "uz": "Musiqani juda baland tinglamang.",
+      "en": "Don't play music too loud.",
+      "ru": "Не слушайте музыку слишком громко."
+    }
+  },
+  {
+    "id": 629,
+    "korean": "큰 소리로 이야기하다",
+    "uzbek": "baland ovozda gapirmoq",
+    "english": "to speak loudly",
+    "russian": "говорить громко",
+    "romanization": "keun soriro iyagihada",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지하철에서 큰 소리로 이야기하지 마세요.",
+      "uz": "Metroda baland ovozda gaplashmang.",
+      "en": "Don't talk loudly on the subway.",
+      "ru": "Не говорите громко в метро."
+    }
+  },
+  {
+    "id": 630,
+    "korean": "푹 쉬다",
+    "uzbek": "yaxshilab dam olmoq",
+    "english": "to rest well",
+    "russian": "хорошо отдохнуть",
+    "romanization": "puk swida",
+    "lesson": 26,
+    "theme": "daily",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 집에서 푹 쉬세요.",
+      "uz": "Bugun uyda yaxshilab dam oling.",
+      "en": "Get a good rest at home today.",
+      "ru": "Сегодня хорошенько отдохните дома."
+    }
+  }
+]

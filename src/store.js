@@ -1,6 +1,7 @@
 import { configureStore, createSelector, createSlice } from "@reduxjs/toolkit";
 import { allWords, getWordKey, lessonInfo } from "./data";
 import { getCurrentSyncUserId, saveServerProgress } from "./lib/progressSync";
+import { migrateProgress, WORD_KEYS_VERSION } from "./lib/progressMigrate";
 import { dailyKey } from "./lib/study";
 import { getSRSRecord } from "./lib/srs";
 import { RATING, STATE, ankiSettings, unpackCard } from "./lib/fsrs";
@@ -21,12 +22,14 @@ import {
   spendFreeze,
 } from "./lib/gamification";
 
-const STORAGE_KEY = "ktalim-1a-progress-v1";
+const STORAGE_KEY = "ktalim-progress-v2";
+// Read once when there is no v2 copy yet; its word keys are migrated.
+const OLD_STORAGE_KEY = "ktalim-1a-progress-v1";
 
 function loadState() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(OLD_STORAGE_KEY);
+    return raw ? migrateProgress(JSON.parse(raw)) : null;
   } catch {
     return null;
   }
@@ -61,6 +64,8 @@ const defaultState = {
   // Anki-style cards (src/lib/fsrs.js packCard) and per-day review counts.
   cards: {},
   ankiDays: {},
+  // Word keys are "<deck>-<id>" (see src/lib/progressMigrate.js).
+  wordKeys: WORD_KEYS_VERSION,
 };
 
 const ANKI_HISTORY_DAYS = 120;
@@ -443,7 +448,7 @@ const progressSlice = createSlice({
       state.shareMilestones[milestone] = true;
     },
     hydrateProgress(state, action) {
-      const serverData = action.payload;
+      const serverData = migrateProgress(action.payload);
       // Merge settings: preserve local settings if server doesn't have them
       const mergedSettings = {
         ...state.settings,
@@ -544,6 +549,7 @@ function writeLocal() {
       return;
     }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    localStorage.removeItem(OLD_STORAGE_KEY);
     localStorage.setItem(PROGRESS_UPDATED_KEY, String(changedAt));
   } catch {
     // Storage full or blocked: the server copy still saves.

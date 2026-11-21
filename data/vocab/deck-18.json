@@ -1,0 +1,477 @@
+[
+  {
+    "id": 400,
+    "korean": "공장",
+    "uzbek": "zavod, fabrika",
+    "english": "factory",
+    "russian": "завод, фабрика",
+    "romanization": "gongjang",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "삼촌은 자동차 공장에서 일해요.",
+      "uz": "Amakim avtomobil zavodida ishlaydi.",
+      "en": "My uncle works at a car factory.",
+      "ru": "Дядя работает на автозаводе."
+    }
+  },
+  {
+    "id": 401,
+    "korean": "돈을 벌다",
+    "uzbek": "pul topmoq",
+    "english": "to earn money",
+    "russian": "зарабатывать деньги",
+    "romanization": "doneul beolda",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아르바이트로 돈을 벌어요.",
+      "uz": "Qo'shimcha ish bilan pul topaman.",
+      "en": "I earn money with a part-time job.",
+      "ru": "Я зарабатываю на подработке."
+    }
+  },
+  {
+    "id": 402,
+    "korean": "말하다",
+    "uzbek": "gapirmoq, aytmoq",
+    "english": "to speak, to say",
+    "russian": "говорить, сказать",
+    "romanization": "malhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국어로 말하는 것이 재미있어요.",
+      "uz": "Koreyscha gapirish qiziqarli.",
+      "en": "Speaking in Korean is fun.",
+      "ru": "Говорить по-корейски интересно."
+    }
+  },
+  {
+    "id": 403,
+    "korean": "번역하다",
+    "uzbek": "tarjima qilmoq (yozma)",
+    "english": "to translate (in writing)",
+    "russian": "переводить (письменно)",
+    "romanization": "beonyeokhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 글을 영어로 번역했어요.",
+      "uz": "Bu matnni inglizchaga tarjima qildim.",
+      "en": "I translated this text into English.",
+      "ru": "Я перевёл этот текст на английский."
+    }
+  },
+  {
+    "id": 404,
+    "korean": "서류",
+    "uzbek": "hujjatlar",
+    "english": "documents",
+    "russian": "документы",
+    "romanization": "seoryu",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서류를 책상 위에 놓았어요.",
+      "uz": "Hujjatlarni stol ustiga qo'ydim.",
+      "en": "I put the documents on the desk.",
+      "ru": "Я положил документы на стол."
+    }
+  },
+  {
+    "id": 405,
+    "korean": "안내 방송",
+    "uzbek": "e'lon (radio orqali)",
+    "english": "announcement (over a speaker)",
+    "russian": "объявление (по громкой связи)",
+    "romanization": "annae bangsong",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "안내 방송을 잘 들으세요.",
+      "uz": "E'lonni diqqat bilan tinglang.",
+      "en": "Listen carefully to the announcement.",
+      "ru": "Внимательно слушайте объявление."
+    }
+  },
+  {
+    "id": 406,
+    "korean": "안내하다",
+    "uzbek": "yo'l ko'rsatmoq; ma'lum qilmoq",
+    "english": "to guide; to inform",
+    "russian": "проводить, показывать; сообщать",
+    "romanization": "annaehada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "손님을 방으로 안내했어요.",
+      "uz": "Mehmonni xonaga boshlab bordim.",
+      "en": "I showed the guest to the room.",
+      "ru": "Я проводил гостя в комнату."
+    }
+  },
+  {
+    "id": 407,
+    "korean": "이메일",
+    "uzbek": "elektron pochta",
+    "english": "email",
+    "russian": "электронная почта",
+    "romanization": "imeil",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이메일을 확인해 보세요.",
+      "uz": "Elektron pochtangizni tekshirib ko'ring.",
+      "en": "Please check your email.",
+      "ru": "Проверьте почту."
+    }
+  },
+  {
+    "id": 408,
+    "korean": "이야기하다",
+    "uzbek": "suhbatlashmoq",
+    "english": "to talk, to chat",
+    "russian": "разговаривать",
+    "romanization": "iyagihada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구와 오래 이야기했어요.",
+      "uz": "Do'stim bilan uzoq suhbatlashdim.",
+      "en": "I talked with a friend for a long time.",
+      "ru": "Я долго разговаривал с другом."
+    }
+  },
+  {
+    "id": 409,
+    "korean": "인터넷",
+    "uzbek": "internet",
+    "english": "internet",
+    "russian": "интернет",
+    "romanization": "inteonet",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "인터넷이 안 돼요.",
+      "uz": "Internet ishlamayapti.",
+      "en": "The internet isn't working.",
+      "ru": "Интернет не работает."
+    }
+  },
+  {
+    "id": 410,
+    "korean": "전하다",
+    "uzbek": "yetkazmoq",
+    "english": "to pass on, to deliver",
+    "russian": "передавать",
+    "romanization": "jeonhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "부모님께 안부 전해 주세요.",
+      "uz": "Ota-onangizga salom ayting.",
+      "en": "Please give my regards to your parents.",
+      "ru": "Передавайте привет родителям."
+    }
+  },
+  {
+    "id": 411,
+    "korean": "전화를 받다",
+    "uzbek": "telefonga javob bermoq",
+    "english": "to answer the phone",
+    "russian": "отвечать на звонок",
+    "romanization": "jeonhwareul batda",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바빠서 전화를 못 받았어요.",
+      "uz": "Band bo'lganim uchun telefonni ko'tarolmadim.",
+      "en": "I was busy and couldn't answer the phone.",
+      "ru": "Я был занят и не смог ответить на звонок."
+    }
+  },
+  {
+    "id": 412,
+    "korean": "전화번호",
+    "uzbek": "telefon raqami",
+    "english": "phone number",
+    "russian": "номер телефона",
+    "romanization": "jeonhwabeonho",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "전화번호 좀 알려 주세요.",
+      "uz": "Telefon raqamingizni ayting.",
+      "en": "Could you give me your phone number?",
+      "ru": "Дайте, пожалуйста, ваш номер телефона."
+    }
+  },
+  {
+    "id": 413,
+    "korean": "전화하다",
+    "uzbek": "qo'ng'iroq qilmoq",
+    "english": "to call (on the phone)",
+    "russian": "звонить",
+    "romanization": "jeonhwahada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집에 도착하면 전화하세요.",
+      "uz": "Uyga yetib borsangiz, qo'ng'iroq qiling.",
+      "en": "Call me when you get home.",
+      "ru": "Позвоните, когда доберётесь домой."
+    }
+  },
+  {
+    "id": 414,
+    "korean": "주소",
+    "uzbek": "manzil",
+    "english": "address",
+    "russian": "адрес",
+    "romanization": "juso",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여기에 주소를 쓰세요.",
+      "uz": "Manzilni shu yerga yozing.",
+      "en": "Write your address here.",
+      "ru": "Напишите здесь адрес."
+    }
+  },
+  {
+    "id": 415,
+    "korean": "출근하다",
+    "uzbek": "ishga bormoq",
+    "english": "to go to work",
+    "russian": "идти на работу",
+    "romanization": "chulgeunhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여덟 시에 출근해요.",
+      "uz": "Soat sakkizda ishga boraman.",
+      "en": "I go to work at eight.",
+      "ru": "Я выхожу на работу в восемь."
+    }
+  },
+  {
+    "id": 416,
+    "korean": "출퇴근 시간",
+    "uzbek": "tig'iz vaqt (ishga borish-kelish)",
+    "english": "rush hour",
+    "russian": "час пик",
+    "romanization": "chultoegeun sigan",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "출퇴근 시간에는 길이 막혀요.",
+      "uz": "Tig'iz vaqtda yo'llar tirband.",
+      "en": "The roads are jammed at rush hour.",
+      "ru": "В час пик пробки."
+    }
+  },
+  {
+    "id": 417,
+    "korean": "출퇴근하다",
+    "uzbek": "ishga qatnamoq",
+    "english": "to commute",
+    "russian": "ездить на работу и обратно",
+    "romanization": "chultoegeunhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "자전거로 출퇴근하는 사람이 많아요.",
+      "uz": "Ishga velosipedda qatnaydiganlar ko'p.",
+      "en": "Many people commute by bike.",
+      "ru": "Многие ездят на работу на велосипеде."
+    }
+  },
+  {
+    "id": 418,
+    "korean": "통역하다",
+    "uzbek": "og'zaki tarjima qilmoq",
+    "english": "to interpret",
+    "russian": "переводить (устно)",
+    "romanization": "tongyeokhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "회의에서 통역했어요.",
+      "uz": "Yig'ilishda tarjimonlik qildim.",
+      "en": "I interpreted at the meeting.",
+      "ru": "Я переводил на совещании."
+    }
+  },
+  {
+    "id": 419,
+    "korean": "퇴근하다",
+    "uzbek": "ishdan chiqmoq",
+    "english": "to leave work",
+    "russian": "уходить с работы",
+    "romanization": "toegeunhada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 일찍 퇴근했어요.",
+      "uz": "Bugun ishdan erta chiqdim.",
+      "en": "I left work early today.",
+      "ru": "Сегодня я ушёл с работы рано."
+    }
+  },
+  {
+    "id": 420,
+    "korean": "팩스로 보내다",
+    "uzbek": "faks orqali yubormoq",
+    "english": "to send by fax",
+    "russian": "отправить по факсу",
+    "romanization": "paekseuro bonaeda",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서류를 팩스로 보내 주세요.",
+      "uz": "Hujjatlarni faks orqali yuboring.",
+      "en": "Please fax the documents.",
+      "ru": "Отправьте документы по факсу."
+    }
+  },
+  {
+    "id": 421,
+    "korean": "편지를 보내다",
+    "uzbek": "xat jo'natmoq",
+    "english": "to send a letter",
+    "russian": "отправлять письмо",
+    "romanization": "pyeonjireul bonaeda",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니께 편지를 보냈어요.",
+      "uz": "Buvimga xat jo'natdim.",
+      "en": "I sent a letter to my grandmother.",
+      "ru": "Я отправил письмо бабушке."
+    }
+  },
+  {
+    "id": 422,
+    "korean": "회사",
+    "uzbek": "kompaniya, ishxona",
+    "english": "company",
+    "russian": "компания, фирма",
+    "romanization": "hoesa",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "회사가 집에서 가까워요.",
+      "uz": "Ishxonam uyga yaqin.",
+      "en": "My company is close to home.",
+      "ru": "Компания рядом с домом."
+    }
+  },
+  {
+    "id": 423,
+    "korean": "회의를 하다",
+    "uzbek": "yig'ilish o'tkazmoq",
+    "english": "to have a meeting",
+    "russian": "проводить совещание",
+    "romanization": "hoeuireul hada",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "매주 월요일에 회의를 해요.",
+      "uz": "Har dushanba yig'ilish o'tkazamiz.",
+      "en": "We have a meeting every Monday.",
+      "ru": "Каждый понедельник у нас совещание."
+    }
+  },
+  {
+    "id": 424,
+    "korean": "SNS",
+    "uzbek": "ijtimoiy tarmoq",
+    "english": "social media",
+    "russian": "соцсети",
+    "romanization": "SNS",
+    "lesson": 18,
+    "theme": "comm",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "SNS에 사진을 올렸어요.",
+      "uz": "Ijtimoiy tarmoqqa surat joyladim.",
+      "en": "I posted a photo on social media.",
+      "ru": "Я выложил фото в соцсети."
+    }
+  }
+]

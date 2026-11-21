@@ -1,0 +1,363 @@
+[
+  {
+    "id": 456,
+    "korean": "경치",
+    "uzbek": "manzara",
+    "english": "scenery, view",
+    "russian": "пейзаж, вид",
+    "romanization": "gyeongchi",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "산 위 경치가 정말 좋아요.",
+      "uz": "Tog' tepasidan manzara juda chiroyli.",
+      "en": "The view from the mountaintop is great.",
+      "ru": "С вершины горы прекрасный вид."
+    }
+  },
+  {
+    "id": 457,
+    "korean": "경험하다",
+    "uzbek": "boshdan kechirmoq",
+    "english": "to experience",
+    "russian": "испытывать, получать опыт",
+    "romanization": "gyeongheomhada",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새로운 문화를 경험했어요.",
+      "uz": "Yangi madaniyatni his qildim.",
+      "en": "I experienced a new culture.",
+      "ru": "Я познакомился с новой культурой."
+    }
+  },
+  {
+    "id": 458,
+    "korean": "고향",
+    "uzbek": "ona yurt, tug'ilgan joy",
+    "english": "hometown",
+    "russian": "родной город",
+    "romanization": "gohyang",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "고향 음식이 그리워요.",
+      "uz": "Ona yurtim taomlarini sog'indim.",
+      "en": "I miss the food from home.",
+      "ru": "Я скучаю по еде с родины."
+    }
+  },
+  {
+    "id": 459,
+    "korean": "고향에 가다",
+    "uzbek": "ona yurtga bormoq",
+    "english": "to go to one's hometown",
+    "russian": "ехать на родину",
+    "romanization": "gohyange gada",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "명절에 고향에 가요.",
+      "uz": "Bayramda ona yurtimga boraman.",
+      "en": "I go to my hometown for the holidays.",
+      "ru": "На праздники я еду на родину."
+    }
+  },
+  {
+    "id": 460,
+    "korean": "구경하다",
+    "uzbek": "tomosha qilmoq, aylanib ko'rmoq",
+    "english": "to look around, to sightsee",
+    "russian": "осматривать",
+    "romanization": "gugyeonghada",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시내를 구경했어요.",
+      "uz": "Shahar markazini aylanib chiqdim.",
+      "en": "I looked around downtown.",
+      "ru": "Я осмотрел центр города."
+    }
+  },
+  {
+    "id": 461,
+    "korean": "궁",
+    "uzbek": "saroy",
+    "english": "palace",
+    "russian": "дворец",
+    "romanization": "gung",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "궁에서 한복을 입고 사진을 찍었어요.",
+      "uz": "Saroyda hanbok kiyib suratga tushdim.",
+      "en": "I took photos at the palace in hanbok.",
+      "ru": "Я сфотографировался во дворце в ханбоке."
+    }
+  },
+  {
+    "id": 462,
+    "korean": "남산",
+    "uzbek": "Namsan (Seuldagi tog')",
+    "english": "Namsan (mountain in Seoul)",
+    "russian": "Намсан (гора в Сеуле)",
+    "romanization": "namsan",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "남산에 올라가서 사진을 찍었어요.",
+      "uz": "Namsanga chiqib, suratga tushdim.",
+      "en": "I climbed Namsan and took photos.",
+      "ru": "Я поднялся на Намсан и сфотографировался."
+    }
+  },
+  {
+    "id": 463,
+    "korean": "남이섬",
+    "uzbek": "Nami oroli",
+    "english": "Nami Island",
+    "russian": "остров Нами",
+    "romanization": "namiseom",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가을에 남이섬이 예뻐요.",
+      "uz": "Kuzda Nami oroli chiroyli.",
+      "en": "Nami Island is pretty in autumn.",
+      "ru": "Осенью остров Нами красив."
+    }
+  },
+  {
+    "id": 464,
+    "korean": "동대문시장",
+    "uzbek": "Tongdemun bozori",
+    "english": "Dongdaemun Market",
+    "russian": "рынок Тондэмун",
+    "romanization": "dongdaemunsijang",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동대문시장은 밤에도 열어요.",
+      "uz": "Tongdemun bozori kechasi ham ochiq.",
+      "en": "Dongdaemun Market is open at night too.",
+      "ru": "Рынок Тондэмун работает и ночью."
+    }
+  },
+  {
+    "id": 465,
+    "korean": "밤경치",
+    "uzbek": "tungi manzara",
+    "english": "night view",
+    "russian": "ночной вид",
+    "romanization": "bamgyeongchi",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서울 밤경치가 아름다워요.",
+      "uz": "Seulning tungi manzarasi go'zal.",
+      "en": "Seoul's night view is beautiful.",
+      "ru": "Ночной вид Сеула красив."
+    }
+  },
+  {
+    "id": 466,
+    "korean": "부산",
+    "uzbek": "Pusan (shahar)",
+    "english": "Busan",
+    "russian": "Пусан",
+    "romanization": "busan",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "부산은 바다가 유명해요.",
+      "uz": "Pusan dengizi bilan mashhur.",
+      "en": "Busan is famous for its sea.",
+      "ru": "Пусан славится морем."
+    }
+  },
+  {
+    "id": 467,
+    "korean": "서울숲",
+    "uzbek": "Seul o'rmon bog'i",
+    "english": "Seoul Forest",
+    "russian": "Сеульский лес (парк)",
+    "romanization": "seoulsup",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서울숲에서 피크닉을 했어요.",
+      "uz": "Seul o'rmon bog'ida piknik qildik.",
+      "en": "We had a picnic at Seoul Forest.",
+      "ru": "Мы устроили пикник в Сеульском лесу."
+    }
+  },
+  {
+    "id": 468,
+    "korean": "서울타워",
+    "uzbek": "Seul minorasi",
+    "english": "Seoul Tower",
+    "russian": "Сеульская башня",
+    "romanization": "seoultawo",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서울타워에서 서울이 다 보여요.",
+      "uz": "Seul minorasidan butun Seul ko'rinadi.",
+      "en": "You can see all of Seoul from Seoul Tower.",
+      "ru": "С Сеульской башни виден весь Сеул."
+    }
+  },
+  {
+    "id": 469,
+    "korean": "여행을 하다",
+    "uzbek": "sayohat qilmoq",
+    "english": "to travel",
+    "russian": "путешествовать",
+    "romanization": "yeohaengeul hada",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학에 여행을 했어요.",
+      "uz": "Ta'tilda sayohat qildim.",
+      "en": "I traveled during the vacation.",
+      "ru": "На каникулах я путешествовал."
+    }
+  },
+  {
+    "id": 470,
+    "korean": "인천",
+    "uzbek": "Inchxon (shahar)",
+    "english": "Incheon",
+    "russian": "Инчхон",
+    "romanization": "incheon",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "인천에서 서울까지 버스로 가요.",
+      "uz": "Inchxondan Seulgacha avtobusda boraman.",
+      "en": "I go from Incheon to Seoul by bus.",
+      "ru": "Из Инчхона в Сеул я еду на автобусе."
+    }
+  },
+  {
+    "id": 471,
+    "korean": "제주도",
+    "uzbek": "Cheju oroli",
+    "english": "Jeju Island",
+    "russian": "остров Чеджу",
+    "romanization": "jejudo",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제주도에서 귤을 먹었어요.",
+      "uz": "Cheju orolida mandarin yedim.",
+      "en": "I ate tangerines on Jeju.",
+      "ru": "На Чеджу я ел мандарины."
+    }
+  },
+  {
+    "id": 472,
+    "korean": "좋은 추억을 만들다",
+    "uzbek": "yaxshi xotiralar qoldirmoq",
+    "english": "to make good memories",
+    "russian": "создать хорошие воспоминания",
+    "romanization": "joeun chueogeul mandeulda",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구들과 좋은 추억을 만들었어요.",
+      "uz": "Do'stlarim bilan yaxshi xotiralar qoldirdik.",
+      "en": "I made good memories with friends.",
+      "ru": "Мы с друзьями создали хорошие воспоминания."
+    }
+  },
+  {
+    "id": 473,
+    "korean": "한강",
+    "uzbek": "Xangang daryosi",
+    "english": "Han River",
+    "russian": "река Ханган",
+    "romanization": "hangang",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한강에서 자전거를 탔어요.",
+      "uz": "Xangang bo'yida velosiped haydadim.",
+      "en": "I rode a bike along the Han River.",
+      "ru": "Я катался на велосипеде у Хангана."
+    }
+  },
+  {
+    "id": 474,
+    "korean": "해운대",
+    "uzbek": "Xeunde (Pusandagi plyaj)",
+    "english": "Haeundae (beach in Busan)",
+    "russian": "Хэундэ (пляж в Пусане)",
+    "romanization": "haeundae",
+    "lesson": 20,
+    "theme": "travel",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여름에 해운대에 사람이 많아요.",
+      "uz": "Yozda Xeundeda odam ko'p.",
+      "en": "Haeundae is crowded in summer.",
+      "ru": "Летом на Хэундэ много людей."
+    }
+  }
+]

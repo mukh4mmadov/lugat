@@ -145,7 +145,7 @@ export default function TopikWordsPage() {
                   {word.example && <span className="block truncate text-xs text-slate-400" title={exampleTranslation(word.example)}>{word.example.ko}</span>}
                 </span>
                 <span className="shrink-0 rounded-full bg-violet-100 px-2 py-0.5 text-xs font-black text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">×{count}</span>
-                <Link to={`/study/${word.lesson}`} className="hidden shrink-0 text-xs font-bold text-sky-600 dark:text-sky-300 sm:inline">
+                <Link to={`/topic/${word.lesson}/study`} className="hidden shrink-0 text-xs font-bold text-sky-600 dark:text-sky-300 sm:inline">
                   {t("card.lesson", { lesson: word.lesson })}
                 </Link>
                 <button

@@ -1,0 +1,458 @@
+[
+  {
+    "id": 277,
+    "korean": "교복",
+    "uzbek": "maktab formasi",
+    "english": "school uniform",
+    "russian": "школьная форма",
+    "romanization": "gyobok",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 학교 교복은 파란색이에요.",
+      "uz": "Maktabimiz formasi ko'k rangda.",
+      "en": "Our school uniform is blue.",
+      "ru": "Наша школьная форма синяя."
+    }
+  },
+  {
+    "id": 278,
+    "korean": "구두",
+    "uzbek": "tufli",
+    "english": "dress shoes",
+    "russian": "туфли",
+    "romanization": "gudu",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "결혼식에 구두를 신고 가요.",
+      "uz": "To'yga tufli kiyib boraman.",
+      "en": "I wear dress shoes to the wedding.",
+      "ru": "На свадьбу я надеваю туфли."
+    }
+  },
+  {
+    "id": 279,
+    "korean": "노트북",
+    "uzbek": "noutbuk",
+    "english": "laptop",
+    "russian": "ноутбук",
+    "romanization": "noteubuk",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "노트북으로 숙제를 해요.",
+      "uz": "Uy vazifasini noutbukda qilaman.",
+      "en": "I do my homework on a laptop.",
+      "ru": "Я делаю домашнее задание на ноутбуке."
+    }
+  },
+  {
+    "id": 280,
+    "korean": "동화책",
+    "uzbek": "ertak kitobi",
+    "english": "storybook",
+    "russian": "книга сказок",
+    "romanization": "donghwachaek",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "도서관에서 동화책을 빌렸어요.",
+      "uz": "Kutubxonadan ertak kitobi oldim.",
+      "en": "I borrowed a storybook from the library.",
+      "ru": "Я взял книгу сказок в библиотеке."
+    }
+  },
+  {
+    "id": 281,
+    "korean": "등산화",
+    "uzbek": "tog' oyoq kiyimi",
+    "english": "hiking boots",
+    "russian": "ботинки для походов",
+    "romanization": "deungsanhwa",
+    "lesson": 13,
+    "theme": "items",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "등산화가 아주 편해요.",
+      "uz": "Tog' botinkalari juda qulay.",
+      "en": "The hiking boots are very comfortable.",
+      "ru": "Походные ботинки очень удобные."
+    }
+  },
+  {
+    "id": 282,
+    "korean": "따뜻한 옷",
+    "uzbek": "issiq kiyim",
+    "english": "warm clothes",
+    "russian": "тёплая одежда",
+    "romanization": "ttatteuthan ot",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "따뜻한 옷을 챙기세요.",
+      "uz": "Issiq kiyim olib oling.",
+      "en": "Pack warm clothes.",
+      "ru": "Возьмите тёплую одежду."
+    }
+  },
+  {
+    "id": 283,
+    "korean": "마스크",
+    "uzbek": "niqob (tibbiy)",
+    "english": "face mask",
+    "russian": "маска",
+    "romanization": "maseukeu",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "감기에 걸려서 마스크를 썼어요.",
+      "uz": "Shamollaganim uchun niqob taqdim.",
+      "en": "I caught a cold, so I wore a mask.",
+      "ru": "Я простыл и надел маску."
+    }
+  },
+  {
+    "id": 284,
+    "korean": "모자",
+    "uzbek": "shapka, bosh kiyim",
+    "english": "hat, cap",
+    "russian": "шапка, кепка",
+    "romanization": "moja",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "햇빛이 강해서 모자를 썼어요.",
+      "uz": "Quyosh kuchli, shuning uchun shapka kiydim.",
+      "en": "The sun was strong, so I wore a hat.",
+      "ru": "Солнце было сильное, и я надел кепку."
+    }
+  },
+  {
+    "id": 285,
+    "korean": "바지",
+    "uzbek": "shim",
+    "english": "pants, trousers",
+    "russian": "брюки",
+    "romanization": "baji",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 바지는 좀 길어요.",
+      "uz": "Bu shim biroz uzun.",
+      "en": "These pants are a bit long.",
+      "ru": "Эти брюки немного длинные."
+    }
+  },
+  {
+    "id": 286,
+    "korean": "복사기",
+    "uzbek": "nusxa ko'chirish mashinasi",
+    "english": "photocopier",
+    "russian": "ксерокс",
+    "romanization": "boksagi",
+    "lesson": 13,
+    "theme": "items",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "복사기가 종이가 없어요.",
+      "uz": "Nusxa ko'chirish mashinasida qog'oz yo'q.",
+      "en": "The copier is out of paper.",
+      "ru": "В ксероксе нет бумаги."
+    }
+  },
+  {
+    "id": 287,
+    "korean": "시계",
+    "uzbek": "soat",
+    "english": "clock, watch",
+    "russian": "часы",
+    "romanization": "sigye",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시계가 오 분 빨라요.",
+      "uz": "Soat besh daqiqa oldinda.",
+      "en": "The clock is five minutes fast.",
+      "ru": "Часы спешат на пять минут."
+    }
+  },
+  {
+    "id": 288,
+    "korean": "신문",
+    "uzbek": "gazeta",
+    "english": "newspaper",
+    "russian": "газета",
+    "romanization": "sinmun",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할아버지는 매일 신문을 읽으세요.",
+      "uz": "Bobom har kuni gazeta o'qiydilar.",
+      "en": "My grandfather reads the paper every day.",
+      "ru": "Дедушка каждый день читает газету."
+    }
+  },
+  {
+    "id": 289,
+    "korean": "안경",
+    "uzbek": "ko'zoynak",
+    "english": "glasses",
+    "russian": "очки",
+    "romanization": "angyeong",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "안경이 어디 있어요?",
+      "uz": "Ko'zoynagim qayerda?",
+      "en": "Where are my glasses?",
+      "ru": "Где мои очки?"
+    }
+  },
+  {
+    "id": 290,
+    "korean": "얇은 옷",
+    "uzbek": "yupqa kiyim",
+    "english": "thin clothes",
+    "russian": "тонкая одежда",
+    "romanization": "yalbeun ot",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "얇은 옷을 입어서 추웠어요.",
+      "uz": "Yupqa kiyim kiyganim uchun sovqotdim.",
+      "en": "I was cold because I wore thin clothes.",
+      "ru": "Мне было холодно в тонкой одежде."
+    }
+  },
+  {
+    "id": 291,
+    "korean": "요리책",
+    "uzbek": "pazandachilik kitobi",
+    "english": "cookbook",
+    "russian": "кулинарная книга",
+    "romanization": "yorichaek",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "요리책을 보고 요리했어요.",
+      "uz": "Pazandachilik kitobiga qarab ovqat qildim.",
+      "en": "I cooked following a cookbook.",
+      "ru": "Я готовил по кулинарной книге."
+    }
+  },
+  {
+    "id": 292,
+    "korean": "이어폰",
+    "uzbek": "quloqchin",
+    "english": "earphones",
+    "russian": "наушники",
+    "romanization": "ieopon",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이어폰을 잃어버렸어요.",
+      "uz": "Quloqchinimni yo'qotib qo'ydim.",
+      "en": "I lost my earphones.",
+      "ru": "Я потерял наушники."
+    }
+  },
+  {
+    "id": 293,
+    "korean": "장갑",
+    "uzbek": "qo'lqop",
+    "english": "gloves",
+    "russian": "перчатки",
+    "romanization": "janggap",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "추워서 장갑을 꼈어요.",
+      "uz": "Sovuq bo'lgani uchun qo'lqop kiydim.",
+      "en": "It was cold, so I put on gloves.",
+      "ru": "Было холодно, и я надел перчатки."
+    }
+  },
+  {
+    "id": 294,
+    "korean": "지갑",
+    "uzbek": "hamyon",
+    "english": "wallet",
+    "russian": "кошелёк",
+    "romanization": "jigap",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지갑에 돈이 별로 없어요.",
+      "uz": "Hamyonimda pul ko'p emas.",
+      "en": "There isn't much money in my wallet.",
+      "ru": "В кошельке мало денег."
+    }
+  },
+  {
+    "id": 295,
+    "korean": "치마",
+    "uzbek": "yubka",
+    "english": "skirt",
+    "russian": "юбка",
+    "romanization": "chima",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빨간 치마를 입었어요.",
+      "uz": "Qizil yubka kiydim.",
+      "en": "I wore a red skirt.",
+      "ru": "Я надела красную юбку."
+    }
+  },
+  {
+    "id": 296,
+    "korean": "카메라",
+    "uzbek": "fotoapparat",
+    "english": "camera",
+    "russian": "фотоаппарат",
+    "romanization": "kamera",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새 카메라로 사진을 찍었어요.",
+      "uz": "Yangi fotoapparat bilan suratga oldim.",
+      "en": "I took photos with my new camera.",
+      "ru": "Я фотографировал новым фотоаппаратом."
+    }
+  },
+  {
+    "id": 297,
+    "korean": "컴퓨터",
+    "uzbek": "kompyuter",
+    "english": "computer",
+    "russian": "компьютер",
+    "romanization": "keompyuteo",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "컴퓨터가 너무 느려요.",
+      "uz": "Kompyuter juda sekin.",
+      "en": "The computer is too slow.",
+      "ru": "Компьютер слишком медленный."
+    }
+  },
+  {
+    "id": 298,
+    "korean": "핸드폰",
+    "uzbek": "telefon (qo'l telefoni)",
+    "english": "cell phone",
+    "russian": "мобильный телефон",
+    "romanization": "haendeupon",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "핸드폰을 집에 두고 왔어요.",
+      "uz": "Telefonimni uyda qoldirib keldim.",
+      "en": "I left my phone at home.",
+      "ru": "Я оставил телефон дома."
+    }
+  },
+  {
+    "id": 299,
+    "korean": "향수",
+    "uzbek": "atir",
+    "english": "perfume",
+    "russian": "духи",
+    "romanization": "hyangsu",
+    "lesson": 13,
+    "theme": "items",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 향수 냄새가 좋아요.",
+      "uz": "Bu atirning hidi yoqimli.",
+      "en": "This perfume smells nice.",
+      "ru": "У этих духов приятный запах."
+    }
+  },
+  {
+    "id": 300,
+    "korean": "휴대폰",
+    "uzbek": "mobil telefon",
+    "english": "mobile phone",
+    "russian": "мобильный телефон",
+    "romanization": "hyudaepon",
+    "lesson": 13,
+    "theme": "items",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "휴대폰 배터리가 없어요.",
+      "uz": "Telefonimning quvvati tugadi.",
+      "en": "My phone battery is dead.",
+      "ru": "У телефона сел аккумулятор."
+    }
+  }
+]

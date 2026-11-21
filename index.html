@@ -11,7 +11,7 @@
         var NEW_SITE = "https://www.ktalim.uz";
         var MARK = "#ktalim-handoff=";
         var CACHES = /^(sb-|k-talim:(word-overrides|voice-map|text-overrides|content-overrides|custom-words|custom-topik|premium-prices|new-version-reload|last-route|show-drafts))/;
-        var ON_SERVER = /^(ktalim-1a-progress-v1|ktalim-progress-updated-at|k-talim:topik-attempts:v1)$/;
+        var ON_SERVER = /^(ktalim-progress-v2|ktalim-1a-progress-v1|ktalim-progress-updated-at|k-talim:topik-attempts:v1)$/;
         function encode(text) {
           var bytes = new TextEncoder().encode(text);
           if (!window.CompressionStream) return Promise.resolve("raw." + encodeURIComponent(text));
@@ -114,7 +114,7 @@
     <script>
       // The saved light/dark choice, applied before anything paints.
       try {
-        var saved = JSON.parse(localStorage.getItem("ktalim-1a-progress-v1") || "{}");
+        var saved = JSON.parse(localStorage.getItem("ktalim-progress-v2") || localStorage.getItem("ktalim-1a-progress-v1") || "{}");
         if ((saved.theme || "dark") === "dark") document.documentElement.classList.add("k-dark");
       } catch (error) {
         document.documentElement.classList.add("k-dark");

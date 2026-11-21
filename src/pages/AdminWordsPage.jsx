@@ -5,7 +5,7 @@ import { allWords, getWordKey, originalWord } from "../data";
 import { formatDate } from "../lib/dates";
 import { searchWords } from "../lib/search";
 import { supabase } from "../lib/supabase";
-import { refreshWordOverrides } from "../lib/wordOverrides";
+import { isCurrentOverride, refreshWordOverrides } from "../lib/wordOverrides";
 import { Panel, StatTile } from "./AdminPage";
 
 const FIELDS = ["uzbek", "english", "russian", "romanization"];
@@ -149,7 +149,7 @@ export default function AdminWordsPage() {
   const load = useCallback(async () => {
     const { data, error } = await supabase.from("word_overrides").select("*").order("updated_at", { ascending: false });
     setTableMissing(Boolean(error));
-    setOverrides(data || []);
+    setOverrides((data || []).filter(isCurrentOverride));
   }, []);
 
   useEffect(() => {

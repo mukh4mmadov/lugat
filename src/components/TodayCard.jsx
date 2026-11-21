@@ -21,7 +21,7 @@ function placeLabel(path, t) {
   const [section, id, mode] = path.split("/").filter(Boolean);
   if (section === "topik") return "TOPIK I";
   const lesson = t("card.lesson", { lesson: id });
-  if (section === "study") return `${lesson} · ${t("nav.study")}`;
+  if (mode === "study") return `${lesson} · ${t("nav.study")}`;
   return mode && MODE_KEYS[mode] ? `${lesson} · ${t(MODE_KEYS[mode])}` : lesson;
 }
 
@@ -65,7 +65,7 @@ export default function TodayCard({ fallbackLesson }) {
     return { key, label: weekdayLabel(date, i18n.language), count: daily[key] || 0, today: key === today };
   });
 
-  const continueTo = lastPlace?.path || `/study/${fallbackLesson}`;
+  const continueTo = lastPlace?.path || `/topic/${fallbackLesson}/study`;
   const continueLabel = lastPlace?.path ? placeLabel(lastPlace.path, t) : t("card.lesson", { lesson: fallbackLesson });
 
   return (

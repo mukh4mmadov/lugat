@@ -1,0 +1,71 @@
+# korean	topic	level	uz	en	ru	ex_ko	ex_uz	ex_en	ex_ru
+독일	countries	1	Germaniya	Germany	Германия	독일 자동차는 유명해요.	Germaniya mashinalari mashhur.	German cars are famous.	Немецкие машины известны.
+미국	countries	1	AQSh, Amerika	USA, America	США, Америка	삼촌이 미국에 살아요.	Amakim Amerikada yashaydi.	My uncle lives in America.	Мой дядя живёт в Америке.
+영국	countries	1	Angliya, Britaniya	the UK, England	Великобритания, Англия	영국 날씨는 자주 흐려요.	Angliyada havo tez-tez bulutli bo'ladi.	British weather is often cloudy.	В Англии часто пасмурно.
+일본	countries	1	Yaponiya	Japan	Япония	일본에서 친구가 왔어요.	Yaponiyadan do'stim keldi.	A friend came from Japan.	Из Японии приехал друг.
+중국	countries	1	Xitoy	China	Китай	중국 음식을 좋아해요.	Xitoy taomlarini yaxshi ko'raman.	I like Chinese food.	Я люблю китайскую еду.
+호주	countries	1	Avstraliya	Australia	Австралия	호주는 지금 여름이에요.	Avstraliyada hozir yoz.	It's summer in Australia now.	В Австралии сейчас лето.
+한국	countries	1	Koreya	Korea	Корея	한국 음식은 좀 매워요.	Koreys taomlari biroz achchiq.	Korean food is a bit spicy.	Корейская еда немного острая.
+우즈베키스탄	countries	1	O'zbekiston	Uzbekistan	Узбекистан	저는 우즈베키스탄에서 왔어요.	Men O'zbekistondan keldim.	I'm from Uzbekistan.	Я из Узбекистана.
+파키스탄	countries	1	Pokiston	Pakistan	Пакистан	그 친구는 파키스탄 사람이에요.	U do'stim pokistonlik.	That friend is from Pakistan.	Этот друг из Пакистана.
+프랑스	countries	1	Fransiya	France	Франция	프랑스 영화를 자막으로 봤어요.	Fransuz kinosini subtitr bilan ko'rdim.	I watched a French film with subtitles.	Я посмотрел французский фильм с субтитрами.
+아시아	countries	1	Osiyo	Asia	Азия	아시아에서 제일 큰 나라는 중국이에요.	Osiyodagi eng katta davlat — Xitoy.	The largest country in Asia is China.	Самая большая страна в Азии — Китай.
+유럽	countries	1	Yevropa	Europe	Европа	여름에 유럽을 여행했어요.	Yozda Yevropa bo'ylab sayohat qildim.	I traveled around Europe in summer.	Летом я путешествовал по Европе.
+외국	countries	1	chet el	foreign country	заграница	외국에 가 본 적이 있어요?	Chet elga borganmisiz?	Have you ever been abroad?	Вы бывали за границей?
+외국인	countries	1	chet ellik	foreigner	иностранец	이 식당에 외국인이 많아요.	Bu oshxonada chet elliklar ko'p.	There are many foreigners in this restaurant.	В этом ресторане много иностранцев.
+영어	countries	1	ingliz tili	English (language)	английский язык	영어를 조금 할 수 있어요.	Ozgina inglizcha gapira olaman.	I can speak a little English.	Я немного говорю по-английски.
+한국말	countries	1	koreys tili	Korean (language)	корейский язык	한국말이 재미있어요.	Koreys tili qiziq.	Korean is interesting.	Корейский язык интересный.
+일본어	countries	1	yapon tili	Japanese (language)	японский язык	일본어도 배우고 싶어요.	Yapon tilini ham o'rgangim keladi.	I want to learn Japanese too.	Я хочу выучить и японский.
+한국어로	countries	1	koreyscha (koreys tilida)	in Korean	по-корейски	한국어로 말해 보세요.	Koreyscha gapirib ko'ring.	Try saying it in Korean.	Попробуйте сказать по-корейски.
+외국어로	countries	1	chet tilida	in a foreign language	на иностранном языке	외국어로 이메일을 썼어요.	Chet tilida xat yozdim.	I wrote an email in a foreign language.	Я написал письмо на иностранном языке.
+한자	countries	1	xitoy ierogliflari (hanja)	Chinese characters (hanja)	китайские иероглифы (ханча)	한자는 좀 어려워요.	Ierogliflar biroz qiyin.	Chinese characters are a bit hard.	Иероглифы немного сложные.
+한글	countries	1	hangil (koreys alifbosi)	Hangul (Korean alphabet)	хангыль (корейский алфавит)	한글은 배우기 쉬워요.	Hangilni o'rganish oson.	Hangul is easy to learn.	Хангыль легко выучить.
+문화	countries	1	madaniyat	culture	культура	한국 문화에 관심이 있어요.	Koreya madaniyatiga qiziqaman.	I'm interested in Korean culture.	Мне интересна корейская культура.
+전통	countries	1	an'ana; an'anaviy	tradition; traditional	традиция; традиционный	전통 음식을 먹어 봤어요.	An'anaviy taomni tatib ko'rdim.	I tried traditional food.	Я попробовал традиционную еду.
+한복	countries	1	hanbok (koreys milliy kiyimi)	hanbok (Korean traditional dress)	ханбок (корейский национальный костюм)	한복을 입고 궁에 갔어요.	Hanbok kiyib saroyga bordim.	I wore hanbok and went to the palace.	Я надел ханбок и пошёл во дворец.
+아리랑	countries	2	Arirang (koreys xalq qo'shig'i)	Arirang (Korean folk song)	Ариран (корейская народная песня)	다 같이 아리랑을 불렀어요.	Hammamiz birga Arirang kuyladik.	We all sang Arirang together.	Мы все вместе спели «Ариран».
+어린이날	countries	1	Bolalar kuni	Children's Day	День детей	어린이날에 놀이공원에 가요.	Bolalar kunida bog'ga, attraksionlarga boramiz.	We go to the amusement park on Children's Day.	В День детей мы идём в парк аттракционов.
+외국 생활	countries	2	chet eldagi hayot	life abroad	жизнь за границей	외국 생활은 처음에 힘들어요.	Chet eldagi hayot boshida qiyin.	Life abroad is hard at first.	Жизнь за границей поначалу трудна.
+한국 생활	countries	1	Koreyadagi hayot	life in Korea	жизнь в Корее	한국 생활에 익숙해졌어요.	Koreyadagi hayotga ko'nikdim.	I've gotten used to life in Korea.	Я привык к жизни в Корее.
+영/공	numbers	1	nol (0)	zero (0)	ноль (0)	제 번호는 공일공으로 시작해요.	Raqamim nol-bir-nol bilan boshlanadi.	My number starts with zero-one-zero.	Мой номер начинается с ноль-один-ноль.
+일	numbers	1	bir (1, xitoycha son)	one (1, Sino-Korean)	один (1, китайский счёт)	일 층에 편의점이 있어요.	Birinchi qavatda do'kon bor.	There's a convenience store on the first floor.	На первом этаже есть магазин.
+이	numbers	1	ikki (2, xitoycha son)	two (2, Sino-Korean)	два (2, китайский счёт)	이 번 버스를 타세요.	2-avtobusga chiqing.	Take bus number two.	Садитесь на автобус номер два.
+삼	numbers	1	uch (3)	three (3)	три (3)	우리 반은 삼 층에 있어요.	Sinfimiz uchinchi qavatda.	Our class is on the third floor.	Наш класс на третьем этаже.
+사	numbers	1	to'rt (4)	four (4)	четыре (4)	사 월에 꽃이 많이 펴요.	Aprelda gullar ko'p ochiladi.	Many flowers bloom in April.	В апреле цветёт много цветов.
+오	numbers	1	besh (5)	five (5)	пять (5)	이 사과는 오백 원이에요.	Bu olma besh yuz von.	This apple is five hundred won.	Это яблоко стоит пятьсот вон.
+육	numbers	1	olti (6)	six (6)	шесть (6)	교실은 육 층에 있어요.	Sinf oltinchi qavatda.	The classroom is on the sixth floor.	Класс на шестом этаже.
+칠	numbers	1	yetti (7)	seven (7)	семь (7)	칠 월은 아주 더워요.	Iyul juda issiq.	July is very hot.	В июле очень жарко.
+팔	numbers	1	sakkiz (8)	eight (8)	восемь (8)	팔 번 출구로 나가세요.	8-chiqish orqali chiqing.	Go out through exit eight.	Выходите через выход номер восемь.
+구	numbers	1	to'qqiz (9)	nine (9)	девять (9)	구 월에 학교가 시작해요.	Sentyabrda maktab boshlanadi.	School starts in September.	Школа начинается в сентябре.
+십	numbers	1	o'n (10)	ten (10)	десять (10)	시험은 십 월에 있어요.	Imtihon oktyabrda.	The exam is in October.	Экзамен в октябре.
+백	numbers	1	yuz (100)	hundred (100)	сто (100)	이 연필은 백 원이에요.	Bu qalam yuz von.	This pencil is a hundred won.	Этот карандаш стоит сто вон.
+천	numbers	1	ming (1000)	thousand (1000)	тысяча (1000)	천 원만 빌려 주세요.	Ming von qarz berib turing.	Please lend me a thousand won.	Одолжите мне тысячу вон.
+만	numbers	1	o'n ming (10 000)	ten thousand (10,000)	десять тысяч (10 000)	이 책은 만 원이에요.	Bu kitob o'n ming von.	This book is ten thousand won.	Эта книга стоит десять тысяч вон.
+하나	numbers	1	bir (koreyscha son)	one (native Korean)	один (корейский счёт)	하나, 둘, 셋! 사진 찍어요.	Bir, ikki, uch! Suratga olamiz.	One, two, three! Say cheese.	Раз, два, три! Фотографируем.
+둘	numbers	1	ikki (koreyscha son)	two (native Korean)	два (корейский счёт)	사과가 둘 있어요.	Ikkita olma bor.	There are two apples.	Есть два яблока.
+셋	numbers	1	uch (koreyscha son)	three (native Korean)	три (корейский счёт)	우리는 셋이서 여행했어요.	Uchovlon sayohat qildik.	The three of us traveled.	Мы путешествовали втроём.
+넷	numbers	1	to'rt (koreyscha son)	four (native Korean)	четыре (корейский счёт)	의자가 넷 필요해요.	To'rtta stul kerak.	We need four chairs.	Нужно четыре стула.
+다섯	numbers	1	besh (koreyscha son)	five (native Korean)	пять (корейский счёт)	다섯 시에 끝나요.	Soat beshda tugaydi.	It ends at five o'clock.	Заканчивается в пять часов.
+여섯	numbers	1	olti (koreyscha son)	six (native Korean)	шесть (корейский счёт)	회의는 여섯 시에 끝나요.	Yig'ilish soat oltida tugaydi.	The meeting ends at six.	Совещание заканчивается в шесть.
+일곱	numbers	1	yetti (koreyscha son)	seven (native Korean)	семь (корейский счёт)	일곱 살 때 학교에 갔어요.	Yetti yoshimda maktabga bordim.	I started school at seven.	Я пошёл в школу в семь лет.
+여덟	numbers	1	sakkiz (koreyscha son)	eight (native Korean)	восемь (корейский счёт)	여덟 시에 수업이 있어요.	Soat sakkizda darsim bor.	I have class at eight.	У меня урок в восемь.
+아홉	numbers	1	to'qqiz (koreyscha son)	nine (native Korean)	девять (корейский счёт)	아홉 시에 회사에 가요.	Soat to'qqizda ishga boraman.	I go to work at nine.	Я иду на работу в девять.
+열	numbers	1	o'n (koreyscha son)	ten (native Korean)	десять (корейский счёт)	우리 반에 여학생이 열 명 있어요.	Sinfimizda o'nta qiz bor.	There are ten girls in our class.	В нашем классе десять девочек.
+스물	numbers	1	yigirma (koreyscha son)	twenty (native Korean)	двадцать (корейский счёт)	언니는 스물다섯 살이에요.	Opam yigirma besh yoshda.	My sister is twenty-five.	Сестре двадцать пять лет.
+서른	numbers	1	o'ttiz (koreyscha son)	thirty (native Korean)	тридцать (корейский счёт)	삼촌은 서른 살이에요.	Amakim o'ttiz yoshda.	My uncle is thirty.	Дяде тридцать лет.
+마흔	numbers	1	qirq (koreyscha son)	forty (native Korean)	сорок (корейский счёт)	아버지는 마흔 살이세요.	Otam qirq yoshdalar.	My father is forty.	Папе сорок лет.
+쉰	numbers	1	ellik (koreyscha son)	fifty (native Korean)	пятьдесят (корейский счёт)	어머니는 쉰 살이세요.	Onam ellik yoshdalar.	My mother is fifty.	Маме пятьдесят лет.
+예순	numbers	1	oltmish (koreyscha son)	sixty (native Korean)	шестьдесят (корейский счёт)	할머니는 예순 살이세요.	Buvim oltmish yoshdalar.	My grandmother is sixty.	Бабушке шестьдесят лет.
+일흔	numbers	1	yetmish (koreyscha son)	seventy (native Korean)	семьдесят (корейский счёт)	할아버지는 일흔 살이세요.	Bobom yetmish yoshdalar.	My grandfather is seventy.	Дедушке семьдесят лет.
+여든	numbers	1	sakson (koreyscha son)	eighty (native Korean)	восемьдесят (корейский счёт)	이웃 할머니는 여든 살이세요.	Qo'shni buvi sakson yoshdalar.	The old lady next door is eighty.	Соседке-бабушке восемьдесят лет.
+아흔	numbers	1	to'qson (koreyscha son)	ninety (native Korean)	девяносто (корейский счёт)	그분은 아흔 살이지만 건강하세요.	U kishi to'qson yoshda, lekin sog'lom.	He's ninety but healthy.	Ему девяносто, но он здоров.
+명	numbers	1	kishi (odam sanog'i)	people (counter)	человек (счётное слово)	교실에 학생이 열 명 있어요.	Sinfda o'nta o'quvchi bor.	There are ten students in the class.	В классе десять учеников.
+개	numbers	1	dona (narsa sanog'i)	items (counter)	штука (счётное слово)	사과 세 개 주세요.	Uchta olma bering.	Three apples, please.	Дайте три яблока.
+병	numbers	1	shisha (sanoq so'zi)	bottle (counter)	бутылка (счётное слово)	물 두 병을 샀어요.	Ikki shisha suv oldim.	I bought two bottles of water.	Я купил две бутылки воды.
+그릇	numbers	1	kosa, tovoq (sanoq so'zi)	bowl (counter)	миска (счётное слово)	밥 한 그릇 더 주세요.	Yana bir kosa guruch bering.	One more bowl of rice, please.	Дайте ещё одну миску риса.
+잔	numbers	1	stakan, piyola (sanoq so'zi)	cup, glass (counter)	чашка, стакан (счётное слово)	커피 두 잔 주세요.	Ikki chashka qahva bering.	Two cups of coffee, please.	Две чашки кофе, пожалуйста.
+분	numbers	1	kishi (hurmatli sanoq)	people (polite counter)	человек (вежливый счёт)	선생님 두 분이 회의실에 계세요.	Ikki nafar o'qituvchi majlis xonasida.	Two teachers are in the meeting room.	Два учителя в переговорной.
+살	numbers	1	yosh (yoshni sanash)	years old	лет (возраст)	동생은 여덟 살이에요.	Ukam sakkiz yoshda.	My little brother is eight.	Младшему брату восемь лет.
+권	numbers	1	jild, nusxa (kitob sanog'i)	volume (counter for books)	том, экземпляр (счётное слово)	책을 두 권 빌렸어요.	Ikkita kitob oldim (kutubxonadan).	I borrowed two books.	Я взял две книги.
+마리	numbers	1	bosh, dona (hayvon sanog'i)	animals (counter)	голова, особь (счётное слово)	고양이 한 마리를 키워요.	Bitta mushuk boqaman.	I have one cat.	У меня одна кошка.
+번	numbers	1	marta; raqam	time(s); number	раз; номер	한 번 더 말해 주세요.	Yana bir marta ayting.	Please say it once more.	Скажите ещё раз.

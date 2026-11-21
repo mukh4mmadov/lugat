@@ -714,6 +714,7 @@ export default function Layout({ onShowIELTSModal }) {
               <p className="font-black text-slate-900 dark:text-white">
                 {t("footer.educationalOnly")}
               </p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">{t("footer.vocabularyNote")}</p>
             </div>
             <div>
               <p className="font-black text-slate-900 dark:text-white">

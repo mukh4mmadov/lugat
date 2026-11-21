@@ -1,0 +1,97 @@
+[
+  {
+    "id": 790,
+    "korean": "꽃목걸이",
+    "uzbek": "guldan marjon",
+    "english": "flower necklace",
+    "russian": "цветочное ожерелье",
+    "romanization": "kkonmokgeori",
+    "lesson": 32,
+    "theme": "general",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "꽃목걸이를 만들어서 선물했어요.",
+      "uz": "Guldan marjon yasab, sovg'a qildim.",
+      "en": "I made a flower necklace as a gift.",
+      "ru": "Я сплела цветочное ожерелье в подарок."
+    }
+  },
+  {
+    "id": 791,
+    "korean": "분위기",
+    "uzbek": "muhit, kayfiyat",
+    "english": "atmosphere, mood",
+    "russian": "атмосфера",
+    "romanization": "bunwigi",
+    "lesson": 32,
+    "theme": "general",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "파티 분위기가 아주 즐거웠어요.",
+      "uz": "Bazmdagi kayfiyat juda quvnoq edi.",
+      "en": "The party had a very cheerful mood.",
+      "ru": "На вечеринке была весёлая атмосфера."
+    }
+  },
+  {
+    "id": 792,
+    "korean": "분홍색",
+    "uzbek": "pushti rang",
+    "english": "pink",
+    "russian": "розовый цвет",
+    "romanization": "bunhongsaek",
+    "lesson": 32,
+    "theme": "general",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "분홍색 가방을 샀어요.",
+      "uz": "Pushti rangli sumka oldim.",
+      "en": "I bought a pink bag.",
+      "ru": "Я купила розовую сумку."
+    }
+  },
+  {
+    "id": 793,
+    "korean": "성공",
+    "uzbek": "muvaffaqiyat",
+    "english": "success",
+    "russian": "успех",
+    "romanization": "seonggong",
+    "lesson": 32,
+    "theme": "general",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "성공을 빌어요.",
+      "uz": "Muvaffaqiyat tilayman.",
+      "en": "I wish you success.",
+      "ru": "Желаю успеха."
+    }
+  },
+  {
+    "id": 794,
+    "korean": "속도",
+    "uzbek": "tezlik",
+    "english": "speed",
+    "russian": "скорость",
+    "romanization": "sokdo",
+    "lesson": 32,
+    "theme": "general",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "속도를 줄이세요.",
+      "uz": "Tezlikni kamaytiring.",
+      "en": "Slow down.",
+      "ru": "Снизьте скорость."
+    }
+  }
+]

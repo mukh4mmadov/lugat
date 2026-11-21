@@ -10,7 +10,11 @@ import {
 } from "../lib/mastery";
 import WordBadge from "../components/WordBadge";
 import MasteryBadge from "../components/MasteryBadge";
-import { getCourses, getCourseLessons } from "../data";
+import { deckName, getCourses, getCourseLessons } from "../data";
+
+const COURSE_ICON = { basics: "🌱", everyday: "🏙️" };
+// A course's name and description; panel-added courses show their id.
+const courseName = (id, t) => t(`courses.name.${id}`, { defaultValue: id });
 import { useContentVersion } from "../lib/contentVersion";
 import { selectLessonProgress } from "../store";
 import { useSelector } from "react-redux";
@@ -55,11 +59,7 @@ export default function CoursesPage() {
           </button>
           <div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white md:text-3xl">
-              {course.id === "1A"
-                ? t("courses.course1A")
-                : course.id === "1B"
-                  ? t("courses.course1B")
-                  : course.id}
+              {courseName(course.id, t)}
             </h2>
             <p className="text-xs text-slate-600 dark:text-slate-300 md:text-sm">
               {t("home.lessonCount", { count: course.lessons.length })} ·{" "}
@@ -111,10 +111,10 @@ export default function CoursesPage() {
                   </div>
                 </div>
                 <h3 className="mt-4 text-lg font-black">
-                  {t("card.lesson", { lesson: lesson.lesson })}
+                  {deckName(lesson, t)}
                 </h3>
-                <p className="mt-1.5 min-h-10 text-xs capitalize text-slate-600 dark:text-slate-300">
-                  {t(lesson.category)}
+                <p className="mt-1.5 min-h-10 text-xs text-slate-600 dark:text-slate-300">
+                  {t("card.lesson", { lesson: lesson.lesson })}
                 </p>
                 <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
                   <div
@@ -130,13 +130,13 @@ export default function CoursesPage() {
                   <span className="flex items-center gap-3">
                     <Link
                       className="text-slate-500 transition hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
-                      to={`/lesson/${lesson.lesson}/flashcards`}
+                      to={`/topic/${lesson.lesson}/flashcards`}
                     >
                       {t("practice.flashcards")}
                     </Link>
                     <Link
                       className="text-sky-600 transition group-hover:translate-x-1 dark:text-sky-300"
-                      to={`/study/${lesson.lesson}`}
+                      to={`/topic/${lesson.lesson}/study`}
                     >
                       {t(percent > 0 ? "home.continue" : "home.start")} →
                     </Link>
@@ -162,31 +162,16 @@ export default function CoursesPage() {
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg md:leading-8">
           {t("courses.subtitle", {
-            defaultValue: "Select the K-TALIM book you want to study",
+            defaultValue: "Words grouped by topic",
           })}
         </p>
       </GlassCard>
 
       <section className="grid gap-4 sm:grid-cols-2">
         {courses.map((course, index) => {
-          const courseLabel =
-            course.id === "1A"
-              ? t("courses.course1A")
-              : course.id === "1B"
-                ? t("courses.course1B")
-                : course.id;
-          const lessonRange = `${course.lessons[0]?.lesson}–${course.lessons[course.lessons.length - 1]?.lesson}`;
+          const courseLabel = courseName(course.id, t);
           const wordCount = course.lessons.reduce((sum, l) => sum + l.count, 0);
-          const description =
-            course.id === "1A"
-              ? t("courses.description1A", {
-                  defaultValue: "Foundation vocabulary from the first book",
-                })
-              : course.id === "1B"
-                ? t("courses.description1B", {
-                    defaultValue: "Advanced vocabulary from the second book",
-                  })
-                : "";
+          const description = t(`courses.desc.${course.id}`, { defaultValue: "" });
           const mastery = getCourseMastery(course.id, progress.words);
 
           return (
@@ -202,7 +187,7 @@ export default function CoursesPage() {
                   <div className="relative space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-sky-400 to-violet-500 text-xl font-black text-white shadow-lg">
-                        {course.id}
+                        {COURSE_ICON[course.id] || "📚"}
                       </div>
                       <WordBadge tone="green">
                         {t("home.wordCount", { count: wordCount })}
@@ -212,7 +197,6 @@ export default function CoursesPage() {
                       {courseLabel}
                     </h3>
                     <p className="text-sm text-slate-600 dark:text-slate-300">
-                      {t("card.lesson", { lesson: lessonRange })} ·{" "}
                       {t("home.lessonCount", { count: course.lessons.length })}
                     </p>
                     {description && (

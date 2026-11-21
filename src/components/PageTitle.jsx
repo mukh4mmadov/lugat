@@ -48,8 +48,8 @@ export default function PageTitle() {
     const [section, id, mode, part] = pathname.split("/").filter(Boolean);
     let title = "";
     if (!section) title = t("header.brand");
-    else if ((section === "lesson" || section === "study") && id) {
-      title = [t("card.lesson", { lesson: id }), mode ? t(MODES[mode] || "") : section === "study" ? t("nav.study") : ""]
+    else if (section === "topic" && id) {
+      title = [t("card.lesson", { lesson: id }), mode === "study" ? t("nav.study") : mode ? t(MODES[mode] || "") : ""]
         .filter(Boolean)
         .join(" · ");
     } else if (section === "units") {

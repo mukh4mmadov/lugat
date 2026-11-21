@@ -1,7 +1,7 @@
 import PUBLIC_STORIES from "./public.js";
 
-// Two short stories per lesson, written with that lesson's words and the
-// grammar learned so far. The first of each lesson is free. Premium stories
+// Short stories, each listed under the topic deck whose words it uses most.
+// Half of them are free. Premium stories
 // arrive here with their opening only (`teaser`); a learner with Premium gets
 // the rest from the server (see loadFullStory in StoriesPage.jsx).
 export const STORIES = PUBLIC_STORIES;
@@ -9,7 +9,7 @@ export const STORIES = PUBLIC_STORIES;
 export const getStory = (id) => STORIES.find((story) => story.id === id) || null;
 export const storiesForLesson = (lesson) => STORIES.filter((story) => story.lesson === Number(lesson));
 
-// The second story of a lesson needs Premium.
+// Stories whose id ends in "-b" need Premium.
 export const isPremiumStory = (story) => story.id.endsWith("-b");
 
 // Rows are [korean, uz, en, ru].

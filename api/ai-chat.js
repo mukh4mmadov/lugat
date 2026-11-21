@@ -54,7 +54,7 @@ Rules:
 - Use ${langName} for ALL responses including the roasts
 
 Site knowledge (only when asked about app features):
-- K-TALIM: Korean vocab app using K-TALIM 1A textbook
+- K-TALIM: Korean vocab app with words grouped by topic
 - Flashcards, Study, Courses, Listening, Quiz, Writing, Review, Weak Words, Search, Favorites, Difficult, Statistics, Future Updates, Settings
 - Developer: @mukh4mmadov on Telegram (but don't offer this unless asked)
 ${examInstructions}`;

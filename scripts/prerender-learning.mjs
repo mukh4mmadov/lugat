@@ -1,6 +1,6 @@
 // After `vite build` and the Korea pages: static HTML for the home page and the
 // learning pages, so search engines read real content without running the app:
-// lessons with their words, grammar points, stories, speaking topics and TOPIK.
+// topic decks with their words, grammar points, stories, speaking topics and TOPIK.
 // Each page is the app shell with its own title, description, readable content
 // and structured data; the app takes over on load. Everything written here is
 // taken from the data the app itself uses, so it only describes what exists.
@@ -29,13 +29,16 @@ const escape = (text) => String(text ?? "").replace(/&/g, "&amp;").replace(/</g,
 const clip = (text, length) => (text.length > length ? `${text.slice(0, length - 1).replace(/\s+\S*$/, "")}…` : text);
 const plain = (text) => String(text ?? "").replace(/\s+/g, " ").trim();
 
-const lessons = JSON.parse(fs.readFileSync("data/lessons.json", "utf8")).map((lesson) => ({
+// Topic decks (data/vocab, see scripts/vocab/build.mjs); "Asosiy fe'llar 2" when a topic is split.
+const lessons = JSON.parse(fs.readFileSync("data/vocab/decks.json", "utf8")).map((lesson) => ({
   ...lesson,
-  topic: uz[lesson.category] || "",
-  words: JSON.parse(fs.readFileSync(`data/lesson${lesson.lesson}.json`, "utf8")),
+  topic: `${uz[lesson.category] || ""}${lesson.parts > 1 ? ` ${lesson.part}` : ""}`,
+  words: JSON.parse(fs.readFileSync(`data/vocab/deck-${String(lesson.lesson).padStart(2, "0")}.json`, "utf8")),
 }));
+const courseName = (id) => uz[`courses.name.${id}`] || id;
 const wordCount = lessons.reduce((sum, lesson) => sum + lesson.words.length, 0);
 const isPremiumStory = (story) => story.id.endsWith("-b");
+const storyTopic = (story) => lessons[story.lesson - 1]?.topic || "";
 // Most grammar titles already name the pattern; the others get it added.
 const grammarName = (point) => (/[가-힣]/.test(point.title.uz) ? plain(point.title.uz) : `${point.pattern} — ${plain(point.title.uz)}`);
 const LEVELS = { beginner: "boshlang'ich", intermediate: "o'rta", advanced: "yuqori" };
@@ -79,20 +82,20 @@ function write(route, html) {
 }
 const nav = `<p><a href="/">Bosh sahifa</a> · <a href="/courses">Darslar</a> · <a href="/grammar">Grammatika</a> · <a href="/stories">Hikoyalar</a> · <a href="/speaking">Gaplashish</a> · <a href="/topik">TOPIK I</a> · <a href="/korea">Koreyada o'qish</a> · <a href="/guides">Qo'llanmalar</a></p>`;
 
-// Lessons: every word with its reading and meaning.
+// Topic decks: every word with its reading and meaning.
 for (const lesson of lessons) {
-  const url = `${SITE}/study/${lesson.lesson}`;
+  const url = `${SITE}/topic/${lesson.lesson}`;
   const sample = lesson.words.slice(0, 6).map((word) => `${word.korean} (${word.uzbek})`).join(", ");
-  const description = clip(`Koreys tili ${lesson.lesson}-dars${lesson.topic ? `: ${lesson.topic}` : ""}. ${lesson.words.length} ta so'z o'zbekcha tarjimasi va o'qilishi bilan: ${sample}. Kartochka, test va eshitish mashqlari.`, 160);
+  const description = clip(`Koreyscha so'zlar: ${lesson.topic}. ${lesson.words.length} ta so'z o'zbekcha tarjimasi va o'qilishi bilan: ${sample}. Kartochka, test va eshitish mashqlari.`, 160);
   const rows = lesson.words.map((word) => `<tr><td lang="ko">${escape(word.korean)}</td><td>${escape(word.romanization)}</td><td>${escape(word.uzbek)}</td></tr>`).join("");
   write(
-    `study/${lesson.lesson}`,
+    `topic/${lesson.lesson}`,
     page({
       url,
-      title: `${lesson.lesson}-dars${lesson.topic ? `: ${lesson.topic}` : ""} — koreyscha so'zlar | K-TALIM`,
+      title: `${lesson.topic} — koreyscha so'zlar | K-TALIM`,
       description,
-      body: `${nav}<h1>Koreys tili ${lesson.lesson}-dars${lesson.topic ? `: ${escape(lesson.topic)}` : ""}</h1><p>${lesson.words.length} ta so'z (kurs ${escape(lesson.course)}). Har bir so'zni kartochka, test, eshitish, yozish va diktant mashqlarida o'rganasiz, takrorlash jadvali esa unutilayotgan so'zlarni o'z vaqtida qaytaradi.</p><table><thead><tr><th>Koreyscha</th><th>O'qilishi</th><th>O'zbekcha</th></tr></thead><tbody>${rows}</tbody></table><p><a href="/study/${lesson.lesson}">Darsni boshlash</a>${lesson.lesson < lessons.length ? ` · <a href="/study/${lesson.lesson + 1}">${lesson.lesson + 1}-dars</a>` : ""}</p>`,
-      data: learningResource(url, `${lesson.lesson}-dars: koreyscha so'zlar`, description, { learningResourceType: "Vocabulary list", teaches: lesson.topic || "Korean vocabulary" }),
+      body: `${nav}<h1>Koreyscha so'zlar: ${escape(lesson.topic)}</h1><p>${lesson.words.length} ta so'z (${escape(courseName(lesson.course))}). Har bir so'zni kartochka, test, eshitish, yozish va diktant mashqlarida o'rganasiz, takrorlash jadvali esa unutilayotgan so'zlarni o'z vaqtida qaytaradi.</p><table><thead><tr><th>Koreyscha</th><th>O'qilishi</th><th>O'zbekcha</th></tr></thead><tbody>${rows}</tbody></table><p><a href="/topic/${lesson.lesson}/study">Mavzuni boshlash</a>${lesson.lesson < lessons.length ? ` · <a href="/topic/${lesson.lesson + 1}">${escape(lessons[lesson.lesson].topic)}</a>` : ""}</p>`,
+      data: learningResource(url, `${lesson.topic}: koreyscha so'zlar`, description, { learningResourceType: "Vocabulary list", teaches: lesson.topic || "Korean vocabulary" }),
     }),
   );
 }
@@ -104,7 +107,7 @@ write(
     url: `${SITE}/grammar`,
     title: `Koreys tili grammatikasi o'zbek tilida — ${GRAMMAR.length} mavzu | K-TALIM`,
     description: `Koreys tili grammatikasi o'zbekcha tushuntirish bilan: ${GRAMMAR.length} ta mavzu, misollar, ko'p uchraydigan xatolar va mashqlar. AI gapingizni tekshirib beradi.`,
-    body: `${nav}<h1>Koreys tili grammatikasi</h1><p>${GRAMMAR.length} ta mavzu, har biri o'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar bilan.</p><ul>${GRAMMAR.map((point) => `<li><a href="/grammar/${point.id}">${escape(grammarName(point))}</a> (${point.lesson ? `${point.lesson}-dars` : "TOPIK I"})</li>`).join("")}</ul>`,
+    body: `${nav}<h1>Koreys tili grammatikasi</h1><p>${GRAMMAR.length} ta mavzu, har biri o'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar bilan.</p><ul>${GRAMMAR.map((point) => `<li><a href="/grammar/${point.id}">${escape(grammarName(point))}</a> (TOPIK I)</li>`).join("")}</ul>`,
   }),
 );
 for (const point of GRAMMAR) {
@@ -131,15 +134,15 @@ write(
   page({
     url: `${SITE}/stories`,
     title: "Koreyscha qisqa hikoyalar o'zbekcha tarjima bilan | K-TALIM",
-    description: `${STORIES.length} ta koreyscha qisqa hikoya darsdagi so'zlar bilan: har bir gap o'zbekcha tarjimasi bilan, so'zni bosib ma'nosini ko'rish va savollar.`,
-    body: `${nav}<h1>Koreyscha qisqa hikoyalar</h1><p>Har bir darsga ikkita hikoya, faqat o'rganilgan so'zlar va grammatika bilan yozilgan. Har bir gapning o'zbekcha tarjimasi bor, so'zni bosib ma'nosini ko'rasiz, oxirida savollar bor.</p><ul>${STORIES.map((story) => `<li><a href="/stories/${story.id}">${escape(story.title.ko)} — ${escape(story.title.uz)}</a> (${story.lesson}-dars${isPremiumStory(story) ? ", Premium" : ""})</li>`).join("")}</ul>`,
+    description: `${STORIES.length} ta koreyscha qisqa hikoya mavzu so'zlari bilan: har bir gap o'zbekcha tarjimasi bilan, so'zni bosib ma'nosini ko'rish va savollar.`,
+    body: `${nav}<h1>Koreyscha qisqa hikoyalar</h1><p>Mavzu so'zlari va boshlang'ich grammatika bilan yozilgan qisqa hikoyalar. Har bir gapning o'zbekcha tarjimasi bor, so'zni bosib ma'nosini ko'rasiz, oxirida savollar bor.</p><ul>${STORIES.map((story) => `<li><a href="/stories/${story.id}">${escape(story.title.ko)} — ${escape(story.title.uz)}</a> (${story.lesson}-dars${isPremiumStory(story) ? ", Premium" : ""})</li>`).join("")}</ul>`,
   }),
 );
 for (const story of STORIES) {
   const url = `${SITE}/stories/${story.id}`;
   const premium = isPremiumStory(story);
   const shown = premium ? story.lines.slice(0, 2) : story.lines;
-  const description = clip(`${story.title.ko} — ${story.title.uz}. ${story.lesson}-dars so'zlari bilan koreyscha qisqa hikoya, har bir gap o'zbekcha tarjimasi bilan.`, 160);
+  const description = clip(`${story.title.ko} — ${story.title.uz}. ${storyTopic(story)} mavzusidagi koreyscha qisqa hikoya, har bir gap o'zbekcha tarjimasi bilan.`, 160);
   const lines = shown.map(([korean, text]) => `<p><span lang="ko">${escape(korean)}</span><br />${escape(text)}</p>`).join("");
   write(
     `stories/${story.id}`,
@@ -147,7 +150,7 @@ for (const story of STORIES) {
       url,
       title: `${story.title.ko} — ${story.title.uz} | Koreyscha hikoya | K-TALIM`,
       description,
-      body: `${nav}<h1><span lang="ko">${escape(story.title.ko)}</span> — ${escape(story.title.uz)}</h1><p>${story.lesson}-dars · so'zlar: <span lang="ko">${escape(story.words.join(", "))}</span></p>${lines}${premium ? "<p>Hikoyaning davomi Premium bilan ochiladi.</p>" : ""}<p><a href="/stories">Barcha hikoyalar</a></p>`,
+      body: `${nav}<h1><span lang="ko">${escape(story.title.ko)}</span> — ${escape(story.title.uz)}</h1><p>${escape(storyTopic(story))} · so'zlar: <span lang="ko">${escape(story.words.join(", "))}</span></p>${lines}${premium ? "<p>Hikoyaning davomi Premium bilan ochiladi.</p>" : ""}<p><a href="/stories">Barcha hikoyalar</a></p>`,
       data: learningResource(url, `${story.title.ko} — ${story.title.uz}`, description, { learningResourceType: "Reading", isAccessibleForFree: !premium }),
     }),
   );
@@ -215,7 +218,7 @@ const home = page({
   title: "K-TALIM — koreys tili va TOPIK, hammasi bir joyda",
   description: homeDescription,
   body: `<h1>K-TALIM — koreys tili va TOPIK, hammasi bir joyda</h1><p>${escape(homeDescription)}</p>
-<h2><a href="/courses">So'z yodlash: ${lessons.length} dars, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. So'zlar aqlli takrorlash bilan yodlanadi: har bir so'z unuta boshlaganingizda qaytadi. Mashqlar: test, eshitish, yozish va diktant.</p>
+<h2><a href="/courses">So'z yodlash: ${lessons.length} mavzu, ${wordCount} so'z</a></h2><p>Har bir so'z o'qilishi, o'zbekcha, inglizcha va ruscha tarjimasi hamda misol gap bilan. So'zlar aqlli takrorlash bilan yodlanadi: har bir so'z unuta boshlaganingizda qaytadi. Mashqlar: test, eshitish, yozish va diktant.</p>
 <h2><a href="/grammar">Grammatika: ${GRAMMAR.length} mavzu</a></h2><p>O'zbekcha tushuntirish, misollar, ko'p uchraydigan xatolar va mashqlar. Gap tuzsangiz, AI uni tekshirib beradi.</p>
 <h2><a href="/stories">Hikoyalar: ${STORIES.length} ta</a></h2><p>Darsdagi so'zlar bilan yozilgan qisqa hikoyalar, so'zni bosib tarjimasini ko'rish va savollar.</p>
 <h2><a href="/speaking">Gaplashish</a></h2><p>AI suhbatdosh Friday bilan ${SPEAKING_TOPICS.length} ta mavzuda koreyscha ovozli suhbat va boshqa o'quvchilar bilan jonli qo'ng'iroq.</p>
@@ -235,10 +238,10 @@ const home = page({
 });
 write("", home);
 
-// The sitemap: these pages replace any older entries for the same sections,
-// and the /lesson/N addresses (which open the flashcards) give way to /study/N.
+// The sitemap: these pages replace any older entries for the same sections
+// (old /lesson/N and /study/N addresses included: they now redirect).
 const sitemapPath = "dist/sitemap.xml";
-const sections = /\s*<url><loc>[^<]*\/(grammar|stories|speaking|topik|study|lesson|guides)(\/[^<]*)?<\/loc><\/url>/g;
+const sections = /\s*<url><loc>[^<]*\/(grammar|stories|speaking|topik|study|lesson|topic|guides)(\/[^<]*)?<\/loc><\/url>/g;
 const sitemap = fs.readFileSync(sitemapPath, "utf8").replace(sections, "");
 written.push(`${SITE}/study`);
 const urls = written.map((loc) => `  <url><loc>${loc}</loc></url>`).join("\n");

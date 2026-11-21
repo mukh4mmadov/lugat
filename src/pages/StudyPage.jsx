@@ -65,10 +65,10 @@ export function StudyModePage() {
       sessionKey={lesson}
       words={words}
       title={t("card.lesson", { lesson })}
-      backTo={`/lesson/${lesson}`}
+      backTo={`/topic/${lesson}`}
       backLabel={t("card.lesson", { lesson })}
-      flashcardsPath={`/lesson/${lesson}/flashcards`}
-      nextPath={lesson < lessonInfo.length ? `/lesson/${lesson + 1}` : null}
+      flashcardsPath={`/topic/${lesson}/flashcards`}
+      nextPath={lesson < lessonInfo.length ? `/topic/${lesson + 1}` : null}
     />
   );
 }

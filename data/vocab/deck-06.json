@@ -1,0 +1,401 @@
+[
+  {
+    "id": 112,
+    "korean": "스물",
+    "uzbek": "yigirma (koreyscha son)",
+    "english": "twenty (native Korean)",
+    "russian": "двадцать (корейский счёт)",
+    "romanization": "seumul",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "언니는 스물다섯 살이에요.",
+      "uz": "Opam yigirma besh yoshda.",
+      "en": "My sister is twenty-five.",
+      "ru": "Сестре двадцать пять лет."
+    }
+  },
+  {
+    "id": 113,
+    "korean": "십",
+    "uzbek": "o'n (10)",
+    "english": "ten (10)",
+    "russian": "десять (10)",
+    "romanization": "sip",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시험은 십 월에 있어요.",
+      "uz": "Imtihon oktyabrda.",
+      "en": "The exam is in October.",
+      "ru": "Экзамен в октябре."
+    }
+  },
+  {
+    "id": 114,
+    "korean": "아홉",
+    "uzbek": "to'qqiz (koreyscha son)",
+    "english": "nine (native Korean)",
+    "russian": "девять (корейский счёт)",
+    "romanization": "ahop",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아홉 시에 회사에 가요.",
+      "uz": "Soat to'qqizda ishga boraman.",
+      "en": "I go to work at nine.",
+      "ru": "Я иду на работу в девять."
+    }
+  },
+  {
+    "id": 115,
+    "korean": "아흔",
+    "uzbek": "to'qson (koreyscha son)",
+    "english": "ninety (native Korean)",
+    "russian": "девяносто (корейский счёт)",
+    "romanization": "aheun",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그분은 아흔 살이지만 건강하세요.",
+      "uz": "U kishi to'qson yoshda, lekin sog'lom.",
+      "en": "He's ninety but healthy.",
+      "ru": "Ему девяносто, но он здоров."
+    }
+  },
+  {
+    "id": 116,
+    "korean": "여덟",
+    "uzbek": "sakkiz (koreyscha son)",
+    "english": "eight (native Korean)",
+    "russian": "восемь (корейский счёт)",
+    "romanization": "yeodeol",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여덟 시에 수업이 있어요.",
+      "uz": "Soat sakkizda darsim bor.",
+      "en": "I have class at eight.",
+      "ru": "У меня урок в восемь."
+    }
+  },
+  {
+    "id": 117,
+    "korean": "여든",
+    "uzbek": "sakson (koreyscha son)",
+    "english": "eighty (native Korean)",
+    "russian": "восемьдесят (корейский счёт)",
+    "romanization": "yeodeun",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이웃 할머니는 여든 살이세요.",
+      "uz": "Qo'shni buvi sakson yoshdalar.",
+      "en": "The old lady next door is eighty.",
+      "ru": "Соседке-бабушке восемьдесят лет."
+    }
+  },
+  {
+    "id": 118,
+    "korean": "여섯",
+    "uzbek": "olti (koreyscha son)",
+    "english": "six (native Korean)",
+    "russian": "шесть (корейский счёт)",
+    "romanization": "yeoseot",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "회의는 여섯 시에 끝나요.",
+      "uz": "Yig'ilish soat oltida tugaydi.",
+      "en": "The meeting ends at six.",
+      "ru": "Совещание заканчивается в шесть."
+    }
+  },
+  {
+    "id": 119,
+    "korean": "열",
+    "uzbek": "o'n (koreyscha son)",
+    "english": "ten (native Korean)",
+    "russian": "десять (корейский счёт)",
+    "romanization": "yeol",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 반에 여학생이 열 명 있어요.",
+      "uz": "Sinfimizda o'nta qiz bor.",
+      "en": "There are ten girls in our class.",
+      "ru": "В нашем классе десять девочек."
+    }
+  },
+  {
+    "id": 120,
+    "korean": "영/공",
+    "uzbek": "nol (0)",
+    "english": "zero (0)",
+    "russian": "ноль (0)",
+    "romanization": "yeong / gong",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 번호는 공일공으로 시작해요.",
+      "uz": "Raqamim nol-bir-nol bilan boshlanadi.",
+      "en": "My number starts with zero-one-zero.",
+      "ru": "Мой номер начинается с ноль-один-ноль."
+    }
+  },
+  {
+    "id": 121,
+    "korean": "예순",
+    "uzbek": "oltmish (koreyscha son)",
+    "english": "sixty (native Korean)",
+    "russian": "шестьдесят (корейский счёт)",
+    "romanization": "yesun",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니는 예순 살이세요.",
+      "uz": "Buvim oltmish yoshdalar.",
+      "en": "My grandmother is sixty.",
+      "ru": "Бабушке шестьдесят лет."
+    }
+  },
+  {
+    "id": 122,
+    "korean": "오",
+    "uzbek": "besh (5)",
+    "english": "five (5)",
+    "russian": "пять (5)",
+    "romanization": "o",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 사과는 오백 원이에요.",
+      "uz": "Bu olma besh yuz von.",
+      "en": "This apple is five hundred won.",
+      "ru": "Это яблоко стоит пятьсот вон."
+    }
+  },
+  {
+    "id": 123,
+    "korean": "육",
+    "uzbek": "olti (6)",
+    "english": "six (6)",
+    "russian": "шесть (6)",
+    "romanization": "yuk",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교실은 육 층에 있어요.",
+      "uz": "Sinf oltinchi qavatda.",
+      "en": "The classroom is on the sixth floor.",
+      "ru": "Класс на шестом этаже."
+    }
+  },
+  {
+    "id": 124,
+    "korean": "이",
+    "uzbek": "ikki (2, xitoycha son)",
+    "english": "two (2, Sino-Korean)",
+    "russian": "два (2, китайский счёт)",
+    "romanization": "i",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 번 버스를 타세요.",
+      "uz": "2-avtobusga chiqing.",
+      "en": "Take bus number two.",
+      "ru": "Садитесь на автобус номер два."
+    }
+  },
+  {
+    "id": 125,
+    "korean": "일",
+    "uzbek": "bir (1, xitoycha son)",
+    "english": "one (1, Sino-Korean)",
+    "russian": "один (1, китайский счёт)",
+    "romanization": "il",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일 층에 편의점이 있어요.",
+      "uz": "Birinchi qavatda do'kon bor.",
+      "en": "There's a convenience store on the first floor.",
+      "ru": "На первом этаже есть магазин."
+    }
+  },
+  {
+    "id": 126,
+    "korean": "일곱",
+    "uzbek": "yetti (koreyscha son)",
+    "english": "seven (native Korean)",
+    "russian": "семь (корейский счёт)",
+    "romanization": "ilgop",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일곱 살 때 학교에 갔어요.",
+      "uz": "Yetti yoshimda maktabga bordim.",
+      "en": "I started school at seven.",
+      "ru": "Я пошёл в школу в семь лет."
+    }
+  },
+  {
+    "id": 127,
+    "korean": "일흔",
+    "uzbek": "yetmish (koreyscha son)",
+    "english": "seventy (native Korean)",
+    "russian": "семьдесят (корейский счёт)",
+    "romanization": "ilheun",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할아버지는 일흔 살이세요.",
+      "uz": "Bobom yetmish yoshdalar.",
+      "en": "My grandfather is seventy.",
+      "ru": "Дедушке семьдесят лет."
+    }
+  },
+  {
+    "id": 128,
+    "korean": "잔",
+    "uzbek": "stakan, piyola (sanoq so'zi)",
+    "english": "cup, glass (counter)",
+    "russian": "чашка, стакан (счётное слово)",
+    "romanization": "jan",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "커피 두 잔 주세요.",
+      "uz": "Ikki chashka qahva bering.",
+      "en": "Two cups of coffee, please.",
+      "ru": "Две чашки кофе, пожалуйста."
+    }
+  },
+  {
+    "id": 129,
+    "korean": "천",
+    "uzbek": "ming (1000)",
+    "english": "thousand (1000)",
+    "russian": "тысяча (1000)",
+    "romanization": "cheon",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "천 원만 빌려 주세요.",
+      "uz": "Ming von qarz berib turing.",
+      "en": "Please lend me a thousand won.",
+      "ru": "Одолжите мне тысячу вон."
+    }
+  },
+  {
+    "id": 130,
+    "korean": "칠",
+    "uzbek": "yetti (7)",
+    "english": "seven (7)",
+    "russian": "семь (7)",
+    "romanization": "chil",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "칠 월은 아주 더워요.",
+      "uz": "Iyul juda issiq.",
+      "en": "July is very hot.",
+      "ru": "В июле очень жарко."
+    }
+  },
+  {
+    "id": 131,
+    "korean": "팔",
+    "uzbek": "sakkiz (8)",
+    "english": "eight (8)",
+    "russian": "восемь (8)",
+    "romanization": "pal",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "팔 번 출구로 나가세요.",
+      "uz": "8-chiqish orqali chiqing.",
+      "en": "Go out through exit eight.",
+      "ru": "Выходите через выход номер восемь."
+    }
+  },
+  {
+    "id": 132,
+    "korean": "하나",
+    "uzbek": "bir (koreyscha son)",
+    "english": "one (native Korean)",
+    "russian": "один (корейский счёт)",
+    "romanization": "hana",
+    "lesson": 6,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "하나, 둘, 셋! 사진 찍어요.",
+      "uz": "Bir, ikki, uch! Suratga olamiz.",
+      "en": "One, two, three! Say cheese.",
+      "ru": "Раз, два, три! Фотографируем."
+    }
+  }
+]

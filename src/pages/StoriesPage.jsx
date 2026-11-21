@@ -75,7 +75,7 @@ export function StoriesLibraryPage() {
   );
 }
 
-// /lesson/:lessonId/stories — the lesson's stories under the lesson tabs.
+// /topic/:lessonId/stories — the lesson's stories under the lesson tabs.
 export function LessonStoriesPage() {
   const { t } = useTranslation();
   const { lessonId } = useParams();
@@ -250,7 +250,7 @@ function StoryReader({ storyId }) {
       <div className="flex flex-wrap items-center gap-2 px-1 text-sm font-bold">
         <Link to="/stories" className="text-sky-600 dark:text-sky-300">📖 {t("stories.title")}</Link>
         <span className="text-slate-400">/</span>
-        <Link to={`/lesson/${story.lesson}/stories`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: story.lesson })}</Link>
+        <Link to={`/topic/${story.lesson}/stories`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: story.lesson })}</Link>
       </div>
 
       <GlassCard>

@@ -3,11 +3,10 @@ import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
-import ModeHeader from "../components/ModeHeader";
 import RequireAccount from "../components/RequireAccount";
 import UpgradeCard from "../components/UpgradeCard";
 import { lessons } from "../data";
-import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, grammarForLesson, isTopikPoint, rowText, TOPIK1_GROUPS, TOPIK1_TEXT, tr } from "../data/grammar";
+import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, isTopikPoint, rowText, TOPIK1_GROUPS, TOPIK1_TEXT, tr } from "../data/grammar";
 import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { buildPractice } from "../lib/grammarDrills";
@@ -41,10 +40,7 @@ function PointCard({ point }) {
   );
 }
 
-// The lesson course (1A, 1B and points added in the panel) and the TOPIK I
-// list. The TOPIK list is read from its own course so the panel's sorting of
-// GRAMMAR by lesson never reorders it.
-const lessonCourses = () => GRAMMAR_COURSES.filter((course) => !course.level);
+// Every point sits in the TOPIK I course, grouped by kind.
 const topikPoints = () => GRAMMAR_COURSES.find((course) => course.level === "topik1")?.points || [];
 
 function ProgressBar({ done, total }) {
@@ -55,15 +51,11 @@ function ProgressBar({ done, total }) {
   );
 }
 
-// /grammar — the lesson course grouped by book and lesson, then TOPIK I
-// grammar grouped by kind.
+// /grammar — every point, grouped by kind.
 export function GrammarCatalogPage() {
   const { t, i18n } = useTranslation();
   const { hash } = useLocation();
   const grammar = useSelector((state) => state.progress.grammar || {});
-  const courses = lessonCourses();
-  const coursePoints = courses.flatMap((course) => course.points);
-  const done = coursePoints.filter((point) => grammar[point.id]?.done).length;
   const topik = topikPoints();
   const topikDone = topik.filter((point) => grammar[point.id]?.done).length;
   const language = i18n.language;
@@ -79,24 +71,8 @@ export function GrammarCatalogPage() {
     <div className="mx-auto max-w-4xl space-y-5">
       <header className="px-1">
         <h1 className="text-2xl font-black md:text-3xl">📐 {t("grammar.title")}</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.subtitle", { done, total: coursePoints.length })}</p>
-        <ProgressBar done={done} total={coursePoints.length} />
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.subtitle", { done: topikDone, total: topik.length })}</p>
       </header>
-      {courses.map((course) => (
-        <GlassCard key={course.id} className="!p-5">
-          <h2 className="text-xl font-black">K-TALIM {course.id}</h2>
-          <div className="mt-4 space-y-4">
-            {[...new Set(course.points.map((point) => point.lesson))].map((lesson) => (
-              <section key={lesson}>
-                <h3 className="mb-2 text-xs font-black uppercase tracking-widest text-slate-500">{t("card.lesson", { lesson })}</h3>
-                <div className="grid gap-2 sm:grid-cols-2">
-                  {course.points.filter((point) => point.lesson === lesson).map((point) => <PointCard key={point.id} point={point} />)}
-                </div>
-              </section>
-            ))}
-          </div>
-        </GlassCard>
-      ))}
       {topik.length > 0 && (
         <div id="topik1" className="scroll-mt-24">
           <GlassCard className="!p-5">
@@ -123,26 +99,6 @@ export function GrammarCatalogPage() {
           </GlassCard>
         </div>
       )}
-    </div>
-  );
-}
-
-// /lesson/:lessonId/grammar — the lesson's points under the lesson tabs.
-export function LessonGrammarPage() {
-  const { t } = useTranslation();
-  const { lessonId } = useParams();
-  const points = grammarForLesson(lessonId);
-  return (
-    <div className="space-y-6">
-      <ModeHeader lesson={Number(lessonId)} />
-      <GlassCard className="!p-5">
-        <h2 className="text-xl font-black">📐 {t("grammar.lessonTitle")}</h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.lessonText")}</p>
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
-          {points.map((point) => <PointCard key={point.id} point={point} />)}
-        </div>
-        <Link to="/grammar" className="mt-4 inline-block text-sm font-bold text-sky-600 dark:text-sky-300">{t("grammar.allPoints")} →</Link>
-      </GlassCard>
     </div>
   );
 }
@@ -360,7 +316,7 @@ function GrammarPoint({ pointId }) {
         {topik ? (
           <Link to="/grammar#topik1" className="text-sky-600 dark:text-sky-300">TOPIK I</Link>
         ) : (
-          <Link to={`/lesson/${point.lesson}/grammar`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })}</Link>
+          <Link to={`/topic/${point.lesson}/grammar`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })}</Link>
         )}
       </div>
 

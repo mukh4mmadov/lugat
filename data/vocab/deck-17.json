@@ -1,0 +1,344 @@
+[
+  {
+    "id": 382,
+    "korean": "나이 / 연세",
+    "uzbek": "yosh / yosh (hurmat)",
+    "english": "age / age (polite)",
+    "russian": "возраст / возраст (вежл.)",
+    "romanization": "nai / yeonse",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니는 연세가 많으세요.",
+      "uz": "Buvim keksa yoshdalar.",
+      "en": "My grandmother is quite old.",
+      "ru": "Бабушка в преклонном возрасте."
+    }
+  },
+  {
+    "id": 383,
+    "korean": "데려가다 / 오다",
+    "uzbek": "(kishini) olib bormoq / olib kelmoq",
+    "english": "to take / bring (someone) along",
+    "russian": "брать с собой / приводить (кого-то)",
+    "romanization": "deryeogada / oda",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생을 공원에 데려가요.",
+      "uz": "Ukamni bog'ga olib boryapman.",
+      "en": "I'm taking my little brother to the park.",
+      "ru": "Я веду младшего брата в парк."
+    }
+  },
+  {
+    "id": 384,
+    "korean": "마시다 / 드시다",
+    "uzbek": "ichmoq / ichmoq (hurmat)",
+    "english": "to drink / to drink (polite)",
+    "russian": "пить / пить (вежл.)",
+    "romanization": "masida / deusida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "차 좀 드세요.",
+      "uz": "Choy iching.",
+      "en": "Please have some tea.",
+      "ru": "Выпейте, пожалуйста, чаю."
+    }
+  },
+  {
+    "id": 385,
+    "korean": "말하다 / 말씀하시다",
+    "uzbek": "gapirmoq / so'zlamoq (hurmat)",
+    "english": "to speak / to speak (polite)",
+    "russian": "говорить / говорить (вежл.)",
+    "romanization": "malhada / malsseumhasida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "천천히 말씀해 주세요.",
+      "uz": "Sekinroq gapiring, iltimos.",
+      "en": "Please speak slowly.",
+      "ru": "Говорите, пожалуйста, медленнее."
+    }
+  },
+  {
+    "id": 386,
+    "korean": "먹다 / 잡수시다 / 드시다",
+    "uzbek": "yemoq / tanovul qilmoq (hurmat)",
+    "english": "to eat / to eat (polite)",
+    "russian": "есть / кушать (вежл.)",
+    "romanization": "meokda / japsusida / deusida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지께서 저녁을 드세요.",
+      "uz": "Otam kechki ovqatni yeyaptilar.",
+      "en": "My father is having dinner.",
+      "ru": "Папа ужинает."
+    }
+  },
+  {
+    "id": 387,
+    "korean": "모시고 가다 / 오다",
+    "uzbek": "(kattani) kuzatib bormoq / kelmoq",
+    "english": "to escort (an elder) there / here",
+    "russian": "сопровождать (старшего)",
+    "romanization": "mosigo gada / oda",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어머니를 병원에 모시고 가요.",
+      "uz": "Onamni shifoxonaga olib boryapman.",
+      "en": "I'm taking my mother to the hospital.",
+      "ru": "Я везу маму в больницу."
+    }
+  },
+  {
+    "id": 388,
+    "korean": "밥 / 진지",
+    "uzbek": "ovqat / taom (hurmat)",
+    "english": "meal / meal (polite)",
+    "russian": "еда / трапеза (вежл.)",
+    "romanization": "bap / jinji",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니께서 진지를 다 드셨어요.",
+      "uz": "Buvim taomni to'liq yedilar.",
+      "en": "Grandma finished her meal.",
+      "ru": "Бабушка всё съела."
+    }
+  },
+  {
+    "id": 389,
+    "korean": "사람 / 분",
+    "uzbek": "odam / kishi (hurmat)",
+    "english": "person / person (polite)",
+    "russian": "человек / человек (вежл.)",
+    "romanization": "saram / bun",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저 분은 우리 선생님이에요.",
+      "uz": "U kishi bizning o'qituvchimiz.",
+      "en": "That person is our teacher.",
+      "ru": "Тот человек — наш учитель."
+    }
+  },
+  {
+    "id": 390,
+    "korean": "생신",
+    "uzbek": "tug'ilgan kun (kattalarniki)",
+    "english": "birthday (of an elder)",
+    "russian": "день рождения (старшего)",
+    "romanization": "saengsin",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니 생신에 가족이 모였어요.",
+      "uz": "Buvimning tug'ilgan kunida oila yig'ildi.",
+      "en": "The family gathered for Grandma's birthday.",
+      "ru": "На день рождения бабушки собралась семья."
+    }
+  },
+  {
+    "id": 391,
+    "korean": "생일 / 생신",
+    "uzbek": "tug'ilgan kun / tavallud kuni (hurmat)",
+    "english": "birthday / birthday (polite)",
+    "russian": "день рождения / (вежл.)",
+    "romanization": "saengil / saengsin",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "내일은 어머니 생신이에요.",
+      "uz": "Ertaga onamning tug'ilgan kunlari.",
+      "en": "Tomorrow is my mother's birthday.",
+      "ru": "Завтра у мамы день рождения."
+    }
+  },
+  {
+    "id": 392,
+    "korean": "아내 / 부인",
+    "uzbek": "xotin / rafiqa (hurmat)",
+    "english": "wife / wife (polite)",
+    "russian": "жена / супруга (вежл.)",
+    "romanization": "anae / buin",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "부인께서도 같이 오세요.",
+      "uz": "Rafiqangiz bilan birga keling.",
+      "en": "Please come with your wife too.",
+      "ru": "Приходите и с супругой."
+    }
+  },
+  {
+    "id": 393,
+    "korean": "없다 / 안 계시다",
+    "uzbek": "yo'q bo'lmoq / yo'q (hurmat)",
+    "english": "to not be there / (polite)",
+    "russian": "отсутствовать / (вежл.)",
+    "romanization": "eopda / an gyesida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어머니는 집에 안 계세요.",
+      "uz": "Onam uyda yo'qlar.",
+      "en": "My mother isn't at home.",
+      "ru": "Мамы нет дома."
+    }
+  },
+  {
+    "id": 394,
+    "korean": "우리 / 저희",
+    "uzbek": "biz / biz (kamtarona)",
+    "english": "we / we (humble)",
+    "russian": "мы / мы (скромно)",
+    "romanization": "uri / jeohui",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저희 회사는 서울에 있습니다.",
+      "uz": "Bizning kompaniya Seulda joylashgan.",
+      "en": "Our company is in Seoul.",
+      "ru": "Наша компания находится в Сеуле."
+    }
+  },
+  {
+    "id": 395,
+    "korean": "이름 / 성함",
+    "uzbek": "ism / ism-sharif (hurmat)",
+    "english": "name / name (polite)",
+    "russian": "имя / имя (вежл.)",
+    "romanization": "ireum / seongham",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선생님 성함을 여기에 써 주세요.",
+      "uz": "O'qituvchining ism-sharifini shu yerga yozing.",
+      "en": "Please write the teacher's name here.",
+      "ru": "Напишите здесь имя учителя."
+    }
+  },
+  {
+    "id": 396,
+    "korean": "있다 / 계시다",
+    "uzbek": "bor bo'lmoq / bo'lmoq (hurmat)",
+    "english": "to be (somewhere) / to be (polite)",
+    "russian": "быть / находиться (вежл.)",
+    "romanization": "itda / gyesida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할아버지는 지금 방에 계세요.",
+      "uz": "Bobom hozir xonadalar.",
+      "en": "Grandpa is in his room now.",
+      "ru": "Дедушка сейчас в комнате."
+    }
+  },
+  {
+    "id": 397,
+    "korean": "자다 / 주무시다",
+    "uzbek": "uxlamoq / dam olmoq (hurmat)",
+    "english": "to sleep / to sleep (polite)",
+    "russian": "спать / почивать (вежл.)",
+    "romanization": "jada / jumusida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니께서 주무세요.",
+      "uz": "Buvim uxlayaptilar.",
+      "en": "Grandma is sleeping.",
+      "ru": "Бабушка спит."
+    }
+  },
+  {
+    "id": 398,
+    "korean": "죽다 / 돌아가시다",
+    "uzbek": "o'lmoq / vafot etmoq (hurmat)",
+    "english": "to die / to pass away (polite)",
+    "russian": "умереть / скончаться (вежл.)",
+    "romanization": "jukda / doragasida",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그 화가는 백 년 전에 돌아가셨어요.",
+      "uz": "U rassom yuz yil oldin vafot etgan.",
+      "en": "That painter passed away a hundred years ago.",
+      "ru": "Этот художник скончался сто лет назад."
+    }
+  },
+  {
+    "id": 399,
+    "korean": "집 / 댁",
+    "uzbek": "uy / xonadon (hurmat)",
+    "english": "house / home (polite)",
+    "russian": "дом / дом (вежл.)",
+    "romanization": "jip / daek",
+    "lesson": 17,
+    "theme": "polite",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니 댁에 가요.",
+      "uz": "Buvimnikiga ketyapman.",
+      "en": "I'm going to my grandmother's.",
+      "ru": "Я иду к бабушке домой."
+    }
+  }
+]
