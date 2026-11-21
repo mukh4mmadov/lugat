@@ -324,6 +324,189 @@ export default [
     ],
   }),
 
+  point("particles", {
+    id: "approx-jjeum", pattern: "N + 쯤 / 정도",
+    title: t("Taxminan — 쯤, 정도", "About, around — 쯤, 정도", "Примерно — 쯤, 정도"),
+    explain: t(
+      "Taxminiy miqdor, vaqt yoki narxni bildiradi: 세 시쯤 — soat uchlarda, 한 시간 정도 — bir soatcha. 쯤 oldingi so'zga qo'shib yoziladi, 정도 esa alohida. Ko'pincha bir-birining o'rnida keladi, lekin vaqt nuqtasi uchun (세 시쯤, 언제쯤) odatda 쯤 ishlatiladi.",
+      "Marks an approximate amount, time or price: 세 시쯤 (around three o'clock), 한 시간 정도 (about an hour). 쯤 is written attached, 정도 with a space. They often swap, but for a point in time (세 시쯤, 언제쯤) 쯤 is the usual choice.",
+      "Обозначает приблизительное количество, время или цену: 세 시쯤 — около трёх часов, 한 시간 정도 — примерно час. 쯤 пишется слитно, 정도 — раздельно. Часто взаимозаменяемы, но для момента времени (세 시쯤, 언제쯤) обычно берут 쯤.",
+    ),
+    rules: [
+      ["N쯤", "…larda, …cha (taxminan)", "around, about", "около, примерно"],
+      ["N 정도", "…cha (miqdor, davomiylik)", "about (amount, length)", "примерно (количество, длительность)"],
+      ["언제쯤 / 얼마쯤", "taxminan qachon / qancha", "roughly when / how much", "примерно когда / сколько"],
+    ],
+    examples: [
+      ["내일 세 시쯤 만나요.", "Ertaga soat uchlarda uchrashamiz.", "Let's meet around three tomorrow.", "Давайте встретимся завтра около трёх."],
+      ["집에서 학교까지 30분 정도 걸려요.", "Uydan maktabgacha 30 daqiqacha ketadi.", "It takes about 30 minutes from home to school.", "От дома до школы примерно 30 минут."],
+      ["언제쯤 한국에 가요?", "Taxminan qachon Koreyaga borasiz?", "Roughly when are you going to Korea?", "Примерно когда вы едете в Корею?"],
+      ["사과를 열 개쯤 샀어요.", "O'ntacha olma sotib oldim.", "I bought about ten apples.", "Я купил около десяти яблок."],
+      ["이 가방은 5만 원 정도예요.", "Bu sumka 50 ming von atrofida.", "This bag is about 50,000 won.", "Эта сумка стоит около 50 тысяч вон."],
+    ],
+    mistakes: [
+      ["세 시 쯤", "세 시쯤", t("쯤 oldingi so'zga qo'shib yoziladi.", "쯤 is written attached to the word before it.", "쯤 пишется слитно с предыдущим словом.")],
+    ],
+    quiz: [
+      ["몇 시___ 출발할까요?", ["쯤", "만"], 0],
+      ["한 시간 ___ 기다렸어요.", ["정도", "마다"], 0],
+      ["우리 반 학생은 스무 명___ 돼요.", ["쯤", "에서"], 0],
+      ["___ 도착해요? — 다섯 시쯤 도착해요.", ["언제쯤", "어디쯤"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "each-ssik", pattern: "N + 씩 · N에 (birlik)",
+    title: t("“…tadan” — 씩", "“… each” — 씩", "«По …» — 씩"),
+    explain: t(
+      "Teng bo'lingan yoki takrorlanadigan miqdorni bildiradi: 한 사람에 두 개씩 — har kishiga ikkitadan. Son va hisob so'zidan keyin qo'shiladi: 하나씩, 조금씩, 하루에 세 번씩. Birlik narxi esa 에 bilan aytiladi: 한 개에 천 원 — bittasi ming von.",
+      "Shows an equal share or a repeated amount: 한 사람에 두 개씩 (two each per person). Add it after a number and counter: 하나씩, 조금씩, 하루에 세 번씩. The price per unit uses 에: 한 개에 천 원 (a thousand won each).",
+      "Показывает равную долю или повторяющееся количество: 한 사람에 두 개씩 — по два на человека. Ставится после числа со счётным словом: 하나씩, 조금씩, 하루에 세 번씩. Цена за единицу передаётся через 에: 한 개에 천 원 — тысяча вон за штуку.",
+    ),
+    rules: [
+      ["수 + 단위 + 씩", "…tadan", "… each", "по …"],
+      ["N에 + 수", "har … ga (birlik)", "per …", "за / в (единицу)"],
+      ["조금씩, 하나씩", "ozdan-ozdan, bittadan", "little by little, one by one", "понемногу, по одному"],
+    ],
+    examples: [
+      ["사과를 한 사람에 두 개씩 주세요.", "Har kishiga ikkitadan olma bering.", "Please give two apples to each person.", "Дайте каждому по два яблока."],
+      ["이 약은 하루에 세 번씩 드세요.", "Bu dorini kuniga uch martadan iching.", "Take this medicine three times a day.", "Принимайте это лекарство три раза в день."],
+      ["한국어 실력이 조금씩 늘어요.", "Koreys tilim ozdan-ozdan yaxshilanyapti.", "My Korean is improving little by little.", "Мой корейский понемногу улучшается."],
+      ["이 귤은 한 개에 500원이에요.", "Bu mandarinning bittasi 500 von.", "These tangerines are 500 won each.", "Эти мандарины по 500 вон за штуку."],
+      ["한 명씩 들어오세요.", "Bittadan kiring.", "Come in one at a time.", "Заходите по одному."],
+    ],
+    mistakes: [
+      ["두 개 씩", "두 개씩", t("씩 qo'shib yoziladi.", "씩 is written attached.", "씩 пишется слитно.")],
+    ],
+    quiz: [
+      ["학생들에게 공책을 두 권___ 나눠 줬어요.", ["씩", "쯤"], 0],
+      ["이 사과는 한 개___ 천 원이에요.", ["에", "를"], 0],
+      ["매일 단어를 열 개___ 외워요.", ["씩", "의"], 0],
+      ["물을 조금___ 마시세요.", ["씩", "도"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "called-irago", pattern: "N + (이)라고 하다",
+    title: t("Ism va nom — (이)라고 하다", "Names — (이)라고 하다", "Имя и название — (이)라고 하다"),
+    explain: t(
+      "Ism yoki nomni aytish uchun: 저는 알리라고 합니다 — mening ismim Ali. Unli bilan tugagan otga 라고, undoshga 이라고. Narsaning koreyscha nomini so'rash: 이것을 한국어로 뭐라고 해요? — Buni koreyschada nima deyiladi?",
+      "Gives a name or what something is called: 저는 알리라고 합니다 (My name is Ali). Nouns ending in a vowel take 라고, in a consonant 이라고. To ask for a word: 이것을 한국어로 뭐라고 해요? (What is this called in Korean?)",
+      "Называет имя или название: 저는 알리라고 합니다 — меня зовут Али. После гласной — 라고, после согласной — 이라고. Спросить слово: 이것을 한국어로 뭐라고 해요? — Как это называется по-корейски?",
+    ),
+    rules: [
+      ["받침 X + 라고 하다", "Unli bilan tugasa", "Vowel-final noun", "Существительное на гласную"],
+      ["받침 O + 이라고 하다", "Undosh bilan tugasa", "Consonant-final noun", "Существительное на согласную"],
+      ["뭐라고 해요?", "Nima deyiladi?", "What is it called?", "Как называется?"],
+    ],
+    examples: [
+      ["처음 뵙겠습니다. 저는 사라라고 합니다.", "Tanishganimdan xursandman. Ismim Sara.", "Nice to meet you. My name is Sara.", "Очень приятно. Меня зовут Сара."],
+      ["이 음식은 비빔밥이라고 해요.", "Bu taom bibimbap deb ataladi.", "This dish is called bibimbap.", "Это блюдо называется пибимпап."],
+      ["'Thank you'를 한국어로 뭐라고 해요?", "'Thank you' koreyschada nima deyiladi?", "How do you say 'thank you' in Korean?", "Как по-корейски «thank you»?"],
+      ["제 고향은 사마르칸트라고 하는 도시예요.", "Mening yurtim Samarqand degan shahar.", "My hometown is a city called Samarkand.", "Мой родной город называется Самарканд."],
+    ],
+    mistakes: [
+      ["저는 민준라고 합니다", "저는 민준이라고 합니다", t("Undosh bilan tugagan ismga 이라고.", "Names ending in a consonant take 이라고.", "После имени на согласную — 이라고.")],
+    ],
+    quiz: [
+      ["제 이름은 김지수___ 합니다.", ["라고", "이라고"], 0],
+      ["이 산은 한라산___ 해요.", ["라고", "이라고"], 1],
+      ["이건 한국어로 ___ 해요?", ["뭐라고", "뭐를"], 0],
+      ["저는 아크말___ 합니다.", ["라고", "이라고"], 1],
+    ],
+  }),
+  point("particles", {
+    id: "become-doeda", pattern: "N + 이/가 되다",
+    title: t("“…bo'lmoq” — 이/가 되다", "“To become” — 이/가 되다", "«Стать» — 이/가 되다"),
+    explain: t(
+      "“…bo'lmoq” (kasb, holat, yosh, yangi vaqt): 의사가 되고 싶어요 — shifokor bo'lmoqchiman. Ot 을/를 emas, 이/가 oladi. 되다 hozirgi zamonda 돼요, o'tganda 됐어요.",
+      "“To become” (a job, a state, an age, a new season or time): 의사가 되고 싶어요 (I want to become a doctor). The noun takes 이/가, not 을/를. 되다 becomes 돼요 in the present and 됐어요 in the past.",
+      "«Стать» (профессия, состояние, возраст, наступление времени): 의사가 되고 싶어요 — хочу стать врачом. Существительное берёт 이/가, а не 을/를. 되다 → 돼요 в настоящем, 됐어요 в прошедшем.",
+    ),
+    rules: [
+      ["N이/가 되다", "…bo'lmoq", "to become N", "стать N"],
+      ["되다 → 돼요 / 됐어요", "hozir / o'tgan", "present / past", "настоящее / прошедшее"],
+      ["N이/가 되면", "…bo'lganda", "when it becomes N", "когда наступит / станет N"],
+    ],
+    examples: [
+      ["저는 커서 선생님이 되고 싶어요.", "Katta bo'lsam o'qituvchi bo'lmoqchiman.", "I want to become a teacher when I grow up.", "Когда вырасту, хочу стать учителем."],
+      ["벌써 봄이 됐어요.", "Allaqachon bahor keldi.", "It's already spring.", "Уже наступила весна."],
+      ["제 동생은 올해 스무 살이 됐어요.", "Ukam bu yil yigirma yoshga to'ldi.", "My younger sibling turned twenty this year.", "Младшему брату в этом году исполнилось двадцать."],
+      ["얼음이 물이 됐어요.", "Muz suvga aylandi.", "The ice turned into water.", "Лёд превратился в воду."],
+    ],
+    mistakes: [
+      ["의사를 되고 싶어요", "의사가 되고 싶어요", t("되다 oldidagi ot 이/가 oladi.", "The noun before 되다 takes 이/가.", "Существительное перед 되다 берёт 이/가.")],
+      ["가수가 됬어요", "가수가 됐어요", t("To'g'ri yozilishi: 됐어요 (되었어요).", "The correct spelling is 됐어요 (되었어요).", "Правильно: 됐어요 (되었어요).")],
+    ],
+    quiz: [
+      ["저는 요리사___ 되고 싶어요.", ["가", "를"], 0],
+      ["내년에 대학생___ 돼요.", ["이", "을"], 0],
+      ["어느새 겨울이 ___.", ["됐어요", "됬어요"], 0],
+      ["친구가 경찰___ 됐어요.", ["이", "가"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "same-diff", pattern: "N과/와 같다 · 다르다",
+    title: t("Bir xil va boshqa — 같다, 다르다", "Same and different — 같다, 다르다", "Такой же и другой — 같다, 다르다"),
+    explain: t(
+      "Ikki narsani solishtiradi: 제 생각은 친구 생각과 같아요 — fikrim do'stimniki bilan bir xil. 다르다 — farq qilmoq (르 noto'g'ri fe'li: 달라요). Og'zakida 하고, (이)랑 ham ishlatiladi. Ot oldida: 같은 N — bir xil N, 다른 N — boshqa N.",
+      "Compares two things: 제 생각은 친구 생각과 같아요 (My opinion is the same as my friend's). 다르다 means “to be different” (르-irregular: 달라요). In speech 하고 or (이)랑 also work. Before a noun: 같은 N (the same N), 다른 N (a different / another N).",
+      "Сравнивает две вещи: 제 생각은 친구 생각과 같아요 — моё мнение такое же, как у друга. 다르다 — отличаться (неправильный на 르: 달라요). В разговоре также 하고, (이)랑. Перед существительным: 같은 N — тот же N, 다른 N — другой N.",
+    ),
+    rules: [
+      ["N과/와 같다", "N bilan bir xil", "the same as N", "такой же, как N"],
+      ["N과/와 다르다", "N dan farq qiladi", "different from N", "отличается от N"],
+      ["같은 N / 다른 N", "bir xil N / boshqa N", "the same N / another N", "тот же N / другой N"],
+    ],
+    examples: [
+      ["제 가방은 친구 가방과 같아요.", "Mening sumkam do'stimniki bilan bir xil.", "My bag is the same as my friend's.", "Моя сумка такая же, как у друга."],
+      ["한국 음식은 우즈베키스탄 음식과 많이 달라요.", "Koreys taomlari o'zbek taomlaridan ancha farq qiladi.", "Korean food is very different from Uzbek food.", "Корейская еда сильно отличается от узбекской."],
+      ["우리는 같은 반이에요.", "Biz bir sinfdamiz.", "We are in the same class.", "Мы в одном классе."],
+      ["다른 색깔은 없어요?", "Boshqa rangi yo'qmi?", "Do you have it in another colour?", "А другого цвета нет?"],
+      ["언니하고 저는 성격이 달라요.", "Opam bilan fe'l-atvorimiz har xil.", "My older sister and I have different personalities.", "У нас с сестрой разные характеры."],
+    ],
+    mistakes: [
+      ["달르요", "달라요", t("다르다 — 르 noto'g'ri fe'l: 달라요.", "다르다 is 르-irregular: 달라요.", "다르다 — неправильный на 르: 달라요.")],
+      ["친구를 같아요", "친구와 같아요", t("같다/다르다 oldidagi ot 과/와 (하고, 랑) oladi.", "The noun before 같다/다르다 takes 과/와 (하고, 랑).", "Перед 같다/다르다 существительное берёт 과/와 (하고, 랑).")],
+    ],
+    quiz: [
+      ["제 생일은 동생 생일___ 같아요.", ["과", "을"], 0],
+      ["이 책은 그 책과 ___. (다르다)", ["달라요", "다르어요"], 0],
+      ["우리는 ___ 회사에 다녀요.", ["같은", "같아"], 0],
+      ["이 신발 말고 ___ 신발을 보여 주세요.", ["다른", "달라"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "amu-do", pattern: "아무 N도 · 아무나 · 아무거나",
+    title: t("Hech kim / istalgan — 아무", "Nobody / anybody — 아무", "Никто / кто угодно — 아무"),
+    explain: t(
+      "아무 — “hech qanday / har qanday”. Inkor bilan: 아무도 안 왔어요 — hech kim kelmadi; 아무것도 안 먹었어요 — hech narsa yemadim. (이)나 bilan esa “farqi yo'q, istalgan”: 아무거나 괜찮아요 — istalgani bo'laveradi; 아무나 — istalgan kishi.",
+      "아무 means “no … / any …”. With a negative: 아무도 안 왔어요 (Nobody came), 아무것도 안 먹었어요 (I didn't eat anything). With (이)나 it means “any at all”: 아무거나 괜찮아요 (Anything is fine), 아무나 (anyone).",
+      "아무 — «никакой / любой». С отрицанием: 아무도 안 왔어요 — никто не пришёл; 아무것도 안 먹었어요 — ничего не ел. С (이)나 — «какой угодно»: 아무거나 괜찮아요 — подойдёт что угодно; 아무나 — кто угодно.",
+    ),
+    rules: [
+      ["아무도 + 안 / 없다", "hech kim", "nobody", "никто"],
+      ["아무것도 + 안 / 없다", "hech narsa", "nothing", "ничего"],
+      ["아무 데도 + 안 가다", "hech qayerga", "nowhere", "никуда"],
+      ["아무나 / 아무거나 / 아무 때나", "istalgan kishi / narsa / vaqt", "anyone / anything / any time", "кто / что / когда угодно"],
+    ],
+    examples: [
+      ["교실에 아무도 없어요.", "Sinfda hech kim yo'q.", "There's nobody in the classroom.", "В классе никого нет."],
+      ["아침에 아무것도 안 먹었어요.", "Ertalab hech narsa yemadim.", "I didn't eat anything this morning.", "Утром я ничего не ел."],
+      ["주말에 아무 데도 안 갔어요.", "Dam olish kuni hech qayerga bormadim.", "I didn't go anywhere at the weekend.", "В выходные я никуда не ходил."],
+      ["뭐 마실래요? — 아무거나 괜찮아요.", "Nima ichasiz? — Istalgani bo'laveradi.", "What would you like to drink? — Anything is fine.", "Что будете пить? — Что угодно."],
+      ["아무 때나 전화하세요.", "Istalgan vaqtda qo'ng'iroq qiling.", "Call me any time.", "Звоните в любое время."],
+    ],
+    mistakes: [
+      ["아무도 왔어요", "아무도 안 왔어요", t("아무도, 아무것도 doim inkor bilan keladi.", "아무도 and 아무것도 always go with a negative.", "아무도 и 아무것도 всегда употребляются с отрицанием.")],
+      ["아무거도", "아무것도", t("To'g'ri shakli: 아무것도.", "The correct form is 아무것도.", "Правильно: 아무것도.")],
+    ],
+    quiz: [
+      ["방에 ___ 없어요.", ["아무도", "아무나"], 0],
+      ["배가 아파서 ___ 못 먹었어요.", ["아무것도", "아무거나"], 0],
+      ["뭐 먹을까요? — ___ 좋아요.", ["아무거나", "아무것도"], 0],
+      ["어제는 ___ 안 나갔어요.", ["아무 데도", "아무 데나"], 0],
+    ],
+  }),
+
   // --- Sentence endings and speech styles ------------------------------------
   point("endings", {
     id: "formal-seumnida", pattern: "V/A + (스)ㅂ니다 / (스)ㅂ니까?",
@@ -611,6 +794,164 @@ export default [
     ],
   }),
 
+  point("endings", {
+    id: "gunyo", pattern: "V + 는군요 · A + 군요",
+    title: t("“…ekan-da!” — 군요", "“Oh, I see!” — 군요", "«Вот как!» — 군요"),
+    explain: t(
+      "Yangi bilib olgan narsaga hayrat yoki “aha, shunaqa ekan-da” degan munosabat: 한국어를 잘하시는군요! — koreyschani yaxshi bilar ekansiz! Sifat va 이다 ga 군요 (예쁘군요, 학생이군요), fe'lga 는군요 (가는군요). O'tgan zamon: 았/었군요. 네요 ga yaqin, lekin 군요 “endi bildim” ma'nosini kuchliroq beradi.",
+      "Reacts to something you have just learned, with surprise or “oh, I see”: 한국어를 잘하시는군요! (You speak Korean well!). Adjectives and 이다 take 군요 (예쁘군요, 학생이군요); verbs take 는군요 (가는군요). Past: 았/었군요. Close to 네요, but 군요 stresses “now I realise”.",
+      "Реакция на только что узнанное — удивление или «а, вот как»: 한국어를 잘하시는군요! — Вы хорошо говорите по-корейски! Прилагательные и 이다 — 군요 (예쁘군요, 학생이군요), глаголы — 는군요 (가는군요). Прошедшее: 았/었군요. Близко к 네요, но 군요 сильнее подчёркивает «теперь я понял».",
+    ),
+    rules: [
+      ["A + 군요", "Sifat", "Adjective", "Прилагательное"],
+      ["V + 는군요 (살다 → 사는군요)", "Fe'l", "Verb", "Глагол"],
+      ["N + (이)군요", "Ot + 이다", "Noun + 이다", "Существительное + 이다"],
+      ["V/A + 았/었군요", "O'tgan zamon", "Past", "Прошедшее"],
+    ],
+    examples: [
+      ["와, 방이 정말 넓군요.", "Voy, xona juda keng ekan.", "Wow, the room is really big.", "Ого, комната очень просторная."],
+      ["매일 운동하는군요. 대단해요!", "Har kuni sport qilar ekansiz. Zo'r!", "So you exercise every day. Impressive!", "Вы, значит, каждый день тренируетесь. Здорово!"],
+      ["아, 민수 씨 동생이군요.", "A, Minsuning ukasi ekansiz-da.", "Ah, so you're Minsu's younger brother.", "А, так вы младший брат Минсу."],
+      ["어제 비가 많이 왔군요.", "Kecha kuchli yomg'ir yog'ibdi-da.", "So it rained a lot yesterday.", "Вчера, оказывается, был сильный дождь."],
+    ],
+    mistakes: [
+      ["좋는군요", "좋군요", t("Sifatlarga 는 qo'shilmaydi: 좋군요.", "Adjectives don't take 는: 좋군요.", "К прилагательным 는 не добавляется: 좋군요.")],
+      ["먹군요", "먹는군요", t("Hozirgi zamon fe'liga 는군요.", "Present-tense verbs take 는군요.", "Глаголы в настоящем — 는군요.")],
+    ],
+    quiz: [
+      ["이 옷이 정말 ___. (예쁘다)", ["예쁘군요", "예쁘는군요"], 0],
+      ["한국 드라마를 자주 ___. (보다)", ["보는군요", "보군요"], 0],
+      ["서울에 ___. (살다)", ["사는군요", "살는군요"], 0],
+      ["어제 많이 ___. (바쁘다)", ["바빴군요", "바쁘는군요"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "soft-question", pattern: "V + 나요? · A + (으)ㄴ가요?",
+    title: t("Yumshoq savol — 나요?, (으)ㄴ가요?", "Soft questions — 나요?, (으)ㄴ가요?", "Мягкий вопрос — 나요?, (으)ㄴ가요?"),
+    explain: t(
+      "Muloyim, yumshoq savol: 지금 가나요? — hozir ketyapsizmi? Oddiy 아요/어요 savolidan yumshoqroq eshitiladi. Fe'lga, 있다/없다 ga va o'tgan zamonga (았/었) 나요; sifatga (으)ㄴ가요, otga (이)ㄴ가요. Og'zaki nutqda sifatlar ham ko'pincha 나요 oladi (좋나요?).",
+      "A soft, polite question: 지금 가나요? (Are you leaving now?). It sounds gentler than a plain 아요/어요 question. Verbs, 있다/없다 and the past (았/었) take 나요; adjectives take (으)ㄴ가요, nouns (이)ㄴ가요. In speech adjectives often take 나요 too (좋나요?).",
+      "Мягкий, вежливый вопрос: 지금 가나요? — Вы уже уходите? Звучит мягче обычного вопроса на 아요/어요. Глаголы, 있다/없다 и прошедшее (았/었) — 나요; прилагательные — (으)ㄴ가요, существительные — (이)ㄴ가요. В разговоре прилагательные тоже часто берут 나요 (좋나요?).",
+    ),
+    rules: [
+      ["V / 있다·없다 + 나요?", "Fe'l", "Verb", "Глагол"],
+      ["A + (으)ㄴ가요?", "Sifat", "Adjective", "Прилагательное"],
+      ["N + (이)ㄴ가요?", "Ot", "Noun", "Существительное"],
+      ["V/A + 았/었나요?", "O'tgan zamon", "Past", "Прошедшее"],
+    ],
+    examples: [
+      ["이 버스가 시청에 가나요?", "Bu avtobus shahar hokimiyatiga boradimi?", "Does this bus go to City Hall?", "Этот автобус идёт до мэрии?"],
+      ["혹시 시간 있나요?", "Bo'sh vaqtingiz bormi?", "Do you happen to have time?", "У вас случайно есть время?"],
+      ["여기에서 학교까지 먼가요?", "Bu yerdan maktabgacha uzoqmi?", "Is it far from here to the school?", "Отсюда до школы далеко?"],
+      ["이분이 새로 온 선생님인가요?", "Bu kishi yangi kelgan o'qituvchimi?", "Is this the new teacher?", "Это новый учитель?"],
+      ["점심은 드셨나요?", "Tushlik qildingizmi?", "Have you had lunch?", "Вы уже обедали?"],
+    ],
+    mistakes: [
+      ["멀은가요?", "먼가요?", t("ㄹ bilan tugagan sifatda ㄹ tushadi: 먼가요.", "ㄹ-stem adjectives drop ㄹ: 먼가요.", "У прилагательных на ㄹ она выпадает: 먼가요.")],
+      ["학생나요?", "학생인가요?", t("Otga (이)ㄴ가요.", "Nouns take (이)ㄴ가요.", "Существительные берут (이)ㄴ가요.")],
+    ],
+    quiz: [
+      ["내일도 회사에 ___? (가다)", ["가나요", "간가요"], 0],
+      ["그 식당 음식이 ___? (비싸다)", ["비싼가요", "비싸는가요"], 0],
+      ["어제 그 영화를 ___? (보다)", ["봤나요", "봤은가요"], 0],
+      ["이 사과는 ___? (얼마)", ["얼마인가요", "얼마나요"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "advice-neun-ge", pattern: "V + 는 게 어때요? · 는 게 좋겠어요",
+    title: t("Maslahat — 는 게 어때요?", "Advice — 는 게 어때요?", "Совет — 는 게 어때요?"),
+    explain: t(
+      "Maslahat yoki taklif berish. 는 게 어때요? — “…sangiz-chi?”: 같이 가는 게 어때요? 는 게 좋겠어요 — “…ganingiz ma'qul”: 오늘은 쉬는 게 좋겠어요. (으)면 어때요? ham ishlatiladi: 내일 만나면 어때요? 게 — 것이 ning qisqa shakli; ㄹ bilan tugagan o'zakda ㄹ tushadi (만드는 게).",
+      "Giving advice or a suggestion. 는 게 어때요? — “How about …?”: 같이 가는 게 어때요? 는 게 좋겠어요 — “It would be better to …”: 오늘은 쉬는 게 좋겠어요. (으)면 어때요? works too: 내일 만나면 어때요? 게 is short for 것이; ㄹ stems drop ㄹ (만드는 게).",
+      "Совет или предложение. 는 게 어때요? — «Как насчёт …?»: 같이 가는 게 어때요? 는 게 좋겠어요 — «Лучше бы …»: 오늘은 쉬는 게 좋겠어요. Также (으)면 어때요?: 내일 만나면 어때요? 게 — сокращение от 것이; у основ на ㄹ она выпадает (만드는 게).",
+    ),
+    rules: [
+      ["V + 는 게 어때요?", "…sangiz-chi? (taklif)", "How about …?", "Как насчёт …?"],
+      ["V + (으)면 어때요?", "…sak-chi?", "What if …?", "А если …?"],
+      ["V + 는 게 좋겠어요", "…ganingiz ma'qul", "You'd better …", "Лучше …"],
+      ["V + 지 않는 게 좋겠어요", "…maganingiz ma'qul", "You'd better not …", "Лучше не …"],
+    ],
+    examples: [
+      ["감기에 걸렸으면 병원에 가는 게 어때요?", "Shamollagan bo'lsangiz, shifoxonaga borsangiz-chi?", "If you've caught a cold, how about going to the hospital?", "Если простудились, может, сходите в больницу?"],
+      ["주말에 같이 영화를 보면 어때요?", "Dam olish kuni birga kino ko'rsak-chi?", "What if we watch a film together at the weekend?", "Может, посмотрим фильм вместе в выходные?"],
+      ["비가 오니까 우산을 가져가는 게 좋겠어요.", "Yomg'ir yog'yapti, soyabon olib ketganingiz ma'qul.", "It's raining, so you'd better take an umbrella.", "Идёт дождь, лучше взять зонт."],
+      ["밤에는 커피를 마시지 않는 게 좋겠어요.", "Kechasi qahva ichmaganingiz ma'qul.", "You'd better not drink coffee at night.", "Вечером лучше не пить кофе."],
+    ],
+    mistakes: [
+      ["만들는 게 어때요?", "만드는 게 어때요?", t("ㄹ bilan tugagan o'zakda ㄹ tushadi: 만드는.", "ㄹ stems drop ㄹ: 만드는.", "У основ на ㄹ она выпадает: 만드는.")],
+    ],
+    quiz: [
+      ["피곤하면 좀 ___ 게 어때요? (쉬다)", ["쉬는", "쉰"], 0],
+      ["늦었으니까 택시를 ___ 좋겠어요.", ["타는 게", "타서"], 0],
+      ["내일 다시 ___ 어때요? (오다)", ["오면", "와서"], 0],
+      ["케이크를 직접 ___ 게 어때요? (만들다)", ["만드는", "만들는"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "better-ayagetda", pattern: "V + 아/어야겠다",
+    title: t("“…ishim kerak” (qaror) — 아/어야겠어요", "“I'd better …” — 아/어야겠어요", "«Надо бы …» — 아/어야겠어요"),
+    explain: t(
+      "So'zlovchining o'zi uchun qilgan qarori: 내일은 일찍 일어나야겠어요 — ertaga erta turishim kerak (shunday qilaman). 아/어야 하다 qoida yoki majburiyatni aytadi, 아/어야겠다 esa “hozir o'yladim, shunday qilishim kerak” degan shaxsiy qarorni.",
+      "The speaker's own decision that something is needed: 내일은 일찍 일어나야겠어요 (I'd better get up early tomorrow). 아/어야 하다 states a rule or duty; 아/어야겠다 is a decision made just now: “I think I should …”.",
+      "Собственное решение говорящего: 내일은 일찍 일어나야겠어요 — завтра надо бы встать пораньше. 아/어야 하다 говорит о правиле или обязанности, а 아/어야겠다 — о только что принятом решении: «пожалуй, мне надо …».",
+    ),
+    rules: [
+      ["V + 아야겠어요", "o'zakda ㅏ yoki ㅗ", "stem vowel ㅏ or ㅗ", "в основе ㅏ или ㅗ"],
+      ["V + 어야겠어요", "boshqa unlilar", "other vowels", "другие гласные"],
+      ["하다 → 해야겠어요", "하다 fe'llari", "하다 verbs", "глаголы на 하다"],
+    ],
+    examples: [
+      ["시험이 다음 주예요. 열심히 공부해야겠어요.", "Imtihon keyingi haftada. Astoydil o'qishim kerak.", "The exam is next week. I'd better study hard.", "Экзамен на следующей неделе. Надо усердно заниматься."],
+      ["벌써 열 시네요. 이제 집에 가야겠어요.", "Soat o'n bo'libdi. Endi uyga borishim kerak.", "It's already ten. I should go home now.", "Уже десять. Пора домой."],
+      ["살이 쪘어요. 운동을 시작해야겠어요.", "Semirib qoldim. Sportni boshlashim kerak.", "I've put on weight. I'd better start exercising.", "Я поправился. Надо начать заниматься спортом."],
+      ["우유가 없네요. 마트에 가서 사야겠어요.", "Sut yo'q ekan. Do'konga borib olishim kerak.", "We're out of milk. I'll have to go and buy some.", "Молоко кончилось. Надо сходить купить."],
+    ],
+    mistakes: [
+      ["먹아야겠어요", "먹어야겠어요", t("먹다 ning unlisi ㅓ — 어야겠어요.", "먹다 has ㅓ, so it takes 어야겠어요.", "У 먹다 гласная ㅓ — 어야겠어요.")],
+    ],
+    drill: { kind: "aeoForm", rest: "야겠어요", label: "V-아/어야겠어요" },
+    quiz: [
+      ["감기에 걸렸어요. 약을 ___. (먹다)", ["먹어야겠어요", "먹아야겠어요"], 0],
+      ["늦었어요. 빨리 ___. (가다)", ["가야겠어요", "가어야겠어요"], 0],
+      ["방이 더러워요. 청소를 ___.", ["해야겠어요", "하야겠어요"], 0],
+      ["너무 더워요. 창문을 ___. (열다)", ["열어야겠어요", "열아야겠어요"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "quote-dago", pattern: "V/A + (ㄴ/는)다고 하다 · -대요",
+    title: t("Ko'chirma gap — 다고 하다, 대요", "Reported speech — 다고 하다, 대요", "Косвенная речь — 다고 하다, 대요"),
+    explain: t(
+      "Boshqa kishining gapini yetkazish. Darak gap: fe'l + ㄴ다고/는다고 (간다고, 먹는다고), sifat + 다고 (좋다고), ot + (이)라고. O'tgan zamon: 았/었다고. Og'zakida qisqaradi: 간다고 해요 → 간대요, 학생이래요. So'roq: 냐고 묻다; buyruq: (으)라고 하다; taklif: 자고 하다.",
+      "Reporting what someone else said. Statements: verb + ㄴ다고/는다고 (간다고, 먹는다고), adjective + 다고 (좋다고), noun + (이)라고. Past: 았/었다고. In speech it shortens: 간다고 해요 → 간대요, 학생이래요. Questions use 냐고 묻다, commands (으)라고 하다, suggestions 자고 하다.",
+      "Передача чужих слов. Утверждение: глагол + ㄴ다고/는다고 (간다고, 먹는다고), прилагательное + 다고 (좋다고), существительное + (이)라고. Прошедшее: 았/었다고. В разговоре сокращается: 간다고 해요 → 간대요, 학생이래요. Вопрос — 냐고 묻다, просьба — (으)라고 하다, предложение — 자고 하다.",
+    ),
+    rules: [
+      ["V + ㄴ/는다고 해요 → ㄴ/는대요", "fe'l (darak)", "verb (statement)", "глагол (утверждение)"],
+      ["A + 다고 해요 → 대요", "sifat", "adjective", "прилагательное"],
+      ["N + (이)라고 해요 → (이)래요", "ot", "noun", "существительное"],
+      ["V/A + 았/었다고 해요 → 았/었대요", "o'tgan zamon", "past", "прошедшее"],
+      ["V + 냐고 / (으)라고 / 자고 해요", "so'roq / buyruq / taklif", "question / command / suggestion", "вопрос / просьба / предложение"],
+    ],
+    examples: [
+      ["민수 씨가 내일 학교에 안 온다고 했어요.", "Minsu ertaga maktabga kelmasligini aytdi.", "Minsu said he isn't coming to school tomorrow.", "Минсу сказал, что завтра не придёт в школу."],
+      ["일기 예보에서 오후에 비가 온대요.", "Ob-havo ma'lumotiga ko'ra, tushdan keyin yomg'ir yog'armish.", "The forecast says it will rain in the afternoon.", "По прогнозу, после обеда будет дождь."],
+      ["그 식당은 음식이 정말 맛있대요.", "Aytishlaricha, u restoranning taomlari juda mazali ekan.", "They say the food at that restaurant is really good.", "Говорят, в том ресторане очень вкусно."],
+      ["친구가 저한테 언제 시간이 있냐고 물었어요.", "Do'stim mendan qachon bo'sh ekanimni so'radi.", "My friend asked me when I'm free.", "Друг спросил, когда я свободен."],
+      ["선생님이 숙제를 내일까지 내라고 하셨어요.", "O'qituvchi uy vazifasini ertagacha topshirishni aytdilar.", "The teacher told us to hand in the homework by tomorrow.", "Учитель сказал сдать домашнее задание до завтра."],
+    ],
+    mistakes: [
+      ["간는다고", "간다고", t("Unli bilan tugagan fe'lga ㄴ다고: 가다 → 간다고.", "Vowel-final verbs take ㄴ다고: 가다 → 간다고.", "Глаголы на гласную берут ㄴ다고: 가다 → 간다고.")],
+      ["좋는다고", "좋다고", t("Sifatlarga faqat 다고.", "Adjectives take just 다고.", "Прилагательные берут просто 다고.")],
+    ],
+    quiz: [
+      ["친구가 내일 부산에 ___ 했어요. (가다)", ["간다고", "가다고"], 0],
+      ["뉴스에서 내일 날씨가 ___. (춥다)", ["춥대요", "춥는대요"], 0],
+      ["동생이 밥을 ___ 했어요. (먹다)", ["먹는다고", "먹다고"], 0],
+      ["저 사람이 새 선생님___.", ["이래요", "이대요"], 0],
+      ["엄마가 일찍 ___ 하셨어요. (자다)", ["자라고", "자자고"], 0, t("Buyruq", "Command", "Просьба, приказ")],
+    ],
+  }),
+
   // --- Connecting clauses ------------------------------------------------------
   point("connectors", {
     id: "reason-aseo", pattern: "V/A + 아서/어서 (sabab)",
@@ -818,6 +1159,67 @@ export default [
       ["아이들___ 위해서 책을 샀어요.", ["을", "이"], 0],
       ["환경___ 위해 일회용 컵을 쓰지 마세요.", ["을", "를"], 0],
       ["친구 생일을 축하하___ 케이크를 만들었어요.", ["기 위해서", "기 때문에"], 0],
+    ],
+  }),
+
+  point("connectors", {
+    id: "switch-daga", pattern: "V + 다가",
+    title: t("“…ayotib” (to'xtab) — 다가", "“while …, then” — 다가", "«Делал … и вдруг» — 다가"),
+    explain: t(
+      "Bir harakat davom etayotganda to'xtab, boshqasiga o'tishni bildiradi: 공부하다가 잤어요 — dars qilib o'tirib uxlab qoldim. O'zakka 다가 qo'shiladi (으 qo'shilmaydi). Ikkala harakatning egasi bitta. 았/었다가 esa harakat tugab, keyin boshqasi bo'lganini bildiradi: 학교에 갔다가 왔어요 — maktabga borib keldim.",
+      "One action is interrupted and switches to another: 공부하다가 잤어요 (I was studying and fell asleep). Add 다가 to any stem (no 으). Both actions share the subject. 았/었다가 means the first action was finished, then the second happened: 학교에 갔다가 왔어요 (I went to school and came back).",
+      "Одно действие прерывается и сменяется другим: 공부하다가 잤어요 — занимался и уснул. 다가 присоединяется к любой основе (без 으). Подлежащее у обоих действий одно. 았/었다가 — первое действие завершилось, затем произошло второе: 학교에 갔다가 왔어요 — сходил в школу и вернулся.",
+    ),
+    rules: [
+      ["V + 다가", "…ayotib (to'xtab, boshqasiga o'tib)", "while doing … (then switched)", "делал … и (переключился)"],
+      ["V + 았/었다가", "…ib, keyin (tugagandan so'ng)", "did …, then", "сделал …, а потом"],
+    ],
+    examples: [
+      ["텔레비전을 보다가 잠이 들었어요.", "Televizor ko'rib o'tirib uxlab qoldim.", "I fell asleep while watching TV.", "Я уснул, смотря телевизор."],
+      ["집에 가다가 친구를 만났어요.", "Uyga ketayotib do'stimni uchratdim.", "I met a friend on my way home.", "По дороге домой я встретил друга."],
+      ["밥을 먹다가 전화를 받았어요.", "Ovqatlanayotib telefonga javob berdim.", "I answered the phone in the middle of eating.", "Во время еды я ответил на звонок."],
+      ["이 길로 쭉 가다가 왼쪽으로 가세요.", "Bu yo'ldan to'g'ri borib, keyin chapga buriling.", "Go straight along this road, then turn left.", "Идите прямо по этой дороге, потом налево."],
+      ["창문을 열었다가 추워서 닫았어요.", "Derazani ochdim, lekin sovuq bo'lgani uchun yopdim.", "I opened the window but closed it because it was cold.", "Я открыл окно, но закрыл, потому что было холодно."],
+    ],
+    mistakes: [
+      ["먹으다가", "먹다가", t("다가 oldidan 으 qo'shilmaydi.", "다가 never takes 으.", "Перед 다가 не добавляется 으.")],
+    ],
+    quiz: [
+      ["숙제를 ___ 친구한테 전화했어요. (하다)", ["하다가", "해서"], 0],
+      ["길을 ___ 넘어졌어요. (걷다)", ["걷다가", "걸으다가"], 0],
+      ["백화점에 ___ 왔어요. (가다)", ["갔다가", "가다가"], 0, t("Borib, qaytib keldim", "Went and came back", "Сходил и вернулся")],
+      ["책을 ___ 잠이 들었어요. (읽다)", ["읽다가", "읽으다가"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "even-if-ado", pattern: "V/A + 아/어도",
+    title: t("“…sa ham” — 아/어도", "“Even if” — 아/어도", "«Даже если» — 아/어도"),
+    explain: t(
+      "Birinchi holat ikkinchisini o'zgartirmaydi: 비가 와도 가요 — yomg'ir yog'sa ham boraman. Fe'l va sifatga 아/어도, otga 이어도/여도 (학생이어도). 아무리 … 아/어도 — “qanchalik … bo'lsa ham”. Ruxsatdagi 아/어도 돼요 ham shu shakldan.",
+      "The first fact doesn't change the second: 비가 와도 가요 (I'll go even if it rains). Verbs and adjectives take 아/어도, nouns 이어도/여도 (학생이어도). 아무리 … 아/어도 means “no matter how …”. The permission pattern 아/어도 돼요 is built on the same form.",
+      "Первое не меняет второго: 비가 와도 가요 — пойду, даже если будет дождь. Глаголы и прилагательные — 아/어도, существительные — 이어도/여도 (학생이어도). 아무리 … 아/어도 — «как бы ни …». Разрешение 아/어도 돼요 построено на той же форме.",
+    ),
+    rules: [
+      ["V/A + 아도", "o'zakda ㅏ yoki ㅗ", "stem vowel ㅏ or ㅗ", "в основе ㅏ или ㅗ"],
+      ["V/A + 어도", "boshqa unlilar", "other vowels", "другие гласные"],
+      ["하다 → 해도", "하다 fe'llari", "하다 verbs", "на 하다"],
+      ["N + 이어도 / 여도", "ot", "noun", "существительное"],
+    ],
+    examples: [
+      ["비가 와도 축구를 할 거예요.", "Yomg'ir yog'sa ham futbol o'ynaymiz.", "We'll play football even if it rains.", "Будем играть в футбол, даже если пойдёт дождь."],
+      ["아무리 바빠도 아침은 꼭 먹어요.", "Qanchalik band bo'lsam ham nonushta albatta qilaman.", "However busy I am, I always eat breakfast.", "Как бы я ни был занят, обязательно завтракаю."],
+      ["약을 먹어도 머리가 계속 아파요.", "Dori ichsam ham boshim og'riyapti.", "Even after taking medicine, my head still hurts.", "Даже после лекарства голова всё болит."],
+      ["이 옷은 비싸도 사고 싶어요.", "Bu kiyim qimmat bo'lsa ham olgim keladi.", "These clothes are expensive, but I still want them.", "Хоть эта одежда и дорогая, хочу её купить."],
+    ],
+    mistakes: [
+      ["바쁘어도", "바빠도", t("ㅡ tushadi: 바쁘다 → 바빠도.", "ㅡ drops: 바쁘다 → 바빠도.", "ㅡ выпадает: 바쁘다 → 바빠도.")],
+    ],
+    drill: { kind: "aeoForm", rest: "도", any: true, label: "V/A-아/어도" },
+    quiz: [
+      ["시간이 ___ 꼭 오세요. (없다)", ["없어도", "없아도"], 0],
+      ["날씨가 ___ 산책해요. (춥다)", ["추워도", "춥어도"], 0],
+      ["아무리 ___ 다 못 먹어요. (먹다)", ["먹어도", "먹으면"], 0],
+      ["어린이___ 이 책은 읽을 수 있어요.", ["여도", "이어도"], 0],
     ],
   }),
 
@@ -1183,6 +1585,213 @@ export default [
       ["한국 음식에 ___ 책을 샀어요.", ["대한", "대해서"], 0],
       ["그 사람에 대해서 잘 ___.", ["몰라요", "아니에요"], 0],
       ["우즈베키스탄 문화에 ___ 소개해 주세요.", ["대해서", "대한"], 0],
+    ],
+  }),
+
+  point("expressions", {
+    id: "in-middle-jung", pattern: "V + 는 중이다 · N 중이다",
+    title: t("Ayni paytda — 는 중이에요", "In the middle of — 는 중이에요", "В процессе — 는 중이에요"),
+    explain: t(
+      "Harakat ayni paytda davom etayotganini ta'kidlaydi: 지금 회의하는 중이에요 — hozir majlisdaman. 고 있다 ga yaqin, lekin rasmiyroq va “band” degan ma'no beradi. Ot bilan: 수업 중, 회의 중, 통화 중. O'tgan zamon: 는 중이었어요.",
+      "Stresses that an action is in progress right now: 지금 회의하는 중이에요 (I'm in a meeting now). Close to 고 있다 but more formal, with a sense of “busy with it”. With nouns: 수업 중, 회의 중, 통화 중. Past: 는 중이었어요.",
+      "Подчёркивает, что действие идёт прямо сейчас: 지금 회의하는 중이에요 — сейчас я на совещании. Близко к 고 있다, но официальнее, с оттенком «занят этим». С существительными: 수업 중, 회의 중, 통화 중. Прошедшее: 는 중이었어요.",
+    ),
+    rules: [
+      ["V + 는 중이에요", "…yapman (ayni paytda)", "in the middle of …", "в процессе …"],
+      ["N + 중이에요", "…da (band)", "in the middle of N", "идёт N"],
+      ["V + 는 중이었어요", "…ayotgan edim", "was in the middle of …", "был в процессе …"],
+    ],
+    examples: [
+      ["지금 밥을 먹는 중이에요. 이따가 전화할게요.", "Hozir ovqatlanyapman. Keyinroq qo'ng'iroq qilaman.", "I'm eating right now. I'll call you later.", "Я сейчас ем. Перезвоню позже."],
+      ["사장님은 지금 회의 중이세요.", "Direktor hozir majlisdalar.", "The boss is in a meeting now.", "Директор сейчас на совещании."],
+      ["새 집을 찾는 중이에요.", "Yangi uy qidiryapman.", "I'm looking for a new home.", "Я ищу новое жильё."],
+      ["전화했을 때 운전하는 중이었어요.", "Siz qo'ng'iroq qilganingizda mashina haydayotgan edim.", "I was driving when you called.", "Когда вы звонили, я был за рулём."],
+    ],
+    mistakes: [
+      ["만들는 중이에요", "만드는 중이에요", t("ㄹ tushadi: 만들다 → 만드는.", "ㄹ drops: 만들다 → 만드는.", "ㄹ выпадает: 만들다 → 만드는.")],
+    ],
+    quiz: [
+      ["지금 숙제를 ___ 중이에요. (하다)", ["하는", "한"], 0],
+      ["죄송합니다. 지금 수업 ___.", ["중이에요", "동안이에요"], 0],
+      ["케이크를 ___ 중이에요. (만들다)", ["만드는", "만들는"], 0],
+      ["친구가 왔을 때 저는 샤워___ 중이었어요.", ["하는", "할"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "start-gi", pattern: "V + 기 시작하다",
+    title: t("“…a boshladi” — 기 시작하다", "“Start to” — 기 시작하다", "«Начать» — 기 시작하다"),
+    explain: t(
+      "Harakat boshlanganini bildiradi: 비가 오기 시작했어요 — yomg'ir yog'a boshladi. O'zakka 기 qo'shilib, keyin 시작하다 keladi. 기 fe'lni otga aylantiradi.",
+      "Shows that an action begins: 비가 오기 시작했어요 (It started to rain). Add 기 to the stem, then 시작하다. 기 turns the verb into a noun.",
+      "Показывает начало действия: 비가 오기 시작했어요 — пошёл дождь. К основе добавляется 기, затем 시작하다. 기 превращает глагол в существительное.",
+    ),
+    rules: [
+      ["V + 기 시작하다", "…a boshlamoq", "to start …ing", "начать …"],
+      ["V + 기 시작했어요", "…a boshladi", "started …ing", "начал …"],
+    ],
+    examples: [
+      ["작년부터 한국어를 배우기 시작했어요.", "O'tgan yildan koreys tilini o'rgana boshladim.", "I started learning Korean last year.", "Я начал учить корейский в прошлом году."],
+      ["갑자기 아기가 울기 시작했어요.", "Birdan chaqaloq yig'lay boshladi.", "Suddenly the baby started crying.", "Вдруг ребёнок начал плакать."],
+      ["날씨가 따뜻해지기 시작했어요.", "Havo isiy boshladi.", "The weather has started to get warm.", "Начало теплеть."],
+      ["다음 달부터 운동하기 시작할 거예요.", "Kelasi oydan sport bilan shug'ullana boshlayman.", "I'm going to start exercising next month.", "Со следующего месяца начну заниматься спортом."],
+    ],
+    mistakes: [
+      ["배우를 시작했어요", "배우기 시작했어요", t("시작하다 oldidan fe'lga 기 qo'shiladi.", "Add 기 to the verb before 시작하다.", "Перед 시작하다 к глаголу добавляется 기.")],
+    ],
+    quiz: [
+      ["눈이 ___ 시작했어요. (오다)", ["오기", "와서"], 0],
+      ["작년부터 피아노를 ___ 시작했어요. (치다)", ["치기", "치고"], 0],
+      ["사람들이 ___ 시작했어요. (모이다)", ["모이기", "모이는"], 0],
+      ["봄이 돼서 꽃이 ___ 시작했어요. (피다)", ["피기", "핀"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "looks-boida", pattern: "A + 아/어 보이다",
+    title: t("“…ko'rinadi” — 아/어 보이다", "“Looks …” — 아/어 보이다", "«Выглядит …» — 아/어 보이다"),
+    explain: t(
+      "Tashqi ko'rinishga qarab taxmin: 피곤해 보여요 — charchagan ko'rinasiz. Sifat o'zagiga 아/어 qo'shilib, bo'sh joydan keyin 보이다 keladi. Ot bilan esa N처럼 보이다.",
+      "Judging by appearance: 피곤해 보여요 (You look tired). Add 아/어 to an adjective stem, then 보이다 after a space. With nouns use N처럼 보이다.",
+      "Суждение по внешнему виду: 피곤해 보여요 — вы выглядите уставшим. К основе прилагательного добавляется 아/어, затем через пробел 보이다. С существительными — N처럼 보이다.",
+    ),
+    rules: [
+      ["A + 아/어 보여요", "…ko'rinadi", "looks …", "выглядит …"],
+      ["A + 아/어 보이는 N", "…ko'ringan N", "N that looks …", "N, который выглядит …"],
+      ["N처럼 보여요", "N ga o'xshab ko'rinadi", "looks like N", "выглядит как N"],
+    ],
+    examples: [
+      ["오늘 기분이 좋아 보여요.", "Bugun kayfiyatingiz yaxshi ko'rinadi.", "You look happy today.", "Сегодня у вас, похоже, хорошее настроение."],
+      ["이 케이크 정말 맛있어 보여요.", "Bu tort juda mazali ko'rinyapti.", "This cake looks really delicious.", "Этот торт выглядит очень вкусным."],
+      ["그 가방은 비싸 보여요.", "U sumka qimmat ko'rinadi.", "That bag looks expensive.", "Та сумка выглядит дорогой."],
+      ["안경을 쓰니까 선생님처럼 보여요.", "Ko'zoynak taqsangiz, o'qituvchiga o'xshaysiz.", "With glasses on you look like a teacher.", "В очках вы похожи на учителя."],
+    ],
+    mistakes: [
+      ["피곤하 보여요", "피곤해 보여요", t("하다 → 해 보여요.", "하다 becomes 해 보여요.", "하다 → 해 보여요.")],
+      ["바쁘어 보여요", "바빠 보여요", t("ㅡ tushadi: 바빠 보여요.", "ㅡ drops: 바빠 보여요.", "ㅡ выпадает: 바빠 보여요.")],
+    ],
+    drill: { kind: "aeoForm", rest: " 보여요", adjectives: true, label: "A-아/어 보여요" },
+    quiz: [
+      ["얼굴이 안 ___ 보여요. (좋다)", ["좋아", "좋어"], 0],
+      ["이 신발은 ___ 보여요. (편하다)", ["편해", "편하"], 0],
+      ["동생이 ___ 보여요. (기쁘다)", ["기뻐", "기쁘어"], 0],
+      ["오늘 정말 ___ 보이네요. (예쁘다)", ["예뻐", "예쁘어"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "finish-beorida", pattern: "V + 아/어 버리다",
+    title: t("“…ib qo'ydi” — 아/어 버리다", "“Went and …” — 아/어 버리다", "«Взял да …» — 아/어 버리다"),
+    explain: t(
+      "Harakat butunlay tugaganini, ko'pincha afsus yoki yengillik bilan bildiradi: 기차가 떠나 버렸어요 — poyezd ketib qoldi. Ko'pincha o'tgan zamonda: 아/어 버렸어요. O'zbekchadagi “…ib qo'ydi, …ib qoldi” ga yaqin.",
+      "The action is completely done, often with regret or relief: 기차가 떠나 버렸어요 (The train has already gone). Mostly in the past: 아/어 버렸어요. Close to English “went and …”, “ended up …”.",
+      "Действие полностью завершено, часто с сожалением или облегчением: 기차가 떠나 버렸어요 — поезд уже ушёл. Обычно в прошедшем: 아/어 버렸어요. Похоже на русские «взял да …», «совсем …».",
+    ),
+    rules: [
+      ["V + 아/어 버렸어요", "…ib qo'ydi / qoldi", "went and …, … completely", "взял да … / совсем …"],
+      ["잊어버리다, 잃어버리다", "bitta so'z sifatida yoziladi", "written as one word", "пишутся слитно"],
+    ],
+    examples: [
+      ["배가 고파서 케이크를 다 먹어 버렸어요.", "Qornim och edi, tortning hammasini yeb qo'ydim.", "I was hungry, so I ate the whole cake.", "Я был голоден и съел весь торт."],
+      ["친구 생일을 잊어버렸어요.", "Do'stimning tug'ilgan kunini unutib qo'ydim.", "I forgot my friend's birthday.", "Я забыл про день рождения друга."],
+      ["지하철에서 지갑을 잃어버렸어요.", "Metroda hamyonimni yo'qotib qo'ydim.", "I lost my wallet on the subway.", "Я потерял кошелёк в метро."],
+      ["숙제를 빨리 끝내 버리고 놀러 가요.", "Uy vazifasini tezda tugatib, sayrga chiqamiz.", "Let's get the homework done and go out.", "Давай быстро закончим домашку и пойдём гулять."],
+    ],
+    mistakes: [
+      ["잃어 버렸어요", "잃어버렸어요", t("잃어버리다, 잊어버리다 qo'shib yoziladi.", "잃어버리다 and 잊어버리다 are written as one word.", "잃어버리다 и 잊어버리다 пишутся слитно.")],
+    ],
+    drill: { kind: "aeoForm", rest: " 버렸어요", label: "V-아/어 버렸어요" },
+    quiz: [
+      ["버스가 벌써 ___ 버렸어요. (가다)", ["가", "가서"], 0],
+      ["동생이 제 과자를 다 ___ 버렸어요. (먹다)", ["먹어", "먹고"], 0],
+      ["비밀번호를 ___. (잊어버리다)", ["잊어버렸어요", "잊어 버리었요"], 0],
+      ["화가 나서 편지를 ___ 버렸어요. (찢다)", ["찢어", "찢아"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "keep-nota", pattern: "V + 아/어 놓다 · 아/어 두다",
+    title: t("Oldindan qilib qo'yish — 아/어 놓다", "Doing ahead — 아/어 놓다", "Сделать заранее — 아/어 놓다"),
+    explain: t(
+      "Harakatni oldindan bajarib, natijasini saqlab qo'yishni bildiradi: 표를 미리 사 놓았어요 — chiptani oldindan olib qo'ydim. 두다 deyarli bir xil, lekin uzoqroq saqlashni ta'kidlaydi. 놓았어요 og'zakida 놨어요 bo'lib qisqaradi.",
+      "Doing something ahead of time and keeping the result: 표를 미리 사 놓았어요 (I bought the tickets in advance). 두다 is almost the same but stresses keeping it longer. 놓았어요 is often shortened to 놨어요 in speech.",
+      "Сделать что-то заранее и сохранить результат: 표를 미리 사 놓았어요 — я заранее купил билеты. 두다 почти то же, но подчёркивает более долгое сохранение. 놓았어요 в разговоре сокращается до 놨어요.",
+    ),
+    rules: [
+      ["V + 아/어 놓다", "…ib qo'ymoq", "do … in advance / and leave it", "сделать заранее / оставить"],
+      ["V + 아/어 두다", "…ib qo'ymoq (saqlab)", "do … and keep it", "сделать и сохранить"],
+      ["놓았어요 → 놨어요", "og'zaki qisqa shakl", "spoken short form", "разговорное сокращение"],
+    ],
+    examples: [
+      ["손님이 오니까 음식을 많이 만들어 놓았어요.", "Mehmon keladi, shuning uchun ko'p ovqat tayyorlab qo'ydim.", "Guests are coming, so I've made lots of food.", "Придут гости, поэтому я заранее приготовил много еды."],
+      ["더우니까 창문을 열어 놓으세요.", "Issiq, derazani ochib qo'ying.", "It's hot, so leave the window open.", "Жарко, оставьте окно открытым."],
+      ["호텔을 미리 예약해 뒀어요.", "Mehmonxonani oldindan band qilib qo'ydim.", "I booked the hotel in advance.", "Я заранее забронировал отель."],
+      ["중요한 단어는 공책에 써 두세요.", "Muhim so'zlarni daftarga yozib qo'ying.", "Write important words down in your notebook.", "Важные слова запишите в тетрадь."],
+    ],
+    mistakes: [
+      ["열고 놓았어요", "열어 놓았어요", t("놓다/두다 oldidan 아/어 shakli keladi, 고 emas.", "놓다/두다 follow the 아/어 form, not 고.", "Перед 놓다/두다 — форма на 아/어, а не 고.")],
+    ],
+    quiz: [
+      ["여행 가기 전에 표를 ___ 놓았어요. (사다)", ["사", "사고"], 0],
+      ["불을 ___ 두세요. (켜다)", ["켜", "켜서"], 0],
+      ["숙제를 미리 ___ 놨어요. (하다)", ["해", "하"], 0],
+      ["친구가 오기 전에 방을 ___ 놓았어요. (청소하다)", ["청소해", "청소하고"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "easy-gi", pattern: "V + 기(가) 쉽다 · 어렵다 · 좋다 · 싫다",
+    title: t("“…ish oson / qiyin” — 기 쉽다", "“Easy / hard to …” — 기 쉽다", "«Легко / трудно …» — 기 쉽다"),
+    explain: t(
+      "Harakatni otga aylantirib (기), unga baho beradi: 이 단어는 외우기 어려워요 — bu so'zni yodlash qiyin. 쉽다, 어렵다, 좋다, 싫다, 편하다, 불편하다 bilan keladi. 가 ko'pincha tushib qoladi.",
+      "Turns the action into a noun (기) and judges it: 이 단어는 외우기 어려워요 (This word is hard to memorise). Used with 쉽다, 어렵다, 좋다, 싫다, 편하다, 불편하다. 가 is often dropped.",
+      "Превращает действие в существительное (기) и оценивает его: 이 단어는 외우기 어려워요 — это слово трудно запомнить. Употребляется с 쉽다, 어렵다, 좋다, 싫다, 편하다, 불편하다. 가 часто опускается.",
+    ),
+    rules: [
+      ["V + 기(가) 쉬워요 / 어려워요", "…ish oson / qiyin", "easy / hard to …", "легко / трудно …"],
+      ["V + 기(가) 좋아요 / 싫어요", "…ish yaxshi / …gim yo'q", "nice / unpleasant to …", "хорошо / не хочется …"],
+      ["V + 기(가) 편해요 / 불편해요", "…ish qulay / noqulay", "convenient / inconvenient to …", "удобно / неудобно …"],
+    ],
+    examples: [
+      ["한글은 배우기 쉬워요.", "Hangulni o'rganish oson.", "Hangul is easy to learn.", "Хангыль легко выучить."],
+      ["이 신발은 걷기 편해요.", "Bu poyabzalda yurish qulay.", "These shoes are comfortable to walk in.", "В этой обуви удобно ходить."],
+      ["날씨가 추워서 밖에 나가기 싫어요.", "Havo sovuq, tashqariga chiqqim kelmayapti.", "It's cold, so I don't feel like going out.", "Холодно, не хочется выходить на улицу."],
+      ["이 공원은 산책하기 좋아요.", "Bu bog' sayr qilish uchun yaxshi.", "This park is nice for a walk.", "Этот парк хорош для прогулок."],
+    ],
+    mistakes: [
+      ["배우는 쉬워요", "배우기 쉬워요", t("쉽다/어렵다 oldidan fe'lga 기 qo'shiladi.", "Add 기 to the verb before 쉽다/어렵다.", "Перед 쉽다/어렵다 к глаголу добавляется 기.")],
+    ],
+    quiz: [
+      ["이 문제는 ___ 어려워요. (풀다)", ["풀기", "풀고"], 0],
+      ["학교가 가까워서 ___ 편해요. (다니다)", ["다니기", "다녀서"], 0],
+      ["이 책은 글씨가 커서 ___ 쉬워요. (읽다)", ["읽기", "읽어"], 0],
+      ["오늘은 피곤해서 아무것도 ___ 싫어요. (하다)", ["하기", "하는"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "thinking-of", pattern: "V + (으)ㄹ까 하다",
+    title: t("“…sammi deyapman” — (으)ㄹ까 하다", "“I'm thinking of …” — (으)ㄹ까 하다", "«Думаю …» — (으)ㄹ까 하다"),
+    explain: t(
+      "Hali qat'iy bo'lmagan reja: 주말에 영화를 볼까 해요 — dam olish kuni kino ko'rsammi deyapman. (으)려고 하다 dan yumshoqroq, qaror hali aniq emas. Unli va ㄹ bilan tugagan o'zakka ㄹ까, undoshga 을까.",
+      "A loose plan: 주말에 영화를 볼까 해요 (I'm thinking of watching a film at the weekend). Softer than (으)려고 하다; the decision isn't firm yet. Vowel and ㄹ stems take ㄹ까, consonant stems 을까.",
+      "Неокончательный план: 주말에 영화를 볼까 해요 — думаю в выходные посмотреть фильм. Мягче, чем (으)려고 하다: решение ещё не твёрдое. Основы на гласную и ㄹ — ㄹ까, на согласную — 을까.",
+    ),
+    rules: [
+      ["받침 X, ㄹ + ㄹ까 해요", "Unli yoki ㄹ bilan tugasa", "Vowel or ㄹ stem", "Основа на гласную или ㄹ"],
+      ["받침 O + 을까 해요", "Undosh bilan tugasa", "Consonant stem", "Основа на согласную"],
+      ["V + (으)ㄹ까 했어요", "…moqchi edim (lekin)", "I was thinking of … (but)", "Я думал … (но)"],
+    ],
+    examples: [
+      ["이번 방학에 제주도에 갈까 해요.", "Bu ta'tilda Jejuga borsammi deyapman.", "I'm thinking of going to Jeju this vacation.", "Думаю съездить на Чеджу в эти каникулы."],
+      ["오늘 저녁은 집에서 김치찌개를 만들까 해요.", "Bugun kechqurun uyda kimchi-jjigae pishirsammi deyapman.", "I'm thinking of making kimchi stew at home tonight.", "Думаю сегодня вечером приготовить дома кимчи-ччигэ."],
+      ["머리를 짧게 자를까 해요.", "Sochimni qisqa qildirsammi deb turibman.", "I'm thinking of cutting my hair short.", "Думаю коротко подстричься."],
+      ["택시를 탈까 했는데 버스를 탔어요.", "Taksiga o'tirsammi degandim, lekin avtobusga chiqdim.", "I thought about taking a taxi, but I took the bus.", "Хотел взять такси, но поехал на автобусе."],
+    ],
+    mistakes: [
+      ["읽까 해요", "읽을까 해요", t("Undosh bilan tugagan o'zakka 을까.", "Consonant stems take 을까.", "К основе на согласную — 을까.")],
+      ["만들을까 해요", "만들까 해요", t("ㄹ bilan tugagan o'zakka faqat 까.", "ㄹ stems take just 까.", "К основе на ㄹ — просто 까.")],
+    ],
+    drill: { kind: "euForm", ending: "ㄹ까 해요", label: "V-(으)ㄹ까 해요" },
+    quiz: [
+      ["주말에 친구를 ___ 해요. (만나다)", ["만날까", "만나을까"], 0],
+      ["점심에 비빔밥을 ___ 해요. (먹다)", ["먹을까", "먹까"], 0],
+      ["새 휴대폰을 ___ 해요. (사다)", ["살까", "사을까"], 0],
+      ["오늘은 집에서 ___ 해요. (쉬다)", ["쉴까", "쉬을까"], 0],
     ],
   }),
 
