@@ -1521,4 +1521,356 @@ export default [
       ["시간이 지나면 잊___ 마련이에요.", ["게", "고"], 0],
     ],
   }),
+  point("expressions", {
+    id: "moyang", pattern: "V + 는 모양이다 · A + (으)ㄴ 모양이다",
+    title: t("“…shekilli” (ko'rganimga qarab) — 는 모양이다", "“It seems / must be” — 는 모양이다", "«Видимо, …» — 는 모양이다"),
+    explain: t(
+      "Ko'rgan yoki eshitgan belgilarga qarab xulosa chiqaradi: 우산을 쓴 사람이 많네요. 비가 오는 모양이에요 — soyabonli odam ko'p, yomg'ir yog'yapti shekilli. Boshqalar yoki atrofdagi holat haqida aytiladi, o'zingiz haqingizda emas. Fe'lga 는, bo'lgan ish va sifatga (으)ㄴ, otga 인 모양이다.",
+      "Draws a conclusion from signs you have seen or heard: 우산을 쓴 사람이 많네요. 비가 오는 모양이에요 (lots of people have umbrellas; it must be raining). It's about others or the situation, not about yourself. Verbs take 는, finished actions and adjectives (으)ㄴ, nouns 인 모양이다.",
+      "Делает вывод по увиденным или услышанным признакам: 우산을 쓴 사람이 많네요. 비가 오는 모양이에요 — много людей с зонтами, видимо, идёт дождь. Говорится о других или об обстановке, а не о себе. Глаголы — 는, завершённое действие и прилагательные — (으)ㄴ, существительные — 인 모양이다.",
+    ),
+    rules: [
+      ["V + 는 모양이다 (오다 → 오는 모양이다)", "Hozirgi holat (fe'l, 있다/없다)", "Present (verb, 있다/없다)", "Настоящее (глагол, 있다/없다)"],
+      ["V + (으)ㄴ 모양이다 · A + (으)ㄴ 모양이다", "Bo'lgan ish / sifat", "Finished action / adjective", "Завершённое действие / прилагательное"],
+      ["N + 인 모양이다", "Ot: 선생님인 모양이다", "Noun: 선생님인 모양이다", "Сущ.: 선생님인 모양이다"],
+    ],
+    examples: [
+      ["사람들이 우산을 쓰고 있네요. 비가 오는 모양이에요.", "Odamlar soyabon ushlab yuribdi. Yomg'ir yog'yapti shekilli.", "People are holding umbrellas. It must be raining.", "Люди идут с зонтами. Похоже, идёт дождь."],
+      ["민수 씨 얼굴이 밝네요. 좋은 일이 있는 모양이에요.", "Minsuning chehrasi ochiq. Biror yaxshi gap bor shekilli.", "Minsu looks cheerful. Something good must have happened.", "Минсу сияет. Видимо, у него что-то хорошее."],
+      ["불이 다 꺼져 있어요. 다들 퇴근한 모양이에요.", "Chiroqlar o'chiq. Hamma ishdan ketgan shekilli.", "All the lights are off. Everyone must have gone home.", "Свет везде выключен. Видимо, все ушли домой."],
+      ["저 가게는 항상 줄이 길어요. 맛있는 모양이에요.", "U do'kon oldida doim navbat uzun. Mazali shekilli.", "There's always a long line at that place. It must be good.", "У того заведения всегда длинная очередь. Наверное, там вкусно."],
+    ],
+    mistakes: [
+      ["저는 배가 고픈 모양이에요", "저는 배가 고파요", t("O'zingiz haqida 모양이다 ishlatilmaydi.", "Don't use 모양이다 about yourself.", "О себе 모양이다 не говорят.")],
+      ["좋은 일이 있은 모양이에요", "좋은 일이 있는 모양이에요", t("있다/없다 — 는 모양이다.", "있다/없다 take 는 모양이다.", "있다/없다 — 는 모양이다.")],
+    ],
+    quiz: [
+      ["우산을 쓴 사람이 많네요. 비가 ___ 모양이에요. (오다)", ["오는", "오을"], 0],
+      ["불이 꺼져 있어요. 다들 ___ 모양이에요. (퇴근하다)", ["퇴근한", "퇴근했는"], 0],
+      ["줄이 기네요. ___ 모양이에요. (맛있다)", ["맛있는", "맛있은"], 0],
+      ["저 사람이 선생님___ 모양이에요.", ["인", "는"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "na-boda", pattern: "V + 나 보다 · A + (으)ㄴ가 보다",
+    title: t("“…shekilli” (so'zlashuv) — 나 보다", "“I guess / must be” — 나 보다", "«Наверное, …» — 나 보다"),
+    explain: t(
+      "Ko'rgan belgilarga qarab taxmin qiladi, 모양이다 dan ko'ra so'zlashuvga xos: 전화를 안 받아요. 바쁜가 봐요 — telefonni olmayapti, band shekilli. Fe'l va 있다/없다 ga 나 보다, sifatga (으)ㄴ가 보다, otga 인가 보다, o'tgan zamonga 았/었나 보다.",
+      "Makes a guess from what you see, more conversational than 모양이다: 전화를 안 받아요. 바쁜가 봐요 (he's not answering; he must be busy). Verbs and 있다/없다 take 나 보다, adjectives (으)ㄴ가 보다, nouns 인가 보다, the past 았/었나 보다.",
+      "Предположение по увиденному, более разговорное, чем 모양이다: 전화를 안 받아요. 바쁜가 봐요 — не берёт трубку, наверное, занят. Глаголы и 있다/없다 — 나 보다, прилагательные — (으)ㄴ가 보다, существительные — 인가 보다, прошедшее — 았/었나 보다.",
+    ),
+    rules: [
+      ["V · 있다/없다 + 나 보다", "Fe'l", "Verb", "Глагол"],
+      ["A + (으)ㄴ가 보다 · N + 인가 보다", "Sifat / ot", "Adjective / noun", "Прилагательное / сущ."],
+      ["V/A + 았/었나 보다", "O'tgan zamon", "Past", "Прошедшее"],
+    ],
+    examples: [
+      ["민수 씨가 전화를 안 받아요. 바쁜가 봐요.", "Minsu telefonni olmayapti. Band shekilli.", "Minsu isn't answering. He must be busy.", "Минсу не берёт трубку. Наверное, занят."],
+      ["밖이 시끄럽네요. 무슨 일이 있나 봐요.", "Tashqari shovqin. Nimadir bo'lyapti shekilli.", "It's noisy outside. Something must be going on.", "На улице шумно. Видимо, что-то случилось."],
+      ["길이 젖었어요. 밤에 비가 왔나 봐요.", "Yo'l ho'l. Kechasi yomg'ir yoqqan shekilli.", "The road is wet. It must have rained in the night.", "Дорога мокрая. Видимо, ночью шёл дождь."],
+      ["아기가 계속 울어요. 배가 고픈가 봐요.", "Chaqaloq tinmay yig'layapti. Qorni och shekilli.", "The baby keeps crying. It must be hungry.", "Малыш всё плачет. Наверное, голодный."],
+    ],
+    mistakes: [
+      ["바쁘나 봐요", "바쁜가 봐요", t("Sifatga (으)ㄴ가 보다.", "Adjectives take (으)ㄴ가 보다.", "Прилагательные — (으)ㄴ가 보다.")],
+    ],
+    quiz: [
+      ["전화를 안 받아요. ___ 봐요. (바쁘다)", ["바쁜가", "바쁘는가"], 0],
+      ["밖이 시끄럽네요. 무슨 일이 ___ 봐요. (있다)", ["있나", "있은가"], 0],
+      ["길이 젖었어요. 비가 ___ 봐요. (오다)", ["왔나", "왔은가"], 0],
+      ["저 사람이 민수 씨 동생___ 봐요.", ["인가", "인나"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "mankeum", pattern: "N + 만큼 · V + (으)ㄹ/(으)ㄴ 만큼",
+    title: t("“…chalik” — 만큼", "“As … as / as much as” — 만큼", "«Столько же, как» — 만큼"),
+    explain: t(
+      "Ikki narsaning darajasi teng ekanini bildiradi: 동생도 형만큼 키가 커요 — ukasi ham akasichalik bo'yli. Otga qo'shib yoziladi. Fe'l bilan: 먹을 만큼 — yeya oladigan miqdorda; 노력한 만큼 — qancha harakat qilgan bo'lsa, shuncha.",
+      "Says two things are equal in degree: 동생도 형만큼 키가 커요 (the younger brother is as tall as the older one). It's written together with a noun. With verbs: 먹을 만큼 (as much as you can eat), 노력한 만큼 (in proportion to the effort made).",
+      "Показывает равную степень: 동생도 형만큼 키가 커요 — младший брат такой же высокий, как старший. С существительным пишется слитно. С глаголами: 먹을 만큼 — столько, сколько съешь; 노력한 만큼 — сколько вложено усилий, столько и …",
+    ),
+    rules: [
+      ["N + 만큼 (형만큼)", "…chalik (teng)", "As … as", "Такой же, как"],
+      ["V + (으)ㄹ 만큼", "…ga yetadigan miqdorda", "As much as needed to", "Столько, сколько нужно"],
+      ["V + (으)ㄴ/는 만큼", "…gan darajada, shuncha", "To the degree that", "Насколько …, настолько"],
+    ],
+    examples: [
+      ["동생도 형만큼 키가 커요.", "Ukasi ham akasichalik bo'yli.", "The younger brother is as tall as the older one.", "Младший брат такой же высокий, как старший."],
+      ["먹을 만큼만 가져가세요.", "Yeya oladigan miqdordagina oling.", "Take only as much as you can eat.", "Берите столько, сколько съедите."],
+      ["노력한 만큼 결과가 나와요.", "Qancha harakat qilsangiz, shuncha natija bo'ladi.", "You get results in proportion to your effort.", "Сколько усилий вложишь, такой и будет результат."],
+      ["한국어를 한국 사람만큼 잘하고 싶어요.", "Koreys tilini koreyslarchalik yaxshi bilgim keladi.", "I want to speak Korean as well as a Korean.", "Хочу говорить по-корейски так же хорошо, как корейцы."],
+    ],
+    mistakes: [
+      ["형 만큼 키가 커요", "형만큼 키가 커요", t("Otdan keyin 만큼 qo'shib yoziladi.", "After a noun, 만큼 is written without a space.", "После существительного 만큼 пишется слитно.")],
+    ],
+    quiz: [
+      ["동생도 형___ 키가 커요.", ["만큼", "만큼을"], 0],
+      ["먹을 ___만 가져가세요.", ["만큼", "만"], 0],
+      ["___ 만큼 결과가 나와요. (노력하다)", ["노력한", "노력하은"], 0],
+      ["한국 사람___ 잘하고 싶어요.", ["만큼", "만큰"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "deut-hada", pattern: "V/A + (으)ㄴ/는/(으)ㄹ 듯하다 · V + 듯이",
+    title: t("“…dek tuyuladi” (yozma) — 듯하다", "“It seems” (written) — 듯하다", "«Кажется» (письм.) — 듯하다"),
+    explain: t(
+      "것 같다 ning yozma, rasmiyroq varianti: 비가 올 듯해요 — yomg'ir yog'adiganga o'xshaydi. TOPIK o'qish va yozish matnlarida ko'p uchraydi. 듯이 — “…gandek”: 물 쓰듯이 돈을 쓴다 — pulni suvdek sovuradi.",
+      "A written, more formal version of 것 같다: 비가 올 듯해요 (it looks like it will rain). Common in TOPIK reading and writing. 듯이 means “as if / like”: 물 쓰듯이 돈을 쓴다 (he spends money like water).",
+      "Письменный, более официальный вариант 것 같다: 비가 올 듯해요 — похоже, будет дождь. Часто встречается в текстах TOPIK для чтения и письма. 듯이 — «словно, как»: 물 쓰듯이 돈을 쓴다 — тратит деньги, как воду.",
+    ),
+    rules: [
+      ["V + 는 듯하다 · A + (으)ㄴ 듯하다", "Hozirgi: …dek tuyuladi", "Present: seems", "Настоящее: кажется"],
+      ["V + (으)ㄴ 듯하다 · V/A + (으)ㄹ 듯하다", "O'tgan · kelajak", "Past · future", "Прошедшее · будущее"],
+      ["V + 듯이", "…gandek (o'xshatish)", "As if, like", "Словно, как"],
+    ],
+    examples: [
+      ["하늘을 보니 비가 올 듯해요.", "Osmonga qarasam, yomg'ir yog'adiganga o'xshaydi.", "Looking at the sky, it looks like it will rain.", "Судя по небу, будет дождь."],
+      ["그는 무엇인가 알고 있는 듯했다.", "U nimanidir bilayotgandek edi.", "He seemed to know something.", "Казалось, он что-то знал."],
+      ["이 문제는 생각보다 어려운 듯하다.", "Bu masala o'ylagandan qiyinroqqa o'xshaydi.", "This problem seems harder than I thought.", "Эта задача, похоже, сложнее, чем я думал."],
+      ["그는 물 쓰듯이 돈을 쓴다.", "U pulni suvdek sovuradi.", "He spends money like water.", "Он тратит деньги, как воду."],
+    ],
+    mistakes: [
+      ["어렵는 듯하다", "어려운 듯하다", t("Sifatga (으)ㄴ 듯하다; 어렵다 → 어려운.", "Adjectives take (으)ㄴ 듯하다; 어렵다 → 어려운.", "Прилагательные — (으)ㄴ 듯하다; 어렵다 → 어려운.")],
+    ],
+    quiz: [
+      ["하늘을 보니 비가 ___ 듯해요. (오다)", ["올", "오을"], 0],
+      ["이 문제는 생각보다 ___ 듯하다. (어렵다)", ["어려운", "어렵는"], 0],
+      ["그는 무엇인가 알고 ___ 듯했다. (있다)", ["있는", "있은"], 0],
+      ["물 쓰___ 돈을 쓴다.", ["듯이", "듯한"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "abwatja", pattern: "V/A + 아/어 봤자",
+    title: t("“…sangiz ham foydasi yo'q” — 아/어 봤자", "“Even if you do, it's no use” — 아/어 봤자", "«Хоть и …, толку нет» — 아/어 봤자"),
+    explain: t(
+      "Biror ishni qilsangiz ham natija bo'lmasligini yoki arzimasligini bildiradi: 지금 가 봤자 이미 끝났을 거예요 — hozir borsangiz ham, allaqachon tugagan bo'ladi. Ikkinchi qism salbiy: 소용없다, 마찬가지다, 안/못. Sifat bilan “ko'pi bilan”: 비싸 봤자 만 원 정도일 거예요.",
+      "Says that doing something won't help or won't amount to much: 지금 가 봤자 이미 끝났을 거예요 (even if you go now, it'll be over). The second clause is negative: 소용없다, 마찬가지다, 안/못. With adjectives it means “at most”: 비싸 봤자 만 원 정도일 거예요.",
+      "Говорит, что действие ничего не даст или итог будет незначительным: 지금 가 봤자 이미 끝났을 거예요 — даже если пойдёшь сейчас, всё уже закончится. Вторая часть отрицательная: 소용없다, 마찬가지다, 안/못. С прилагательными — «самое большее»: 비싸 봤자 만 원 정도일 거예요.",
+    ),
+    rules: [
+      ["V/A + 아/어 봤자 (가다 → 가 봤자)", "…sangiz ham foydasi yo'q", "Even if you do, it's no use", "Хоть и сделаешь — толку нет"],
+      ["뒤: 소용없다 / 마찬가지다 / 안·못", "Ikkinchi qism salbiy", "The second clause is negative", "Вторая часть отрицательная"],
+      ["시제 없음", "봤자 oldida 았/었 yo'q", "No 았/었 before 봤자", "Перед 봤자 нет 았/었"],
+    ],
+    examples: [
+      ["지금 가 봤자 이미 끝났을 거예요.", "Hozir borsangiz ham, allaqachon tugagan bo'ladi.", "Even if you go now, it'll already be over.", "Даже если пойдёшь сейчас, всё уже закончится."],
+      ["아무리 말해 봤자 소용없어요.", "Qancha gapirsangiz ham, foydasi yo'q.", "No matter how much you say, it's no use.", "Сколько ни говори — бесполезно."],
+      ["비싸 봤자 만 원 정도일 거예요.", "Qimmat bo'lsa ham, ko'pi bilan o'n ming von atrofida bo'ladi.", "Even if it's expensive, it'll be about 10,000 won at most.", "Даже если дорого, это будет от силы тысяч десять вон."],
+      ["후회해 봤자 이미 늦었어요.", "Afsuslansangiz ham, endi kech.", "There's no use regretting it; it's too late.", "Жалеть бесполезно — уже поздно."],
+    ],
+    mistakes: [
+      ["지금 가 봤자 꼭 만날 수 있어요", "지금 가 봤자 못 만날 거예요", t("봤자 dan keyin natija salbiy bo'ladi.", "After 봤자 the result is negative.", "После 봤자 результат отрицательный.")],
+      ["갔어 봤자", "가 봤자", t("봤자 oldida zamon yo'q.", "No tense before 봤자.", "Перед 봤자 нет времени.")],
+    ],
+    quiz: [
+      ["지금 ___ 봤자 늦었어요. (가다)", ["가", "갔어"], 0],
+      ["아무리 말해 봤자 ___.", ["소용없어요", "소용있어요"], 0],
+      ["___ 봤자 이미 늦었어요. (후회하다)", ["후회해", "후회하"], 0],
+      ["비싸 ___ 만 원 정도일 거예요.", ["봤자", "보면"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "deorado", pattern: "V/A + 더라도",
+    title: t("“…bo'lsa ham” (faraz) — 더라도", "“Even if” — 더라도", "«Даже если» — 더라도"),
+    explain: t(
+      "Faraz qilingan holat bo'lsa ham keyingi ish o'zgarmasligini bildiradi: 힘들더라도 포기하지 마세요 — qiyin bo'lsa ham taslim bo'lmang. 아/어도 dan kuchliroq va ko'proq farazga asoslangan. Otga (이)더라도, o'tgan zamonga 았/었더라도.",
+      "Says what follows holds even in an imagined situation: 힘들더라도 포기하지 마세요 (even if it's hard, don't give up). It's stronger and more hypothetical than 아/어도. Nouns take (이)더라도, the past 았/었더라도.",
+      "Говорит, что последующее неизменно даже в предполагаемой ситуации: 힘들더라도 포기하지 마세요 — даже если будет трудно, не сдавайтесь. Сильнее и гипотетичнее, чем 아/어도. Существительные — (이)더라도, прошедшее — 았/었더라도.",
+    ),
+    rules: [
+      ["V/A + 더라도 (힘들다 → 힘들더라도)", "…bo'lsa ham (faraz)", "Even if (hypothetical)", "Даже если (гипотетически)"],
+      ["N + (이)더라도", "Ot: 학생이더라도", "Noun: 학생이더라도", "Сущ.: 학생이더라도"],
+      ["아/어도 < 더라도", "아/어도 dan kuchliroq", "Stronger than 아/어도", "Сильнее, чем 아/어도"],
+    ],
+    examples: [
+      ["힘들더라도 포기하지 마세요.", "Qiyin bo'lsa ham, taslim bo'lmang.", "Even if it's hard, don't give up.", "Даже если будет трудно, не сдавайтесь."],
+      ["비가 오더라도 경기는 계속됩니다.", "Yomg'ir yog'sa ham, o'yin davom etadi.", "Even if it rains, the match will go on.", "Даже если пойдёт дождь, матч продолжится."],
+      ["늦더라도 꼭 연락해 주세요.", "Kech bo'lsa ham, albatta xabar bering.", "Even if it's late, be sure to get in touch.", "Даже если будет поздно, обязательно свяжитесь со мной."],
+      ["아무리 바쁘더라도 아침은 먹어야 해요.", "Qanchalik band bo'lsangiz ham, nonushta qilish kerak.", "However busy you are, you should eat breakfast.", "Как бы вы ни были заняты, завтракать нужно."],
+    ],
+    mistakes: [
+      ["힘든더라도", "힘들더라도", t("더라도 o'zakka to'g'ridan-to'g'ri qo'shiladi.", "Attach 더라도 directly to the stem.", "더라도 присоединяется прямо к основе.")],
+    ],
+    quiz: [
+      ["___ 포기하지 마세요. (힘들다)", ["힘들더라도", "힘든더라도"], 0],
+      ["비가 ___ 경기는 계속됩니다. (오다)", ["오더라도", "온더라도"], 0],
+      ["아무리 ___ 아침은 먹어야 해요. (바쁘다)", ["바쁘더라도", "바쁜더라도"], 0],
+      ["학생___ 규칙은 지켜야 해요.", ["이더라도", "더라도"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "gi-man-hada", pattern: "V/A + 기만 하다",
+    title: t("“Faqat …” — 기만 하다", "“Only / nothing but” — 기만 하다", "«Только и …» — 기만 하다"),
+    explain: t(
+      "Faqat bitta ish qilinayotganini, boshqasi qilinmayotganini bildiradi: 아이가 울기만 해요 — bola faqat yig'layapti. Sifat bilan: 비싸기만 하고 예쁘지 않아요 — faqat qimmat, chiroyli emas. Otga oddiy 만 qo'shiladi.",
+      "Says only one thing is being done and nothing else: 아이가 울기만 해요 (the child just keeps crying). With adjectives: 비싸기만 하고 예쁘지 않아요 (it's just expensive, not pretty). With nouns, plain 만 is used.",
+      "Говорит, что делается только одно и ничего больше: 아이가 울기만 해요 — ребёнок только плачет. С прилагательными: 비싸기만 하고 예쁘지 않아요 — только дорогое, а некрасивое. С существительными — просто 만.",
+    ),
+    rules: [
+      ["V + 기만 하다", "Faqat shu ishni qiladi", "Does nothing but", "Только и делает, что"],
+      ["A + 기만 하다", "Faqat shunday", "Is just / only", "Просто / только"],
+      ["N + 만", "Otga oddiy 만", "Nouns take plain 만", "С сущ. — просто 만"],
+    ],
+    examples: [
+      ["아이가 아무 말 없이 울기만 해요.", "Bola hech narsa demay, faqat yig'layapti.", "The child just cries without saying anything.", "Ребёнок только плачет, ничего не говоря."],
+      ["주말에는 집에서 쉬기만 했어요.", "Dam olish kunlari uyda faqat dam oldim.", "At the weekend I did nothing but rest at home.", "В выходные я только отдыхал дома."],
+      ["그 사람은 듣기만 하고 아무 말도 안 했어요.", "U faqat tingladi, hech narsa demadi.", "He only listened and said nothing.", "Он только слушал и ничего не сказал."],
+      ["이 옷은 비싸기만 하고 예쁘지 않아요.", "Bu kiyim faqat qimmat, chiroyli emas.", "These clothes are just expensive, not pretty.", "Эта одежда только дорогая, а некрасивая."],
+    ],
+    mistakes: [
+      ["아이가 울만 해요", "아이가 울기만 해요", t("Fe'lga 기만 하다.", "Verbs take 기만 하다.", "Глаголы — 기만 하다.")],
+    ],
+    quiz: [
+      ["아이가 ___ 해요. (울다)", ["울기만", "울만"], 0],
+      ["그 사람은 듣기___ 하고 말을 안 했어요.", ["만", "는커녕"], 0],
+      ["주말에는 집에서 ___ 했어요. (쉬다)", ["쉬기만", "쉬만"], 0],
+      ["이 옷은 ___ 하고 예쁘지 않아요. (비싸다)", ["비싸기만", "비싼만"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "daganeun", pattern: "V + 다가는",
+    title: t("“…aversangiz, (yomon bo'ladi)” — 다가는", "“If you keep … (warning)” — 다가는", "«Если будешь …, то (плохо)» — 다가는"),
+    explain: t(
+      "Biror ishni shunday davom ettiraversangiz, yomon natija bo'lishini ogohlantiradi: 그렇게 놀다가는 시험에 떨어질 거예요 — shunday o'ynayversangiz, imtihondan yiqilasiz. Ikkinchi qismda yomon natija, ko'pincha (으)ㄹ 거예요 yoki 겠어요. Ko'pincha 그렇게/이렇게 bilan keladi.",
+      "Warns that carrying on like this will lead to a bad result: 그렇게 놀다가는 시험에 떨어질 거예요 (if you keep playing like that, you'll fail the exam). The second clause is a bad outcome, often with (으)ㄹ 거예요 or 겠어요. It often comes with 그렇게/이렇게.",
+      "Предупреждает, что продолжение действия приведёт к плохому результату: 그렇게 놀다가는 시험에 떨어질 거예요 — если будешь так гулять, провалишь экзамен. Во второй части — плохой итог, часто с (으)ㄹ 거예요 или 겠어요. Часто с 그렇게/이렇게.",
+    ),
+    rules: [
+      ["V + 다가는 (놀다 → 놀다가는)", "…aversangiz (ogohlantirish)", "If you keep … (warning)", "Если будешь … (предупреждение)"],
+      ["뒤: (으)ㄹ 거예요 / 겠어요", "Ikkinchi qismda yomon natija", "A bad result follows", "Далее — плохой результат"],
+      ["그렇게 / 이렇게 + V다가는", "Ko'pincha 그렇게 bilan", "Often with 그렇게", "Часто с 그렇게"],
+    ],
+    examples: [
+      ["그렇게 놀다가는 시험에 떨어질 거예요.", "Shunday o'ynayversangiz, imtihondan yiqilasiz.", "If you keep playing like that, you'll fail the exam.", "Если будешь так гулять, провалишь экзамен."],
+      ["이렇게 매일 늦게 자다가는 건강이 나빠지겠어요.", "Har kuni shunday kech yotaversangiz, sog'lig'ingiz yomonlashadi.", "If you keep going to bed this late every day, your health will suffer.", "Если каждый день так поздно ложиться, здоровье испортится."],
+      ["돈을 그렇게 쓰다가는 곧 다 없어질 거예요.", "Pulni shunday sarflayversangiz, tez orada tugaydi.", "If you keep spending money like that, it'll soon be gone.", "Если так тратить деньги, они скоро закончатся."],
+      ["과속하다가는 사고가 날 수 있어요.", "Tezlikni oshiraversangiz, avariya bo'lishi mumkin.", "If you keep speeding, you could have an accident.", "Если превышать скорость, можно попасть в аварию."],
+    ],
+    mistakes: [
+      ["그렇게 놀다가는 합격할 거예요", "그렇게 놀다가는 떨어질 거예요", t("다가는 dan keyin yomon natija keladi.", "A bad result follows 다가는.", "После 다가는 — плохой результат.")],
+    ],
+    quiz: [
+      ["그렇게 ___ 시험에 떨어질 거예요. (놀다)", ["놀다가는", "논다가는"], 0],
+      ["매일 늦게 자다가는 건강이 ___.", ["나빠질 거예요", "좋아질 거예요"], 0],
+      ["돈을 그렇게 쓰다___ 곧 없어질 거예요.", ["가는", "가면서"], 0],
+      ["과속___ 사고가 날 수 있어요.", ["하다가는", "한다가는"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "go-malda", pattern: "V + 고 말다",
+    title: t("“Oxiri …ib qo'ydi” — 고 말다", "“Ended up / will definitely” — 고 말다", "«В итоге … / обязательно» — 고 말다"),
+    explain: t(
+      "1) Istamagan holda oxiri bir ish bo'lib qolganini bildiradi: 결국 울고 말았어요 — oxiri yig'lab yubordim. 2) 고 말겠다 — qat'iy niyat: 이번에는 꼭 합격하고 말겠어요 — bu safar albatta o'taman. 고 oldida 았/었 kelmaydi.",
+      "1) Says something happened in the end, usually against your wishes: 결국 울고 말았어요 (I ended up crying). 2) 고 말겠다 shows firm determination: 이번에는 꼭 합격하고 말겠어요 (this time I'll pass, no matter what). No 았/었 before 고.",
+      "1) Говорит, что в итоге что-то произошло, обычно вопреки желанию: 결국 울고 말았어요 — в итоге я расплакался. 2) 고 말겠다 — твёрдая решимость: 이번에는 꼭 합격하고 말겠어요 — на этот раз я обязательно сдам. Перед 고 нет 았/었.",
+    ),
+    rules: [
+      ["V + 고 말았다", "Oxiri …ib qo'ydi (afsus)", "Ended up (regrettably)", "В итоге (к сожалению)"],
+      ["V + 고 말겠다", "Albatta …aman (qat'iy niyat)", "Will definitely (determination)", "Обязательно (решимость)"],
+      ["결국 / 끝내 + V고 말았다", "Ko'pincha 결국 bilan", "Often with 결국", "Часто с 결국"],
+    ],
+    examples: [
+      ["참으려고 했지만 결국 울고 말았어요.", "O'zimni tutmoqchi edim, lekin oxiri yig'lab yubordim.", "I tried to hold it in, but I ended up crying.", "Я пытался сдержаться, но в итоге расплакался."],
+      ["서두르다가 지갑을 잃어버리고 말았어요.", "Shoshib yurib, hamyonimni yo'qotib qo'ydim.", "Rushing around, I ended up losing my wallet.", "Спеша, я в итоге потерял кошелёк."],
+      ["이번에는 꼭 합격하고 말겠어요.", "Bu safar albatta o'taman.", "This time I'm going to pass, no matter what.", "На этот раз я обязательно сдам."],
+      ["다이어트 중이었지만 또 케이크를 먹고 말았어요.", "Parhezda edim, lekin yana tort yeb qo'ydim.", "I was on a diet, but I ended up eating cake again.", "Я сидел на диете, но опять не удержался и съел торт."],
+    ],
+    mistakes: [
+      ["결국 울었고 말았어요", "결국 울고 말았어요", t("고 말다 oldida 았/었 kelmaydi.", "No 았/었 before 고 말다.", "Перед 고 말다 нет 았/었.")],
+    ],
+    quiz: [
+      ["결국 ___ 말았어요. (울다)", ["울고", "울었고"], 0],
+      ["이번에는 꼭 합격하고 ___.", ["말겠어요", "말겠었어요"], 0],
+      ["서두르다가 지갑을 잃어버리고 ___.", ["말았어요", "말아요"], 0],
+      ["또 케이크를 ___ 말았어요. (먹다)", ["먹고", "먹어"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "jul-aratda", pattern: "V/A + (으)ㄴ/는 줄 알았다 · 몰랐다",
+    title: t("“…deb o'ylagan edim” — 줄 알았다", "“I thought (wrongly) that” — 줄 알았다", "«Я думал, что…» — 줄 알았다"),
+    explain: t(
+      "줄 알았다 — noto'g'ri o'ylagan narsa: 학생인 줄 알았어요 — talaba deb o'ylagan edim (aslida emas). 줄 몰랐다 — bilmagan narsa: 이렇게 어려운 줄 몰랐어요 — bunchalik qiyinligini bilmagan ekanman. Fe'lga 는/(으)ㄴ/(으)ㄹ, sifatga (으)ㄴ, otga 인 줄. Qobiliyatni bildiruvchi (으)ㄹ 줄 알다 (“…ni biladi”) bilan adashtirmang.",
+      "줄 알았다 is something you wrongly believed: 학생인 줄 알았어요 (I thought you were a student, but you're not). 줄 몰랐다 is something you didn't know: 이렇게 어려운 줄 몰랐어요 (I didn't know it was this hard). Verbs take 는/(으)ㄴ/(으)ㄹ, adjectives (으)ㄴ, nouns 인 줄. Don't confuse it with (으)ㄹ 줄 알다 (“know how to”).",
+      "줄 알았다 — то, что вы ошибочно думали: 학생인 줄 알았어요 — я думал, вы студент (а это не так). 줄 몰랐다 — то, чего вы не знали: 이렇게 어려운 줄 몰랐어요 — не знал, что так трудно. Глаголы — 는/(으)ㄴ/(으)ㄹ, прилагательные — (으)ㄴ, существительные — 인 줄. Не путайте с (으)ㄹ 줄 알다 («уметь»).",
+    ),
+    rules: [
+      ["V + 는 줄 · A + (으)ㄴ 줄 · N + 인 줄 알았다", "…deb o'ylagan edim (noto'g'ri)", "I thought (wrongly) that", "Я думал (ошибочно), что"],
+      ["V/A + (으)ㄴ/는 줄 몰랐다", "…ligini bilmagan edim", "I didn't know that", "Я не знал, что"],
+      ["V + (으)ㄴ 줄 · (으)ㄹ 줄", "O'tgan · kelajak", "Past · future", "Прошедшее · будущее"],
+    ],
+    examples: [
+      ["학생인 줄 알았는데 선생님이셨네요.", "Talaba deb o'ylagan edim, o'qituvchi ekansiz.", "I thought you were a student, but you're a teacher.", "Я думал, вы студент, а вы, оказывается, учитель."],
+      ["오늘이 수요일인 줄 알았어요.", "Bugun chorshanba deb o'ylabman.", "I thought today was Wednesday.", "Я думал, сегодня среда."],
+      ["한국어가 이렇게 어려운 줄 몰랐어요.", "Koreys tili bunchalik qiyinligini bilmagan ekanman.", "I didn't know Korean was this hard.", "Я не знал, что корейский такой трудный."],
+      ["비가 올 줄 알았으면 우산을 가져왔을 거예요.", "Yomg'ir yog'ishini bilganimda, soyabon olib kelardim.", "If I'd known it would rain, I'd have brought an umbrella.", "Если бы я знал, что пойдёт дождь, взял бы зонт."],
+    ],
+    mistakes: [
+      ["학생는 줄 알았어요", "학생인 줄 알았어요", t("Otga 인 줄.", "Nouns take 인 줄.", "Существительные — 인 줄.")],
+      ["어렵는 줄 몰랐어요", "어려운 줄 몰랐어요", t("Sifatga (으)ㄴ 줄; 어렵다 → 어려운.", "Adjectives take (으)ㄴ 줄; 어렵다 → 어려운.", "Прилагательные — (으)ㄴ 줄; 어렵다 → 어려운.")],
+    ],
+    quiz: [
+      ["학생___ 줄 알았어요.", ["인", "는"], 0],
+      ["한국어가 이렇게 ___ 줄 몰랐어요. (어렵다)", ["어려운", "어렵는"], 0],
+      ["비가 ___ 줄 알았으면 우산을 가져왔을 거예요. (오다)", ["올", "오을"], 0],
+      ["벌써 집에 ___ 줄 알았어요. (가다)", ["간", "가은"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "eumeuro", pattern: "V/A + (으)므로 · N + 이므로",
+    title: t("“…gani sababli” (yozma) — (으)므로", "“Because / since” (written) — (으)므로", "«Поскольку» (письм.) — (으)므로"),
+    explain: t(
+      "Rasmiy yozma nutqda sababni bildiradi: e'lonlar, maqolalar, insholar va TOPIK 쓰기 javoblari uchun: 비가 많이 오므로 행사를 취소합니다 — kuchli yomg'ir sababli tadbir bekor qilinadi. Ikkinchi qismda buyruq yoki taklif bo'lmaydi. Otga 이므로, o'tgan zamonga 았/었으므로.",
+      "Gives a reason in formal writing — notices, articles, essays and TOPIK writing answers: 비가 많이 오므로 행사를 취소합니다 (due to heavy rain, the event is cancelled). The second clause cannot be a command or suggestion. Nouns take 이므로, the past 았/었으므로.",
+      "Выражает причину в официальной письменной речи — объявления, статьи, сочинения, ответы TOPIK 쓰기: 비가 많이 오므로 행사를 취소합니다 — в связи с сильным дождём мероприятие отменяется. Во второй части нет приказа или предложения. Существительные — 이므로, прошедшее — 았/었으므로.",
+    ),
+    rules: [
+      ["V/A + (으)므로 (있다 → 있으므로, 하다 → 하므로)", "Sabab (yozma)", "Reason (written)", "Причина (письменная)"],
+      ["N + 이므로", "Ot: 학생이므로", "Noun: 학생이므로", "Сущ.: 학생이므로"],
+      ["뒤에 명령·청유 X", "Keyin buyruq/taklif yo'q", "No command or suggestion after it", "Без приказа и предложения после"],
+    ],
+    examples: [
+      ["비가 많이 오므로 행사를 취소합니다.", "Kuchli yomg'ir yog'ayotgani sababli tadbir bekor qilinadi.", "Due to heavy rain, the event is cancelled.", "В связи с сильным дождём мероприятие отменяется."],
+      ["운동은 건강에 좋으므로 꾸준히 하는 것이 좋다.", "Sport sog'liqqa foydali bo'lgani sababli, muntazam shug'ullangan ma'qul.", "Since exercise is good for health, it's best to do it regularly.", "Поскольку спорт полезен для здоровья, лучше заниматься регулярно."],
+      ["이 지역은 위험하므로 출입을 금지한다.", "Bu hudud xavfli bo'lgani sababli kirish taqiqlanadi.", "Entry is prohibited because this area is dangerous.", "Вход запрещён, так как этот район опасен."],
+      ["그는 성실한 학생이므로 장학금을 받을 자격이 있다.", "U mas'uliyatli talaba bo'lgani sababli stipendiya olishga haqli.", "As a diligent student, he deserves the scholarship.", "Он добросовестный студент, поэтому заслуживает стипендии."],
+    ],
+    mistakes: [
+      ["비가 오므로 우산을 가져가세요", "비가 오니까 우산을 가져가세요", t("(으)므로 dan keyin buyruq bo'lmaydi; (으)니까.", "No command after (으)므로; use (으)니까.", "После (으)므로 нет приказа; используйте (으)니까.")],
+      ["건강에 좋음으로", "건강에 좋으므로", t("Yozilishi (으)므로, 음으로 emas.", "It's spelled (으)므로, not 음으로.", "Пишется (으)므로, а не 음으로.")],
+    ],
+    quiz: [
+      ["비가 많이 ___ 행사를 취소합니다. (오다)", ["오므로", "오으므로"], 0],
+      ["운동은 건강에 ___ 꾸준히 해야 한다. (좋다)", ["좋으므로", "좋음으로"], 0],
+      ["이 지역은 ___ 출입을 금지한다. (위험하다)", ["위험하므로", "위험하으므로"], 0],
+      ["그는 학생___ 할인을 받을 수 있다.", ["이므로", "므로"], 0],
+    ],
+  }),
+  point("particles", {
+    id: "e-ttareumyeon", pattern: "N + 에 따르면 · N + 에 따라(서)",
+    title: t("“…ga ko'ra” — 에 따르면", "“According to” — 에 따르면", "«Согласно» — 에 따르면"),
+    explain: t(
+      "Ma'lumot manbasini ko'rsatadi: 일기예보에 따르면 내일 비가 온대요 — ob-havo ma'lumotiga ko'ra, ertaga yomg'ir yog'arkan. Gap oxiri odatda ko'chirma gap (-대요, 다고 하다) bilan tugaydi. 에 따라(서) esa “…ga qarab” degani: 사람에 따라 생각이 달라요.",
+      "Names the source of information: 일기예보에 따르면 내일 비가 온대요 (according to the forecast, it will rain tomorrow). The sentence usually ends in reported speech (-대요, 다고 하다). 에 따라(서) means “depending on”: 사람에 따라 생각이 달라요.",
+      "Указывает источник информации: 일기예보에 따르면 내일 비가 온대요 — согласно прогнозу, завтра будет дождь. Предложение обычно заканчивается косвенной речью (-대요, 다고 하다). 에 따라(서) значит «в зависимости от»: 사람에 따라 생각이 달라요.",
+    ),
+    rules: [
+      ["N + 에 따르면 … (ㄴ/는)다고 하다", "Manba: …ga ko'ra", "Source: according to", "Источник: согласно"],
+      ["N + 에 따라(서)", "…ga qarab (har xil)", "Depending on", "В зависимости от"],
+      ["뒤: -대요 / 다고 해요", "Oxiri ko'chirma gap bilan", "Ends in reported speech", "Заканчивается косвенной речью"],
+    ],
+    examples: [
+      ["일기예보에 따르면 내일 비가 온대요.", "Ob-havo ma'lumotiga ko'ra, ertaga yomg'ir yog'arkan.", "According to the forecast, it will rain tomorrow.", "Согласно прогнозу, завтра будет дождь."],
+      ["뉴스에 따르면 물가가 계속 오르고 있다고 합니다.", "Yangiliklarga ko'ra, narxlar o'sishda davom etyapti.", "According to the news, prices keep rising.", "По сообщениям новостей, цены продолжают расти."],
+      ["조사에 따르면 혼자 사는 사람이 늘었다고 한다.", "So'rovnomaga ko'ra, yolg'iz yashovchilar ko'paygan.", "According to a survey, more people now live alone.", "Согласно опросу, людей, живущих в одиночку, стало больше."],
+      ["사람에 따라 생각이 달라요.", "Odamga qarab fikr har xil.", "Opinions differ from person to person.", "У разных людей разные мнения."],
+    ],
+    mistakes: [
+      ["뉴스에 따라서 물가가 오른대요", "뉴스에 따르면 물가가 오른대요", t("Manba uchun 에 따르면; 에 따라서 — “…ga qarab”.", "For a source use 에 따르면; 에 따라서 means “depending on”.", "Для источника — 에 따르면; 에 따라서 — «в зависимости от».")],
+    ],
+    quiz: [
+      ["일기예보___ 내일 비가 온대요.", ["에 따르면", "에 따라서"], 0],
+      ["뉴스에 따르면 물가가 ___.", ["오른대요", "오르대요"], 0],
+      ["사람___ 생각이 달라요.", ["에 따라", "에 따르면"], 0],
+      ["조사에 따르면 혼자 사는 사람이 ___ 한다.", ["늘었다고", "늘었고"], 0],
+    ],
+  }),
 ];
