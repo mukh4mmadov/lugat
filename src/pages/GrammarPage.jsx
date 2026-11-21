@@ -6,7 +6,7 @@ import GlassCard from "../components/GlassCard";
 import RequireAccount from "../components/RequireAccount";
 import UpgradeCard from "../components/UpgradeCard";
 import { lessons } from "../data";
-import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, isTopikPoint, rowText, TOPIK1_GROUPS, TOPIK1_TEXT, tr } from "../data/grammar";
+import { GRAMMAR, GRAMMAR_COURSES, getGrammarPoint, isTopikPoint, rowText, TOPIK1_GROUPS, TOPIK_LEVELS, tr } from "../data/grammar";
 import "../lib/contentOverrides";
 import { useAuth } from "../hooks/useAuth";
 import { buildPractice } from "../lib/grammarDrills";
@@ -41,7 +41,7 @@ function PointCard({ point }) {
 }
 
 // Every point sits in the TOPIK I course, grouped by kind.
-const topikPoints = () => GRAMMAR_COURSES.find((course) => course.level === "topik1")?.points || [];
+const topikPoints = (level = "topik1") => GRAMMAR_COURSES.find((course) => course.level === level)?.points || [];
 
 function ProgressBar({ done, total }) {
   return (
@@ -58,6 +58,10 @@ export function GrammarCatalogPage() {
   const grammar = useSelector((state) => state.progress.grammar || {});
   const topik = topikPoints();
   const topikDone = topik.filter((point) => grammar[point.id]?.done).length;
+  const levels = TOPIK_LEVELS.map((item) => {
+    const points = topikPoints(item.level);
+    return { ...item, points, done: points.filter((point) => grammar[point.id]?.done).length };
+  }).filter((item) => item.points.length);
   const language = i18n.language;
 
   // /grammar#topik1 (a TOPIK point's breadcrumb) opens at that section.
@@ -73,18 +77,18 @@ export function GrammarCatalogPage() {
         <h1 className="text-2xl font-black md:text-3xl">📐 {t("grammar.title")}</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("grammar.subtitle", { done: topikDone, total: topik.length })}</p>
       </header>
-      {topik.length > 0 && (
-        <div id="topik1" className="scroll-mt-24">
+      {levels.map((item) => (
+        <div key={item.level} id={item.level} className="scroll-mt-24">
           <GlassCard className="!p-5">
             <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-              <h2 className="text-xl font-black">{tr(TOPIK1_TEXT.title, language)}</h2>
-              <span className="text-sm font-black text-emerald-600 dark:text-emerald-300">{topikDone} / {topik.length}</span>
+              <h2 className="text-xl font-black">{tr(item.text.title, language)}</h2>
+              <span className="text-sm font-black text-emerald-600 dark:text-emerald-300">{item.done} / {item.points.length}</span>
             </div>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{tr(TOPIK1_TEXT.intro, language)}</p>
-            <ProgressBar done={topikDone} total={topik.length} />
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{tr(item.text.intro, language)}</p>
+            <ProgressBar done={item.done} total={item.points.length} />
             <div className="mt-4 space-y-4">
               {TOPIK1_GROUPS.map((group) => {
-                const points = topik.filter((point) => point.group === group.id);
+                const points = item.points.filter((point) => point.group === group.id);
                 if (!points.length) return null;
                 return (
                   <section key={group.id}>
@@ -98,7 +102,7 @@ export function GrammarCatalogPage() {
             </div>
           </GlassCard>
         </div>
-      )}
+      ))}
     </div>
   );
 }
@@ -295,12 +299,12 @@ function GrammarPoint({ pointId }) {
   const language = i18n.language;
   // Previous / next stay inside the point's own list: the lesson course or TOPIK I.
   const topik = isTopikPoint(point);
-  const list = topik ? topikPoints() : GRAMMAR.filter((item) => !isTopikPoint(item));
+  const list = topik ? topikPoints(point.level) : GRAMMAR.filter((item) => !isTopikPoint(item));
   const position = list.indexOf(point);
   const prev = list[position - 1];
   const next = list[position + 1];
   const group = topik ? TOPIK1_GROUPS.find((item) => item.id === point.group) : null;
-  const where = topik ? `TOPIK I${group ? ` · ${tr(group.title, language)}` : ""}` : t("card.lesson", { lesson: point.lesson });
+  const where = topik ? `${point.level === "topik2" ? "TOPIK II" : "TOPIK I"}${group ? ` · ${tr(group.title, language)}` : ""}` : t("card.lesson", { lesson: point.lesson });
 
   function finish(percent) {
     setScore(percent);
@@ -314,7 +318,7 @@ function GrammarPoint({ pointId }) {
         <Link to="/grammar" className="text-sky-600 dark:text-sky-300">📐 {t("grammar.title")}</Link>
         <span className="text-slate-400">/</span>
         {topik ? (
-          <Link to="/grammar#topik1" className="text-sky-600 dark:text-sky-300">TOPIK I</Link>
+          <Link to={`/grammar#${point.level}`} className="text-sky-600 dark:text-sky-300">{point.level === "topik2" ? "TOPIK II" : "TOPIK I"}</Link>
         ) : (
           <Link to={`/topic/${point.lesson}/grammar`} className="text-sky-600 dark:text-sky-300">{t("card.lesson", { lesson: point.lesson })}</Link>
         )}

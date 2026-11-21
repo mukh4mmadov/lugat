@@ -2,6 +2,7 @@ import { setGrammarTotal } from "../../lib/gamification.js";
 import core1 from "./core1.js";
 import core2 from "./core2.js";
 import topik1, { TOPIK1_GROUPS, TOPIK1_TEXT } from "./topik1.js";
+import topik2, { TOPIK2_TEXT } from "./topik2.js";
 
 // The TOPIK I group of each core point (core1.js, core2.js).
 const CORE_GROUP = {
@@ -21,19 +22,23 @@ const CORE_GROUP = {
   "b-irregular": "irregular", "reu-irregular": "irregular", "d-irregular": "irregular",
 };
 const core = [...core1, ...core2].map((point) => ({ ...point, lesson: null, level: "topik1", group: CORE_GROUP[point.id] || "expressions" }));
-const groupOrder = (point) => TOPIK1_GROUPS.findIndex((group) => group.id === point.group);
+const groupOrder = (point) => (point.level === "topik2" ? 100 : 0) + TOPIK1_GROUPS.findIndex((group) => group.id === point.group);
 
 // Every grammar point, one TOPIK I list grouped by kind (particles, endings, …).
-export const GRAMMAR = [...core, ...topik1].sort((a, b) => groupOrder(a) - groupOrder(b));
+export const GRAMMAR = [...core, ...topik1, ...topik2].sort((a, b) => groupOrder(a) - groupOrder(b));
 setGrammarTotal(GRAMMAR.length);
 
 // One course: TOPIK I, shown by `group`. Its own copy, so the panel can
 // edit GRAMMAR and the course list separately (see contentOverrides.js).
-export const GRAMMAR_COURSES = [{ id: "topik1", level: "topik1", points: [...GRAMMAR] }];
+export const GRAMMAR_COURSES = ["topik1", "topik2"].map((level) => ({ id: level, level, points: GRAMMAR.filter((point) => point.level === level) }));
 
-export { TOPIK1_GROUPS, TOPIK1_TEXT };
+export { TOPIK1_GROUPS, TOPIK1_TEXT, TOPIK2_TEXT };
+export const TOPIK_LEVELS = [
+  { level: "topik1", label: "TOPIK I", text: TOPIK1_TEXT },
+  { level: "topik2", label: "TOPIK II", text: TOPIK2_TEXT },
+];
 
-export const isTopikPoint = (point) => point?.level === "topik1";
+export const isTopikPoint = (point) => point?.level === "topik1" || point?.level === "topik2";
 
 export function getGrammarPoint(id) {
   return GRAMMAR.find((point) => point.id === id) || null;
