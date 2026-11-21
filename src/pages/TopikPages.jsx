@@ -22,6 +22,8 @@ import {
 import ShareResult from "../components/ShareResult";
 import TopikExplanation from "../components/TopikExplanation";
 import { useExplanations } from "../hooks/useExplanations";
+import { useExamContent } from "../hooks/useExamContent";
+import PageLoader from "../components/PageLoader";
 import { replayRange } from "../lib/topikAudio";
 import { questionsOfType, topikTypeKeys } from "../lib/topikTypes";
 import { formatDate } from "../lib/dates";
@@ -332,6 +334,7 @@ function TopikAttemptRoute({ variantId }) {
   const variant = getTopikVariant(variantId);
   const lockedExam = variant && !isFreeExam(getTopikExam(variant.examId)) && !isPremium(user) ? getTopikExam(variant.examId) : null;
   const [attempt, setAttempt] = useState(() => (variant ? findActiveAttempt(variant.id) : null));
+  const examReady = useExamContent(lockedExam ? null : variant?.examId);
 
   if (!variant) return <Navigate to="/topik" replace />;
   if (lockedExam) {
@@ -344,6 +347,7 @@ function TopikAttemptRoute({ variantId }) {
       </GlassCard>
     );
   }
+  if (!examReady) return <PageLoader />;
   if (!attempt) {
     return <TopikIntro variant={variant} onStart={() => setAttempt(createTopikAttempt(variant.id))} />;
   }
@@ -1361,6 +1365,7 @@ export function TopikResultPage() {
   const [openQuestion, setOpenQuestion] = useState(null);
   const resultExam = attempt?.status === "submitted" ? getTopikExam(getTopikVariant(attempt.variantId)?.examId) : null;
   const explanations = useExplanations(resultExam?.number);
+  const examReady = useExamContent(resultExam?.id);
 
   if (!attempt || attempt.status !== "submitted") {
     return (
@@ -1370,6 +1375,8 @@ export function TopikResultPage() {
       </GlassCard>
     );
   }
+
+  if (!examReady) return <PageLoader />;
 
   const variant = getTopikVariant(attempt.variantId);
   const exam = getTopikExam(variant.examId);

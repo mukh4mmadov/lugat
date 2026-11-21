@@ -6,6 +6,8 @@ import GlassCard from "../components/GlassCard";
 import TopikQuestion, { preloadPaperPages } from "../components/TopikQuestion";
 import TopikExplanation from "../components/TopikExplanation";
 import { useExplanations } from "../hooks/useExplanations";
+import { useExamContent } from "../hooks/useExamContent";
+import PageLoader from "../components/PageLoader";
 import { questionsOfType, topikTypeKeys } from "../lib/topikTypes";
 import { replayRange } from "../lib/topikAudio";
 import { recordTopikPractice } from "../store";
@@ -44,12 +46,13 @@ function PracticeRun({ type }) {
   const [score, setScore] = useState({ right: 0, total: 0 });
   const item = order[cursor];
   const explanations = useExplanations(item?.exam.number);
+  const examReady = useExamContent(item?.exam.id);
 
   useEffect(() => {
-    if (!item) return;
+    if (!item || !examReady) return;
     const content = item.exam.content?.[item.question.number];
     preloadPaperPages(item.exam.pdf, [content?.shared?.page, content?.stem?.page, content?.options?.[0]?.box?.page].filter(Boolean));
-  }, [item]);
+  }, [item, examReady]);
 
   const choose = useCallback(
     (option) => {
@@ -116,6 +119,15 @@ function PracticeRun({ type }) {
           </div>
           {locked > 0 && <UpgradeCard feature="topikPapers" className="mx-auto mt-5 max-w-md" />}
         </GlassCard>
+      </div>
+    );
+  }
+
+  if (!examReady) {
+    return (
+      <div className="mx-auto max-w-3xl space-y-4">
+        {header}
+        <PageLoader />
       </div>
     );
   }

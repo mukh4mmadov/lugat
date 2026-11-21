@@ -1,4 +1,4 @@
-import { getTopikExam, getTopikVariant, getVariantQuestions, registerTopikExams } from "../src/data/topik/exams.js";
+import { getTopikVariant, getVariantQuestions, loadExamContent, registerTopikExams } from "../src/data/topik/exams.js";
 import { getGrammarPoint } from "../src/data/grammar/index.js";
 import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
 import { BACKUP_MODEL, MAIN_MODEL, modelUrl } from "./_lib/aiModels.js";
@@ -366,11 +366,11 @@ async function loadAddedTopikExams() {
   topikExamsAt = Date.now();
 }
 
-function loadTopikContext(input) {
+async function loadTopikContext(input) {
   const variant = getTopikVariant(input.variantId);
   if (!variant) throw new Error("The TOPIK test could not be found.");
   if (variant.mode === "mock") throw new Error("AI help is not available during a full mock exam.");
-  const exam = getTopikExam(variant.examId);
+  const exam = await loadExamContent(variant.examId);
   const questions = getVariantQuestions(variant);
   const activeQuestion = questions.find((question) => question.number === Number(input.questionNumber));
   if (!activeQuestion) throw new Error("The question does not belong to this TOPIK test.");
@@ -447,7 +447,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
   if (!user) return res.status(401).json({ error: "Sign in to get AI explanations." });
   const variant = getTopikVariant(body.variantId);
   if (!variant) return res.status(400).json({ error: "The TOPIK test could not be found." });
-  const exam = getTopikExam(variant.examId);
+  const exam = await loadExamContent(variant.examId);
   const questions = getVariantQuestions(variant);
   const answers = body.answers && typeof body.answers === "object" ? body.answers : {};
   const requested = [...new Set((Array.isArray(body.numbers) ? body.numbers : []).map(Number))]
@@ -819,7 +819,7 @@ export default async function handler(req, res) {
     }
     try {
       await loadAddedTopikExams();
-      topikContext = loadTopikContext(topikInput);
+      topikContext = await loadTopikContext(topikInput);
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }

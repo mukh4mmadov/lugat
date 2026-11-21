@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { allWords, exampleTranslation, getWordKey, meaning } from "../data";
 import { getTopikExam } from "../data/topik/exams";
+import { useExamContent } from "../hooks/useExamContent";
+import PageLoader from "../components/PageLoader";
 import { PAPER_35_KEY_WORDS } from "../data/topik/paper35Vocab";
 import { loadTopikVocab, topikEntries } from "../data/topikVocab";
 import { speakKorean } from "../lib/speech";
@@ -58,7 +60,8 @@ export default function TopikWordsPage() {
   const favorites = useSelector((state) => state.progress.favorites);
   const rate = useSelector((state) => state.progress.settings.speechRate);
   const exam = getTopikExam(examId);
-  const paper = exam?.content ? exam : null;
+  const examReady = useExamContent(exam?.id);
+  const paper = examReady && exam?.content ? exam : null;
   const vocab = useSelector((state) => state.content.vocab);
   useEffect(() => {
     if (paper && !KEY_WORDS[paper.id]) loadTopikVocab("topik1");
@@ -75,6 +78,7 @@ export default function TopikWordsPage() {
     // vocab: the TOPIK list arrives after the first render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paper, text, vocab]);
+  if (!examReady) return <PageLoader />;
   if (!paper) return <Navigate to="/topik" replace />;
 
   const language = String(i18n.language || "uz").slice(0, 2);

@@ -16,7 +16,8 @@
       "maxDuration": 60
     },
     "api/ai-chat.js": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "includeFiles": "src/data/topik/paper*.js"
     },
     "api/feedback-ai.js": {
       "maxDuration": 60

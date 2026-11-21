@@ -2,44 +2,6 @@
 // Rows: [question number, section, points, original paper page, correct option].
 // Keep this file free of browser/Vite-only imports so the API can import it too.
 
-import { PAPER_35_AUDIO } from "./paper35Audio.js";
-import { PAPER_35_CONTENT } from "./paper35Content.js";
-import { PAPER_35_TEXT_OVERRIDES } from "./paper35TextOverrides.js";
-import { PAPER_35_TRANSCRIPT } from "./paper35Transcript.js";
-import { PAPER_64_AUDIO } from "./paper64Audio.js";
-import { PAPER_64_CONTENT } from "./paper64Content.js";
-import { PAPER_64_TRANSCRIPT } from "./paper64Transcript.js";
-import { PAPER_36_AUDIO } from "./paper36Audio.js";
-import { PAPER_36_CONTENT } from "./paper36Content.js";
-import { PAPER_36_TRANSCRIPT } from "./paper36Transcript.js";
-import { PAPER_37_AUDIO } from "./paper37Audio.js";
-import { PAPER_37_CONTENT } from "./paper37Content.js";
-import { PAPER_37_TRANSCRIPT } from "./paper37Transcript.js";
-import { PAPER_83_AUDIO } from "./paper83Audio.js";
-import { PAPER_83_CONTENT } from "./paper83Content.js";
-import { PAPER_83_TRANSCRIPT } from "./paper83Transcript.js";
-import { PAPER_91_AUDIO } from "./paper91Audio.js";
-import { PAPER_91_CONTENT } from "./paper91Content.js";
-import { PAPER_91_TRANSCRIPT } from "./paper91Transcript.js";
-import { PAPER_96_AUDIO } from "./paper96Audio.js";
-import { PAPER_96_CONTENT } from "./paper96Content.js";
-import { PAPER_96_TRANSCRIPT } from "./paper96Transcript.js";
-import { PAPER_102_AUDIO } from "./paper102Audio.js";
-import { PAPER_102_CONTENT } from "./paper102Content.js";
-import { PAPER_102_TRANSCRIPT } from "./paper102Transcript.js";
-import { PAPER_47_AUDIO } from "./paper47Audio.js";
-import { PAPER_47_CONTENT } from "./paper47Content.js";
-import { PAPER_47_TRANSCRIPT } from "./paper47Transcript.js";
-import { PAPER_52_AUDIO } from "./paper52Audio.js";
-import { PAPER_52_CONTENT } from "./paper52Content.js";
-import { PAPER_52_TRANSCRIPT } from "./paper52Transcript.js";
-import { PAPER_60_AUDIO } from "./paper60Audio.js";
-import { PAPER_60_CONTENT } from "./paper60Content.js";
-import { PAPER_60_TRANSCRIPT } from "./paper60Transcript.js";
-import { PAPER_41_AUDIO } from "./paper41Audio.js";
-import { PAPER_41_CONTENT } from "./paper41Content.js";
-import { PAPER_41_TRANSCRIPT } from "./paper41Transcript.js";
-
 // Fills in printed text that the PDF only has as images.
 function withText(content, overrides) {
   return Object.fromEntries(Object.entries(content).map(([number, item]) => [number, { ...item, ...overrides[number] }]));
@@ -946,9 +908,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_35),
-    content: withText(PAPER_35_CONTENT, PAPER_35_TEXT_OVERRIDES),
-    audioTimeline: PAPER_35_AUDIO,
-    transcript: PAPER_35_TRANSCRIPT,
   },
   {
     id: "64th",
@@ -963,9 +922,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_64),
-    content: PAPER_64_CONTENT,
-    audioTimeline: PAPER_64_AUDIO,
-    transcript: PAPER_64_TRANSCRIPT,
   },
   {
     id: "36th",
@@ -980,9 +936,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_36),
-    content: PAPER_36_CONTENT,
-    audioTimeline: PAPER_36_AUDIO,
-    transcript: PAPER_36_TRANSCRIPT,
   },
   {
     id: "37th",
@@ -997,9 +950,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_37),
-    content: PAPER_37_CONTENT,
-    audioTimeline: PAPER_37_AUDIO,
-    transcript: PAPER_37_TRANSCRIPT,
   },
   {
     id: "41st",
@@ -1014,9 +964,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_41),
-    content: PAPER_41_CONTENT,
-    audioTimeline: PAPER_41_AUDIO,
-    transcript: PAPER_41_TRANSCRIPT,
   },
   {
     id: "47th",
@@ -1031,9 +978,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_47),
-    content: PAPER_47_CONTENT,
-    audioTimeline: PAPER_47_AUDIO,
-    transcript: PAPER_47_TRANSCRIPT,
   },
   {
     id: "52nd",
@@ -1048,9 +992,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_52),
-    content: PAPER_52_CONTENT,
-    audioTimeline: PAPER_52_AUDIO,
-    transcript: PAPER_52_TRANSCRIPT,
   },
   {
     id: "60th",
@@ -1065,9 +1006,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_60),
-    content: PAPER_60_CONTENT,
-    audioTimeline: PAPER_60_AUDIO,
-    transcript: PAPER_60_TRANSCRIPT,
   },
   {
     id: "83rd",
@@ -1082,9 +1020,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_83),
-    content: PAPER_83_CONTENT,
-    audioTimeline: PAPER_83_AUDIO,
-    transcript: PAPER_83_TRANSCRIPT,
   },
   {
     id: "91st",
@@ -1099,9 +1034,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_91),
-    content: PAPER_91_CONTENT,
-    audioTimeline: PAPER_91_AUDIO,
-    transcript: PAPER_91_TRANSCRIPT,
   },
   {
     id: "96th",
@@ -1116,9 +1048,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_96),
-    content: PAPER_96_CONTENT,
-    audioTimeline: PAPER_96_AUDIO,
-    transcript: PAPER_96_TRANSCRIPT,
   },
   {
     id: "102nd",
@@ -1133,9 +1062,6 @@ export const TOPIK_EXAMS = [
     listeningMinutes: 40,
     readingMinutes: 60,
     questions: buildQuestions(PAPER_102),
-    content: PAPER_102_CONTENT,
-    audioTimeline: PAPER_102_AUDIO,
-    transcript: PAPER_102_TRANSCRIPT,
   },
 ];
 
@@ -1217,6 +1143,53 @@ export function questionTypeBreakdown(questions, answers) {
 
 export function getTopikExam(examId) {
   return TOPIK_EXAMS.find((exam) => exam.id === examId) || null;
+}
+
+// Question text, audio timings and scripts are large, so each paper's files
+// load on demand: call loadExamContent(exam) before reading exam.content,
+// exam.audioTimeline or exam.transcript. Literal import() paths keep both
+// Vite (one chunk per file) and the serverless bundler able to find them.
+const paperFiles = (number, content, audio, transcript, overrides) => () =>
+  Promise.all([content(), audio(), transcript(), overrides?.()]).then(([c, a, s, o]) => ({
+    content: o ? withText(c[`PAPER_${number}_CONTENT`], o[`PAPER_${number}_TEXT_OVERRIDES`]) : c[`PAPER_${number}_CONTENT`],
+    audioTimeline: a[`PAPER_${number}_AUDIO`],
+    transcript: s[`PAPER_${number}_TRANSCRIPT`],
+  }));
+
+const PAPER_FILES = {
+  "35th": paperFiles(35, () => import("./paper35Content.js"), () => import("./paper35Audio.js"), () => import("./paper35Transcript.js"), () => import("./paper35TextOverrides.js")),
+  "36th": paperFiles(36, () => import("./paper36Content.js"), () => import("./paper36Audio.js"), () => import("./paper36Transcript.js")),
+  "37th": paperFiles(37, () => import("./paper37Content.js"), () => import("./paper37Audio.js"), () => import("./paper37Transcript.js")),
+  "41st": paperFiles(41, () => import("./paper41Content.js"), () => import("./paper41Audio.js"), () => import("./paper41Transcript.js")),
+  "47th": paperFiles(47, () => import("./paper47Content.js"), () => import("./paper47Audio.js"), () => import("./paper47Transcript.js")),
+  "52nd": paperFiles(52, () => import("./paper52Content.js"), () => import("./paper52Audio.js"), () => import("./paper52Transcript.js")),
+  "60th": paperFiles(60, () => import("./paper60Content.js"), () => import("./paper60Audio.js"), () => import("./paper60Transcript.js")),
+  "64th": paperFiles(64, () => import("./paper64Content.js"), () => import("./paper64Audio.js"), () => import("./paper64Transcript.js")),
+  "83rd": paperFiles(83, () => import("./paper83Content.js"), () => import("./paper83Audio.js"), () => import("./paper83Transcript.js")),
+  "91st": paperFiles(91, () => import("./paper91Content.js"), () => import("./paper91Audio.js"), () => import("./paper91Transcript.js")),
+  "96th": paperFiles(96, () => import("./paper96Content.js"), () => import("./paper96Audio.js"), () => import("./paper96Transcript.js")),
+  "102nd": paperFiles(102, () => import("./paper102Content.js"), () => import("./paper102Audio.js"), () => import("./paper102Transcript.js")),
+};
+const paperLoads = new Map();
+
+// True when the exam's text is in memory (papers added in the panel carry
+// their own data and have nothing to load).
+export const isExamLoaded = (exam) => Boolean(exam) && (Boolean(exam.content) || !PAPER_FILES[exam.id]);
+
+// Resolves with the exam once its text, audio timings and scripts are attached.
+export function loadExamContent(examOrId) {
+  const exam = typeof examOrId === "string" ? getTopikExam(examOrId) : examOrId;
+  if (!exam || isExamLoaded(exam)) return Promise.resolve(exam || null);
+  if (!paperLoads.has(exam.id)) {
+    const load = PAPER_FILES[exam.id]()
+      .then((files) => Object.assign(exam, files))
+      .catch((error) => {
+        paperLoads.delete(exam.id);
+        throw error;
+      });
+    paperLoads.set(exam.id, load);
+  }
+  return paperLoads.get(exam.id);
 }
 
 export function getTopikVariant(variantId) {
