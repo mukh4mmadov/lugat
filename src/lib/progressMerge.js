@@ -123,6 +123,7 @@ export function mergeProgress(local, server, localUpdatedAt = 0) {
     ...newer,
     words: mergeWords(local.words, server.words),
     favorites: localNewer ? { ...server.favorites, ...local.favorites } : { ...local.favorites, ...server.favorites },
+    suspended: localNewer ? { ...server.suspended, ...local.suspended } : { ...local.suspended, ...server.suspended },
     studied: { ...server.studied, ...local.studied },
     stats: mergeStats(local.stats, server.stats, localNewer),
     xp: Math.max(local.xp || 0, server.xp || 0),

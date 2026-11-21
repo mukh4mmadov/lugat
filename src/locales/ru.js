@@ -2676,6 +2676,8 @@ export default {
   "anki.stats.d21": "7–21",
   "anki.stats.d90": "21–90",
   "anki.stats.d90plus": "90+",
+  "anki.suspend": "Отложить",
+  "anki.restoreSuspended": "Вернуть отложенные слова ({{count}})",
   "anki.today": "Сегодня",
   "anki.lessonsTitle": "По темам",
   "anki.lessonsText": "Сначала изучите тему с упражнениями: выученные слова сами попадут в повторения.",

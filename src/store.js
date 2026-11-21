@@ -257,6 +257,15 @@ const progressSlice = createSlice({
     markWordStudied(state, action) {
       state.studied[action.payload] = true;
     },
+    // Suspended words leave every Anki session until the learner brings them back.
+    toggleSuspended(state, action) {
+      state.suspended = state.suspended || {};
+      if (state.suspended[action.payload]) delete state.suspended[action.payload];
+      else state.suspended[action.payload] = true;
+    },
+    clearSuspended(state) {
+      state.suspended = {};
+    },
     toggleManualDifficult(state, action) {
       const key = action.payload;
       const record = state.words[key] || {
@@ -478,6 +487,8 @@ export const {
   resetProgress,
   markWordStudied,
   toggleManualDifficult,
+  toggleSuspended,
+  clearSuspended,
   clearDifficult,
   answerCard,
   restoreCard,

@@ -59,7 +59,7 @@ export function buildPool(progress, words, options, { now = Date.now(), cram = f
     if (card && answeredToday(card)) wordsWithActivity.add(wordKeyOf(id));
   }
   for (const id of ids) {
-    if (seen.has(id)) continue;
+    if (seen.has(id) || progress.suspended?.[wordKeyOf(id)]) continue;
     seen.add(id);
     const card = readCard(progress, id);
     if (!card || card.state === STATE.new) {

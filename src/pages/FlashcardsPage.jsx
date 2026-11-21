@@ -17,6 +17,7 @@ import {
   selectWeakWords,
   toggleFavorite,
   toggleManualDifficult,
+  toggleSuspended,
 } from "../store";
 import { RATING, STATE, ankiDay, formatInterval, packCard, previewIntervals, schedule } from "../lib/fsrs";
 import { buildPool, isRecallCard, pickNext, readCard, remainingCounts, todayCounts, wordKeyOf } from "../lib/anki";
@@ -281,6 +282,7 @@ function Reviewer({ scope, onSettings }) {
                 <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs font-bold">
                   <button type="button" onClick={() => dispatch(toggleFavorite(wordKeyOf(current.id)))} className={favorite ? "text-amber-500" : "text-slate-400"}>{favorite ? "★" : "☆"} {t("anki.favorite")}</button>
                   <button type="button" onClick={() => dispatch(toggleManualDifficult(wordKeyOf(current.id)))} className={difficult ? "text-rose-500" : "text-slate-400"}>⚑ {t("anki.markDifficult")}</button>
+                  <button type="button" onClick={() => dispatch(toggleSuspended(wordKeyOf(current.id)))} className="text-slate-400">⏸ {t("anki.suspend")}</button>
                   <ReportWordLink word={word} />
                 </div>
               </motion.div>

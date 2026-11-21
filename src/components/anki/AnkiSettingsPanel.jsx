@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { DEFAULT_ANKI_SETTINGS, formatSteps, parseSteps } from "../../lib/fsrs";
-import { selectAnkiOptions, setAnkiSettings, setAutoSpeak, setSpeechRate } from "../../store";
+import { clearSuspended, selectAnkiOptions, setAnkiSettings, setAutoSpeak, setSpeechRate } from "../../store";
 
 const field = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
 
@@ -45,6 +45,7 @@ export default function AnkiSettingsPanel({ onClose }) {
   const options = useSelector(selectAnkiOptions);
   const autoSpeak = useSelector((state) => state.progress.settings.autoSpeak);
   const speechRate = useSelector((state) => state.progress.settings.speechRate);
+  const suspendedCount = useSelector((state) => Object.keys(state.progress.suspended || {}).length);
   const [learning, setLearning] = useState(formatSteps(options.learningSteps));
   const [relearning, setRelearning] = useState(formatSteps(options.relearningSteps));
   const learningValid = parseSteps(learning) !== null;
@@ -148,6 +149,20 @@ export default function AnkiSettingsPanel({ onClose }) {
                 </select>
               </Row>
             </Section>
+
+            {suspendedCount > 0 && (
+
+
+              <button type="button" onClick={() => dispatch(clearSuspended())} className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-600 dark:border-white/10 dark:text-slate-300">
+
+
+                ⏸ {t("anki.restoreSuspended", { count: suspendedCount })}
+
+
+              </button>
+
+
+            )}
 
             <button
               type="button"

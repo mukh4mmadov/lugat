@@ -2510,6 +2510,8 @@ export default {
   "anki.stats.d21": "7–21",
   "anki.stats.d90": "21–90",
   "anki.stats.d90plus": "90+",
+  "anki.suspend": "To‘xtatib turish",
+  "anki.restoreSuspended": "To‘xtatilgan so‘zlarni qaytarish ({{count}})",
   "anki.today": "Bugun",
   "anki.lessonsTitle": "Mavzular bo'yicha",
   "anki.lessonsText": "Mavzuni avval mashqlar bilan o'rganing: o'rgangan so'zlaringiz o'zi takrorlash navbatiga qo'shiladi.",
