@@ -790,6 +790,8 @@ export default {
   "home.topikTitle": "TOPIK I mock imtihonlari",
   "home.topikText": "Asl audio va 100 daqiqalik taymer bilan haqiqiy o'tgan yilgi imtihonni topshiring, so'ng ballingiz, darajangiz va har bir xatoingizni ko'ring.",
   "home.topikAction": "Mockni boshlash",
+  "nav.grammar": "Grammatika",
+  "premium.colPremium": "Premium",
   "nav.review": "Takrorlash",
   "common.refresh": "Yangilash",
   "common.login": "Kirish",

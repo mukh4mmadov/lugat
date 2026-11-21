@@ -792,6 +792,8 @@ export default {
   "home.topikTitle": "TOPIK I mock exams",
   "home.topikText": "Take a real past paper with the original audio and a 100-minute timer, then see your score, level and every mistake.",
   "home.topikAction": "Start a mock",
+  "nav.grammar": "Grammar",
+  "premium.colPremium": "Premium",
   "nav.review": "Review",
   "common.refresh": "Refresh",
   "common.login": "Log in",

@@ -1162,4 +1162,363 @@ export default [
       ["계속 ___ 보면 이해할 수 있을 거예요. (듣다)", ["듣다", "들었다"], 0],
     ],
   }),
+  point("endings", {
+    id: "handache", pattern: "V + ㄴ/는다 · A + 다 · N + (이)다 (한다체)",
+    title: t("Yozma uslub — 한다체", "Written plain style — 한다체", "Письменный стиль — 한다체"),
+    explain: t(
+      "Gazeta, kundalik, insho va kitoblarning uslubi. TOPIK 쓰기 javoblari (ayniqsa 53–54-savollar) shu uslubda yoziladi. Fe'lga ㄴ/는다 (간다, 먹는다), sifatga 다 (좋다), otga (이)다 (학생이다). O'tgan zamon 았/었다, kelajak (으)ㄹ 것이다.",
+      "The style of newspapers, diaries, essays and books. TOPIK writing answers (especially questions 53–54) are written in it. Verbs take ㄴ/는다 (간다, 먹는다), adjectives 다 (좋다), nouns (이)다 (학생이다). Past is 았/었다, future (으)ㄹ 것이다.",
+      "Стиль газет, дневников, сочинений и книг. Ответы TOPIK 쓰기 (особенно задания 53–54) пишутся именно так. Глаголы — ㄴ/는다 (간다, 먹는다), прилагательные — 다 (좋다), существительные — (이)다 (학생이다). Прошедшее — 았/었다, будущее — (으)ㄹ 것이다.",
+    ),
+    rules: [
+      ["V + ㄴ다 / 는다 (가다 → 간다, 먹다 → 먹는다)", "Fe'l: unli → ㄴ다, undosh → 는다", "Verb: vowel → ㄴ다, consonant → 는다", "Глагол: гласная → ㄴ다, согласная → 는다"],
+      ["A + 다 · N + (이)다", "Sifat va ot o'zgarmaydi: 좋다, 학생이다", "Adjectives and nouns stay as they are: 좋다, 학생이다", "Прилагательные и сущ. не меняются: 좋다, 학생이다"],
+      ["V/A + 았/었다 · (으)ㄹ 것이다", "O'tgan · kelajak", "Past · future", "Прошедшее · будущее"],
+    ],
+    examples: [
+      ["나는 매일 아침 일곱 시에 일어난다.", "Men har kuni ertalab soat yettida turaman.", "I get up at seven every morning.", "Я встаю каждое утро в семь часов."],
+      ["요즘 혼자 사는 사람이 늘고 있다.", "Hozir yolg'iz yashaydigan odamlar ko'paymoqda.", "The number of people living alone is growing these days.", "В последнее время растёт число людей, живущих в одиночку."],
+      ["어제는 하루 종일 비가 왔다.", "Kecha kun bo'yi yomg'ir yog'di.", "It rained all day yesterday.", "Вчера весь день шёл дождь."],
+      ["건강을 위해서는 규칙적인 운동이 필요하다.", "Sog'liq uchun muntazam sport zarur.", "Regular exercise is necessary for good health.", "Для здоровья необходимы регулярные физические нагрузки."],
+    ],
+    mistakes: [
+      ["나는 밥을 먹다.", "나는 밥을 먹는다.", t("Hozirgi zamon fe'liga 는다; 먹다 — lug'at shakli.", "Present-tense verbs take 는다; 먹다 is the dictionary form.", "Глагол в настоящем — 는다; 먹다 — словарная форма.")],
+      ["날씨가 좋는다.", "날씨가 좋다.", t("Sifatga ㄴ/는다 qo'shilmaydi.", "Adjectives don't take ㄴ/는다.", "К прилагательным ㄴ/는다 не добавляется.")],
+      ["그는 서울에 살는다.", "그는 서울에 산다.", t("ㄹ tushadi: 살다 → 산다.", "ㄹ drops: 살다 → 산다.", "ㄹ выпадает: 살다 → 산다.")],
+    ],
+    quiz: [
+      ["나는 매일 신문을 ___. (읽다)", ["읽는다", "읽다"], 0],
+      ["요즘 날씨가 ___. (춥다)", ["춥다", "춥는다"], 0],
+      ["그는 서울에 ___. (살다)", ["산다", "살는다"], 0],
+      ["어제 친구를 ___. (만나다)", ["만났다", "만났는다"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "pidong", pattern: "V + 이/히/리/기 (피동)",
+    title: t("Majhul nisbat — 이/히/리/기", "The passive — 이/히/리/기", "Страдательный залог — 이/히/리/기"),
+    explain: t(
+      "Ega harakatni bajarmaydi, balki unga duch keladi: 바람 때문에 문이 열렸어요 — shamol tufayli eshik ochildi. Fe'lga 이, 히, 리 yoki 기 qo'shiladi; qaysi biri — fe'lga bog'liq, yodlash kerak. Bajaruvchi 에게/한테 bilan. 하다 fe'llarida 되다: 사용하다 → 사용되다.",
+      "The subject doesn't perform the action but undergoes it: 바람 때문에 문이 열렸어요 (the door opened because of the wind). The verb takes 이, 히, 리 or 기; which one depends on the verb and has to be learned. The doer takes 에게/한테. 하다 verbs use 되다: 사용하다 → 사용되다.",
+      "Подлежащее не совершает действие, а испытывает его: 바람 때문에 문이 열렸어요 — из-за ветра дверь открылась. К глаголу добавляется 이, 히, 리 или 기; какой именно — зависит от глагола, это нужно запомнить. Деятель — с 에게/한테. У глаголов на 하다 — 되다: 사용하다 → 사용되다.",
+    ),
+    rules: [
+      ["이: 보다 → 보이다, 쓰다 → 쓰이다, 놓다 → 놓이다", "-이- qo'shimchasi", "The -이- suffix", "Суффикс -이-"],
+      ["히: 닫다 → 닫히다, 막다 → 막히다, 잡다 → 잡히다", "-히- qo'shimchasi", "The -히- suffix", "Суффикс -히-"],
+      ["리: 열다 → 열리다, 팔다 → 팔리다, 듣다 → 들리다", "-리- qo'shimchasi", "The -리- suffix", "Суффикс -리-"],
+      ["기: 끊다 → 끊기다, 안다 → 안기다, 쫓다 → 쫓기다", "-기- qo'shimchasi", "The -기- suffix", "Суффикс -기-"],
+      ["하다 → 되다 (사용하다 → 사용되다)", "하다 fe'llari", "하다 verbs", "Глаголы на 하다"],
+    ],
+    examples: [
+      ["바람 때문에 문이 열렸어요.", "Shamol tufayli eshik ochilib ketdi.", "The door opened because of the wind.", "Из-за ветра дверь открылась."],
+      ["여기에서 바다가 보여요.", "Bu yerdan dengiz ko'rinadi.", "You can see the sea from here.", "Отсюда видно море."],
+      ["출근 시간에는 길이 많이 막혀요.", "Ishga boriladigan paytda yo'l qattiq tiqiladi.", "The roads get very jammed during the morning rush.", "В час пик на дорогах сильные пробки."],
+      ["도둑이 경찰에게 잡혔어요.", "O'g'ri politsiya tomonidan qo'lga olindi.", "The thief was caught by the police.", "Вора поймала полиция."],
+    ],
+    mistakes: [
+      ["바람 때문에 문이 열었어요", "바람 때문에 문이 열렸어요", t("Ega harakatga duch kelsa, majhul shakl: 열리다.", "When the subject undergoes the action, use the passive: 열리다.", "Если подлежащее испытывает действие — пассив: 열리다.")],
+      ["도둑이 경찰을 잡혔어요", "도둑이 경찰에게 잡혔어요", t("Bajaruvchi 에게/한테 bilan.", "The doer takes 에게/한테.", "Деятель — с 에게/한테.")],
+    ],
+    quiz: [
+      ["바람 때문에 문이 ___. (열다)", ["열렸어요", "열었어요"], 0],
+      ["여기에서 산이 잘 ___. (보다)", ["보여요", "봐요"], 0],
+      ["출근 시간에는 길이 ___. (막다)", ["막혀요", "막아요"], 0],
+      ["도둑이 경찰___ 잡혔어요.", ["에게", "을"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "sadong", pattern: "V/A + 이/히/리/기/우/추 (사동)",
+    title: t("Orttirma nisbat — 이/히/리/기/우", "The causative — 이/히/리/기/우", "Понудительный залог — 이/히/리/기/우"),
+    explain: t(
+      "Ega boshqa kishiga biror ishni qildiradi yoki holatni o'zgartiradi: 엄마가 아이에게 밥을 먹여요 — onasi bolaga ovqat yediryapti. Fe'lga 이, 히, 리, 기, 우 yoki 추 qo'shiladi; har bir fe'lning shaklini yodlash kerak. Har qanday fe'l bilan ishlaydigan umumiy shakl — 게 하다.",
+      "The subject makes someone do something or changes a state: 엄마가 아이에게 밥을 먹여요 (the mother is feeding the child). The verb takes 이, 히, 리, 기, 우 or 추, and each verb's form has to be learned. The general form that works with any verb is 게 하다.",
+      "Подлежащее заставляет кого-то что-то сделать или меняет состояние: 엄마가 아이에게 밥을 먹여요 — мама кормит ребёнка. К глаголу добавляется 이, 히, 리, 기, 우 или 추; форму каждого глагола нужно запомнить. Общая форма для любого глагола — 게 하다.",
+    ),
+    rules: [
+      ["이: 먹다 → 먹이다, 보다 → 보이다, 죽다 → 죽이다", "-이- qo'shimchasi", "The -이- suffix", "Суффикс -이-"],
+      ["히: 입다 → 입히다, 앉다 → 앉히다, 읽다 → 읽히다", "-히- qo'shimchasi", "The -히- suffix", "Суффикс -히-"],
+      ["리: 울다 → 울리다, 알다 → 알리다, 살다 → 살리다", "-리- qo'shimchasi", "The -리- suffix", "Суффикс -리-"],
+      ["기: 웃다 → 웃기다, 신다 → 신기다, 맡다 → 맡기다", "-기- qo'shimchasi", "The -기- suffix", "Суффикс -기-"],
+      ["우·추: 자다 → 재우다, 타다 → 태우다, 늦다 → 늦추다", "-우-, -추- qo'shimchalari", "The -우-, -추- suffixes", "Суффиксы -우-, -추-"],
+    ],
+    examples: [
+      ["엄마가 아이에게 밥을 먹여요.", "Onasi bolaga ovqat yediryapti.", "The mother is feeding the child.", "Мама кормит ребёнка."],
+      ["아이를 재우고 나서 영화를 봤어요.", "Bolani uxlatib bo'lib, kino ko'rdim.", "After putting the child to sleep, I watched a movie.", "Уложив ребёнка спать, я посмотрел фильм."],
+      ["친구에게 사진을 보여 줬어요.", "Do'stimga rasmni ko'rsatdim.", "I showed my friend the photo.", "Я показал другу фотографию."],
+      ["그 코미디언은 사람들을 정말 웃겨요.", "O'sha komik odamlarni rosa kuldiradi.", "That comedian really makes people laugh.", "Этот комик очень смешит людей."],
+    ],
+    mistakes: [
+      ["엄마가 아이에게 밥을 먹어요", "엄마가 아이에게 밥을 먹여요", t("Boshqaga ovqat yedirish — 먹이다.", "Making someone eat is 먹이다.", "Кормить кого-то — 먹이다.")],
+      ["아이를 자고 영화를 봤어요", "아이를 재우고 영화를 봤어요", t("Uxlatmoq — 재우다.", "To put to sleep is 재우다.", "Укладывать спать — 재우다.")],
+    ],
+    quiz: [
+      ["엄마가 아기에게 우유를 ___. (먹다)", ["먹여요", "먹어요"], 0],
+      ["아이를 ___ 나서 쉬었어요. (자다)", ["재우고", "자고"], 0],
+      ["아이에게 옷을 ___. (입다)", ["입혔어요", "입었어요"], 0],
+      ["그 코미디언은 사람들을 정말 ___. (웃다)", ["웃겨요", "웃어요"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "ge-hada", pattern: "V + 게 하다",
+    title: t("“…tirmoq, …ga majbur qilmoq” — 게 하다", "“Make / let someone do” — 게 하다", "«Заставить / позволить» — 게 하다"),
+    explain: t(
+      "Boshqa kishiga biror ishni qildirish yoki ruxsat berishni bildiradi: 선생님이 학생들에게 책을 읽게 했어요 — o'qituvchi o'quvchilarga kitob o'qitdi. Har qanday fe'l bilan ishlaydi. 게 oldida zamon kelmaydi, zamon 하다 ga qo'shiladi. Taqiqlash: 못 V게 하다.",
+      "Means making or letting someone do something: 선생님이 학생들에게 책을 읽게 했어요 (the teacher had the students read the book). It works with any verb. No tense before 게; tense goes on 하다. To forbid: 못 V게 하다.",
+      "Значит заставить или позволить кому-то что-то сделать: 선생님이 학생들에게 책을 읽게 했어요 — учитель велел ученикам прочитать книгу. Работает с любым глаголом. Перед 게 нет времени, время ставится на 하다. Запрет: 못 V게 하다.",
+    ),
+    rules: [
+      ["V + 게 하다 (읽다 → 읽게 하다)", "Qildirmoq / ruxsat bermoq", "Make / let someone do", "Заставлять / позволять"],
+      ["N에게/한테 · N을/를 + V게 하다", "Bajaruvchi 에게/한테 yoki 을/를 bilan", "The doer takes 에게/한테 or 을/를", "Исполнитель — с 에게/한테 или 을/를"],
+      ["못 V게 하다", "Taqiqlamoq", "Not let someone do", "Не позволять"],
+    ],
+    examples: [
+      ["선생님이 학생들에게 책을 읽게 했어요.", "O'qituvchi o'quvchilarga kitob o'qitdi.", "The teacher had the students read the book.", "Учитель велел ученикам прочитать книгу."],
+      ["엄마가 동생을 일찍 자게 했어요.", "Onam ukamni erta yotishga majbur qildi.", "Mom made my younger brother go to bed early.", "Мама заставила младшего брата лечь пораньше."],
+      ["의사가 저에게 술을 못 마시게 했어요.", "Shifokor menga ichkilik ichishni taqiqladi.", "The doctor didn't let me drink alcohol.", "Врач запретил мне пить алкоголь."],
+      ["그 소식이 저를 기쁘게 했어요.", "O'sha xabar meni xursand qildi.", "That news made me happy.", "Эта новость меня обрадовала."],
+    ],
+    mistakes: [
+      ["학생들에게 책을 읽었게 했어요", "학생들에게 책을 읽게 했어요", t("게 oldida zamon yo'q; zamon 하다 da.", "No tense before 게; put it on 하다.", "Перед 게 нет времени — оно на 하다.")],
+    ],
+    quiz: [
+      ["선생님이 학생들에게 책을 ___ 했어요. (읽다)", ["읽게", "읽었게"], 0],
+      ["엄마가 동생을 일찍 ___ 했어요. (자다)", ["자게", "잤게"], 0],
+      ["의사가 술을 못 ___ 했어요. (마시다)", ["마시게", "마셔게"], 0],
+      ["그 소식이 저를 ___ 했어요. (기쁘다)", ["기쁘게", "기뻐게"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "aeoya", pattern: "V/A + 아/어야",
+    title: t("“…sagina” — 아/어야", "“Only if” — 아/어야", "«Только если» — 아/어야"),
+    explain: t(
+      "Keyingi natija uchun zarur shartni bildiradi: 열심히 공부해야 합격할 수 있어요 — tirishib o'qisangizgina imtihondan o'tasiz. Ko'pincha (으)ㄹ 수 있다 yoki 되다 bilan tugaydi. 아/어야 하다 (“kerak”) bilan adashtirmang.",
+      "Gives the condition that must be met for what follows: 열심히 공부해야 합격할 수 있어요 (only if you study hard can you pass). It often ends with (으)ㄹ 수 있다 or 되다. Don't confuse it with 아/어야 하다 (“must”).",
+      "Указывает необходимое условие для последующего: 열심히 공부해야 합격할 수 있어요 — только если усердно заниматься, можно сдать экзамен. Часто заканчивается на (으)ㄹ 수 있다 или 되다. Не путайте с 아/어야 하다 («нужно»).",
+    ),
+    rules: [
+      ["V/A + 아/어야 (하다 → 해야, 먹다 → 먹어야)", "Zarur shart", "Necessary condition", "Необходимое условие"],
+      ["아/어야 + (으)ㄹ 수 있다 / 되다", "Ko'pincha shunday tugaydi", "Often ends like this", "Часто заканчивается так"],
+      ["N + 이어야 / 여야", "Ot: 성인이어야, 학생이어야", "Noun: 성인이어야, 학생이어야", "Сущ.: 성인이어야, 학생이어야"],
+    ],
+    examples: [
+      ["열심히 공부해야 시험에 합격할 수 있어요.", "Tirishib o'qisangizgina imtihondan o'ta olasiz.", "Only if you study hard can you pass the exam.", "Только если усердно заниматься, можно сдать экзамен."],
+      ["표가 있어야 들어갈 수 있어요.", "Chiptangiz bo'lsagina kira olasiz.", "You can only get in if you have a ticket.", "Войти можно только с билетом."],
+      ["밥을 먹어야 힘이 나요.", "Ovqat yesamgina kuchga kiraman.", "I only get my energy back once I've eaten.", "Силы появляются, только когда поешь."],
+      ["성인이어야 이 영화를 볼 수 있어요.", "Bu kinoni faqat voyaga yetganlar ko'ra oladi.", "Only adults can watch this film.", "Этот фильм могут смотреть только взрослые."],
+    ],
+    mistakes: [
+      ["공부하야 합격할 수 있어요", "공부해야 합격할 수 있어요", t("하다 → 해야.", "하다 → 해야.", "하다 → 해야.")],
+    ],
+    quiz: [
+      ["열심히 ___ 합격할 수 있어요. (공부하다)", ["공부해야", "공부하야"], 0],
+      ["표가 ___ 들어갈 수 있어요. (있다)", ["있어야", "있아야"], 0],
+      ["밥을 ___ 힘이 나요. (먹다)", ["먹어야", "먹아야"], 0],
+      ["성인___ 볼 수 있어요.", ["이어야", "여야"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "go-boni", pattern: "V + 고 보니(까)",
+    title: t("“…ib bilsam, …ekan” — 고 보니까", "“Having done …, I found” — 고 보니까", "«Сделав …, обнаружил» — 고 보니까"),
+    explain: t(
+      "Bir ishni qilib bo'lgach, oldin bilmagan narsani anglaganini bildiradi: 이야기를 듣고 보니 제가 오해했네요 — gapni eshitib bilsam, noto'g'ri tushungan ekanman. 다 보니 dan farqi: 다 보니 — takroriy ish, 고 보니 — bir marta tugagan ish. 고 보니 oldida 았/었 kelmaydi.",
+      "Says that after finishing an action you realised something you hadn't known: 이야기를 듣고 보니 제가 오해했네요 (now that I've heard the story, I see I misunderstood). Unlike 다 보니 (a repeated action), 고 보니 follows one completed action. No 았/었 before 고 보니.",
+      "Говорит, что, закончив действие, вы поняли то, чего раньше не знали: 이야기를 듣고 보니 제가 오해했네요 — выслушав, я понял, что ошибся. В отличие от 다 보니 (повторяющееся действие), 고 보니 — после однократного завершённого действия. Перед 고 보니 нет 았/었.",
+    ),
+    rules: [
+      ["V + 고 보니(까)", "Ishni qilib bo'lgach, angladim", "After doing it, I realised", "Сделав, я понял"],
+      ["다 보니 ≠ 고 보니", "다 보니 — takror; 고 보니 — bir marta, tugagach", "다 보니: repeated; 고 보니: once, after finishing", "다 보니 — повторение; 고 보니 — однократно, после"],
+      ["시제 없음", "고 보니 oldida 았/었 yo'q", "No 았/었 before 고 보니", "Перед 고 보니 нет 았/었"],
+    ],
+    examples: [
+      ["이야기를 듣고 보니 제가 오해했네요.", "Gapni eshitib bilsam, men noto'g'ri tushungan ekanman.", "Now that I've heard the story, I see I misunderstood.", "Выслушав, я понял, что всё неправильно понял."],
+      ["집에 오고 보니 지갑이 없었어요.", "Uyga kelib qarasam, hamyonim yo'q ekan.", "When I got home, I found my wallet was gone.", "Придя домой, я обнаружил, что кошелька нет."],
+      ["결혼하고 보니 부모님 마음을 알겠어요.", "Oila qurgach, ota-onamning holini tushunyapman.", "Now that I'm married, I understand how my parents felt.", "Теперь, когда я женат, я понимаю родителей."],
+      ["다 마시고 보니 유통기한이 지난 우유였어요.", "Hammasini ichib bo'lsam, muddati o'tgan sut ekan.", "After drinking it all, I found the milk was past its expiry date.", "Выпив всё, я заметил, что молоко было просрочено."],
+    ],
+    mistakes: [
+      ["이야기를 들었고 보니", "이야기를 듣고 보니", t("고 보니 oldida 았/었 kelmaydi.", "No 았/었 before 고 보니.", "Перед 고 보니 нет 았/었.")],
+    ],
+    quiz: [
+      ["이야기를 ___ 제가 오해했네요. (듣다)", ["듣고 보니", "들었고 보니"], 0],
+      ["집에 오고 ___ 지갑이 없었어요.", ["보니", "보면"], 0],
+      ["다 ___ 보니 유통기한이 지난 우유였어요. (마시다)", ["마시고", "마셨고"], 0],
+      ["결혼___ 보니 부모님 마음을 알겠어요.", ["하고", "했고"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "neundedo", pattern: "V + 는데도 · A + (으)ㄴ데도 · N + 인데도",
+    title: t("“…ga qaramay” — 는데도", "“Even though” — 는데도", "«Несмотря на то что» — 는데도"),
+    explain: t(
+      "Biror holat bo'lsa ham kutilgan natija chiqmaganini bildiradi: 약을 먹었는데도 감기가 낫지 않아요 — dori ichganimga qaramay, shamollash o'tmayapti. 지만 dan kuchliroq ajablanish bor. Fe'lga 는데도, sifatga (으)ㄴ데도, otga 인데도, o'tgan zamonga 았/었는데도.",
+      "Says the expected result didn't happen despite a situation: 약을 먹었는데도 감기가 낫지 않아요 (even though I took medicine, my cold isn't getting better). It carries more surprise than 지만. Verbs take 는데도, adjectives (으)ㄴ데도, nouns 인데도, the past 았/었는데도.",
+      "Говорит, что ожидаемого результата не последовало, несмотря на обстоятельство: 약을 먹었는데도 감기가 낫지 않아요 — хоть я и принял лекарство, простуда не проходит. Удивления больше, чем у 지만. Глаголы — 는데도, прилагательные — (으)ㄴ데도, существительные — 인데도, прошедшее — 았/었는데도.",
+    ),
+    rules: [
+      ["V + 는데도 · A + (으)ㄴ데도", "…ga qaramay", "Even though", "Несмотря на то что"],
+      ["V/A + 았/었는데도", "O'tgan zamon", "Past", "Прошедшее"],
+      ["N + 인데도", "Ot: 주말인데도", "Noun: 주말인데도", "Сущ.: 주말인데도"],
+    ],
+    examples: [
+      ["약을 먹었는데도 감기가 낫지 않아요.", "Dori ichganimga qaramay, shamollash o'tmayapti.", "Even though I took medicine, my cold isn't getting better.", "Хоть я и принял лекарство, простуда не проходит."],
+      ["열심히 공부하는데도 성적이 안 올라요.", "Tirishib o'qiyotganimga qaramay, baholarim oshmayapti.", "Even though I study hard, my grades don't go up.", "Хотя я усердно учусь, оценки не растут."],
+      ["주말인데도 회사에 가야 해요.", "Dam olish kuni bo'lishiga qaramay, ishga borishim kerak.", "Even though it's the weekend, I have to go to work.", "Хоть и выходной, мне надо идти на работу."],
+      ["날씨가 추운데도 반팔을 입었어요.", "Havo sovuq bo'lishiga qaramay, kalta yengli kiyim kiydim.", "Even though it was cold, I wore short sleeves.", "Несмотря на холод, я надел футболку."],
+    ],
+    mistakes: [
+      ["날씨가 춥는데도", "날씨가 추운데도", t("Sifatga (으)ㄴ데도; 춥다 → 추운데도.", "Adjectives take (으)ㄴ데도; 춥다 → 추운데도.", "Прилагательные — (으)ㄴ데도; 춥다 → 추운데도.")],
+      ["주말는데도", "주말인데도", t("Otga 인데도.", "Nouns take 인데도.", "Существительные — 인데도.")],
+    ],
+    quiz: [
+      ["약을 ___ 감기가 낫지 않아요. (먹다)", ["먹었는데도", "먹었은데도"], 0],
+      ["날씨가 ___ 반팔을 입었어요. (춥다)", ["추운데도", "춥는데도"], 0],
+      ["주말___ 회사에 가야 해요.", ["인데도", "는데도"], 0],
+      ["열심히 ___ 성적이 안 올라요. (공부하다)", ["공부하는데도", "공부한데도"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "eulji-do-moreuda", pattern: "V/A + (으)ㄹ지도 모르다",
+    title: t("“…ishi ham mumkin” — (으)ㄹ지도 모르다", "“Might” — (으)ㄹ지도 모르다", "«Может быть, …» — (으)ㄹ지도 모르다"),
+    explain: t(
+      "Biror narsa bo'lishi ehtimoli borligini aytadi: 내일 비가 올지도 몰라요 — ertaga yomg'ir yog'ishi ham mumkin. (으)ㄹ 거예요 dan kamroq ishonch bor. O'tgan ish uchun 았/었을지도, otga 일지도.",
+      "Says something is possible: 내일 비가 올지도 몰라요 (it might rain tomorrow). It sounds less certain than (으)ㄹ 거예요. For the past use 았/었을지도, for nouns 일지도.",
+      "Говорит о возможности: 내일 비가 올지도 몰라요 — завтра может пойти дождь. Уверенности меньше, чем в (으)ㄹ 거예요. Для прошлого — 았/었을지도, для существительных — 일지도.",
+    ),
+    rules: [
+      ["V/A + (으)ㄹ지도 모르다 (오다 → 올지도)", "Ehtimol", "Possibility", "Возможность"],
+      ["V/A + 았/었을지도 모르다", "O'tgan ishning ehtimoli", "Possibility about the past", "Возможность в прошлом"],
+      ["N + 일지도 모르다", "Ot: 범인일지도", "Noun: 범인일지도", "Сущ.: 범인일지도"],
+    ],
+    examples: [
+      ["내일 비가 올지도 몰라요.", "Ertaga yomg'ir yog'ishi ham mumkin.", "It might rain tomorrow.", "Завтра может пойти дождь."],
+      ["길이 막힐지도 모르니까 일찍 출발하세요.", "Yo'l tiqilib qolishi mumkin, erta yo'lga chiqing.", "The roads might be jammed, so leave early.", "Могут быть пробки, так что выезжайте пораньше."],
+      ["민수 씨는 벌써 집에 갔을지도 몰라요.", "Minsu allaqachon uyiga ketgan bo'lishi mumkin.", "Minsu may have already gone home.", "Минсу, возможно, уже ушёл домой."],
+      ["그 사람이 범인일지도 몰라요.", "O'sha odam jinoyatchi bo'lishi mumkin.", "That person might be the culprit.", "Возможно, он и есть преступник."],
+    ],
+    mistakes: [
+      ["내일 비가 올지도 알아요", "내일 비가 올지도 몰라요", t("Doim 모르다 bilan.", "Always with 모르다.", "Всегда с 모르다.")],
+    ],
+    quiz: [
+      ["내일 비가 ___ 몰라요. (오다)", ["올지도", "오을지도"], 0],
+      ["벌써 집에 ___ 몰라요. (가다)", ["갔을지도", "갔지도"], 0],
+      ["그 사람이 범인___ 몰라요.", ["일지도", "을지도"], 0],
+      ["길이 막힐지도 ___ 일찍 출발하세요.", ["모르니까", "아니까"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "neunji", pattern: "V + 는지 · A + (으)ㄴ지 · N + 인지",
+    title: t("Ichki savol — 는지", "Embedded questions — 는지", "Косвенный вопрос — 는지"),
+    explain: t(
+      "Savolni gap ichiga joylaydi, keyin 알다, 모르다, 궁금하다, 물어보다 keladi: 민수 씨가 어디에 사는지 알아요? — Minsu qayerda yashashini bilasizmi? Fe'lga 는지, sifatga (으)ㄴ지, otga 인지, o'tgan zamonga 았/었는지, kelajakka (으)ㄹ지.",
+      "Puts a question inside a sentence, followed by 알다, 모르다, 궁금하다 or 물어보다: 민수 씨가 어디에 사는지 알아요? (do you know where Minsu lives?). Verbs take 는지, adjectives (으)ㄴ지, nouns 인지, the past 았/었는지, the future (으)ㄹ지.",
+      "Встраивает вопрос в предложение, после чего идут 알다, 모르다, 궁금하다, 물어보다: 민수 씨가 어디에 사는지 알아요? — Вы знаете, где живёт Минсу? Глаголы — 는지, прилагательные — (으)ㄴ지, существительные — 인지, прошедшее — 았/었는지, будущее — (으)ㄹ지.",
+    ),
+    rules: [
+      ["V + 는지 (살다 → 사는지)", "Fe'l (ㄹ tushadi)", "Verb (ㄹ drops)", "Глагол (ㄹ выпадает)"],
+      ["A + (으)ㄴ지 · N + 인지", "Sifat / ot", "Adjective / noun", "Прилагательное / сущ."],
+      ["V/A + 았/었는지 · (으)ㄹ지", "O'tgan · kelajak", "Past · future", "Прошедшее · будущее"],
+    ],
+    examples: [
+      ["민수 씨가 어디에 사는지 알아요?", "Minsu qayerda yashashini bilasizmi?", "Do you know where Minsu lives?", "Вы знаете, где живёт Минсу?"],
+      ["이 음식이 얼마나 매운지 모르겠어요.", "Bu ovqat qanchalik achchiq ekanini bilmayman.", "I don't know how spicy this food is.", "Не знаю, насколько острое это блюдо."],
+      ["그 사람이 누구인지 궁금해요.", "U kim ekani qiziq.", "I wonder who that person is.", "Интересно, кто этот человек."],
+      ["회의가 몇 시에 끝났는지 물어봤어요.", "Yig'ilish soat nechada tugaganini so'radim.", "I asked what time the meeting ended.", "Я спросил, во сколько закончилось совещание."],
+    ],
+    mistakes: [
+      ["어디에 살는지 알아요?", "어디에 사는지 알아요?", t("ㄹ tushadi: 사는지.", "ㄹ drops: 사는지.", "ㄹ выпадает: 사는지.")],
+      ["얼마나 맵는지 몰라요", "얼마나 매운지 몰라요", t("Sifatga (으)ㄴ지; 맵다 → 매운지.", "Adjectives take (으)ㄴ지; 맵다 → 매운지.", "Прилагательные — (으)ㄴ지; 맵다 → 매운지.")],
+    ],
+    quiz: [
+      ["민수 씨가 어디에 ___ 알아요? (살다)", ["사는지", "살는지"], 0],
+      ["이 음식이 얼마나 ___ 모르겠어요. (맵다)", ["매운지", "맵는지"], 0],
+      ["그 사람이 누구___ 궁금해요.", ["인지", "는지"], 0],
+      ["회의가 몇 시에 ___ 물어봤어요. (끝나다)", ["끝났는지", "끝났은지"], 0],
+    ],
+  }),
+  point("endings", {
+    id: "eosseoya-haenneunde", pattern: "V + 았/었어야 했는데",
+    title: t("“…ishim kerak edi” — 았/었어야 했는데", "“I should have” — 았/었어야 했는데", "«Надо было» — 았/었어야 했는데"),
+    explain: t(
+      "Qilinishi kerak bo'lgan, lekin qilinmagan ish uchun afsus: 미리 예약했어야 했는데 — oldindan bron qilishim kerak edi. Qilmaslik kerak bo'lgan ish uchun 지 말았어야 했는데. (으)ㄹ 걸 그랬다 dan kuchliroq, jiddiyroq afsus.",
+      "Regret about something that should have been done but wasn't: 미리 예약했어야 했는데 (I should have booked in advance). For something you shouldn't have done, use 지 말았어야 했는데. It expresses stronger, more serious regret than (으)ㄹ 걸 그랬다.",
+      "Сожаление о том, что следовало сделать, но не было сделано: 미리 예약했어야 했는데 — надо было забронировать заранее. О том, чего не следовало делать, — 지 말았어야 했는데. Сожаление сильнее и серьёзнее, чем в (으)ㄹ 걸 그랬다.",
+    ),
+    rules: [
+      ["V + 았/었어야 했는데", "Qilishim kerak edi (afsus)", "Should have (regret)", "Надо было (сожаление)"],
+      ["V + 지 말았어야 했는데", "Qilmasligim kerak edi", "Shouldn't have", "Не надо было"],
+      ["(으)ㄹ 걸 그랬다 < 았/었어야 했는데", "Bu shakl kuchliroq", "This form is stronger", "Эта форма сильнее"],
+    ],
+    examples: [
+      ["미리 예약했어야 했는데 자리가 없네요.", "Oldindan bron qilishim kerak edi, joy qolmabdi.", "I should have booked in advance; there are no seats.", "Надо было забронировать заранее — мест нет."],
+      ["더 일찍 출발했어야 했는데.", "Ertaroq yo'lga chiqishim kerak edi.", "I should have left earlier.", "Надо было выехать раньше."],
+      ["그 말을 하지 말았어야 했는데 후회돼요.", "U gapni aytmasligim kerak edi, afsusdaman.", "I shouldn't have said that; I regret it.", "Не надо было этого говорить, жалею."],
+      ["시험 전에 복습했어야 했는데 못 했어요.", "Imtihondan oldin takrorlashim kerak edi, lekin qila olmadim.", "I should have reviewed before the exam, but I couldn't.", "Надо было повторить перед экзаменом, но я не успел."],
+    ],
+    mistakes: [
+      ["미리 예약했야 했는데", "미리 예약했어야 했는데", t("았/었 + 어야: 했어야.", "았/었 + 어야 gives 했어야.", "았/었 + 어야 даёт 했어야.")],
+    ],
+    quiz: [
+      ["미리 ___ 했는데 자리가 없네요. (예약하다)", ["예약했어야", "예약했야"], 0],
+      ["그 말을 하지 ___ 했는데.", ["말았어야", "말어야"], 0],
+      ["더 일찍 ___ 했는데. (출발하다)", ["출발했어야", "출발할어야"], 0],
+      ["복습했어야 ___ 못 했어요.", ["했는데", "하는데"], 0],
+    ],
+  }),
+  point("connectors", {
+    id: "eul-tenikka", pattern: "V/A + (으)ㄹ 테니까",
+    title: t("“…aman, shuning uchun …” — (으)ㄹ 테니까", "“Since I will / since it will …” — (으)ㄹ 테니까", "«Раз я …, то …» — (으)ㄹ 테니까"),
+    explain: t(
+      "1) Gapiruvchining niyati keyingi so'rovga sabab bo'ladi: 제가 청소할 테니까 당신은 요리하세요 — men tozalayman, siz ovqat qiling. 2) Kuchli taxmin sabab bo'ladi: 길이 막힐 테니까 지하철을 타세요. Ikkinchi qismda ko'pincha buyruq yoki taklif keladi.",
+      "1) The speaker's intention is the reason for a request: 제가 청소할 테니까 당신은 요리하세요 (I'll clean, so you cook). 2) A strong guess is the reason: 길이 막힐 테니까 지하철을 타세요. The second clause is often a command or suggestion.",
+      "1) Намерение говорящего — причина для просьбы: 제가 청소할 테니까 당신은 요리하세요 — я уберусь, а вы приготовьте. 2) Уверенное предположение — причина: 길이 막힐 테니까 지하철을 타세요. Во второй части часто приказ или предложение.",
+    ),
+    rules: [
+      ["제가 + V + (으)ㄹ 테니까", "Mening niyatim → so'rov", "My intention → a request", "Моё намерение → просьба"],
+      ["V/A + (으)ㄹ 테니까", "Taxmin → maslahat", "A guess → advice", "Предположение → совет"],
+      ["V/A + 았/었을 테니까", "O'tgan ish haqida taxmin", "A guess about the past", "Предположение о прошлом"],
+    ],
+    examples: [
+      ["제가 청소할 테니까 당신은 요리하세요.", "Men tozalayman, siz ovqat qiling.", "I'll clean, so you cook.", "Я уберусь, а вы приготовьте еду."],
+      ["길이 막힐 테니까 지하철을 타세요.", "Yo'l tiqilgan bo'ladi, metroda boring.", "The roads will be jammed, so take the subway.", "Наверняка будут пробки, поезжайте на метро."],
+      ["곧 도착할 테니까 조금만 기다려 주세요.", "Hozir yetib boraman, biroz kutib turing.", "I'll be there soon, so please wait a little.", "Я скоро буду, подождите немного."],
+      ["많이 피곤했을 테니까 푹 쉬세요.", "Juda charchagan bo'lsangiz kerak, yaxshilab dam oling.", "You must have been very tired, so get a good rest.", "Вы, наверное, очень устали — хорошенько отдохните."],
+    ],
+    mistakes: [
+      ["제가 청소하는 테니까", "제가 청소할 테니까", t("테니까 oldida (으)ㄹ.", "(으)ㄹ before 테니까.", "Перед 테니까 — (으)ㄹ.")],
+    ],
+    quiz: [
+      ["제가 ___ 테니까 당신은 요리하세요. (청소하다)", ["청소할", "청소하는"], 0],
+      ["길이 ___ 테니까 지하철을 타세요. (막히다)", ["막힐", "막힌"], 0],
+      ["곧 도착할 ___ 조금만 기다려 주세요.", ["테니까", "텐데도"], 0],
+      ["많이 ___ 테니까 푹 쉬세요. (피곤하다)", ["피곤했을", "피곤했는"], 0],
+    ],
+  }),
+  point("expressions", {
+    id: "gi-maryeon", pattern: "V/A + 기 마련이다",
+    title: t("“…ishi tabiiy” — 기 마련이다", "“Bound to” — 기 마련이다", "«Естественно, что…» — 기 마련이다"),
+    explain: t(
+      "Biror narsa tabiiy ravishda, muqarrar sodir bo'lishini bildiradi: 누구나 실수하기 마련이에요 — har kim xato qilishi tabiiy. Bitta voqea uchun emas, umumiy haqiqat uchun ishlatiladi. 게 마련이다 ham xuddi shu ma'noda.",
+      "Says something happens naturally and inevitably: 누구나 실수하기 마련이에요 (everyone is bound to make mistakes). It's used for general truths, not single events. 게 마련이다 means the same.",
+      "Говорит, что что-то происходит естественно и неизбежно: 누구나 실수하기 마련이에요 — каждый может ошибиться, это естественно. Используется для общих истин, а не единичных событий. 게 마련이다 значит то же самое.",
+    ),
+    rules: [
+      ["V/A + 기 마련이다", "Tabiiy, muqarrar", "Natural, inevitable", "Естественно, неизбежно"],
+      ["V/A + 게 마련이다", "Xuddi shu ma'no", "The same meaning", "То же значение"],
+      ["일반적인 사실", "Umumiy haqiqat, bitta voqea emas", "A general truth, not one event", "Общая истина, а не единичный случай"],
+    ],
+    examples: [
+      ["누구나 실수하기 마련이에요.", "Har kim xato qilishi tabiiy.", "Everyone is bound to make mistakes.", "Ошибаться свойственно каждому."],
+      ["시간이 지나면 다 잊기 마련이에요.", "Vaqt o'tib, hammasi unutiladi.", "With time, you're bound to forget everything.", "Со временем всё забывается."],
+      ["처음에는 누구나 어렵기 마련이에요.", "Boshida har kimga qiyin bo'lishi tabiiy.", "Everything is hard for anyone at first.", "Поначалу всем трудно — это естественно."],
+      ["열심히 노력하면 좋은 결과가 있기 마련이에요.", "Tirishib harakat qilsangiz, albatta yaxshi natija bo'ladi.", "If you work hard, good results are bound to follow.", "Если стараться, хороший результат обязательно будет."],
+    ],
+    mistakes: [
+      ["어제 실수하기 마련이었어요", "누구나 실수하기 마련이에요", t("Bitta voqea uchun emas, umumiy haqiqat uchun.", "For general truths, not a single event.", "Для общих истин, а не единичного события.")],
+      ["실수하는 마련이에요", "실수하기 마련이에요", t("To'g'ri shakli 기 마련이다.", "The form is 기 마련이다.", "Правильная форма — 기 마련이다.")],
+    ],
+    quiz: [
+      ["누구나 ___ 마련이에요. (실수하다)", ["실수하기", "실수하는"], 0],
+      ["처음에는 누구나 ___ 마련이에요. (어렵다)", ["어렵기", "어려운"], 0],
+      ["노력하면 좋은 결과가 있___ 마련이에요.", ["기", "는"], 0],
+      ["시간이 지나면 잊___ 마련이에요.", ["게", "고"], 0],
+    ],
+  }),
 ];

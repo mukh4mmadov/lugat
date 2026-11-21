@@ -157,7 +157,7 @@ export default function PremiumPage() {
               <tr>
                 <th className="px-4 py-3 text-left font-black">{t("premium.feature")}</th>
                 <th className="w-24 px-2 py-3 text-center font-black">{t("premium.free")}</th>
-                <th className="w-24 px-2 py-3 text-center font-black text-violet-600 dark:text-violet-300">Premium</th>
+                <th className="w-24 px-2 py-3 text-center font-black text-violet-600 dark:text-violet-300">{t("premium.colPremium")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-white/5">

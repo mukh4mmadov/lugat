@@ -793,6 +793,8 @@ export default {
   "home.topikTitle": "Пробные экзамены TOPIK I",
   "home.topikText": "Сдайте настоящий экзамен прошлых лет с оригинальным аудио и таймером на 100 минут, затем посмотрите баллы, уровень и каждую ошибку.",
   "home.topikAction": "Начать пробный экзамен",
+  "nav.grammar": "Грамматика",
+  "premium.colPremium": "Премиум",
   "nav.review": "Повторение",
   "common.refresh": "Обновить",
   "common.login": "Войти",
