@@ -2516,6 +2516,8 @@ export default {
   "anki.stats.d90plus": "90+",
   "anki.suspend": "Suspend",
   "anki.restoreSuspended": "Restore suspended words ({{count}})",
+  "anki.note": "Note",
+  "anki.notePlaceholder": "Your own note about this word…",
   "anki.today": "Today",
   "anki.lessonsTitle": "By topic",
   "anki.lessonsText": "Learn a topic with exercises first: the words you master join your reviews automatically.",

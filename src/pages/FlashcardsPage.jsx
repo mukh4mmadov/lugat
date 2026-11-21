@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import ReportWordLink from "../components/ReportWordLink";
 import AnkiSettingsPanel from "../components/anki/AnkiSettingsPanel";
+import WordNote from "../components/anki/WordNote";
 import { exampleTranslation, getWordKey, meaning } from "../data";
 import { loadTopikVocab } from "../data/topikVocab";
 import {
@@ -279,6 +280,7 @@ function Reviewer({ scope, onSettings }) {
                     <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{exampleTranslation(example)}</p>
                   </div>
                 )}
+                <WordNote key={wordKeyOf(current.id)} wordKey={wordKeyOf(current.id)} />
                 <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs font-bold">
                   <button type="button" onClick={() => dispatch(toggleFavorite(wordKeyOf(current.id)))} className={favorite ? "text-amber-500" : "text-slate-400"}>{favorite ? "★" : "☆"} {t("anki.favorite")}</button>
                   <button type="button" onClick={() => dispatch(toggleManualDifficult(wordKeyOf(current.id)))} className={difficult ? "text-rose-500" : "text-slate-400"}>⚑ {t("anki.markDifficult")}</button>

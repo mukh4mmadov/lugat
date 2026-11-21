@@ -263,6 +263,14 @@ const progressSlice = createSlice({
       if (state.suspended[action.payload]) delete state.suspended[action.payload];
       else state.suspended[action.payload] = true;
     },
+    // A private note on a word, shown on its card. Empty text removes it.
+    setWordNote(state, action) {
+      const { key, text } = action.payload;
+      state.notes = state.notes || {};
+      const value = String(text || "").trim().slice(0, 300);
+      if (value) state.notes[key] = value;
+      else delete state.notes[key];
+    },
     clearSuspended(state) {
       state.suspended = {};
     },
@@ -489,6 +497,7 @@ export const {
   toggleManualDifficult,
   toggleSuspended,
   clearSuspended,
+  setWordNote,
   clearDifficult,
   answerCard,
   restoreCard,
