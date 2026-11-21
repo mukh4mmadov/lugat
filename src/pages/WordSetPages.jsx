@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import LessonAudio from "../components/LessonAudio";
 import AnkiSettingsPanel from "../components/anki/AnkiSettingsPanel";
+import AnkiStats from "../components/anki/AnkiStats";
 import { getWordKey, meaning } from "../data";
 import { useTopikWords } from "../lib/useTopikWords";
 import { readCard, todayCounts } from "../lib/anki";
@@ -116,6 +117,8 @@ export function StudyHub() {
         <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300">{t("sets.subtitle")}</p>
         <TodayStrip onSettings={() => setShowSettings(true)} />
       </GlassCard>
+
+      <AnkiStats />
 
       <div className="grid grid-cols-2 gap-2" role="tablist">
         {tabs.map((item) => (

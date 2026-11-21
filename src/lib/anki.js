@@ -161,3 +161,23 @@ export function dueCardCount(progress, options, now = Date.now()) {
   }
   return count;
 }
+
+// Numbers for the statistics panel, over every card the learner has started:
+// reviews due on each of the next `days` days, and how many cards sit in each
+// memory-strength band (stability in days).
+export const INTERVAL_BANDS = [1, 7, 21, 90, Infinity];
+export function cardStats(progress, options, days = 7, now = Date.now()) {
+  const due = Array.from({ length: days }, () => 0);
+  const bands = INTERVAL_BANDS.map(() => 0);
+  const start = dayCutoff(now, options.dayStartsAt) - 24 * 60 * 60 * 1000;
+  let total = 0;
+  for (const id of Object.keys(progress.cards || {})) {
+    const card = readCard(progress, id);
+    if (!card || card.state === STATE.new) continue;
+    total += 1;
+    const index = Math.max(0, Math.floor((card.due - start) / (24 * 60 * 60 * 1000)));
+    if (index < days) due[index] += 1;
+    bands[INTERVAL_BANDS.findIndex((limit) => (card.stability || 0) < limit)] += 1;
+  }
+  return { total, due, bands };
+}
