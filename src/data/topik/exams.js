@@ -884,15 +884,42 @@ const PAPER_41 = [
   [70, "reading", 3, 27, 1],
 ];
 
+// TOPIK II: 듣기 1–50 and 쓰기 51–54 (first period), 읽기 printed 1–50 (second
+// period). Reading is stored as 101–150 so every question of a paper has its
+// own number; `label` is the number printed on the paper.
+export const TOPIK2_READING_OFFSET = 100;
+
 function buildQuestions(rows) {
   return rows.map(([number, section, points, page, answer]) => ({
     number,
     section,
     points,
     page,
-    answer: String(answer),
+    answer: answer === null ? null : String(answer),
+    ...(section === "reading" && number > TOPIK2_READING_OFFSET ? { label: number - TOPIK2_READING_OFFSET } : {}),
   }));
 }
+
+// A TOPIK II paper's rows from NIIED's online answer keys (every 듣기 and 읽기
+// question is worth 2 points) and the PDF page of each question. Writing:
+// 51 and 52 (10 points each), 53 (30) and 54 (50) have no key.
+function topik2Rows({ listening, reading, listeningPages, writingPages, readingPages }) {
+  const list = (text) => text.split(",").map(Number);
+  const [keysL, keysR, pagesL, pagesW, pagesR] = [listening, reading, listeningPages, writingPages, readingPages].map(list);
+  return [
+    ...keysL.map((answer, i) => [i + 1, "listening", 2, pagesL[i], answer]),
+    ...[10, 10, 30, 50].map((points, i) => [51 + i, "writing", points, pagesW[i], null]),
+    ...keysR.map((answer, i) => [TOPIK2_READING_OFFSET + i + 1, "reading", 2, pagesR[i], answer]),
+  ];
+}
+
+const PAPER_II_64 = topik2Rows({
+  listening: "2,1,3,3,4,2,4,4,3,2,1,2,3,1,3,3,1,2,1,2,3,4,1,1,2,3,4,2,4,3,2,4,3,4,1,1,2,4,3,1,2,4,4,2,3,1,2,4,1,1",
+  reading: "2,1,4,4,1,2,4,1,2,3,1,3,1,3,3,4,2,4,3,3,2,3,1,2,1,4,3,4,4,2,1,2,3,2,1,4,3,4,1,3,2,1,1,4,3,4,3,4,2,2",
+  listeningPages: "2,2,3,3,3,4,4,4,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,11,11,11,11,12,12,12,12,13,13,13,13,14,14",
+  writingPages: "15,15,16,16",
+  readingPages: "21,21,21,21,22,22,22,22,23,23,24,24,25,25,25,26,26,26,27,27,28,28,29,29,30,30,30,31,31,32,32,33,33,34,34,35,35,36,36,37,37,38,38,39,39,40,40,41,41,41",
+});
 
 export const TOPIK_EXAMS = [
   {
@@ -1063,13 +1090,46 @@ export const TOPIK_EXAMS = [
     readingMinutes: 60,
     questions: buildQuestions(PAPER_102),
   },
+  {
+    id: "t2-64",
+    number: 64,
+    level: "TOPIK II",
+    form: "B",
+    title: "The 64th Test of Proficiency in Korean II",
+    pdf: "/topik/t2-64/paper.pdf",
+    audio: "/topik/t2-64/listening.mp3",
+    listeningMinutes: 60,
+    writingMinutes: 50,
+    readingMinutes: 70,
+    questions: buildQuestions(PAPER_II_64),
+  },
 ];
+
+// Pass marks: TOPIK I levels 1–2 out of 200, TOPIK II levels 3–6 out of 300.
+export const EXAM_LEVELS = ["TOPIK I", "TOPIK II"];
+export const isTopik2 = (exam) => exam?.level === "TOPIK II";
+export function levelCuts(exam) {
+  if (isTopik2(exam)) return [[6, 230], [5, 190], [4, 150], [3, 120]];
+  return [[2, exam?.level2Min ?? 140], [1, exam?.level1Min ?? 80]];
+}
+export const examSections = (exam) => (isTopik2(exam) ? ["listening", "writing", "reading"] : ["listening", "reading"]);
+export const questionLabel = (question) => question.label ?? question.number;
+// Explanation files are named by exam number; TOPIK II ones get a "2_" prefix.
+export const explanationKey = (exam) => (exam ? (isTopik2(exam) ? `2_${exam.number}` : exam.number) : null);
+
+// Whether a question has an answer: a choice ("1"–"4"), an essay (text) or the
+// two blanks of 51/52 ({ "㉠": text, "㉡": text }).
+export function hasAnswer(value) {
+  if (!value) return false;
+  if (typeof value === "string") return value.trim().length > 0;
+  return Object.values(value).some((part) => typeof part === "string" && part.trim().length > 0);
+}
 
 // Paper files (PDF and recording) are served from Supabase Storage, the
 // public bucket topik-assets, laid out like the old public/topik folder.
 // Free for every account: these papers in full. Papers added later are
 // Premium, like the full test libraries of exam-prep sites.
-export const FREE_TOPIK_EXAMS = ["35th", "64th"];
+export const FREE_TOPIK_EXAMS = ["35th", "64th", "t2-64"];
 export const isFreeExam = (exam) => Boolean(exam) && FREE_TOPIK_EXAMS.includes(exam.id);
 
 export const TOPIK_FILES_URL = "https://chwnukigxuiggnhvzsuo.supabase.co/storage/v1/object/public/topik-assets";
@@ -1081,9 +1141,8 @@ for (const exam of TOPIK_EXAMS) {
 
 // Each exam is offered as a full timed mock plus untimed section practice.
 const variantsOf = (exam) => [
-  { id: `${exam.id}mock`, examId: exam.id, mode: "mock", section: null, durationSeconds: (exam.listeningMinutes + exam.readingMinutes) * 60 },
-  { id: `${exam.id}listening`, examId: exam.id, mode: "listening", section: "listening", durationSeconds: null },
-  { id: `${exam.id}reading`, examId: exam.id, mode: "reading", section: "reading", durationSeconds: null },
+  { id: `${exam.id}mock`, examId: exam.id, mode: "mock", section: null, durationSeconds: examSections(exam).reduce((sum, section) => sum + (exam[`${section}Minutes`] || 0), 0) * 60 },
+  ...examSections(exam).map((section) => ({ id: `${exam.id}${section}`, examId: exam.id, mode: section, section, durationSeconds: null })),
 ];
 
 export const TOPIK_VARIANTS = TOPIK_EXAMS.flatMap(variantsOf);
@@ -1117,16 +1176,18 @@ export const TOPIK1_QUESTION_TYPES = [
   { id: "paired", section: "reading", from: 59, to: 70, ko: "두 문제 세트" },
 ];
 
-export function getQuestionType(number) {
+// Question types are defined for TOPIK I papers only (pass the exam to check).
+export function getQuestionType(number, exam = null) {
+  if (isTopik2(exam)) return null;
   return TOPIK1_QUESTION_TYPES.find((type) => number >= type.from && number <= type.to) || null;
 }
 
 // Correct answers and points lost per question type, merging the blocks that
 // share a type within a section (e.g. both reading "paired" blocks).
-export function questionTypeBreakdown(questions, answers) {
+export function questionTypeBreakdown(questions, answers, exam = null) {
   const groups = new Map();
   questions.forEach((question) => {
-    const type = getQuestionType(question.number);
+    const type = getQuestionType(question.number, exam);
     if (!type) return;
     const key = `${type.section}:${type.id}`;
     const group = groups.get(key) || { key, id: type.id, section: type.section, ko: type.ko, ranges: [], total: 0, correct: 0, lost: 0, max: 0 };
@@ -1149,11 +1210,12 @@ export function getTopikExam(examId) {
 // load on demand: call loadExamContent(exam) before reading exam.content,
 // exam.audioTimeline or exam.transcript. Literal import() paths keep both
 // Vite (one chunk per file) and the serverless bundler able to find them.
+// `number` is the export prefix: 64 → PAPER_64_*, "II_64" → PAPER_II_64_*.
 const paperFiles = (number, content, audio, transcript, overrides) => () =>
-  Promise.all([content(), audio(), transcript(), overrides?.()]).then(([c, a, s, o]) => ({
+  Promise.all([content(), audio(), transcript?.(), overrides?.()]).then(([c, a, s, o]) => ({
     content: o ? withText(c[`PAPER_${number}_CONTENT`], o[`PAPER_${number}_TEXT_OVERRIDES`]) : c[`PAPER_${number}_CONTENT`],
     audioTimeline: a[`PAPER_${number}_AUDIO`],
-    transcript: s[`PAPER_${number}_TRANSCRIPT`],
+    transcript: s?.[`PAPER_${number}_TRANSCRIPT`] || {},
   }));
 
 const PAPER_FILES = {
@@ -1169,6 +1231,7 @@ const PAPER_FILES = {
   "91st": paperFiles(91, () => import("./paper91Content.js"), () => import("./paper91Audio.js"), () => import("./paper91Transcript.js")),
   "96th": paperFiles(96, () => import("./paper96Content.js"), () => import("./paper96Audio.js"), () => import("./paper96Transcript.js")),
   "102nd": paperFiles(102, () => import("./paper102Content.js"), () => import("./paper102Audio.js"), () => import("./paper102Transcript.js")),
+  "t2-64": paperFiles("II_64", () => import("./paperII64Content.js"), () => import("./paperII64Audio.js"), () => import("./paperII64Transcript.js")),
 };
 const paperLoads = new Map();
 
@@ -1202,7 +1265,7 @@ export function getVariantQuestions(variant) {
   return exam.questions.filter((question) => !variant.section || question.section === variant.section);
 }
 
-// TOPIK I sections are scored out of 100 each. The 35th reading key's printed
+// Sections are scored out of 100 each. The 35th reading key's printed
 // weights add to 101, so a section is normalized to 100 when its weights differ.
 function sectionScore(questions, answers, section) {
   const sectionQuestions = questions.filter((question) => question.section === section);
@@ -1220,16 +1283,27 @@ function sectionScore(questions, answers, section) {
   };
 }
 
-export function scoreTopikAttempt(variant, answers) {
+// Writing (TOPIK II 51–54) has no answer key: it counts once every written
+// answer has a score (`writingScores`: { 51: points, ... }, from the AI check).
+// Until then the result says so (`writing.pending`) and a mock gets no level.
+function writingScore(questions, answers, writingScores) {
+  const items = questions.filter((question) => question.section === "writing");
+  if (!items.length) return null;
+  const written = items.filter((question) => hasAnswer(answers[question.number]));
+  const pending = written.some((question) => !Number.isFinite(writingScores?.[question.number]));
+  const score = written.reduce((sum, question) => sum + Math.min(question.points, Math.max(0, writingScores?.[question.number] || 0)), 0);
+  return { score: pending ? null : score, pending, answered: written.length, total: items.length };
+}
+
+export function scoreTopikAttempt(variant, answers, writingScores = null) {
   const exam = getTopikExam(variant.examId);
   const questions = getVariantQuestions(variant);
   const listening = sectionScore(questions, answers, "listening");
+  const writing = writingScore(questions, answers, writingScores);
   const reading = sectionScore(questions, answers, "reading");
-  const total = (listening?.score || 0) + (reading?.score || 0);
+  const total = (listening?.score || 0) + (writing?.score || 0) + (reading?.score || 0);
+  const maxTotal = [listening, writing, reading].filter(Boolean).length * 100;
   let level = null;
-  if (variant.mode === "mock") {
-    if (total >= exam.level2Min) level = 2;
-    else if (total >= exam.level1Min) level = 1;
-  }
-  return { listening, reading, total, maxTotal: (listening ? 100 : 0) + (reading ? 100 : 0), level };
+  if (variant.mode === "mock" && !writing?.pending) level = levelCuts(exam).find(([, min]) => total >= min)?.[0] ?? null;
+  return { listening, writing, reading, total, maxTotal, level };
 }

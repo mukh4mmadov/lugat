@@ -240,7 +240,7 @@ export function submitTopikAttempt(attemptId) {
     status: "submitted",
     submittedAt,
     elapsedSeconds: variant.durationSeconds ? Math.min(elapsed, variant.durationSeconds) : elapsed,
-    result: scoreTopikAttempt(variant, attempt.answers),
+    result: scoreTopikAttempt(variant, attempt.answers, attempt.writingScores),
   };
   writeAll(attempts, [attemptId]);
   // A finished exam goes up straight away.

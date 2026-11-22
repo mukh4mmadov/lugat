@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import GlassCard from "../components/GlassCard";
 import { allWords, exampleTranslation, getWordKey, meaning } from "../data";
-import { getTopikExam } from "../data/topik/exams";
+import { getTopikExam, isTopik2 } from "../data/topik/exams";
 import { useExamContent } from "../hooks/useExamContent";
 import PageLoader from "../components/PageLoader";
 import { PAPER_35_KEY_WORDS } from "../data/topik/paper35Vocab";
@@ -62,22 +62,24 @@ export default function TopikWordsPage() {
   const exam = getTopikExam(examId);
   const examReady = useExamContent(exam?.id);
   const paper = examReady && exam?.content ? exam : null;
+  // Key words come from the vocabulary deck of the paper's level.
+  const deck = isTopik2(exam) ? "topik2" : "topik1";
   const vocab = useSelector((state) => state.content.vocab);
   useEffect(() => {
-    if (paper && !KEY_WORDS[paper.id]) loadTopikVocab("topik1");
-  }, [paper]);
+    if (paper && !KEY_WORDS[paper.id]) loadTopikVocab(deck);
+  }, [paper, deck]);
   const text = useMemo(() => (paper ? paperText(paper) : ""), [paper]);
   const lessonWords = useMemo(() => (paper ? wordsInPaper(text) : []), [paper, text]);
   const keyWords = useMemo(() => {
     if (!paper) return [];
     if (KEY_WORDS[paper.id]) return KEY_WORDS[paper.id];
     const taught = new Set(allWords.flatMap((word) => word.korean.split("/").map((form) => form.trim())));
-    return wordsInPaper(text, topikEntries("topik1").filter((entry) => !entry.lessonKey && !taught.has(entry.korean)))
+    return wordsInPaper(text, topikEntries(deck).filter((entry) => !entry.lessonKey && !taught.has(entry.korean)))
       .slice(0, 60)
       .map(({ word }) => ({ korean: word.korean, romanization: word.romanization, uz: word.uzbek, en: word.english, ru: word.russian }));
     // vocab: the TOPIK list arrives after the first render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paper, text, vocab]);
+  }, [paper, text, vocab, deck]);
   if (!examReady) return <PageLoader />;
   if (!paper) return <Navigate to="/topik" replace />;
 
@@ -88,7 +90,7 @@ export default function TopikWordsPage() {
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
         <Link to="/topik" className="text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.backToTests")}</Link>
-        <h1 className="mt-2 text-2xl font-black md:text-3xl">📚 {t("topikWords.title", { number: paper.number })}</h1>
+        <h1 className="mt-2 text-2xl font-black md:text-3xl">📚 {t(isTopik2(paper) ? "topikWords.title2" : "topikWords.title", { number: paper.number })}</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t("topikWords.subtitle")}</p>
       </div>
 

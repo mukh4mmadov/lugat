@@ -452,7 +452,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
   const answers = body.answers && typeof body.answers === "object" ? body.answers : {};
   const requested = [...new Set((Array.isArray(body.numbers) ? body.numbers : []).map(Number))]
     .map((number) => questions.find((question) => question.number === number))
-    .filter((question) => question && String(answers[question.number] ?? "") !== question.answer);
+    .filter((question) => question && question.section !== "writing" && String(answers[question.number] ?? "") !== question.answer);
   if (!requested.length) return res.status(400).json({ error: "No mistakes to explain." });
 
   const premium = isPremiumUser(user);
@@ -468,7 +468,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
     return reviewItem(exam, question, /^[1-4]$/.test(chosen) ? chosen : null);
   });
   const systemPrompt = [
-    `You are a patient, encouraging Korean teacher. A learner took a TOPIK I exam (${exam.level}, ${exam.number}th) and got these questions wrong. For each question explain, in ${langName}:`,
+    `You are a patient, encouraging Korean teacher. A learner took a TOPIK exam (${exam.level}, ${exam.number}th) and got these questions wrong. For each question explain, in ${langName}:`,
     "- whyWrong: why the learner's choice is wrong (one or two sentences). If learnerChoice is null, say briefly that it was left unanswered.",
     "- whyRight: why the correct choice is right, pointing to the exact words in the material.",
     `- keyPoint: the key word or grammar the question tests, in Korean with its ${langName} meaning.`,

@@ -71,7 +71,7 @@ export default defineConfig({
         importScripts: ["/push-sw.js"],
         globPatterns: ["**/*.{js,mjs,css,html,ico,png,svg,woff2,woff,ttf,eot}"],
         // Big chunks only some visitors need load on demand instead of on install.
-        globIgnores: ["**/pdf*.{js,mjs}", "**/paper[0-9]*.js", "**/Admin*.js", "**/universities-*.js", "**/korea/**", "**/node_modules/**"],
+        globIgnores: ["**/pdf*.{js,mjs}", "**/paper[0-9]*.js", "**/paperII*.js", "**/Admin*.js", "**/universities-*.js", "**/korea/**", "**/node_modules/**"],
         navigateFallbackDenylist: [/\.(?:pdf|mp3)(?:$|[?#])/i],
         runtimeCaching: [
           // Workbox matches RegExp routes against the full URL, so same-origin

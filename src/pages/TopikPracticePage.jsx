@@ -9,6 +9,7 @@ import { useExplanations } from "../hooks/useExplanations";
 import { useExamContent } from "../hooks/useExamContent";
 import PageLoader from "../components/PageLoader";
 import { questionsOfType, topikTypeKeys } from "../lib/topikTypes";
+import { explanationKey } from "../data/topik/exams";
 import { replayRange } from "../lib/topikAudio";
 import { recordTopikPractice } from "../store";
 import { useAuth } from "../context/AuthContext";
@@ -45,7 +46,7 @@ function PracticeRun({ type }) {
   const [picked, setPicked] = useState(null);
   const [score, setScore] = useState({ right: 0, total: 0 });
   const item = order[cursor];
-  const explanations = useExplanations(item?.exam.number);
+  const explanations = useExplanations(explanationKey(item?.exam));
   const examReady = useExamContent(item?.exam.id);
 
   useEffect(() => {

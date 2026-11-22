@@ -167,15 +167,21 @@ write(
   }),
 );
 
-// TOPIK I.
-const examList = TOPIK_EXAMS.map((exam) => `${exam.number}-imtihon`).join(" va ");
+// TOPIK I and TOPIK II.
+const topik1 = TOPIK_EXAMS.filter((exam) => exam.level !== "TOPIK II");
+const topik2 = TOPIK_EXAMS.filter((exam) => exam.level === "TOPIK II");
+const examList = topik1.map((exam) => `${exam.number}-imtihon`).join(" va ");
+const examList2 = topik2.map((exam) => `${exam.number}-imtihon`).join(" va ");
+const topik2Text = topik2.length
+  ? `<h2>TOPIK II mock imtihon</h2><p>${topik2.length} ta haqiqiy TOPIK II varianti (${examList2}): tinglash (50 savol), yozish (51–54) va o'qish (50 savol), jami 300 ball. Yozma javoblarni rasmiy namunaviy javob bilan solishtiring.</p>`
+  : "";
 write(
   "topik",
   page({
     url: `${SITE}/topik`,
-    title: "TOPIK I mock imtihon onlayn — tinglash va o'qish | K-TALIM",
-    description: `TOPIK I mock imtihoni: ${examList}, har biri ${TOPIK_EXAMS[0].questions.length} savol, haqiqiy vaqt bilan yoki bo'limma-bo'lim. Natija, daraja va AI xato tushuntirishi.`,
-    body: `${nav}<h1>TOPIK I mock imtihon</h1><p>${TOPIK_EXAMS.length} ta haqiqiy TOPIK I varianti (${examList}), har biri ${TOPIK_EXAMS[0].questions.length} savol: tinglash va o'qish. To'liq imtihonni vaqt bilan yoki har bir bo'limni alohida yeching. Oxirida ball, taxminiy daraja va AI xatolaringizni o'zbekcha tushuntiradi. Har bir imtihonning muhim so'zlari ham alohida sahifada.</p><ul>${TOPIK_EXAMS.map((exam) => `<li><a href="/topik/words/${exam.id}">${exam.number}-imtihon so'zlari</a></li>`).join("")}</ul><p><a href="/guides/topik">TOPIK nima va qanday topshiriladi</a></p>`,
+    title: "TOPIK I va II mock imtihon onlayn — tinglash, o'qish, yozish | K-TALIM",
+    description: `TOPIK I mock imtihoni: ${examList}, har biri ${topik1[0].questions.length} savol${topik2.length ? `; TOPIK II: ${examList2} (tinglash, yozish, o'qish)` : ""}. Haqiqiy vaqt bilan yoki bo'limma-bo'lim, natija, daraja va AI xato tushuntirishi.`,
+    body: `${nav}<h1>TOPIK I mock imtihon</h1><p>${topik1.length} ta haqiqiy TOPIK I varianti (${examList}), har biri ${topik1[0].questions.length} savol: tinglash va o'qish. To'liq imtihonni vaqt bilan yoki har bir bo'limni alohida yeching. Oxirida ball, taxminiy daraja va AI xatolaringizni o'zbekcha tushuntiradi. Har bir imtihonning muhim so'zlari ham alohida sahifada.</p>${topik2Text}<ul>${TOPIK_EXAMS.map((exam) => `<li><a href="/topik/words/${exam.id}">${exam.level === "TOPIK II" ? "TOPIK II " : ""}${exam.number}-imtihon so'zlari</a></li>`).join("")}</ul><p><a href="/guides/topik">TOPIK nima va qanday topshiriladi</a></p>`,
   }),
 );
 

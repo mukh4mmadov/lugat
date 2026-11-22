@@ -429,7 +429,7 @@ export function AdminContent() {
             <li key={exam.id} className="flex flex-wrap items-center gap-3 py-3 text-sm">
               <span className="font-black">{exam.level} · {exam.number}</span>
               <span className="text-slate-500 dark:text-slate-400">
-                {t("admin.content.questions", { count: exam.questions.length })} · {exam.listeningMinutes + exam.readingMinutes} min
+                {t("admin.content.questions", { count: exam.questions.length })} · {exam.listeningMinutes + (exam.writingMinutes || 0) + exam.readingMinutes} min
               </span>
               <span className="ml-auto flex gap-2">
                 <a href={exam.pdf} target="_blank" rel="noreferrer" className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-bold dark:border-white/10">PDF</a>
