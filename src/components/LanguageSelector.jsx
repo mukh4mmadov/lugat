@@ -22,7 +22,7 @@ const fadeConfig = {
   ease: [0.25, 0.1, 0.25, 1],
 };
 
-export default function LanguageSelector({ onShowIELTSModal, className = "" }) {
+export default function LanguageSelector({ className = "" }) {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(i18n.language || 'uz');
@@ -101,19 +101,12 @@ export default function LanguageSelector({ onShowIELTSModal, className = "" }) {
       return;
     }
     
-    const previousLang = selectedLang;
     setIsChanging(true);
     setSelectedLang(langCode);
     changeLanguage(langCode);
     localStorage.setItem('language', langCode);
     dispatch(setPreference({ key: 'language', value: langCode }));
 
-    if (previousLang === 'en' && (langCode === 'uz' || langCode === 'ru')) {
-      setTimeout(() => {
-        onShowIELTSModal();
-      }, 600);
-    }
-    
     setTimeout(() => {
       setIsOpen(false);
       setIsChanging(false);

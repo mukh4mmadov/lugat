@@ -33,7 +33,7 @@ import { syncReferral } from "../lib/growth";
 import { LAST_ROUTE_KEY, UNREAD_EVENT } from "../lib/feedback";
 
 
-export default function Layout({ onShowIELTSModal }) {
+export default function Layout() {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -418,7 +418,7 @@ export default function Layout({ onShowIELTSModal }) {
             <div className="ml-auto flex shrink-0 items-center gap-1.5">
               {isAdmin ? <AdminBell /> : <UserBell />}
               <span className="lg:hidden xl:block"><LevelChip /></span>
-              <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+              <LanguageSelector />
               <InstallAppButton className="hidden 2xl:block" />
 
               {!user ? (
@@ -630,7 +630,7 @@ export default function Layout({ onShowIELTSModal }) {
 
                   <div className="pt-4 border-t border-slate-200 dark:border-white/10 mt-4 space-y-3">
                     <div className="flex items-center justify-between">
-                      <LanguageSelector onShowIELTSModal={onShowIELTSModal} />
+                      <LanguageSelector />
                       <button
                         type="button"
                         onClick={() => dispatch(setTheme(nextTheme))}

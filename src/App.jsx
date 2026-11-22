@@ -1,11 +1,10 @@
 import { addedLessonsKnown, useContentVersion } from "./lib/contentVersion";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import { AuthProvider } from "./context/AuthContext";
 import { lessonInfo } from "./data";
 import Layout from "./components/Layout";
 import ErrorBoundary from "./components/ErrorBoundary";
-import IELTSRecommendationModal from "./components/IELTSRecommendationModal";
 import RedirectIfAuthed from "./components/RedirectIfAuthed";
 import RequireProfileComplete from "./components/RequireProfileComplete";
 import PageLoader from "./components/PageLoader";
@@ -116,19 +115,13 @@ function LessonRouteGuard({ children }) {
 
 export default function App() {
   useContentVersion();
-  const [showIELTSModal, setShowIELTSModal] = useState(false);
-
-  const handleShowIELTSModal = () => {
-    setShowIELTSModal(true);
-  };
-
   return (
     <AuthProvider>
       <PageTitle />
       <Suspense fallback={<PageLoader fullScreen />}>
         <ErrorBoundary>
         <Routes>
-          <Route element={<Layout onShowIELTSModal={handleShowIELTSModal} />}>
+          <Route element={<Layout />}>
             <Route path="topik" element={<TopikHomePage />} />
             <Route path="topik/result/:attemptId" element={<TopikResultPage />} />
             <Route path="topik/words/:examId" element={<TopikWordsPage />} />
@@ -138,7 +131,7 @@ export default function App() {
           <Route
             element={
               <RequireProfileComplete>
-                <Layout onShowIELTSModal={handleShowIELTSModal} />
+                <Layout />
               </RequireProfileComplete>
             }
           >
@@ -296,10 +289,6 @@ export default function App() {
         </Routes>
         </ErrorBoundary>
 
-        <IELTSRecommendationModal
-          isOpen={showIELTSModal}
-          onClose={() => setShowIELTSModal(false)}
-        />
       </Suspense>
     </AuthProvider>
   );
