@@ -17,6 +17,7 @@ export default function WordListPage() {
   const { t } = useTranslation();
   const { deckId = "lessons" } = useParams();
   const deck = getDeck(deckId);
+  const isTopik = deckId === "topik1" || deckId === "topik2";
   const progress = useSelector((state) => state.progress);
   const vocab = useSelector((state) => state.content.vocab);
   const [query, setQuery] = useState("");
@@ -25,14 +26,14 @@ export default function WordListPage() {
   const [open, setOpen] = useState(null);
 
   useEffect(() => {
-    if (deckId === "topik1") loadTopikVocab("topik1");
-  }, [deckId]);
+    if (isTopik) loadTopikVocab(deckId);
+  }, [deckId, isTopik]);
 
   const words = useMemo(() => {
-    if (deckId === "topik1") {
+    if (isTopik) {
       const lessonByKey = new Map(allWords.map((word) => [getWordKey(word), word]));
       // The list shows TOPIK entries; linked ones use the lesson word's card.
-      return topikEntries("topik1").map((entry) => ({ ...entry, cardKey: entry.lessonKey && lessonByKey.has(entry.lessonKey) ? entry.lessonKey : getWordKey(entry) }));
+      return topikEntries(deckId).map((entry) => ({ ...entry, cardKey: entry.lessonKey && lessonByKey.has(entry.lessonKey) ? entry.lessonKey : getWordKey(entry) }));
     }
     return allWords.map((word) => ({ ...word, cardKey: getWordKey(word) }));
     // vocab: the TOPIK list arrives after the first render.
@@ -42,20 +43,20 @@ export default function WordListPage() {
   const topics = useMemo(() => {
     const counts = new Map();
     words.forEach((word) => {
-      const key = deckId === "topik1" ? word.topic : String(word.lesson);
+      const key = isTopik ? word.topic : String(word.lesson);
       if (key) counts.set(key, (counts.get(key) || 0) + 1);
     });
     return [...counts.entries()];
-  }, [words, deckId]);
+  }, [words, isTopik]);
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return words.filter((word) => {
-      if (topic && (deckId === "topik1" ? word.topic : String(word.lesson)) !== topic) return false;
+      if (topic && (isTopik ? word.topic : String(word.lesson)) !== topic) return false;
       if (!needle) return true;
       return [word.korean, word.romanization, word.uzbek, word.english, word.russian].some((value) => String(value || "").toLowerCase().includes(needle));
     });
-  }, [words, query, topic, deckId]);
+  }, [words, query, topic, isTopik]);
 
   if (!deck) {
     return (
@@ -80,13 +81,13 @@ export default function WordListPage() {
         <Link to="/study" className="text-xs font-bold text-sky-600 dark:text-sky-300">← {t("anki.decks")}</Link>
         <h1 className="mt-1 text-2xl font-black md:text-3xl">{t(deck.titleKey)}</h1>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{t(deck.textKey)}</p>
-        {deckId === "topik1" && <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t("anki.topikSource")}</p>}
+        {isTopik && <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t("anki.topikSource")}</p>}
         <div className="mt-4 grid gap-2 sm:grid-cols-[1fr_auto]">
           <input value={query} onChange={(event) => { setQuery(event.target.value); setShown(PAGE); }} placeholder={t("anki.searchWords")} className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900" />
           <select value={topic} onChange={(event) => { setTopic(event.target.value); setShown(PAGE); }} className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold dark:border-white/10 dark:bg-slate-900">
             <option value="">{t("anki.allTopics")}</option>
             {topics.map(([key, count]) => (
-              <option key={key} value={key}>{deckId === "topik1" ? t(`topic.${key}`, { defaultValue: key }) : t("card.lesson", { lesson: key })} ({count})</option>
+              <option key={key} value={key}>{isTopik ? t(`topic.${key}`, { defaultValue: key }) : t("card.lesson", { lesson: key })} ({count})</option>
             ))}
           </select>
         </div>

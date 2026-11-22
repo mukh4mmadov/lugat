@@ -1,0 +1,36 @@
+{
+  "title": "TOPIK II (intermediate) vocabulary — NIKL grade B",
+  "source": [
+    "https://www.korean.go.kr/front_eng/down/down_02V.do?etc_seq=70"
+  ],
+  "sourceNotes": {
+    "NIKL-B": "국립국어원 「한국어 학습용 어휘 목록」 (2003), grade B (2단계). Homonym numbers as in that list.",
+    "order": "By the list's frequency rank (unranked proper nouns last). Words already in the TOPIK I deck with the same meaning are left out; words listed twice with different parts of speech appear once."
+  },
+  "count": 196,
+  "linkedToLessons": 6,
+  "files": [
+    "vocab-01.json"
+  ],
+  "topics": {
+    "grammar words": 45,
+    "society": 17,
+    "actions": 30,
+    "communication": 13,
+    "people": 8,
+    "time": 12,
+    "descriptions": 18,
+    "places": 5,
+    "money": 3,
+    "school": 5,
+    "culture": 4,
+    "nature": 4,
+    "hobbies": 2,
+    "feelings": 4,
+    "work": 18,
+    "family": 2,
+    "shopping": 2,
+    "health": 3,
+    "daily life": 1
+  }
+}

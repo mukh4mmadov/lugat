@@ -233,6 +233,7 @@ function WordsTab() {
   const { t } = useTranslation();
   const cards = [
     { to: "/words/topik1", ko: "어휘", title: t("anki.deck.topik1"), text: t("topik.words.deckText"), action: t("anki.browse"), extra: { to: "/study?tab=units", label: t("units.open") } },
+    { to: "/words/topik2", ko: "중급 어휘", title: t("anki.deck.topik2"), text: t("anki.deck.topik2Text"), action: t("anki.browse") },
     { to: "/grammar", ko: "문법", title: t("topik.words.grammarTitle"), text: t("topik.words.grammarText"), action: t("topik.words.open") },
     { to: "/study", ko: "단어장", title: t("anki.deck.lessons"), text: t("anki.deck.lessonsText"), action: t("topik.words.open") },
     { to: "/guides", ko: "가이드", title: t("guides.title"), text: t("topik.words.guidesText"), action: t("topik.words.open") },

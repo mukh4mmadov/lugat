@@ -2518,6 +2518,8 @@ export default {
   "anki.deck.lessonsText": "Kundalik mavzular bo'yicha guruhlangan so'zlar.",
   "anki.deck.topik1": "TOPIK I so'zlari",
   "anki.deck.topik1Text": "TOPIK I (1–2-daraja) uchun boshlang'ich so'zlar — Koreya Milliy til instituti (NIKL) rasmiy ro'yxati asosida.",
+  "anki.deck.topik2": "TOPIK II so'zlari",
+  "anki.deck.topik2Text": "TOPIK II (3–4-daraja) uchun o'rta darajadagi so'zlar — Koreya Milliy til instituti (NIKL) rasmiy ro'yxati asosida.",
   "anki.weakTitle": "Zaif so'zlar",
   "anki.noDeck": "Bu dek topilmadi yoki hali bo'sh.",
   "anki.emptyList": "Bu ro'yxatda hali so'z yo'q.",

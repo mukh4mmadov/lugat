@@ -2522,6 +2522,8 @@ export default {
   "anki.deck.lessonsText": "Words grouped into everyday topics.",
   "anki.deck.topik1": "TOPIK I vocabulary",
   "anki.deck.topik1Text": "Beginner words for TOPIK I (levels 1–2), based on the official list of the National Institute of Korean Language (NIKL).",
+  "anki.deck.topik2": "TOPIK II vocabulary",
+  "anki.deck.topik2Text": "Intermediate words for TOPIK II (levels 3–4), based on the official list of the National Institute of Korean Language (NIKL).",
   "anki.weakTitle": "Weak words",
   "anki.noDeck": "This deck was not found or is still empty.",
   "anki.emptyList": "There are no words in this list yet.",

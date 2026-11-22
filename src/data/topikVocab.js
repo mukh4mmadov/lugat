@@ -6,6 +6,7 @@ import { allWords, getWordKey } from "./index";
 
 const FILES = {
   topik1: import.meta.glob("../../data/topik1/vocab-*.json", { import: "default" }),
+  topik2: import.meta.glob("../../data/topik2/vocab-*.json", { import: "default" }),
 };
 
 const loaded = {};
