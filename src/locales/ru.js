@@ -276,7 +276,7 @@ export default {
   "common.warning": "Предупреждение",
   "common.info": "Информация",
   "common.reportBug": "Сообщить об ошибке",
-  "nav.topik": "TOPIK I",
+  "nav.topik": "TOPIK",
   "topik.title": "TOPIK I: экзамены и практика",
   "topik.subtitle": "Сдавайте официальные варианты TOPIK I прошлых лет в условиях настоящего экзамена, тренируйтесь по типам вопросов и читайте объяснение к каждому вопросу.",
   "topik.announcementLabel": "Новое в K-TALIM",

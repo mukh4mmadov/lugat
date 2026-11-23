@@ -282,7 +282,7 @@ export default {
   "common.languageCode": "en",
   "common.info": "Info",
   "common.reportBug": "Report a bug",
-  "nav.topik": "TOPIK I",
+  "nav.topik": "TOPIK",
   "topik.title": "TOPIK I: exams and practice",
   "topik.subtitle": "Sit official past TOPIK I papers under real exam conditions, practise question by question type, and read an explanation for every question.",
   "topik.announcementLabel": "New on K-TALIM",

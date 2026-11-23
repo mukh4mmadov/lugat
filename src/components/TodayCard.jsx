@@ -19,7 +19,7 @@ function weekdayLabel(date, language) {
 // "Lesson 3 · Quiz" for a remembered path.
 function placeLabel(path, t) {
   const [section, id, mode] = path.split("/").filter(Boolean);
-  if (section === "topik") return "TOPIK I";
+  if (section === "topik") return "TOPIK";
   const lesson = t("card.lesson", { lesson: id });
   if (mode === "study") return `${lesson} · ${t("nav.study")}`;
   return mode && MODE_KEYS[mode] ? `${lesson} · ${t(MODE_KEYS[mode])}` : lesson;

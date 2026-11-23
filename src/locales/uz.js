@@ -280,7 +280,7 @@ export default {
   "common.languageCode": "uz",
   "common.info": "Ma'lumot",
   "common.reportBug": "Xato haqida xabar bering",
-  "nav.topik": "TOPIK I",
+  "nav.topik": "TOPIK",
   "topik.title": "TOPIK I: imtihonlar va mashqlar",
   "topik.subtitle": "O'tgan yillardagi rasmiy TOPIK I imtihonlarini haqiqiy sharoitda topshiring, savol turlari bo'yicha mashq qiling va har bir savolning izohini o'qing.",
   "topik.announcementLabel": "K-TALIM'da yangi",
