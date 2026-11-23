@@ -48,16 +48,25 @@ export async function dropOldCopy() {
 // seconds brought back the same old copy, the old copy is dropped and the
 // page reloads once more; after that the file is really missing and
 // reloading again would loop.
+// While a reload is on its way, Vite hands every waiting import() an empty
+// module (see watchErrors), so code reading from it can throw before the page
+// goes away. Those errors are not real: don't report them, and don't start a
+// second reload.
+let reloading = false;
+
 export function reloadForNewVersion() {
+  if (reloading) return true;
   const now = Date.now();
   try {
     if (now - (Number(sessionStorage.getItem(RELOAD_KEY)) || 0) >= 30000) {
       sessionStorage.setItem(RELOAD_KEY, String(now));
+      reloading = true;
       activateNewWorker().finally(() => window.location.reload());
       return true;
     }
     if (now - (Number(sessionStorage.getItem(HARD_RELOAD_KEY)) || 0) >= 300000) {
       sessionStorage.setItem(HARD_RELOAD_KEY, String(now));
+      reloading = true;
       dropOldCopy().finally(() => window.location.reload());
       return true;
     }
@@ -104,7 +113,7 @@ async function chunkIsMissing(error) {
 
 export async function reportError(error, kind = "error") {
   const message = String(error?.message || error || "Unknown error").slice(0, 500);
-  if (sent.size >= MAX_REPORTS || sent.has(message) || ROBOT.test(navigator.userAgent)) return;
+  if (reloading || sent.size >= MAX_REPORTS || sent.has(message) || ROBOT.test(navigator.userAgent)) return;
   sent.add(message);
   if (isChunkError(error) && !(await chunkIsMissing(error))) return;
   supabase

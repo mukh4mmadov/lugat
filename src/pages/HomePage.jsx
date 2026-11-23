@@ -20,6 +20,8 @@ const SECTIONS = [
 ];
 
 // Grammar and stories are separate downloads; the plan only needs ids and titles.
+// A module comes back empty when a file from an old version is gone and the
+// page is reloading to get the new one.
 function useNextContent(progress) {
   const [next, setNext] = useState({ grammar: null, story: null });
   const grammarDone = progress.grammar;
@@ -27,7 +29,7 @@ function useNextContent(progress) {
   useEffect(() => {
     let cancelled = false;
     Promise.all([import("../data/grammar"), import("../data/stories")]).then(([grammar, stories]) => {
-      if (cancelled) return;
+      if (cancelled || !grammar?.GRAMMAR || !stories?.STORIES) return;
       const point = grammar.GRAMMAR.find((item) => !grammarDone?.[item.id]?.done) || null;
       const story = stories.STORIES.find((item) => !item.id.endsWith("-b") && !storiesRead?.[item.id]?.read) || null;
       setNext({ grammar: point, story, grammarTotal: grammar.GRAMMAR.length, storiesTotal: stories.STORIES.length, tr: grammar.tr });
