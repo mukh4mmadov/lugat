@@ -44,6 +44,7 @@ import {
   getTopikAttempt,
   listTopikAttempts,
   saveTopikReview,
+  saveTopikWriting,
   submitTopikAttempt,
   updateTopikAttempt,
 } from "../lib/topikAttempts";
@@ -1423,6 +1424,128 @@ function AiReviewPanel({ attempt, variant, mistakes, explained, onExplained }) {
   );
 }
 
+// Daily AI writing checks (api/ai-chat.js WRITING_*_DAILY).
+const WRITING_LIMITS = { free: 2, premium: 20 };
+
+// AI marking of the written answers (TOPIK II 51–54). One check marks them
+// all; the marks are stored with the attempt and complete the result.
+function WritingCheckPanel({ attempt, variant, onChecked }) {
+  const { t, i18n } = useTranslation();
+  const { user, session } = useAuth();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const [limitReached, setLimitReached] = useState(false);
+  const premium = isPremium(user);
+
+  const run = async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${session?.access_token || ""}` },
+        body: JSON.stringify({ action: "topikWriting", variantId: variant.id, answers: attempt.answers || {}, language: i18n.language, deviceId: getDeviceId() }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (response.status === 429) {
+        setLimitReached(true);
+        return;
+      }
+      if (!response.ok || !data.checks) throw new Error(data.error || "failed");
+      onChecked(data.checks);
+    } catch {
+      setError(t("topik.writingCheck.failed"));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <GlassCard className="relative overflow-hidden p-6 md:p-8">
+      <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-fuchsia-400/25 blur-3xl" />
+      <div className="relative flex flex-wrap items-start justify-between gap-4">
+        <div className="max-w-2xl">
+          <p className="text-xs font-black uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-300">✍️ {t("topik.writingCheck.eyebrow")}</p>
+          <h2 className="mt-1 text-2xl font-black">{t("topik.writingCheck.title")}</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.writingCheck.text")}</p>
+        </div>
+        <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto">
+          {!user ? (
+            <Link to="/login" state={{ from: { pathname: window.location.pathname } }} className="rounded-2xl bg-fuchsia-600 px-5 py-3 text-center font-black text-white">{t("topik.writingCheck.signIn")}</Link>
+          ) : limitReached ? (
+            premium
+              ? <span className="rounded-2xl bg-slate-100 px-5 py-3 text-center font-black text-slate-700 dark:bg-white/10 dark:text-slate-200">{t("topik.writingCheck.limitPremium")}</span>
+              : <Link to="/premium" className="rounded-2xl bg-fuchsia-600 px-5 py-3 text-center font-black text-white">⭐ {t("topik.writingCheck.limitFree")}</Link>
+          ) : (
+            <button type="button" onClick={run} disabled={busy} className="rounded-2xl bg-fuchsia-600 px-5 py-3 font-black text-white disabled:opacity-60">
+              {busy ? t("topik.writingCheck.working") : `🤖 ${t("topik.writingCheck.run")}`}
+            </button>
+          )}
+          {user && <p className="text-center text-[11px] font-semibold text-slate-500">{t("topik.writingCheck.limits", WRITING_LIMITS)}</p>}
+        </div>
+      </div>
+      {error && <p role="alert" className="relative mt-3 text-sm font-bold text-rose-600">{error}</p>}
+    </GlassCard>
+  );
+}
+
+// The AI's marks for one written answer.
+function WritingFeedback({ check, question }) {
+  const { t } = useTranslation();
+  const parts = check.blanks
+    ? check.blanks.map((row) => [row.blank, row.score, 5])
+    : Object.entries(check.criteria || {}).map(([key, value]) => [t(`topik.writingCheck.${key}`), value, WRITING_CRITERIA_MAX[question.number]?.[key] ?? value]);
+  return (
+    <div className="mt-4 space-y-3 rounded-2xl border border-fuchsia-200 bg-fuchsia-50/70 p-4 text-sm leading-6 dark:border-fuchsia-400/20 dark:bg-fuchsia-500/10">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-black uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-300">🤖 {t("topik.writingCheck.score")}</p>
+        <p className="text-lg font-black tabular-nums">{check.score} / {question.points}</p>
+      </div>
+      {parts.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {parts.map(([label, value, max]) => (
+            <span key={label} className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-700 dark:bg-white/10 dark:text-slate-200">
+              {label}: <span className="tabular-nums">{value}/{max}</span>
+            </span>
+          ))}
+        </div>
+      )}
+      {check.feedback && <p className="text-slate-800 dark:text-slate-100">{check.feedback}</p>}
+      {check.mistakes?.length > 0 && (
+        <div>
+          <p className="font-black">{t("topik.writingCheck.mistakes")}</p>
+          <ul className="mt-1 space-y-2">
+            {check.mistakes.map((row, index) => (
+              <li key={index} className="rounded-xl bg-white/80 p-2.5 dark:bg-white/5">
+                <p className="break-words">
+                  <span className="text-rose-600 line-through decoration-rose-400/70 dark:text-rose-300" lang="ko">{row.wrong}</span>
+                  {" → "}
+                  <span className="font-bold text-emerald-700 dark:text-emerald-300" lang="ko">{row.right}</span>
+                </p>
+                {row.why && <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">{row.why}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {(check.improved || check.blanks?.some((row) => row.corrected)) && (
+        <div>
+          <p className="font-black">✨ {t("topik.writingCheck.improved")}</p>
+          <p className="mt-1 whitespace-pre-line break-words rounded-xl bg-white/80 p-3 text-[15px] leading-7 dark:bg-white/5" lang="ko">
+            {check.blanks?.some((row) => row.corrected) ? check.blanks.map((row) => `${row.blank} ${row.corrected}`).join("\n") : check.improved}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Official criterion maxima for 53 and 54 (same as api/_lib/topikWriting.js).
+const WRITING_CRITERIA_MAX = {
+  53: { content: 7, structure: 7, language: 16 },
+  54: { content: 12, structure: 12, language: 26 },
+};
+
 function Explanation({ data }) {
   const { t } = useTranslation();
   const rows = [
@@ -1504,6 +1627,8 @@ export function TopikResultPage() {
 
   const mistakes = choiceQuestions.filter((question) => statusOf(question) !== "correct");
   const saveExplanations = (explanations) => setAttempt((current) => saveTopikReview(current.id, explanations) || { ...current, aiReview: { ...(current.aiReview || {}), ...explanations } });
+  const saveWriting = (checks) => setAttempt((current) => saveTopikWriting(current.id, checks) || current);
+  const writingCheck = attempt.writingCheck || {};
 
   const retake = () => {
     createTopikAttempt(variant.id);
@@ -1574,6 +1699,8 @@ export function TopikResultPage() {
           <button type="button" onClick={remove} className="rounded-2xl px-5 py-3 font-bold text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10">{t("topik.deleteAttempt")}</button>
         </div>
       </GlassCard>
+
+      {writingPending && <WritingCheckPanel attempt={attempt} variant={variant} onChecked={saveWriting} />}
 
       {(breakdown.length > 0 || slowest.length > 0) && (
       <GlassCard className="p-6 md:p-8">
@@ -1708,6 +1835,7 @@ export function TopikResultPage() {
                     )}
                   </div>
                 )}
+                {isWriting && writingCheck[question.number] && <WritingFeedback check={writingCheck[question.number]} question={question} />}
               </GlassCard>
             );
           })}
