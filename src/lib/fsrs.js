@@ -97,7 +97,7 @@ export const DEFAULT_ANKI_SETTINGS = {
   dayStartsAt: 4,
   showRomanization: true,
   showExample: true,
-  decks: { lessons: true, topik1: false },
+  decks: { lessons: true, topik1: false, topik2: false },
 };
 
 export function ankiSettings(settings = {}) {

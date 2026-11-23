@@ -1,24 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-// pdf.js is loaded on demand so it never weighs down pages that don't show a paper.
-const documentCache = new Map();
-
-async function loadDocument(url) {
-  if (!documentCache.has(url)) {
-    const promise = (async () => {
-      const [pdfjs, worker] = await Promise.all([
-        import("pdfjs-dist"),
-        import("pdfjs-dist/build/pdf.worker.min.mjs?url"),
-      ]);
-      pdfjs.GlobalWorkerOptions.workerSrc = worker.default;
-      return pdfjs.getDocument({ url }).promise;
-    })();
-    documentCache.set(url, promise);
-    promise.catch(() => documentCache.delete(url));
-  }
-  return documentCache.get(url);
-}
+import { loadPdf as loadDocument } from "../lib/pdfDocument";
 
 const ZOOM_STEPS = [1, 1.25, 1.5, 2];
 

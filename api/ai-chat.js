@@ -3,6 +3,7 @@ import { getGrammarPoint } from "../src/data/grammar/index.js";
 import { chatDirectives, logAiFailure } from "./_lib/aiDirectives.js";
 import { BACKUP_MODEL, MAIN_MODEL, modelUrl } from "./_lib/aiModels.js";
 import { takeQuota } from "./_lib/aiQuota.js";
+import { normalizeWriting, writingItem, writingPrompt, writingSchema } from "./_lib/topikWriting.js";
 import { ALLOWED_ORIGINS } from "./_lib/origins.js";
 
 function buildSystemPrompt(language = "en", topikContext = null) {
@@ -140,6 +141,9 @@ const REVIEW_PREMIUM_DAILY = 30;
 const REVIEW_BATCH = 10;
 const GRAMMAR_FREE_DAILY = 5;
 const GRAMMAR_PREMIUM_DAILY = 100;
+// AI marking of TOPIK II writing: one request marks every written answer of an attempt.
+const WRITING_FREE_DAILY = 2;
+const WRITING_PREMIUM_DAILY = 20;
 
 function isPremiumUser(user) {
   const until = user?.app_metadata?.premium_until;
@@ -452,7 +456,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
   const answers = body.answers && typeof body.answers === "object" ? body.answers : {};
   const requested = [...new Set((Array.isArray(body.numbers) ? body.numbers : []).map(Number))]
     .map((number) => questions.find((question) => question.number === number))
-    .filter((question) => question && String(answers[question.number] ?? "") !== question.answer);
+    .filter((question) => question && question.section !== "writing" && String(answers[question.number] ?? "") !== question.answer);
   if (!requested.length) return res.status(400).json({ error: "No mistakes to explain." });
 
   const premium = isPremiumUser(user);
@@ -468,7 +472,7 @@ async function handleTopikReview(res, body, user, deviceId, language) {
     return reviewItem(exam, question, /^[1-4]$/.test(chosen) ? chosen : null);
   });
   const systemPrompt = [
-    `You are a patient, encouraging Korean teacher. A learner took a TOPIK I exam (${exam.level}, ${exam.number}th) and got these questions wrong. For each question explain, in ${langName}:`,
+    `You are a patient, encouraging Korean teacher. A learner took a TOPIK exam (${exam.level}, ${exam.number}th) and got these questions wrong. For each question explain, in ${langName}:`,
     "- whyWrong: why the learner's choice is wrong (one or two sentences). If learnerChoice is null, say briefly that it was left unanswered.",
     "- whyRight: why the correct choice is right, pointing to the exact words in the material.",
     `- keyPoint: the key word or grammar the question tests, in Korean with its ${langName} meaning.`,
@@ -522,6 +526,59 @@ async function handleTopikReview(res, body, user, deviceId, language) {
     return res.status(200).json({ explanations, premium, remainingRequests: limit.remaining ?? null, more: requested.length > batch.length });
   } catch (error) {
     console.error("TOPIK review error:", error);
+    return res.status(502).json({ error: "AI service is temporarily unavailable. Please try again later." });
+  }
+}
+
+// Marks the written answers (TOPIK II 51–54) of a finished attempt.
+async function checkWritingLimit(user, deviceId, premium) {
+  if (premium) return takeQuota(`writing-premium:${user.id}`, WRITING_PREMIUM_DAILY);
+  const [userResult, deviceResult] = await Promise.all([
+    takeQuota(`writing-free:${user.id}`, WRITING_FREE_DAILY),
+    deviceId ? takeQuota(`writing-device:${deviceId}`, WRITING_FREE_DAILY) : null,
+  ]);
+  if (!userResult.success) return userResult;
+  if (deviceResult && !deviceResult.success) return deviceResult;
+  return { success: true, remaining: Math.min(userResult.remaining, deviceResult ? deviceResult.remaining : Infinity) };
+}
+
+const hasWritten = (value) => (value && typeof value === "object"
+  ? Object.values(value).some((part) => String(part || "").trim())
+  : Boolean(String(value || "").trim()));
+
+async function handleTopikWriting(res, body, user, deviceId, language) {
+  await loadAddedTopikExams();
+  if (!user) return res.status(401).json({ error: "Sign in to get your writing marked." });
+  const variant = getTopikVariant(body.variantId);
+  if (!variant) return res.status(400).json({ error: "The TOPIK test could not be found." });
+  const exam = await loadExamContent(variant.examId);
+  const answers = body.answers && typeof body.answers === "object" ? body.answers : {};
+  const written = getVariantQuestions(variant).filter((question) => question.section === "writing" && hasWritten(answers[question.number]));
+  if (!written.length) return res.status(400).json({ error: "There is no written answer to mark." });
+
+  const premium = isPremiumUser(user);
+  const limit = await checkWritingLimit(user, deviceId, premium);
+  if (!limit.success) return res.status(429).json({ error: "Daily writing checks are used up.", resetAt: limit.reset || Date.now() + DAY_MS, isPremium: premium });
+
+  const items = written.map((question) => writingItem(exam, question, answers[question.number]));
+  try {
+    const response = await askModel({
+      contents: [{ role: "user", parts: [{ text: JSON.stringify(items) }] }],
+      systemInstruction: { parts: [{ text: writingPrompt(exam, language) }] },
+      generationConfig: { temperature: 0.2, maxOutputTokens: 8192, responseMimeType: "application/json", responseSchema: writingSchema },
+    }, { attemptMs: 40000, deadline: Date.now() + 55000 });
+    if (!response.ok) {
+      console.error("Gemini writing error:", response.status, await response.text().catch(() => ""));
+      return res.status(502).json({ error: "AI service is temporarily unavailable. Please try again later." });
+    }
+    const data = await response.json();
+    const checks = normalizeWriting(items, JSON.parse(data?.candidates?.[0]?.content?.parts?.[0]?.text || "[]"));
+    if (Object.keys(checks).length !== items.length) {
+      return res.status(502).json({ error: "AI service returned an incomplete answer. Please try again." });
+    }
+    return res.status(200).json({ checks, premium, remaining: limit.remaining ?? null });
+  } catch (error) {
+    console.error("TOPIK writing error:", error);
     return res.status(502).json({ error: "AI service is temporarily unavailable. Please try again later." });
   }
 }
@@ -792,6 +849,7 @@ export default async function handler(req, res) {
   const user = await verifyAuthToken(authToken);
 
   if (body?.action === "topikReview") return handleTopikReview(res, body, user, deviceId, language);
+  if (body?.action === "topikWriting") return handleTopikWriting(res, body, user, deviceId, language);
   if (body?.action === "grammarCheck") return handleGrammarCheck(res, body, user, language);
   if (!(await adminLimits()).chatEnabled) {
     return res.status(503).json({ error: "The AI tutor is turned off for now." });

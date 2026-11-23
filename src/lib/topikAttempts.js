@@ -108,8 +108,13 @@ function pickNewer(mine, theirs) {
   if (theirs.status === "submitted" && mine.status !== "submitted") return theirs;
   if (mine.status === "submitted" && theirs.status !== "submitted") return mine;
   const base = mine.status === "in_progress" && progressScore(mine) > progressScore(theirs) ? mine : theirs;
+  // Marked writing is kept from whichever copy has it (with its new result).
+  const marked = base.writingScores ? base : [mine, theirs].find((attempt) => attempt.writingScores) || base;
   return {
     ...base,
+    writingScores: marked.writingScores,
+    writingCheck: marked.writingCheck,
+    result: marked.result,
     hidden: Boolean(mine.hidden || theirs.hidden),
     aiReview: { ...(theirs.aiReview || {}), ...(mine.aiReview || {}) },
   };
@@ -226,6 +231,24 @@ export function saveTopikReview(attemptId, explanations) {
   return writeAll(attempts, [attemptId]) ? attempts[index] : null;
 }
 
+// The AI marks of the written answers (TOPIK II 51–54): the score goes into
+// the result, so a mock gets its level.
+export function saveTopikWriting(attemptId, checks) {
+  const attempts = readAll();
+  const index = attempts.findIndex((attempt) => attempt.id === attemptId);
+  if (index === -1 || attempts[index].status !== "submitted") return null;
+  const attempt = attempts[index];
+  const writingCheck = { ...(attempt.writingCheck || {}), ...checks };
+  const writingScores = Object.fromEntries(Object.entries(writingCheck).map(([number, check]) => [number, check.score]));
+  attempts[index] = {
+    ...attempt,
+    writingCheck,
+    writingScores,
+    result: scoreTopikAttempt(getTopikVariant(attempt.variantId), attempt.answers, writingScores),
+  };
+  return writeAll(attempts, [attemptId]) ? attempts[index] : null;
+}
+
 export function submitTopikAttempt(attemptId) {
   const attempts = readAll();
   const index = attempts.findIndex((attempt) => attempt.id === attemptId);
@@ -240,7 +263,7 @@ export function submitTopikAttempt(attemptId) {
     status: "submitted",
     submittedAt,
     elapsedSeconds: variant.durationSeconds ? Math.min(elapsed, variant.durationSeconds) : elapsed,
-    result: scoreTopikAttempt(variant, attempt.answers),
+    result: scoreTopikAttempt(variant, attempt.answers, attempt.writingScores),
   };
   writeAll(attempts, [attemptId]);
   // A finished exam goes up straight away.

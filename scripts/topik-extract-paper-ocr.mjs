@@ -15,6 +15,12 @@
 //   { "40": { "stem": { "page": 14, "x0": 90, "x1": 520, "y0": 100, "y1": 240 } },
 //     "15": { "options": [box, box, box, box] }, "63": { "sharedText": "..." } }
 // workDir keeps the rendered pages, the OCR result and preview crops.
+//
+// TOPIK II (TOPIK_LEVEL=2): each section is its own PDF with questions printed
+// 1–50, so run once per section and pass "-" for the other section's file.
+// NUMBER_OFFSET and PAGE_OFFSET shift the output (reading is stored as 101–150
+// and its pages follow the listening and writing pages in the merged PDF);
+// scripts/topik2-paper.mjs joins the parts.
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import { createRequire } from "node:module";
@@ -31,6 +37,11 @@ if (!workDir) {
   console.error("Usage: node scripts/topik-extract-paper-ocr.mjs <paper.pdf> <listening.js> <reading.js> <out.js> <EXPORT_NAME> <workDir> [fixes.json]");
   process.exit(1);
 }
+const LEVEL2 = process.env.TOPIK_LEVEL === "2";
+const SECTION_MAX = LEVEL2 ? 50 : 40; // questions in one section's online file
+const NUMBER_X_MAX = LEVEL2 ? 120 : 88; // question numbers sit left of this (points)
+const NUMBER_OFFSET = Number(process.env.NUMBER_OFFSET || 0);
+const PAGE_OFFSET = Number(process.env.PAGE_OFFSET || 0);
 const SCALE = 3; // rendered pixels per PDF point (OCR reads small numbers better at 3)
 const fixes = fixesPath && fs.existsSync(fixesPath) ? JSON.parse(fs.readFileSync(fixesPath, "utf8")) : {};
 fs.mkdirSync(path.join(workDir, `pages${SCALE}`), { recursive: true });
@@ -206,7 +217,7 @@ function official(file, offset) {
     } else {
       const [qno, , title, extra, a1, a2, a3, a4, , , , , imgTitle] = args;
       const number = Number(qno);
-      if (number < offset + 1 || number > offset + 40) throw new Error(`unexpected question ${qno}`);
+      if (number < offset + 1 || number > offset + SECTION_MAX) throw new Error(`unexpected question ${qno}`);
       const html = decode(title);
       const stemImage = title.trim() === "img";
       const outline = html.match(/<div class='question_outline'>([\s\S]*?)<\/div>/i);
@@ -229,11 +240,13 @@ function official(file, offset) {
   return { blocks, questions };
 }
 
-const listening = official(listeningPath, 0);
-const reading = official(readingPath, 30);
+const none = { blocks: [], questions: {} };
+const listening = listeningPath === "-" ? none : official(listeningPath, 0);
+const reading = readingPath === "-" ? none : official(readingPath, LEVEL2 ? 0 : 30);
 const blocks = [...listening.blocks, ...reading.blocks];
 const questions = { ...listening.questions, ...reading.questions };
-for (let number = 1; number <= 70; number += 1) if (!questions[number]) throw new Error(`official text lacks question ${number}`);
+const expected = blocks.flatMap((block) => Array.from({ length: block.to - block.from + 1 }, (_, i) => block.from + i));
+for (const number of expected) if (!questions[number]) throw new Error(`official text lacks question ${number}`);
 
 // ---------------------------------------------------------------- pages and OCR
 
@@ -443,7 +456,7 @@ function findLine(cursor, test) {
 // and the gaps are filled with the next unclaimed mark.
 const headerLike = (line) => /^\s*※/.test(line.text) || /^\s*\[\s*\d{1,2}\s*[~～∼]/.test(line.text);
 const readNumber = (candidate) => candidate.text.match(/^\s*(\d{1,2})(?=\s*[.,·』」”"'’:;]|\s|$)/);
-const numberLines = pages.flatMap((page) => page.lines.filter((line) => line.x0 < 88 && readNumber(line)));
+const numberLines = pages.flatMap((page) => page.lines.filter((line) => line.x0 < NUMBER_X_MAX && readNumber(line)));
 const columnX = numberLines.length ? numberLines.map((line) => line.x0).sort((a, b) => a - b)[Math.floor(numberLines.length / 2)] : 73;
 const blockAnchors = order.filter((item) => item.kind === "block");
 function spanMarks(start, end) {
@@ -484,7 +497,7 @@ blockAnchors.forEach((anchor, index) => {
   let cursor = start;
   for (const item of questionsHere) {
     const fix = fixes[item.number]?.header;
-    const line = fix ? fromFix(fix) : findLine(cursor, (candidate) => candidate.x0 < 88 && Number(readNumber(candidate)?.[1]) === item.number && !isAfter(candidate, end));
+    const line = fix ? fromFix(fix) : findLine(cursor, (candidate) => candidate.x0 < NUMBER_X_MAX && Number(readNumber(candidate)?.[1]) === item.number && !isAfter(candidate, end));
     if (line) {
       item.line = line;
       cursor = { page: line.page, y: line.y0 };
@@ -745,7 +758,7 @@ anchors.forEach((anchor, index) => {
   previews.push({ number: anchor.number, shared, stem: stemBox, options, imageNote: item.imageNote });
 });
 
-for (let number = 1; number <= 70; number += 1) {
+for (const number of expected) {
   const item = content[number];
   if (!item) {
     problems.push(`question ${number}: missing`);
@@ -800,7 +813,7 @@ for (const item of previews) {
 }
 
 // The PDF page of each question's number, for the answer key rows.
-fs.writeFileSync(path.join(workDir, "question-pages.json"), JSON.stringify(Object.fromEntries(order.filter((item) => item.kind === "question" && item.line).map((item) => [item.number, item.line.page]))));
+fs.writeFileSync(path.join(workDir, "question-pages.json"), JSON.stringify(Object.fromEntries(order.filter((item) => item.kind === "question" && item.line).map((item) => [item.number + NUMBER_OFFSET, item.line.page + PAGE_OFFSET]))));
 if (softProblems.length) console.warn(`Layout notes (text questions, no crop needed):\n${softProblems.join("\n")}`);
 if (problems.length) {
   console.error(`The paper could not be read completely:\n${problems.join("\n")}`);
@@ -813,8 +826,17 @@ const banner = `// Generated by scripts/topik-extract-paper-ocr.mjs from ${path.
 // instead of editing by hand.
 
 `;
+// Shifts a section's numbers and pages into the merged paper (TOPIK II).
+const shiftBox = (box) => (box && box.page ? { ...box, page: box.page + PAGE_OFFSET } : box);
+const shifted = (value) => ({
+  ...value,
+  group: value.group.map((number) => number + NUMBER_OFFSET),
+  shared: shiftBox(value.shared),
+  stem: shiftBox(value.stem),
+  options: value.options.map((option) => (option.box ? { ...option, box: shiftBox(option.box) } : option)),
+});
 const body = Object.entries(content)
-  .map(([number, value]) => `  ${number}: ${JSON.stringify(value)},`)
+  .map(([number, value]) => `  ${Number(number) + NUMBER_OFFSET}: ${JSON.stringify(NUMBER_OFFSET || PAGE_OFFSET ? shifted(value) : value)},`)
   .join("\n");
 fs.writeFileSync(outPath, `${banner}export const ${exportName} = {\n${body}\n};\n`);
 console.log(`Wrote ${Object.keys(content).length} questions to ${outPath}; previews in ${previewDir}`);

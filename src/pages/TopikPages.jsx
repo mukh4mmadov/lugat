@@ -10,13 +10,20 @@ import PdfPageViewer from "../components/PdfPageViewer";
 import TopikQuestion, { preloadPaperPages } from "../components/TopikQuestion";
 import { useTopikExamContext } from "../hooks/useTopikExamContext";
 import {
+  EXAM_LEVELS,
   TOPIK_EXAMS,
   TOPIK_VARIANTS,
+  examSections,
+  explanationKey,
   getTopikExam,
   getQuestionType,
   getTopikVariant,
   getVariantQuestions,
+  hasAnswer,
   isFreeExam,
+  isTopik2,
+  levelCuts,
+  questionLabel,
   questionTypeBreakdown,
 } from "../data/topik/exams";
 import ShareResult from "../components/ShareResult";
@@ -37,6 +44,7 @@ import {
   getTopikAttempt,
   listTopikAttempts,
   saveTopikReview,
+  saveTopikWriting,
   submitTopikAttempt,
   updateTopikAttempt,
 } from "../lib/topikAttempts";
@@ -69,7 +77,8 @@ function useTopikAttempts() {
 
 function variantTitle(t, variant) {
   const exam = getTopikExam(variant.examId);
-  return t(`topik.variant.${variant.mode}`, { number: exam.number });
+  const title = t(`topik.variant.${variant.mode}`, { number: exam.number });
+  return isTopik2(exam) ? `TOPIK II · ${title}` : title;
 }
 
 function variantSummary(t, variant) {
@@ -78,8 +87,24 @@ function variantSummary(t, variant) {
   return t("topik.sectionMeta", { count });
 }
 
+// Section names as on the paper, with the learner's language.
+const SECTION_KO = { listening: "듣기", writing: "쓰기", reading: "읽기" };
+const SECTION_ICON = { listening: "🎧", writing: "✍️", reading: "📖" };
+const sectionName = (t, section) => `${SECTION_KO[section]} · ${t(`topik.${section}`)}`;
+
+// The printed range of each section, for the mock's section buttons.
+function sectionRange(questions, section) {
+  const numbers = questions.filter((item) => item.section === section).map(questionLabel);
+  return numbers.length ? `${Math.min(...numbers)}–${Math.max(...numbers)}` : "";
+}
+
+// Scale of a level's mock score: 200 for TOPIK I, 300 for TOPIK II.
+const levelMax = (level) => (level === "TOPIK II" ? 300 : 200);
+const levelOf = (attempt) => getTopikExam(getTopikVariant(attempt.variantId)?.examId)?.level;
+
 function levelLabel(t, result) {
   if (!result) return "";
+  if (result.writing?.pending) return t("topik.writing.pendingShort");
   return result.level ? t("topik.levelBadge", { level: result.level }) : t("topik.noLevel");
 }
 
@@ -89,26 +114,56 @@ export function TopikHomePage() {
   const { t } = useTranslation();
   const [params, setParams] = useSearchParams();
   const tab = TOPIK_TABS.includes(params.get("tab")) ? params.get("tab") : "exams";
+  // TOPIK I or TOPIK II: the exams, the numbers above and the level scale.
+  const level = params.get("level") === "2" ? "TOPIK II" : "TOPIK I";
+  const two = level === "TOPIK II";
   const attempts = useTopikAttempts();
   const submitted = attempts.filter((attempt) => attempt.status === "submitted");
-  const mockResults = submitted.filter((attempt) => getTopikVariant(attempt.variantId)?.mode === "mock");
+  const levelSubmitted = submitted.filter((attempt) => levelOf(attempt) === level);
+  const mockResults = levelSubmitted.filter((attempt) => getTopikVariant(attempt.variantId)?.mode === "mock");
   const bestMock = mockResults.reduce((best, attempt) => Math.max(best, attempt.result?.total || 0), 0);
   const latestMock = mockResults[0];
+  const setLevel = (next) => {
+    const nextParams = new URLSearchParams(params);
+    if (next === "TOPIK II") nextParams.set("level", "2");
+    else nextParams.delete("level");
+    setParams(nextParams, { replace: true });
+  };
+  const setTab = (key) => {
+    const nextParams = new URLSearchParams(params);
+    if (key === "exams") nextParams.delete("tab");
+    else nextParams.set("tab", key);
+    setParams(nextParams, { replace: true });
+  };
 
   return (
     <div className="mx-auto max-w-6xl space-y-5">
       <GlassCard className="relative overflow-hidden p-5 md:p-8">
         <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-300/30 blur-3xl dark:bg-violet-500/20" />
         <div className="relative">
-          <p className="text-xs font-black uppercase tracking-[0.25em] text-sky-600 dark:text-sky-300">TOPIK I · 한국어능력시험</p>
-          <h1 className="mt-2 max-w-3xl text-3xl font-black tracking-tight md:text-4xl">{t("topik.title")}</h1>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 md:text-base">{t("topik.subtitle")}</p>
+          <div role="radiogroup" aria-label={t("topik.levelSwitch")} className="inline-flex rounded-2xl bg-slate-900/5 p-1 dark:bg-white/10">
+            {EXAM_LEVELS.map((name) => (
+              <button
+                key={name}
+                type="button"
+                role="radio"
+                aria-checked={level === name}
+                onClick={() => setLevel(name)}
+                className={`rounded-xl px-4 py-1.5 text-sm font-black transition ${level === name ? "bg-white text-sky-700 shadow-sm dark:bg-slate-900 dark:text-sky-300" : "text-slate-500 dark:text-slate-300"}`}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+          <p className="mt-4 text-xs font-black uppercase tracking-[0.25em] text-sky-600 dark:text-sky-300">{level} · 한국어능력시험</p>
+          <h1 className="mt-2 max-w-3xl text-3xl font-black tracking-tight md:text-4xl">{t(two ? "topik2.title" : "topik.title")}</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 md:text-base">{t(two ? "topik2.subtitle" : "topik.subtitle")}</p>
           <div className="mt-5 grid grid-cols-3 gap-2 md:max-w-xl">
-            <StatTile label={t("topik.statAttempts")} value={submitted.length} />
-            <StatTile label={t("topik.statBestMock")} value={mockResults.length ? `${bestMock}/200` : "—"} />
+            <StatTile label={t("topik.statAttempts")} value={levelSubmitted.length} />
+            <StatTile label={t("topik.statBestMock")} value={mockResults.length ? `${bestMock}/${levelMax(level)}` : "—"} />
             <StatTile label={t("topik.statLatestLevel")} value={latestMock ? levelLabel(t, latestMock.result) : "—"} />
           </div>
-          <LevelScale best={mockResults.length ? bestMock : null} />
+          <LevelScale level={level} best={mockResults.length ? bestMock : null} />
         </div>
       </GlassCard>
 
@@ -119,7 +174,7 @@ export function TopikHomePage() {
             type="button"
             role="tab"
             aria-selected={tab === key}
-            onClick={() => setParams(key === "exams" ? {} : { tab: key }, { replace: true })}
+            onClick={() => setTab(key)}
             className={`shrink-0 rounded-2xl px-4 py-2.5 text-sm font-black transition ${tab === key ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950" : "bg-white/70 text-slate-600 dark:bg-white/10 dark:text-slate-300"}`}
           >
             {t(`topik.tab.${key}`)}
@@ -127,54 +182,66 @@ export function TopikHomePage() {
         ))}
       </div>
 
-      {tab === "exams" && <ExamsTab attempts={attempts} />}
+      {tab === "exams" && <ExamsTab attempts={attempts} level={level} />}
       {tab === "types" && <TypesTab />}
       {tab === "words" && <WordsTab />}
-      {tab === "results" && <ResultsTab submitted={submitted} />}
+      {tab === "results" && <ResultsTab submitted={levelSubmitted} level={level} />}
     </div>
   );
 }
 
-// Where the best mock score sits on the 0–200 scale with the level lines.
-function LevelScale({ best }) {
+// Where the best mock score sits on the level's scale (TOPIK I: 0–200 with
+// levels 1–2, TOPIK II: 0–300 with levels 3–6), with the pass lines.
+function LevelScale({ level, best }) {
   const { t } = useTranslation();
+  const max = levelMax(level);
+  const cuts = levelCuts({ level }).slice().reverse(); // lowest level first
+  const tones = ["bg-sky-200/70 dark:bg-sky-500/20", "bg-sky-300/70 dark:bg-sky-500/30", "bg-emerald-200/80 dark:bg-emerald-500/25", "bg-emerald-300/80 dark:bg-emerald-500/35"];
+  const shades = cuts.length === 2 ? [tones[1], tones[3]] : tones;
   return (
     <div className="mt-5 md:max-w-xl">
       <div className="relative h-3 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">
-        <div className="absolute inset-y-0 left-[40%] w-[30%] bg-sky-300/60 dark:bg-sky-500/30" />
-        <div className="absolute inset-y-0 left-[70%] right-0 bg-emerald-300/70 dark:bg-emerald-500/30" />
-        {best !== null && <div className="absolute inset-y-0 left-0 rounded-full bg-violet-500/80" style={{ width: `${Math.min(100, best / 2)}%` }} />}
+        {cuts.map(([name, min], index) => {
+          const end = cuts[index + 1]?.[1] ?? max;
+          return <div key={name} className={`absolute inset-y-0 ${shades[index]}`} style={{ left: `${(min / max) * 100}%`, width: `${((end - min) / max) * 100}%` }} />;
+        })}
+        {best !== null && <div className="absolute inset-y-0 left-0 rounded-full bg-violet-500/80" style={{ width: `${Math.min(100, (best / max) * 100)}%` }} />}
       </div>
-      <div className="mt-1.5 flex justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
-        <span>0</span>
-        <span className="ml-[30%]">{t("topik.scale.level1")} · 80</span>
-        <span>{t("topik.scale.level2")} · 140</span>
-        <span>200</span>
+      <div className="relative mt-1.5 h-4 text-[11px] font-bold text-slate-500 dark:text-slate-400">
+        <span className="absolute left-0">0</span>
+        {cuts.map(([name, min]) => (
+          <span key={name} className="absolute -translate-x-1/2 whitespace-nowrap" style={{ left: `${(min / max) * 100}%` }}>
+            {cuts.length === 2 ? `${t("topik.levelBadge", { level: name })} · ${min}` : min}
+          </span>
+        ))}
+        <span className="absolute right-0">{max}</span>
       </div>
+      {cuts.length > 2 && <p className="mt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400">{t("topik2.levelHint")}</p>}
     </div>
   );
 }
 
-function ExamsTab({ attempts }) {
+function ExamsTab({ attempts, level }) {
   const { t } = useTranslation();
   const { user } = useAuth();
   const premium = isPremium(user);
-  const exams = [...TOPIK_EXAMS].sort((a, b) => b.number - a.number);
+  const exams = TOPIK_EXAMS.filter((exam) => (exam.level || "TOPIK I") === level).sort((a, b) => b.number - a.number);
+  const two = level === "TOPIK II";
   return (
     <section className="space-y-3">
-      <p className="text-sm text-slate-600 dark:text-slate-300">{t("topik.examsIntro")}</p>
+      <p className="text-sm text-slate-600 dark:text-slate-300">{t(two ? "topik2.examsIntro" : "topik.examsIntro")}</p>
       {!premium && exams.some((exam) => !isFreeExam(exam)) && <p className="text-xs font-semibold text-violet-700 dark:text-violet-300">⭐ {t("topik.freeNote")}</p>}
       {exams.map((exam) => (
         <GlassCard key={exam.id} className="p-4 md:p-5">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level}{exam.form ? ` · ${t("topik.form", { form: exam.form })}` : ""}</p>
-              <h2 className="text-xl font-black">{t("topik.examTitle", { number: exam.number })} <span className="text-sm font-bold text-slate-400" lang="ko">제{exam.number}회</span>{!isFreeExam(exam) && <span className="ml-2 rounded-full bg-violet-500/15 px-2 py-0.5 align-middle text-[11px] font-black text-violet-700 dark:text-violet-300">⭐ Premium</span>}</h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">{t("topik.examMeta", { count: exam.questions.length })}</p>
+              <h2 className="text-xl font-black">{t(isTopik2(exam) ? "topik2.examTitle" : "topik.examTitle", { number: exam.number })} <span className="text-sm font-bold text-slate-400" lang="ko">제{exam.number}회</span>{!isFreeExam(exam) && <span className="ml-2 rounded-full bg-violet-500/15 px-2 py-0.5 align-middle text-[11px] font-black text-violet-700 dark:text-violet-300">⭐ Premium</span>}</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t(isTopik2(exam) ? "topik2.examMeta" : "topik.examMeta", { count: exam.questions.length })}</p>
             </div>
             <Link to={`/topik/words/${exam.id}`} className="rounded-xl bg-violet-100 px-3 py-1.5 text-xs font-black text-violet-700 dark:bg-violet-500/20 dark:text-violet-200">📚 {t("topikWords.link")}</Link>
           </div>
-          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          <div className={`mt-3 grid gap-2 ${isTopik2(exam) ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"}`}>
             {TOPIK_VARIANTS.filter((variant) => variant.examId === exam.id).map((variant) => (
               <VariantCard key={variant.id} variant={variant} attempts={attempts} />
             ))}
@@ -233,6 +300,7 @@ function WordsTab() {
   const { t } = useTranslation();
   const cards = [
     { to: "/words/topik1", ko: "어휘", title: t("anki.deck.topik1"), text: t("topik.words.deckText"), action: t("anki.browse"), extra: { to: "/study?tab=units", label: t("units.open") } },
+    { to: "/words/topik2", ko: "중급 어휘", title: t("anki.deck.topik2"), text: t("anki.deck.topik2Text"), action: t("anki.browse") },
     { to: "/grammar", ko: "문법", title: t("topik.words.grammarTitle"), text: t("topik.words.grammarText"), action: t("topik.words.open") },
     { to: "/study", ko: "단어장", title: t("anki.deck.lessons"), text: t("anki.deck.lessonsText"), action: t("topik.words.open") },
     { to: "/guides", ko: "가이드", title: t("guides.title"), text: t("topik.words.guidesText"), action: t("topik.words.open") },
@@ -254,8 +322,9 @@ function WordsTab() {
   );
 }
 
-function ResultsTab({ submitted }) {
+function ResultsTab({ submitted, level }) {
   const { t, i18n } = useTranslation();
+  const about = level === "TOPIK II" ? "topik2" : "topik";
   return (
     <section className="grid gap-4 lg:grid-cols-5">
       <GlassCard className="p-5 lg:col-span-3">
@@ -287,9 +356,9 @@ function ResultsTab({ submitted }) {
       <GlassCard className="p-5 lg:col-span-2">
         <h2 className="text-xl font-black">{t("topik.aboutTitle")}</h2>
         <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-          <li>📝 {t("topik.aboutFormat")}</li>
-          <li>⏱️ {t("topik.aboutTime")}</li>
-          <li>🏅 {t("topik.aboutLevels")}</li>
+          <li>📝 {t(`${about}.aboutFormat`)}</li>
+          <li>⏱️ {t(`${about}.aboutTime`)}</li>
+          <li>🏅 {t(`${about}.aboutLevels`)}</li>
           <li>💾 {t("topik.aboutStorage")}</li>
           <li>⌨️ {t("topik.aboutKeys")}</li>
         </ul>
@@ -304,7 +373,7 @@ function VariantCard({ variant, attempts }) {
   const best = attempts
     .filter((attempt) => attempt.variantId === variant.id && attempt.status === "submitted")
     .reduce((max, attempt) => Math.max(max, attempt.result?.total || 0), -1);
-  const icon = variant.mode === "mock" ? "🎯" : variant.mode === "listening" ? "🎧" : "📖";
+  const icon = variant.mode === "mock" ? "🎯" : SECTION_ICON[variant.mode];
   return (
     <Link
       to={`/topik/${variant.id}`}
@@ -341,7 +410,7 @@ function TopikAttemptRoute({ variantId }) {
     return (
       <GlassCard className="mx-auto max-w-xl p-6 text-center md:p-8">
         <p className="text-4xl">⭐</p>
-        <h1 className="mt-2 text-2xl font-black">{t("topik.examTitle", { number: lockedExam.number })}</h1>
+        <h1 className="mt-2 text-2xl font-black">{t(isTopik2(lockedExam) ? "topik2.examTitle" : "topik.examTitle", { number: lockedExam.number })}</h1>
         <UpgradeCard feature="topikPapers" className="mt-5" />
         <Link to="/topik" className="mt-4 inline-block text-sm font-bold text-sky-600 dark:text-sky-300">← {t("topik.back")}</Link>
       </GlassCard>
@@ -367,15 +436,17 @@ function TopikAttemptRoute({ variantId }) {
 function TopikIntro({ variant, onStart }) {
   const { t } = useTranslation();
   const exam = getTopikExam(variant.examId);
-  const hasAudio = variant.section !== "reading";
+  const hasAudio = !variant.section || variant.section === "listening";
+  const hasWriting = isTopik2(exam) && (!variant.section || variant.section === "writing");
   const steps = hasAudio ? ["info", "sound", "rules"] : ["info", "rules"];
   const [step, setStep] = useState(0);
   const [soundOk, setSoundOk] = useState(false);
   const soundRef = useRef(null);
   const current = steps[step];
-  const rules = variant.mode === "mock"
-    ? ["topik.rules.mockTimer", "topik.rules.autoSubmit", "topik.rules.examAudio", "topik.rules.saved", "topik.rules.noAi"]
-    : ["topik.rules.untimed", hasAudio ? "topik.rules.audio" : "topik.rules.paper", "topik.rules.saved", "topik.rules.ai"];
+  const rules = (variant.mode === "mock"
+    ? [isTopik2(exam) ? "topik2.rules.mockTimer" : "topik.rules.mockTimer", "topik.rules.autoSubmit", "topik.rules.examAudio", hasWriting && "topik.rules.writing", "topik.rules.saved", "topik.rules.noAi"]
+    : ["topik.rules.untimed", hasAudio ? "topik.rules.audio" : "topik.rules.paper", hasWriting && "topik.rules.writing", "topik.rules.saved", "topik.rules.ai"]
+  ).filter(Boolean);
 
   useEffect(() => () => soundRef.current?.pause(), []);
 
@@ -422,9 +493,9 @@ function TopikIntro({ variant, onStart }) {
               <dl className="mt-5 grid gap-3 sm:grid-cols-2">
                 <InfoRow label={t("topik.examLabel")} value={`${exam.level} · 제${exam.number}회${exam.form ? ` · ${t("topik.form", { form: exam.form })}` : ""}`} />
                 <InfoRow label={t("topik.questionsLabel")} value={variantSummary(t, variant)} />
-                <InfoRow label={t("topik.sectionsLabel")} value={variant.section ? t(`topik.${variant.section}`) : `${t("topik.listening")} + ${t("topik.reading")}`} />
+                <InfoRow label={t("topik.sectionsLabel")} value={variant.section ? t(`topik.${variant.section}`) : examSections(exam).map((section) => t(`topik.${section}`)).join(" + ")} />
               </dl>
-              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{t(`topik.variantDescription.${variant.mode}`)}</p>
+              <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">{t(`${isTopik2(exam) ? "topik2" : "topik"}.variantDescription.${variant.mode}`)}</p>
             </div>
           )}
           {current === "sound" && (
@@ -533,15 +604,15 @@ const PHASES = [
   ["answer", "풀이"],
 ];
 
-function ListeningPanel({ isMock, status, question, blocked, onResume, clip, onPlay, onStop, onGoReading, canReplay }) {
+function ListeningPanel({ isMock, status, question, blocked, onResume, clip, onPlay, onStop, onGoNext, nextSection, canReplay }) {
   const { t } = useTranslation();
   if (isMock) {
     if (status?.phase === "done") {
       return (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-500/10 dark:text-emerald-200">
           <span>✓ {t("topik.listeningDone")}</span>
-          {question.section === "listening" && (
-            <button type="button" onClick={onGoReading} className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-black text-white">{t("topik.goReading")} →</button>
+          {question.section === "listening" && nextSection && (
+            <button type="button" onClick={onGoNext} className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-black text-white">{t(nextSection === "writing" ? "topik.goWriting" : "topik.goReading")} →</button>
           )}
         </div>
       );
@@ -598,9 +669,9 @@ function ListeningPanel({ isMock, status, question, blocked, onResume, clip, onP
 // ones are red, flagged ones marked. Opening a number goes to that question.
 function AllQuestions({ questions, answers, flagged, cursor, onJump, onClose, onSubmit }) {
   const { t } = useTranslation();
-  const unanswered = questions.filter((item) => !answers[item.number]).length;
+  const unanswered = questions.filter((item) => !hasAnswer(answers[item.number])).length;
   const flaggedCount = questions.filter((item) => flagged[item.number]).length;
-  const sections = ["listening", "reading"].filter((section) => questions.some((item) => item.section === section));
+  const sections = ["listening", "writing", "reading"].filter((section) => questions.some((item) => item.section === section));
   useEffect(() => {
     const onKey = (event) => event.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -623,25 +694,25 @@ function AllQuestions({ questions, answers, flagged, cursor, onJump, onClose, on
           </div>
           {sections.map((section) => (
             <div key={section}>
-              <p className="mb-2 text-xs font-black text-slate-500 dark:text-slate-400">{section === "listening" ? `듣기 · ${t("topik.listening")}` : `읽기 · ${t("topik.reading")}`}</p>
+              <p className="mb-2 text-xs font-black text-slate-500 dark:text-slate-400">{sectionName(t, section)}</p>
               <div className="grid grid-cols-5 overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 sm:grid-cols-10">
                 {questions.map((item, index) => {
                   if (item.section !== section) return null;
-                  const chosen = answers[item.number];
+                  const chosen = hasAnswer(answers[item.number]) ? answers[item.number] : null;
                   const current = index === cursor;
                   return (
                     <button
                       key={item.number}
                       type="button"
                       onClick={() => onJump(index)}
-                      aria-label={t("topik.questionNumber", { number: item.number })}
+                      aria-label={t("topik.questionNumber", { number: questionLabel(item) })}
                       aria-current={current ? "step" : undefined}
                       className={`relative border-b border-r border-slate-200 text-center transition hover:bg-[#eaf2ff] dark:border-white/10 dark:hover:bg-white/10 ${
                         chosen ? "" : "bg-rose-50 dark:bg-rose-500/10"
                       } ${current ? "outline outline-2 -outline-offset-2 outline-[#1a6ef5]" : ""}`}
                     >
-                      <span className="block bg-slate-50 py-1 text-xs font-black tabular-nums text-slate-600 dark:bg-white/5 dark:text-slate-300">{String(item.number).padStart(2, "0")}</span>
-                      <span className={`block py-1.5 text-base ${chosen ? "font-black text-[#1a6ef5] dark:text-sky-300" : "text-rose-400"}`}>{chosen ? OPTION_MARKS[chosen] : "–"}</span>
+                      <span className="block bg-slate-50 py-1 text-xs font-black tabular-nums text-slate-600 dark:bg-white/5 dark:text-slate-300">{String(questionLabel(item)).padStart(2, "0")}</span>
+                      <span className={`block py-1.5 text-base ${chosen ? "font-black text-[#1a6ef5] dark:text-sky-300" : "text-rose-400"}`}>{chosen ? OPTION_MARKS[chosen] || "✎" : "–"}</span>
                       {flagged[item.number] && <span className="absolute right-1 top-1 text-[10px] text-amber-500">⚑</span>}
                     </button>
                   );
@@ -685,7 +756,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   const question = questions[cursor];
   const answers = useMemo(() => attempt.answers || {}, [attempt.answers]);
   const flagged = useMemo(() => attempt.flagged || {}, [attempt.flagged]);
-  const answeredCount = questions.filter((item) => answers[item.number]).length;
+  const answeredCount = questions.filter((item) => hasAnswer(answers[item.number])).length;
   const flaggedCount = questions.filter((item) => flagged[item.number]).length;
   const elapsed = Math.floor((now - attempt.startedAt) / 1000);
   const remaining = variant.durationSeconds ? variant.durationSeconds - elapsed : null;
@@ -711,7 +782,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
       dispatch(recordTopik({
         score: submitted.result?.total,
         variantId: submitted.variantId,
-        answered: questions.filter((item) => submitted.answers?.[item.number]).length,
+        answered: questions.filter((item) => hasAnswer(submitted.answers?.[item.number])).length,
         total: questions.length,
       }));
       onSubmitted(submitted);
@@ -810,12 +881,27 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
   useEffect(() => () => setContext(null), [setContext]);
 
   const selectAnswer = useCallback((option) => {
-    if (!question || timeUp) return;
+    if (!question || timeUp || question.section === "writing") return;
     const nextAnswers = { ...answers };
     if (nextAnswers[question.number] === option) delete nextAnswers[question.number];
     else nextAnswers[question.number] = option;
     persist({ answers: nextAnswers });
   }, [answers, persist, question, timeUp]);
+
+  // Writing answers arrive after a pause in typing, or when the learner leaves
+  // the question, so they are merged into the latest answers, not a stale copy.
+  const answersRef = useRef(answers);
+  useEffect(() => {
+    answersRef.current = answers;
+  }, [answers]);
+  const writeAnswer = useCallback((number, value) => {
+    if (submittedRef.current) return;
+    const nextAnswers = { ...answersRef.current };
+    if (hasAnswer(value)) nextAnswers[number] = value;
+    else delete nextAnswers[number];
+    answersRef.current = nextAnswers;
+    persist({ answers: nextAnswers });
+  }, [persist]);
 
   const toggleFlag = useCallback(() => {
     if (!question) return;
@@ -873,8 +959,9 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
       if (index >= 0 && questionRef.current?.section === "listening") setCursor(index);
     } else if (status.phase === "done" && followedRef.current !== "done") {
       followedRef.current = "done";
-      const reading = questions.findIndex((item) => item.section === "reading");
-      if (reading >= 0 && questionRef.current?.section === "listening") setCursor(reading);
+      // TOPIK I goes on to reading, TOPIK II to writing.
+      const next = questions.findIndex((item) => item.section !== "listening");
+      if (next >= 0 && questionRef.current?.section === "listening") setCursor(next);
     }
   }, [isMock, questions, status]);
 
@@ -948,8 +1035,10 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
       : remaining < 600
         ? "bg-amber-300 text-slate-950"
         : "bg-white text-[#1a6ef5]";
-  const sectionLabel = question.section === "listening" ? `듣기 · ${t("topik.listening")}` : `읽기 · ${t("topik.reading")}`;
+  const sectionLabel = sectionName(t, question.section);
   const sectionStart = (section) => questions.findIndex((item) => item.section === section);
+  const paperSections = examSections(exam).filter((section) => questions.some((item) => item.section === section));
+  const afterListening = paperSections.find((section) => section !== "listening") || null;
   const isLast = cursor === questions.length - 1;
   const showListening = hasListening && (isMock || question.section === "listening");
 
@@ -984,7 +1073,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
         <header className="shrink-0 bg-[#1a6ef5] text-white shadow-md dark:bg-[#123c8c]">
           <div className="mx-auto flex max-w-6xl items-center gap-3 px-3 py-2.5 md:px-5">
             <div className="min-w-0 flex-1 text-left md:text-center">
-              <p className="truncate text-sm font-black md:text-lg">한국어능력시험(TOPIK) I · 제{exam.number}회</p>
+              <p className="truncate text-sm font-black md:text-lg">한국어능력시험(TOPIK) {isTopik2(exam) ? "II" : "I"} · 제{exam.number}회</p>
               <p className="truncate text-xs font-semibold text-blue-100">{sectionLabel}</p>
             </div>
             <div role="timer" aria-live="off" className={`flex items-center gap-2 rounded-xl px-3 py-1.5 font-black tabular-nums shadow-sm ${timerTone}`}>
@@ -998,9 +1087,9 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
           </div>
           <div className="bg-[#155fd6] dark:bg-[#0e2f6e]">
             <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5 text-xs font-bold md:px-5">
-              {isMock && ["listening", "reading"].map((section) => (
-                <button key={section} type="button" onClick={() => go(sectionStart(section))} className={`rounded-lg px-2.5 py-1 transition ${question.section === section ? "bg-white text-[#1a6ef5]" : "text-blue-50 hover:bg-white/15"}`}>
-                  {section === "listening" ? "듣기 1–30" : "읽기 31–70"}
+              {isMock && paperSections.map((section) => (
+                <button key={section} type="button" onClick={() => go(sectionStart(section))} className={`shrink-0 rounded-lg px-2 py-1 transition sm:px-2.5 ${question.section === section ? "bg-white text-[#1a6ef5]" : "text-blue-50 hover:bg-white/15"}`}>
+                  {SECTION_KO[section]} <span className="hidden min-[400px]:inline">{sectionRange(questions, section)}</span>
                 </button>
               ))}
               {!isMock && <button type="button" onClick={toggleTranslate} aria-pressed={translate} className={`rounded-lg px-2.5 py-1 transition ${translate ? "bg-white/90 text-[#1a6ef5]" : "text-blue-50 hover:bg-white/15"}`}>
@@ -1033,7 +1122,8 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
                 clip={clip}
                 onPlay={() => playQuestion(question.number)}
                 onStop={stopClip}
-                onGoReading={() => go(sectionStart("reading"))}
+                onGoNext={() => afterListening && go(sectionStart(afterListening))}
+                nextSection={afterListening}
                 canReplay={Boolean(replayRange(exam, question.number))}
               />
             )}
@@ -1041,7 +1131,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
               exam={exam}
               question={question}
               selected={answers[question.number]}
-              onSelect={selectAnswer}
+              onSelect={question.section === "writing" ? (value) => writeAnswer(question.number, value) : selectAnswer}
               showShared={showSharedFor(exam, question)}
               translate={translate && !isMock}
             />
@@ -1085,7 +1175,7 @@ function TopikExam({ variant, initialAttempt, onSubmitted }) {
             <div className="flex flex-1 items-center justify-center gap-2 md:flex-none">
               <button type="button" onClick={() => setListOpen(true)} className="flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-sm font-black text-[#0b2a5b] shadow-sm transition hover:bg-[#eaf2ff] dark:bg-white/10 dark:text-white">
                 ☰ <span className="hidden sm:inline">전체 문제</span>
-                <span className="tabular-nums text-slate-500 dark:text-slate-300">{question.number}번</span>
+                <span className="tabular-nums text-slate-500 dark:text-slate-300">{questionLabel(question)}번</span>
               </button>
               <button type="button" onClick={toggleFlag} aria-pressed={!!flagged[question.number]} title={t("topik.flag")} className={`rounded-xl px-3 py-2 text-sm font-black transition ${flagged[question.number] ? "bg-amber-300 text-slate-950" : "bg-white text-slate-600 shadow-sm hover:bg-amber-50 dark:bg-white/10 dark:text-slate-200"}`}>
                 ⚑<span className="hidden lg:inline"> {flagged[question.number] ? t("topik.flagged") : t("topik.flag")}</span>
@@ -1167,22 +1257,24 @@ function showSharedFor(exam, question) {
 
 function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
   const { t } = useTranslation();
-  const sections = ["listening", "reading"].filter((section) => questions.some((question) => question.section === section));
+  const sections = ["listening", "writing", "reading"].filter((section) => questions.some((question) => question.section === section));
   return (
     <div className="space-y-4">
       <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">답안지 · {t("topik.answerSheet")}</p>
       {sections.map((section) => (
         <div key={section}>
-          <p className="mb-2 text-xs font-bold text-slate-500 dark:text-slate-400">{section === "listening" ? `🎧 듣기 · ${t("topik.listening")}` : `📖 읽기 · ${t("topik.reading")}`}</p>
+          <p className="mb-2 text-xs font-bold text-slate-500 dark:text-slate-400">{SECTION_ICON[section]} {sectionName(t, section)}</p>
           <div className="grid grid-cols-6 gap-1.5 sm:grid-cols-10 lg:grid-cols-6">
             {questions.map((question, index) => {
               if (question.section !== section) return null;
-              const chosen = answers[question.number];
+              const chosen = hasAnswer(answers[question.number]) ? answers[question.number] : null;
               let tone;
               if (results) {
                 tone = !chosen
                   ? "bg-slate-200 text-slate-500 dark:bg-white/10 dark:text-slate-400"
-                  : chosen === question.answer
+                  : question.section === "writing"
+                    ? "bg-violet-500 text-white"
+                    : chosen === question.answer
                     ? "bg-emerald-500 text-white"
                     : "bg-rose-500 text-white";
               } else if (index === cursor) {
@@ -1197,12 +1289,12 @@ function AnswerSheet({ questions, answers, flagged, cursor, onJump, results }) {
                   key={question.number}
                   type="button"
                   onClick={() => onJump(index)}
-                  aria-label={t("topik.questionNumber", { number: question.number })}
+                  aria-label={t("topik.questionNumber", { number: questionLabel(question) })}
                   aria-current={!results && index === cursor ? "step" : undefined}
                   className={`relative flex h-10 flex-col items-center justify-center rounded-lg border border-slate-200/70 text-[11px] font-black leading-none tabular-nums transition hover:scale-105 dark:border-white/10 ${tone}`}
                 >
-                  <span>{question.number}</span>
-                  {chosen && <span className="mt-0.5 text-[10px] opacity-90">{OPTION_MARKS[chosen]}</span>}
+                  <span>{questionLabel(question)}</span>
+                  {chosen && <span className="mt-0.5 text-[10px] opacity-90">{OPTION_MARKS[chosen] || "✎"}</span>}
                   {flagged[question.number] && <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-amber-400 ring-2 ring-white dark:ring-slate-900" />}
                 </button>
               );
@@ -1332,6 +1424,128 @@ function AiReviewPanel({ attempt, variant, mistakes, explained, onExplained }) {
   );
 }
 
+// Daily AI writing checks (api/ai-chat.js WRITING_*_DAILY).
+const WRITING_LIMITS = { free: 2, premium: 20 };
+
+// AI marking of the written answers (TOPIK II 51–54). One check marks them
+// all; the marks are stored with the attempt and complete the result.
+function WritingCheckPanel({ attempt, variant, onChecked }) {
+  const { t, i18n } = useTranslation();
+  const { user, session } = useAuth();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const [limitReached, setLimitReached] = useState(false);
+  const premium = isPremium(user);
+
+  const run = async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${session?.access_token || ""}` },
+        body: JSON.stringify({ action: "topikWriting", variantId: variant.id, answers: attempt.answers || {}, language: i18n.language, deviceId: getDeviceId() }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (response.status === 429) {
+        setLimitReached(true);
+        return;
+      }
+      if (!response.ok || !data.checks) throw new Error(data.error || "failed");
+      onChecked(data.checks);
+    } catch {
+      setError(t("topik.writingCheck.failed"));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <GlassCard className="relative overflow-hidden p-6 md:p-8">
+      <div className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-fuchsia-400/25 blur-3xl" />
+      <div className="relative flex flex-wrap items-start justify-between gap-4">
+        <div className="max-w-2xl">
+          <p className="text-xs font-black uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-300">✍️ {t("topik.writingCheck.eyebrow")}</p>
+          <h2 className="mt-1 text-2xl font-black">{t("topik.writingCheck.title")}</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{t("topik.writingCheck.text")}</p>
+        </div>
+        <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto">
+          {!user ? (
+            <Link to="/login" state={{ from: { pathname: window.location.pathname } }} className="rounded-2xl bg-fuchsia-600 px-5 py-3 text-center font-black text-white">{t("topik.writingCheck.signIn")}</Link>
+          ) : limitReached ? (
+            premium
+              ? <span className="rounded-2xl bg-slate-100 px-5 py-3 text-center font-black text-slate-700 dark:bg-white/10 dark:text-slate-200">{t("topik.writingCheck.limitPremium")}</span>
+              : <Link to="/premium" className="rounded-2xl bg-fuchsia-600 px-5 py-3 text-center font-black text-white">⭐ {t("topik.writingCheck.limitFree")}</Link>
+          ) : (
+            <button type="button" onClick={run} disabled={busy} className="rounded-2xl bg-fuchsia-600 px-5 py-3 font-black text-white disabled:opacity-60">
+              {busy ? t("topik.writingCheck.working") : `🤖 ${t("topik.writingCheck.run")}`}
+            </button>
+          )}
+          {user && <p className="text-center text-[11px] font-semibold text-slate-500">{t("topik.writingCheck.limits", WRITING_LIMITS)}</p>}
+        </div>
+      </div>
+      {error && <p role="alert" className="relative mt-3 text-sm font-bold text-rose-600">{error}</p>}
+    </GlassCard>
+  );
+}
+
+// The AI's marks for one written answer.
+function WritingFeedback({ check, question }) {
+  const { t } = useTranslation();
+  const parts = check.blanks
+    ? check.blanks.map((row) => [row.blank, row.score, 5])
+    : Object.entries(check.criteria || {}).map(([key, value]) => [t(`topik.writingCheck.${key}`), value, WRITING_CRITERIA_MAX[question.number]?.[key] ?? value]);
+  return (
+    <div className="mt-4 space-y-3 rounded-2xl border border-fuchsia-200 bg-fuchsia-50/70 p-4 text-sm leading-6 dark:border-fuchsia-400/20 dark:bg-fuchsia-500/10">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-black uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-300">🤖 {t("topik.writingCheck.score")}</p>
+        <p className="text-lg font-black tabular-nums">{check.score} / {question.points}</p>
+      </div>
+      {parts.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {parts.map(([label, value, max]) => (
+            <span key={label} className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-700 dark:bg-white/10 dark:text-slate-200">
+              {label}: <span className="tabular-nums">{value}/{max}</span>
+            </span>
+          ))}
+        </div>
+      )}
+      {check.feedback && <p className="text-slate-800 dark:text-slate-100">{check.feedback}</p>}
+      {check.mistakes?.length > 0 && (
+        <div>
+          <p className="font-black">{t("topik.writingCheck.mistakes")}</p>
+          <ul className="mt-1 space-y-2">
+            {check.mistakes.map((row, index) => (
+              <li key={index} className="rounded-xl bg-white/80 p-2.5 dark:bg-white/5">
+                <p className="break-words">
+                  <span className="text-rose-600 line-through decoration-rose-400/70 dark:text-rose-300" lang="ko">{row.wrong}</span>
+                  {" → "}
+                  <span className="font-bold text-emerald-700 dark:text-emerald-300" lang="ko">{row.right}</span>
+                </p>
+                {row.why && <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">{row.why}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {(check.improved || check.blanks?.some((row) => row.corrected)) && (
+        <div>
+          <p className="font-black">✨ {t("topik.writingCheck.improved")}</p>
+          <p className="mt-1 whitespace-pre-line break-words rounded-xl bg-white/80 p-3 text-[15px] leading-7 dark:bg-white/5" lang="ko">
+            {check.blanks?.some((row) => row.corrected) ? check.blanks.map((row) => `${row.blank} ${row.corrected}`).join("\n") : check.improved}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Official criterion maxima for 53 and 54 (same as api/_lib/topikWriting.js).
+const WRITING_CRITERIA_MAX = {
+  53: { content: 7, structure: 7, language: 16 },
+  54: { content: 12, structure: 12, language: 26 },
+};
+
 function Explanation({ data }) {
   const { t } = useTranslation();
   const rows = [
@@ -1364,7 +1578,7 @@ export function TopikResultPage() {
   const [filter, setFilter] = useState("all");
   const [openQuestion, setOpenQuestion] = useState(null);
   const resultExam = attempt?.status === "submitted" ? getTopikExam(getTopikVariant(attempt.variantId)?.examId) : null;
-  const explanations = useExplanations(resultExam?.number);
+  const explanations = useExplanations(explanationKey(resultExam));
   const examReady = useExamContent(resultExam?.id);
 
   if (!attempt || attempt.status !== "submitted") {
@@ -1382,18 +1596,25 @@ export function TopikResultPage() {
   const exam = getTopikExam(variant.examId);
   const questions = getVariantQuestions(variant);
   const { result, answers = {}, flagged = {}, timeSpent = {}, aiReview = {} } = attempt;
-  const breakdown = questionTypeBreakdown(questions, answers);
+  const two = isTopik2(exam);
+  const breakdown = questionTypeBreakdown(questions, answers, exam);
   const slowest = questions
     .filter((question) => timeSpent[question.number])
     .sort((a, b) => timeSpent[b.number] - timeSpent[a.number])
     .slice(0, 5);
   const percent = result.maxTotal ? Math.round((result.total / result.maxTotal) * 100) : 0;
-  const statusOf = (question) => (!answers[question.number] ? "unanswered" : answers[question.number] === question.answer ? "correct" : "incorrect");
+  // Writing has no key: a written answer is "written", not right or wrong.
+  const statusOf = (question) => {
+    if (!hasAnswer(answers[question.number])) return "unanswered";
+    if (question.section === "writing") return "written";
+    return answers[question.number] === question.answer ? "correct" : "incorrect";
+  };
   const visible = questions.filter((question) => {
     if (filter === "all") return true;
     if (filter === "flagged") return flagged[question.number];
     return statusOf(question) === filter;
   });
+  const choiceQuestions = questions.filter((question) => question.section !== "writing");
   const counts = {
     all: questions.length,
     correct: questions.filter((question) => statusOf(question) === "correct").length,
@@ -1401,9 +1622,13 @@ export function TopikResultPage() {
     unanswered: questions.filter((question) => statusOf(question) === "unanswered").length,
     flagged: questions.filter((question) => flagged[question.number]).length,
   };
+  const writing = result.writing || null;
+  const writingPending = Boolean(writing?.pending);
 
-  const mistakes = questions.filter((question) => statusOf(question) !== "correct");
+  const mistakes = choiceQuestions.filter((question) => statusOf(question) !== "correct");
   const saveExplanations = (explanations) => setAttempt((current) => saveTopikReview(current.id, explanations) || { ...current, aiReview: { ...(current.aiReview || {}), ...explanations } });
+  const saveWriting = (checks) => setAttempt((current) => saveTopikWriting(current.id, checks) || current);
+  const writingCheck = attempt.writingCheck || {};
 
   const retake = () => {
     createTopikAttempt(variant.id);
@@ -1425,36 +1650,47 @@ export function TopikResultPage() {
             <p className="text-xs font-black uppercase tracking-widest text-violet-600 dark:text-violet-300">{exam.level} · {t("topik.form", { form: exam.form })}</p>
             <h1 className="mt-1 text-3xl font-black">{variantTitle(t, variant)}</h1>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{formatDate(attempt.submittedAt, i18n.language, { time: true })} · {t("topik.elapsed")}: {formatClock(attempt.elapsedSeconds)}</p>
-            {variant.mode === "mock" && (
-              <p className={`mt-4 inline-block rounded-2xl px-4 py-2 font-black ${result.level ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
-                {result.level ? `🏅 ${t("topik.estimatedLevel", { level: result.level })}` : t("topik.belowLevel")}
+            {variant.mode === "mock" && (writingPending ? (
+              <p className="mt-4 inline-block rounded-2xl bg-amber-100 px-4 py-2 font-black text-amber-800 dark:bg-amber-500/15 dark:text-amber-200">
+                ⏳ {t("topik.writing.pendingLevel")}
               </p>
-            )}
+            ) : (
+              <p className={`mt-4 inline-block rounded-2xl px-4 py-2 font-black ${result.level ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-200" : "bg-slate-100 text-slate-700 dark:bg-white/10 dark:text-slate-200"}`}>
+                {result.level ? `🏅 ${t(two ? "topik2.estimatedLevel" : "topik.estimatedLevel", { level: result.level })}` : t(two ? "topik2.belowLevel" : "topik.belowLevel")}
+              </p>
+            ))}
             {variant.mode === "mock" && (
-              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t("topik.levelHint", { level1: exam.level1Min, level2: exam.level2Min })}</p>
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{two ? t("topik2.levelHint") : t("topik.levelHint", { level1: exam.level1Min, level2: exam.level2Min })}</p>
             )}
           </div>
         </div>
-        <div className="relative mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={`relative mt-6 grid gap-3 sm:grid-cols-2 ${writing && result.listening ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
           {result.listening && <ScoreTile label={`🎧 ${t("topik.listeningScore")}`} value={`${result.listening.score} / 100`} sub={t("topik.correctOf", { correct: result.listening.correct, total: result.listening.total })} />}
+          {writing && <ScoreTile label={`✍️ ${t("topik.writingScore")}`} value={writingPending ? "—" : `${writing.score} / 100`} sub={writingPending ? t("topik.writing.pendingShort") : t("topik.writing.writtenOf", { answered: writing.answered, total: writing.total })} />}
           {result.reading && <ScoreTile label={`📖 ${t("topik.readingScore")}`} value={`${result.reading.score} / 100`} sub={t("topik.correctOf", { correct: result.reading.correct, total: result.reading.total })} />}
-          <ScoreTile label={t("topik.accuracy")} value={`${counts.all ? Math.round((counts.correct / counts.all) * 100) : 0}%`} sub={t("topik.correctOf", { correct: counts.correct, total: counts.all })} />
+          {choiceQuestions.length > 0 && <ScoreTile label={t("topik.accuracy")} value={`${Math.round((counts.correct / choiceQuestions.length) * 100)}%`} sub={t("topik.correctOf", { correct: counts.correct, total: choiceQuestions.length })} />}
           <ScoreTile label={t("topik.unanswered")} value={counts.unanswered} sub={t("topik.questionsWord")} />
         </div>
+        {writing && (
+          <p className="relative mt-4 rounded-2xl bg-violet-50 p-4 text-sm leading-6 text-violet-900 dark:bg-violet-500/10 dark:text-violet-100">
+            ✍️ {t(writingPending ? "topik.writing.pendingText" : "topik.writing.scoredText")}
+          </p>
+        )}
         <div className="relative mt-6 flex flex-wrap gap-3">
           <ShareResult
             fileName={`k-talim-topik-${variant.id}`}
             text={t("shareResult.topikText", { title: variantTitle(t, variant), total: result.total, max: result.maxTotal })}
             card={{
-              eyebrow: `${exam.level} · ${variantTitle(t, variant)}`,
+              eyebrow: `${exam.level} · ${t(`topik.variant.${variant.mode}`, { number: exam.number })}`,
               score: result.total,
               outOf: result.maxTotal,
               percent,
-              badge: variant.mode === "mock" && result.level ? t("topik.estimatedLevel", { level: result.level }) : null,
+              badge: variant.mode === "mock" && result.level ? t(two ? "topik2.estimatedLevel" : "topik.estimatedLevel", { level: result.level }) : null,
               chips: [
                 result.listening && `🎧 ${result.listening.score}/100`,
+                writing && !writingPending && `✍️ ${writing.score}/100`,
                 result.reading && `📖 ${result.reading.score}/100`,
-                t("topik.correctOf", { correct: counts.correct, total: counts.all }),
+                choiceQuestions.length > 0 && t("topik.correctOf", { correct: counts.correct, total: choiceQuestions.length }),
               ].filter(Boolean),
             }}
           />
@@ -1464,10 +1700,17 @@ export function TopikResultPage() {
         </div>
       </GlassCard>
 
+      {writingPending && <WritingCheckPanel attempt={attempt} variant={variant} onChecked={saveWriting} />}
+
+      {(breakdown.length > 0 || slowest.length > 0) && (
       <GlassCard className="p-6 md:p-8">
-        <h2 className="text-2xl font-black">{t("topik.typeAnalysis")}</h2>
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t("topik.typeAnalysisHint")}</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        {breakdown.length > 0 && (
+          <>
+            <h2 className="text-2xl font-black">{t("topik.typeAnalysis")}</h2>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t("topik.typeAnalysisHint")}</p>
+          </>
+        )}
+        <div className={`grid gap-3 md:grid-cols-2 ${breakdown.length ? "mt-5" : ""}`}>
           {breakdown.map((group) => {
             const percentCorrect = Math.round((group.correct / group.total) * 100);
             const tone = percentCorrect >= 80 ? "bg-emerald-500" : percentCorrect >= 50 ? "bg-amber-400" : "bg-rose-500";
@@ -1493,18 +1736,19 @@ export function TopikResultPage() {
           })}
         </div>
         {slowest.length > 0 && (
-          <div className="mt-6">
+          <div className={breakdown.length ? "mt-6" : ""}>
             <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">⏱ {t("topik.slowestQuestions")}</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {slowest.map((question) => (
                 <span key={question.number} className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-bold dark:bg-white/10">
-                  {question.number}번 · {formatClock(timeSpent[question.number])}
+                  {two ? `${SECTION_KO[question.section]} ` : ""}{questionLabel(question)}번 · {formatClock(timeSpent[question.number])}
                 </span>
               ))}
             </div>
           </div>
         )}
       </GlassCard>
+      )}
 
       <AiReviewPanel attempt={attempt} variant={variant} mistakes={mistakes} explained={aiReview} onExplained={saveExplanations} />
 
@@ -1544,31 +1788,39 @@ export function TopikResultPage() {
           {visible.length === 0 && <GlassCard className="text-sm text-slate-500 dark:text-slate-400">{t("topik.filterEmpty")}</GlassCard>}
           {visible.map((question) => {
             const status = statusOf(question);
-            const open = openQuestion === question.number;
+            const isWriting = question.section === "writing";
+            // A writing answer is shown with the model answer straight away.
+            const open = isWriting || openQuestion === question.number;
+            const type = getQuestionType(question.number, exam);
+            const score = isWriting
+              ? (Number.isFinite(attempt.writingScores?.[question.number]) ? attempt.writingScores[question.number] : "—")
+              : status === "correct" ? question.points : 0;
             return (
               <GlassCard key={question.number} id={`review-${question.number}`} className="scroll-mt-24 p-4 md:p-5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <span className={`grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white ${status === "correct" ? "bg-emerald-500" : status === "incorrect" ? "bg-rose-500" : "bg-slate-400"}`}>{question.number}</span>
+                    <span className={`grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white ${status === "correct" ? "bg-emerald-500" : status === "incorrect" ? "bg-rose-500" : status === "written" ? "bg-violet-500" : "bg-slate-400"}`}>{questionLabel(question)}</span>
                     <div>
                       <p className="font-black">
-                        {status === "correct" ? `✓ ${t("topik.correct")}` : status === "incorrect" ? `✗ ${t("topik.incorrect")}` : t("topik.unanswered")}
+                        {status === "correct" ? `✓ ${t("topik.correct")}` : status === "incorrect" ? `✗ ${t("topik.incorrect")}` : status === "written" ? `✍️ ${t("topik.writing.written")}` : t("topik.unanswered")}
                         {flagged[question.number] && <span className="ml-2 text-amber-500">⚑</span>}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
-                        {question.section === "listening" ? t("topik.listening") : t("topik.reading")} · {status === "correct" ? question.points : 0}/{question.points} {t("topik.pointsShort")}
-                        {getQuestionType(question.number) && ` · ${getQuestionType(question.number).ko}`}
+                        {t(`topik.${question.section}`)} · {score}/{question.points} {t("topik.pointsShort")}
+                        {type && ` · ${type.ko}`}
                         {timeSpent[question.number] ? ` · ⏱ ${formatClock(timeSpent[question.number])}` : ""}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-sm">
-                    <span>{t("topik.yourAnswer")}: <b className={status === "incorrect" ? "text-rose-600 dark:text-rose-300" : ""}>{answers[question.number] ? OPTION_MARKS[answers[question.number]] : "—"}</b></span>
-                    <span>{t("topik.correctAnswer")}: <b className="text-emerald-600 dark:text-emerald-300">{OPTION_MARKS[question.answer]}</b></span>
-                    <button type="button" onClick={() => setOpenQuestion(open ? null : question.number)} aria-expanded={open} className="rounded-xl border border-slate-200 px-3 py-1.5 font-bold dark:border-white/10">
-                      {open ? t("topik.hidePaper") : t("topik.showPaper")}
-                    </button>
-                  </div>
+                  {!isWriting && (
+                    <div className="flex items-center gap-4 text-sm">
+                      <span>{t("topik.yourAnswer")}: <b className={status === "incorrect" ? "text-rose-600 dark:text-rose-300" : ""}>{answers[question.number] ? OPTION_MARKS[answers[question.number]] : "—"}</b></span>
+                      <span>{t("topik.correctAnswer")}: <b className="text-emerald-600 dark:text-emerald-300">{OPTION_MARKS[question.answer]}</b></span>
+                      <button type="button" onClick={() => setOpenQuestion(open ? null : question.number)} aria-expanded={open} className="rounded-xl border border-slate-200 px-3 py-1.5 font-bold dark:border-white/10">
+                        {open ? t("topik.hidePaper") : t("topik.showPaper")}
+                      </button>
+                    </div>
+                  )}
                 </div>
                 {(open || status !== "correct") && explanations?.[question.number] && <TopikExplanation entry={explanations[question.number]} className="mt-4" />}
                 {aiReview[question.number] && <Explanation data={aiReview[question.number]} />}
@@ -1583,6 +1835,7 @@ export function TopikResultPage() {
                     )}
                   </div>
                 )}
+                {isWriting && writingCheck[question.number] && <WritingFeedback check={writingCheck[question.number]} question={question} />}
               </GlassCard>
             );
           })}

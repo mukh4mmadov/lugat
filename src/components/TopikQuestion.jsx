@@ -2,29 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TOPIK_INSTRUCTIONS } from "../data/topik/instructions";
 import PdfPageViewer from "./PdfPageViewer";
+import { questionLabel } from "../data/topik/exams";
+import { loadPdf as loadDocument } from "../lib/pdfDocument";
 
 // Renders paper regions (passages, notices, pictures) straight from the exam
 // PDF, so what the learner sees is exactly the printed paper.
 const RENDER_SCALE = 2.5;
 const MAX_CACHED_PAGES = 6;
-const documents = new Map();
 const pageCanvases = new Map();
-
-async function loadDocument(url) {
-  if (!documents.has(url)) {
-    const promise = (async () => {
-      const [pdfjs, worker] = await Promise.all([
-        import("pdfjs-dist"),
-        import("pdfjs-dist/build/pdf.worker.min.mjs?url"),
-      ]);
-      pdfjs.GlobalWorkerOptions.workerSrc = worker.default;
-      return pdfjs.getDocument({ url }).promise;
-    })();
-    documents.set(url, promise);
-    promise.catch(() => documents.delete(url));
-  }
-  return documents.get(url);
-}
 
 function renderPage(url, pageNumber) {
   const key = `${url}#${pageNumber}`;
@@ -194,7 +179,10 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
   const fromPaper = !exam.content;
   const content = fromPaper ? numberedOnly(question.number, t("topik.answerFromPaper")) : exam.content[question.number];
   if (!content) return null;
-  const [from, to] = content.group;
+  // TOPIK II reading is stored as 101–150 but printed 1–50.
+  const shift = question.number - questionLabel(question);
+  const [from, to] = content.group.map((number) => number - shift);
+  const label = questionLabel(question);
   const isPicture = content.options.some((option) => option.box);
   const short = !isPicture && content.options.every((option) => option.text.length <= 10);
   const layout = isPicture ? "grid-cols-2" : short ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-1";
@@ -219,16 +207,18 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
 
   return (
     <article className="space-y-4">
-      <div className="rounded-xl border border-[#cfe0ff] bg-[#f3f7ff] px-4 py-3 dark:border-white/10 dark:bg-white/5">
-        <p className="text-[15px] font-bold leading-7 text-[#0b2a5b] dark:text-slate-100 md:text-base">
-          <span className="mr-1 text-[#1a6ef5] dark:text-sky-300">※ [{from}~{to}]</span> {content.instruction}
-        </p>
-        {translation && <p className="mt-1 text-sm font-semibold leading-6 text-slate-600 dark:text-slate-300">{translation}</p>}
-      </div>
+      {content.instruction && (
+        <div className="rounded-xl border border-[#cfe0ff] bg-[#f3f7ff] px-4 py-3 dark:border-white/10 dark:bg-white/5">
+          <p className="text-[15px] font-bold leading-7 text-[#0b2a5b] dark:text-slate-100 md:text-base">
+            <span className="mr-1 text-[#1a6ef5] dark:text-sky-300">※ [{from}~{to}]</span> {content.instruction}
+          </p>
+          {translation && <p className="mt-1 text-sm font-semibold leading-6 text-slate-600 dark:text-slate-300">{translation}</p>}
+        </div>
+      )}
 
       {fromPaper && <PdfPageViewer url={exam.pdf} page={question.page} maxHeightClass="max-h-[70vh]" />}
 
-      {showShared && content.shared && (
+      {showShared && (content.sharedText || content.shared) && (
         <div className="rounded-xl border border-slate-200 bg-white p-3 dark:border-white/10 md:p-4">
           {content.sharedText ? <PaperText text={content.sharedText} /> : <PaperCrop url={exam.pdf} box={content.shared} label={content.instruction} className="mx-auto" zoomable />}
         </div>
@@ -236,17 +226,20 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
 
       <div className="rounded-xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-slate-900 md:p-6">
         <p className="text-lg font-bold leading-8 text-slate-900 dark:text-white md:text-xl">
-          <span className="mr-2 font-black text-[#1a6ef5] dark:text-sky-300">{question.number}.</span>
+          <span className="mr-2 font-black text-[#1a6ef5] dark:text-sky-300">{label}.</span>
           {content.prompt}
           <span className="ml-2 text-sm font-semibold text-slate-500 dark:text-slate-400">({question.points}점)</span>
         </p>
-        {content.stem && (content.stemText ? (
+        {content.stemText ? (
           <div className="mt-4 rounded-lg border border-slate-300 px-4 py-3 dark:border-white/15"><PaperText text={content.stemText} /></div>
-        ) : (
-          <PaperCrop url={exam.pdf} box={content.stem} label={t("topik.questionNumber", { number: question.number })} className="mx-auto mt-4" zoomable />
-        ))}
+        ) : content.stem ? (
+          <PaperCrop url={exam.pdf} box={content.stem} label={t("topik.questionNumber", { number: label })} className="mx-auto mt-4" zoomable />
+        ) : null}
 
-        <div className={`mt-5 grid gap-2.5 ${layout}`} role="radiogroup" aria-label={t("topik.chooseAnswer", { number: question.number })}>
+        {content.writing ? (
+          <WritingAnswer key={question.number} spec={content.writing} model={content.model} value={selected} onChange={onSelect} review={review} />
+        ) : (
+        <div className={`mt-5 grid gap-2.5 ${layout}`} role="radiogroup" aria-label={t("topik.chooseAnswer", { number: label })}>
           {content.options.map((option) => {
             const active = selected === option.id;
             return (
@@ -269,7 +262,127 @@ export default function TopikQuestion({ exam, question, selected, onSelect, revi
             );
           })}
         </div>
+        )}
       </div>
     </article>
+  );
+}
+
+// TOPIK counts every character written on the answer grid (원고지), spaces
+// included; line breaks are not cells.
+const countChars = (text) => (text || "").replace(/\r?\n/g, "").length;
+
+// A writing answer (TOPIK II 51–54): one line per blank (㉠, ㉡) for 51/52, or
+// an essay box with a character count against the required length. Typing is
+// kept here and handed up after a short pause, so each key press does not
+// save the whole attempt. In review it shows the answer next to the model answer.
+function WritingAnswer({ spec, model, value, onChange, review }) {
+  const { t } = useTranslation();
+  const blanks = spec.kind === "blanks";
+  const [draft, setDraft] = useState(() => value ?? (blanks ? {} : ""));
+  const timerRef = useRef(null);
+  const latestRef = useRef(draft);
+  const changedRef = useRef(false);
+  const onChangeRef = useRef(onChange);
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+
+  const flush = () => {
+    window.clearTimeout(timerRef.current);
+    if (changedRef.current) {
+      changedRef.current = false;
+      onChangeRef.current?.(latestRef.current);
+    }
+  };
+  // Leaving the question (or the exam) saves what was typed last.
+  useEffect(() => () => {
+    window.clearTimeout(timerRef.current);
+    if (changedRef.current) onChangeRef.current?.(latestRef.current);
+  }, []);
+
+  const update = (next) => {
+    setDraft(next);
+    latestRef.current = next;
+    changedRef.current = true;
+    window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(flush, 600);
+  };
+
+  if (review) {
+    const shown = value ?? (blanks ? {} : "");
+    return (
+      <div className="mt-5 space-y-3">
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/5">
+          <p className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t("topik.writing.yourAnswer")}</p>
+          {blanks ? (
+            spec.blanks.map((mark) => (
+              <p key={mark} lang="ko" className="mt-2 text-[16px] leading-7"><b className="mr-2 text-[#1a6ef5] dark:text-sky-300">{mark}</b>{shown[mark]?.trim() || "—"}</p>
+            ))
+          ) : (
+            <>
+              <p lang="ko" className="mt-2 whitespace-pre-line text-[16px] leading-8">{shown.trim() || "—"}</p>
+              <p className="mt-2 text-xs font-bold text-slate-500 dark:text-slate-400">{t("topik.writing.count", { count: countChars(shown), min: spec.min, max: spec.max })}</p>
+            </>
+          )}
+        </div>
+        {model && (
+          <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 dark:border-emerald-400/20 dark:bg-emerald-500/10">
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-300">모범 답안 · {t("topik.writing.model")}</p>
+            {blanks ? (
+              spec.blanks.map((mark) => (
+                <p key={mark} lang="ko" className="mt-2 text-[16px] leading-7"><b className="mr-2 text-emerald-700 dark:text-emerald-300">{mark}</b>{model[mark]}</p>
+              ))
+            ) : (
+              <p lang="ko" className="mt-2 whitespace-pre-line text-[16px] leading-8">{model}</p>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (blanks) {
+    return (
+      <div className="mt-5 space-y-3">
+        {spec.blanks.map((mark) => (
+          <label key={mark} className="flex items-start gap-3">
+            <span className="mt-2.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#1a6ef5] text-base font-black text-white">{mark}</span>
+            <textarea
+              lang="ko"
+              rows={2}
+              value={draft[mark] || ""}
+              onChange={(event) => update({ ...draft, [mark]: event.target.value })}
+              onBlur={flush}
+              placeholder={t("topik.writing.blankPlaceholder", { mark })}
+              aria-label={t("topik.writing.blankLabel", { mark })}
+              className="min-w-0 flex-1 resize-y rounded-xl border-2 border-slate-200 bg-white px-3 py-2 text-[17px] leading-7 outline-none transition focus:border-[#1a6ef5] dark:border-white/10 dark:bg-white/5 dark:focus:border-sky-400"
+            />
+          </label>
+        ))}
+        <p className="text-xs text-slate-500 dark:text-slate-400">{t("topik.writing.blanksHint")}</p>
+      </div>
+    );
+  }
+
+  const count = countChars(draft);
+  const tone = count === 0 ? "text-slate-500 dark:text-slate-400" : count < spec.min ? "text-amber-600 dark:text-amber-300" : count > spec.max ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300";
+  return (
+    <div className="mt-5">
+      <textarea
+        lang="ko"
+        rows={spec.max > 400 ? 14 : 8}
+        value={draft}
+        onChange={(event) => update(event.target.value)}
+        onBlur={flush}
+        placeholder={t("topik.writing.essayPlaceholder")}
+        aria-label={t("topik.writing.essayLabel")}
+        className="w-full resize-y rounded-xl border-2 border-slate-200 bg-white px-3 py-3 text-[17px] leading-8 outline-none transition focus:border-[#1a6ef5] dark:border-white/10 dark:bg-white/5 dark:focus:border-sky-400"
+      />
+      <div className="mt-1.5 flex flex-wrap items-center justify-between gap-2 text-xs font-bold">
+        <span className={`tabular-nums ${tone}`}>{t("topik.writing.count", { count, min: spec.min, max: spec.max })}</span>
+        <span className="text-slate-500 dark:text-slate-400">{t("topik.writing.essayHint")}</span>
+      </div>
+    </div>
   );
 }

@@ -21,7 +21,9 @@ if (!audioPath || !outPath) {
   process.exit(1);
 }
 
-const ANSWER_GAP = 15; // seconds; longer silences are answering time
+// Seconds; longer silences are answering time. TOPIK II recordings leave
+// shorter ones (about 9-14 s): run them with ANSWER_GAP=8.
+const ANSWER_GAP = Number(process.env.ANSWER_GAP || 15);
 // ffmpeg writes its report, including the detected silences, to stderr.
 // -vn: some recordings carry cover art, which would otherwise break the filter.
 const run = spawnSync(ffmpeg, ["-hide_banner", "-i", audioPath, "-vn", "-af", "silencedetect=noise=-35dB:d=2.5", "-f", "null", "-"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
