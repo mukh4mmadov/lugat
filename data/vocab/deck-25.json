@@ -1,0 +1,439 @@
+[
+  {
+    "id": 575,
+    "korean": "경기하다",
+    "uzbek": "musobaqada o'ynamoq",
+    "english": "to play a match",
+    "russian": "проводить матч",
+    "romanization": "gyeonggihada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 두 팀이 경기해요.",
+      "uz": "Bugun ikki jamoa o'ynaydi.",
+      "en": "Two teams play a match today.",
+      "ru": "Сегодня две команды играют матч."
+    }
+  },
+  {
+    "id": 576,
+    "korean": "공",
+    "uzbek": "to'p",
+    "english": "ball",
+    "russian": "мяч",
+    "romanization": "gong",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공을 차세요.",
+      "uz": "To'pni teping.",
+      "en": "Kick the ball.",
+      "ru": "Пни мяч."
+    }
+  },
+  {
+    "id": 577,
+    "korean": "공을 던지다",
+    "uzbek": "to'p otmoq",
+    "english": "to throw a ball",
+    "russian": "бросать мяч",
+    "romanization": "gongeul deonjida",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공을 멀리 던졌어요.",
+      "uz": "To'pni uzoqqa otdim.",
+      "en": "I threw the ball far.",
+      "ru": "Я далеко бросил мяч."
+    }
+  },
+  {
+    "id": 578,
+    "korean": "금메달",
+    "uzbek": "oltin medal",
+    "english": "gold medal",
+    "russian": "золотая медаль",
+    "romanization": "geummedal",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수영에서 금메달을 땄어요.",
+      "uz": "Suzishda oltin medal oldi.",
+      "en": "She won gold in swimming.",
+      "ru": "Она взяла золото в плавании."
+    }
+  },
+  {
+    "id": 579,
+    "korean": "농구",
+    "uzbek": "basketbol",
+    "english": "basketball",
+    "russian": "баскетбол",
+    "romanization": "nonggu",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "키가 커서 농구를 잘해요.",
+      "uz": "Bo'yi baland, basketbolni yaxshi o'ynaydi.",
+      "en": "He's tall, so he's good at basketball.",
+      "ru": "Он высокий и хорошо играет в баскетбол."
+    }
+  },
+  {
+    "id": 580,
+    "korean": "달리기",
+    "uzbek": "yugurish",
+    "english": "running",
+    "russian": "бег",
+    "romanization": "dalligi",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침마다 달리기를 해요.",
+      "uz": "Har ertalab yuguraman.",
+      "en": "I go running every morning.",
+      "ru": "Каждое утро я бегаю."
+    }
+  },
+  {
+    "id": 581,
+    "korean": "대회",
+    "uzbek": "musobaqa, tanlov",
+    "english": "competition, contest",
+    "russian": "соревнование, конкурс",
+    "romanization": "daehoe",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "말하기 대회에 나갔어요.",
+      "uz": "Nutq tanloviga qatnashdim.",
+      "en": "I entered a speech contest.",
+      "ru": "Я участвовал в конкурсе ораторов."
+    }
+  },
+  {
+    "id": 582,
+    "korean": "상대팀",
+    "uzbek": "raqib jamoa",
+    "english": "opposing team",
+    "russian": "команда соперника",
+    "romanization": "sangdaetim",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "상대팀이 아주 강해요.",
+      "uz": "Raqib jamoa juda kuchli.",
+      "en": "The other team is very strong.",
+      "ru": "Команда соперника очень сильная."
+    }
+  },
+  {
+    "id": 583,
+    "korean": "수영하다",
+    "uzbek": "suzmoq",
+    "english": "to swim",
+    "russian": "плавать",
+    "romanization": "suyeonghada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여름에 바다에서 수영해요.",
+      "uz": "Yozda dengizda suzaman.",
+      "en": "I swim in the sea in summer.",
+      "ru": "Летом я плаваю в море."
+    }
+  },
+  {
+    "id": 584,
+    "korean": "스키를 타다",
+    "uzbek": "chang'i uchmoq",
+    "english": "to ski",
+    "russian": "кататься на лыжах",
+    "romanization": "seukireul tada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "겨울에 스키를 타러 가요.",
+      "uz": "Qishda chang'i uchgani boramiz.",
+      "en": "We go skiing in winter.",
+      "ru": "Зимой мы ездим кататься на лыжах."
+    }
+  },
+  {
+    "id": 585,
+    "korean": "스트레칭하다",
+    "uzbek": "cho'zilish mashqi qilmoq",
+    "english": "to stretch",
+    "russian": "делать растяжку",
+    "romanization": "seuteurechinghada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침에 일어나서 스트레칭해요.",
+      "uz": "Ertalab turib, cho'zilish mashqi qilaman.",
+      "en": "I stretch when I get up in the morning.",
+      "ru": "Утром после подъёма я делаю растяжку."
+    }
+  },
+  {
+    "id": 586,
+    "korean": "야구",
+    "uzbek": "beysbol",
+    "english": "baseball",
+    "russian": "бейсбол",
+    "romanization": "yagu",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 사람들은 야구를 좋아해요.",
+      "uz": "Koreyslar beysbolni yaxshi ko'radi.",
+      "en": "Koreans love baseball.",
+      "ru": "Корейцы любят бейсбол."
+    }
+  },
+  {
+    "id": 587,
+    "korean": "야구 경기",
+    "uzbek": "beysbol o'yini",
+    "english": "baseball game",
+    "russian": "бейсбольный матч",
+    "romanization": "yagu gyeonggi",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "야구 경기가 비 때문에 취소됐어요.",
+      "uz": "Beysbol o'yini yomg'ir tufayli bekor qilindi.",
+      "en": "The baseball game was canceled due to rain.",
+      "ru": "Бейсбольный матч отменили из-за дождя."
+    }
+  },
+  {
+    "id": 588,
+    "korean": "야구를 하다",
+    "uzbek": "beysbol o'ynamoq",
+    "english": "to play baseball",
+    "russian": "играть в бейсбол",
+    "romanization": "yagureul hada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구들과 야구를 했어요.",
+      "uz": "Do'stlarim bilan beysbol o'ynadim.",
+      "en": "I played baseball with friends.",
+      "ru": "Я играл с друзьями в бейсбол."
+    }
+  },
+  {
+    "id": 589,
+    "korean": "운동하다",
+    "uzbek": "sport bilan shug'ullanmoq",
+    "english": "to exercise",
+    "russian": "заниматься спортом",
+    "romanization": "undonghada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "건강을 위해 운동해요.",
+      "uz": "Sog'liq uchun sport qilaman.",
+      "en": "I exercise for my health.",
+      "ru": "Я занимаюсь спортом ради здоровья."
+    }
+  },
+  {
+    "id": 590,
+    "korean": "은메달",
+    "uzbek": "kumush medal",
+    "english": "silver medal",
+    "russian": "серебряная медаль",
+    "romanization": "eunmedal",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아깝게 은메달을 받았어요.",
+      "uz": "Afsuski, kumush medal oldi.",
+      "en": "Narrowly, he got silver.",
+      "ru": "Он чуть не дотянул и взял серебро."
+    }
+  },
+  {
+    "id": 591,
+    "korean": "이기다",
+    "uzbek": "yutmoq, g'alaba qilmoq",
+    "english": "to win",
+    "russian": "побеждать",
+    "romanization": "igida",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 팀이 이겼어요!",
+      "uz": "Jamoamiz yutdi!",
+      "en": "Our team won!",
+      "ru": "Наша команда победила!"
+    }
+  },
+  {
+    "id": 592,
+    "korean": "지다",
+    "uzbek": "yutqazmoq",
+    "english": "to lose (a game)",
+    "russian": "проигрывать",
+    "romanization": "jida",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아쉽게 경기에서 졌어요.",
+      "uz": "Afsuski, o'yinda yutqazdik.",
+      "en": "Unfortunately, we lost the game.",
+      "ru": "К сожалению, мы проиграли."
+    }
+  },
+  {
+    "id": 593,
+    "korean": "참가하다",
+    "uzbek": "qatnashmoq",
+    "english": "to participate",
+    "russian": "участвовать",
+    "romanization": "chamgahada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "마라톤에 참가했어요.",
+      "uz": "Marafonda qatnashdim.",
+      "en": "I took part in a marathon.",
+      "ru": "Я участвовал в марафоне."
+    }
+  },
+  {
+    "id": 594,
+    "korean": "첫 번째로",
+    "uzbek": "birinchi bo'lib",
+    "english": "first (in order)",
+    "russian": "первым",
+    "romanization": "cheot beonjjaero",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "첫 번째로 발표했어요.",
+      "uz": "Birinchi bo'lib chiqish qildim.",
+      "en": "I presented first.",
+      "ru": "Я выступил первым."
+    }
+  },
+  {
+    "id": 595,
+    "korean": "축구를 하다",
+    "uzbek": "futbol o'ynamoq",
+    "english": "to play soccer",
+    "russian": "играть в футбол",
+    "romanization": "chukgureul hada",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방과 후에 축구를 해요.",
+      "uz": "Darsdan keyin futbol o'ynaymiz.",
+      "en": "We play soccer after school.",
+      "ru": "После уроков мы играем в футбол."
+    }
+  },
+  {
+    "id": 596,
+    "korean": "탁구를 치다",
+    "uzbek": "stol tennisi o'ynamoq",
+    "english": "to play table tennis",
+    "russian": "играть в настольный теннис",
+    "romanization": "takgureul chida",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "휴게실에서 탁구를 쳤어요.",
+      "uz": "Dam olish xonasida stol tennisi o'ynadik.",
+      "en": "We played table tennis in the lounge.",
+      "ru": "Мы играли в настольный теннис в комнате отдыха."
+    }
+  },
+  {
+    "id": 597,
+    "korean": "테니스를 치다",
+    "uzbek": "tennis o'ynamoq",
+    "english": "to play tennis",
+    "russian": "играть в теннис",
+    "romanization": "teniseureul chida",
+    "lesson": 25,
+    "theme": "sports",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지와 공원에서 테니스를 쳤어요.",
+      "uz": "Otam bilan bog'da tennis o'ynadim.",
+      "en": "I played tennis with my father in the park.",
+      "ru": "Мы с папой играли в теннис в парке."
+    }
+  }
+]

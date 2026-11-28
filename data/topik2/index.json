@@ -1,0 +1,72 @@
+{
+  "title": "TOPIK II vocabulary — NIKL grades B (intermediate) and C (advanced)",
+  "source": [
+    "https://www.korean.go.kr/front_eng/down/down_02V.do?etc_seq=70"
+  ],
+  "sourceNotes": {
+    "NIKL-B": "국립국어원 「한국어 학습용 어휘 목록」 (2003), grade B (2단계). Homonym numbers as in that list.",
+    "NIKL-C": "Same list, grade C (3단계).",
+    "order": "By the list's frequency rank (unranked proper nouns last). Words already in the TOPIK I deck with the same meaning are left out; words listed twice with different parts of speech appear once."
+  },
+  "count": 4055,
+  "linkedToLessons": 53,
+  "bySource": {
+    "NIKL-B": 1311,
+    "NIKL-C": 2744
+  },
+  "files": [
+    "vocab-01.json",
+    "vocab-02.json",
+    "vocab-03.json",
+    "vocab-04.json",
+    "vocab-05.json",
+    "vocab-06.json",
+    "vocab-07.json",
+    "vocab-08.json",
+    "vocab-09.json",
+    "vocab-10.json",
+    "vocab-11.json",
+    "vocab-12.json",
+    "vocab-13.json",
+    "vocab-14.json",
+    "vocab-15.json",
+    "vocab-16.json",
+    "vocab-17.json",
+    "vocab-18.json",
+    "vocab-19.json",
+    "vocab-20.json",
+    "vocab-21.json"
+  ],
+  "topics": {
+    "grammar words": 383,
+    "society": 218,
+    "actions": 423,
+    "communication": 224,
+    "people": 146,
+    "time": 182,
+    "descriptions": 303,
+    "places": 128,
+    "money": 89,
+    "school": 148,
+    "culture": 181,
+    "nature": 128,
+    "hobbies": 71,
+    "feelings": 251,
+    "work": 263,
+    "family": 75,
+    "shopping": 52,
+    "health": 105,
+    "daily life": 57,
+    "body": 71,
+    "home": 111,
+    "numbers": 90,
+    "animals": 39,
+    "colors": 12,
+    "weather": 38,
+    "travel": 32,
+    "food": 119,
+    "clothing": 36,
+    "transport": 53,
+    "countries": 27
+  }
+}

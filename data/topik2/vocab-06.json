@@ -1,0 +1,3788 @@
+[
+  {
+    "id": 989,
+    "korean": "양보하다",
+    "pos": "verb",
+    "hanja": "讓步-",
+    "homonym": 0,
+    "uzbek": "yo'l bermoq, o'z haqidan kechmoq",
+    "english": "to yield, to give way",
+    "russian": "уступать",
+    "romanization": "yangbohada",
+    "topic": "actions",
+    "example": {
+      "ko": "지하철에서 할머니께 자리를 양보했어요.",
+      "uz": "Metroda buvijonga joy bo'shatib berdim.",
+      "en": "I gave up my seat to an elderly woman on the subway.",
+      "ru": "В метро я уступил место бабушке."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 990,
+    "korean": "자라나다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "o'smoq, ulg'aymoq",
+    "english": "to grow up",
+    "russian": "расти, вырастать",
+    "romanization": "jaranada",
+    "topic": "nature",
+    "example": {
+      "ko": "아이들이 건강하게 자라나고 있어요.",
+      "uz": "Bolalar sog'lom ulg'ayapti.",
+      "en": "The children are growing up healthy.",
+      "ru": "Дети растут здоровыми."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 991,
+    "korean": "파리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "pashsha",
+    "english": "fly (insect)",
+    "russian": "муха",
+    "romanization": "pari",
+    "topic": "animals",
+    "example": {
+      "ko": "음식에 파리가 앉았어요.",
+      "uz": "Ovqatga pashsha qo'ndi.",
+      "en": "A fly landed on the food.",
+      "ru": "На еду села муха."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 992,
+    "korean": "포스터",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "plakat, afisha",
+    "english": "poster",
+    "russian": "постер, афиша",
+    "romanization": "poseuteo",
+    "topic": "culture",
+    "example": {
+      "ko": "벽에 영화 포스터를 붙였어요.",
+      "uz": "Devorga film afishasini yopishtirdim.",
+      "en": "I put a movie poster on the wall.",
+      "ru": "Я повесил на стену киноафишу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 993,
+    "korean": "후회하다",
+    "pos": "verb",
+    "hanja": "後悔-",
+    "homonym": 0,
+    "uzbek": "afsuslanmoq, pushaymon bo'lmoq",
+    "english": "to regret",
+    "russian": "сожалеть",
+    "romanization": "huhoehada",
+    "topic": "feelings",
+    "example": {
+      "ko": "그때 공부를 안 한 것을 후회해요.",
+      "uz": "O'shanda o'qimaganimdan afsuslanaman.",
+      "en": "I regret not studying back then.",
+      "ru": "Я жалею, что тогда не учился."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 994,
+    "korean": "가이드",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "gid, yo'lboshchi",
+    "english": "(tour) guide",
+    "russian": "гид",
+    "romanization": "gaideu",
+    "topic": "travel",
+    "example": {
+      "ko": "가이드가 박물관을 안내해 줬어요.",
+      "uz": "Gid muzeyni ko'rsatib chiqdi.",
+      "en": "The guide showed us around the museum.",
+      "ru": "Гид провёл нас по музею."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 995,
+    "korean": "고르다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 3,
+    "uzbek": "tekis, bir xil",
+    "english": "even, uniform",
+    "russian": "ровный, одинаковый",
+    "romanization": "goreuda",
+    "topic": "descriptions",
+    "example": {
+      "ko": "이가 고르고 하얘요.",
+      "uz": "Tishlari tekis va oppoq.",
+      "en": "Her teeth are even and white.",
+      "ru": "У неё ровные белые зубы."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 996,
+    "korean": "고속도로",
+    "pos": "noun",
+    "hanja": "高速道路",
+    "homonym": 0,
+    "uzbek": "avtomagistral, tezyurar yo'l",
+    "english": "expressway, highway",
+    "russian": "скоростная автомагистраль",
+    "romanization": "gosokdoro",
+    "topic": "transport",
+    "example": {
+      "ko": "명절에는 고속도로가 많이 막혀요.",
+      "uz": "Bayramlarda avtomagistral juda tirband bo'ladi.",
+      "en": "The expressway gets very congested on holidays.",
+      "ru": "В праздники на автомагистрали большие пробки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 997,
+    "korean": "렌즈",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "linza",
+    "english": "lens",
+    "russian": "линза",
+    "romanization": "renjeu",
+    "topic": "health",
+    "example": {
+      "ko": "저는 안경 대신 렌즈를 껴요.",
+      "uz": "Men ko'zoynak o'rniga linza taqaman.",
+      "en": "I wear contact lenses instead of glasses.",
+      "ru": "Я ношу линзы вместо очков."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 998,
+    "korean": "발목",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "to'piq",
+    "english": "ankle",
+    "russian": "лодыжка",
+    "romanization": "balmok",
+    "topic": "body",
+    "example": {
+      "ko": "계단에서 넘어져서 발목을 다쳤어요.",
+      "uz": "Zinadan yiqilib to'pig'imni lat yedirdim.",
+      "en": "I fell on the stairs and hurt my ankle.",
+      "ru": "Я упал на лестнице и повредил лодыжку."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 999,
+    "korean": "밤늦다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kech (tunda)",
+    "english": "late at night",
+    "russian": "поздний (ночью)",
+    "romanization": "bamneutda",
+    "topic": "time",
+    "example": {
+      "ko": "밤늦게까지 공부했어요.",
+      "uz": "Kechasi kechgacha o'qidim.",
+      "en": "I studied until late at night.",
+      "ru": "Я занимался до поздней ночи."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1000,
+    "korean": "여우",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "tulki",
+    "english": "fox",
+    "russian": "лиса",
+    "romanization": "yeou",
+    "topic": "animals",
+    "example": {
+      "ko": "여우는 꾀가 많은 동물이에요.",
+      "uz": "Tulki ayyor hayvon.",
+      "en": "The fox is a cunning animal.",
+      "ru": "Лиса — хитрое животное."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1001,
+    "korean": "웨이터",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ofitsiant",
+    "english": "waiter",
+    "russian": "официант",
+    "romanization": "weiteo",
+    "topic": "people",
+    "example": {
+      "ko": "웨이터에게 메뉴판을 달라고 했어요.",
+      "uz": "Ofitsiantdan menyu so'radim.",
+      "en": "I asked the waiter for the menu.",
+      "ru": "Я попросил у официанта меню."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1002,
+    "korean": "자가용",
+    "pos": "noun",
+    "hanja": "自家用",
+    "homonym": 0,
+    "uzbek": "shaxsiy avtomobil",
+    "english": "private car",
+    "russian": "личный автомобиль",
+    "romanization": "jagayong",
+    "topic": "transport",
+    "example": {
+      "ko": "자가용으로 출근해요.",
+      "uz": "Ishga shaxsiy mashinamda boraman.",
+      "en": "I commute in my own car.",
+      "ru": "Я езжу на работу на своей машине."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1003,
+    "korean": "패션",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "moda",
+    "english": "fashion",
+    "russian": "мода",
+    "romanization": "paesyeon",
+    "topic": "clothing",
+    "example": {
+      "ko": "그녀는 패션에 관심이 많아요.",
+      "uz": "U modaga juda qiziqadi.",
+      "en": "She's very interested in fashion.",
+      "ru": "Она очень интересуется модой."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1004,
+    "korean": "금",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 6,
+    "uzbek": "oltin",
+    "english": "gold",
+    "russian": "золото",
+    "romanization": "geum",
+    "topic": "money",
+    "example": {
+      "ko": "금 목걸이를 선물 받았어요.",
+      "uz": "Oltin marjon sovg'a qilishdi.",
+      "en": "I got a gold necklace as a gift.",
+      "ru": "Мне подарили золотое ожерелье."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1005,
+    "korean": "낙엽",
+    "pos": "noun",
+    "hanja": "落葉",
+    "homonym": 0,
+    "uzbek": "xazon, to'kilgan barg",
+    "english": "fallen leaves",
+    "russian": "опавшие листья",
+    "romanization": "nagyeop",
+    "topic": "nature",
+    "example": {
+      "ko": "가을에는 낙엽이 많이 떨어져요.",
+      "uz": "Kuzda ko'p barglar to'kiladi.",
+      "en": "Many leaves fall in autumn.",
+      "ru": "Осенью опадает много листьев."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1006,
+    "korean": "동창",
+    "pos": "noun",
+    "hanja": "同窓",
+    "homonym": 1,
+    "uzbek": "sinfdosh, kursdosh (bitiruvchi)",
+    "english": "schoolmate, alumnus",
+    "russian": "однокашник, выпускник",
+    "romanization": "dongchang",
+    "topic": "people",
+    "example": {
+      "ko": "어제 고등학교 동창을 만났어요.",
+      "uz": "Kecha maktabdagi sinfdoshim bilan uchrashdim.",
+      "en": "I met a high school classmate yesterday.",
+      "ru": "Вчера я встретил одноклассника."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1007,
+    "korean": "맞은편",
+    "pos": "noun",
+    "hanja": "-便",
+    "homonym": 0,
+    "uzbek": "qarshi tomon",
+    "english": "the opposite side",
+    "russian": "противоположная сторона",
+    "romanization": "majeunpyeon",
+    "topic": "places",
+    "example": {
+      "ko": "은행은 우체국 맞은편에 있어요.",
+      "uz": "Bank pochtaning qarshisida joylashgan.",
+      "en": "The bank is across from the post office.",
+      "ru": "Банк находится напротив почты."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1008,
+    "korean": "새우",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "krevetka",
+    "english": "shrimp",
+    "russian": "креветка",
+    "romanization": "saeu",
+    "topic": "food",
+    "example": {
+      "ko": "새우볶음밥을 시켰어요.",
+      "uz": "Krevetkali qovurilgan guruch buyurtma qildim.",
+      "en": "I ordered shrimp fried rice.",
+      "ru": "Я заказал жареный рис с креветками."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1009,
+    "korean": "심해지다",
+    "pos": "verb",
+    "hanja": "甚-",
+    "homonym": 0,
+    "uzbek": "kuchaymoq, og'irlashmoq",
+    "english": "to get worse",
+    "russian": "усиливаться, ухудшаться",
+    "romanization": "simhaejida",
+    "topic": "health",
+    "example": {
+      "ko": "기침이 점점 심해져요.",
+      "uz": "Yo'tal borgan sari kuchayyapti.",
+      "en": "The cough is getting worse.",
+      "ru": "Кашель усиливается."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1010,
+    "korean": "씨름",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ssirim (koreys kurashi)",
+    "english": "ssireum (Korean wrestling)",
+    "russian": "ссирым (корейская борьба)",
+    "romanization": "ssireum",
+    "topic": "culture",
+    "example": {
+      "ko": "명절에 씨름 대회를 봤어요.",
+      "uz": "Bayramda ssirim musobaqasini ko'rdim.",
+      "en": "I watched a ssireum match during the holiday.",
+      "ru": "На праздник я смотрел соревнования по ссирым."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1011,
+    "korean": "앞길",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "oldindagi yo'l; kelajak",
+    "english": "road ahead; one's future",
+    "russian": "дорога впереди; будущее",
+    "romanization": "apgil",
+    "topic": "places",
+    "example": {
+      "ko": "집 앞길에 차가 많이 다녀요.",
+      "uz": "Uy oldidagi yo'lda mashinalar ko'p qatnaydi.",
+      "en": "Many cars go by on the road in front of the house.",
+      "ru": "По дороге перед домом ездит много машин."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1012,
+    "korean": "여관",
+    "pos": "noun",
+    "hanja": "館",
+    "homonym": 3,
+    "uzbek": "mehmonxona (arzon)",
+    "english": "inn, motel",
+    "russian": "гостиница (недорогая)",
+    "romanization": "yeogwan",
+    "topic": "travel",
+    "example": {
+      "ko": "작은 여관에서 하룻밤 잤어요.",
+      "uz": "Kichik mehmonxonada bir kecha tunadim.",
+      "en": "I stayed one night at a small inn.",
+      "ru": "Я переночевал в маленькой гостинице."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1013,
+    "korean": "여쭈다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "so'ramoq (hurmat bilan)",
+    "english": "to ask (humble)",
+    "russian": "спрашивать (вежл.)",
+    "romanization": "yeojjuda",
+    "topic": "communication",
+    "example": {
+      "ko": "선생님께 여쭈어 볼게요.",
+      "uz": "O'qituvchidan so'rab ko'raman.",
+      "en": "I'll ask the teacher.",
+      "ru": "Я спрошу у учителя."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1014,
+    "korean": "오",
+    "pos": "interjection",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "oh (hayrat)",
+    "english": "oh (surprise)",
+    "russian": "о (удивление)",
+    "romanization": "o",
+    "topic": "grammar words",
+    "example": {
+      "ko": "오, 정말 멋있어요!",
+      "uz": "Oh, juda ajoyib!",
+      "en": "Oh, that's really cool!",
+      "ru": "О, как здорово!"
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1015,
+    "korean": "주문하다",
+    "pos": "verb",
+    "hanja": "注文-",
+    "homonym": 1,
+    "uzbek": "buyurtma qilmoq",
+    "english": "to order",
+    "russian": "заказывать",
+    "romanization": "jumunhada",
+    "topic": "shopping",
+    "example": {
+      "ko": "인터넷으로 책을 주문했어요.",
+      "uz": "Internet orqali kitob buyurtma qildim.",
+      "en": "I ordered a book online.",
+      "ru": "Я заказал книгу через интернет."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1016,
+    "korean": "채널",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kanal",
+    "english": "channel",
+    "russian": "канал",
+    "romanization": "chaeneol",
+    "topic": "culture",
+    "example": {
+      "ko": "다른 채널로 돌려 주세요.",
+      "uz": "Boshqa kanalga o'tkazing.",
+      "en": "Please change the channel.",
+      "ru": "Переключите на другой канал."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1017,
+    "korean": "출근하다",
+    "pos": "verb",
+    "hanja": "出勤-",
+    "homonym": 0,
+    "uzbek": "ishga bormoq",
+    "english": "to go to work",
+    "russian": "идти на работу",
+    "romanization": "chulgeunhada",
+    "topic": "work",
+    "example": {
+      "ko": "저는 아침 8시에 출근해요.",
+      "uz": "Men ertalab soat 8 da ishga boraman.",
+      "en": "I go to work at 8 a.m.",
+      "ru": "Я выхожу на работу в 8 утра."
+    },
+    "source": "NIKL-B",
+    "lessonKey": "18-415"
+  },
+  {
+    "id": 1018,
+    "korean": "취소하다",
+    "pos": "verb",
+    "hanja": "取消-",
+    "homonym": 1,
+    "uzbek": "bekor qilmoq",
+    "english": "to cancel",
+    "russian": "отменять",
+    "romanization": "chwisohada",
+    "topic": "travel",
+    "example": {
+      "ko": "비 때문에 여행을 취소했어요.",
+      "uz": "Yomg'ir tufayli sayohatni bekor qildim.",
+      "en": "I canceled the trip because of the rain.",
+      "ru": "Из-за дождя я отменил поездку."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1019,
+    "korean": "봉지",
+    "pos": "noun",
+    "hanja": "封紙",
+    "homonym": 6,
+    "uzbek": "paket, xalta",
+    "english": "bag (paper/plastic)",
+    "russian": "пакет",
+    "romanization": "bongji",
+    "topic": "shopping",
+    "example": {
+      "ko": "과자 한 봉지를 샀어요.",
+      "uz": "Bir paket pishiriq sotib oldim.",
+      "en": "I bought a bag of snacks.",
+      "ru": "Я купил пакет печенья."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1020,
+    "korean": "비서",
+    "pos": "noun",
+    "hanja": "秘書",
+    "homonym": 5,
+    "uzbek": "kotib(a)",
+    "english": "secretary",
+    "russian": "секретарь",
+    "romanization": "biseo",
+    "topic": "work",
+    "example": {
+      "ko": "사장님 비서에게 전화했어요.",
+      "uz": "Direktorning kotibasiga qo'ng'iroq qildim.",
+      "en": "I called the CEO's secretary.",
+      "ru": "Я позвонил секретарю директора."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1021,
+    "korean": "술잔",
+    "pos": "noun",
+    "hanja": "-盞",
+    "homonym": 0,
+    "uzbek": "qadah, ryumka",
+    "english": "wine glass, drinking glass",
+    "russian": "рюмка, бокал",
+    "romanization": "suljan",
+    "topic": "food",
+    "example": {
+      "ko": "술잔을 들고 건배했어요.",
+      "uz": "Qadahlarni ko'tarib qadah so'zi aytdik.",
+      "en": "We raised our glasses and made a toast.",
+      "ru": "Мы подняли бокалы и выпили за тост."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1022,
+    "korean": "신문사",
+    "pos": "noun",
+    "hanja": "新聞社",
+    "homonym": 0,
+    "uzbek": "gazeta tahririyati",
+    "english": "newspaper company",
+    "russian": "газетное издательство",
+    "romanization": "sinmunsa",
+    "topic": "work",
+    "example": {
+      "ko": "형은 신문사에서 기자로 일해요.",
+      "uz": "Akam gazeta tahririyatida muxbir bo'lib ishlaydi.",
+      "en": "My brother works as a reporter at a newspaper.",
+      "ru": "Мой брат работает журналистом в газете."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1023,
+    "korean": "옥수수",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "makkajo'xori",
+    "english": "corn",
+    "russian": "кукуруза",
+    "romanization": "oksusu",
+    "topic": "food",
+    "example": {
+      "ko": "여름에는 옥수수를 쪄 먹어요.",
+      "uz": "Yozda makkajo'xorini bug'da pishirib yeymiz.",
+      "en": "In summer we steam corn and eat it.",
+      "ru": "Летом мы едим варёную кукурузу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1024,
+    "korean": "이웃집",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "qo'shni uy",
+    "english": "house next door",
+    "russian": "соседний дом",
+    "romanization": "iutjip",
+    "topic": "home",
+    "example": {
+      "ko": "이웃집 강아지가 밤마다 짖어요.",
+      "uz": "Qo'shni uydagi kuchuk har kecha hurib chiqadi.",
+      "en": "The neighbor's dog barks every night.",
+      "ru": "Соседская собака лает каждую ночь."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1025,
+    "korean": "준비되다",
+    "pos": "verb",
+    "hanja": "準備-",
+    "homonym": 0,
+    "uzbek": "tayyor bo'lmoq",
+    "english": "to be ready, to be prepared",
+    "russian": "быть готовым",
+    "romanization": "junbidoeda",
+    "topic": "actions",
+    "example": {
+      "ko": "저녁이 준비됐어요.",
+      "uz": "Kechki ovqat tayyor.",
+      "en": "Dinner is ready.",
+      "ru": "Ужин готов."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1026,
+    "korean": "플라스틱",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "plastmassa",
+    "english": "plastic",
+    "russian": "пластик",
+    "romanization": "peullaseutik",
+    "topic": "daily life",
+    "example": {
+      "ko": "플라스틱 사용을 줄입시다.",
+      "uz": "Plastmassadan foydalanishni kamaytiraylik.",
+      "en": "Let's reduce our use of plastic.",
+      "ru": "Давайте сократим использование пластика."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1027,
+    "korean": "부러워하다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "havas qilmoq",
+    "english": "to envy",
+    "russian": "завидовать",
+    "romanization": "bureowohada",
+    "topic": "feelings",
+    "example": {
+      "ko": "친구들이 제 새 신발을 부러워했어요.",
+      "uz": "Do'stlarim yangi poyabzalimga havas qilishdi.",
+      "en": "My friends envied my new shoes.",
+      "ru": "Друзья завидовали моим новым кроссовкам."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1028,
+    "korean": "이것저것",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "u-bu, har xil narsa",
+    "english": "this and that",
+    "russian": "то да сё, всякое",
+    "romanization": "igeotjeogeot",
+    "topic": "grammar words",
+    "example": {
+      "ko": "시장에서 이것저것 샀어요.",
+      "uz": "Bozordan u-bu sotib oldim.",
+      "en": "I bought this and that at the market.",
+      "ru": "На рынке я купил всякого разного."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1029,
+    "korean": "저자",
+    "pos": "noun",
+    "hanja": "著者",
+    "homonym": 5,
+    "uzbek": "muallif",
+    "english": "author",
+    "russian": "автор",
+    "romanization": "jeoja",
+    "topic": "people",
+    "example": {
+      "ko": "이 책의 저자를 만났어요.",
+      "uz": "Bu kitobning muallifi bilan uchrashdim.",
+      "en": "I met the author of this book.",
+      "ru": "Я встретился с автором этой книги."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1030,
+    "korean": "회화",
+    "pos": "noun",
+    "hanja": "繪畵",
+    "homonym": 5,
+    "uzbek": "rassomlik, tasviriy san'at",
+    "english": "painting",
+    "russian": "живопись",
+    "romanization": "hoehwa",
+    "topic": "culture",
+    "example": {
+      "ko": "이 미술관에는 현대 회화가 많아요.",
+      "uz": "Bu galereyada zamonaviy rassomlik asarlari ko'p.",
+      "en": "This gallery has a lot of modern paintings.",
+      "ru": "В этой галерее много современной живописи."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1031,
+    "korean": "가져다주다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "olib kelib bermoq",
+    "english": "to bring (to someone)",
+    "russian": "приносить (кому-то)",
+    "romanization": "gajyeodajuda",
+    "topic": "actions",
+    "example": {
+      "ko": "물 좀 가져다주세요.",
+      "uz": "Bir oz suv olib kelib bering.",
+      "en": "Please bring me some water.",
+      "ru": "Принесите, пожалуйста, воды."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1032,
+    "korean": "골프",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "golf",
+    "english": "golf",
+    "russian": "гольф",
+    "romanization": "golpeu",
+    "topic": "hobbies",
+    "example": {
+      "ko": "아버지는 주말마다 골프를 치세요.",
+      "uz": "Otam har dam olish kuni golf o'ynaydi.",
+      "en": "My father plays golf every weekend.",
+      "ru": "Мой отец каждые выходные играет в гольф."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1033,
+    "korean": "귀국",
+    "pos": "noun",
+    "hanja": "歸國",
+    "homonym": 2,
+    "uzbek": "vatanga qaytish",
+    "english": "return to one's country",
+    "russian": "возвращение на родину",
+    "romanization": "gwiguk",
+    "topic": "travel",
+    "example": {
+      "ko": "귀국 날짜가 정해졌어요.",
+      "uz": "Vatanga qaytish sanasi belgilandi.",
+      "en": "My return date has been set.",
+      "ru": "Дата возвращения на родину определена."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1034,
+    "korean": "바닷물",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "dengiz suvi",
+    "english": "seawater",
+    "russian": "морская вода",
+    "romanization": "badanmul",
+    "topic": "nature",
+    "example": {
+      "ko": "바닷물이 너무 차가워요.",
+      "uz": "Dengiz suvi juda sovuq.",
+      "en": "The seawater is very cold.",
+      "ru": "Морская вода очень холодная."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1035,
+    "korean": "사무",
+    "pos": "noun",
+    "hanja": "事務",
+    "homonym": 5,
+    "uzbek": "idora ishi",
+    "english": "office work",
+    "russian": "офисная работа",
+    "romanization": "samu",
+    "topic": "work",
+    "example": {
+      "ko": "저는 회사에서 사무를 봐요.",
+      "uz": "Men kompaniyada idora ishlarini bajaraman.",
+      "en": "I do office work at a company.",
+      "ru": "Я выполняю офисную работу в компании."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1036,
+    "korean": "우울하다",
+    "pos": "adjective",
+    "hanja": "憂鬱-",
+    "homonym": 0,
+    "uzbek": "ma'yus, tushkun",
+    "english": "depressed, gloomy",
+    "russian": "подавленный, мрачный",
+    "romanization": "uulhada",
+    "topic": "feelings",
+    "example": {
+      "ko": "비가 오면 기분이 우울해요.",
+      "uz": "Yomg'ir yog'sa kayfiyatim tushadi.",
+      "en": "I feel gloomy when it rains.",
+      "ru": "Когда идёт дождь, у меня плохое настроение."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1037,
+    "korean": "걱정스럽다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "xavotirli",
+    "english": "worrying, worried",
+    "russian": "тревожный, беспокоящий",
+    "romanization": "geokjeongseureopda",
+    "topic": "feelings",
+    "example": {
+      "ko": "아이가 아파서 걱정스러워요.",
+      "uz": "Bola kasal bo'lgani uchun xavotirdaman.",
+      "en": "I'm worried because my child is sick.",
+      "ru": "Ребёнок заболел, я волнуюсь."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1038,
+    "korean": "금연",
+    "pos": "noun",
+    "hanja": "禁煙",
+    "homonym": 1,
+    "uzbek": "chekish taqiqlangan; chekishni tashlash",
+    "english": "no smoking; quitting smoking",
+    "russian": "курение запрещено; отказ от курения",
+    "romanization": "geumyeon",
+    "topic": "health",
+    "example": {
+      "ko": "이곳은 금연 구역이에요.",
+      "uz": "Bu yerda chekish taqiqlangan.",
+      "en": "This is a no-smoking area.",
+      "ru": "Здесь зона для некурящих."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1039,
+    "korean": "꿈속",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tush ichida",
+    "english": "in a dream",
+    "russian": "во сне",
+    "romanization": "kkumsok",
+    "topic": "feelings",
+    "example": {
+      "ko": "꿈속에서 할머니를 만났어요.",
+      "uz": "Tushimda buvimni ko'rdim.",
+      "en": "I met my grandmother in a dream.",
+      "ru": "Во сне я встретил бабушку."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1040,
+    "korean": "나비",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 3,
+    "uzbek": "kapalak",
+    "english": "butterfly",
+    "russian": "бабочка",
+    "romanization": "nabi",
+    "topic": "animals",
+    "example": {
+      "ko": "꽃 위에 나비가 앉았어요.",
+      "uz": "Gul ustiga kapalak qo'ndi.",
+      "en": "A butterfly landed on the flower.",
+      "ru": "На цветок села бабочка."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1041,
+    "korean": "버섯",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "qo'ziqorin",
+    "english": "mushroom",
+    "russian": "гриб",
+    "romanization": "beoseot",
+    "topic": "food",
+    "example": {
+      "ko": "버섯을 넣어서 찌개를 끓였어요.",
+      "uz": "Qo'ziqorin solib chige qaynatdim.",
+      "en": "I made a stew with mushrooms.",
+      "ru": "Я сварил суп с грибами."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1042,
+    "korean": "뵈다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "ko'rishmoq (kattalar bilan, hurmat)",
+    "english": "to see, to meet (a superior)",
+    "russian": "видеться (с старшими, вежл.)",
+    "romanization": "boeda",
+    "topic": "communication",
+    "example": {
+      "ko": "다음에 또 뵈어요.",
+      "uz": "Keyingi safar yana ko'rishamiz.",
+      "en": "See you again next time.",
+      "ru": "До следующей встречи."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1043,
+    "korean": "비키다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "chetga chiqmoq, yo'l bermoq",
+    "english": "to step aside, to get out of the way",
+    "russian": "отходить в сторону",
+    "romanization": "bikida",
+    "topic": "actions",
+    "example": {
+      "ko": "좀 비켜 주세요.",
+      "uz": "Iltimos, chetga o'ting.",
+      "en": "Please step aside.",
+      "ru": "Посторонитесь, пожалуйста."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1044,
+    "korean": "사모님",
+    "pos": "noun",
+    "hanja": "師母-",
+    "homonym": 0,
+    "uzbek": "xonim (ustoz yoki boshliqning rafiqasi)",
+    "english": "ma'am (wife of a teacher/boss)",
+    "russian": "госпожа (жена учителя, начальника)",
+    "romanization": "samonim",
+    "topic": "people",
+    "example": {
+      "ko": "사모님, 안녕하세요?",
+      "uz": "Xonim, assalomu alaykum!",
+      "en": "Hello, ma'am.",
+      "ru": "Здравствуйте, госпожа."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1045,
+    "korean": "챔피언",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "chempion",
+    "english": "champion",
+    "russian": "чемпион",
+    "romanization": "chaempieon",
+    "topic": "hobbies",
+    "example": {
+      "ko": "그는 세계 챔피언이 되었어요.",
+      "uz": "U jahon chempioni bo'ldi.",
+      "en": "He became the world champion.",
+      "ru": "Он стал чемпионом мира."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1046,
+    "korean": "커튼",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "parda",
+    "english": "curtain",
+    "russian": "занавеска, штора",
+    "romanization": "keoteun",
+    "topic": "home",
+    "example": {
+      "ko": "햇빛이 들어와서 커튼을 쳤어요.",
+      "uz": "Quyosh tushgani uchun pardani tortdim.",
+      "en": "The sun was coming in, so I drew the curtains.",
+      "ru": "Солнце светило в окно, и я задёрнул шторы."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1047,
+    "korean": "팬",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "muxlis",
+    "english": "fan",
+    "russian": "фанат, поклонник",
+    "romanization": "paen",
+    "topic": "people",
+    "example": {
+      "ko": "저는 그 가수의 팬이에요.",
+      "uz": "Men o'sha qo'shiqchining muxlisiman.",
+      "en": "I'm a fan of that singer.",
+      "ru": "Я фанат этого певца."
+    },
+    "source": "NIKL-B",
+    "lessonKey": "2-44"
+  },
+  {
+    "id": 1048,
+    "korean": "겨울철",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "qish fasli",
+    "english": "wintertime",
+    "russian": "зимний сезон",
+    "romanization": "gyeoulcheol",
+    "topic": "time",
+    "example": {
+      "ko": "겨울철에는 감기에 걸리기 쉬워요.",
+      "uz": "Qish faslida shamollash oson.",
+      "en": "It's easy to catch a cold in wintertime.",
+      "ru": "Зимой легко простудиться."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1049,
+    "korean": "골프장",
+    "pos": "noun",
+    "hanja": "場",
+    "homonym": 0,
+    "uzbek": "golf maydoni",
+    "english": "golf course",
+    "russian": "поле для гольфа",
+    "romanization": "golpeujang",
+    "topic": "places",
+    "example": {
+      "ko": "주말에 골프장에 갔어요.",
+      "uz": "Dam olish kuni golf maydoniga bordim.",
+      "en": "I went to the golf course on the weekend.",
+      "ru": "На выходных я ездил на поле для гольфа."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1050,
+    "korean": "달빛",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "oy nuri",
+    "english": "moonlight",
+    "russian": "лунный свет",
+    "romanization": "dalbit",
+    "topic": "nature",
+    "example": {
+      "ko": "달빛이 아주 밝아요.",
+      "uz": "Oy nuri juda yorug'.",
+      "en": "The moonlight is very bright.",
+      "ru": "Лунный свет очень яркий."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1051,
+    "korean": "뒷산",
+    "pos": "noun",
+    "hanja": "-山",
+    "homonym": 0,
+    "uzbek": "uy orqasidagi tepalik",
+    "english": "hill behind (the house/village)",
+    "russian": "гора за домом",
+    "romanization": "dwitsan",
+    "topic": "nature",
+    "example": {
+      "ko": "아침마다 뒷산에 올라가요.",
+      "uz": "Har tong uy orqasidagi tepalikka chiqaman.",
+      "en": "I climb the hill behind my house every morning.",
+      "ru": "Каждое утро я поднимаюсь на гору за домом."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1052,
+    "korean": "땜",
+    "pos": "bound noun",
+    "hanja": "",
+    "homonym": 3,
+    "uzbek": "tufayli (so'zlashuv)",
+    "english": "because of (colloquial)",
+    "russian": "из-за (разг.)",
+    "romanization": "ttaem",
+    "topic": "grammar words",
+    "example": {
+      "ko": "너 땜에 늦었잖아.",
+      "uz": "Sen tufayli kechikdim-ku.",
+      "en": "I'm late because of you.",
+      "ru": "Из-за тебя я опоздал."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1053,
+    "korean": "미인",
+    "pos": "noun",
+    "hanja": "美人",
+    "homonym": 1,
+    "uzbek": "go'zal ayol",
+    "english": "beautiful woman",
+    "russian": "красавица",
+    "romanization": "miin",
+    "topic": "people",
+    "example": {
+      "ko": "그녀는 소문난 미인이에요.",
+      "uz": "U mashhur go'zal.",
+      "en": "She's a renowned beauty.",
+      "ru": "Она известная красавица."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1054,
+    "korean": "밤",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "kashtan",
+    "english": "chestnut",
+    "russian": "каштан",
+    "romanization": "bam",
+    "topic": "food",
+    "example": {
+      "ko": "겨울에 군밤을 사 먹었어요.",
+      "uz": "Qishda qovurilgan kashtan sotib olib yedim.",
+      "en": "I bought roasted chestnuts in winter.",
+      "ru": "Зимой я купил жареные каштаны."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1055,
+    "korean": "비타민",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "vitamin",
+    "english": "vitamin",
+    "russian": "витамин",
+    "romanization": "bitamin",
+    "topic": "health",
+    "example": {
+      "ko": "과일에는 비타민이 많아요.",
+      "uz": "Mevalarda vitamin ko'p.",
+      "en": "Fruit has a lot of vitamins.",
+      "ru": "Во фруктах много витаминов."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1056,
+    "korean": "산속",
+    "pos": "noun",
+    "hanja": "山-",
+    "homonym": 0,
+    "uzbek": "tog' ichi",
+    "english": "deep in the mountains",
+    "russian": "в горах",
+    "romanization": "sansok",
+    "topic": "nature",
+    "example": {
+      "ko": "산속에 작은 집이 있어요.",
+      "uz": "Tog' ichida kichik uy bor.",
+      "en": "There's a small house deep in the mountains.",
+      "ru": "В горах есть маленький домик."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1057,
+    "korean": "송이",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "dona, shingil (gul, uzum)",
+    "english": "cluster, bunch (counter for flowers)",
+    "russian": "гроздь, штука (для цветов)",
+    "romanization": "songi",
+    "topic": "numbers",
+    "example": {
+      "ko": "장미 한 송이를 샀어요.",
+      "uz": "Bitta atirgul sotib oldim.",
+      "en": "I bought a single rose.",
+      "ru": "Я купил одну розу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1058,
+    "korean": "심부름",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "topshiriq (birovning ishini bajarish)",
+    "english": "errand",
+    "russian": "поручение",
+    "romanization": "simbureum",
+    "topic": "home",
+    "example": {
+      "ko": "엄마 심부름으로 가게에 갔어요.",
+      "uz": "Onamning topshirig'i bilan do'konga bordim.",
+      "en": "I went to the store on an errand for my mom.",
+      "ru": "По маминому поручению я сходил в магазин."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1059,
+    "korean": "야외",
+    "pos": "noun",
+    "hanja": "野外",
+    "homonym": 0,
+    "uzbek": "ochiq havo",
+    "english": "outdoors",
+    "russian": "на открытом воздухе",
+    "romanization": "yaoe",
+    "topic": "places",
+    "example": {
+      "ko": "날씨가 좋아서 야외에서 밥을 먹었어요.",
+      "uz": "Havo yaxshi bo'lgani uchun ochiq havoda ovqatlandik.",
+      "en": "The weather was nice, so we ate outdoors.",
+      "ru": "Погода была хорошая, и мы поели на свежем воздухе."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1060,
+    "korean": "오래도록",
+    "pos": "adverb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "uzoq vaqt, uzoq yillar",
+    "english": "for a long time",
+    "russian": "долго, надолго",
+    "romanization": "oraedorok",
+    "topic": "time",
+    "example": {
+      "ko": "이 순간을 오래도록 기억할게요.",
+      "uz": "Bu lahzani uzoq yillar eslayman.",
+      "en": "I'll remember this moment for a long time.",
+      "ru": "Я надолго запомню этот момент."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1061,
+    "korean": "이빨",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tish (so'zlashuv)",
+    "english": "tooth (colloquial)",
+    "russian": "зуб (разг.)",
+    "romanization": "ippal",
+    "topic": "body",
+    "example": {
+      "ko": "사탕을 먹다가 이빨이 빠졌어요.",
+      "uz": "Konfet yeyayotib tishim tushdi.",
+      "en": "My tooth fell out while eating candy.",
+      "ru": "У меня выпал зуб, когда я ел конфету."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1062,
+    "korean": "장학금",
+    "pos": "noun",
+    "hanja": "獎學金",
+    "homonym": 0,
+    "uzbek": "stipendiya",
+    "english": "scholarship",
+    "russian": "стипендия",
+    "romanization": "janghakgeum",
+    "topic": "school",
+    "example": {
+      "ko": "성적이 좋아서 장학금을 받았어요.",
+      "uz": "Bahom yaxshi bo'lgani uchun stipendiya oldim.",
+      "en": "I got a scholarship for good grades.",
+      "ru": "Я получил стипендию за хорошие оценки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1063,
+    "korean": "쟤",
+    "pos": "pronoun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "anavi (bola)",
+    "english": "that kid over there (casual)",
+    "russian": "вон тот ребёнок (разг.)",
+    "romanization": "jyae",
+    "topic": "people",
+    "example": {
+      "ko": "쟤는 누구야?",
+      "uz": "Anavi kim?",
+      "en": "Who's that over there?",
+      "ru": "Кто это там?"
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1064,
+    "korean": "쪽",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "bet, sahifa",
+    "english": "page",
+    "russian": "страница",
+    "romanization": "jjok",
+    "topic": "school",
+    "example": {
+      "ko": "책 50쪽을 펴세요.",
+      "uz": "Kitobning 50-betini oching.",
+      "en": "Open your book to page 50.",
+      "ru": "Откройте книгу на 50-й странице."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1065,
+    "korean": "초밥",
+    "pos": "noun",
+    "hanja": "醋-",
+    "homonym": 0,
+    "uzbek": "sushi",
+    "english": "sushi",
+    "russian": "суши",
+    "romanization": "chobap",
+    "topic": "food",
+    "example": {
+      "ko": "일본 식당에서 초밥을 먹었어요.",
+      "uz": "Yapon restoranida sushi yedim.",
+      "en": "I ate sushi at a Japanese restaurant.",
+      "ru": "Я ел суши в японском ресторане."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1066,
+    "korean": "출입문",
+    "pos": "noun",
+    "hanja": "出入門",
+    "homonym": 0,
+    "uzbek": "kirish eshigi",
+    "english": "entrance door",
+    "russian": "входная дверь",
+    "romanization": "churimmun",
+    "topic": "places",
+    "example": {
+      "ko": "출입문 앞에 서 있지 마세요.",
+      "uz": "Kirish eshigi oldida turmang.",
+      "en": "Please don't stand in front of the doors.",
+      "ru": "Не стойте у входной двери."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1067,
+    "korean": "풀",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "yelim; kraxmal",
+    "english": "glue, paste; starch",
+    "russian": "клей; крахмал",
+    "romanization": "pul",
+    "topic": "school",
+    "example": {
+      "ko": "종이를 풀로 붙였어요.",
+      "uz": "Qog'ozni yelim bilan yopishtirdim.",
+      "en": "I glued the paper.",
+      "ru": "Я приклеил бумагу клеем."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1068,
+    "korean": "필름",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "plyonka",
+    "english": "film (camera)",
+    "russian": "плёнка",
+    "romanization": "pilleum",
+    "topic": "hobbies",
+    "example": {
+      "ko": "요즘은 필름 카메라를 쓰는 사람이 적어요.",
+      "uz": "Hozir plyonkali fotoapparatdan foydalanadiganlar kam.",
+      "en": "Few people use film cameras these days.",
+      "ru": "Сейчас мало кто пользуется плёночными фотоаппаратами."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1069,
+    "korean": "호선",
+    "pos": "bound noun",
+    "hanja": "號線",
+    "homonym": 80,
+    "uzbek": "liniya (metro)",
+    "english": "(subway) line",
+    "russian": "линия (метро)",
+    "romanization": "hoseon",
+    "topic": "transport",
+    "example": {
+      "ko": "2호선을 타고 시청역에서 내리세요.",
+      "uz": "2-liniyaga minib Sichon bekatida tushing.",
+      "en": "Take Line 2 and get off at City Hall Station.",
+      "ru": "Сядьте на линию 2 и выйдите на станции Сичхон."
+    },
+    "source": "NIKL-B",
+    "lessonKey": "19-455"
+  },
+  {
+    "id": 1070,
+    "korean": "고속",
+    "pos": "noun",
+    "hanja": "高速",
+    "homonym": 2,
+    "uzbek": "yuqori tezlik",
+    "english": "high speed",
+    "russian": "высокая скорость",
+    "romanization": "gosok",
+    "topic": "transport",
+    "example": {
+      "ko": "고속버스를 타고 부산에 갔어요.",
+      "uz": "Tezyurar avtobusda Pusanga bordim.",
+      "en": "I went to Busan by express bus.",
+      "ru": "Я поехал в Пусан на скоростном автобусе."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1071,
+    "korean": "구하다",
+    "pos": "verb",
+    "hanja": "救-",
+    "homonym": 3,
+    "uzbek": "qutqarmoq",
+    "english": "to save, to rescue",
+    "russian": "спасать",
+    "romanization": "guhada",
+    "topic": "actions",
+    "example": {
+      "ko": "소방관이 아이를 구했어요.",
+      "uz": "O't o'chiruvchi bolani qutqardi.",
+      "en": "The firefighter saved the child.",
+      "ru": "Пожарный спас ребёнка."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1072,
+    "korean": "도망가다",
+    "pos": "verb",
+    "hanja": "逃亡-",
+    "homonym": 0,
+    "uzbek": "qochmoq",
+    "english": "to run away, to escape",
+    "russian": "убегать, сбегать",
+    "romanization": "domanggada",
+    "topic": "actions",
+    "example": {
+      "ko": "고양이가 문 밖으로 도망갔어요.",
+      "uz": "Mushuk eshikdan qochib chiqib ketdi.",
+      "en": "The cat ran out the door.",
+      "ru": "Кошка сбежала за дверь."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1073,
+    "korean": "땅콩",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yeryong'oq",
+    "english": "peanut",
+    "russian": "арахис",
+    "romanization": "ttangkong",
+    "topic": "food",
+    "example": {
+      "ko": "저는 땅콩 알레르기가 있어요.",
+      "uz": "Menda yeryong'oqqa allergiya bor.",
+      "en": "I'm allergic to peanuts.",
+      "ru": "У меня аллергия на арахис."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1074,
+    "korean": "씩씩하다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "dadil, tetik",
+    "english": "brave, spirited",
+    "russian": "бодрый, мужественный",
+    "romanization": "ssikssikhada",
+    "topic": "descriptions",
+    "example": {
+      "ko": "아이가 씩씩하게 인사했어요.",
+      "uz": "Bola dadillik bilan salom berdi.",
+      "en": "The child greeted us cheerfully.",
+      "ru": "Ребёнок бодро поздоровался."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1075,
+    "korean": "월드컵",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "jahon chempionati (futbol)",
+    "english": "World Cup",
+    "russian": "чемпионат мира",
+    "romanization": "woldeukeop",
+    "topic": "hobbies",
+    "example": {
+      "ko": "2002년 월드컵은 한국과 일본에서 열렸어요.",
+      "uz": "2002-yilgi jahon chempionati Koreya va Yaponiyada o'tgan.",
+      "en": "The 2002 World Cup was held in Korea and Japan.",
+      "ru": "Чемпионат мира 2002 года прошёл в Корее и Японии."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1076,
+    "korean": "잘살다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "farovon yashamoq",
+    "english": "to be well-off, to live well",
+    "russian": "жить в достатке",
+    "romanization": "jalsalda",
+    "topic": "money",
+    "example": {
+      "ko": "열심히 일해서 잘살고 싶어요.",
+      "uz": "Qattiq mehnat qilib farovon yashashni xohlayman.",
+      "en": "I want to work hard and live well.",
+      "ru": "Я хочу усердно работать и жить в достатке."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1077,
+    "korean": "장가",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "uylanish",
+    "english": "(a man's) marriage",
+    "russian": "женитьба",
+    "romanization": "jangga",
+    "topic": "family",
+    "example": {
+      "ko": "삼촌이 내년에 장가를 가요.",
+      "uz": "Amakim kelasi yil uylanadi.",
+      "en": "My uncle is getting married next year.",
+      "ru": "Мой дядя женится в следующем году."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1078,
+    "korean": "졸업생",
+    "pos": "noun",
+    "hanja": "卒業生",
+    "homonym": 0,
+    "uzbek": "bitiruvchi",
+    "english": "graduate",
+    "russian": "выпускник",
+    "romanization": "joreopsaeng",
+    "topic": "school",
+    "example": {
+      "ko": "올해 졸업생은 300명이에요.",
+      "uz": "Bu yilgi bitiruvchilar 300 nafar.",
+      "en": "There are 300 graduates this year.",
+      "ru": "В этом году 300 выпускников."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1079,
+    "korean": "나빠지다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yomonlashmoq",
+    "english": "to get worse",
+    "russian": "ухудшаться",
+    "romanization": "nappajida",
+    "topic": "health",
+    "example": {
+      "ko": "컴퓨터를 많이 해서 눈이 나빠졌어요.",
+      "uz": "Kompyuterda ko'p o'tirib ko'zim yomonlashdi.",
+      "en": "My eyesight got worse from using the computer a lot.",
+      "ru": "От долгой работы за компьютером зрение ухудшилось."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1080,
+    "korean": "남",
+    "pos": "noun",
+    "hanja": "男",
+    "homonym": 2,
+    "uzbek": "erkak",
+    "english": "male, man",
+    "russian": "мужчина, мужской пол",
+    "romanization": "nam",
+    "topic": "people",
+    "example": {
+      "ko": "남학생보다 여학생이 많아요.",
+      "uz": "O'g'il bolalardan ko'ra qiz bolalar ko'p.",
+      "en": "There are more female students than male students.",
+      "ru": "Девушек больше, чем юношей."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1081,
+    "korean": "수년",
+    "pos": "noun",
+    "hanja": "數年",
+    "homonym": 2,
+    "uzbek": "bir necha yil",
+    "english": "several years",
+    "russian": "несколько лет",
+    "romanization": "sunyeon",
+    "topic": "time",
+    "example": {
+      "ko": "수년 동안 이 회사에서 일했어요.",
+      "uz": "Bir necha yil shu kompaniyada ishladim.",
+      "en": "I worked at this company for several years.",
+      "ru": "Я несколько лет работал в этой компании."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1082,
+    "korean": "수출하다",
+    "pos": "verb",
+    "hanja": "輸出-",
+    "homonym": 3,
+    "uzbek": "eksport qilmoq",
+    "english": "to export",
+    "russian": "экспортировать",
+    "romanization": "suchulhada",
+    "topic": "money",
+    "example": {
+      "ko": "이 회사는 자동차를 수출해요.",
+      "uz": "Bu kompaniya avtomobil eksport qiladi.",
+      "en": "This company exports cars.",
+      "ru": "Эта компания экспортирует автомобили."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1083,
+    "korean": "숙소",
+    "pos": "noun",
+    "hanja": "宿所",
+    "homonym": 2,
+    "uzbek": "turar joy, yotoqxona (vaqtinchalik)",
+    "english": "accommodation, lodging",
+    "russian": "жильё, место ночлега",
+    "romanization": "sukso",
+    "topic": "travel",
+    "example": {
+      "ko": "여행 숙소를 미리 예약했어요.",
+      "uz": "Sayohat uchun turar joyni oldindan band qildim.",
+      "en": "I booked accommodation for the trip in advance.",
+      "ru": "Я заранее забронировал жильё для поездки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1084,
+    "korean": "한잔하다",
+    "pos": "verb",
+    "hanja": "盞-",
+    "homonym": 0,
+    "uzbek": "bir piyola ichmoq (ichkilik)",
+    "english": "to have a drink",
+    "russian": "выпить по рюмочке",
+    "romanization": "hanjanhada",
+    "topic": "food",
+    "example": {
+      "ko": "퇴근 후에 한잔할까요?",
+      "uz": "Ishdan keyin bir qadah ichamizmi?",
+      "en": "Shall we grab a drink after work?",
+      "ru": "Выпьем по рюмочке после работы?"
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1085,
+    "korean": "감상",
+    "pos": "noun",
+    "hanja": "鑑賞",
+    "homonym": 5,
+    "uzbek": "tomosha, idrok etish (san'at)",
+    "english": "appreciation (of art), enjoyment",
+    "russian": "наслаждение (искусством)",
+    "romanization": "gamsang",
+    "topic": "hobbies",
+    "example": {
+      "ko": "제 취미는 영화 감상이에요.",
+      "uz": "Mening sevimli mashg'ulotim film tomosha qilish.",
+      "en": "My hobby is watching movies.",
+      "ru": "Моё хобби — смотреть фильмы."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1086,
+    "korean": "그만하다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "bas qilmoq; shunchalik",
+    "english": "to stop; to be about that much",
+    "russian": "прекращать; таковой",
+    "romanization": "geumanhada",
+    "topic": "grammar words",
+    "example": {
+      "ko": "이제 그만하세요.",
+      "uz": "Endi bas qiling.",
+      "en": "Please stop now.",
+      "ru": "Хватит уже."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1087,
+    "korean": "볼일",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ish, yumush",
+    "english": "errand, business (to attend to)",
+    "russian": "дело",
+    "romanization": "boril",
+    "topic": "daily life",
+    "example": {
+      "ko": "잠깐 볼일이 있어서 나갔다 올게요.",
+      "uz": "Kichik ishim bor, chiqib kelaman.",
+      "en": "I have an errand to run, I'll be right back.",
+      "ru": "У меня дела, сейчас выйду и вернусь."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1088,
+    "korean": "부끄러움",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "uyat, hayo",
+    "english": "shame, shyness",
+    "russian": "стыд, застенчивость",
+    "romanization": "bukkeureoum",
+    "topic": "feelings",
+    "example": {
+      "ko": "그는 부끄러움이 많아요.",
+      "uz": "U juda uyatchan.",
+      "en": "He is very shy.",
+      "ru": "Он очень застенчивый."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1089,
+    "korean": "저리",
+    "pos": "adverb",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "u yoqqa",
+    "english": "that way, over there",
+    "russian": "туда",
+    "romanization": "jeori",
+    "topic": "grammar words",
+    "example": {
+      "ko": "저리 가세요.",
+      "uz": "U yoqqa boring.",
+      "en": "Go over there.",
+      "ru": "Идите туда."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1090,
+    "korean": "절약하다",
+    "pos": "verb",
+    "hanja": "節約-",
+    "homonym": 0,
+    "uzbek": "tejamoq",
+    "english": "to save, to economize",
+    "russian": "экономить",
+    "romanization": "jeoryakhada",
+    "topic": "money",
+    "example": {
+      "ko": "전기를 절약합시다.",
+      "uz": "Elektrni tejaylik.",
+      "en": "Let's save electricity.",
+      "ru": "Давайте экономить электричество."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1091,
+    "korean": "합격",
+    "pos": "noun",
+    "hanja": "合格",
+    "homonym": 0,
+    "uzbek": "imtihondan o'tish, qabul qilinish",
+    "english": "passing (an exam), acceptance",
+    "russian": "успешная сдача, поступление",
+    "romanization": "hapgyeok",
+    "topic": "school",
+    "example": {
+      "ko": "대학교 합격을 축하해요!",
+      "uz": "Universitetga kirganingiz bilan tabriklayman!",
+      "en": "Congratulations on getting into university!",
+      "ru": "Поздравляю с поступлением в университет!"
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1092,
+    "korean": "갈다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "almashtirmoq",
+    "english": "to change, to replace",
+    "russian": "менять, заменять",
+    "romanization": "galda",
+    "topic": "actions",
+    "example": {
+      "ko": "어항의 물을 갈았어요.",
+      "uz": "Akvarium suvini almashtirdim.",
+      "en": "I changed the water in the fish tank.",
+      "ru": "Я поменял воду в аквариуме."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1093,
+    "korean": "기도",
+    "pos": "noun",
+    "hanja": "祈禱",
+    "homonym": 3,
+    "uzbek": "duo, ibodat",
+    "english": "prayer",
+    "russian": "молитва",
+    "romanization": "gido",
+    "topic": "culture",
+    "example": {
+      "ko": "가족을 위해 기도했어요.",
+      "uz": "Oilam uchun duo qildim.",
+      "en": "I prayed for my family.",
+      "ru": "Я помолился за семью."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1094,
+    "korean": "길거리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ko'cha",
+    "english": "street",
+    "russian": "улица",
+    "romanization": "gilgeori",
+    "topic": "places",
+    "example": {
+      "ko": "길거리 음식을 좋아해요.",
+      "uz": "Ko'cha taomlarini yaxshi ko'raman.",
+      "en": "I like street food.",
+      "ru": "Я люблю уличную еду."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1095,
+    "korean": "꽃잎",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "gulbarg",
+    "english": "petal",
+    "russian": "лепесток",
+    "romanization": "kkochip",
+    "topic": "nature",
+    "example": {
+      "ko": "바람에 꽃잎이 날려요.",
+      "uz": "Shamolda gulbarglar uchyapti.",
+      "en": "Petals are blowing in the wind.",
+      "ru": "На ветру летят лепестки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1096,
+    "korean": "라이터",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "zajigalka",
+    "english": "lighter",
+    "russian": "зажигалка",
+    "romanization": "raiteo",
+    "topic": "daily life",
+    "example": {
+      "ko": "라이터 좀 빌려 주세요.",
+      "uz": "Zajigalkangizni berib turing.",
+      "en": "Can I borrow your lighter?",
+      "ru": "Одолжите, пожалуйста, зажигалку."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1097,
+    "korean": "생활환경",
+    "pos": "noun",
+    "hanja": "生活環境",
+    "homonym": 0,
+    "uzbek": "yashash muhiti",
+    "english": "living environment",
+    "russian": "условия жизни",
+    "romanization": "saenghwalhwangyeong",
+    "topic": "society",
+    "example": {
+      "ko": "도시의 생활환경이 좋아졌어요.",
+      "uz": "Shahardagi yashash muhiti yaxshilandi.",
+      "en": "The living environment in the city has improved.",
+      "ru": "Условия жизни в городе улучшились."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1098,
+    "korean": "오리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 3,
+    "uzbek": "o'rdak",
+    "english": "duck",
+    "russian": "утка",
+    "romanization": "ori",
+    "topic": "animals",
+    "example": {
+      "ko": "호수에 오리가 떠 있어요.",
+      "uz": "Ko'lda o'rdaklar suzib yuribdi.",
+      "en": "Ducks are floating on the lake.",
+      "ru": "На озере плавают утки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1099,
+    "korean": "입원하다",
+    "pos": "verb",
+    "hanja": "入院-",
+    "homonym": 1,
+    "uzbek": "kasalxonaga yotmoq",
+    "english": "to be hospitalized",
+    "russian": "ложиться в больницу",
+    "romanization": "ibwonhada",
+    "topic": "health",
+    "example": {
+      "ko": "할머니가 병원에 입원하셨어요.",
+      "uz": "Buvim kasalxonaga yotqizildi.",
+      "en": "My grandmother was hospitalized.",
+      "ru": "Бабушку положили в больницу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1100,
+    "korean": "전기밥솥",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "elektr guruch pishirgich",
+    "english": "electric rice cooker",
+    "russian": "электрическая рисоварка",
+    "romanization": "jeongibapsot",
+    "topic": "home",
+    "example": {
+      "ko": "전기밥솥으로 밥을 했어요.",
+      "uz": "Elektr guruch pishirgichda guruch pishirdim.",
+      "en": "I cooked rice in the electric rice cooker.",
+      "ru": "Я сварил рис в рисоварке."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1101,
+    "korean": "하품",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "esnash",
+    "english": "yawn",
+    "russian": "зевок",
+    "romanization": "hapum",
+    "topic": "body",
+    "example": {
+      "ko": "졸려서 하품이 나요.",
+      "uz": "Uyqum kelib esnayapman.",
+      "en": "I'm yawning because I'm sleepy.",
+      "ru": "Я зеваю, потому что хочу спать."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1102,
+    "korean": "교문",
+    "pos": "noun",
+    "hanja": "校門",
+    "homonym": 1,
+    "uzbek": "maktab darvozasi",
+    "english": "school gate",
+    "russian": "школьные ворота",
+    "romanization": "gyomun",
+    "topic": "school",
+    "example": {
+      "ko": "교문 앞에서 친구를 기다렸어요.",
+      "uz": "Maktab darvozasi oldida do'stimni kutdim.",
+      "en": "I waited for my friend at the school gate.",
+      "ru": "Я ждал друга у школьных ворот."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1103,
+    "korean": "권투",
+    "pos": "noun",
+    "hanja": "拳鬪",
+    "homonym": 1,
+    "uzbek": "boks",
+    "english": "boxing",
+    "russian": "бокс",
+    "romanization": "gwontu",
+    "topic": "hobbies",
+    "example": {
+      "ko": "형은 권투를 배우고 있어요.",
+      "uz": "Akam boks o'rganyapti.",
+      "en": "My older brother is learning boxing.",
+      "ru": "Брат занимается боксом."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1104,
+    "korean": "받침",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tayanch; pastki undosh (hangul)",
+    "english": "support, stand; final consonant (Hangul)",
+    "russian": "подставка; патчим (конечная согласная)",
+    "romanization": "batchim",
+    "topic": "grammar words",
+    "example": {
+      "ko": "'한'의 받침은 'ㄴ'이에요.",
+      "uz": "\"한\" bo'g'inining pastki undoshi \"ㄴ\".",
+      "en": "The final consonant of \"한\" is \"ㄴ\".",
+      "ru": "Патчим в слоге «한» — «ㄴ»."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1105,
+    "korean": "북",
+    "pos": "noun",
+    "hanja": "北",
+    "homonym": 7,
+    "uzbek": "shimol",
+    "english": "north",
+    "russian": "север",
+    "romanization": "buk",
+    "topic": "places",
+    "example": {
+      "ko": "서울은 부산의 북쪽에 있어요.",
+      "uz": "Seul Pusanning shimolida joylashgan.",
+      "en": "Seoul is north of Busan.",
+      "ru": "Сеул находится к северу от Пусана."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1106,
+    "korean": "수고하다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "mehnat qilmoq, qiynalmoq",
+    "english": "to work hard, to take trouble",
+    "russian": "трудиться, стараться",
+    "romanization": "sugohada",
+    "topic": "work",
+    "example": {
+      "ko": "오늘도 수고하셨습니다.",
+      "uz": "Bugun ham charchamang (mehnatingiz uchun rahmat).",
+      "en": "Thank you for your hard work today.",
+      "ru": "Спасибо за ваш труд сегодня."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1107,
+    "korean": "수학",
+    "pos": "noun",
+    "hanja": "修學",
+    "homonym": 3,
+    "uzbek": "o'qish, ta'lim olish",
+    "english": "study, learning",
+    "russian": "учёба",
+    "romanization": "suhak",
+    "topic": "school",
+    "example": {
+      "ko": "다음 주에 수학여행을 가요.",
+      "uz": "Keyingi hafta o'quv sayohatiga boramiz.",
+      "en": "We're going on a school trip next week.",
+      "ru": "На следующей неделе у нас школьная экскурсия."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1108,
+    "korean": "아뇨",
+    "pos": "interjection",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "yo'q",
+    "english": "no",
+    "russian": "нет",
+    "romanization": "anyo",
+    "topic": "grammar words",
+    "example": {
+      "ko": "아뇨, 괜찮아요.",
+      "uz": "Yo'q, kerak emas.",
+      "en": "No, I'm fine.",
+      "ru": "Нет, спасибо."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1109,
+    "korean": "액세서리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "bezak, aksessuar",
+    "english": "accessory",
+    "russian": "аксессуар, украшение",
+    "romanization": "aekseseori",
+    "topic": "clothing",
+    "example": {
+      "ko": "액세서리 가게에서 귀걸이를 샀어요.",
+      "uz": "Aksessuarlar do'konidan sirg'a sotib oldim.",
+      "en": "I bought earrings at an accessory shop.",
+      "ru": "Я купила серьги в магазине аксессуаров."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1110,
+    "korean": "염려하다",
+    "pos": "verb",
+    "hanja": "慮-",
+    "homonym": 1,
+    "uzbek": "xavotirlanmoq",
+    "english": "to worry, to be concerned",
+    "russian": "беспокоиться",
+    "romanization": "yeomnyeohada",
+    "topic": "feelings",
+    "example": {
+      "ko": "제 걱정은 염려하지 마세요.",
+      "uz": "Men uchun xavotirlanmang.",
+      "en": "Don't worry about me.",
+      "ru": "Не беспокойтесь обо мне."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1111,
+    "korean": "외삼촌",
+    "pos": "noun",
+    "hanja": "外三寸",
+    "homonym": 0,
+    "uzbek": "tog'a",
+    "english": "maternal uncle",
+    "russian": "дядя (брат матери)",
+    "romanization": "oesamchon",
+    "topic": "family",
+    "example": {
+      "ko": "외삼촌은 엄마의 남동생이에요.",
+      "uz": "Tog'am onamning ukasi.",
+      "en": "My maternal uncle is my mom's younger brother.",
+      "ru": "Мой дядя — младший брат мамы."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1112,
+    "korean": "캠퍼스",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kampus",
+    "english": "campus",
+    "russian": "кампус",
+    "romanization": "kaempeoseu",
+    "topic": "school",
+    "example": {
+      "ko": "대학 캠퍼스가 아주 넓어요.",
+      "uz": "Universitet kampusi juda keng.",
+      "en": "The university campus is very big.",
+      "ru": "Университетский кампус очень большой."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1113,
+    "korean": "터널",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tunnel",
+    "english": "tunnel",
+    "russian": "туннель",
+    "romanization": "teoneol",
+    "topic": "transport",
+    "example": {
+      "ko": "기차가 긴 터널을 지나갔어요.",
+      "uz": "Poyezd uzun tunneldan o'tdi.",
+      "en": "The train passed through a long tunnel.",
+      "ru": "Поезд проехал через длинный туннель."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1114,
+    "korean": "통",
+    "pos": "bound noun",
+    "hanja": "通",
+    "homonym": 12,
+    "uzbek": "dona (xat, qo'ng'iroq)",
+    "english": "(counter for letters, calls)",
+    "russian": "(счётное слово для писем, звонков)",
+    "romanization": "tong",
+    "topic": "numbers",
+    "example": {
+      "ko": "어제 전화 세 통을 받았어요.",
+      "uz": "Kecha uchta qo'ng'iroq oldim.",
+      "en": "I got three phone calls yesterday.",
+      "ru": "Вчера мне позвонили три раза."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1115,
+    "korean": "환갑",
+    "pos": "noun",
+    "hanja": "還甲",
+    "homonym": 2,
+    "uzbek": "60 yoshlik yubiley",
+    "english": "60th birthday",
+    "russian": "60-летний юбилей",
+    "romanization": "hwangap",
+    "topic": "culture",
+    "example": {
+      "ko": "아버지의 환갑 잔치를 했어요.",
+      "uz": "Otamning 60 yoshlik yubileyini nishonladik.",
+      "en": "We held a party for my father's 60th birthday.",
+      "ru": "Мы отметили 60-летие отца."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1116,
+    "korean": "건너오다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "o'tib kelmoq",
+    "english": "to come across, to cross over",
+    "russian": "переходить (сюда)",
+    "romanization": "geonneooda",
+    "topic": "actions",
+    "example": {
+      "ko": "길을 건너올 때 조심하세요.",
+      "uz": "Yo'ldan o'tib kelayotganda ehtiyot bo'ling.",
+      "en": "Be careful when you cross the street.",
+      "ru": "Будьте осторожны, когда переходите дорогу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1117,
+    "korean": "교포",
+    "pos": "noun",
+    "hanja": "僑胞",
+    "homonym": 2,
+    "uzbek": "xorijdagi koreyslar (diaspora)",
+    "english": "overseas Korean",
+    "russian": "корейский эмигрант",
+    "romanization": "gyopo",
+    "topic": "people",
+    "example": {
+      "ko": "그는 미국에 사는 교포예요.",
+      "uz": "U Amerikada yashovchi koreys.",
+      "en": "He is a Korean living in the U.S.",
+      "ru": "Он кореец, живущий в США."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1118,
+    "korean": "등록금",
+    "pos": "noun",
+    "hanja": "登錄",
+    "homonym": 0,
+    "uzbek": "o'qish to'lovi",
+    "english": "tuition",
+    "russian": "плата за обучение",
+    "romanization": "deungnokgeum",
+    "topic": "school",
+    "example": {
+      "ko": "대학교 등록금이 너무 비싸요.",
+      "uz": "Universitet o'qish to'lovi juda qimmat.",
+      "en": "University tuition is too expensive.",
+      "ru": "Плата за обучение в университете слишком высокая."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1119,
+    "korean": "뛰어다니다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yugurib yurmoq",
+    "english": "to run around",
+    "russian": "бегать (туда-сюда)",
+    "romanization": "ttwieodanida",
+    "topic": "actions",
+    "example": {
+      "ko": "아이들이 운동장에서 뛰어다녀요.",
+      "uz": "Bolalar maydonda yugurib yuribdi.",
+      "en": "The children are running around the playground.",
+      "ru": "Дети бегают по площадке."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1120,
+    "korean": "만",
+    "pos": "determiner",
+    "hanja": "滿",
+    "homonym": 7,
+    "uzbek": "to'la (yosh, muddat)",
+    "english": "full (years, months)",
+    "russian": "полный (о возрасте, сроке)",
+    "romanization": "man",
+    "topic": "numbers",
+    "example": {
+      "ko": "아기가 만 한 살이 되었어요.",
+      "uz": "Chaqaloq to'la bir yoshga to'ldi.",
+      "en": "The baby turned one full year old.",
+      "ru": "Малышу исполнился полный год."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1121,
+    "korean": "몇십",
+    "pos": "determiner",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "bir necha o'n",
+    "english": "several tens, dozens",
+    "russian": "несколько десятков",
+    "romanization": "myeotsip",
+    "topic": "numbers",
+    "example": {
+      "ko": "몇십 명이 모였어요.",
+      "uz": "Bir necha o'n kishi yig'ildi.",
+      "en": "Dozens of people gathered.",
+      "ru": "Собралось несколько десятков человек."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1122,
+    "korean": "몸무게",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "vazn",
+    "english": "body weight",
+    "russian": "вес",
+    "romanization": "mommuge",
+    "topic": "health",
+    "example": {
+      "ko": "몸무게가 2킬로 늘었어요.",
+      "uz": "Vaznim 2 kilo oshdi.",
+      "en": "I gained 2 kilos.",
+      "ru": "Я поправился на 2 кило."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1123,
+    "korean": "번역",
+    "pos": "noun",
+    "hanja": "飜譯",
+    "homonym": 0,
+    "uzbek": "tarjima",
+    "english": "translation",
+    "russian": "перевод",
+    "romanization": "beonyeok",
+    "topic": "communication",
+    "example": {
+      "ko": "이 책은 한국어 번역이 있어요.",
+      "uz": "Bu kitobning koreyscha tarjimasi bor.",
+      "en": "This book has a Korean translation.",
+      "ru": "У этой книги есть корейский перевод."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1124,
+    "korean": "비닐봉지",
+    "pos": "noun",
+    "hanja": "封紙",
+    "homonym": 0,
+    "uzbek": "sellofan paket",
+    "english": "plastic bag",
+    "russian": "полиэтиленовый пакет",
+    "romanization": "binilbongji",
+    "topic": "shopping",
+    "example": {
+      "ko": "비닐봉지는 따로 돈을 내야 해요.",
+      "uz": "Sellofan paket uchun alohida pul to'lash kerak.",
+      "en": "You have to pay extra for a plastic bag.",
+      "ru": "За пакет нужно платить отдельно."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1125,
+    "korean": "소나기",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "jala",
+    "english": "sudden shower",
+    "russian": "ливень",
+    "romanization": "sonagi",
+    "topic": "weather",
+    "example": {
+      "ko": "갑자기 소나기가 내렸어요.",
+      "uz": "To'satdan jala quydi.",
+      "en": "A sudden shower came down.",
+      "ru": "Внезапно хлынул ливень."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1126,
+    "korean": "손잡이",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tutqich, dasta",
+    "english": "handle, knob",
+    "russian": "ручка",
+    "romanization": "sonjabi",
+    "topic": "home",
+    "example": {
+      "ko": "문 손잡이가 고장 났어요.",
+      "uz": "Eshik tutqichi buzildi.",
+      "en": "The door handle is broken.",
+      "ru": "Дверная ручка сломалась."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1127,
+    "korean": "안되다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 2,
+    "uzbek": "achinarli (ko'rinmoq)",
+    "english": "to feel sorry for, pitiful",
+    "russian": "жалко",
+    "romanization": "andoeda",
+    "topic": "feelings",
+    "example": {
+      "ko": "혼자 있는 그 아이가 안돼 보였어요.",
+      "uz": "Yolg'iz qolgan o'sha bolaga achindim.",
+      "en": "I felt sorry for that child, all alone.",
+      "ru": "Мне было жаль того ребёнка, оставшегося одного."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1128,
+    "korean": "연하다",
+    "pos": "adjective",
+    "hanja": "軟-",
+    "homonym": 1,
+    "uzbek": "yumshoq; och (rang)",
+    "english": "tender, soft; light (color)",
+    "russian": "мягкий; светлый (о цвете)",
+    "romanization": "yeonhada",
+    "topic": "descriptions",
+    "example": {
+      "ko": "이 고기는 아주 연해요.",
+      "uz": "Bu go'sht juda yumshoq.",
+      "en": "This meat is very tender.",
+      "ru": "Это мясо очень мягкое."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1129,
+    "korean": "원숭이",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "maymun",
+    "english": "monkey",
+    "russian": "обезьяна",
+    "romanization": "wonsungi",
+    "topic": "animals",
+    "example": {
+      "ko": "원숭이가 바나나를 먹고 있어요.",
+      "uz": "Maymun banan yeyapti.",
+      "en": "The monkey is eating a banana.",
+      "ru": "Обезьяна ест банан."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1130,
+    "korean": "이혼",
+    "pos": "noun",
+    "hanja": "離婚",
+    "homonym": 3,
+    "uzbek": "ajrashish",
+    "english": "divorce",
+    "russian": "развод",
+    "romanization": "ihon",
+    "topic": "family",
+    "example": {
+      "ko": "두 사람은 작년에 이혼했어요.",
+      "uz": "Ikkisi o'tgan yili ajrashishdi.",
+      "en": "The two divorced last year.",
+      "ru": "Они развелись в прошлом году."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1131,
+    "korean": "일회용",
+    "pos": "noun",
+    "hanja": "一回用",
+    "homonym": 0,
+    "uzbek": "bir martalik",
+    "english": "disposable",
+    "russian": "одноразовый",
+    "romanization": "ilhoeyong",
+    "topic": "daily life",
+    "example": {
+      "ko": "일회용 컵 대신 텀블러를 써요.",
+      "uz": "Bir martalik stakan o'rniga termos-krujka ishlataman.",
+      "en": "I use a tumbler instead of disposable cups.",
+      "ru": "Вместо одноразовых стаканов я пользуюсь термокружкой."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1132,
+    "korean": "진달래",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "azaliya (tog' gul)",
+    "english": "azalea",
+    "russian": "азалия",
+    "romanization": "jindallae",
+    "topic": "nature",
+    "example": {
+      "ko": "봄이 되면 산에 진달래가 피어요.",
+      "uz": "Bahor kelsa tog'da azaliya gullaydi.",
+      "en": "Azaleas bloom on the mountains in spring.",
+      "ru": "Весной в горах цветут азалии."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1133,
+    "korean": "차남",
+    "pos": "noun",
+    "hanja": "次男",
+    "homonym": 2,
+    "uzbek": "ikkinchi o'g'il",
+    "english": "second son",
+    "russian": "второй сын",
+    "romanization": "chanam",
+    "topic": "family",
+    "example": {
+      "ko": "저는 삼 형제 중 차남이에요.",
+      "uz": "Men uch aka-ukaning ikkinchisiman.",
+      "en": "I'm the second of three sons.",
+      "ru": "Я второй из трёх братьев."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1134,
+    "korean": "팬티",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ichki kiyim (trusik)",
+    "english": "underpants, panties",
+    "russian": "трусы",
+    "romanization": "paenti",
+    "topic": "clothing",
+    "example": {
+      "ko": "속옷 가게에서 팬티를 샀어요.",
+      "uz": "Ichki kiyim do'konidan trusik sotib oldim.",
+      "en": "I bought underwear at a lingerie store.",
+      "ru": "Я купил трусы в магазине белья."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1135,
+    "korean": "편히",
+    "pos": "adverb",
+    "hanja": "便-",
+    "homonym": 0,
+    "uzbek": "bemalol, qulay",
+    "english": "comfortably, at ease",
+    "russian": "удобно, спокойно",
+    "romanization": "pyeonhi",
+    "topic": "grammar words",
+    "example": {
+      "ko": "편히 앉으세요.",
+      "uz": "Bemalol o'tiring.",
+      "en": "Please make yourself comfortable.",
+      "ru": "Садитесь поудобнее."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1136,
+    "korean": "개나리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "forsitsiya (sariq gul)",
+    "english": "forsythia",
+    "russian": "форзиция",
+    "romanization": "gaenari",
+    "topic": "nature",
+    "example": {
+      "ko": "개나리는 노란색 꽃이에요.",
+      "uz": "Forsitsiya sariq gul.",
+      "en": "Forsythia is a yellow flower.",
+      "ru": "Форзиция — жёлтый цветок."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1137,
+    "korean": "골목길",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "tor ko'cha",
+    "english": "alley, lane",
+    "russian": "переулок",
+    "romanization": "golmokgil",
+    "topic": "places",
+    "example": {
+      "ko": "골목길이 좁아서 차가 못 들어가요.",
+      "uz": "Tor ko'cha juda ensiz, mashina kira olmaydi.",
+      "en": "The alley is too narrow for cars.",
+      "ru": "Переулок слишком узкий, машина не проедет."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1138,
+    "korean": "노랫소리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "qo'shiq ovozi",
+    "english": "sound of singing",
+    "russian": "пение, звук песни",
+    "romanization": "noraetsori",
+    "topic": "hobbies",
+    "example": {
+      "ko": "어디서 노랫소리가 들려요.",
+      "uz": "Qayerdandir qo'shiq ovozi eshitilyapti.",
+      "en": "I hear singing from somewhere.",
+      "ru": "Откуда-то доносится пение."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1139,
+    "korean": "대학교수",
+    "pos": "noun",
+    "hanja": "大學敎授",
+    "homonym": 0,
+    "uzbek": "universitet professori",
+    "english": "university professor",
+    "russian": "университетский профессор",
+    "romanization": "daehakgyosu",
+    "topic": "people",
+    "example": {
+      "ko": "아버지는 대학교수세요.",
+      "uz": "Otam universitet professori.",
+      "en": "My father is a university professor.",
+      "ru": "Мой отец — профессор университета."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1140,
+    "korean": "레몬",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "limon",
+    "english": "lemon",
+    "russian": "лимон",
+    "romanization": "remon",
+    "topic": "food",
+    "example": {
+      "ko": "홍차에 레몬을 넣어 마셔요.",
+      "uz": "Qora choyga limon solib ichaman.",
+      "en": "I drink black tea with lemon.",
+      "ru": "Я пью чёрный чай с лимоном."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1141,
+    "korean": "배꼽",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kindik",
+    "english": "belly button, navel",
+    "russian": "пупок",
+    "romanization": "baekkop",
+    "topic": "body",
+    "example": {
+      "ko": "너무 웃겨서 배꼽이 빠질 뻔했어요.",
+      "uz": "Kulgidan ichagim uzilay dedi.",
+      "en": "It was so funny I nearly split my sides.",
+      "ru": "Было так смешно, что я чуть не надорвал живот."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1142,
+    "korean": "사랑스럽다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yoqimtoy, mehr uyg'otadigan",
+    "english": "lovely, adorable",
+    "russian": "милый, очаровательный",
+    "romanization": "sarangseureopda",
+    "topic": "descriptions",
+    "example": {
+      "ko": "아기가 정말 사랑스러워요.",
+      "uz": "Chaqaloq juda yoqimtoy.",
+      "en": "The baby is so adorable.",
+      "ru": "Малыш такой милый."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1143,
+    "korean": "술병",
+    "pos": "noun",
+    "hanja": "-甁",
+    "homonym": 2,
+    "uzbek": "ichkilik shishasi",
+    "english": "liquor bottle",
+    "russian": "бутылка (из-под спиртного)",
+    "romanization": "sulbyeong",
+    "topic": "food",
+    "example": {
+      "ko": "탁자 위에 빈 술병이 있어요.",
+      "uz": "Stol ustida bo'sh shisha bor.",
+      "en": "There's an empty liquor bottle on the table.",
+      "ru": "На столе пустая бутылка."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1144,
+    "korean": "쓰이다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "yozilmoq",
+    "english": "to be written",
+    "russian": "быть написанным",
+    "romanization": "sseuida",
+    "topic": "school",
+    "example": {
+      "ko": "칠판에 이름이 쓰여 있어요.",
+      "uz": "Doskaga ism yozilgan.",
+      "en": "A name is written on the blackboard.",
+      "ru": "На доске написано имя."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1145,
+    "korean": "욕실",
+    "pos": "noun",
+    "hanja": "浴室",
+    "homonym": 0,
+    "uzbek": "vannaxona",
+    "english": "bathroom",
+    "russian": "ванная комната",
+    "romanization": "yoksil",
+    "topic": "home",
+    "example": {
+      "ko": "욕실이 깨끗해요.",
+      "uz": "Vannaxona toza.",
+      "en": "The bathroom is clean.",
+      "ru": "Ванная чистая."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1146,
+    "korean": "운전기사",
+    "pos": "noun",
+    "hanja": "運轉技士",
+    "homonym": 0,
+    "uzbek": "haydovchi",
+    "english": "(professional) driver",
+    "russian": "водитель, шофёр",
+    "romanization": "unjeongisa",
+    "topic": "transport",
+    "example": {
+      "ko": "사장님 운전기사가 기다리고 있어요.",
+      "uz": "Direktorning haydovchisi kutyapti.",
+      "en": "The CEO's driver is waiting.",
+      "ru": "Водитель директора ждёт."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1147,
+    "korean": "짧아지다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "qisqarmoq",
+    "english": "to get shorter",
+    "russian": "укорачиваться",
+    "romanization": "jjalbajida",
+    "topic": "descriptions",
+    "example": {
+      "ko": "겨울이 되면 낮이 짧아져요.",
+      "uz": "Qish kelsa kun qisqaradi.",
+      "en": "Days get shorter in winter.",
+      "ru": "Зимой дни становятся короче."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1148,
+    "korean": "책가방",
+    "pos": "noun",
+    "hanja": "冊-",
+    "homonym": 0,
+    "uzbek": "maktab sumkasi",
+    "english": "school bag",
+    "russian": "школьный рюкзак",
+    "romanization": "chaekgabang",
+    "topic": "school",
+    "example": {
+      "ko": "책가방에 교과서를 넣었어요.",
+      "uz": "Maktab sumkasiga darsliklarni soldim.",
+      "en": "I put the textbooks in my school bag.",
+      "ru": "Я положил учебники в рюкзак."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1149,
+    "korean": "놀이터",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "bolalar maydonchasi",
+    "english": "playground",
+    "russian": "детская площадка",
+    "romanization": "noriteo",
+    "topic": "places",
+    "example": {
+      "ko": "아이들이 놀이터에서 놀고 있어요.",
+      "uz": "Bolalar maydonchada o'ynayapti.",
+      "en": "The kids are playing at the playground.",
+      "ru": "Дети играют на детской площадке."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1150,
+    "korean": "다녀가다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kelib ketmoq",
+    "english": "to drop by, to visit and leave",
+    "russian": "заходить, навещать",
+    "romanization": "danyeogada",
+    "topic": "actions",
+    "example": {
+      "ko": "친구가 어제 우리 집에 다녀갔어요.",
+      "uz": "Do'stim kecha uyimizga kelib ketdi.",
+      "en": "My friend dropped by our house yesterday.",
+      "ru": "Вчера к нам заходил друг."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1151,
+    "korean": "때때로",
+    "pos": "adverb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ba'zan, goho",
+    "english": "sometimes, from time to time",
+    "russian": "иногда, время от времени",
+    "romanization": "ttaettaero",
+    "topic": "grammar words",
+    "example": {
+      "ko": "때때로 고향 생각이 나요.",
+      "uz": "Ba'zan ona yurtim esimga tushadi.",
+      "en": "Sometimes I think of my hometown.",
+      "ru": "Иногда я вспоминаю родину."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1152,
+    "korean": "발등",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "oyoq usti",
+    "english": "top of the foot",
+    "russian": "подъём стопы",
+    "romanization": "baldeung",
+    "topic": "body",
+    "example": {
+      "ko": "무거운 상자가 발등에 떨어졌어요.",
+      "uz": "Og'ir quti oyog'im ustiga tushdi.",
+      "en": "A heavy box fell on the top of my foot.",
+      "ru": "Тяжёлая коробка упала мне на ногу."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1153,
+    "korean": "사이좋다",
+    "pos": "adjective",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ahil, inoq",
+    "english": "to get along well",
+    "russian": "дружный",
+    "romanization": "saijota",
+    "topic": "family",
+    "example": {
+      "ko": "우리 형제는 사이좋게 지내요.",
+      "uz": "Biz aka-ukalar ahil yashaymiz.",
+      "en": "My brothers and I get along well.",
+      "ru": "Мы с братьями живём дружно."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1154,
+    "korean": "왼발",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "chap oyoq",
+    "english": "left foot",
+    "russian": "левая нога",
+    "romanization": "oenbal",
+    "topic": "body",
+    "example": {
+      "ko": "왼발을 다쳐서 걷기 힘들어요.",
+      "uz": "Chap oyog'imni lat yedirdim, yurish qiyin.",
+      "en": "I hurt my left foot, so it's hard to walk.",
+      "ru": "Я повредил левую ногу, трудно ходить."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1155,
+    "korean": "일기",
+    "pos": "noun",
+    "hanja": "日氣",
+    "homonym": 11,
+    "uzbek": "ob-havo",
+    "english": "weather",
+    "russian": "погода",
+    "romanization": "ilgi",
+    "topic": "weather",
+    "example": {
+      "ko": "내일 일기 예보를 확인했어요.",
+      "uz": "Ertangi ob-havo ma'lumotini tekshirdim.",
+      "en": "I checked tomorrow's weather forecast.",
+      "ru": "Я посмотрел прогноз погоды на завтра."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1156,
+    "korean": "정답",
+    "pos": "noun",
+    "hanja": "正答",
+    "homonym": 0,
+    "uzbek": "to'g'ri javob",
+    "english": "correct answer",
+    "russian": "правильный ответ",
+    "romanization": "jeongdap",
+    "topic": "school",
+    "example": {
+      "ko": "정답을 맞혔어요.",
+      "uz": "To'g'ri javob berdim.",
+      "en": "I got the right answer.",
+      "ru": "Я дал правильный ответ."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1157,
+    "korean": "코피",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "burun qonashi",
+    "english": "nosebleed",
+    "russian": "кровь из носа",
+    "romanization": "kopi",
+    "topic": "health",
+    "example": {
+      "ko": "너무 피곤해서 코피가 났어요.",
+      "uz": "Juda charchaganimdan burnim qonadi.",
+      "en": "I was so tired I got a nosebleed.",
+      "ru": "От усталости у меня пошла кровь из носа."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1158,
+    "korean": "고구마",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "batat (shirin kartoshka)",
+    "english": "sweet potato",
+    "russian": "батат",
+    "romanization": "goguma",
+    "topic": "food",
+    "example": {
+      "ko": "겨울에 군고구마를 먹어요.",
+      "uz": "Qishda pishirilgan batat yeymiz.",
+      "en": "We eat roasted sweet potatoes in winter.",
+      "ru": "Зимой мы едим печёный батат."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1159,
+    "korean": "국기",
+    "pos": "noun",
+    "hanja": "國旗",
+    "homonym": 7,
+    "uzbek": "davlat bayrog'i",
+    "english": "national flag",
+    "russian": "государственный флаг",
+    "romanization": "gukgi",
+    "topic": "countries",
+    "example": {
+      "ko": "태극기는 한국의 국기예요.",
+      "uz": "Txegikki — Koreyaning davlat bayrog'i.",
+      "en": "Taegukgi is the national flag of Korea.",
+      "ru": "Тхэгукки — государственный флаг Кореи."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1160,
+    "korean": "대화하다",
+    "pos": "verb",
+    "hanja": "對話-",
+    "homonym": 2,
+    "uzbek": "suhbatlashmoq",
+    "english": "to have a conversation, to talk",
+    "russian": "беседовать",
+    "romanization": "daehwahada",
+    "topic": "communication",
+    "example": {
+      "ko": "부모님과 자주 대화해요.",
+      "uz": "Ota-onam bilan tez-tez suhbatlashaman.",
+      "en": "I often talk with my parents.",
+      "ru": "Я часто беседую с родителями."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1161,
+    "korean": "미워하다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yomon ko'rmoq, nafratlanmoq",
+    "english": "to hate",
+    "russian": "ненавидеть",
+    "romanization": "miwohada",
+    "topic": "feelings",
+    "example": {
+      "ko": "나를 미워하지 마.",
+      "uz": "Meni yomon ko'rma.",
+      "en": "Don't hate me.",
+      "ru": "Не ненавидь меня."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1162,
+    "korean": "밥맛",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ishtaha; ovqat ta'mi",
+    "english": "appetite; taste of food",
+    "russian": "аппетит; вкус еды",
+    "romanization": "bammat",
+    "topic": "food",
+    "example": {
+      "ko": "요즘 밥맛이 없어요.",
+      "uz": "Hozir ishtaham yo'q.",
+      "en": "I've had no appetite lately.",
+      "ru": "В последнее время нет аппетита."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1163,
+    "korean": "복사",
+    "pos": "noun",
+    "hanja": "複寫",
+    "homonym": 9,
+    "uzbek": "nusxa ko'chirish",
+    "english": "copy, photocopy",
+    "russian": "копирование",
+    "romanization": "boksa",
+    "topic": "work",
+    "example": {
+      "ko": "이 서류를 복사해 주세요.",
+      "uz": "Bu hujjatdan nusxa ko'chirib bering.",
+      "en": "Please make a copy of this document.",
+      "ru": "Сделайте, пожалуйста, копию этого документа."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1164,
+    "korean": "성별",
+    "pos": "noun",
+    "hanja": "性別",
+    "homonym": 1,
+    "uzbek": "jins",
+    "english": "gender, sex",
+    "russian": "пол",
+    "romanization": "seongbyeol",
+    "topic": "people",
+    "example": {
+      "ko": "이름과 성별을 써 주세요.",
+      "uz": "Ism va jinsingizni yozing.",
+      "en": "Please write your name and gender.",
+      "ru": "Укажите имя и пол."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1165,
+    "korean": "소문나다",
+    "pos": "verb",
+    "hanja": "所聞-",
+    "homonym": 0,
+    "uzbek": "ovoza bo'lmoq, mashhur bo'lmoq",
+    "english": "to be rumored, to become famous",
+    "russian": "прославиться, распространиться (о слухе)",
+    "romanization": "somunnada",
+    "topic": "communication",
+    "example": {
+      "ko": "이 집은 맛있기로 소문났어요.",
+      "uz": "Bu oshxona mazaliligi bilan dong chiqargan.",
+      "en": "This place is famous for being delicious.",
+      "ru": "Это заведение славится вкусной едой."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1166,
+    "korean": "소용없다",
+    "pos": "adjective",
+    "hanja": "所用-",
+    "homonym": 0,
+    "uzbek": "foydasi yo'q",
+    "english": "useless, no use",
+    "russian": "бесполезный",
+    "romanization": "soyongeopda",
+    "topic": "descriptions",
+    "example": {
+      "ko": "이제 후회해도 소용없어요.",
+      "uz": "Endi afsuslanishdan foyda yo'q.",
+      "en": "There's no use regretting it now.",
+      "ru": "Теперь бесполезно сожалеть."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1167,
+    "korean": "송아지",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "buzoq",
+    "english": "calf",
+    "russian": "телёнок",
+    "romanization": "songaji",
+    "topic": "animals",
+    "example": {
+      "ko": "소가 송아지를 낳았어요.",
+      "uz": "Sigir buzoqladi.",
+      "en": "The cow gave birth to a calf.",
+      "ru": "Корова родила телёнка."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1168,
+    "korean": "수돗물",
+    "pos": "noun",
+    "hanja": "水道-",
+    "homonym": 0,
+    "uzbek": "vodoprovod suvi",
+    "english": "tap water",
+    "russian": "водопроводная вода",
+    "romanization": "sudonmul",
+    "topic": "home",
+    "example": {
+      "ko": "수돗물을 그냥 마셔도 돼요?",
+      "uz": "Vodoprovod suvini shundoq ichsa bo'ladimi?",
+      "en": "Can you drink the tap water as is?",
+      "ru": "Можно пить воду из-под крана?"
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1169,
+    "korean": "술자리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "ziyofat (ichkilikli)",
+    "english": "drinking party",
+    "russian": "застолье, вечеринка",
+    "romanization": "suljari",
+    "topic": "culture",
+    "example": {
+      "ko": "회사 술자리에 참석했어요.",
+      "uz": "Kompaniya ziyofatida qatnashdim.",
+      "en": "I attended a company drinking party.",
+      "ru": "Я был на корпоративном застолье."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1170,
+    "korean": "어린이날",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "Bolalar kuni",
+    "english": "Children's Day",
+    "russian": "День детей",
+    "romanization": "eorininal",
+    "topic": "culture",
+    "example": {
+      "ko": "5월 5일은 어린이날이에요.",
+      "uz": "5-may — Bolalar kuni.",
+      "en": "May 5th is Children's Day.",
+      "ru": "5 мая — День детей."
+    },
+    "source": "NIKL-B",
+    "lessonKey": "4-68"
+  },
+  {
+    "id": 1171,
+    "korean": "오른발",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "o'ng oyoq",
+    "english": "right foot",
+    "russian": "правая нога",
+    "romanization": "oreunbal",
+    "topic": "body",
+    "example": {
+      "ko": "오른발로 공을 찼어요.",
+      "uz": "To'pni o'ng oyog'im bilan tepdim.",
+      "en": "I kicked the ball with my right foot.",
+      "ru": "Я ударил по мячу правой ногой."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1172,
+    "korean": "이사하다",
+    "pos": "verb",
+    "hanja": "移徙-",
+    "homonym": 1,
+    "uzbek": "ko'chmoq (uyga)",
+    "english": "to move (house)",
+    "russian": "переезжать",
+    "romanization": "isahada",
+    "topic": "home",
+    "example": {
+      "ko": "다음 달에 새 집으로 이사해요.",
+      "uz": "Keyingi oy yangi uyga ko'chaman.",
+      "en": "I'm moving to a new house next month.",
+      "ru": "В следующем месяце я переезжаю в новый дом."
+    },
+    "source": "NIKL-B",
+    "lessonKey": "26-619"
+  },
+  {
+    "id": 1173,
+    "korean": "일등",
+    "pos": "noun",
+    "hanja": "一等",
+    "homonym": 0,
+    "uzbek": "birinchi o'rin",
+    "english": "first place",
+    "russian": "первое место",
+    "romanization": "ildeung",
+    "topic": "numbers",
+    "example": {
+      "ko": "달리기에서 일등을 했어요.",
+      "uz": "Yugurishda birinchi o'rinni oldim.",
+      "en": "I came in first in the race.",
+      "ru": "Я занял первое место в беге."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1174,
+    "korean": "작아지다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "kichraymoq",
+    "english": "to get smaller",
+    "russian": "уменьшаться",
+    "romanization": "jagajida",
+    "topic": "descriptions",
+    "example": {
+      "ko": "빨래를 했더니 옷이 작아졌어요.",
+      "uz": "Yuvgandan keyin kiyim kichrayib qoldi.",
+      "en": "The clothes shrank after washing.",
+      "ru": "После стирки одежда села."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1175,
+    "korean": "줄무늬",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yo'l-yo'l naqsh",
+    "english": "stripes",
+    "russian": "полоски",
+    "romanization": "julmunui",
+    "topic": "clothing",
+    "example": {
+      "ko": "줄무늬 셔츠를 입었어요.",
+      "uz": "Yo'l-yo'l ko'ylak kiydim.",
+      "en": "I wore a striped shirt.",
+      "ru": "Я надел рубашку в полоску."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1176,
+    "korean": "한국적",
+    "pos": "noun",
+    "hanja": "韓國的",
+    "homonym": 0,
+    "uzbek": "koreyscha, koreys uslubidagi",
+    "english": "Korean (in style)",
+    "russian": "корейский (по стилю)",
+    "romanization": "hangukjeok",
+    "topic": "culture",
+    "example": {
+      "ko": "이 집은 아주 한국적인 분위기예요.",
+      "uz": "Bu uyda juda koreyscha muhit bor.",
+      "en": "This house has a very Korean atmosphere.",
+      "ru": "В этом доме очень корейская атмосфера."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1177,
+    "korean": "남",
+    "pos": "noun",
+    "hanja": "南",
+    "homonym": 4,
+    "uzbek": "janub",
+    "english": "south",
+    "russian": "юг",
+    "romanization": "nam",
+    "topic": "places",
+    "example": {
+      "ko": "제주도는 한국의 남쪽에 있어요.",
+      "uz": "Chejudo Koreyaning janubida joylashgan.",
+      "en": "Jeju Island is in the south of Korea.",
+      "ru": "Остров Чеджу находится на юге Кореи."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1178,
+    "korean": "네거리",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "chorraha",
+    "english": "crossroads, intersection",
+    "russian": "перекрёсток",
+    "romanization": "negeori",
+    "topic": "places",
+    "example": {
+      "ko": "저 네거리에서 왼쪽으로 가세요.",
+      "uz": "Anavi chorrahadan chapga buriling.",
+      "en": "Turn left at that intersection.",
+      "ru": "На том перекрёстке поверните налево."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1179,
+    "korean": "녹음하다",
+    "pos": "verb",
+    "hanja": "錄音-",
+    "homonym": 0,
+    "uzbek": "ovoz yozib olmoq",
+    "english": "to record (audio)",
+    "russian": "записывать (звук)",
+    "romanization": "nogeumhada",
+    "topic": "hobbies",
+    "example": {
+      "ko": "제 목소리를 녹음해서 들어 봤어요.",
+      "uz": "Ovozimni yozib olib eshitib ko'rdim.",
+      "en": "I recorded my voice and listened to it.",
+      "ru": "Я записал свой голос и послушал."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1180,
+    "korean": "등산로",
+    "pos": "noun",
+    "hanja": "登山路",
+    "homonym": 0,
+    "uzbek": "tog' so'qmog'i",
+    "english": "hiking trail",
+    "russian": "горная тропа",
+    "romanization": "deungsallo",
+    "topic": "nature",
+    "example": {
+      "ko": "이 등산로는 초보자에게 좋아요.",
+      "uz": "Bu tog' so'qmog'i yangi boshlovchilar uchun yaxshi.",
+      "en": "This hiking trail is good for beginners.",
+      "ru": "Эта тропа подходит новичкам."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1181,
+    "korean": "마사지",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "massaj",
+    "english": "massage",
+    "russian": "массаж",
+    "romanization": "masaji",
+    "topic": "health",
+    "example": {
+      "ko": "피곤해서 마사지를 받았어요.",
+      "uz": "Charchaganimdan massaj qildirdim.",
+      "en": "I was tired, so I got a massage.",
+      "ru": "Я устал и сходил на массаж."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1182,
+    "korean": "먹히다",
+    "pos": "verb",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yeyilmoq",
+    "english": "to be eaten",
+    "russian": "быть съеденным",
+    "romanization": "meokhida",
+    "topic": "animals",
+    "example": {
+      "ko": "쥐가 고양이에게 먹혔어요.",
+      "uz": "Sichqonni mushuk yeb qo'ydi.",
+      "en": "The mouse was eaten by the cat.",
+      "ru": "Мышь съела кошка."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1183,
+    "korean": "몸살",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 1,
+    "uzbek": "holsizlik (shamollash, tana og'rig'i)",
+    "english": "body aches, exhaustion (from fatigue/cold)",
+    "russian": "ломота в теле",
+    "romanization": "momsal",
+    "topic": "health",
+    "example": {
+      "ko": "몸살이 나서 하루 종일 누워 있었어요.",
+      "uz": "Butun tanam qaqshab, kun bo'yi yotdim.",
+      "en": "I had body aches and lay in bed all day.",
+      "ru": "У меня была ломота в теле, и я весь день пролежал."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1184,
+    "korean": "무더위",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "dim issiq, jazirama",
+    "english": "sweltering heat",
+    "russian": "духота, знойная жара",
+    "romanization": "mudeowi",
+    "topic": "weather",
+    "example": {
+      "ko": "요즘 무더위가 계속되고 있어요.",
+      "uz": "Shu kunlarda dim issiq davom etmoqda.",
+      "en": "The sweltering heat continues these days.",
+      "ru": "В последнее время стоит знойная жара."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1185,
+    "korean": "박스",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "quti",
+    "english": "box",
+    "russian": "коробка",
+    "romanization": "bakseu",
+    "topic": "daily life",
+    "example": {
+      "ko": "이삿짐을 박스에 넣었어요.",
+      "uz": "Ko'chish buyumlarini qutiga soldim.",
+      "en": "I packed my things in boxes for the move.",
+      "ru": "Я сложил вещи для переезда в коробки."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1186,
+    "korean": "밥솥",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "guruch qozoni",
+    "english": "rice cooker",
+    "russian": "рисоварка",
+    "romanization": "bapsot",
+    "topic": "home",
+    "example": {
+      "ko": "밥솥에 밥이 있어요.",
+      "uz": "Guruch qozonida guruch bor.",
+      "en": "There's rice in the rice cooker.",
+      "ru": "В рисоварке есть рис."
+    },
+    "source": "NIKL-B"
+  },
+  {
+    "id": 1187,
+    "korean": "베개",
+    "pos": "noun",
+    "hanja": "",
+    "homonym": 0,
+    "uzbek": "yostiq",
+    "english": "pillow",
+    "russian": "подушка",
+    "romanization": "begae",
+    "topic": "home",
+    "example": {
+      "ko": "베개가 너무 높아서 목이 아파요.",
+      "uz": "Yostiq juda baland, bo'ynim og'riyapti.",
+      "en": "The pillow is too high, so my neck hurts.",
+      "ru": "Подушка слишком высокая, болит шея."
+    },
+    "source": "NIKL-B"
+  }
+]

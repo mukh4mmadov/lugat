@@ -1,0 +1,572 @@
+[
+  {
+    "id": 325,
+    "korean": "가게",
+    "uzbek": "do'kon",
+    "english": "shop, store",
+    "russian": "магазин, лавка",
+    "romanization": "gage",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가게가 벌써 문을 닫았어요.",
+      "uz": "Do'kon allaqachon yopilibdi.",
+      "en": "The shop has already closed.",
+      "ru": "Магазин уже закрылся."
+    }
+  },
+  {
+    "id": 326,
+    "korean": "공원",
+    "uzbek": "bog', park",
+    "english": "park",
+    "russian": "парк",
+    "romanization": "gongwon",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공원에 사람이 많아요.",
+      "uz": "Bog'da odam ko'p.",
+      "en": "The park is crowded.",
+      "ru": "В парке много людей."
+    }
+  },
+  {
+    "id": 327,
+    "korean": "노래방",
+    "uzbek": "karaoke xonasi",
+    "english": "karaoke room",
+    "russian": "караоке",
+    "romanization": "noraebang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구들과 노래방에 갔어요.",
+      "uz": "Do'stlarim bilan karaokega bordik.",
+      "en": "I went to karaoke with friends.",
+      "ru": "Мы с друзьями ходили в караоке."
+    }
+  },
+  {
+    "id": 328,
+    "korean": "대사관",
+    "uzbek": "elchixona",
+    "english": "embassy",
+    "russian": "посольство",
+    "romanization": "daesagwan",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "대사관에서 비자를 받았어요.",
+      "uz": "Elchixonadan viza oldim.",
+      "en": "I got a visa at the embassy.",
+      "ru": "Я получил визу в посольстве."
+    }
+  },
+  {
+    "id": 329,
+    "korean": "도서관",
+    "uzbek": "kutubxona",
+    "english": "library",
+    "russian": "библиотека",
+    "romanization": "doseogwan",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "도서관에서 책을 빌렸어요.",
+      "uz": "Kutubxonadan kitob oldim.",
+      "en": "I borrowed a book from the library.",
+      "ru": "Я взял книгу в библиотеке."
+    }
+  },
+  {
+    "id": 330,
+    "korean": "문구점",
+    "uzbek": "kanselyariya do'koni",
+    "english": "stationery store",
+    "russian": "канцелярский магазин",
+    "romanization": "mungujeom",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "문구점에서 공책을 샀어요.",
+      "uz": "Kanselyariya do'konidan daftar oldim.",
+      "en": "I bought a notebook at the stationery store.",
+      "ru": "Я купил тетрадь в канцелярском магазине."
+    }
+  },
+  {
+    "id": 331,
+    "korean": "박물관",
+    "uzbek": "muzey",
+    "english": "museum",
+    "russian": "музей",
+    "romanization": "bangmulgwan",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "박물관은 월요일에 쉬어요.",
+      "uz": "Muzey dushanba kuni yopiq.",
+      "en": "The museum is closed on Mondays.",
+      "ru": "Музей не работает по понедельникам."
+    }
+  },
+  {
+    "id": 332,
+    "korean": "백화점",
+    "uzbek": "univermag",
+    "english": "department store",
+    "russian": "универмаг",
+    "romanization": "baekhwajeom",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "백화점에서 세일을 해요.",
+      "uz": "Univermagda chegirma bor.",
+      "en": "There's a sale at the department store.",
+      "ru": "В универмаге распродажа."
+    }
+  },
+  {
+    "id": 333,
+    "korean": "병원",
+    "uzbek": "kasalxona, shifoxona",
+    "english": "hospital",
+    "russian": "больница",
+    "romanization": "byeongwon",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아파서 병원에 갔어요.",
+      "uz": "Kasal bo'lib, shifoxonaga bordim.",
+      "en": "I was sick, so I went to the hospital.",
+      "ru": "Я заболел и пошёл в больницу."
+    }
+  },
+  {
+    "id": 334,
+    "korean": "빵집",
+    "uzbek": "novvoyxona",
+    "english": "bakery",
+    "russian": "пекарня",
+    "romanization": "ppangjip",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빵집에서 좋은 냄새가 나요.",
+      "uz": "Novvoyxonadan yoqimli hid kelyapti.",
+      "en": "It smells good at the bakery.",
+      "ru": "Из пекарни вкусно пахнет."
+    }
+  },
+  {
+    "id": 335,
+    "korean": "상담(센터)",
+    "uzbek": "maslahat (markazi)",
+    "english": "counseling (center)",
+    "russian": "консультация (центр)",
+    "romanization": "sangdam(senteo)",
+    "lesson": 15,
+    "theme": "city",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "상담 센터에 전화했어요.",
+      "uz": "Maslahat markaziga qo'ng'iroq qildim.",
+      "en": "I called the counseling center.",
+      "ru": "Я позвонил в консультационный центр."
+    }
+  },
+  {
+    "id": 336,
+    "korean": "서점",
+    "uzbek": "kitob do'koni",
+    "english": "bookstore",
+    "russian": "книжный магазин",
+    "romanization": "seojeom",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서점에서 사전을 샀어요.",
+      "uz": "Kitob do'konidan lug'at oldim.",
+      "en": "I bought a dictionary at the bookstore.",
+      "ru": "Я купил словарь в книжном магазине."
+    }
+  },
+  {
+    "id": 337,
+    "korean": "세탁소",
+    "uzbek": "kimyoviy tozalash",
+    "english": "dry cleaner",
+    "russian": "химчистка",
+    "romanization": "setakso",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "양복을 세탁소에 맡겼어요.",
+      "uz": "Kostyumni kimyoviy tozalashga berdim.",
+      "en": "I took the suit to the dry cleaner.",
+      "ru": "Я сдал костюм в химчистку."
+    }
+  },
+  {
+    "id": 338,
+    "korean": "수영장",
+    "uzbek": "basseyn",
+    "english": "swimming pool",
+    "russian": "бассейн",
+    "romanization": "suyeongjang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "수영장 물이 차가워요.",
+      "uz": "Basseyn suvi sovuq.",
+      "en": "The pool water is cold.",
+      "ru": "Вода в бассейне холодная."
+    }
+  },
+  {
+    "id": 339,
+    "korean": "시장",
+    "uzbek": "bozor",
+    "english": "market",
+    "russian": "рынок",
+    "romanization": "sijang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시장에서 과일을 샀어요.",
+      "uz": "Bozordan meva oldim.",
+      "en": "I bought fruit at the market.",
+      "ru": "Я купил фрукты на рынке."
+    }
+  },
+  {
+    "id": 340,
+    "korean": "식당",
+    "uzbek": "oshxona, restoran",
+    "english": "restaurant",
+    "russian": "столовая, ресторан",
+    "romanization": "sikdang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 식당은 값이 싸요.",
+      "uz": "Bu oshxona arzon.",
+      "en": "This restaurant is cheap.",
+      "ru": "В этом ресторане недорого."
+    }
+  },
+  {
+    "id": 341,
+    "korean": "야구장",
+    "uzbek": "beysbol stadioni",
+    "english": "baseball stadium",
+    "russian": "бейсбольный стадион",
+    "romanization": "yagujang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "야구장에 처음 가 봤어요.",
+      "uz": "Beysbol stadioniga birinchi marta bordim.",
+      "en": "I went to a baseball stadium for the first time.",
+      "ru": "Я впервые побывал на бейсбольном стадионе."
+    }
+  },
+  {
+    "id": 342,
+    "korean": "약국",
+    "uzbek": "dorixona",
+    "english": "pharmacy",
+    "russian": "аптека",
+    "romanization": "yakguk",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "약국에서 감기약을 샀어요.",
+      "uz": "Dorixonadan shamollash dorisi oldim.",
+      "en": "I bought cold medicine at the pharmacy.",
+      "ru": "Я купил лекарство от простуды в аптеке."
+    }
+  },
+  {
+    "id": 343,
+    "korean": "영화관",
+    "uzbek": "kinoteatr",
+    "english": "cinema",
+    "russian": "кинотеатр",
+    "romanization": "yeonghwagwan",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "영화관에 사람이 많아요.",
+      "uz": "Kinoteatrda odam ko'p.",
+      "en": "The cinema is crowded.",
+      "ru": "В кинотеатре много людей."
+    }
+  },
+  {
+    "id": 344,
+    "korean": "우체국",
+    "uzbek": "pochta",
+    "english": "post office",
+    "russian": "почта",
+    "romanization": "ucheguk",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우체국에서 소포를 보냈어요.",
+      "uz": "Pochtadan posilka jo'natdim.",
+      "en": "I sent a package from the post office.",
+      "ru": "Я отправил посылку с почты."
+    }
+  },
+  {
+    "id": 345,
+    "korean": "은행",
+    "uzbek": "bank",
+    "english": "bank",
+    "russian": "банк",
+    "romanization": "eunhaeng",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "은행은 네 시에 문을 닫아요.",
+      "uz": "Bank soat to'rtda yopiladi.",
+      "en": "The bank closes at four.",
+      "ru": "Банк закрывается в четыре."
+    }
+  },
+  {
+    "id": 346,
+    "korean": "찻집",
+    "uzbek": "choyxona",
+    "english": "tea house",
+    "russian": "чайная",
+    "romanization": "chatjip",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "전통 찻집에 가 봤어요.",
+      "uz": "An'anaviy choyxonaga borib ko'rdim.",
+      "en": "I visited a traditional tea house.",
+      "ru": "Я побывал в традиционной чайной."
+    }
+  },
+  {
+    "id": 347,
+    "korean": "체육관",
+    "uzbek": "sport saroyi, sport zali",
+    "english": "gymnasium",
+    "russian": "спортивный зал",
+    "romanization": "cheyukgwan",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "체육관은 아침 여섯 시에 열어요.",
+      "uz": "Sport zali ertalab soat oltida ochiladi.",
+      "en": "The gym opens at six in the morning.",
+      "ru": "Спортзал открывается в шесть утра."
+    }
+  },
+  {
+    "id": 348,
+    "korean": "축구장",
+    "uzbek": "futbol maydoni",
+    "english": "soccer field",
+    "russian": "футбольное поле",
+    "romanization": "chukgujang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "축구장에서 경기를 봤어요.",
+      "uz": "Stadionda o'yinni tomosha qildim.",
+      "en": "I watched a game at the soccer field.",
+      "ru": "Я смотрел матч на стадионе."
+    }
+  },
+  {
+    "id": 349,
+    "korean": "커피숍",
+    "uzbek": "qahvaxona",
+    "english": "coffee shop",
+    "russian": "кофейня",
+    "romanization": "keopisyop",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "커피숍에서 친구를 기다려요.",
+      "uz": "Qahvaxonada do'stimni kutyapman.",
+      "en": "I'm waiting for a friend at the café.",
+      "ru": "Я жду друга в кофейне."
+    }
+  },
+  {
+    "id": 350,
+    "korean": "테니스장",
+    "uzbek": "tennis korti",
+    "english": "tennis court",
+    "russian": "теннисный корт",
+    "romanization": "teniseujang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "테니스장은 학교 뒤에 있어요.",
+      "uz": "Tennis korti maktab orqasida.",
+      "en": "The tennis court is behind the school.",
+      "ru": "Теннисный корт за школой."
+    }
+  },
+  {
+    "id": 351,
+    "korean": "편의점",
+    "uzbek": "kichik do'kon (24 soatlik)",
+    "english": "convenience store",
+    "russian": "круглосуточный магазин",
+    "romanization": "pyeonuijeom",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "편의점에서 우유를 샀어요.",
+      "uz": "Do'kondan sut oldim.",
+      "en": "I bought milk at the convenience store.",
+      "ru": "Я купил молоко в круглосуточном магазине."
+    }
+  },
+  {
+    "id": 352,
+    "korean": "한식집",
+    "uzbek": "koreys oshxonasi",
+    "english": "Korean restaurant",
+    "russian": "корейский ресторан",
+    "romanization": "hansikjip",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한식집에서 불고기를 먹었어요.",
+      "uz": "Koreys oshxonasida bulgogi yedim.",
+      "en": "I ate bulgogi at a Korean restaurant.",
+      "ru": "Я ел пулькоги в корейском ресторане."
+    }
+  },
+  {
+    "id": 353,
+    "korean": "헬스장",
+    "uzbek": "sport zali (trenajyor)",
+    "english": "gym",
+    "russian": "тренажёрный зал",
+    "romanization": "helseujang",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "퇴근 후에 헬스장에 가요.",
+      "uz": "Ishdan keyin sport zaliga boraman.",
+      "en": "I go to the gym after work.",
+      "ru": "После работы я иду в спортзал."
+    }
+  },
+  {
+    "id": 354,
+    "korean": "호텔",
+    "uzbek": "mehmonxona",
+    "english": "hotel",
+    "russian": "гостиница",
+    "romanization": "hotel",
+    "lesson": 15,
+    "theme": "city",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "호텔 방이 아주 깨끗해요.",
+      "uz": "Mehmonxona xonasi juda toza.",
+      "en": "The hotel room is very clean.",
+      "ru": "Номер в гостинице очень чистый."
+    }
+  }
+]

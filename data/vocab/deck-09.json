@@ -1,0 +1,610 @@
+[
+  {
+    "id": 184,
+    "korean": "거기",
+    "uzbek": "o'sha yer",
+    "english": "there (near you)",
+    "russian": "там (у вас)",
+    "romanization": "geogi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "거기 날씨는 어때요?",
+      "uz": "U yerda havo qanday?",
+      "en": "How's the weather there?",
+      "ru": "Какая там погода?"
+    }
+  },
+  {
+    "id": 185,
+    "korean": "것",
+    "uzbek": "narsa",
+    "english": "thing",
+    "russian": "вещь, то, что",
+    "romanization": "geot",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제가 좋아하는 것은 음악이에요.",
+      "uz": "Men yoqtirgan narsa — musiqa.",
+      "en": "What I like is music.",
+      "ru": "То, что я люблю, — это музыка."
+    }
+  },
+  {
+    "id": 186,
+    "korean": "그거",
+    "uzbek": "u (sizdagi narsa)",
+    "english": "that (near you)",
+    "russian": "то (возле вас)",
+    "romanization": "geugeo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그거 저한테 주세요.",
+      "uz": "Uni menga bering.",
+      "en": "Please give that to me.",
+      "ru": "Дайте мне это."
+    }
+  },
+  {
+    "id": 187,
+    "korean": "근처",
+    "uzbek": "atrof, yaqin joy",
+    "english": "nearby, vicinity",
+    "russian": "поблизости",
+    "romanization": "geuncheo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "근처에 카페가 있어요?",
+      "uz": "Yaqin atrofda kafe bormi?",
+      "en": "Is there a café nearby?",
+      "ru": "Здесь поблизости есть кафе?"
+    }
+  },
+  {
+    "id": 188,
+    "korean": "누가",
+    "uzbek": "kim (ega vazifasida)",
+    "english": "who (as the subject)",
+    "russian": "кто (в роли подлежащего)",
+    "romanization": "nuga",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "누가 창문을 열었어요?",
+      "uz": "Derazani kim ochdi?",
+      "en": "Who opened the window?",
+      "ru": "Кто открыл окно?"
+    }
+  },
+  {
+    "id": 189,
+    "korean": "누구",
+    "uzbek": "kim",
+    "english": "who",
+    "russian": "кто",
+    "romanization": "nugu",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 사람은 누구예요?",
+      "uz": "Bu kim?",
+      "en": "Who is this person?",
+      "ru": "Кто этот человек?"
+    }
+  },
+  {
+    "id": 190,
+    "korean": "뒤",
+    "uzbek": "orqa",
+    "english": "back, behind",
+    "russian": "позади, за",
+    "romanization": "dwi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집 뒤에 산이 있어요.",
+      "uz": "Uyning orqasida tog' bor.",
+      "en": "There's a mountain behind the house.",
+      "ru": "За домом есть гора."
+    }
+  },
+  {
+    "id": 191,
+    "korean": "몇",
+    "uzbek": "nechta, necha",
+    "english": "how many",
+    "russian": "сколько",
+    "romanization": "myeot",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "몇 시에 만날까요?",
+      "uz": "Soat nechada uchrashamiz?",
+      "en": "What time shall we meet?",
+      "ru": "Во сколько встретимся?"
+    }
+  },
+  {
+    "id": 192,
+    "korean": "무슨",
+    "uzbek": "qanday, qanaqa",
+    "english": "what kind of",
+    "russian": "какой",
+    "romanization": "museun",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "무슨 영화를 볼까요?",
+      "uz": "Qanday kino ko'ramiz?",
+      "en": "What movie shall we watch?",
+      "ru": "Какой фильм посмотрим?"
+    }
+  },
+  {
+    "id": 193,
+    "korean": "무엇",
+    "uzbek": "nima",
+    "english": "what",
+    "russian": "что",
+    "romanization": "mueot",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "취미가 무엇입니까?",
+      "uz": "Qiziqishingiz nima?",
+      "en": "What is your hobby?",
+      "ru": "Какое у вас хобби?"
+    }
+  },
+  {
+    "id": 194,
+    "korean": "뭐",
+    "uzbek": "nima (so'zlashuvda)",
+    "english": "what (casual)",
+    "russian": "что (разг.)",
+    "romanization": "mwo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "뭐 먹고 싶어요?",
+      "uz": "Nima yegingiz keladi?",
+      "en": "What do you want to eat?",
+      "ru": "Что ты хочешь съесть?"
+    }
+  },
+  {
+    "id": 195,
+    "korean": "뭐로",
+    "uzbek": "nima bilan",
+    "english": "with what, by what",
+    "russian": "чем, на чём",
+    "romanization": "mworo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교에 뭐로 가요?",
+      "uz": "Maktabga nima bilan borasiz?",
+      "en": "How do you get to school?",
+      "ru": "На чём вы ездите в школу?"
+    }
+  },
+  {
+    "id": 196,
+    "korean": "사이",
+    "uzbek": "orasi",
+    "english": "between",
+    "russian": "между",
+    "romanization": "sai",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "은행과 우체국 사이에 있어요.",
+      "uz": "Bank bilan pochta orasida.",
+      "en": "It's between the bank and the post office.",
+      "ru": "Это между банком и почтой."
+    }
+  },
+  {
+    "id": 197,
+    "korean": "아래/밑",
+    "uzbek": "past, tag",
+    "english": "below, under",
+    "russian": "под, внизу",
+    "romanization": "arae / mit",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "책상 밑에 고양이가 있어요.",
+      "uz": "Stol tagida mushuk bor.",
+      "en": "There's a cat under the desk.",
+      "ru": "Под столом кошка."
+    }
+  },
+  {
+    "id": 198,
+    "korean": "안",
+    "uzbek": "ich",
+    "english": "inside",
+    "russian": "внутри",
+    "romanization": "an",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가방 안에 뭐가 있어요?",
+      "uz": "Sumka ichida nima bor?",
+      "en": "What's in the bag?",
+      "ru": "Что в сумке?"
+    }
+  },
+  {
+    "id": 199,
+    "korean": "앞",
+    "uzbek": "old",
+    "english": "front",
+    "russian": "перед, впереди",
+    "romanization": "ap",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "버스가 은행 앞에 서요.",
+      "uz": "Avtobus bank oldida to'xtaydi.",
+      "en": "The bus stops in front of the bank.",
+      "ru": "Автобус останавливается перед банком."
+    }
+  },
+  {
+    "id": 200,
+    "korean": "어느",
+    "uzbek": "qaysi",
+    "english": "which",
+    "russian": "какой (из)",
+    "romanization": "eoneu",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어느 쪽으로 가야 해요?",
+      "uz": "Qaysi tomonga borish kerak?",
+      "en": "Which way should I go?",
+      "ru": "В какую сторону мне идти?"
+    }
+  },
+  {
+    "id": 201,
+    "korean": "어디",
+    "uzbek": "qayer",
+    "english": "where",
+    "russian": "где, куда",
+    "romanization": "eodi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지금 어디에 있어요?",
+      "uz": "Hozir qayerdasiz?",
+      "en": "Where are you now?",
+      "ru": "Где вы сейчас?"
+    }
+  },
+  {
+    "id": 202,
+    "korean": "어떻게",
+    "uzbek": "qanday qilib",
+    "english": "how",
+    "russian": "как",
+    "romanization": "eotteoke",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 단어는 어떻게 읽어요?",
+      "uz": "Bu so'z qanday o'qiladi?",
+      "en": "How do you read this word?",
+      "ru": "Как читается это слово?"
+    }
+  },
+  {
+    "id": 203,
+    "korean": "언제",
+    "uzbek": "qachon",
+    "english": "when",
+    "russian": "когда",
+    "romanization": "eonje",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "언제 한국에 왔어요?",
+      "uz": "Koreyaga qachon keldingiz?",
+      "en": "When did you come to Korea?",
+      "ru": "Когда вы приехали в Корею?"
+    }
+  },
+  {
+    "id": 204,
+    "korean": "얼마나",
+    "uzbek": "qancha; qanchalik",
+    "english": "how much; how long",
+    "russian": "сколько; насколько",
+    "romanization": "eolmana",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집에서 학교까지 얼마나 걸려요?",
+      "uz": "Uydan maktabgacha qancha vaqt ketadi?",
+      "en": "How long does it take from home to school?",
+      "ru": "Сколько времени от дома до школы?"
+    }
+  },
+  {
+    "id": 205,
+    "korean": "여기",
+    "uzbek": "bu yer",
+    "english": "here",
+    "russian": "здесь",
+    "romanization": "yeogi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여기 앉으세요.",
+      "uz": "Bu yerga o'tiring.",
+      "en": "Please sit here.",
+      "ru": "Садитесь здесь."
+    }
+  },
+  {
+    "id": 206,
+    "korean": "옆",
+    "uzbek": "yon",
+    "english": "side, next to",
+    "russian": "рядом, сбоку",
+    "romanization": "yeop",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 옆에 앉으세요.",
+      "uz": "Yonimga o'tiring.",
+      "en": "Sit next to me.",
+      "ru": "Садитесь рядом со мной."
+    }
+  },
+  {
+    "id": 207,
+    "korean": "오른쪽",
+    "uzbek": "o'ng tomon",
+    "english": "right",
+    "russian": "правая сторона",
+    "romanization": "oreunjjok",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오른쪽 길로 가면 시장이 나와요.",
+      "uz": "O'ngdagi yo'ldan borsangiz, bozor chiqadi.",
+      "en": "Take the road on the right and you'll reach the market.",
+      "ru": "Если пойти по правой дороге, выйдете к рынку."
+    }
+  },
+  {
+    "id": 208,
+    "korean": "왜",
+    "uzbek": "nega, nima uchun",
+    "english": "why",
+    "russian": "почему",
+    "romanization": "wae",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "왜 한국어를 배워요?",
+      "uz": "Nega koreys tilini o'rganyapsiz?",
+      "en": "Why are you learning Korean?",
+      "ru": "Почему вы учите корейский?"
+    }
+  },
+  {
+    "id": 209,
+    "korean": "왼쪽",
+    "uzbek": "chap tomon",
+    "english": "left",
+    "russian": "левая сторона",
+    "romanization": "oenjjok",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "왼쪽 눈이 좀 아파요.",
+      "uz": "Chap ko'zim biroz og'riyapti.",
+      "en": "My left eye hurts a little.",
+      "ru": "У меня немного болит левый глаз."
+    }
+  },
+  {
+    "id": 210,
+    "korean": "위",
+    "uzbek": "ust, tepa",
+    "english": "top, above",
+    "russian": "на, над",
+    "romanization": "wi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "책상 위에 책이 있어요.",
+      "uz": "Stol ustida kitob bor.",
+      "en": "There's a book on the desk.",
+      "ru": "На столе лежит книга."
+    }
+  },
+  {
+    "id": 211,
+    "korean": "이",
+    "uzbek": "bu",
+    "english": "this",
+    "russian": "этот",
+    "romanization": "i",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 가방은 제 거예요.",
+      "uz": "Bu sumka meniki.",
+      "en": "This bag is mine.",
+      "ru": "Эта сумка моя."
+    }
+  },
+  {
+    "id": 212,
+    "korean": "이거",
+    "uzbek": "bu (narsa)",
+    "english": "this (thing)",
+    "russian": "это (вещь)",
+    "romanization": "igeo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이거 누구 가방이에요?",
+      "uz": "Bu kimning sumkasi?",
+      "en": "Whose bag is this?",
+      "ru": "Чья это сумка?"
+    }
+  },
+  {
+    "id": 213,
+    "korean": "저거",
+    "uzbek": "ana u (narsa)",
+    "english": "that (over there)",
+    "russian": "вон то",
+    "romanization": "jeogeo",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저거 우리 버스예요?",
+      "uz": "Ana u bizning avtobusmi?",
+      "en": "Is that our bus?",
+      "ru": "Вон тот — наш автобус?"
+    }
+  },
+  {
+    "id": 214,
+    "korean": "저기",
+    "uzbek": "ana u yer",
+    "english": "over there",
+    "russian": "вон там",
+    "romanization": "jeogi",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저기가 우리 학교예요.",
+      "uz": "Ana u yer bizning maktab.",
+      "en": "That over there is our school.",
+      "ru": "Вон там наша школа."
+    }
+  },
+  {
+    "id": 215,
+    "korean": "중",
+    "uzbek": "orasida; davomida",
+    "english": "among; in the middle of",
+    "russian": "среди; во время",
+    "romanization": "jung",
+    "lesson": 9,
+    "theme": "questions",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 중에서 하나를 고르세요.",
+      "uz": "Bularning orasidan bittasini tanlang.",
+      "en": "Choose one of these.",
+      "ru": "Выберите один из них."
+    }
+  }
+]

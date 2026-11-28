@@ -1,0 +1,316 @@
+import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { adminRequest } from "../lib/adminApi";
+import { formatDate, timeAgo } from "../lib/dates";
+import { formatPrice, PREMIUM_PLANS } from "../lib/premium";
+import { Panel, ServerNotice, StatTile } from "./AdminPage";
+import { DEFAULT_PROMO_CODES, normalizePromoCode, validPromoCodes } from "../data/promo";
+
+const input = "w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900";
+
+const TOGGLES = ["ai_chat_enabled", "speaking_enabled", "live_speaking_enabled", "feedback_ai_enabled"];
+const LIMITS = [
+  ["ai_free_daily", 10, 1],
+  ["ai_premium_daily", 200, 1],
+  ["grammar_free_daily", 5, 1],
+  ["speaking_free_seconds", 600, 60],
+  ["speaking_premium_seconds", 7200, 60],
+];
+
+function LimitRow({ name, value, scale, busy, onSave }) {
+  const { t } = useTranslation();
+  const [text, setText] = useState(String(Math.round(value / scale)));
+  useEffect(() => setText(String(Math.round(value / scale))), [value, scale]);
+  const changed = Number(text) * scale !== value;
+  return (
+    <div className="grid grid-cols-[1fr_6rem_auto] items-center gap-2 border-b border-slate-100 py-2 text-sm dark:border-white/5">
+      <span>
+        <span className="block font-bold">{t(`admin.settings.${name}`)}</span>
+        <span className="text-xs text-slate-500">{t(scale === 60 ? "admin.settings.minutesDay" : "admin.settings.perDay")}</span>
+      </span>
+      <input value={text} onChange={(event) => setText(event.target.value.replace(/\D/g, ""))} inputMode="numeric" aria-label={t(`admin.settings.${name}`)} className={`${input} text-right tabular-nums`} />
+      <button type="button" disabled={busy || !changed || text === ""} onClick={() => onSave(name, Number(text) * scale)} className="rounded-xl bg-slate-950 px-3 py-2 text-xs font-black text-white disabled:opacity-30 dark:bg-white dark:text-slate-950">
+        {t("common.save")}
+      </button>
+    </div>
+  );
+}
+
+function AnnouncementForm({ value, busy, onSave }) {
+  const { t } = useTranslation();
+  const [form, setForm] = useState(value);
+  useEffect(() => setForm(value), [value]);
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSave("announcement", { active: Boolean(form.active), text: form.text.trim(), link: form.link.trim(), until: form.until || null });
+      }}
+      className="space-y-2"
+    >
+      <textarea value={form.text} onChange={(event) => setForm({ ...form, text: event.target.value })} maxLength={300} rows={2} placeholder={t("admin.announce.text")} className={input} />
+      <div className="grid gap-2 sm:grid-cols-2">
+        <input value={form.link} onChange={(event) => setForm({ ...form, link: event.target.value })} placeholder={t("admin.announce.link")} className={input} />
+        <label className="text-xs font-bold text-slate-500">
+          {t("admin.announce.until")}
+          <input type="date" value={form.until ? form.until.slice(0, 10) : ""} onChange={(event) => setForm({ ...form, until: event.target.value ? `${event.target.value}T23:59:59+05:00` : null })} className={`${input} mt-1`} />
+        </label>
+      </div>
+      <label className="flex items-center gap-2 text-sm font-bold">
+        <input type="checkbox" checked={Boolean(form.active)} onChange={(event) => setForm({ ...form, active: event.target.checked })} />
+        {t("admin.announce.active")}
+      </label>
+      <button type="submit" disabled={busy || (form.active && !form.text.trim()) || (form.link && !/^(https:\/\/|\/)/.test(form.link.trim()))} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white disabled:opacity-40 dark:bg-white dark:text-slate-950">
+        {t("common.save")}
+      </button>
+      <p className="text-xs text-slate-500">{t("admin.announce.hint")}</p>
+    </form>
+  );
+}
+
+export function AdminSettings() {
+  const { t } = useTranslation();
+  const [settings, setSettings] = useState(null);
+  const [promoUses, setPromoUses] = useState({});
+  const [error, setError] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  const load = useCallback(async () => {
+    setError(null);
+    try {
+      const data = await adminRequest({ action: "settings" });
+      setSettings(data.settings);
+      setPromoUses(data.promoUses || {});
+    } catch (requestError) {
+      setError(requestError);
+    }
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  async function save(key, value) {
+    setBusy(true);
+    setMessage(null);
+    try {
+      await adminRequest({}, { action: "setting", key, value });
+      setSettings((current) => ({ ...current, [key]: value }));
+      setMessage({ ok: true, text: t("admin.powers.saved") });
+    } catch (requestError) {
+      setMessage({ ok: false, text: requestError.message });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  const announcement = { active: false, text: "", link: "", until: null, ...(settings?.announcement || {}) };
+
+  return (
+    <div className="space-y-5">
+      <ServerNotice error={error} onRetry={load} />
+      {!settings && !error && <div className="h-64 animate-pulse rounded-3xl bg-white/60 dark:bg-white/5" />}
+      {settings && (
+        <>
+          {message && <p role={message.ok ? "status" : "alert"} className={`text-sm font-bold ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>{message.text}</p>}
+          <div className="grid gap-5 xl:grid-cols-2">
+            <Panel title={t("admin.settings.features")}>
+              <ul className="space-y-2">
+                {TOGGLES.map((key) => {
+                  const on = settings[key] !== false;
+                  return (
+                    <li key={key} className="flex items-center justify-between gap-3 rounded-2xl border border-slate-100 p-3 dark:border-white/5">
+                      <span>
+                        <span className="block text-sm font-bold">{t(`admin.settings.${key}`)}</span>
+                        <span className="text-xs text-slate-500">{on ? t("admin.settings.on") : t("admin.settings.off")}</span>
+                      </span>
+                      <button type="button" role="switch" aria-checked={on} disabled={busy} onClick={() => save(key, !on)} className={`relative h-7 w-12 shrink-0 rounded-full transition ${on ? "bg-emerald-500" : "bg-slate-300 dark:bg-white/20"}`}>
+                        <span className={`absolute top-1 h-5 w-5 rounded-full bg-white transition-all ${on ? "left-6" : "left-1"}`} />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </Panel>
+            <Panel title={t("admin.settings.limits")}>
+              {LIMITS.map(([key, fallback, scale]) => (
+                <LimitRow key={key} name={key} scale={scale} value={Number.isFinite(Number(settings[key])) ? Number(settings[key]) : fallback} busy={busy} onSave={save} />
+              ))}
+            </Panel>
+          </div>
+          <Panel title={t("admin.prices.title")}>
+            <PriceForm value={settings.premium_prices} busy={busy} onSave={save} />
+          </Panel>
+          <Panel title={t("admin.promo.title")}>
+            <PromoForm value={Array.isArray(settings.promo_codes) ? settings.promo_codes : DEFAULT_PROMO_CODES} uses={promoUses} busy={busy} onSave={save} />
+          </Panel>
+          <Panel title={t("admin.announce.title")}>
+            <AnnouncementForm value={announcement} busy={busy} onSave={save} />
+          </Panel>
+        </>
+      )}
+    </div>
+  );
+}
+
+function PromoForm({ value, uses, busy, onSave }) {
+  const { t } = useTranslation();
+  const [rows, setRows] = useState(value);
+  useEffect(() => setRows(value), [value]);
+  const set = (index, patch) => setRows((current) => current.map((row, i) => (i === index ? { ...row, ...patch } : row)));
+  const valid = validPromoCodes(rows);
+  return (
+    <div className="space-y-2">
+      {rows.map((row, index) => (
+        <div key={index} className="grid grid-cols-2 gap-2 rounded-2xl border border-slate-100 p-3 dark:border-white/5 sm:grid-cols-[1fr_5rem_10rem_auto_auto] sm:items-end">
+          <label className="text-xs font-bold text-slate-500">
+            {t("admin.promo.code")}
+            <input value={row.code} onChange={(event) => set(index, { code: normalizePromoCode(event.target.value).slice(0, 24) })} className={`${input} mt-1 font-mono uppercase`} />
+          </label>
+          <label className="text-xs font-bold text-slate-500">
+            {t("admin.promo.days")}
+            <input value={row.days} onChange={(event) => set(index, { days: Number(event.target.value.replace(/\D/g, "")) || 0 })} inputMode="numeric" className={`${input} mt-1 text-right tabular-nums`} />
+          </label>
+          <label className="text-xs font-bold text-slate-500">
+            {t("admin.promo.until")}
+            <input type="date" value={row.until ? row.until.slice(0, 10) : ""} onChange={(event) => set(index, { until: event.target.value ? `${event.target.value}T23:59:59+05:00` : null })} className={`${input} mt-1`} />
+          </label>
+          <label className="flex items-center gap-2 text-sm font-bold">
+            <input type="checkbox" checked={row.active} onChange={(event) => set(index, { active: event.target.checked })} />
+            {t("admin.promo.active")}
+          </label>
+          <span className="flex items-center justify-between gap-2 text-xs font-bold text-slate-500">
+            {t("admin.promo.uses", { count: uses[row.code] || 0 })}
+            <button type="button" onClick={() => setRows((current) => current.filter((_, i) => i !== index))} className="rounded-lg px-2 py-1 text-rose-600">{t("admin.promo.remove")}</button>
+          </span>
+        </div>
+      ))}
+      <div className="flex flex-wrap gap-2">
+        <button type="button" disabled={rows.length >= 20} onClick={() => setRows((current) => [...current, { code: "", days: 7, until: null, active: true }])} className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-black dark:border-white/15">
+          + {t("admin.promo.add")}
+        </button>
+        <button type="button" disabled={busy || !valid} onClick={() => onSave("promo_codes", rows)} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white disabled:opacity-40 dark:bg-white dark:text-slate-950">
+          {t("common.save")}
+        </button>
+      </div>
+      <p className="text-xs text-slate-500">{t("admin.promo.hint")}</p>
+    </div>
+  );
+}
+
+function PriceForm({ value, busy, onSave }) {
+  const { t } = useTranslation();
+  const [prices, setPrices] = useState(() => Object.fromEntries(PREMIUM_PLANS.map((plan) => [plan.id, String(value?.[plan.id] ?? plan.price)])));
+  const parsed = Object.fromEntries(Object.entries(prices).map(([key, text]) => [key, Number(text)]));
+  const valid = Object.values(parsed).every((price) => Number.isInteger(price) && price >= 1000);
+  return (
+    <div className="grid gap-2 sm:grid-cols-4">
+      {PREMIUM_PLANS.map((plan) => (
+        <label key={plan.id} className="text-xs font-bold text-slate-500">
+          {t("admin.prices.months", { count: plan.months })}
+          <input type="number" min="1000" value={prices[plan.id]} onChange={(event) => setPrices((current) => ({ ...current, [plan.id]: event.target.value }))} className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-sky-400 dark:border-white/10 dark:bg-slate-900 dark:text-white" />
+        </label>
+      ))}
+      <button type="button" disabled={busy || !valid} onClick={() => onSave("premium_prices", parsed)} className="self-end rounded-xl bg-violet-600 px-3 py-2.5 text-xs font-black text-white disabled:opacity-50">{t("admin.ai.save")}</button>
+    </div>
+  );
+}
+
+function describe(entry, emails, t) {
+  const details = entry.details || {};
+  const parts = Object.entries(details)
+    .filter(([, value]) => value !== undefined && value !== "")
+    .map(([key, value]) => `${key}: ${typeof value === "object" ? JSON.stringify(value) : value}`);
+  return [t(`admin.journal.action.${entry.action}`, { defaultValue: entry.action }), entry.target_user ? emails[entry.target_user] || entry.target_user : null, parts.join(" · ")].filter(Boolean).join(" — ");
+}
+
+export function AdminJournal() {
+  const { t, i18n } = useTranslation();
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const load = useCallback(async () => {
+    setError(null);
+    try {
+      setData(await adminRequest({ action: "journal" }));
+    } catch (requestError) {
+      setError(requestError);
+    }
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  const total = data?.sales.reduce((sum, sale) => sum + sale.amount, 0) || 0;
+  const monthTotals = {};
+  (data?.sales || []).forEach((sale) => {
+    const key = String(sale.created_at).slice(0, 7);
+    monthTotals[key] = (monthTotals[key] || 0) + (sale.amount || 0);
+  });
+  const months = Object.entries(monthTotals).sort((a, b) => b[0].localeCompare(a[0]));
+  const month = data?.sales.filter((sale) => Date.now() - new Date(sale.created_at).getTime() <= 30 * 24 * 60 * 60 * 1000).reduce((sum, sale) => sum + sale.amount, 0) || 0;
+
+  return (
+    <div className="space-y-5">
+      <ServerNotice error={error} onRetry={load} />
+      {!data && !error && <div className="h-64 animate-pulse rounded-3xl bg-white/60 dark:bg-white/5" />}
+      {data && (
+        <>
+          <section className="grid grid-cols-2 gap-3 lg:grid-cols-3">
+            <StatTile tone="emerald" label={t("admin.journal.month")} value={formatPrice(month)} hint={t("premium.currency")} />
+            <StatTile tone="violet" label={t("admin.journal.total")} value={formatPrice(total)} hint={t("admin.journal.salesCount", { count: data.sales.filter((sale) => sale.amount > 0).length })} />
+            <StatTile label={t("admin.journal.actions")} value={data.entries.length} />
+          </section>
+
+          {months.length > 0 && (
+            <Panel title={t("admin.journal.byMonth")}>
+              <ul className="divide-y divide-slate-100 text-sm dark:divide-white/5">
+                {months.map(([key, sum]) => (
+                  <li key={key} className="flex justify-between gap-3 py-1.5">
+                    <span className="font-bold">{key}</span>
+                    <span className="tabular-nums">{formatPrice(sum)} {t("premium.currency")}</span>
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+          )}
+
+          <Panel title={t("admin.journal.sales")}>
+            {data.sales.length ? (
+              <ul className="divide-y divide-slate-100 text-sm dark:divide-white/5">
+                {data.sales.map((sale) => (
+                  <li key={sale.id} className="flex flex-wrap items-center gap-x-3 gap-y-1 py-2">
+                    <Link to={`/admin/users?user=${sale.user_id}`} className="min-w-0 flex-1 truncate font-bold">{data.emails[sale.user_id] || "—"}</Link>
+                    <span className="text-xs text-slate-500">{sale.days ? `+${t("admin.user.days", { count: sale.days })}` : t("admin.user.premiumRemoved")}</span>
+                    <span className="font-black tabular-nums text-emerald-600">{formatPrice(sale.amount)}</span>
+                    <span className="w-full text-xs text-slate-500 sm:w-auto">{formatDate(sale.created_at, i18n.language)}{sale.note ? ` · ${sale.note}` : ""}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-slate-500">{t("admin.noData")}</p>
+            )}
+          </Panel>
+
+          <Panel title={t("admin.journal.log")}>
+            {data.entries.length ? (
+              <ul className="divide-y divide-slate-100 text-sm dark:divide-white/5">
+                {data.entries.map((entry) => (
+                  <li key={entry.id} className="py-2">
+                    <p className="break-words">{describe(entry, data.emails, t)}</p>
+                    <p className="text-xs text-slate-500">{data.emails[entry.admin_id] || "—"} · {timeAgo(entry.created_at, i18n.language)}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-slate-500">{t("admin.noData")}</p>
+            )}
+          </Panel>
+        </>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,84 @@
+# korean	topic	level	uz	en	ru	ex_ko	ex_uz	ex_en	ex_ru
+지금	time	1	hozir	now	сейчас	지금 바로 출발해요.	Hozir darhol yo'lga chiqamiz.	We're leaving right now.	Мы выезжаем прямо сейчас.
+오늘	time	1	bugun	today	сегодня	오늘은 날씨가 좋아요.	Bugun havo yaxshi.	The weather is nice today.	Сегодня хорошая погода.
+내일	time	1	ertaga	tomorrow	завтра	내일 다시 올게요.	Ertaga yana kelaman.	I'll come again tomorrow.	Я приду снова завтра.
+어제	time	1	kecha	yesterday	вчера	어제 하루 종일 비가 왔어요.	Kecha kun bo'yi yomg'ir yog'di.	It rained all day yesterday.	Вчера весь день шёл дождь.
+어젯밤	time	1	kecha kechqurun	last night	вчера вечером, прошлой ночью	어젯밤에 눈이 많이 왔어요.	Kecha kechqurun ko'p qor yog'di.	It snowed a lot last night.	Вчера ночью выпало много снега.
+월요일	time	1	dushanba	Monday	понедельник	월요일 아침은 바빠요.	Dushanba ertalabi band bo'ladi.	Monday mornings are busy.	Утро понедельника всегда занятое.
+화요일	time	1	seshanba	Tuesday	вторник	화요일에 수영을 배워요.	Seshanba kuni suzishni o'rganaman.	I take swimming lessons on Tuesdays.	По вторникам я учусь плавать.
+수요일	time	1	chorshanba	Wednesday	среда	수요일에 시험이 있어요.	Chorshanba kuni imtihon bor.	There's an exam on Wednesday.	В среду экзамен.
+목요일	time	1	payshanba	Thursday	четверг	목요일 저녁에 시간 있어요?	Payshanba kechqurun bo'shmisiz?	Are you free Thursday evening?	Вы свободны в четверг вечером?
+금요일	time	1	juma	Friday	пятница	금요일 저녁에 가족과 외식해요.	Juma kuni kechqurun oilam bilan tashqarida ovqatlanamiz.	We eat out with the family on Friday evening.	В пятницу вечером мы ужинаем с семьёй в ресторане.
+토요일	time	1	shanba	Saturday	суббота	토요일에는 늦잠을 자요.	Shanba kuni kech turaman.	I sleep in on Saturdays.	В субботу я сплю допоздна.
+일요일	time	1	yakshanba	Sunday	воскресенье	일요일에 가족과 쉬어요.	Yakshanba kuni oilam bilan dam olaman.	I rest with my family on Sundays.	В воскресенье я отдыхаю с семьёй.
+날짜	time	1	sana	date	дата, число	오늘 날짜가 어떻게 돼요?	Bugun nechanchi sana?	What's the date today?	Какое сегодня число?
+요일	time	1	hafta kuni	day of the week	день недели	오늘이 무슨 요일이에요?	Bugun haftaning qaysi kuni?	What day of the week is it?	Какой сегодня день недели?
+월	time	1	oy (sana aytishda)	month (in dates)	месяц (в датах)	제 생일은 삼 월이에요.	Tug'ilgan kunim mart oyida.	My birthday is in March.	Мой день рождения в марте.
+일	time	1	kun (oyning kuni)	day (of the month)	число (день месяца)	오늘은 오 월 오 일이에요.	Bugun 5-may.	Today is May fifth.	Сегодня пятое мая.
+년	time	1	yil (sana aytishda)	year (in dates)	год (в датах)	이천 년에 태어났어요.	2000-yilda tug'ilganman.	I was born in 2000.	Я родился в 2000 году.
+생일	time	1	tug'ilgan kun	birthday	день рождения	생일이 언제예요?	Tug'ilgan kuningiz qachon?	When is your birthday?	Когда у вас день рождения?
+이번 주	time	1	shu hafta	this week	на этой неделе	이번 주에 시험이 많아요.	Shu hafta imtihonlar ko'p.	I have a lot of exams this week.	На этой неделе много экзаменов.
+다음 주	time	1	kelasi hafta	next week	на следующей неделе	다음 주 월요일에 시험이 있어요.	Kelasi dushanba imtihon bor.	There's an exam next Monday.	В следующий понедельник экзамен.
+지난주	time	1	o'tgan hafta	last week	на прошлой неделе	지난주에 바빴어요.	O'tgan hafta band edim.	I was busy last week.	На прошлой неделе я был занят.
+달	time	1	oy (muddat)	month (period)	месяц (срок)	한 달 동안 한국에 있었어요.	Bir oy Koreyada bo'ldim.	I was in Korea for a month.	Я был в Корее месяц.
+이번 달	time	1	shu oy	this month	в этом месяце	이번 달은 돈이 별로 없어요.	Shu oy pulim unchalik ko'p emas.	I don't have much money this month.	В этом месяце у меня мало денег.
+다음 달	time	1	kelasi oy	next month	в следующем месяце	다음 달에 휴가를 가요.	Kelasi oy ta'tilga chiqaman.	I'm going on vacation next month.	В следующем месяце я иду в отпуск.
+지난달	time	1	o'tgan oy	last month	в прошлом месяце	지난달에 일을 시작했어요.	O'tgan oy ishni boshladim.	I started work last month.	Я начал работать в прошлом месяце.
+올해	time	1	bu yil	this year	в этом году	올해 목표가 뭐예요?	Bu yilgi maqsadingiz nima?	What's your goal this year?	Какая у вас цель на этот год?
+내년	time	1	kelasi yil	next year	в следующем году	내년에 대학교에 들어가요.	Kelasi yil universitetga kiraman.	I'm entering university next year.	В следующем году я поступаю в университет.
+작년	time	1	o'tgan yil	last year	в прошлом году	작년 겨울은 많이 추웠어요.	O'tgan yilgi qish juda sovuq edi.	Last winter was very cold.	Прошлая зима была очень холодной.
+주말	time	1	dam olish kunlari	weekend	выходные	이번 주말에 바다에 가요.	Shu dam olish kunlari dengizga boramiz.	We're going to the sea this weekend.	В эти выходные мы едем на море.
+새벽	time	1	tong, saharlab	dawn, early morning	рассвет, раннее утро	새벽 다섯 시에 일어났어요.	Saharlab soat beshda turdim.	I got up at five in the morning.	Я встал в пять утра.
+아침	time	1	ertalab; nonushta	morning; breakfast	утро; завтрак	아침마다 운동해요.	Har ertalab sport qilaman.	I exercise every morning.	Я делаю зарядку каждое утро.
+점심	time	1	tush payti; tushlik	noon; lunch	полдень; обед	점심에 뭐 먹을까요?	Tushlikka nima yeymiz?	What shall we have for lunch?	Что съедим на обед?
+낮	time	1	kunduz	daytime	день (светлое время)	여름에는 낮이 길어요.	Yozda kunlar uzun.	Days are long in summer.	Летом длинные дни.
+저녁	time	1	kechqurun; kechki ovqat	evening; dinner	вечер; ужин	저녁에 친구가 와요.	Kechqurun do'stim keladi.	A friend is coming this evening.	Вечером придёт друг.
+밤	time	1	tun, kecha	night	ночь	밤에 별이 많이 보여요.	Kechasi yulduzlar ko'p ko'rinadi.	You can see many stars at night.	Ночью видно много звёзд.
+오전 / 오후	time	1	tushgacha / tushdan keyin	a.m. / p.m.	до полудня / после полудня	오후 세 시에 만나요.	Kunduzi soat uchda ko'rishamiz.	Let's meet at 3 p.m.	Встретимся в три часа дня.
+분	time	1	daqiqa	minute	минута	십 분만 쉬어요.	O'n daqiqa dam olaylik.	Let's rest for ten minutes.	Давайте отдохнём десять минут.
+시	time	1	soat (vaqt aytishda)	o'clock	час (при указании времени)	지금 세 시예요.	Hozir soat uch.	It's three o'clock now.	Сейчас три часа.
+하루	time	1	bir kun	one day; a day	один день; сутки	하루에 물을 많이 마셔요.	Bir kunda ko'p suv ichaman.	I drink a lot of water every day.	Я пью много воды в день.
+동안	time	1	davomida	during, for (a period)	в течение	방학 동안 고향에 있었어요.	Ta'til davomida ona yurtimda bo'ldim.	I was in my hometown during the break.	Во время каникул я был дома.
+그동안	time	1	shu vaqt ichida	meanwhile, all this time	за это время	그동안 많이 바빴어요.	Shu vaqt ichida juda band bo'ldim.	I've been very busy all this time.	Всё это время я был очень занят.
+그때	time	1	o'sha paytda	at that time	тогда, в то время	그때 처음으로 눈을 봤어요.	O'shanda birinchi marta qor ko'rdim.	That was the first time I saw snow.	Тогда я впервые увидел снег.
+예전	time	1	ilgari, avvallari	the past, former times	раньше, прежде	예전에 여기는 공원이었어요.	Ilgari bu yer bog' edi.	This used to be a park.	Раньше здесь был парк.
+어렸을 때	time	1	yoshligimda	when (I was) young	в детстве	어렸을 때 시골에 살았어요.	Yoshligimda qishloqda yashardim.	I lived in the countryside as a child.	В детстве я жил в деревне.
+휴일	time	1	dam olish kuni, bayram	day off, holiday	выходной, праздник	휴일에는 집에서 쉬어요.	Dam olish kuni uyda dam olaman.	I rest at home on my days off.	В выходной я отдыхаю дома.
+방학	time	1	ta'til (o'quv)	school vacation	каникулы	방학에 여행을 가고 싶어요.	Ta'tilda sayohatga borgim keladi.	I want to travel during the break.	На каникулах хочу поехать в путешествие.
+전에	time	1	oldin; ilgari	before; ago	до; назад	자기 전에 이를 닦아요.	Uxlashdan oldin tish yuvaman.	I brush my teeth before bed.	Перед сном я чищу зубы.
+이따	time	1	birozdan keyin	later (today)	попозже, потом	이따 점심 같이 먹어요.	Birozdan keyin birga tushlik qilaylik.	Let's have lunch together later.	Давай попозже вместе пообедаем.
+아까	time	1	hozirgina, sal oldin	a while ago	недавно, только что	아까 누가 왔어요?	Hozirgina kim keldi?	Who came by a moment ago?	Кто недавно приходил?
+조금 전 / 조금 후	time	1	sal oldin / sal keyin	a little earlier / a little later	немного раньше / чуть позже	조금 후에 출발해요.	Sal keyin yo'lga chiqamiz.	We're leaving in a little while.	Мы отправляемся чуть позже.
+언제쯤	time	1	taxminan qachon	about when	примерно когда	택배가 언제쯤 와요?	Posilka taxminan qachon keladi?	About when will the package arrive?	Примерно когда придёт посылка?
+어느	questions	1	qaysi	which	какой (из)	어느 쪽으로 가야 해요?	Qaysi tomonga borish kerak?	Which way should I go?	В какую сторону мне идти?
+누구	questions	1	kim	who	кто	이 사람은 누구예요?	Bu kim?	Who is this person?	Кто этот человек?
+누가	questions	1	kim (ega vazifasida)	who (as the subject)	кто (в роли подлежащего)	누가 창문을 열었어요?	Derazani kim ochdi?	Who opened the window?	Кто открыл окно?
+뭐	questions	1	nima (so'zlashuvda)	what (casual)	что (разг.)	뭐 먹고 싶어요?	Nima yegingiz keladi?	What do you want to eat?	Что ты хочешь съесть?
+무엇	questions	1	nima	what	что	취미가 무엇입니까?	Qiziqishingiz nima?	What is your hobby?	Какое у вас хобби?
+뭐로	questions	1	nima bilan	with what, by what	чем, на чём	학교에 뭐로 가요?	Maktabga nima bilan borasiz?	How do you get to school?	На чём вы ездите в школу?
+무슨	questions	1	qanday, qanaqa	what kind of	какой	무슨 영화를 볼까요?	Qanday kino ko'ramiz?	What movie shall we watch?	Какой фильм посмотрим?
+몇	questions	1	nechta, necha	how many	сколько	몇 시에 만날까요?	Soat nechada uchrashamiz?	What time shall we meet?	Во сколько встретимся?
+언제	questions	1	qachon	when	когда	언제 한국에 왔어요?	Koreyaga qachon keldingiz?	When did you come to Korea?	Когда вы приехали в Корею?
+어디	questions	1	qayer	where	где, куда	지금 어디에 있어요?	Hozir qayerdasiz?	Where are you now?	Где вы сейчас?
+왜	questions	1	nega, nima uchun	why	почему	왜 한국어를 배워요?	Nega koreys tilini o'rganyapsiz?	Why are you learning Korean?	Почему вы учите корейский?
+어떻게	questions	1	qanday qilib	how	как	이 단어는 어떻게 읽어요?	Bu so'z qanday o'qiladi?	How do you read this word?	Как читается это слово?
+얼마나	questions	1	qancha; qanchalik	how much; how long	сколько; насколько	집에서 학교까지 얼마나 걸려요?	Uydan maktabgacha qancha vaqt ketadi?	How long does it take from home to school?	Сколько времени от дома до школы?
+이	questions	1	bu	this	этот	이 가방은 제 거예요.	Bu sumka meniki.	This bag is mine.	Эта сумка моя.
+것	questions	1	narsa	thing	вещь, то, что	제가 좋아하는 것은 음악이에요.	Men yoqtirgan narsa — musiqa.	What I like is music.	То, что я люблю, — это музыка.
+이거	questions	1	bu (narsa)	this (thing)	это (вещь)	이거 누구 가방이에요?	Bu kimning sumkasi?	Whose bag is this?	Чья это сумка?
+그거	questions	1	u (sizdagi narsa)	that (near you)	то (возле вас)	그거 저한테 주세요.	Uni menga bering.	Please give that to me.	Дайте мне это.
+저거	questions	1	ana u (narsa)	that (over there)	вон то	저거 우리 버스예요?	Ana u bizning avtobusmi?	Is that our bus?	Вон тот — наш автобус?
+여기	questions	1	bu yer	here	здесь	여기 앉으세요.	Bu yerga o'tiring.	Please sit here.	Садитесь здесь.
+거기	questions	1	o'sha yer	there (near you)	там (у вас)	거기 날씨는 어때요?	U yerda havo qanday?	How's the weather there?	Какая там погода?
+저기	questions	1	ana u yer	over there	вон там	저기가 우리 학교예요.	Ana u yer bizning maktab.	That over there is our school.	Вон там наша школа.
+앞	questions	1	old	front	перед, впереди	버스가 은행 앞에 서요.	Avtobus bank oldida to'xtaydi.	The bus stops in front of the bank.	Автобус останавливается перед банком.
+뒤	questions	1	orqa	back, behind	позади, за	집 뒤에 산이 있어요.	Uyning orqasida tog' bor.	There's a mountain behind the house.	За домом есть гора.
+옆	questions	1	yon	side, next to	рядом, сбоку	제 옆에 앉으세요.	Yonimga o'tiring.	Sit next to me.	Садитесь рядом со мной.
+아래/밑	questions	1	past, tag	below, under	под, внизу	책상 밑에 고양이가 있어요.	Stol tagida mushuk bor.	There's a cat under the desk.	Под столом кошка.
+안	questions	1	ich	inside	внутри	가방 안에 뭐가 있어요?	Sumka ichida nima bor?	What's in the bag?	Что в сумке?
+위	questions	1	ust, tepa	top, above	на, над	책상 위에 책이 있어요.	Stol ustida kitob bor.	There's a book on the desk.	На столе лежит книга.
+사이	questions	1	orasi	between	между	은행과 우체국 사이에 있어요.	Bank bilan pochta orasida.	It's between the bank and the post office.	Это между банком и почтой.
+왼쪽	questions	1	chap tomon	left	левая сторона	왼쪽 눈이 좀 아파요.	Chap ko'zim biroz og'riyapti.	My left eye hurts a little.	У меня немного болит левый глаз.
+오른쪽	questions	1	o'ng tomon	right	правая сторона	오른쪽 길로 가면 시장이 나와요.	O'ngdagi yo'ldan borsangiz, bozor chiqadi.	Take the road on the right and you'll reach the market.	Если пойти по правой дороге, выйдете к рынку.
+근처	questions	1	atrof, yaqin joy	nearby, vicinity	поблизости	근처에 카페가 있어요?	Yaqin atrofda kafe bormi?	Is there a café nearby?	Здесь поблизости есть кафе?
+중	questions	1	orasida; davomida	among; in the middle of	среди; во время	이 중에서 하나를 고르세요.	Bularning orasidan bittasini tanlang.	Choose one of these.	Выберите один из них.

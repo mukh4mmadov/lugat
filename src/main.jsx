@@ -1,0 +1,51 @@
+import "./polyfills";
+import "./lib/viewAs";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { LazyMotion } from "framer-motion";
+import App from "./App.jsx";
+import PWAUpdate from "./components/PWAUpdate";
+import ViewAsBanner from "./components/ViewAsBanner";
+import "./index.css";
+import { store, vocabLoaded } from "./store";
+import { onTopikVocab } from "./data/topikVocab";
+import { i18nReady } from "./lib/i18n";
+import { initWordOverrides } from "./lib/wordOverrides";
+import { dataReady } from "./data";
+import { captureReferral } from "./lib/growth";
+import { watchErrors } from "./lib/errorReport";
+import { loadVoiceMap } from "./lib/voiceMap";
+import { applyCachedTextOverrides, loadTextOverrides } from "./lib/textOverrides";
+import { loadPremiumPrices } from "./lib/premium";
+import { supabase } from "./lib/supabase";
+
+watchErrors();
+onTopikVocab(() => store.dispatch(vocabLoaded()));
+applyCachedTextOverrides();
+captureReferral();
+
+const motionFeatures = () => import("./lib/motionFeatures").then((module) => module.default);
+
+Promise.allSettled([i18nReady, dataReady.then(initWordOverrides)]).then(() => {
+  document.documentElement.classList.remove("k-dark");
+  ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <LazyMotion features={motionFeatures} strict>
+          <ViewAsBanner />
+          <App />
+          <PWAUpdate />
+        </LazyMotion>
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+  );
+  (window.requestIdleCallback || ((callback) => setTimeout(callback, 1500)))(() => {
+    loadVoiceMap();
+    loadTextOverrides();
+    loadPremiumPrices(supabase);
+  });
+});

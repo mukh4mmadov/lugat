@@ -1,0 +1,534 @@
+[
+  {
+    "id": 20,
+    "korean": "경찰관",
+    "uzbek": "politsiyachi",
+    "english": "police officer",
+    "russian": "полицейский",
+    "romanization": "gyeongchalgwan",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "경찰관에게 길을 물어봤어요.",
+      "uz": "Politsiyachidan yo'l so'radim.",
+      "en": "I asked a police officer for directions.",
+      "ru": "Я спросил дорогу у полицейского."
+    }
+  },
+  {
+    "id": 21,
+    "korean": "남자 친구",
+    "uzbek": "yigit (sevgan)",
+    "english": "boyfriend",
+    "russian": "парень (друг)",
+    "romanization": "namja chingu",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 남자 친구는 키가 커요.",
+      "uz": "Yigitim baland bo'yli.",
+      "en": "My boyfriend is tall.",
+      "ru": "Мой парень высокий."
+    }
+  },
+  {
+    "id": 22,
+    "korean": "노인",
+    "uzbek": "keksa odam",
+    "english": "elderly person",
+    "russian": "пожилой человек",
+    "romanization": "noin",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "노인에게 자리를 양보했어요.",
+      "uz": "Keksa odamga joy berdim.",
+      "en": "I gave my seat to an elderly person.",
+      "ru": "Я уступил место пожилому человеку."
+    }
+  },
+  {
+    "id": 23,
+    "korean": "동료",
+    "uzbek": "hamkasb",
+    "english": "colleague",
+    "russian": "коллега",
+    "romanization": "dongnyo",
+    "lesson": 2,
+    "theme": "people",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동료와 점심을 먹었어요.",
+      "uz": "Hamkasbim bilan tushlik qildim.",
+      "en": "I had lunch with a colleague.",
+      "ru": "Я пообедал с коллегой."
+    }
+  },
+  {
+    "id": 24,
+    "korean": "룸메이트",
+    "uzbek": "xonadosh",
+    "english": "roommate",
+    "russian": "сосед по комнате",
+    "romanization": "rummeiteu",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 룸메이트는 중국 사람이에요.",
+      "uz": "Xonadoshim xitoylik.",
+      "en": "My roommate is Chinese.",
+      "ru": "Мой сосед по комнате — китаец."
+    }
+  },
+  {
+    "id": 25,
+    "korean": "몸이 불편한 사람",
+    "uzbek": "nogironligi bor odam",
+    "english": "person with a disability",
+    "russian": "человек с инвалидностью",
+    "romanization": "momi bulpyeonhan saram",
+    "lesson": 2,
+    "theme": "people",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "몸이 불편한 사람을 도와주세요.",
+      "uz": "Nogironligi bor odamlarga yordam bering.",
+      "en": "Please help people with disabilities.",
+      "ru": "Помогайте людям с инвалидностью."
+    }
+  },
+  {
+    "id": 26,
+    "korean": "선배",
+    "uzbek": "katta kursdosh; katta hamkasb",
+    "english": "senior (at school or work)",
+    "russian": "старший (по учёбе, работе)",
+    "romanization": "seonbae",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선배가 많이 도와줬어요.",
+      "uz": "Katta kursdoshim ko'p yordam berdi.",
+      "en": "My senior helped me a lot.",
+      "ru": "Старший товарищ мне очень помог."
+    }
+  },
+  {
+    "id": 27,
+    "korean": "선생님",
+    "uzbek": "o'qituvchi; ustoz",
+    "english": "teacher",
+    "russian": "учитель",
+    "romanization": "seonsaengnim",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선생님, 질문이 있어요.",
+      "uz": "Ustoz, savolim bor.",
+      "en": "Teacher, I have a question.",
+      "ru": "Учитель, у меня вопрос."
+    }
+  },
+  {
+    "id": 28,
+    "korean": "선수",
+    "uzbek": "sportchi",
+    "english": "athlete, player",
+    "russian": "спортсмен",
+    "romanization": "seonsu",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그는 유명한 축구 선수예요.",
+      "uz": "U mashhur futbolchi.",
+      "en": "He's a famous soccer player.",
+      "ru": "Он известный футболист."
+    }
+  },
+  {
+    "id": 29,
+    "korean": "성격",
+    "uzbek": "fe'l-atvor; xarakter",
+    "english": "personality",
+    "russian": "характер",
+    "romanization": "seonggyeok",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구는 성격이 밝아요.",
+      "uz": "Do'stimning fe'li ochiq.",
+      "en": "My friend has a cheerful personality.",
+      "ru": "У моего друга весёлый характер."
+    }
+  },
+  {
+    "id": 30,
+    "korean": "손님",
+    "uzbek": "mijoz; mehmon",
+    "english": "customer; guest",
+    "russian": "клиент; гость",
+    "romanization": "sonnim",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 가게에 손님이 많아요.",
+      "uz": "Bugun do'konda mijoz ko'p.",
+      "en": "There are many customers in the shop today.",
+      "ru": "Сегодня в магазине много покупателей."
+    }
+  },
+  {
+    "id": 31,
+    "korean": "아저씨",
+    "uzbek": "amaki (notanish katta erkak)",
+    "english": "mister (older man)",
+    "russian": "дядя (обращение к мужчине)",
+    "romanization": "ajeossi",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "택시 아저씨가 길을 잘 알아요.",
+      "uz": "Taksi haydovchisi yo'lni yaxshi biladi.",
+      "en": "The taxi driver knows the roads well.",
+      "ru": "Таксист хорошо знает дорогу."
+    }
+  },
+  {
+    "id": 32,
+    "korean": "어른",
+    "uzbek": "katta yoshli odam",
+    "english": "adult; elder",
+    "russian": "взрослый; старший",
+    "romanization": "eoreun",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어른 앞에서는 예의를 지켜요.",
+      "uz": "Kattalar oldida odobli bo'lamiz.",
+      "en": "We're polite in front of elders.",
+      "ru": "Перед старшими мы ведём себя вежливо."
+    }
+  },
+  {
+    "id": 33,
+    "korean": "여자 친구",
+    "uzbek": "qiz (sevgan)",
+    "english": "girlfriend",
+    "russian": "девушка (подруга)",
+    "romanization": "yeoja chingu",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여자 친구에게 꽃을 줬어요.",
+      "uz": "Qizga gul berdim.",
+      "en": "I gave flowers to my girlfriend.",
+      "ru": "Я подарил девушке цветы."
+    }
+  },
+  {
+    "id": 34,
+    "korean": "요리사",
+    "uzbek": "oshpaz",
+    "english": "cook, chef",
+    "russian": "повар",
+    "romanization": "yorisa",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 형은 요리사예요.",
+      "uz": "Akam oshpaz.",
+      "en": "My older brother is a chef.",
+      "ru": "Мой старший брат — повар."
+    }
+  },
+  {
+    "id": 35,
+    "korean": "우리",
+    "uzbek": "biz; bizning",
+    "english": "we; our",
+    "russian": "мы; наш",
+    "romanization": "uri",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 집은 학교 근처에 있어요.",
+      "uz": "Bizning uy maktab yaqinida.",
+      "en": "Our house is near the school.",
+      "ru": "Наш дом рядом со школой."
+    }
+  },
+  {
+    "id": 36,
+    "korean": "의사",
+    "uzbek": "shifokor",
+    "english": "doctor",
+    "russian": "врач",
+    "romanization": "uisa",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "의사가 약을 줬어요.",
+      "uz": "Shifokor dori berdi.",
+      "en": "The doctor gave me medicine.",
+      "ru": "Врач дал лекарство."
+    }
+  },
+  {
+    "id": 37,
+    "korean": "이웃",
+    "uzbek": "qo'shni",
+    "english": "neighbor",
+    "russian": "сосед",
+    "romanization": "iut",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이웃이 아주 친절해요.",
+      "uz": "Qo'shnim juda mehribon.",
+      "en": "My neighbor is very kind.",
+      "ru": "Мой сосед очень добрый."
+    }
+  },
+  {
+    "id": 38,
+    "korean": "임산부",
+    "uzbek": "homilador ayol",
+    "english": "pregnant woman",
+    "russian": "беременная женщина",
+    "romanization": "imsanbu",
+    "lesson": 2,
+    "theme": "people",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "임산부는 이 자리에 앉으세요.",
+      "uz": "Homilador ayollar bu joyga o'tirsin.",
+      "en": "Pregnant women may sit here.",
+      "ru": "Беременные, садитесь на это место."
+    }
+  },
+  {
+    "id": 39,
+    "korean": "저",
+    "uzbek": "men (kamtarona)",
+    "english": "I (humble)",
+    "russian": "я (скромно)",
+    "romanization": "jeo",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 알리예요.",
+      "uz": "Men Aliman.",
+      "en": "I'm Ali.",
+      "ru": "Я Али."
+    }
+  },
+  {
+    "id": 40,
+    "korean": "직업",
+    "uzbek": "kasb",
+    "english": "job, occupation",
+    "russian": "профессия",
+    "romanization": "jigeop",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "직업이 뭐예요?",
+      "uz": "Kasbingiz nima?",
+      "en": "What do you do for a living?",
+      "ru": "Кем вы работаете?"
+    }
+  },
+  {
+    "id": 41,
+    "korean": "직원",
+    "uzbek": "xodim",
+    "english": "employee, staff",
+    "russian": "сотрудник",
+    "romanization": "jigwon",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "은행 직원이 카드를 만들어 줬어요.",
+      "uz": "Bank xodimi karta ochib berdi.",
+      "en": "The bank clerk made a card for me.",
+      "ru": "Сотрудник банка оформил мне карту."
+    }
+  },
+  {
+    "id": 42,
+    "korean": "통역가",
+    "uzbek": "tarjimon (og'zaki)",
+    "english": "interpreter",
+    "russian": "переводчик (устный)",
+    "romanization": "tongyeokga",
+    "lesson": 2,
+    "theme": "people",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "통역가가 회의에서 도와줬어요.",
+      "uz": "Tarjimon yig'ilishda yordam berdi.",
+      "en": "An interpreter helped at the meeting.",
+      "ru": "На совещании помог переводчик."
+    }
+  },
+  {
+    "id": 43,
+    "korean": "판매원",
+    "uzbek": "sotuvchi",
+    "english": "salesperson",
+    "russian": "продавец",
+    "romanization": "panmaewon",
+    "lesson": 2,
+    "theme": "people",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "판매원이 친절하게 설명했어요.",
+      "uz": "Sotuvchi xushmuomala tushuntirdi.",
+      "en": "The salesperson explained kindly.",
+      "ru": "Продавец любезно всё объяснил."
+    }
+  },
+  {
+    "id": 44,
+    "korean": "팬",
+    "uzbek": "muxlis",
+    "english": "fan",
+    "russian": "фанат, поклонник",
+    "romanization": "paen",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "축구 팬들이 경기장에 모였어요.",
+      "uz": "Futbol muxlislari stadionga yig'ildi.",
+      "en": "Soccer fans gathered at the stadium.",
+      "ru": "Футбольные болельщики собрались на стадионе."
+    }
+  },
+  {
+    "id": 45,
+    "korean": "학생",
+    "uzbek": "o'quvchi; talaba",
+    "english": "student",
+    "russian": "ученик; студент",
+    "romanization": "haksaeng",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 대학교 학생이에요.",
+      "uz": "Men universitet talabasiman.",
+      "en": "I'm a university student.",
+      "ru": "Я студент университета."
+    }
+  },
+  {
+    "id": 46,
+    "korean": "회사원",
+    "uzbek": "ofis xodimi",
+    "english": "office worker",
+    "russian": "офисный работник",
+    "romanization": "hoesawon",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지는 회사원이에요.",
+      "uz": "Otam ofisda ishlaydi.",
+      "en": "My father is an office worker.",
+      "ru": "Мой папа — офисный работник."
+    }
+  },
+  {
+    "id": 47,
+    "korean": "후배",
+    "uzbek": "kichik kursdosh; yosh hamkasb",
+    "english": "junior (at school or work)",
+    "russian": "младший (по учёбе, работе)",
+    "romanization": "hubae",
+    "lesson": 2,
+    "theme": "people",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "후배에게 책을 빌려줬어요.",
+      "uz": "Kichik kursdoshimga kitob berib turdim.",
+      "en": "I lent a book to my junior.",
+      "ru": "Я одолжил книгу младшему товарищу."
+    }
+  }
+]

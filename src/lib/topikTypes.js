@@ -1,0 +1,21 @@
+import { TOPIK1_QUESTION_TYPES, TOPIK_EXAMS, isFreeExam } from "../data/topik/exams";
+
+export function topikTypeKeys() {
+  const seen = new Map();
+  for (const type of TOPIK1_QUESTION_TYPES) {
+    const key = `${type.section}-${type.id}`;
+    if (!seen.has(key)) seen.set(key, { key, id: type.id, section: type.section, ko: type.ko, ranges: [] });
+    seen.get(key).ranges.push([type.from, type.to]);
+  }
+  return [...seen.values()];
+}
+
+export function questionsOfType(typeKey, premium = true) {
+  const type = topikTypeKeys().find((item) => item.key === typeKey);
+  if (!type) return [];
+  return TOPIK_EXAMS.filter((exam) => exam.level === "TOPIK I" && (premium || isFreeExam(exam))).flatMap((exam) =>
+    exam.questions
+      .filter((question) => question.section === type.section && type.ranges.some(([from, to]) => question.number >= from && question.number <= to))
+      .map((question) => ({ exam, question, qid: `${exam.id}-${question.number}` })),
+  );
+}

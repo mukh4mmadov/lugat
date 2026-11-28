@@ -1,0 +1,572 @@
+[
+  {
+    "id": 520,
+    "korean": "가을",
+    "uzbek": "kuz",
+    "english": "autumn, fall",
+    "russian": "осень",
+    "romanization": "gaeul",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가을 하늘이 높아요.",
+      "uz": "Kuzda osmon baland ko'rinadi.",
+      "en": "The autumn sky looks high.",
+      "ru": "Осенью небо кажется высоким."
+    }
+  },
+  {
+    "id": 521,
+    "korean": "강",
+    "uzbek": "daryo",
+    "english": "river",
+    "russian": "река",
+    "romanization": "gang",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "강에서 낚시를 해요.",
+      "uz": "Daryoda baliq ovlaymiz.",
+      "en": "We fish in the river.",
+      "ru": "Мы рыбачим на реке."
+    }
+  },
+  {
+    "id": 522,
+    "korean": "강아지",
+    "uzbek": "kuchukcha",
+    "english": "puppy",
+    "russian": "щенок",
+    "romanization": "gangaji",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "강아지와 산책해요.",
+      "uz": "Kuchukcham bilan sayr qilaman.",
+      "en": "I go for walks with my puppy.",
+      "ru": "Я гуляю со щенком."
+    }
+  },
+  {
+    "id": 523,
+    "korean": "겨울",
+    "uzbek": "qish",
+    "english": "winter",
+    "russian": "зима",
+    "romanization": "gyeoul",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "겨울에 눈이 많이 와요.",
+      "uz": "Qishda qor ko'p yog'adi.",
+      "en": "It snows a lot in winter.",
+      "ru": "Зимой идёт много снега."
+    }
+  },
+  {
+    "id": 524,
+    "korean": "고양이",
+    "uzbek": "mushuk",
+    "english": "cat",
+    "russian": "кошка",
+    "romanization": "goyangi",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "고양이가 소파에서 자요.",
+      "uz": "Mushuk divanda uxlayapti.",
+      "en": "The cat is sleeping on the sofa.",
+      "ru": "Кошка спит на диване."
+    }
+  },
+  {
+    "id": 525,
+    "korean": "꽃이 피다",
+    "uzbek": "gul ochilmoq",
+    "english": "flowers bloom",
+    "russian": "цвести",
+    "romanization": "kkochi pida",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공원에 꽃이 피었어요.",
+      "uz": "Bog'da gullar ochildi.",
+      "en": "Flowers have bloomed in the park.",
+      "ru": "В парке расцвели цветы."
+    }
+  },
+  {
+    "id": 526,
+    "korean": "나무",
+    "uzbek": "daraxt; yog'och",
+    "english": "tree; wood",
+    "russian": "дерево",
+    "romanization": "namu",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "집 앞에 큰 나무가 있어요.",
+      "uz": "Uy oldida katta daraxt bor.",
+      "en": "There's a big tree in front of the house.",
+      "ru": "Перед домом растёт большое дерево."
+    }
+  },
+  {
+    "id": 527,
+    "korean": "날씨",
+    "uzbek": "ob-havo",
+    "english": "weather",
+    "russian": "погода",
+    "romanization": "nalssi",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "내일 날씨가 어때요?",
+      "uz": "Ertaga havo qanday bo'ladi?",
+      "en": "What will the weather be like tomorrow?",
+      "ru": "Какая будет завтра погода?"
+    }
+  },
+  {
+    "id": 528,
+    "korean": "눈이 오다",
+    "uzbek": "qor yog'moq",
+    "english": "to snow",
+    "russian": "идти (о снеге)",
+    "romanization": "nuni oda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "눈이 와서 길이 미끄러워요.",
+      "uz": "Qor yog'ib, yo'l sirpanchiq.",
+      "en": "It snowed, so the road is slippery.",
+      "ru": "Выпал снег, и дорога скользкая."
+    }
+  },
+  {
+    "id": 529,
+    "korean": "단풍",
+    "uzbek": "kuzgi barglar",
+    "english": "autumn leaves",
+    "russian": "осенняя листва",
+    "romanization": "danpung",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "단풍이 빨갛게 들었어요.",
+      "uz": "Barglar qip-qizil bo'ldi.",
+      "en": "The leaves have turned red.",
+      "ru": "Листья покраснели."
+    }
+  },
+  {
+    "id": 530,
+    "korean": "대양",
+    "uzbek": "okean",
+    "english": "ocean",
+    "russian": "океан",
+    "romanization": "daeyang",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "태평양은 가장 큰 대양이에요.",
+      "uz": "Tinch okeani eng katta okean.",
+      "en": "The Pacific is the largest ocean.",
+      "ru": "Тихий океан — самый большой."
+    }
+  },
+  {
+    "id": 531,
+    "korean": "덥다",
+    "uzbek": "issiq bo'lmoq",
+    "english": "to be hot (weather)",
+    "russian": "быть жарко",
+    "romanization": "deopda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교실이 너무 더워요.",
+      "uz": "Sinf juda issiq.",
+      "en": "The classroom is too hot.",
+      "ru": "В классе слишком жарко."
+    }
+  },
+  {
+    "id": 532,
+    "korean": "따뜻하다",
+    "uzbek": "iliq bo'lmoq",
+    "english": "to be warm",
+    "russian": "быть тёплым",
+    "romanization": "ttatteuthada",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "따뜻한 차 한 잔 드세요.",
+      "uz": "Bir piyola iliq choy iching.",
+      "en": "Have a cup of warm tea.",
+      "ru": "Выпейте чашку тёплого чая."
+    }
+  },
+  {
+    "id": 533,
+    "korean": "맑다",
+    "uzbek": "ochiq bo'lmoq (havo); tiniq",
+    "english": "to be clear, sunny",
+    "russian": "ясный, чистый",
+    "romanization": "makda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 하늘이 맑아요.",
+      "uz": "Bugun osmon ochiq.",
+      "en": "The sky is clear today.",
+      "ru": "Сегодня ясное небо."
+    }
+  },
+  {
+    "id": 534,
+    "korean": "바다",
+    "uzbek": "dengiz",
+    "english": "sea",
+    "russian": "море",
+    "romanization": "bada",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바다가 아주 파래요.",
+      "uz": "Dengiz juda moviy.",
+      "en": "The sea is very blue.",
+      "ru": "Море очень синее."
+    }
+  },
+  {
+    "id": 535,
+    "korean": "바닷가",
+    "uzbek": "dengiz sohili",
+    "english": "beach, seaside",
+    "russian": "побережье, пляж",
+    "romanization": "badatga",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바닷가에서 조개를 주웠어요.",
+      "uz": "Dengiz sohilidan chig'anoq terdim.",
+      "en": "I picked up shells at the beach.",
+      "ru": "Я собирал ракушки на берегу."
+    }
+  },
+  {
+    "id": 536,
+    "korean": "바람이 불다",
+    "uzbek": "shamol esmoq",
+    "english": "the wind blows",
+    "russian": "дуть (о ветре)",
+    "romanization": "barami bulda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바람이 세게 불어요.",
+      "uz": "Shamol qattiq esyapti.",
+      "en": "The wind is blowing hard.",
+      "ru": "Дует сильный ветер."
+    }
+  },
+  {
+    "id": 537,
+    "korean": "봄",
+    "uzbek": "bahor",
+    "english": "spring",
+    "russian": "весна",
+    "romanization": "bom",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "봄이 되면 공원에 사람이 많아져요.",
+      "uz": "Bahor kelsa, bog'da odam ko'payadi.",
+      "en": "When spring comes, the park gets busy.",
+      "ru": "Весной в парке становится многолюдно."
+    }
+  },
+  {
+    "id": 538,
+    "korean": "비가 많이 오다",
+    "uzbek": "kuchli yomg'ir yog'moq",
+    "english": "to rain a lot",
+    "russian": "идёт сильный дождь",
+    "romanization": "biga mani oda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비가 많이 와서 축구 경기가 취소됐어요.",
+      "uz": "Kuchli yomg'ir sabab futbol o'yini bekor qilindi.",
+      "en": "The soccer game was canceled because of heavy rain.",
+      "ru": "Из-за сильного дождя матч отменили."
+    }
+  },
+  {
+    "id": 539,
+    "korean": "비가 오다",
+    "uzbek": "yomg'ir yog'moq",
+    "english": "to rain",
+    "russian": "идти (о дожде)",
+    "romanization": "biga oda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밖에 비가 와요.",
+      "uz": "Tashqarida yomg'ir yog'yapti.",
+      "en": "It's raining outside.",
+      "ru": "На улице идёт дождь."
+    }
+  },
+  {
+    "id": 540,
+    "korean": "사계절",
+    "uzbek": "to'rt fasl",
+    "english": "the four seasons",
+    "russian": "четыре времени года",
+    "romanization": "sagyejeol",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제주도는 사계절 모두 아름다워요.",
+      "uz": "Cheju oroli to'rt faslning hammasida go'zal.",
+      "en": "Jeju is beautiful in all four seasons.",
+      "ru": "Чеджу красив во все времена года."
+    }
+  },
+  {
+    "id": 541,
+    "korean": "새",
+    "uzbek": "qush; yangi",
+    "english": "bird; new",
+    "russian": "птица; новый",
+    "romanization": "sae",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "나무 위에 새가 있어요.",
+      "uz": "Daraxt ustida qush bor.",
+      "en": "There's a bird in the tree.",
+      "ru": "На дереве сидит птица."
+    }
+  },
+  {
+    "id": 542,
+    "korean": "섬",
+    "uzbek": "orol",
+    "english": "island",
+    "russian": "остров",
+    "romanization": "seom",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "배를 타고 섬에 갔어요.",
+      "uz": "Kemada orolga bordik.",
+      "en": "We went to the island by boat.",
+      "ru": "Мы поплыли на остров на корабле."
+    }
+  },
+  {
+    "id": 543,
+    "korean": "숲",
+    "uzbek": "o'rmon",
+    "english": "forest",
+    "russian": "лес",
+    "romanization": "sup",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "숲에서 새소리가 들려요.",
+      "uz": "O'rmonda qushlar ovozi eshitiladi.",
+      "en": "You can hear birds in the forest.",
+      "ru": "В лесу слышно пение птиц."
+    }
+  },
+  {
+    "id": 544,
+    "korean": "시원하다",
+    "uzbek": "salqin bo'lmoq",
+    "english": "to be cool, refreshing",
+    "russian": "быть прохладным, освежающим",
+    "romanization": "siwonhada",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "냉면이 아주 시원해요.",
+      "uz": "Sovuq ugra juda salqin, yoqimli.",
+      "en": "The cold noodles are very refreshing.",
+      "ru": "Холодная лапша очень освежает."
+    }
+  },
+  {
+    "id": 545,
+    "korean": "여름",
+    "uzbek": "yoz",
+    "english": "summer",
+    "russian": "лето",
+    "romanization": "yeoreum",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여름에는 바다에 가요.",
+      "uz": "Yozda dengizga boramiz.",
+      "en": "We go to the sea in summer.",
+      "ru": "Летом мы ездим на море."
+    }
+  },
+  {
+    "id": 546,
+    "korean": "일기예보",
+    "uzbek": "ob-havo ma'lumoti",
+    "english": "weather forecast",
+    "russian": "прогноз погоды",
+    "romanization": "ilgiyebo",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일기예보를 봤어요?",
+      "uz": "Ob-havo ma'lumotini ko'rdingizmi?",
+      "en": "Did you check the forecast?",
+      "ru": "Вы смотрели прогноз погоды?"
+    }
+  },
+  {
+    "id": 547,
+    "korean": "춥다",
+    "uzbek": "sovuq bo'lmoq",
+    "english": "to be cold (weather)",
+    "russian": "быть холодно",
+    "romanization": "chupda",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 아침은 정말 추워요.",
+      "uz": "Bugun ertalab juda sovuq.",
+      "en": "It's really cold this morning.",
+      "ru": "Сегодня утром очень холодно."
+    }
+  },
+  {
+    "id": 548,
+    "korean": "폭포",
+    "uzbek": "sharshara",
+    "english": "waterfall",
+    "russian": "водопад",
+    "romanization": "pokpo",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "폭포 소리가 시원해요.",
+      "uz": "Sharshara ovozi yoqimli, salqin.",
+      "en": "The sound of the waterfall is refreshing.",
+      "ru": "Шум водопада освежает."
+    }
+  },
+  {
+    "id": 549,
+    "korean": "흐리다",
+    "uzbek": "bulutli bo'lmoq",
+    "english": "to be cloudy",
+    "russian": "пасмурный",
+    "romanization": "heurida",
+    "lesson": 23,
+    "theme": "nature",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "날씨가 흐려서 우산을 가져가요.",
+      "uz": "Havo bulutli, soyabon olaman.",
+      "en": "It's cloudy, so I'm taking an umbrella.",
+      "ru": "Пасмурно, я беру зонт."
+    }
+  }
+]

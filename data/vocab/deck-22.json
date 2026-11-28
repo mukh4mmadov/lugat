@@ -1,0 +1,534 @@
+[
+  {
+    "id": 492,
+    "korean": "감기에 걸리다",
+    "uzbek": "shamollamoq",
+    "english": "to catch a cold",
+    "russian": "простудиться",
+    "romanization": "gamgie geollida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "감기에 걸려서 학교에 못 갔어요.",
+      "uz": "Shamollab, maktabga borolmadim.",
+      "en": "I caught a cold and couldn't go to school.",
+      "ru": "Я простудился и не пошёл в школу."
+    }
+  },
+  {
+    "id": 493,
+    "korean": "건강하다",
+    "uzbek": "sog'lom bo'lmoq",
+    "english": "to be healthy",
+    "russian": "быть здоровым",
+    "romanization": "geonganghada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "할머니는 아직 건강하세요.",
+      "uz": "Buvim hali ham sog'lomlar.",
+      "en": "My grandmother is still healthy.",
+      "ru": "Бабушка ещё здорова."
+    }
+  },
+  {
+    "id": 494,
+    "korean": "검사를 하다",
+    "uzbek": "tekshiruvdan o'tmoq",
+    "english": "to have a test, a checkup",
+    "russian": "проходить обследование",
+    "romanization": "geomsareul hada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "병원에서 피 검사를 했어요.",
+      "uz": "Shifoxonada qon tahlili topshirdim.",
+      "en": "I had a blood test at the hospital.",
+      "ru": "Я сдал анализ крови в больнице."
+    }
+  },
+  {
+    "id": 495,
+    "korean": "고민이 많다",
+    "uzbek": "tashvishi ko'p bo'lmoq",
+    "english": "to have many worries",
+    "russian": "иметь много забот",
+    "romanization": "gomini manta",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시험 때문에 고민이 많아요.",
+      "uz": "Imtihon tufayli tashvishim ko'p.",
+      "en": "I'm worried about the exam.",
+      "ru": "Из-за экзамена у меня много переживаний."
+    }
+  },
+  {
+    "id": 496,
+    "korean": "눈물이 나다",
+    "uzbek": "ko'zdan yosh chiqmoq",
+    "english": "tears come out",
+    "russian": "слёзы текут",
+    "romanization": "nunmuri nada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "양파를 자르면 눈물이 나요.",
+      "uz": "Piyoz to'g'rasam ko'zimdan yosh chiqadi.",
+      "en": "Cutting onions makes my eyes water.",
+      "ru": "Когда режу лук, текут слёзы."
+    }
+  },
+  {
+    "id": 497,
+    "korean": "두통약",
+    "uzbek": "bosh og'rig'i dorisi",
+    "english": "headache medicine",
+    "russian": "лекарство от головной боли",
+    "romanization": "dutongyak",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "두통약을 먹고 잤어요.",
+      "uz": "Bosh og'rig'i dorisini ichib uxladim.",
+      "en": "I took a headache pill and slept.",
+      "ru": "Я выпил таблетку от головы и уснул."
+    }
+  },
+  {
+    "id": 498,
+    "korean": "땀을 흘리다",
+    "uzbek": "terlamoq",
+    "english": "to sweat",
+    "russian": "потеть",
+    "romanization": "ttameul heullida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "운동하면서 땀을 많이 흘렸어요.",
+      "uz": "Sport qilib, ko'p terladim.",
+      "en": "I sweated a lot while exercising.",
+      "ru": "Я сильно вспотел на тренировке."
+    }
+  },
+  {
+    "id": 499,
+    "korean": "목이 아프다",
+    "uzbek": "tomog'i og'rimoq",
+    "english": "to have a sore throat",
+    "russian": "болеть горлу",
+    "romanization": "mogi apeuda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "목이 아파서 말을 못 해요.",
+      "uz": "Tomog'im og'rib, gapirolmayman.",
+      "en": "My throat hurts, so I can't talk.",
+      "ru": "Горло болит, не могу говорить."
+    }
+  },
+  {
+    "id": 500,
+    "korean": "배고프다",
+    "uzbek": "qorni och bo'lmoq",
+    "english": "to be hungry",
+    "russian": "быть голодным",
+    "romanization": "baegopeuda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침을 안 먹어서 배고파요.",
+      "uz": "Nonushta qilmaganim uchun qornim och.",
+      "en": "I skipped breakfast, so I'm hungry.",
+      "ru": "Я не завтракал и голоден."
+    }
+  },
+  {
+    "id": 501,
+    "korean": "붓다",
+    "uzbek": "shishmoq; quymoq",
+    "english": "to swell; to pour",
+    "russian": "опухать; наливать",
+    "romanization": "butda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "발목이 부었어요.",
+      "uz": "To'pig'im shishib ketdi.",
+      "en": "My ankle is swollen.",
+      "ru": "У меня опухла лодыжка."
+    }
+  },
+  {
+    "id": 502,
+    "korean": "상처를 닦다",
+    "uzbek": "jarohatni tozalamoq",
+    "english": "to clean a wound",
+    "russian": "промывать рану",
+    "romanization": "sangcheoreul dakda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "물로 상처를 닦았어요.",
+      "uz": "Jarohatni suv bilan tozaladim.",
+      "en": "I cleaned the wound with water.",
+      "ru": "Я промыл рану водой."
+    }
+  },
+  {
+    "id": 503,
+    "korean": "소아과",
+    "uzbek": "pediatriya (bolalar shifokori)",
+    "english": "pediatrics",
+    "russian": "педиатрия",
+    "romanization": "soagwa",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이를 데리고 소아과에 갔어요.",
+      "uz": "Bolani bolalar shifokoriga olib bordim.",
+      "en": "I took my child to the pediatrician.",
+      "ru": "Я отвёл ребёнка к педиатру."
+    }
+  },
+  {
+    "id": 504,
+    "korean": "시력",
+    "uzbek": "ko'rish qobiliyati",
+    "english": "eyesight",
+    "russian": "зрение",
+    "romanization": "siryeok",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시력 검사를 받았어요.",
+      "uz": "Ko'rish tekshiruvidan o'tdim.",
+      "en": "I had an eye test.",
+      "ru": "Я проверил зрение."
+    }
+  },
+  {
+    "id": 505,
+    "korean": "아프다",
+    "uzbek": "og'rimoq; kasal bo'lmoq",
+    "english": "to hurt; to be sick",
+    "russian": "болеть",
+    "romanization": "apeuda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이가 아파서 밥을 못 먹어요.",
+      "uz": "Tishim og'rib, ovqat yeya olmayapman.",
+      "en": "My tooth hurts, so I can't eat.",
+      "ru": "Болит зуб, не могу есть."
+    }
+  },
+  {
+    "id": 506,
+    "korean": "안경을 쓰다",
+    "uzbek": "ko'zoynak taqmoq",
+    "english": "to wear glasses",
+    "russian": "носить очки",
+    "romanization": "angyeongeul sseuda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "책을 읽을 때 안경을 써요.",
+      "uz": "Kitob o'qiyotganda ko'zoynak taqaman.",
+      "en": "I wear glasses when I read.",
+      "ru": "Я надеваю очки, когда читаю."
+    }
+  },
+  {
+    "id": 507,
+    "korean": "안과",
+    "uzbek": "ko'z shifoxonasi",
+    "english": "eye clinic",
+    "russian": "глазная клиника",
+    "romanization": "angwa",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "눈이 아파서 안과에 갔어요.",
+      "uz": "Ko'zim og'rib, ko'z shifokoriga bordim.",
+      "en": "My eye hurt, so I went to the eye doctor.",
+      "ru": "Болел глаз, и я пошёл к окулисту."
+    }
+  },
+  {
+    "id": 508,
+    "korean": "여드름이 생기다",
+    "uzbek": "husnbuzar chiqmoq",
+    "english": "to get pimples",
+    "russian": "появляться прыщам",
+    "romanization": "yeodeureumi saenggida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "잠을 못 자면 여드름이 생겨요.",
+      "uz": "Uxlamasam, husnbuzar chiqadi.",
+      "en": "I get pimples when I don't sleep.",
+      "ru": "Когда не высыпаюсь, появляются прыщи."
+    }
+  },
+  {
+    "id": 509,
+    "korean": "열이 나다",
+    "uzbek": "isitmasi chiqmoq",
+    "english": "to have a fever",
+    "russian": "подниматься температура",
+    "romanization": "yeori nada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이가 밤에 열이 났어요.",
+      "uz": "Bolaning kechasi isitmasi chiqdi.",
+      "en": "The child had a fever at night.",
+      "ru": "Ночью у ребёнка поднялась температура."
+    }
+  },
+  {
+    "id": 510,
+    "korean": "잘 안 보이다",
+    "uzbek": "yaxshi ko'rinmaslik",
+    "english": "can't see well",
+    "russian": "плохо видно",
+    "romanization": "jal an boida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "너무 어두워서 잘 안 보여요.",
+      "uz": "Juda qorong'i, yaxshi ko'rinmayapti.",
+      "en": "It's too dark to see well.",
+      "ru": "Слишком темно, плохо видно."
+    }
+  },
+  {
+    "id": 511,
+    "korean": "재채기를 하다",
+    "uzbek": "aksirmoq",
+    "english": "to sneeze",
+    "russian": "чихать",
+    "romanization": "jaechaegireul hada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "꽃가루 때문에 재채기를 해요.",
+      "uz": "Gulchang tufayli aksiraman.",
+      "en": "I sneeze because of pollen.",
+      "ru": "Я чихаю из-за пыльцы."
+    }
+  },
+  {
+    "id": 512,
+    "korean": "졸리다",
+    "uzbek": "uyqusiramoq",
+    "english": "to be sleepy",
+    "russian": "хотеть спать",
+    "romanization": "jollida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "점심 후에 졸려요.",
+      "uz": "Tushlikdan keyin uyqum keladi.",
+      "en": "I get sleepy after lunch.",
+      "ru": "После обеда хочется спать."
+    }
+  },
+  {
+    "id": 513,
+    "korean": "진료를 받다",
+    "uzbek": "shifokor ko'rigidan o'tmoq",
+    "english": "to see a doctor",
+    "russian": "проходить приём у врача",
+    "romanization": "jillyoreul batda",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "진료를 받으려면 예약해야 해요.",
+      "uz": "Shifokor ko'rigiga yozilish kerak.",
+      "en": "You need an appointment to see the doctor.",
+      "ru": "Чтобы попасть к врачу, нужно записаться."
+    }
+  },
+  {
+    "id": 514,
+    "korean": "체온을 확인하다",
+    "uzbek": "tana haroratini o'lchamoq",
+    "english": "to check body temperature",
+    "russian": "измерять температуру тела",
+    "romanization": "cheoneul hwaginhada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "입구에서 체온을 확인해요.",
+      "uz": "Kirishda tana harorati o'lchanadi.",
+      "en": "Body temperature is checked at the entrance.",
+      "ru": "На входе измеряют температуру."
+    }
+  },
+  {
+    "id": 515,
+    "korean": "치과",
+    "uzbek": "tish shifoxonasi",
+    "english": "dental clinic",
+    "russian": "стоматология",
+    "romanization": "chigwa",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "치과는 토요일에도 열어요.",
+      "uz": "Tish shifoxonasi shanba kuni ham ishlaydi.",
+      "en": "The dental clinic is open on Saturdays too.",
+      "ru": "Стоматология работает и по субботам."
+    }
+  },
+  {
+    "id": 516,
+    "korean": "코가 막히다",
+    "uzbek": "burni bitmoq",
+    "english": "to have a stuffy nose",
+    "russian": "заложить нос",
+    "romanization": "koga makhida",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "코가 막혀서 잠을 못 잤어요.",
+      "uz": "Burnim bitib, uxlay olmadim.",
+      "en": "My nose was stuffed, so I couldn't sleep.",
+      "ru": "Нос заложило, я не мог уснуть."
+    }
+  },
+  {
+    "id": 517,
+    "korean": "콧물이 나다",
+    "uzbek": "burni oqmoq",
+    "english": "to have a runny nose",
+    "russian": "течь из носа",
+    "romanization": "konmuri nada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "콧물이 계속 나요.",
+      "uz": "Burnim to'xtamay oqyapti.",
+      "en": "My nose keeps running.",
+      "ru": "У меня всё время течёт из носа."
+    }
+  },
+  {
+    "id": 518,
+    "korean": "피가 나다",
+    "uzbek": "qon chiqmoq",
+    "english": "to bleed",
+    "russian": "идёт кровь",
+    "romanization": "piga nada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "코에서 피가 나요.",
+      "uz": "Burnimdan qon kelyapti.",
+      "en": "My nose is bleeding.",
+      "ru": "У меня идёт кровь из носа."
+    }
+  },
+  {
+    "id": 519,
+    "korean": "피곤하다",
+    "uzbek": "charchamoq",
+    "english": "to be tired",
+    "russian": "уставать",
+    "romanization": "pigonhada",
+    "lesson": 22,
+    "theme": "health",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일이 많아서 피곤해요.",
+      "uz": "Ish ko'p, shuning uchun charchadim.",
+      "en": "I have a lot of work, so I'm tired.",
+      "ru": "Много работы, я устал."
+    }
+  }
+]

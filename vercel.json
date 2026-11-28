@@ -1,0 +1,62 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors 'none'; object-src 'none'; base-uri 'self'" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), payment=(), usb=()" }
+      ]
+    }
+  ],
+  "functions": {
+    "api/admin.js": {
+      "maxDuration": 60
+    },
+    "api/ai-chat.js": {
+      "maxDuration": 60,
+      "includeFiles": "src/data/topik/paper*.js"
+    },
+    "api/feedback-ai.js": {
+      "maxDuration": 60
+    },
+    "api/speaking-ai.js": {
+      "maxDuration": 60
+    },
+    "api/study-ai.js": {
+      "maxDuration": 60
+    }
+  },
+  "redirects": [
+    { "source": "/lesson/:path*", "destination": "/courses", "statusCode": 301 },
+    { "source": "/study/:n(\\d+)", "destination": "/courses", "statusCode": 301 },
+    { "source": "/courses/1A", "destination": "/courses", "statusCode": 301 },
+    { "source": "/courses/1B", "destination": "/courses", "statusCode": 301 }
+  ],
+  "rewrites": [
+    {
+      "source": "/sw.js",
+      "destination": "/sw.js"
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "destination": "/manifest.webmanifest"
+    },
+    {
+      "source": "/((?!assets/).*)",
+      "destination": "/app.html"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron-reminders",
+      "schedule": "0 15 * * *"
+    },
+    {
+      "path": "/api/cron-reminders",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}

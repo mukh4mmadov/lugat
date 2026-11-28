@@ -1,0 +1,534 @@
+[
+  {
+    "id": 729,
+    "korean": "빠르다",
+    "uzbek": "tez bo'lmoq",
+    "english": "to be fast",
+    "russian": "быть быстрым",
+    "romanization": "ppareuda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비행기가 기차보다 빨라요.",
+      "uz": "Samolyot poyezddan tez.",
+      "en": "A plane is faster than a train.",
+      "ru": "Самолёт быстрее поезда."
+    }
+  },
+  {
+    "id": 730,
+    "korean": "쉽다",
+    "uzbek": "oson bo'lmoq",
+    "english": "to be easy",
+    "russian": "быть лёгким (нетрудным)",
+    "romanization": "swipda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한글은 생각보다 쉬워요.",
+      "uz": "Hangil o'ylaganimdan oson.",
+      "en": "Hangul is easier than I thought.",
+      "ru": "Хангыль проще, чем я думал."
+    }
+  },
+  {
+    "id": 731,
+    "korean": "슬프다",
+    "uzbek": "g'amgin bo'lmoq",
+    "english": "to be sad",
+    "russian": "быть грустным",
+    "romanization": "seulpeuda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그 영화는 너무 슬퍼요.",
+      "uz": "U kino juda g'amgin.",
+      "en": "That movie is very sad.",
+      "ru": "Этот фильм очень грустный."
+    }
+  },
+  {
+    "id": 732,
+    "korean": "시끄럽다",
+    "uzbek": "shovqinli bo'lmoq",
+    "english": "to be noisy",
+    "russian": "быть шумным",
+    "romanization": "sikkeureopda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밖이 너무 시끄러워요.",
+      "uz": "Tashqari juda shovqinli.",
+      "en": "It's too noisy outside.",
+      "ru": "На улице слишком шумно."
+    }
+  },
+  {
+    "id": 733,
+    "korean": "아름답다",
+    "uzbek": "go'zal bo'lmoq",
+    "english": "to be beautiful",
+    "russian": "быть прекрасным",
+    "romanization": "areumdapda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바다의 일몰이 아름다워요.",
+      "uz": "Dengizdagi quyosh botishi go'zal.",
+      "en": "The sunset over the sea is beautiful.",
+      "ru": "Закат над морем прекрасен."
+    }
+  },
+  {
+    "id": 734,
+    "korean": "약하다",
+    "uzbek": "kuchsiz bo'lmoq",
+    "english": "to be weak",
+    "russian": "быть слабым",
+    "romanization": "yakhada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 몸이 좀 약해요.",
+      "uz": "Mening sog'lig'im biroz zaif.",
+      "en": "My health is a little weak.",
+      "ru": "У меня слабое здоровье."
+    }
+  },
+  {
+    "id": 735,
+    "korean": "어떻다",
+    "uzbek": "qanday bo'lmoq",
+    "english": "to be how (what like)",
+    "russian": "каким быть, как",
+    "romanization": "eotteota",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "새 집은 어때요?",
+      "uz": "Yangi uyingiz qanday?",
+      "en": "How's your new home?",
+      "ru": "Как ваш новый дом?"
+    }
+  },
+  {
+    "id": 736,
+    "korean": "어렵다",
+    "uzbek": "qiyin bo'lmoq",
+    "english": "to be difficult",
+    "russian": "быть трудным",
+    "romanization": "eoryeopda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "발음이 조금 어려워요.",
+      "uz": "Talaffuz biroz qiyin.",
+      "en": "Pronunciation is a bit difficult.",
+      "ru": "Произношение немного трудное."
+    }
+  },
+  {
+    "id": 737,
+    "korean": "예쁘다",
+    "uzbek": "chiroyli bo'lmoq",
+    "english": "to be pretty",
+    "russian": "быть красивым",
+    "romanization": "yeppeuda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "꽃이 정말 예뻐요.",
+      "uz": "Gul juda chiroyli.",
+      "en": "The flower is really pretty.",
+      "ru": "Цветок очень красивый."
+    }
+  },
+  {
+    "id": 738,
+    "korean": "유명하다",
+    "uzbek": "mashhur bo'lmoq",
+    "english": "to be famous",
+    "russian": "быть знаменитым",
+    "romanization": "yumyeonghada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 식당은 비빔밥이 유명해요.",
+      "uz": "Bu oshxona bibimbap bilan mashhur.",
+      "en": "This restaurant is famous for bibimbap.",
+      "ru": "Этот ресторан славится пибимпапом."
+    }
+  },
+  {
+    "id": 739,
+    "korean": "이상하다",
+    "uzbek": "g'alati bo'lmoq",
+    "english": "to be strange",
+    "russian": "быть странным",
+    "romanization": "isanghada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘 날씨가 좀 이상해요.",
+      "uz": "Bugun havo biroz g'alati.",
+      "en": "The weather is a bit strange today.",
+      "ru": "Сегодня погода какая-то странная."
+    }
+  },
+  {
+    "id": 740,
+    "korean": "작다",
+    "uzbek": "kichik bo'lmoq",
+    "english": "to be small",
+    "russian": "быть маленьким",
+    "romanization": "jakda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 옷은 저한테 좀 작아요.",
+      "uz": "Bu kiyim menga biroz kichik.",
+      "en": "These clothes are a bit small for me.",
+      "ru": "Эта одежда мне немного мала."
+    }
+  },
+  {
+    "id": 741,
+    "korean": "재미없다",
+    "uzbek": "zerikarli bo'lmoq",
+    "english": "to be boring",
+    "russian": "быть скучным",
+    "romanization": "jaemieopda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그 수업은 재미없어요.",
+      "uz": "U dars zerikarli.",
+      "en": "That class is boring.",
+      "ru": "Этот урок скучный."
+    }
+  },
+  {
+    "id": 742,
+    "korean": "재미있다",
+    "uzbek": "qiziqarli bo'lmoq",
+    "english": "to be fun, interesting",
+    "russian": "быть интересным",
+    "romanization": "jaemiitda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 영화 정말 재미있어요.",
+      "uz": "Bu kino juda qiziqarli.",
+      "en": "This movie is really fun.",
+      "ru": "Этот фильм очень интересный."
+    }
+  },
+  {
+    "id": 743,
+    "korean": "적다",
+    "uzbek": "kam bo'lmoq",
+    "english": "to be few, little",
+    "russian": "быть малочисленным",
+    "romanization": "jeokda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 식당은 손님이 적어요.",
+      "uz": "Bu oshxonada mijoz kam.",
+      "en": "This restaurant has few customers.",
+      "ru": "В этом ресторане мало посетителей."
+    }
+  },
+  {
+    "id": 744,
+    "korean": "조심하다",
+    "uzbek": "ehtiyot bo'lmoq",
+    "english": "to be careful",
+    "russian": "быть осторожным",
+    "romanization": "josimhada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "뜨거우니까 조심하세요.",
+      "uz": "Issiq, ehtiyot bo'ling.",
+      "en": "It's hot, so be careful.",
+      "ru": "Горячо, будьте осторожны."
+    }
+  },
+  {
+    "id": 745,
+    "korean": "조용하다",
+    "uzbek": "tinch, sokin bo'lmoq",
+    "english": "to be quiet",
+    "russian": "быть тихим",
+    "romanization": "joyonghada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 동네는 밤에 조용해요.",
+      "uz": "Mahallamiz kechasi sokin.",
+      "en": "My neighborhood is quiet at night.",
+      "ru": "Ночью в нашем районе тихо."
+    }
+  },
+  {
+    "id": 746,
+    "korean": "좁다",
+    "uzbek": "tor bo'lmoq",
+    "english": "to be narrow",
+    "russian": "быть узким, тесным",
+    "romanization": "jopda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 길은 좁아요.",
+      "uz": "Bu yo'l tor.",
+      "en": "This road is narrow.",
+      "ru": "Эта дорога узкая."
+    }
+  },
+  {
+    "id": 747,
+    "korean": "좋다",
+    "uzbek": "yaxshi bo'lmoq",
+    "english": "to be good",
+    "russian": "быть хорошим",
+    "romanization": "jota",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 책이 정말 좋아요.",
+      "uz": "Bu kitob juda yaxshi.",
+      "en": "This book is really good.",
+      "ru": "Эта книга очень хорошая."
+    }
+  },
+  {
+    "id": 748,
+    "korean": "짧다",
+    "uzbek": "qisqa bo'lmoq",
+    "english": "to be short (in length)",
+    "russian": "быть коротким",
+    "romanization": "jjalda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "방학이 너무 짧아요.",
+      "uz": "Ta'til juda qisqa.",
+      "en": "The vacation is too short.",
+      "ru": "Каникулы слишком короткие."
+    }
+  },
+  {
+    "id": 749,
+    "korean": "친절하다",
+    "uzbek": "mehribon, xushmuomala bo'lmoq",
+    "english": "to be kind",
+    "russian": "быть добрым, любезным",
+    "romanization": "chinjeolhada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가게 직원이 친절해요.",
+      "uz": "Do'kon xodimi xushmuomala.",
+      "en": "The shop staff is kind.",
+      "ru": "Продавец в магазине любезный."
+    }
+  },
+  {
+    "id": 750,
+    "korean": "크다",
+    "uzbek": "katta bo'lmoq",
+    "english": "to be big",
+    "russian": "быть большим",
+    "romanization": "keuda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 신발은 좀 커요.",
+      "uz": "Bu oyoq kiyim biroz katta.",
+      "en": "These shoes are a bit big.",
+      "ru": "Эта обувь немного великовата."
+    }
+  },
+  {
+    "id": 751,
+    "korean": "편리하다",
+    "uzbek": "qulay bo'lmoq (foydalanishga)",
+    "english": "to be convenient",
+    "russian": "быть удобным (в пользовании)",
+    "romanization": "pyeollihada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지하철이 편리해요.",
+      "uz": "Metro qulay.",
+      "en": "The subway is convenient.",
+      "ru": "Метро удобное."
+    }
+  },
+  {
+    "id": 752,
+    "korean": "편하다",
+    "uzbek": "qulay bo'lmoq",
+    "english": "to be comfortable",
+    "russian": "быть удобным",
+    "romanization": "pyeonhada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 운동화는 발이 편해요.",
+      "uz": "Bu krossovkada oyoq qulay.",
+      "en": "These sneakers are comfortable.",
+      "ru": "В этих кроссовках удобно ногам."
+    }
+  },
+  {
+    "id": 753,
+    "korean": "필요 없다",
+    "uzbek": "kerak emas",
+    "english": "to be unnecessary",
+    "russian": "не нужен",
+    "romanization": "piryo eopda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "봉투는 필요 없어요.",
+      "uz": "Paket kerak emas.",
+      "en": "I don't need a bag.",
+      "ru": "Пакет не нужен."
+    }
+  },
+  {
+    "id": 754,
+    "korean": "필요하다",
+    "uzbek": "kerak bo'lmoq",
+    "english": "to be necessary",
+    "russian": "быть нужным",
+    "romanization": "piryohada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우산이 필요해요.",
+      "uz": "Soyabon kerak.",
+      "en": "I need an umbrella.",
+      "ru": "Мне нужен зонт."
+    }
+  },
+  {
+    "id": 755,
+    "korean": "행복하다",
+    "uzbek": "baxtli bo'lmoq",
+    "english": "to be happy",
+    "russian": "быть счастливым",
+    "romanization": "haengbokhada",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "좋아하는 일을 해서 행복해요.",
+      "uz": "Yoqtirgan ishimni qilganim uchun baxtliman.",
+      "en": "I'm happy because I do what I love.",
+      "ru": "Я счастлив, потому что делаю любимое дело."
+    }
+  },
+  {
+    "id": 756,
+    "korean": "힘들다",
+    "uzbek": "og'ir bo'lmoq, qiynalmoq",
+    "english": "to be hard, tiring",
+    "russian": "быть тяжёлым, утомительным",
+    "romanization": "himdeulda",
+    "lesson": 30,
+    "theme": "adjectives",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이사가 정말 힘들었어요.",
+      "uz": "Ko'chish juda og'ir bo'ldi.",
+      "en": "Moving was really hard.",
+      "ru": "Переезд был очень тяжёлым."
+    }
+  }
+]

@@ -1,0 +1,363 @@
+[
+  {
+    "id": 216,
+    "korean": "간식",
+    "uzbek": "yengil tamaddi",
+    "english": "snack",
+    "russian": "перекус",
+    "romanization": "gansik",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교에서 간식으로 과일을 먹어요.",
+      "uz": "Maktabda tamaddi uchun meva yeymiz.",
+      "en": "We eat fruit as a snack at school.",
+      "ru": "В школе мы перекусываем фруктами."
+    }
+  },
+  {
+    "id": 217,
+    "korean": "계란",
+    "uzbek": "tuxum",
+    "english": "egg",
+    "russian": "яйцо",
+    "romanization": "gyeran",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침에 계란을 삶았어요.",
+      "uz": "Ertalab tuxum qaynatdim.",
+      "en": "I boiled eggs in the morning.",
+      "ru": "Утром я сварил яйца."
+    }
+  },
+  {
+    "id": 218,
+    "korean": "계란빵",
+    "uzbek": "tuxumli non",
+    "english": "egg bread",
+    "russian": "хлеб с яйцом",
+    "romanization": "gyeranppang",
+    "lesson": 10,
+    "theme": "food",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "겨울에는 계란빵이 맛있어요.",
+      "uz": "Qishda tuxumli non mazali.",
+      "en": "Egg bread is tasty in winter.",
+      "ru": "Зимой хлеб с яйцом особенно вкусный."
+    }
+  },
+  {
+    "id": 219,
+    "korean": "과자",
+    "uzbek": "pechenye, shirinlik",
+    "english": "snacks, cookies",
+    "russian": "печенье, сладости",
+    "romanization": "gwaja",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이들이 과자를 좋아해요.",
+      "uz": "Bolalar pechenyeni yaxshi ko'radi.",
+      "en": "Kids love snacks.",
+      "ru": "Дети любят печенье."
+    }
+  },
+  {
+    "id": 220,
+    "korean": "국",
+    "uzbek": "sho'rva",
+    "english": "soup",
+    "russian": "суп",
+    "romanization": "guk",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밥하고 국을 먹어요.",
+      "uz": "Guruch va sho'rva yeymiz.",
+      "en": "We eat rice with soup.",
+      "ru": "Мы едим рис с супом."
+    }
+  },
+  {
+    "id": 221,
+    "korean": "김밥",
+    "uzbek": "kimbap (dengiz o'tiga o'ralgan guruch)",
+    "english": "gimbap (rice rolls)",
+    "russian": "кимпап (рисовые роллы)",
+    "romanization": "gimbap",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "소풍에 김밥을 가져가요.",
+      "uz": "Sayrga kimbap olib boramiz.",
+      "en": "We take gimbap on picnics.",
+      "ru": "На пикник мы берём кимпап."
+    }
+  },
+  {
+    "id": 222,
+    "korean": "김치",
+    "uzbek": "kimchi (achchiq tuzlangan karam)",
+    "english": "kimchi",
+    "russian": "кимчхи",
+    "romanization": "gimchi",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "김치가 조금 매워요.",
+      "uz": "Kimchi biroz achchiq.",
+      "en": "The kimchi is a little spicy.",
+      "ru": "Кимчхи немного острое."
+    }
+  },
+  {
+    "id": 223,
+    "korean": "껌",
+    "uzbek": "saqich",
+    "english": "chewing gum",
+    "russian": "жвачка",
+    "romanization": "kkeom",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "껌을 길에 버리지 마세요.",
+      "uz": "Saqichni ko'chaga tashlamang.",
+      "en": "Don't throw gum on the street.",
+      "ru": "Не бросайте жвачку на улицу."
+    }
+  },
+  {
+    "id": 224,
+    "korean": "녹차",
+    "uzbek": "ko'k choy",
+    "english": "green tea",
+    "russian": "зелёный чай",
+    "romanization": "nokcha",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "녹차가 몸에 좋아요.",
+      "uz": "Ko'k choy sog'liqqa foydali.",
+      "en": "Green tea is good for you.",
+      "ru": "Зелёный чай полезен."
+    }
+  },
+  {
+    "id": 225,
+    "korean": "떡꼬치",
+    "uzbek": "tteok shashlik (guruch xamiridan)",
+    "english": "rice cake skewers",
+    "russian": "шпажки из рисовых клёцок",
+    "romanization": "tteokkkochi",
+    "lesson": 10,
+    "theme": "food",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시장에서 떡꼬치를 먹었어요.",
+      "uz": "Bozorda guruch xamiridan shashlik yedim.",
+      "en": "I ate rice cake skewers at the market.",
+      "ru": "На рынке я съел шпажки из клёцок."
+    }
+  },
+  {
+    "id": 226,
+    "korean": "떡볶이",
+    "uzbek": "tteokbokki (achchiq guruch xamiri)",
+    "english": "tteokbokki (spicy rice cakes)",
+    "russian": "токпокки (острые рисовые клёцки)",
+    "romanization": "tteokbokki",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교 앞에서 떡볶이를 사 먹었어요.",
+      "uz": "Maktab oldida tteokbokki olib yedim.",
+      "en": "I bought tteokbokki in front of school.",
+      "ru": "Я купил токпокки возле школы."
+    }
+  },
+  {
+    "id": 227,
+    "korean": "레몬차",
+    "uzbek": "limonli choy",
+    "english": "lemon tea",
+    "russian": "чай с лимоном",
+    "romanization": "remoncha",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "감기에 레몬차가 좋아요.",
+      "uz": "Shamollaganda limonli choy yaxshi.",
+      "en": "Lemon tea is good for a cold.",
+      "ru": "При простуде хорош чай с лимоном."
+    }
+  },
+  {
+    "id": 228,
+    "korean": "맛",
+    "uzbek": "ta'm, maza",
+    "english": "taste",
+    "russian": "вкус",
+    "romanization": "mat",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 국은 맛이 좋아요.",
+      "uz": "Bu sho'rvaning mazasi yaxshi.",
+      "en": "This soup tastes good.",
+      "ru": "У этого супа хороший вкус."
+    }
+  },
+  {
+    "id": 229,
+    "korean": "맥주",
+    "uzbek": "pivo",
+    "english": "beer",
+    "russian": "пиво",
+    "romanization": "maekju",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 맥주를 안 마셔요.",
+      "uz": "Men pivo ichmayman.",
+      "en": "I don't drink beer.",
+      "ru": "Я не пью пиво."
+    }
+  },
+  {
+    "id": 230,
+    "korean": "물",
+    "uzbek": "suv",
+    "english": "water",
+    "russian": "вода",
+    "romanization": "mul",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "운동 후에 물을 많이 마셔요.",
+      "uz": "Sportdan keyin ko'p suv ichaman.",
+      "en": "I drink a lot of water after exercise.",
+      "ru": "После тренировки я пью много воды."
+    }
+  },
+  {
+    "id": 231,
+    "korean": "밀가루",
+    "uzbek": "un",
+    "english": "flour",
+    "russian": "мука",
+    "romanization": "milgaru",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "빵은 밀가루로 만들어요.",
+      "uz": "Non undan tayyorlanadi.",
+      "en": "Bread is made from flour.",
+      "ru": "Хлеб делают из муки."
+    }
+  },
+  {
+    "id": 232,
+    "korean": "밥을 먹다",
+    "uzbek": "ovqatlanmoq",
+    "english": "to have a meal",
+    "russian": "есть, кушать",
+    "romanization": "babeul meokda",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오늘은 집에서 밥을 먹어요.",
+      "uz": "Bugun uyda ovqatlanaman.",
+      "en": "I'm eating at home today.",
+      "ru": "Сегодня я ем дома."
+    }
+  },
+  {
+    "id": 233,
+    "korean": "붕어빵",
+    "uzbek": "baliq shaklidagi shirin non",
+    "english": "fish-shaped pastry",
+    "russian": "пирожок в форме рыбки",
+    "romanization": "bungeoppang",
+    "lesson": 10,
+    "theme": "food",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "붕어빵 안에 팥이 있어요.",
+      "uz": "Baliqcha non ichida loviya qiyomi bor.",
+      "en": "There's red bean paste inside the fish pastry.",
+      "ru": "Внутри пирожка-рыбки фасолевая паста."
+    }
+  },
+  {
+    "id": 234,
+    "korean": "빵",
+    "uzbek": "non",
+    "english": "bread",
+    "russian": "хлеб",
+    "romanization": "ppang",
+    "lesson": 10,
+    "theme": "food",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아침에 빵을 먹었어요.",
+      "uz": "Ertalab non yedim.",
+      "en": "I had bread for breakfast.",
+      "ru": "На завтрак я съел хлеб."
+    }
+  }
+]

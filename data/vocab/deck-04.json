@@ -1,0 +1,534 @@
+[
+  {
+    "id": 63,
+    "korean": "독일",
+    "uzbek": "Germaniya",
+    "english": "Germany",
+    "russian": "Германия",
+    "romanization": "dogil",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "독일 자동차는 유명해요.",
+      "uz": "Germaniya mashinalari mashhur.",
+      "en": "German cars are famous.",
+      "ru": "Немецкие машины известны."
+    }
+  },
+  {
+    "id": 64,
+    "korean": "문화",
+    "uzbek": "madaniyat",
+    "english": "culture",
+    "russian": "культура",
+    "romanization": "munhwa",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 문화에 관심이 있어요.",
+      "uz": "Koreya madaniyatiga qiziqaman.",
+      "en": "I'm interested in Korean culture.",
+      "ru": "Мне интересна корейская культура."
+    }
+  },
+  {
+    "id": 65,
+    "korean": "미국",
+    "uzbek": "AQSh, Amerika",
+    "english": "USA, America",
+    "russian": "США, Америка",
+    "romanization": "miguk",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "삼촌이 미국에 살아요.",
+      "uz": "Amakim Amerikada yashaydi.",
+      "en": "My uncle lives in America.",
+      "ru": "Мой дядя живёт в Америке."
+    }
+  },
+  {
+    "id": 66,
+    "korean": "아리랑",
+    "uzbek": "Arirang (koreys xalq qo'shig'i)",
+    "english": "Arirang (Korean folk song)",
+    "russian": "Ариран (корейская народная песня)",
+    "romanization": "arirang",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다 같이 아리랑을 불렀어요.",
+      "uz": "Hammamiz birga Arirang kuyladik.",
+      "en": "We all sang Arirang together.",
+      "ru": "Мы все вместе спели «Ариран»."
+    }
+  },
+  {
+    "id": 67,
+    "korean": "아시아",
+    "uzbek": "Osiyo",
+    "english": "Asia",
+    "russian": "Азия",
+    "romanization": "asia",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아시아에서 제일 큰 나라는 중국이에요.",
+      "uz": "Osiyodagi eng katta davlat — Xitoy.",
+      "en": "The largest country in Asia is China.",
+      "ru": "Самая большая страна в Азии — Китай."
+    }
+  },
+  {
+    "id": 68,
+    "korean": "어린이날",
+    "uzbek": "Bolalar kuni",
+    "english": "Children's Day",
+    "russian": "День детей",
+    "romanization": "eorininal",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어린이날에 놀이공원에 가요.",
+      "uz": "Bolalar kunida bog'ga, attraksionlarga boramiz.",
+      "en": "We go to the amusement park on Children's Day.",
+      "ru": "В День детей мы идём в парк аттракционов."
+    }
+  },
+  {
+    "id": 69,
+    "korean": "영국",
+    "uzbek": "Angliya, Britaniya",
+    "english": "the UK, England",
+    "russian": "Великобритания, Англия",
+    "romanization": "yeongguk",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "영국 날씨는 자주 흐려요.",
+      "uz": "Angliyada havo tez-tez bulutli bo'ladi.",
+      "en": "British weather is often cloudy.",
+      "ru": "В Англии часто пасмурно."
+    }
+  },
+  {
+    "id": 70,
+    "korean": "영어",
+    "uzbek": "ingliz tili",
+    "english": "English (language)",
+    "russian": "английский язык",
+    "romanization": "yeongeo",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "영어를 조금 할 수 있어요.",
+      "uz": "Ozgina inglizcha gapira olaman.",
+      "en": "I can speak a little English.",
+      "ru": "Я немного говорю по-английски."
+    }
+  },
+  {
+    "id": 71,
+    "korean": "외국",
+    "uzbek": "chet el",
+    "english": "foreign country",
+    "russian": "заграница",
+    "romanization": "oeguk",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "외국에 가 본 적이 있어요?",
+      "uz": "Chet elga borganmisiz?",
+      "en": "Have you ever been abroad?",
+      "ru": "Вы бывали за границей?"
+    }
+  },
+  {
+    "id": 72,
+    "korean": "외국 생활",
+    "uzbek": "chet eldagi hayot",
+    "english": "life abroad",
+    "russian": "жизнь за границей",
+    "romanization": "oeguk saenghwal",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "외국 생활은 처음에 힘들어요.",
+      "uz": "Chet eldagi hayot boshida qiyin.",
+      "en": "Life abroad is hard at first.",
+      "ru": "Жизнь за границей поначалу трудна."
+    }
+  },
+  {
+    "id": 73,
+    "korean": "외국어로",
+    "uzbek": "chet tilida",
+    "english": "in a foreign language",
+    "russian": "на иностранном языке",
+    "romanization": "oegugeoro",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "외국어로 이메일을 썼어요.",
+      "uz": "Chet tilida xat yozdim.",
+      "en": "I wrote an email in a foreign language.",
+      "ru": "Я написал письмо на иностранном языке."
+    }
+  },
+  {
+    "id": 74,
+    "korean": "외국인",
+    "uzbek": "chet ellik",
+    "english": "foreigner",
+    "russian": "иностранец",
+    "romanization": "oegugin",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 식당에 외국인이 많아요.",
+      "uz": "Bu oshxonada chet elliklar ko'p.",
+      "en": "There are many foreigners in this restaurant.",
+      "ru": "В этом ресторане много иностранцев."
+    }
+  },
+  {
+    "id": 75,
+    "korean": "우즈베키스탄",
+    "uzbek": "O'zbekiston",
+    "english": "Uzbekistan",
+    "russian": "Узбекистан",
+    "romanization": "ujeubekiseutan",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저는 우즈베키스탄에서 왔어요.",
+      "uz": "Men O'zbekistondan keldim.",
+      "en": "I'm from Uzbekistan.",
+      "ru": "Я из Узбекистана."
+    }
+  },
+  {
+    "id": 76,
+    "korean": "유럽",
+    "uzbek": "Yevropa",
+    "english": "Europe",
+    "russian": "Европа",
+    "romanization": "yureop",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여름에 유럽을 여행했어요.",
+      "uz": "Yozda Yevropa bo'ylab sayohat qildim.",
+      "en": "I traveled around Europe in summer.",
+      "ru": "Летом я путешествовал по Европе."
+    }
+  },
+  {
+    "id": 77,
+    "korean": "일본",
+    "uzbek": "Yaponiya",
+    "english": "Japan",
+    "russian": "Япония",
+    "romanization": "ilbon",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일본에서 친구가 왔어요.",
+      "uz": "Yaponiyadan do'stim keldi.",
+      "en": "A friend came from Japan.",
+      "ru": "Из Японии приехал друг."
+    }
+  },
+  {
+    "id": 78,
+    "korean": "일본어",
+    "uzbek": "yapon tili",
+    "english": "Japanese (language)",
+    "russian": "японский язык",
+    "romanization": "ilboneo",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "일본어도 배우고 싶어요.",
+      "uz": "Yapon tilini ham o'rgangim keladi.",
+      "en": "I want to learn Japanese too.",
+      "ru": "Я хочу выучить и японский."
+    }
+  },
+  {
+    "id": 79,
+    "korean": "전통",
+    "uzbek": "an'ana; an'anaviy",
+    "english": "tradition; traditional",
+    "russian": "традиция; традиционный",
+    "romanization": "jeontong",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "전통 음식을 먹어 봤어요.",
+      "uz": "An'anaviy taomni tatib ko'rdim.",
+      "en": "I tried traditional food.",
+      "ru": "Я попробовал традиционную еду."
+    }
+  },
+  {
+    "id": 80,
+    "korean": "중국",
+    "uzbek": "Xitoy",
+    "english": "China",
+    "russian": "Китай",
+    "romanization": "jungguk",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "중국 음식을 좋아해요.",
+      "uz": "Xitoy taomlarini yaxshi ko'raman.",
+      "en": "I like Chinese food.",
+      "ru": "Я люблю китайскую еду."
+    }
+  },
+  {
+    "id": 81,
+    "korean": "파키스탄",
+    "uzbek": "Pokiston",
+    "english": "Pakistan",
+    "russian": "Пакистан",
+    "romanization": "pakiseutan",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "그 친구는 파키스탄 사람이에요.",
+      "uz": "U do'stim pokistonlik.",
+      "en": "That friend is from Pakistan.",
+      "ru": "Этот друг из Пакистана."
+    }
+  },
+  {
+    "id": 82,
+    "korean": "프랑스",
+    "uzbek": "Fransiya",
+    "english": "France",
+    "russian": "Франция",
+    "romanization": "peurangseu",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "프랑스 영화를 자막으로 봤어요.",
+      "uz": "Fransuz kinosini subtitr bilan ko'rdim.",
+      "en": "I watched a French film with subtitles.",
+      "ru": "Я посмотрел французский фильм с субтитрами."
+    }
+  },
+  {
+    "id": 83,
+    "korean": "한국",
+    "uzbek": "Koreya",
+    "english": "Korea",
+    "russian": "Корея",
+    "romanization": "hanguk",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 음식은 좀 매워요.",
+      "uz": "Koreys taomlari biroz achchiq.",
+      "en": "Korean food is a bit spicy.",
+      "ru": "Корейская еда немного острая."
+    }
+  },
+  {
+    "id": 84,
+    "korean": "한국 생활",
+    "uzbek": "Koreyadagi hayot",
+    "english": "life in Korea",
+    "russian": "жизнь в Корее",
+    "romanization": "hanguk saenghwal",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 생활에 익숙해졌어요.",
+      "uz": "Koreyadagi hayotga ko'nikdim.",
+      "en": "I've gotten used to life in Korea.",
+      "ru": "Я привык к жизни в Корее."
+    }
+  },
+  {
+    "id": 85,
+    "korean": "한국말",
+    "uzbek": "koreys tili",
+    "english": "Korean (language)",
+    "russian": "корейский язык",
+    "romanization": "hangungmal",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국말이 재미있어요.",
+      "uz": "Koreys tili qiziq.",
+      "en": "Korean is interesting.",
+      "ru": "Корейский язык интересный."
+    }
+  },
+  {
+    "id": 86,
+    "korean": "한국어로",
+    "uzbek": "koreyscha (koreys tilida)",
+    "english": "in Korean",
+    "russian": "по-корейски",
+    "romanization": "hangugeoro",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국어로 말해 보세요.",
+      "uz": "Koreyscha gapirib ko'ring.",
+      "en": "Try saying it in Korean.",
+      "ru": "Попробуйте сказать по-корейски."
+    }
+  },
+  {
+    "id": 87,
+    "korean": "한글",
+    "uzbek": "hangil (koreys alifbosi)",
+    "english": "Hangul (Korean alphabet)",
+    "russian": "хангыль (корейский алфавит)",
+    "romanization": "hangeul",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한글은 배우기 쉬워요.",
+      "uz": "Hangilni o'rganish oson.",
+      "en": "Hangul is easy to learn.",
+      "ru": "Хангыль легко выучить."
+    }
+  },
+  {
+    "id": 88,
+    "korean": "한복",
+    "uzbek": "hanbok (koreys milliy kiyimi)",
+    "english": "hanbok (Korean traditional dress)",
+    "russian": "ханбок (корейский национальный костюм)",
+    "romanization": "hanbok",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한복을 입고 궁에 갔어요.",
+      "uz": "Hanbok kiyib saroyga bordim.",
+      "en": "I wore hanbok and went to the palace.",
+      "ru": "Я надел ханбок и пошёл во дворец."
+    }
+  },
+  {
+    "id": 89,
+    "korean": "한자",
+    "uzbek": "xitoy ierogliflari (hanja)",
+    "english": "Chinese characters (hanja)",
+    "russian": "китайские иероглифы (ханча)",
+    "romanization": "hanja",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한자는 좀 어려워요.",
+      "uz": "Ierogliflar biroz qiyin.",
+      "en": "Chinese characters are a bit hard.",
+      "ru": "Иероглифы немного сложные."
+    }
+  },
+  {
+    "id": 90,
+    "korean": "호주",
+    "uzbek": "Avstraliya",
+    "english": "Australia",
+    "russian": "Австралия",
+    "romanization": "hoju",
+    "lesson": 4,
+    "theme": "countries",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "호주는 지금 여름이에요.",
+      "uz": "Avstraliyada hozir yoz.",
+      "en": "It's summer in Australia now.",
+      "ru": "В Австралии сейчас лето."
+    }
+  }
+]

@@ -1,0 +1,74 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+const SECTIONS = {
+  courses: "nav.courses",
+  topik: "nav.topik",
+  search: "nav.search",
+  study: "nav.study",
+  review: "nav.review",
+  favorites: "nav.favorites",
+  difficult: "nav.difficult",
+  "weak-words": "library.weakWords",
+  stats: "nav.stats",
+  "future-updates": "nav.futureUpdates",
+  settings: "nav.settings",
+  feedback: "nav.feedback",
+  admin: "admin.title",
+  login: "nav.login",
+  register: "nav.register",
+  premium: "Premium",
+  leaderboard: "leaderboard.title",
+  privacy: "privacy.title",
+  terms: "terms.title",
+  speaking: "nav.speaking",
+  korea: "nav.korea",
+  grammar: "grammar.title",
+  stories: "stories.title",
+  guides: "guides.title",
+  achievements: "nav.achievements",
+  "forgot-password": "forgotPassword.title",
+  "reset-password": "resetPassword.title",
+  "complete-profile": "completeProfile.title",
+  credits: "audioCredits.title",
+  "record-voice": "voices.pageTitle",
+  auth: "nav.login",
+};
+const MODES = { flashcards: "practice.flashcards", listening: "practice.listening", quiz: "practice.quiz", writing: "practice.writing", dictation: "dictation.title" };
+
+const SITE = "https://www.ktalim.uz";
+
+export default function PageTitle() {
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const [section, id, mode, part] = pathname.split("/").filter(Boolean);
+    let title = "";
+    if (!section) title = t("header.brand");
+    else if (section === "topic" && id) {
+      title = [t("card.lesson", { lesson: id }), mode === "study" ? t("nav.study") : mode ? t(MODES[mode] || "") : ""]
+        .filter(Boolean)
+        .join(" · ");
+    } else if (section === "units") {
+      const list = id === "topik2" ? t("sets.tab.units2") : t("units.title");
+      const action = part === "cards" ? t("sets.cards") : part === "study" ? t("sets.study") : list;
+      title = mode ? `${t("units.unit", { n: mode })} · ${action}` : list;
+    } else if (section === "words") {
+      title = id && i18n.exists(`anki.deck.${id}`) ? t(`anki.deck.${id}`) : t("anki.decks");
+    } else if (SECTIONS[section]) title = SECTIONS[section].includes(".") ? t(SECTIONS[section]) : SECTIONS[section];
+    else title = t("notFound.title");
+    if (!(section === "korea" && id)) document.title = title ? `${title} — K-TALIM` : "K-TALIM";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `${SITE}${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`);
+    document.documentElement.lang = String(i18n.language || "uz").slice(0, 2);
+  }, [pathname, t, i18n]);
+
+  return null;
+}

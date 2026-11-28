@@ -1,0 +1,591 @@
+[
+  {
+    "id": 425,
+    "korean": "갈아타다",
+    "uzbek": "o'tmoq (boshqa transportga)",
+    "english": "to transfer",
+    "russian": "пересаживаться",
+    "romanization": "garatada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시청역에서 갈아타요.",
+      "uz": "Shahar hokimiyati bekatida boshqa poyezdga o'taman.",
+      "en": "I transfer at City Hall station.",
+      "ru": "Я пересаживаюсь на станции Сичхон."
+    }
+  },
+  {
+    "id": 426,
+    "korean": "걸리다",
+    "uzbek": "(vaqt) ketmoq; ilinmoq",
+    "english": "to take (time); to hang",
+    "russian": "занимать (время); висеть",
+    "romanization": "geollida",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "숙제가 오래 걸렸어요.",
+      "uz": "Uy vazifasiga ko'p vaqt ketdi.",
+      "en": "The homework took a long time.",
+      "ru": "Домашнее задание заняло много времени."
+    }
+  },
+  {
+    "id": 427,
+    "korean": "걸어서 가다",
+    "uzbek": "piyoda bormoq",
+    "english": "to go on foot",
+    "russian": "идти пешком",
+    "romanization": "georeoseo gada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가까워서 걸어서 가요.",
+      "uz": "Yaqin bo'lgani uchun piyoda boraman.",
+      "en": "It's close, so I walk.",
+      "ru": "Это близко, я иду пешком."
+    }
+  },
+  {
+    "id": 428,
+    "korean": "교통사고",
+    "uzbek": "yo'l-transport hodisasi",
+    "english": "traffic accident",
+    "russian": "ДТП, авария",
+    "romanization": "gyotongsago",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교통사고가 나서 길이 막혀요.",
+      "uz": "Avariya sababli yo'l tirband.",
+      "en": "There was an accident, so traffic is jammed.",
+      "ru": "Из-за аварии пробка."
+    }
+  },
+  {
+    "id": 429,
+    "korean": "교통카드",
+    "uzbek": "transport kartasi",
+    "english": "transit card",
+    "russian": "транспортная карта",
+    "romanization": "gyotongkadeu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교통카드에 돈을 충전했어요.",
+      "uz": "Transport kartasiga pul tashladim.",
+      "en": "I topped up my transit card.",
+      "ru": "Я пополнил транспортную карту."
+    }
+  },
+  {
+    "id": 430,
+    "korean": "기차",
+    "uzbek": "poyezd",
+    "english": "train",
+    "russian": "поезд",
+    "romanization": "gicha",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "기차 안에서 도시락을 먹었어요.",
+      "uz": "Poyezd ichida tushlik qutisini yedim.",
+      "en": "I ate a lunch box on the train.",
+      "ru": "В поезде я съел ланч-бокс."
+    }
+  },
+  {
+    "id": 431,
+    "korean": "길을 건너다",
+    "uzbek": "yo'ldan o'tmoq",
+    "english": "to cross the road",
+    "russian": "переходить дорогу",
+    "romanization": "gireul geonneoda",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이들이 손을 잡고 길을 건너요.",
+      "uz": "Bolalar qo'l ushlashib yo'ldan o'tishyapti.",
+      "en": "The children cross the road holding hands.",
+      "ru": "Дети переходят дорогу, держась за руки."
+    }
+  },
+  {
+    "id": 432,
+    "korean": "내리다",
+    "uzbek": "tushmoq (transportdan)",
+    "english": "to get off",
+    "russian": "выходить (из транспорта)",
+    "romanization": "naerida",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여기서 내려 주세요.",
+      "uz": "Shu yerda tushirib qo'ying.",
+      "en": "Please let me off here.",
+      "ru": "Остановите здесь, пожалуйста."
+    }
+  },
+  {
+    "id": 433,
+    "korean": "노약자석",
+    "uzbek": "keksalar va nogironlar uchun joy",
+    "english": "priority seat",
+    "russian": "места для пожилых и инвалидов",
+    "romanization": "noyakjaseok",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "노약자석은 비워 두세요.",
+      "uz": "Keksalar uchun joyni bo'sh qoldiring.",
+      "en": "Please keep the priority seats free.",
+      "ru": "Оставляйте места для пожилых свободными."
+    }
+  },
+  {
+    "id": 434,
+    "korean": "도착하다",
+    "uzbek": "yetib kelmoq",
+    "english": "to arrive",
+    "russian": "прибывать",
+    "romanization": "dochakhada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "몇 시에 도착해요?",
+      "uz": "Soat nechada yetib kelasiz?",
+      "en": "What time do you arrive?",
+      "ru": "Во сколько вы прибываете?"
+    }
+  },
+  {
+    "id": 435,
+    "korean": "렌터카",
+    "uzbek": "ijara mashinasi",
+    "english": "rental car",
+    "russian": "арендованная машина",
+    "romanization": "renteoka",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제주도에서 렌터카를 빌렸어요.",
+      "uz": "Chejuda ijara mashinasi oldim.",
+      "en": "I rented a car on Jeju.",
+      "ru": "На Чеджу я взял машину напрокат."
+    }
+  },
+  {
+    "id": 436,
+    "korean": "버스",
+    "uzbek": "avtobus",
+    "english": "bus",
+    "russian": "автобус",
+    "romanization": "beoseu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "버스가 늦게 왔어요.",
+      "uz": "Avtobus kech keldi.",
+      "en": "The bus came late.",
+      "ru": "Автобус пришёл поздно."
+    }
+  },
+  {
+    "id": 437,
+    "korean": "버스를 타고 가다",
+    "uzbek": "avtobusda bormoq",
+    "english": "to go by bus",
+    "russian": "ехать на автобусе",
+    "romanization": "beoseureul tago gada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "시장에 버스를 타고 갔어요.",
+      "uz": "Bozorga avtobusda bordim.",
+      "en": "I went to the market by bus.",
+      "ru": "Я поехал на рынок на автобусе."
+    }
+  },
+  {
+    "id": 438,
+    "korean": "비행기",
+    "uzbek": "samolyot",
+    "english": "airplane",
+    "russian": "самолёт",
+    "romanization": "bihaenggi",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비행기 표가 비싸요.",
+      "uz": "Samolyot chiptasi qimmat.",
+      "en": "Plane tickets are expensive.",
+      "ru": "Билеты на самолёт дорогие."
+    }
+  },
+  {
+    "id": 439,
+    "korean": "셔틀버스",
+    "uzbek": "servis avtobusi",
+    "english": "shuttle bus",
+    "russian": "шаттл-автобус",
+    "romanization": "syeoteulbeoseu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "호텔 셔틀버스를 탔어요.",
+      "uz": "Mehmonxona servis avtobusiga chiqdim.",
+      "en": "I took the hotel shuttle.",
+      "ru": "Я поехал на гостиничном шаттле."
+    }
+  },
+  {
+    "id": 440,
+    "korean": "시간이 걸리다",
+    "uzbek": "vaqt ketmoq",
+    "english": "to take (time)",
+    "russian": "занимать (время)",
+    "romanization": "sigani geollida",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공항까지 한 시간이 걸려요.",
+      "uz": "Aeroportgacha bir soat ketadi.",
+      "en": "It takes an hour to the airport.",
+      "ru": "До аэропорта час езды."
+    }
+  },
+  {
+    "id": 441,
+    "korean": "역",
+    "uzbek": "bekat (temir yo'l, metro)",
+    "english": "station",
+    "russian": "станция",
+    "romanization": "yeok",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "역에서 친구를 기다렸어요.",
+      "uz": "Bekatda do'stimni kutdim.",
+      "en": "I waited for a friend at the station.",
+      "ru": "Я ждал друга на станции."
+    }
+  },
+  {
+    "id": 442,
+    "korean": "오토바이",
+    "uzbek": "mototsikl",
+    "english": "motorcycle",
+    "russian": "мотоцикл",
+    "romanization": "otobai",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오토바이는 위험해요.",
+      "uz": "Mototsikl xavfli.",
+      "en": "Motorcycles are dangerous.",
+      "ru": "Мотоцикл опасен."
+    }
+  },
+  {
+    "id": 443,
+    "korean": "임산부석",
+    "uzbek": "homiladorlar uchun joy",
+    "english": "seat for pregnant women",
+    "russian": "место для беременных",
+    "romanization": "imsanbuseok",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "임산부석에 앉지 마세요.",
+      "uz": "Homiladorlar joyiga o'tirmang.",
+      "en": "Don't sit in the seat for pregnant women.",
+      "ru": "Не садитесь на место для беременных."
+    }
+  },
+  {
+    "id": 444,
+    "korean": "입구",
+    "uzbek": "kirish",
+    "english": "entrance",
+    "russian": "вход",
+    "romanization": "ipgu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "입구가 어디예요?",
+      "uz": "Kirish qayerda?",
+      "en": "Where's the entrance?",
+      "ru": "Где вход?"
+    }
+  },
+  {
+    "id": 445,
+    "korean": "자리",
+    "uzbek": "joy, o'rindiq",
+    "english": "seat, place",
+    "russian": "место",
+    "romanization": "jari",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "창가 자리에 앉고 싶어요.",
+      "uz": "Deraza yonidagi joyga o'tirgim keladi.",
+      "en": "I'd like a window seat.",
+      "ru": "Я хочу сесть у окна."
+    }
+  },
+  {
+    "id": 446,
+    "korean": "자전거",
+    "uzbek": "velosiped",
+    "english": "bicycle",
+    "russian": "велосипед",
+    "romanization": "jajeongeo",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 자전거를 타요.",
+      "uz": "Dam olish kuni velosiped haydayman.",
+      "en": "I ride my bike on weekends.",
+      "ru": "По выходным я катаюсь на велосипеде."
+    }
+  },
+  {
+    "id": 447,
+    "korean": "지하철",
+    "uzbek": "metro",
+    "english": "subway",
+    "russian": "метро",
+    "romanization": "jihacheol",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지하철이 제일 빨라요.",
+      "uz": "Metro eng tez.",
+      "en": "The subway is the fastest.",
+      "ru": "Метро — самый быстрый вариант."
+    }
+  },
+  {
+    "id": 448,
+    "korean": "지하철역",
+    "uzbek": "metro bekati",
+    "english": "subway station",
+    "russian": "станция метро",
+    "romanization": "jihacheoryeok",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "지하철역까지 오 분 걸려요.",
+      "uz": "Metro bekatigacha besh daqiqa.",
+      "en": "It's five minutes to the subway station.",
+      "ru": "До станции метро пять минут."
+    }
+  },
+  {
+    "id": 449,
+    "korean": "지하철을 타다",
+    "uzbek": "metroga chiqmoq",
+    "english": "to take the subway",
+    "russian": "ехать на метро",
+    "romanization": "jihacheoreul tada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교에 지하철을 타고 가요.",
+      "uz": "Maktabga metroda boraman.",
+      "en": "I take the subway to school.",
+      "ru": "Я езжу в школу на метро."
+    }
+  },
+  {
+    "id": 450,
+    "korean": "출구",
+    "uzbek": "chiqish",
+    "english": "exit",
+    "russian": "выход",
+    "romanization": "chulgu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "삼 번 출구에서 만나요.",
+      "uz": "3-chiqishda ko'rishamiz.",
+      "en": "Let's meet at exit three.",
+      "ru": "Встретимся у выхода номер три."
+    }
+  },
+  {
+    "id": 451,
+    "korean": "출발하다",
+    "uzbek": "jo'namoq, yo'lga chiqmoq",
+    "english": "to depart",
+    "russian": "отправляться",
+    "romanization": "chulbalhada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "비행기가 늦게 출발했어요.",
+      "uz": "Samolyot kech uchdi.",
+      "en": "The plane departed late.",
+      "ru": "Самолёт вылетел с опозданием."
+    }
+  },
+  {
+    "id": 452,
+    "korean": "타다",
+    "uzbek": "(transportga) chiqmoq, minmoq",
+    "english": "to ride, to get on",
+    "russian": "садиться, ехать на",
+    "romanization": "tada",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "버스를 타고 가요.",
+      "uz": "Avtobusda boraman.",
+      "en": "I go by bus.",
+      "ru": "Я еду на автобусе."
+    }
+  },
+  {
+    "id": 453,
+    "korean": "택시",
+    "uzbek": "taksi",
+    "english": "taxi",
+    "russian": "такси",
+    "romanization": "taeksi",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "늦어서 택시를 탔어요.",
+      "uz": "Kechikkanim uchun taksiga chiqdim.",
+      "en": "I was late, so I took a taxi.",
+      "ru": "Я опаздывал и сел в такси."
+    }
+  },
+  {
+    "id": 454,
+    "korean": "학교 버스",
+    "uzbek": "maktab avtobusi",
+    "english": "school bus",
+    "russian": "школьный автобус",
+    "romanization": "hakgyo beoseu",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아이들이 학교 버스를 기다려요.",
+      "uz": "Bolalar maktab avtobusini kutyapti.",
+      "en": "The kids are waiting for the school bus.",
+      "ru": "Дети ждут школьный автобус."
+    }
+  },
+  {
+    "id": 455,
+    "korean": "호선",
+    "uzbek": "liniya (metro)",
+    "english": "(subway) line",
+    "russian": "линия (метро)",
+    "romanization": "hoseon",
+    "lesson": 19,
+    "theme": "transport",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "2호선으로 갈아타세요.",
+      "uz": "2-liniyaga o'ting.",
+      "en": "Transfer to line two.",
+      "ru": "Пересядьте на вторую линию."
+    }
+  }
+]

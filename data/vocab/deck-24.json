@@ -1,0 +1,477 @@
+[
+  {
+    "id": 550,
+    "korean": "공연을 보다",
+    "uzbek": "tomosha ko'rmoq (sahnada)",
+    "english": "to see a performance",
+    "russian": "смотреть выступление",
+    "romanization": "gongyeoneul boda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "극장에서 공연을 봤어요.",
+      "uz": "Teatrda tomosha ko'rdim.",
+      "en": "I saw a show at the theater.",
+      "ru": "Я посмотрел спектакль в театре."
+    }
+  },
+  {
+    "id": 551,
+    "korean": "그림을 그리다",
+    "uzbek": "rasm chizmoq",
+    "english": "to draw, to paint",
+    "russian": "рисовать",
+    "romanization": "geurimeul geurida",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공원에서 그림을 그렸어요.",
+      "uz": "Bog'da rasm chizdim.",
+      "en": "I drew pictures in the park.",
+      "ru": "Я рисовал в парке."
+    }
+  },
+  {
+    "id": 552,
+    "korean": "기타를 치다",
+    "uzbek": "gitara chalmoq",
+    "english": "to play the guitar",
+    "russian": "играть на гитаре",
+    "romanization": "gitareul chida",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "형은 기타를 잘 쳐요.",
+      "uz": "Akam gitarani yaxshi chaladi.",
+      "en": "My brother plays guitar well.",
+      "ru": "Брат хорошо играет на гитаре."
+    }
+  },
+  {
+    "id": 553,
+    "korean": "낚시하다",
+    "uzbek": "baliq ovlamoq",
+    "english": "to go fishing",
+    "russian": "рыбачить",
+    "romanization": "naksihada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지와 낚시했어요.",
+      "uz": "Otam bilan baliq ovladik.",
+      "en": "I went fishing with my father.",
+      "ru": "Мы с папой рыбачили."
+    }
+  },
+  {
+    "id": 554,
+    "korean": "노래를 부르다",
+    "uzbek": "qo'shiq kuylamoq",
+    "english": "to sing a song",
+    "russian": "петь песню",
+    "romanization": "noraereul bureuda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다 같이 노래를 불러요.",
+      "uz": "Hammamiz birga qo'shiq kuylaymiz.",
+      "en": "Let's all sing together.",
+      "ru": "Давайте споём все вместе."
+    }
+  },
+  {
+    "id": 555,
+    "korean": "노래하다",
+    "uzbek": "qo'shiq aytmoq",
+    "english": "to sing",
+    "russian": "петь",
+    "romanization": "noraehada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "샤워할 때 노래해요.",
+      "uz": "Dush qabul qilayotganda qo'shiq aytaman.",
+      "en": "I sing in the shower.",
+      "ru": "Я пою в душе."
+    }
+  },
+  {
+    "id": 556,
+    "korean": "드라마",
+    "uzbek": "serial",
+    "english": "TV drama, series",
+    "russian": "сериал",
+    "romanization": "deurama",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한국 드라마를 자주 봐요.",
+      "uz": "Koreys seriallarini tez-tez ko'raman.",
+      "en": "I often watch Korean dramas.",
+      "ru": "Я часто смотрю корейские сериалы."
+    }
+  },
+  {
+    "id": 557,
+    "korean": "등산하다",
+    "uzbek": "tog'ga chiqmoq",
+    "english": "to go hiking",
+    "russian": "ходить в горы",
+    "romanization": "deungsanhada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가을에 설악산에서 등산했어요.",
+      "uz": "Kuzda Sorak tog'iga chiqdim.",
+      "en": "I went hiking on Seoraksan in autumn.",
+      "ru": "Осенью я ходил в поход на гору Сораксан."
+    }
+  },
+  {
+    "id": 558,
+    "korean": "말을 타다",
+    "uzbek": "ot minmoq",
+    "english": "to ride a horse",
+    "russian": "ездить верхом",
+    "romanization": "mareul tada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "말을 타는 것은 처음이에요.",
+      "uz": "Ot minish men uchun birinchi marta.",
+      "en": "It's my first time riding a horse.",
+      "ru": "Я впервые катаюсь на лошади."
+    }
+  },
+  {
+    "id": 559,
+    "korean": "모래놀이",
+    "uzbek": "qum o'yini",
+    "english": "playing in the sand",
+    "russian": "игра в песке",
+    "romanization": "moraenori",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "바닷가에서 동생과 모래놀이를 했어요.",
+      "uz": "Dengiz bo'yida ukam bilan qumda o'ynadik.",
+      "en": "I played in the sand with my brother at the beach.",
+      "ru": "Мы с братом играли в песке на пляже."
+    }
+  },
+  {
+    "id": 560,
+    "korean": "사인을 받다",
+    "uzbek": "dastxat olmoq",
+    "english": "to get an autograph",
+    "russian": "взять автограф",
+    "romanization": "saineul batda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "배우에게 사인을 받았어요.",
+      "uz": "Aktyordan dastxat oldim.",
+      "en": "I got an autograph from the actor.",
+      "ru": "Я взял автограф у актёра."
+    }
+  },
+  {
+    "id": 561,
+    "korean": "사진을 찍다",
+    "uzbek": "suratga olmoq",
+    "english": "to take a photo",
+    "russian": "фотографировать",
+    "romanization": "sajineul jjikda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여기서 사진을 찍어도 돼요?",
+      "uz": "Bu yerda suratga olsa bo'ladimi?",
+      "en": "May I take photos here?",
+      "ru": "Здесь можно фотографировать?"
+    }
+  },
+  {
+    "id": 562,
+    "korean": "산책하다",
+    "uzbek": "sayr qilmoq",
+    "english": "to take a walk",
+    "russian": "гулять",
+    "romanization": "sanchaekhada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "저녁을 먹고 산책해요.",
+      "uz": "Kechki ovqatdan keyin sayr qilaman.",
+      "en": "I take a walk after dinner.",
+      "ru": "После ужина я гуляю."
+    }
+  },
+  {
+    "id": 563,
+    "korean": "스케이트보드",
+    "uzbek": "skeytbord",
+    "english": "skateboard",
+    "russian": "скейтборд",
+    "romanization": "seukeiteubodeu",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 2,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "생일 선물로 스케이트보드를 받았어요.",
+      "uz": "Tug'ilgan kunimga skeytbord sovg'a qilishdi.",
+      "en": "I got a skateboard for my birthday.",
+      "ru": "На день рождения мне подарили скейтборд."
+    }
+  },
+  {
+    "id": 564,
+    "korean": "연극",
+    "uzbek": "spektakl",
+    "english": "play (theater)",
+    "russian": "спектакль",
+    "romanization": "yeongeuk",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구와 연극을 봤어요.",
+      "uz": "Do'stim bilan spektakl ko'rdim.",
+      "en": "I saw a play with a friend.",
+      "ru": "Мы с другом посмотрели спектакль."
+    }
+  },
+  {
+    "id": 565,
+    "korean": "영화를 보다",
+    "uzbek": "kino ko'rmoq",
+    "english": "to watch a movie",
+    "russian": "смотреть фильм",
+    "romanization": "yeonghwareul boda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 영화를 봤어요.",
+      "uz": "Dam olish kuni kino ko'rdim.",
+      "en": "I watched a movie on the weekend.",
+      "ru": "В выходные я посмотрел фильм."
+    }
+  },
+  {
+    "id": 566,
+    "korean": "음악회",
+    "uzbek": "musiqa kechasi",
+    "english": "concert (classical)",
+    "russian": "концерт (классической музыки)",
+    "romanization": "eumakhoe",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "학교에서 음악회가 열렸어요.",
+      "uz": "Maktabda musiqa kechasi bo'ldi.",
+      "en": "There was a concert at school.",
+      "ru": "В школе прошёл концерт."
+    }
+  },
+  {
+    "id": 567,
+    "korean": "책을 읽다",
+    "uzbek": "kitob o'qimoq",
+    "english": "to read a book",
+    "russian": "читать книгу",
+    "romanization": "chaegeul ikda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "자기 전에 책을 읽어요.",
+      "uz": "Uxlashdan oldin kitob o'qiyman.",
+      "en": "I read before bed.",
+      "ru": "Перед сном я читаю книгу."
+    }
+  },
+  {
+    "id": 568,
+    "korean": "춤을 추다",
+    "uzbek": "raqs tushmoq",
+    "english": "to dance",
+    "russian": "танцевать",
+    "romanization": "chumeul chuda",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생은 춤을 잘 춰요.",
+      "uz": "Singlim yaxshi raqs tushadi.",
+      "en": "My little sister dances well.",
+      "ru": "Сестрёнка хорошо танцует."
+    }
+  },
+  {
+    "id": 569,
+    "korean": "취미",
+    "uzbek": "qiziqish, xobbi",
+    "english": "hobby",
+    "russian": "хобби",
+    "romanization": "chwimi",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "제 취미는 요리예요.",
+      "uz": "Mening xobbim — pazandachilik.",
+      "en": "My hobby is cooking.",
+      "ru": "Моё хобби — кулинария."
+    }
+  },
+  {
+    "id": 570,
+    "korean": "컴퓨터 게임을 하다",
+    "uzbek": "kompyuter o'yini o'ynamoq",
+    "english": "to play computer games",
+    "russian": "играть в компьютерные игры",
+    "romanization": "keompyuteo geimeul hada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 친구들과 컴퓨터 게임을 해요.",
+      "uz": "Dam olish kuni do'stlarim bilan kompyuter o'yini o'ynayman.",
+      "en": "I play computer games with friends on weekends.",
+      "ru": "В выходные я играю с друзьями в компьютерные игры."
+    }
+  },
+  {
+    "id": 571,
+    "korean": "컴퓨터하다",
+    "uzbek": "kompyuterda o'tirmoq",
+    "english": "to use a computer",
+    "russian": "сидеть за компьютером",
+    "romanization": "keompyuteohada",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밤늦게까지 컴퓨터했어요.",
+      "uz": "Kechgacha kompyuterda o'tirdim.",
+      "en": "I was on the computer until late.",
+      "ru": "Я сидел за компьютером допоздна."
+    }
+  },
+  {
+    "id": 572,
+    "korean": "콘서트",
+    "uzbek": "konsert",
+    "english": "concert",
+    "russian": "концерт",
+    "romanization": "konseoteu",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "좋아하는 가수의 콘서트에 갔어요.",
+      "uz": "Sevimli qo'shiqchimning konsertiga bordim.",
+      "en": "I went to my favorite singer's concert.",
+      "ru": "Я сходил на концерт любимого певца."
+    }
+  },
+  {
+    "id": 573,
+    "korean": "파티",
+    "uzbek": "ziyofat, bazm",
+    "english": "party",
+    "russian": "вечеринка",
+    "romanization": "pati",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "생일 파티에 친구들을 불렀어요.",
+      "uz": "Tug'ilgan kun bazmiga do'stlarni chaqirdim.",
+      "en": "I invited friends to my birthday party.",
+      "ru": "Я позвал друзей на день рождения."
+    }
+  },
+  {
+    "id": 574,
+    "korean": "피아노를 치다",
+    "uzbek": "pianino chalmoq",
+    "english": "to play the piano",
+    "russian": "играть на пианино",
+    "romanization": "pianoreul chida",
+    "lesson": 24,
+    "theme": "leisure",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어렸을 때 피아노를 쳤어요.",
+      "uz": "Yoshligimda pianino chalardim.",
+      "en": "I played the piano as a child.",
+      "ru": "В детстве я играл на пианино."
+    }
+  }
+]

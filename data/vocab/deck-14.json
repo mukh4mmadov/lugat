@@ -1,0 +1,458 @@
+[
+  {
+    "id": 301,
+    "korean": "가격",
+    "uzbek": "narx, baho",
+    "english": "price",
+    "russian": "цена, стоимость",
+    "romanization": "gagyeok",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가격을 물어봤어요.",
+      "uz": "Narxini so'radim.",
+      "en": "I asked the price.",
+      "ru": "Я спросил цену."
+    }
+  },
+  {
+    "id": 302,
+    "korean": "값",
+    "uzbek": "narx",
+    "english": "price",
+    "russian": "цена",
+    "romanization": "gap",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "값이 너무 비싸요.",
+      "uz": "Narxi juda qimmat.",
+      "en": "The price is too high.",
+      "ru": "Цена слишком высокая."
+    }
+  },
+  {
+    "id": 303,
+    "korean": "계산하다",
+    "uzbek": "hisob-kitob qilmoq, to'lamoq",
+    "english": "to pay; to calculate",
+    "russian": "расплачиваться; считать",
+    "romanization": "gyesanhada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "카드로 계산해도 돼요?",
+      "uz": "Karta bilan to'lasam bo'ladimi?",
+      "en": "Can I pay by card?",
+      "ru": "Можно расплатиться картой?"
+    }
+  },
+  {
+    "id": 304,
+    "korean": "기념품",
+    "uzbek": "esdalik sovg'a",
+    "english": "souvenir",
+    "russian": "сувенир",
+    "romanization": "ginyeompum",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여행지에서 기념품을 샀어요.",
+      "uz": "Sayohatda esdalik sovg'a oldim.",
+      "en": "I bought souvenirs on my trip.",
+      "ru": "В поездке я купил сувениры."
+    }
+  },
+  {
+    "id": 305,
+    "korean": "깎다",
+    "uzbek": "narxni tushirmoq; po'stini archimoq",
+    "english": "to give a discount; to peel",
+    "russian": "сбавлять цену; чистить",
+    "romanization": "kkakda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "좀 깎아 주세요.",
+      "uz": "Ozgina arzonroq qiling.",
+      "en": "Could you give me a discount?",
+      "ru": "Сделайте, пожалуйста, скидку."
+    }
+  },
+  {
+    "id": 306,
+    "korean": "돈",
+    "uzbek": "pul",
+    "english": "money",
+    "russian": "деньги",
+    "romanization": "don",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "돈이 조금 모자라요.",
+      "uz": "Pulim biroz yetmayapti.",
+      "en": "I'm a little short of money.",
+      "ru": "Мне немного не хватает денег."
+    }
+  },
+  {
+    "id": 307,
+    "korean": "돈을 넣다",
+    "uzbek": "hisobga pul qo'ymoq",
+    "english": "to deposit money",
+    "russian": "класть деньги на счёт",
+    "romanization": "doneul neota",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "통장에 돈을 넣었어요.",
+      "uz": "Hisobimga pul qo'ydim.",
+      "en": "I deposited money into my account.",
+      "ru": "Я положил деньги на счёт."
+    }
+  },
+  {
+    "id": 308,
+    "korean": "돈을 바꾸다",
+    "uzbek": "pul almashtirmoq",
+    "english": "to exchange money",
+    "russian": "обменивать деньги",
+    "romanization": "doneul bakkuda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "공항에서 돈을 바꿨어요.",
+      "uz": "Aeroportda pul almashtirdim.",
+      "en": "I exchanged money at the airport.",
+      "ru": "Я обменял деньги в аэропорту."
+    }
+  },
+  {
+    "id": 309,
+    "korean": "돈을 보내다",
+    "uzbek": "pul jo'natmoq",
+    "english": "to send money",
+    "russian": "отправлять деньги",
+    "romanization": "doneul bonaeda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "고향에 돈을 보냈어요.",
+      "uz": "Vatanimga pul jo'natdim.",
+      "en": "I sent money home.",
+      "ru": "Я отправил деньги на родину."
+    }
+  },
+  {
+    "id": 310,
+    "korean": "돈을 찾다",
+    "uzbek": "pul yechib olmoq",
+    "english": "to withdraw money",
+    "russian": "снимать деньги",
+    "romanization": "doneul chatda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "현금 인출기에서 돈을 찾았어요.",
+      "uz": "Bankomatdan pul yechdim.",
+      "en": "I withdrew money from the ATM.",
+      "ru": "Я снял деньги в банкомате."
+    }
+  },
+  {
+    "id": 311,
+    "korean": "무료",
+    "uzbek": "bepul",
+    "english": "free (of charge)",
+    "russian": "бесплатно",
+    "romanization": "muryo",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "입장료는 무료예요.",
+      "uz": "Kirish bepul.",
+      "en": "Admission is free.",
+      "ru": "Вход бесплатный."
+    }
+  },
+  {
+    "id": 312,
+    "korean": "비싸다",
+    "uzbek": "qimmat bo'lmoq",
+    "english": "to be expensive",
+    "russian": "быть дорогим",
+    "romanization": "bissada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "서울은 집값이 비싸요.",
+      "uz": "Seulda uy narxi qimmat.",
+      "en": "Housing in Seoul is expensive.",
+      "ru": "В Сеуле дорогое жильё."
+    }
+  },
+  {
+    "id": 313,
+    "korean": "선물",
+    "uzbek": "sovg'a",
+    "english": "gift, present",
+    "russian": "подарок",
+    "romanization": "seonmul",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "친구에게 선물을 줬어요.",
+      "uz": "Do'stimga sovg'a berdim.",
+      "en": "I gave a gift to my friend.",
+      "ru": "Я подарил другу подарок."
+    }
+  },
+  {
+    "id": 314,
+    "korean": "쇼핑하다",
+    "uzbek": "xarid qilmoq",
+    "english": "to go shopping",
+    "russian": "ходить по магазинам",
+    "romanization": "syopinghada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "주말에 백화점에서 쇼핑해요.",
+      "uz": "Dam olish kuni univermagda xarid qilaman.",
+      "en": "I shop at the department store on weekends.",
+      "ru": "В выходные я хожу по универмагу."
+    }
+  },
+  {
+    "id": 315,
+    "korean": "싸다",
+    "uzbek": "arzon bo'lmoq",
+    "english": "to be cheap",
+    "russian": "быть дешёвым",
+    "romanization": "ssada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 가게는 옷이 싸요.",
+      "uz": "Bu do'konda kiyimlar arzon.",
+      "en": "Clothes are cheap in this shop.",
+      "ru": "В этом магазине дешёвая одежда."
+    }
+  },
+  {
+    "id": 316,
+    "korean": "옷을 사다",
+    "uzbek": "kiyim sotib olmoq",
+    "english": "to buy clothes",
+    "russian": "покупать одежду",
+    "romanization": "oseul sada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "겨울 옷을 샀어요.",
+      "uz": "Qishki kiyim oldim.",
+      "en": "I bought winter clothes.",
+      "ru": "Я купил зимнюю одежду."
+    }
+  },
+  {
+    "id": 317,
+    "korean": "용돈",
+    "uzbek": "cho'ntak puli",
+    "english": "pocket money",
+    "russian": "карманные деньги",
+    "romanization": "yongdon",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "부모님께 용돈을 받았어요.",
+      "uz": "Ota-onamdan cho'ntak puli oldim.",
+      "en": "I got pocket money from my parents.",
+      "ru": "Родители дали мне карманные деньги."
+    }
+  },
+  {
+    "id": 318,
+    "korean": "유료",
+    "uzbek": "pullik",
+    "english": "paid, with a fee",
+    "russian": "платный",
+    "romanization": "yuryo",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 앱은 유료예요.",
+      "uz": "Bu ilova pullik.",
+      "en": "This app is paid.",
+      "ru": "Это приложение платное."
+    }
+  },
+  {
+    "id": 319,
+    "korean": "입어 보다",
+    "uzbek": "kiyib ko'rmoq",
+    "english": "to try on (clothes)",
+    "russian": "примерять",
+    "romanization": "ibeo boda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 옷 입어 봐도 돼요?",
+      "uz": "Bu kiyimni kiyib ko'rsam bo'ladimi?",
+      "en": "May I try this on?",
+      "ru": "Можно примерить?"
+    }
+  },
+  {
+    "id": 320,
+    "korean": "통장",
+    "uzbek": "bank daftarchasi; hisob",
+    "english": "bankbook; bank account",
+    "russian": "сберкнижка; счёт",
+    "romanization": "tongjang",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "통장에 돈이 얼마 있어요?",
+      "uz": "Hisobingizda qancha pul bor?",
+      "en": "How much money is in your account?",
+      "ru": "Сколько денег у вас на счету?"
+    }
+  },
+  {
+    "id": 321,
+    "korean": "팔다",
+    "uzbek": "sotmoq",
+    "english": "to sell",
+    "russian": "продавать",
+    "romanization": "palda",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 가게는 과일을 팔아요.",
+      "uz": "Bu do'kon meva sotadi.",
+      "en": "This shop sells fruit.",
+      "ru": "В этом магазине продают фрукты."
+    }
+  },
+  {
+    "id": 322,
+    "korean": "포장하다",
+    "uzbek": "o'ramoq; olib ketishga qadoqlamoq",
+    "english": "to wrap; to pack to go",
+    "russian": "упаковывать; брать с собой",
+    "romanization": "pojanghada",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "남은 음식을 포장해 주세요.",
+      "uz": "Qolgan ovqatni olib ketishga qadoqlab bering.",
+      "en": "Please pack the leftovers to go.",
+      "ru": "Упакуйте, пожалуйста, оставшуюся еду."
+    }
+  },
+  {
+    "id": 323,
+    "korean": "표",
+    "uzbek": "chipta; jadval",
+    "english": "ticket; table (chart)",
+    "russian": "билет; таблица",
+    "romanization": "pyo",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "기차 표를 미리 샀어요.",
+      "uz": "Poyezd chiptasini oldindan oldim.",
+      "en": "I bought the train ticket in advance.",
+      "ru": "Я заранее купил билет на поезд."
+    }
+  },
+  {
+    "id": 324,
+    "korean": "현금",
+    "uzbek": "naqd pul",
+    "english": "cash",
+    "russian": "наличные",
+    "romanization": "hyeongeum",
+    "lesson": 14,
+    "theme": "shopping",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "현금으로 낼게요.",
+      "uz": "Naqd pul bilan to'layman.",
+      "en": "I'll pay in cash.",
+      "ru": "Я заплачу наличными."
+    }
+  }
+]

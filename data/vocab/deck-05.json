@@ -1,0 +1,401 @@
+[
+  {
+    "id": 91,
+    "korean": "개",
+    "uzbek": "dona (narsa sanog'i)",
+    "english": "items (counter)",
+    "russian": "штука (счётное слово)",
+    "romanization": "gae",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "사과 세 개 주세요.",
+      "uz": "Uchta olma bering.",
+      "en": "Three apples, please.",
+      "ru": "Дайте три яблока."
+    }
+  },
+  {
+    "id": 92,
+    "korean": "구",
+    "uzbek": "to'qqiz (9)",
+    "english": "nine (9)",
+    "russian": "девять (9)",
+    "romanization": "gu",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "구 월에 학교가 시작해요.",
+      "uz": "Sentyabrda maktab boshlanadi.",
+      "en": "School starts in September.",
+      "ru": "Школа начинается в сентябре."
+    }
+  },
+  {
+    "id": 93,
+    "korean": "권",
+    "uzbek": "jild, nusxa (kitob sanog'i)",
+    "english": "volume (counter for books)",
+    "russian": "том, экземпляр (счётное слово)",
+    "romanization": "gwon",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "책을 두 권 빌렸어요.",
+      "uz": "Ikkita kitob oldim (kutubxonadan).",
+      "en": "I borrowed two books.",
+      "ru": "Я взял две книги."
+    }
+  },
+  {
+    "id": 94,
+    "korean": "그릇",
+    "uzbek": "kosa, tovoq (sanoq so'zi)",
+    "english": "bowl (counter)",
+    "russian": "миска (счётное слово)",
+    "romanization": "geureut",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "밥 한 그릇 더 주세요.",
+      "uz": "Yana bir kosa guruch bering.",
+      "en": "One more bowl of rice, please.",
+      "ru": "Дайте ещё одну миску риса."
+    }
+  },
+  {
+    "id": 95,
+    "korean": "넷",
+    "uzbek": "to'rt (koreyscha son)",
+    "english": "four (native Korean)",
+    "russian": "четыре (корейский счёт)",
+    "romanization": "net",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "의자가 넷 필요해요.",
+      "uz": "To'rtta stul kerak.",
+      "en": "We need four chairs.",
+      "ru": "Нужно четыре стула."
+    }
+  },
+  {
+    "id": 96,
+    "korean": "다섯",
+    "uzbek": "besh (koreyscha son)",
+    "english": "five (native Korean)",
+    "russian": "пять (корейский счёт)",
+    "romanization": "daseot",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "다섯 시에 끝나요.",
+      "uz": "Soat beshda tugaydi.",
+      "en": "It ends at five o'clock.",
+      "ru": "Заканчивается в пять часов."
+    }
+  },
+  {
+    "id": 97,
+    "korean": "둘",
+    "uzbek": "ikki (koreyscha son)",
+    "english": "two (native Korean)",
+    "russian": "два (корейский счёт)",
+    "romanization": "dul",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "사과가 둘 있어요.",
+      "uz": "Ikkita olma bor.",
+      "en": "There are two apples.",
+      "ru": "Есть два яблока."
+    }
+  },
+  {
+    "id": 98,
+    "korean": "마리",
+    "uzbek": "bosh, dona (hayvon sanog'i)",
+    "english": "animals (counter)",
+    "russian": "голова, особь (счётное слово)",
+    "romanization": "mari",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "고양이 한 마리를 키워요.",
+      "uz": "Bitta mushuk boqaman.",
+      "en": "I have one cat.",
+      "ru": "У меня одна кошка."
+    }
+  },
+  {
+    "id": 99,
+    "korean": "마흔",
+    "uzbek": "qirq (koreyscha son)",
+    "english": "forty (native Korean)",
+    "russian": "сорок (корейский счёт)",
+    "romanization": "maheun",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아버지는 마흔 살이세요.",
+      "uz": "Otam qirq yoshdalar.",
+      "en": "My father is forty.",
+      "ru": "Папе сорок лет."
+    }
+  },
+  {
+    "id": 100,
+    "korean": "만",
+    "uzbek": "o'n ming (10 000)",
+    "english": "ten thousand (10,000)",
+    "russian": "десять тысяч (10 000)",
+    "romanization": "man",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 책은 만 원이에요.",
+      "uz": "Bu kitob o'n ming von.",
+      "en": "This book is ten thousand won.",
+      "ru": "Эта книга стоит десять тысяч вон."
+    }
+  },
+  {
+    "id": 101,
+    "korean": "명",
+    "uzbek": "kishi (odam sanog'i)",
+    "english": "people (counter)",
+    "russian": "человек (счётное слово)",
+    "romanization": "myeong",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "교실에 학생이 열 명 있어요.",
+      "uz": "Sinfda o'nta o'quvchi bor.",
+      "en": "There are ten students in the class.",
+      "ru": "В классе десять учеников."
+    }
+  },
+  {
+    "id": 102,
+    "korean": "백",
+    "uzbek": "yuz (100)",
+    "english": "hundred (100)",
+    "russian": "сто (100)",
+    "romanization": "baek",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "이 연필은 백 원이에요.",
+      "uz": "Bu qalam yuz von.",
+      "en": "This pencil is a hundred won.",
+      "ru": "Этот карандаш стоит сто вон."
+    }
+  },
+  {
+    "id": 103,
+    "korean": "번",
+    "uzbek": "marta; raqam",
+    "english": "time(s); number",
+    "russian": "раз; номер",
+    "romanization": "beon",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "한 번 더 말해 주세요.",
+      "uz": "Yana bir marta ayting.",
+      "en": "Please say it once more.",
+      "ru": "Скажите ещё раз."
+    }
+  },
+  {
+    "id": 104,
+    "korean": "병",
+    "uzbek": "shisha (sanoq so'zi)",
+    "english": "bottle (counter)",
+    "russian": "бутылка (счётное слово)",
+    "romanization": "byeong",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "물 두 병을 샀어요.",
+      "uz": "Ikki shisha suv oldim.",
+      "en": "I bought two bottles of water.",
+      "ru": "Я купил две бутылки воды."
+    }
+  },
+  {
+    "id": 105,
+    "korean": "분",
+    "uzbek": "kishi (hurmatli sanoq)",
+    "english": "people (polite counter)",
+    "russian": "человек (вежливый счёт)",
+    "romanization": "bun",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "선생님 두 분이 회의실에 계세요.",
+      "uz": "Ikki nafar o'qituvchi majlis xonasida.",
+      "en": "Two teachers are in the meeting room.",
+      "ru": "Два учителя в переговорной."
+    }
+  },
+  {
+    "id": 106,
+    "korean": "사",
+    "uzbek": "to'rt (4)",
+    "english": "four (4)",
+    "russian": "четыре (4)",
+    "romanization": "sa",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "사 월에 꽃이 많이 펴요.",
+      "uz": "Aprelda gullar ko'p ochiladi.",
+      "en": "Many flowers bloom in April.",
+      "ru": "В апреле цветёт много цветов."
+    }
+  },
+  {
+    "id": 107,
+    "korean": "살",
+    "uzbek": "yosh (yoshni sanash)",
+    "english": "years old",
+    "russian": "лет (возраст)",
+    "romanization": "sal",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "동생은 여덟 살이에요.",
+      "uz": "Ukam sakkiz yoshda.",
+      "en": "My little brother is eight.",
+      "ru": "Младшему брату восемь лет."
+    }
+  },
+  {
+    "id": 108,
+    "korean": "삼",
+    "uzbek": "uch (3)",
+    "english": "three (3)",
+    "russian": "три (3)",
+    "romanization": "sam",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 반은 삼 층에 있어요.",
+      "uz": "Sinfimiz uchinchi qavatda.",
+      "en": "Our class is on the third floor.",
+      "ru": "Наш класс на третьем этаже."
+    }
+  },
+  {
+    "id": 109,
+    "korean": "서른",
+    "uzbek": "o'ttiz (koreyscha son)",
+    "english": "thirty (native Korean)",
+    "russian": "тридцать (корейский счёт)",
+    "romanization": "seoreun",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "삼촌은 서른 살이에요.",
+      "uz": "Amakim o'ttiz yoshda.",
+      "en": "My uncle is thirty.",
+      "ru": "Дяде тридцать лет."
+    }
+  },
+  {
+    "id": 110,
+    "korean": "셋",
+    "uzbek": "uch (koreyscha son)",
+    "english": "three (native Korean)",
+    "russian": "три (корейский счёт)",
+    "romanization": "set",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리는 셋이서 여행했어요.",
+      "uz": "Uchovlon sayohat qildik.",
+      "en": "The three of us traveled.",
+      "ru": "Мы путешествовали втроём."
+    }
+  },
+  {
+    "id": 111,
+    "korean": "쉰",
+    "uzbek": "ellik (koreyscha son)",
+    "english": "fifty (native Korean)",
+    "russian": "пятьдесят (корейский счёт)",
+    "romanization": "swin",
+    "lesson": 5,
+    "theme": "numbers",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "어머니는 쉰 살이세요.",
+      "uz": "Onam ellik yoshdalar.",
+      "en": "My mother is fifty.",
+      "ru": "Маме пятьдесят лет."
+    }
+  }
+]

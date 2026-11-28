@@ -1,0 +1,287 @@
+[
+  {
+    "id": 48,
+    "korean": "가족",
+    "uzbek": "oila",
+    "english": "family",
+    "russian": "семья",
+    "romanization": "gajok",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "우리 가족은 네 명이에요.",
+      "uz": "Oilamiz to'rt kishidan iborat.",
+      "en": "There are four people in my family.",
+      "ru": "В нашей семье четыре человека."
+    }
+  },
+  {
+    "id": 49,
+    "korean": "결혼하다",
+    "uzbek": "turmush qurmoq",
+    "english": "to get married",
+    "russian": "жениться; выйти замуж",
+    "romanization": "gyeolhonhada",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "언니가 내년에 결혼해요.",
+      "uz": "Opam kelasi yili turmushga chiqadi.",
+      "en": "My sister is getting married next year.",
+      "ru": "Сестра выходит замуж в следующем году."
+    }
+  },
+  {
+    "id": 50,
+    "korean": "남동생",
+    "uzbek": "uka",
+    "english": "younger brother",
+    "russian": "младший брат",
+    "romanization": "namdongsaeng",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "남동생은 열 살이에요.",
+      "uz": "Ukam o'n yoshda.",
+      "en": "My younger brother is ten.",
+      "ru": "Моему младшему брату десять лет."
+    }
+  },
+  {
+    "id": 51,
+    "korean": "남편",
+    "uzbek": "er",
+    "english": "husband",
+    "russian": "муж",
+    "romanization": "nampyeon",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "남편은 회사에 다녀요.",
+      "uz": "Erim ishga qatnaydi.",
+      "en": "My husband works at a company.",
+      "ru": "Мой муж работает в компании."
+    }
+  },
+  {
+    "id": 52,
+    "korean": "누나",
+    "uzbek": "opa (yigit aytadi)",
+    "english": "older sister (said by a man)",
+    "russian": "старшая сестра (говорит парень)",
+    "romanization": "nuna",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "누나가 요리를 잘해요.",
+      "uz": "Opam yaxshi ovqat pishiradi.",
+      "en": "My older sister cooks well.",
+      "ru": "Моя старшая сестра хорошо готовит."
+    }
+  },
+  {
+    "id": 53,
+    "korean": "딸",
+    "uzbek": "qiz farzand",
+    "english": "daughter",
+    "russian": "дочь",
+    "romanization": "ttal",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "딸이 학교에 갔어요.",
+      "uz": "Qizim maktabga ketdi.",
+      "en": "My daughter went to school.",
+      "ru": "Дочь ушла в школу."
+    }
+  },
+  {
+    "id": 54,
+    "korean": "사랑하다",
+    "uzbek": "sevmoq",
+    "english": "to love",
+    "russian": "любить",
+    "romanization": "saranghada",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "가족을 정말 사랑해요.",
+      "uz": "Oilamni juda yaxshi ko'raman.",
+      "en": "I really love my family.",
+      "ru": "Я очень люблю свою семью."
+    }
+  },
+  {
+    "id": 55,
+    "korean": "아기",
+    "uzbek": "chaqaloq",
+    "english": "baby",
+    "russian": "малыш",
+    "romanization": "agi",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아기가 자고 있어요.",
+      "uz": "Chaqaloq uxlayapti.",
+      "en": "The baby is sleeping.",
+      "ru": "Малыш спит."
+    }
+  },
+  {
+    "id": 56,
+    "korean": "아내",
+    "uzbek": "xotin; rafiqa",
+    "english": "wife",
+    "russian": "жена",
+    "romanization": "anae",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아내와 같이 여행했어요.",
+      "uz": "Xotinim bilan sayohat qildim.",
+      "en": "I traveled with my wife.",
+      "ru": "Я путешествовал с женой."
+    }
+  },
+  {
+    "id": 57,
+    "korean": "아들",
+    "uzbek": "o'g'il",
+    "english": "son",
+    "russian": "сын",
+    "romanization": "adeul",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "아들이 두 명 있어요.",
+      "uz": "Ikki o'g'lim bor.",
+      "en": "I have two sons.",
+      "ru": "У меня два сына."
+    }
+  },
+  {
+    "id": 58,
+    "korean": "언니",
+    "uzbek": "opa (qiz aytadi)",
+    "english": "older sister (said by a woman)",
+    "russian": "старшая сестра (говорит девушка)",
+    "romanization": "eonni",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "언니하고 쇼핑했어요.",
+      "uz": "Opam bilan xarid qildim.",
+      "en": "I went shopping with my older sister.",
+      "ru": "Я ходила по магазинам со старшей сестрой."
+    }
+  },
+  {
+    "id": 59,
+    "korean": "여동생",
+    "uzbek": "singil",
+    "english": "younger sister",
+    "russian": "младшая сестра",
+    "romanization": "yeodongsaeng",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여동생이 그림을 그려요.",
+      "uz": "Singlim rasm chizyapti.",
+      "en": "My younger sister is drawing.",
+      "ru": "Младшая сестра рисует."
+    }
+  },
+  {
+    "id": 60,
+    "korean": "여보",
+    "uzbek": "jonim (er-xotin murojaati)",
+    "english": "honey (spouses to each other)",
+    "russian": "дорогой / дорогая (супругам)",
+    "romanization": "yeobo",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "여보, 저녁 먹었어요?",
+      "uz": "Jonim, kechki ovqat yedingmi?",
+      "en": "Honey, did you have dinner?",
+      "ru": "Дорогой, ты поужинал?"
+    }
+  },
+  {
+    "id": 61,
+    "korean": "오빠",
+    "uzbek": "aka (qiz aytadi)",
+    "english": "older brother (said by a woman)",
+    "russian": "старший брат (говорит девушка)",
+    "romanization": "oppa",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "오빠가 저를 학교까지 태워 줬어요.",
+      "uz": "Akam meni maktabgacha olib bordi.",
+      "en": "My older brother drove me to school.",
+      "ru": "Брат подвёз меня до школы."
+    }
+  },
+  {
+    "id": 62,
+    "korean": "형",
+    "uzbek": "aka (yigit aytadi)",
+    "english": "older brother (said by a man)",
+    "russian": "старший брат (говорит парень)",
+    "romanization": "hyeong",
+    "lesson": 3,
+    "theme": "family",
+    "level": 1,
+    "audio": "speechSynthesis:ko-KR",
+    "needsReview": false,
+    "example": {
+      "ko": "형하고 축구를 했어요.",
+      "uz": "Akam bilan futbol o'ynadim.",
+      "en": "I played soccer with my older brother.",
+      "ru": "Я играл в футбол со старшим братом."
+    }
+  }
+]

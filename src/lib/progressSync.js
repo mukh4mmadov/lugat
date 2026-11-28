@@ -1,0 +1,45 @@
+import { supabase, timeoutSignal } from './supabase';
+import { migrateProgress } from './progressMigrate';
+
+let currentUserId = null;
+
+export function setCurrentSyncUserId(userId) {
+  currentUserId = userId;
+}
+
+export function getCurrentSyncUserId() {
+  return currentUserId;
+}
+
+export async function fetchServerProgress(userId) {
+  const { data, error } = await supabase
+    .from('user_progress')
+    .select('data')
+    .eq('user_id', userId)
+    .abortSignal(timeoutSignal())
+    .maybeSingle();
+
+  if (error) throw error;
+  return migrateProgress(data?.data ?? null);
+}
+
+export async function saveServerProgress(userId, progressData) {
+  try {
+    const { error } = await supabase
+      .from('user_progress')
+      .upsert({
+        user_id: userId,
+        data: progressData,
+        updated_at: new Date().toISOString(),
+      });
+
+    if (error) {
+      console.error('Error saving server progress:', error);
+      return { error };
+    }
+    return { error: null };
+  } catch (err) {
+    console.error('Exception saving server progress:', err);
+    return { error: err };
+  }
+}
